@@ -1,0 +1,97 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\sheettitle}[3]{% title, subtitle, homework-flag (empty or "Homework")
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\rudate\par}
+  \end{center}\vspace{0.5em}}
+\newcommand{\rudate}{\foreignlanguage{russian}{\number\day~\ifcase\month\or января\or февраля\or марта\or апреля\or мая\or июня\or июля\or августа\or сентября\or октября\or ноября\or декабря\fi\ \number\year~года}}
+\newcommand{\src}[1]{\hfill(#1)}
+\begin{document}
+\sheettitle{Combinatorics -- 7}{Extremal set systems and additive combinatorics}{Homework}
+
+\head{Theoretical minimum.} K\H{o}v\'ari--S\'os--Tur\'an: if no $s$ vertices of the part $U$
+($|U|=m$) of a bipartite graph have $t$ common neighbours in $W$ ($|W|=n$), then
+$e\leqslant(t-1)^{1/s}mn^{1-1/s}+(s-1)n$, by counting $s$-stars and Jensen; so a $K_{s,t}$-free
+graph has $O(n^{2-1/s})$ edges. The shift graph on pairs $(i,j)\sim(j,k)$ has chromatic number
+$\lceil\log_2n\rceil$ (binary digits for the upper bound, the sets $S_i=\{c(i,j):j>i\}$ for
+the lower one). Harris--Kleitman: two up-sets (or two down-sets) in $2^{[n]}$ satisfy
+$|\mathcal A\cap\mathcal B|\,2^n\geqslant|\mathcal A||\mathcal B|$, an up-set and a down-set the
+reverse. Frankl's union-closed conjecture is open; Erd\H{o}s--Ko--Rado is in
+Combinatorics -- 5. Cauchy--Davenport: $|A+B|\geqslant\min\{p,|A|+|B|-1\}$ in
+$\mathbb Z/p\mathbb Z$; in a finite abelian group $|A|+|B|>|G|$ forces $A+B=G$, and $|A+A|=|A|$
+only for cosets of subgroups (affine subspaces in $\mathbb F_2^n$). Covering the pairs of a
+$v$-set by $k$-sets needs at least $\lceil\frac vk\lceil\frac{v-1}{k-1}\rceil\rceil$ blocks;
+Steiner triple systems need $v\equiv1,3\pmod6$. Midpoints and doubling are controlled by the
+$2$-adic valuation: from $a$ and $a+2^kd$ repeated midpoints give every $a+jd$,
+$0\leqslant j\leqslant 2^k$.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Let $\mathcal F$ be a finite union-closed family of sets. Prove that if $\mathcal F$
+contains a one-element set $\{x\}$, then $x$ belongs to at least half of the members of
+$\mathcal F$, and that if $\mathcal F$ contains a two-element set $\{x,y\}$, then $x$ or $y$
+belongs to at least half of the members. (Both are special cases of Frankl's conjecture.)
+
+\item Let $p$ be a prime number and let $A$ be a subgroup of the multiplicative group
+$\mathbb F_p^*$ of the finite field $\mathbb F_p$ with $p$ elements. Prove that if the order of
+$A$ is a multiple of $6$, then there exist $x,y,z\in A$ satisfying $x+y=z$. \src{VJIMC 2014}
+
+\item Let $p$ be a prime and $a_1,\dots,a_{p-1}$ non-zero residues modulo $p$, not necessarily
+distinct. Using the Cauchy--Davenport theorem, prove that every residue modulo $p$ is the sum of
+some of the $a_i$ (the empty sum being $0$), and show that $p-1$ cannot be replaced by $p-2$.
+Prove also that if $A\subseteq\mathbb Z/p\mathbb Z$ has $k\geqslant2$ elements, then
+$hA=\mathbb Z/p\mathbb Z$ for every $h\geqslant\frac{p-1}{k-1}$.
+
+\item Prove the Harris--Kleitman inequality (Theorem 3 of the class sheet) and deduce Kleitman's
+theorem: the union of $k$ intersecting families of subsets of $[n]$ has at most $2^n-2^{n-k}$
+members. (Show first that a maximal intersecting family is an up-set with exactly $2^{n-1}$
+members.) Give an example showing that the bound is attained.
+
+\item Prove that $n$ points in $\mathbb R^3$ determine at most
+$2^{-2/3}n^{5/3}+n$ pairs at distance exactly $1$: show that the unit-distance graph contains no
+$K_{3,3}$ and apply the K\H{o}v\'ari--S\'os--Tur\'an theorem. Then show that in $\mathbb R^4$
+there are configurations of $n$ points with $\lfloor n^2/4\rfloor$ unit distances. (The planar
+bound $O(n^{3/2})$ is in Combinatorics -- 6.)
+
+\item Let $S$ be a set with $10$ distinct elements. A set $T$ of subsets of $S$ (possibly
+containing the empty set) is called union-closed if, for all $A,B\in T$, it is true that
+$A\cup B\in T$. Show that the number of union-closed sets $T$ is less than $2^{1023}$.
+\src{ICMC 2021}
+
+\item Find all positive integers $n$ for which there exists a family $\mathcal F$ of
+three-element subsets of $S=\{1,2,\dots,n\}$ satisfying the following two conditions:
+(i) for any two different elements $a,b\in S$, there exists exactly one $A\in\mathcal F$
+containing both $a,b$; (ii) if $a,b,c,x,y,z$ are elements of $S$ such that
+$\{a,b,x\},\{a,c,y\},\{b,c,z\}\in\mathcal F$, then $\{x,y,z\}\in\mathcal F$.
+\src{IMC 2003}
+
+\item A set $C$ of integers is \emph{sum-free} if there are no $a,b,c\in C$ (not necessarily
+distinct) with $a+b=c$. Prove Erd\H{o}s' theorem: every set $B$ of $n$ non-zero integers contains
+a sum-free subset with more than $n/3$ elements. (Hint: for a prime $p=3k+2$ larger than all
+$|b|$, $b\in B$, the residues $k+1,\dots,2k+1$ form a sum-free set modulo $p$; multiply $B$ by a
+random non-zero residue.)
+
+\item Call a subset $S$ of $\{1,2,\dots,n\}$ \emph{mediocre} if it has the following property:
+whenever $a$ and $b$ are elements of $S$ whose average is an integer, that average is also an
+element of $S$. Let $A(n)$ be the number of mediocre subsets of $\{1,2,\dots,n\}$. (For
+instance, every subset of $\{1,2,3\}$ except $\{1,3\}$ is mediocre, so $A(3)=7$.) Find all
+positive integers $n$ such that $A(n+2)-2A(n+1)+A(n)=1$. \src{Putnam 2009 B3}
+
+\item Let $\mathbb Z_{>0}$ be the set of positive integers. Find all nonempty subsets
+$M\subseteq\mathbb Z_{>0}$ satisfying both of the following properties:
+(a) if $x\in M$, then $2x\in M$; (b) if $x,y\in M$ and $x+y$ is even, then
+$\frac{x+y}2\in M$. \src{IMC 2025}
+\end{enumerate}
+\end{document}

@@ -1,0 +1,100 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\sheettitle}[3]{% title, subtitle, homework-flag (empty or "Homework")
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\foreignlanguage{russian}{\rudate}\par}
+  \end{center}\vspace{0.5em}}
+\newcommand{\src}[1]{\hfill(#1)}
+\newcommand{\rudate}{\number\day~\ifcase\month\or января\or февраля\or марта\or апреля\or мая\or июня\or июля\or августа\or сентября\or октября\or ноября\or декабря\fi~\number\year~года}
+\begin{document}
+\setlength{\emergencystretch}{2em}
+\sheettitle{Euclidean geometry -- 1}{Vectors, angles, simplices and volumes in $\mathbb{R}^n$}{Homework}
+
+\head{Theoretical minimum.} The Gram matrix
+$\Gamma(v_1,\dots,v_k)=(\langle v_i,v_j\rangle)$ is positive semidefinite, of the
+rank of the system, and $\sqrt{\det\Gamma}$ is the $k$-volume of the parallelepiped
+on $v_1,\dots,v_k$; the volume of an $n$-simplex $A_0\dots A_n$ is
+$\frac1{n!}\sqrt{\det\Gamma(A_1-A_0,\dots,A_n-A_0)}$ and, through
+$2\langle A_i-A_0,A_j-A_0\rangle=d_{0i}^2+d_{0j}^2-d_{ij}^2$, a function of the
+distances (Cayley--Menger). By Cauchy--Binet the squared $k$-volume of a piece of a
+$k$-plane is the sum of the squared volumes of its projections onto the coordinate
+$k$-planes. Barycentric coordinates of $X$ are the ratios $\pm v(S_i)/v(S)$; the
+centroid is $G=\frac1{n+1}\sum A_i$, and
+$\sum|XA_i|^2=(n+1)|XG|^2+\sum|GA_i|^2$. At most $2n$ non-zero vectors of
+$\mathbb{R}^n$ have pairwise non-acute angles and at most $n+1$ pairwise obtuse ones;
+at most $\frac{n(n+1)}2$ lines through the origin are equiangular, because the
+projectors $v_iv_i^T$ are linearly independent. Points are in general position if no
+$n+1$ of them lie in a hyperplane.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Let $A_0A_1\dots A_n$ be a regular $n$-simplex with edge $a$. Prove that its
+circumradius and inradius are $R=a\sqrt{\frac{n}{2n+2}}$ and $r=R/n$, that its
+volume is $\frac{a^n}{n!}\sqrt{\frac{n+1}{2^n}}$, that the vectors from the centre to
+two vertices make the angle $\arccos(-\frac1n)$, and that the dihedral angle between
+two facets equals $\arccos\frac1n$.
+
+\item Prove the Leibniz formula $\sum_{i=0}^n|XA_i|^2=(n+1)|XG|^2+\sum_{i=0}^n|GA_i|^2$
+and deduce that for an $n$-simplex with circumcentre $O$, circumradius $R$ and
+centroid $G$
+\[
+|OG|^2=R^2-\frac1{(n+1)^2}\sum_{0\le i<j\le n}|A_iA_j|^2 .
+\]
+Conclude that $\sum_{i<j}|A_iA_j|^2\le(n+1)^2R^2$, with equality exactly when $O=G$;
+for instance, the squares of the six edges of a tetrahedron inscribed in a unit
+sphere sum to at most $16$.
+
+\item Show that the six diagonals of a regular icosahedron are equiangular lines in
+$\mathbb{R}^3$ with the angle $\arccos\frac1{\sqrt5}$, and that the $28$ vectors of
+$\mathbb{R}^8$ having two coordinates equal to $3$ and six equal to $-1$ span $28$
+equiangular lines in a $7$-dimensional subspace. Thus the bound $\frac{n(n+1)}2$ is
+attained for $n=2,3,7$.
+
+\item Let $A_1,\dots,A_n$ be points of an ellipsoid with centre $O$ in
+$\mathbb{R}^n$ such that $OA_i$, for $i=1,\dots,n$, are mutually orthogonal. Prove
+that the distance of the point $O$ from the hyperplane $A_1A_2\dots A_n$ does not
+depend on the choice of the points $A_1,\dots,A_n$. \src{VJIMC~1999}
+
+\item Determine all positive integers $N$ for which the sphere
+$x^2+y^2+z^2=N$ has an inscribed regular tetrahedron whose vertices have integer
+coordinates. \src{Putnam~2021~A3}
+
+\item For which positive integers $n$ is there an $n\times n$ matrix with integer
+entries such that every dot product of a row with itself is even, while every dot
+product of two different rows is odd? \src{Putnam~2011~A4}
+
+\item Show that there do not exist four points in the Euclidean plane such that the
+pairwise distances between the points are all odd integers. \src{Putnam~1993~B5}
+
+\item Let $v_1,\dots,v_m\in\mathbb{R}^n$ be unit vectors. Prove that the matrix
+$\bigl(n(v_i\cdot v_j)^2-1\bigr)_{i,j=1}^m$ is positive semidefinite. Deduce that if
+$m$ lines through the origin of $\mathbb{R}^n$ make pairwise angles $\arccos\alpha$
+with $n\alpha^2<1$, then $m\le\frac{n(1-\alpha^2)}{1-n\alpha^2}$, and check that
+this bound is attained by the examples of problem 3. \src{МФТИ~2021}
+
+\item Let $B$ be a set of more than $2^{n+1}/n$ distinct points with coordinates of
+the form $(\pm1,\pm1,\dots,\pm1)$ in $n$-dimensional space with $n\ge3$. Show that
+there are three distinct points in $B$ which are the vertices of an equilateral
+triangle. \src{Putnam~2000~B6}
+
+\item We say that a subset of $\mathbb{R}^n$ is \emph{$k$-almost contained} by a
+hyperplane if there are less than $k$ points in that set which do not belong to the
+hyperplane. We call a finite set of points \emph{$k$-generic} if there is no
+hyperplane that $k$-almost contains the set. For each pair of positive integers $k$
+and $n$, find the minimal number $d(k,n)$ such that every finite $k$-generic set in
+$\mathbb{R}^n$ contains a $k$-generic subset with at most $d(k,n)$ elements.
+\src{IMC~2014}
+\end{enumerate}
+\end{document}

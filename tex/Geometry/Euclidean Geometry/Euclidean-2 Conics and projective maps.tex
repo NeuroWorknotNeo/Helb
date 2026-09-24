@@ -1,0 +1,122 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\sheettitle}[3]{% title, subtitle, homework-flag (empty or "Homework")
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\begin{otherlanguage}{russian}\number\day~\ifcase\month\or января\or февраля\or марта\or апреля\or мая\or июня\or июля\or августа\or сентября\or октября\or ноября\or декабря\fi~\number\year~года\end{otherlanguage}\par}
+  \end{center}\vspace{0.5em}}
+\newcommand{\src}[1]{\hfill(#1)}
+\begin{document}
+\sheettitle{Euclidean geometry -- 2}{Conics, areas and projective maps}{}
+
+\head{Theoretical minimum.} A conic is seen metrically (focus and directrix),
+algebraically (a quadratic equation, classified by linear algebra) and
+projectively (a curve fixed by five points, carrying cross-ratios); for areas
+one first applies an affine map turning it into a circle, $xy=1$ or $y=x^2$.
+
+\head{Definitions.} For a point $F$, a line $l\not\ni F$ and $e>0$ the
+\emph{conic} $\{X: |XF|=e\,d(X,l)\}$ with focus $F$, directrix $l$ and
+eccentricity $e$ is an ellipse, a parabola or a hyperbola for $e<1$, $e=1$,
+$e>1$; in polar coordinates at $F$, with $\varphi$ measured from the
+perpendicular from $F$ to $l$, it is $r=p/(1+e\cos\varphi)$, $p=e\,d(F,l)$.
+The \emph{signed area} is $[ABC]=\frac12\det(B-A,C-A)$, positive for
+counterclockwise $ABC$. The \emph{cross-ratio} of points $a,b,c,d$ of a line
+is $(a,b;c,d)=\frac{(c-a)(d-b)}{(c-b)(d-a)}$; a \emph{projective map} of
+$\mathbb R\cup\{\infty\}$ is $x\mapsto\frac{\alpha x+\beta}{\gamma x+\delta}$,
+$\alpha\delta\ne\beta\gamma$; a \emph{perspectivity} from a line $l$ to a line
+$m$ with centre $O\notin l\cup m$ sends $X$ to $OX\cap m$.
+
+\head{Theorem 1 (focal and reflective properties).} For $e\ne1$ there is a
+second focus and directrix, symmetric in the centre, and
+$|XF_1|+|XF_2|=2a$ (ellipse), $\bigl||XF_1|-|XF_2|\bigr|=2a$ (hyperbola), with
+$c=|OF_i|=ea$ and directrices at distance $a/e$ from the centre $O$. The
+tangent at $X$ bisects the external angle $F_1XF_2$ of an ellipse and the
+internal one of a hyperbola; for a parabola it bisects the angle between $XF$
+and the perpendicular from $X$ to $l$. \emph{Proof idea:} $X$ minimises
+$|YF_1|+|YF_2|$ over the tangent, since the other points of the tangent lie
+outside; then use Heron's reflection. So light from one focus is reflected
+into the other one (parallel to the axis for a parabola).
+
+\head{Theorem 2 (equations, five points, pencils).} A conic is the zero set
+of $Q=ax^2+2bxy+cy^2+2dx+2ey+f$; up to affine maps a non-degenerate non-empty
+real conic is $x^2+y^2=1$, $x^2-y^2=1$ or $y=x^2$ as $ac-b^2>0$, $<0$, $=0$
+(Linear algebra -- 5), and projectively all three coincide. A line not
+contained in a conic meets it at most twice; as $Q$ has six coefficients,
+through five points, no four collinear, passes exactly one conic. The conics
+through four points, no three collinear, form a \emph{pencil}
+$\lambda Q_1+\mu Q_2$ containing exactly three line pairs: the two pairs of
+opposite sides and the pair of diagonals.
+
+\head{Theorem 3 (areas).} In coordinates
+\[
+[ABC]=\tfrac12\bigl((x_B-x_A)(y_C-y_A)-(x_C-x_A)(y_B-y_A)\bigr),
+\]
+so $P\mapsto[PBC]$ is affine and $[PBC]+[PCA]+[PAB]=[ABC]$ for all $P$
+(barycentric coordinates); at an interior extremum of $[PAB]$ over a smooth
+arc the tangent is parallel to $AB$. An affine map $x\mapsto Mx+v$ multiplies
+areas by $\det M$ and preserves area ratios, parallelism, tangency and
+centres; all parabolic segments are affinely equivalent, and $y=x^2$ cuts off
+over $[a,b]$ a segment of area $(b-a)^3/6$.
+
+\head{Theorem 4 (projective maps of a line).} A perspectivity with centre
+$O$ preserves the cross-ratio, since
+$(A,B;C,D)=\frac{\sin\angle AOC\,\sin\angle BOD}{\sin\angle BOC\,\sin\angle AOD}$
+(oriented angles). Projective maps are exactly the cross-ratio preserving
+bijections of $\mathbb R\cup\{\infty\}$; each is determined by the images of
+three points, so one with three fixed points is the identity. Compositions of
+perspectivities are projective, and every projective map of a line to itself
+is a composition of at most three perspectivities (over $\mathbb C$: the
+M\"obius maps of Complex analysis -- 7).
+
+\head{Fact 1 (normals of a parabola, Apollonius).} The normal to $x^2=2py$ at
+$(t,t^2/2p)$ passes through $(u,v)$ iff $t^3+2p(p-v)t-2p^2u=0$: at most three
+normals pass through a point, the abscissas of their feet add up to $0$, and
+there are three exactly when $8(v-p)^3>27pu^2$.
+
+\head{Fact 2 (billiards, Birkhoff).} In a smooth strictly convex curve $\Gamma$
+an inscribed $n$-gon of maximal perimeter exists by compactness; at each
+vertex $X$ the sum $|YX_-|+|YX_+|$ over $Y\in\Gamma$ is maximal at $Y=X$, so
+the normal bisects $\angle X_-XX_+$ and the polygon is a closed billiard
+trajectory --- the argument of Theorem 1 again.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Derive the polar equation from $|XF|=e\,d(X,l)$ and, for $e\ne1$, the
+canonical equation $\frac{x^2}{a^2}\pm\frac{y^2}{b^2}=1$ with $c=ea$ and the
+directrices $x=\pm a/e$; prove the focal-sum property of the ellipse and the
+reflective properties of Theorem 1, and show that a billiard ball sent
+through one focus of an elliptic table passes through the other focus after
+every reflection. Then prove Fact 1.
+
+\item Prove the determinant formula of Theorem 3 and the identity
+$[PBC]+[PCA]+[PAB]=[ABC]$. Prove that a perspectivity preserves the
+cross-ratio, that a projective map of a line is determined by the images of
+three points, and deduce that a projective map other than the identity has at
+most two fixed points. Finally, prove that through five points of which no
+four are collinear there passes exactly one conic.
+
+\item Two different ellipses are given. One focus of the first ellipse
+coincides with one focus of the second ellipse. Prove that the ellipses have
+at most two points in common. \src{IMC 2008}
+
+\item The normals to the parabola $2y=ax^2$ $(a>0)$ at two different points
+$B$ and $B'$ of the parabola meet at a point $A$ of the parabola, different
+from $B$ and $B'$; let $m$ be the ordinate of $A$. Prove that $m>\frac4a$.
+\src{IMC 2025, shortlist}
+
+\item An ellipse, a parabola and a hyperbola are circumscribed about a
+trapezoid. Prove that the line joining the centres of the ellipse and of the
+hyperbola is parallel to the axis of the parabola. \src{МФТИ 2016}
+\end{enumerate}
+\end{document}

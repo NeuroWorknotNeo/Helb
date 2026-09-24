@@ -1,0 +1,106 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\sheettitle}[3]{% title, subtitle, homework-flag (empty or "Homework")
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\foreignlanguage{russian}{\rudate}\par}
+  \end{center}\vspace{0.5em}}
+\newcommand{\src}[1]{\hfill(#1)}
+\newcommand{\rudate}{\number\day~\ifcase\month\or января\or февраля\or марта\or апреля\or мая\or июня\or июля\or августа\or сентября\or октября\or ноября\or декабря\fi~\number\year~года}
+\begin{document}
+\sheettitle{Polynomials -- 9}{Cyclotomic polynomials and the arithmetic of roots of unity}{}
+
+\head{Theoretical minimum.} A root of unity is a rigid algebraic number: its minimal polynomial
+is cyclotomic, so every linear relation between roots of unity is a divisibility in
+$\mathbb{Z}[x]$. Over $\mathbb{F}_p$ the same rigidity appears in the power sums $\sum_x x^k$.
+
+\head{Definitions.} The $n$-th \emph{cyclotomic polynomial} $\Phi_n(x)$ is the product of
+$x-e^{2\pi ik/n}$ over $1\le k\le n$ with $(k,n)=1$; its roots are the
+\emph{primitive} $n$-th roots of unity and $\deg\Phi_n=\varphi(n)$. A polynomial
+$f\in\mathbb{F}_p[x]$ is a \emph{permutation polynomial} if $x\mapsto f(x)$ is a bijection of
+$\mathbb{F}_p$. A polynomial $P=\sum_j c_jX^j$ \emph{annihilates} a function $f$ (for a step
+$h$) if $\sum_j c_jf(x+jh)\equiv0$, i.e.\ $P(T)f=0$ for the shift $(Tf)(x)=f(x+h)$.
+
+\head{Theorem 1 (basic identities).} $x^n-1=\prod_{d\mid n}\Phi_d(x)$, so $\Phi_n\in\mathbb{Z}[x]$
+is monic (Trig-2 Roots of unity) and by M\"obius inversion (Number~theory~--~6)
+$\Phi_n=\prod_{d\mid n}(x^d-1)^{\mu(n/d)}$. Examples: $\Phi_p=1+x+\dots+x^{p-1}$,
+$\Phi_{p^a}(x)=\Phi_p(x^{p^{a-1}})$ and
+$\Phi_{pq}=\frac{(x^{pq}-1)(x-1)}{(x^p-1)(x^q-1)}$ for primes $p\neq q$. Also $\Phi_n$ is the gcd
+of the polynomials $(x^n-1)/(x^{n/p}-1)$ over the primes $p\mid n$.
+
+\head{Theorem 2 (Gauss, Dedekind).} $\Phi_n$ is irreducible over $\mathbb{Q}$: it is the
+minimal polynomial of each primitive $n$-th root of unity $\zeta$, and
+$[\mathbb{Q}(\zeta):\mathbb{Q}]=\varphi(n)$. \emph{Proof idea.} Let $f\in\mathbb{Z}[x]$ be the
+monic minimal polynomial of $\zeta$ (Polynomials -- 5) and $\Phi_n=fg$; it suffices to show
+$f(\zeta^p)=0$ for primes $p\nmid n$. Otherwise $g(\zeta^p)=0$, so $f(x)\mid g(x^p)\equiv
+g(x)^p\pmod p$, hence $x^n-1$ has a multiple factor over $\mathbb{F}_p$, which is false since
+$\gcd(x^n-1,nx^{n-1})=1$ there.
+
+\head{Theorem 3 (vanishing sums).} For $\zeta=e^{2\pi i/n}$ and $a_k\in\mathbb{Q}$ one has
+$\sum_{k<n}a_k\zeta^k=0$ if and only if $\Phi_n\mid\sum_k a_kx^k$. For $n=p$ this means
+$a_0=\dots=a_{p-1}$; for $n=pq$ and $a_k\in\mathbb{Z}_{\ge0}$ it means that the roots form a
+union of regular $p$-gons and $q$-gons centred at $0$ (Problem 2). \emph{Lam--Leung} (may be
+quoted): $m$ roots of unity of order dividing $n$, repetitions allowed, can have zero sum iff
+$m\in p_1\mathbb{Z}_{\ge0}+\dots+p_r\mathbb{Z}_{\ge0}$, where $p_1,\dots,p_r$ are the primes
+dividing $n$.
+
+\head{Theorem 4 (functions on $\mathbb{F}_p$).} $\sum_{x\in\mathbb{F}_p}x^k$ equals $-1$ if
+$k>0$ and $(p-1)\mid k$, and $0$ otherwise ($0^0=1$): sum a geometric progression in a
+generator of $\mathbb{F}_p^*$ (Number theory -- 2). Every map $\mathbb{F}_p\to\mathbb{F}_p$ is a
+unique polynomial of degree $\le p-1$ (Polynomials -- 6), and $\sum_xf(x)$ is minus its
+coefficient at $x^{p-1}$. \emph{Hermite's criterion:} $f$ is a permutation polynomial iff $f$
+has exactly one root in $\mathbb{F}_p$ and for each $1\le t\le p-2$ the remainder of $f^t$ modulo
+$x^p-x$ has degree $\le p-2$. \emph{Idea:} the number of solutions of $f(x)=a$ is
+$\equiv\sum_x\bigl(1-(f(x)-a)^{p-1}\bigr)\pmod p$.
+
+\head{Fact 1 (annihilating ideals).} The polynomials annihilating $f$ form an ideal $(Q)$ of
+$\mathbb{C}[X]$, closed under gcd; a sequence satisfies a linear recurrence iff $Q\neq0$
+(Combinatorics -- 2). Typical moves: find two annihilators with a small gcd, or show the ideal
+is stable under $P(X)\mapsto P(X^m)$, so the roots of $Q$ are closed under
+$\lambda\mapsto\lambda^m$.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Prove Theorem 2 in full, including the passage from primes $p\nmid n$ to all exponents
+coprime to $n$. Then prove that $\Phi_n(1)=p$ if $n=p^a$ with $a\ge1$ and $\Phi_n(1)=1$ if
+$n>1$ is not a prime power, and that the sum of the primitive $n$-th roots of unity equals
+$\mu(n)$.
+
+\item Let $p\neq q$ be primes, $\zeta=e^{2\pi i/pq}$, and let $a_0,\dots,a_{pq-1}$ be
+non-negative integers with $\sum_k a_k\zeta^k=0$. Prove that $\sum_k a_kx^k$ is congruent modulo
+$x^{pq}-1$ to a combination with non-negative integer coefficients of the polynomials
+$x^r(1+x^q+\dots+x^{(p-1)q})$ and $x^r(1+x^p+\dots+x^{(q-1)p})$, that is, the roots form a union
+of regular $p$-gons and $q$-gons. (Hint: identify $\mathbb{Z}/pq$ with
+$\mathbb{Z}/p\times\mathbb{Z}/q$ and use $[\mathbb{Q}(\zeta):\mathbb{Q}]=(p-1)(q-1)$.) Deduce
+the Lam--Leung theorem for $n=pq$, and show that for $n=30$ the six numbers
+$e^{2\pi ik/5}$ $(k=1,2,3,4)$, $e^{\pi i/3}$, $e^{5\pi i/3}$ have zero sum although no
+subset of them is a regular polygon.
+
+\item Let $p$ and $q$ be prime numbers with $p<q$. Suppose that in a convex polygon
+$P_1P_2\ldots P_{pq}$ all angles are equal and the side lengths are distinct positive
+integers. Prove that
+\[
+P_1P_2+P_2P_3+\dots+P_kP_{k+1}\ \ge\ \frac{k^3+k}{2}
+\]
+holds for every integer $k$ with $1\le k\le p$. \src{IMC 2018}
+
+\item Let $p$ be a prime number and let $k$ be a positive integer. Suppose that the numbers
+$a_i=i^k+i$ for $i=0,1,\dots,p-1$ form a complete residue system modulo $p$. What is the set of
+possible remainders of $a_2$ upon division by $p$? \src{IMC 2023}
+
+\item Let $n$ be a positive integer and $a_1,\dots,a_n$ arbitrary integers. Suppose that a
+function $f\colon\mathbb{Z}\to\mathbb{R}$ satisfies $\sum_{i=1}^n f(k+a_i\ell)=0$ whenever $k$ and $\ell$ are
+integers and $\ell\neq0$. Prove that $f=0$. \src{IMC 2007}
+\end{enumerate}
+\end{document}

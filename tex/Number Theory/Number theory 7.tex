@@ -1,0 +1,103 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\rudate}{\number\day~\ifcase\month\or января\or февраля\or марта\or апреля\or мая\or июня\or июля\or августа\or сентября\or октября\or ноября\or декабря\fi~\number\year~года}
+\newcommand{\sheettitle}[3]{% title, subtitle, homework-flag (empty or "Homework")
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\foreignlanguage{russian}{\rudate}\par}
+  \end{center}\vspace{0.5em}}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1)\parfillskip=0pt\par}
+\newcommand{\fl}[1]{\left\lfloor #1\right\rfloor}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\ord}{ord}
+\begin{document}
+\sheettitle{Number theory -- 7}{The integer part, sizes of roots and denominators}{}
+
+\head{Theoretical minimum.} To compute $\lfloor y\rfloor$ one traps $y$ between two
+consecutive integers; to add integer parts one counts lattice points; and since a non-zero
+integer is at least $1$ in absolute value, one gets lower bounds for $\lcm(1,\dots,n)$ and
+for denominators.
+
+\head{Definitions.} $\lfloor x\rfloor$ is the largest integer not exceeding $x$,
+$\{x\}=x-\lfloor x\rfloor$. Put $L(n)=\lcm(1,\dots,n)=\prod_{p\leqslant n}p^{\lfloor\log_p n\rfloor}$.
+The order of $\sigma\in S_n$ is the lcm of its cycle lengths (Abstract algebra -- 3);
+Landau's function is $g(n)=\max_{\sigma\in S_n}\ord\sigma$.
+
+\head{Theorem 1 (integer part).} (a) If $f$ is continuous, increasing, and $f(x)\in\mathbb Z$
+only for $x\in\mathbb Z$, then $\lfloor f(x)\rfloor=\lfloor f(\lfloor x\rfloor)\rfloor$; e.g.
+$\fl{\lfloor x\rfloor/n}=\lfloor x/n\rfloor$.
+(b) (Hermite) $\sum_{k=0}^{n-1}\fl{x+\frac kn}=\lfloor nx\rfloor$: the difference of the sides
+has period $\frac1n$ and vanishes on $[0,\frac1n)$.
+(c) (roots) For $a\geqslant1$, $t\geqslant0$:
+$1+\frac ta-\frac{(a-1)t^2}{2a^2}\leqslant(1+t)^{1/a}\leqslant1+\frac ta$. So
+$\sqrt[a]{b^a+c\,b^{a-1}}$ tends to $b+\frac ca$ from below, and its integer part is found by
+comparing $b^a+c\,b^{a-1}$ with an integer $a$-th power exactly.
+
+\head{Theorem 2 (lattice points).} $\sum_{k=1}^{n}\lfloor f(k)\rfloor$ counts the points
+$(k,l)\in\mathbb Z^2$ with $1\leqslant k\leqslant n$, $0<l\leqslant f(k)$. For coprime $p,q$ the
+open diagonal of the rectangle $(0,q)\times(0,p)$ has no lattice points and
+$(x,y)\mapsto(q-x,p-y)$ swaps its halves, so
+$\sum_{k=1}^{q-1}\fl{\frac{kp}q}=\frac{(p-1)(q-1)}2$ (compare Eisenstein's proof in Number
+theory -- 3).
+
+\head{Theorem 3 (Rayleigh--Beatty).} If $\alpha,\beta>1$ are irrational and
+$\frac1\alpha+\frac1\beta=1$, the sequences $(\lfloor n\alpha\rfloor)_{n\geqslant1}$ and
+$(\lfloor n\beta\rfloor)_{n\geqslant1}$ together contain every positive integer exactly once.
+\emph{Proof.} Exactly $\lfloor N/\alpha\rfloor$ terms $\lfloor n\alpha\rfloor$ are $<N$, and
+$\lfloor N/\alpha\rfloor+\lfloor N/\beta\rfloor=N-1$, as the two numbers are non-integers with sum $N$.
+
+\head{Theorem 4 (Chebyshev-type bounds).} $2^n\leqslant L(n)\leqslant4^n$ for $n\geqslant7$.
+\emph{Idea.} If $P\in\mathbb Z[x]$, $\deg P<N$, then $L(N)\int_0^1P\in\mathbb Z$; for
+$P=x^n(1-x)^n$ the integral is in $(0,4^{-n}]$, so $L(2n+1)\geqslant4^n$. By Legendre's
+formula (Number theory -- 4) every prime power in $(k,2k]$ divides $\binom{2k}k$, so
+$L(2k)\mid L(k)\binom{2k}k$; induct. (In fact $\ln L(n)\sim n$, which is the prime number theorem.)
+
+\head{Fact 1.} If exactly one of the rationals $r_1,\dots,r_m$ has the least $p$-adic valuation,
+their sum has the same valuation --- this forces primes into denominators. Landau:
+$\ln g(n)\sim\sqrt{n\ln n}$ (statement only).
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Prove Theorem 1(a),(b) and deduce that
+$\sum_{k\geqslant0}\fl{\frac{n+2^k}{2^{k+1}}}=n$ for every positive integer $n$. Then prove
+Theorem 2 and show that for arbitrary positive integers $p,q$ with $d=\gcd(p,q)$
+\[
+\sum_{k=0}^{q-1}\fl{\frac{kp}{q}}=\frac{(p-1)(q-1)+d-1}{2}.
+\]
+
+\item Prove that $m\binom nm$ divides $L(n)$ for $1\leqslant m\leqslant n$ by computing the integral
+$\int_0^1x^{m-1}(1-x)^{n-m}\,dx$ in two ways, and deduce Nair's bound $L(n)\geqslant2^n$ for
+$n\geqslant7$. Then complete the proof of the upper bound $L(n)\leqslant4^n$ of Theorem 4.
+
+\item Let $p$ and $q$ be relatively prime positive integers. Prove that
+\[
+\sum_{k=0}^{pq-1}(-1)^{\lfloor k/p\rfloor+\lfloor k/q\rfloor}=
+\begin{cases}0&\text{if }pq\text{ is even},\\1&\text{if }pq\text{ is odd}.\end{cases}
+\]
+\src{IMC 2013}
+
+\item Let $a$ be an even positive integer. Find all real numbers $x$ such that
+\[
+\fl{\sqrt[a]{b^a+x\cdot b^{a-1}}}=b+\fl{\frac xa}
+\]
+holds for every positive integer $b$. \src{IMC 2025}
+
+\item For a positive integer $n$ let $[n]=\{1,2,\dots,n\}$, let $S_n$ be the set of all
+bijections from $[n]$ to $[n]$, and $T_n$ the set of all maps from $[n]$ to $[n]$. Define the
+order $\ord(\tau)$ of $\tau\in T_n$ as the number of distinct maps in the set
+$\{\tau,\ \tau\circ\tau,\ \tau\circ\tau\circ\tau,\dots\}$. Let
+$f(n)=\max_{\tau\in S_n}\ord(\tau)$ and $g(n)=\max_{\tau\in T_n}\ord(\tau)$ (thus $f$ is Landau's function). Prove that
+$g(n)<f(n)+n^{0.501}$ for sufficiently large $n$. \src{IMC 2025}
+\end{enumerate}
+\end{document}

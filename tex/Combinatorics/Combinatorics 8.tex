@@ -1,0 +1,127 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\sheettitle}[3]{% title, subtitle, homework-flag (empty or "Homework")
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\rudate\par}
+  \end{center}\vspace{0.5em}}
+\newcommand{\rudate}{\foreignlanguage{russian}{\number\day~\ifcase\month\or января\or февраля\or марта\or апреля\or мая\or июня\or июля\or августа\or сентября\or октября\or ноября\or декабря\fi\ \number\year~года}}
+\newcommand{\src}[1]{\hfill(#1)}
+\DeclareMathOperator{\inv}{inv}
+\DeclareMathOperator{\des}{des}
+\DeclareMathOperator{\exc}{exc}
+\DeclareMathOperator{\fix}{fix}
+\DeclareMathOperator{\cyc}{cyc}
+\begin{document}
+\sheettitle{Combinatorics -- 8}{Permutations, binary recursions and log-concavity}{}
+
+\head{Theoretical minimum.} A statistic on permutations is studied through its
+generating polynomial, a function given by $f(2n)$ and $f(2n+1)$ by induction along the
+binary expansion, and an inequality between neighbouring terms through real roots or a
+product. Sign and cycle type are in Abstract algebra~--~3, generating functions in
+Combinatorics~--~2, Stirling numbers in Combinatorics~--~3.
+
+\head{Definitions.} For $\sigma\in S_n$ let $\inv\sigma=\#\{i<j:\sigma(i)>\sigma(j)\}$,
+$\des\sigma=\#\{i<n:\sigma(i)>\sigma(i+1)\}$ (descents), $\exc\sigma=\#\{i:\sigma(i)>i\}$
+(excedances) and $\cyc\sigma$ the number of cycles. The \emph{Eulerian number} $A(n,k)$ is
+the number of $\sigma\in S_n$ with $k$ descents, $A_n(x)=\sum_k A(n,k)x^k$. A
+\emph{complete mapping} of an abelian group $G$ is a bijection $\sigma\colon G\to G$ such that
+$x\mapsto x+\sigma(x)$ is also a bijection. A sequence $a_0,\dots,a_m\geqslant 0$ is
+\emph{log-concave} if $a_k^2\geqslant a_{k-1}a_{k+1}$ for $0<k<m$, and \emph{unimodal} if
+$a_0\leqslant\dots\leqslant a_j\geqslant\dots\geqslant a_m$ for some $j$; $s_2(n)$ is the
+sum of the binary digits of $n$.
+
+\head{Theorem 1 (generating polynomials).}
+$\sum_{\sigma\in S_n}q^{\inv\sigma}=\prod_{k=1}^{n}(1+q+\dots+q^{k-1})$ and
+$\sum_{\sigma\in S_n}x^{\cyc\sigma}=x(x+1)\cdots(x+n-1)$. \emph{Proof of the first:} the
+Lehmer code $c_i=\#\{j>i:\sigma(j)<\sigma(i)\}\in\{0,\dots,n-i\}$ is a bijection of $S_n$
+onto $\prod_i\{0,\dots,n-i\}$ with $\inv\sigma=\sum_i c_i$. The second is
+Combinatorics~--~3, homework~7.
+
+\head{Theorem 2 (Eulerian numbers).} Inserting $n$ into a permutation of $[n-1]$ with $k$
+descents keeps $k$ in $k+1$ of the $n$ gaps (the end and the descents) and raises it by one
+in the others, so $A(n,k)=(k+1)A(n-1,k)+(n-k)A(n-1,k-1)$. Consequently
+$A(n,k)=A(n,n-1-k)$,
+\[
+\sum_{m\geqslant0}(m+1)^nt^m=\frac{A_n(t)}{(1-t)^{n+1}}
+\quad\text{and}\quad
+x^n=\sum_k A(n,k)\binom{x+k}{n}\ \ \text{(Worpitzky)}.
+\]
+Foata's transformation (write each cycle from its largest element, order the cycles by
+increasing largest elements, erase the parentheses) turns $\#\{i:\sigma(i)\geqslant i\}$ into
+the number of ascents plus one; hence $\exc$ has the same distribution as $\des$.
+
+\head{Theorem 3 (complete mappings).} If a finite abelian group $G$ has a complete mapping,
+then $\sum_{g\in G}g=0$, because $\sum_x(x+\sigma(x))=2\sum_g g$ must equal $\sum_g g$. The
+sum is non-zero exactly when $G$ has a unique element of order~$2$; so $\mathbb Z_n$ has a
+complete mapping if and only if $n$ is odd ($\sigma=\mathrm{id}$ works then): for even $n$
+no permutation $\sigma$ of $\mathbb Z_n$ makes $\sigma(i)+i$ a permutation. (Hall--Paige: a
+finite group has one if and only if its Sylow $2$-subgroups are trivial or non-cyclic.)
+
+\head{Theorem 4 (log-concavity).} (a) If $\sum_{k\leqslant m} a_kx^k$ with $a_k\geqslant0$
+has only real roots, then
+$a_k^2\geqslant a_{k-1}a_{k+1}\bigl(1+\tfrac1k\bigr)\bigl(1+\tfrac1{m-k}\bigr)$ (Newton;
+Polynomials~--~4). (b) A log-concave sequence of positive numbers is unimodal, and the
+convolution of two such sequences is again log-concave: they are the sequences whose
+Toeplitz matrix $(a_{j-i})$ has all $2\times2$ minors $\geqslant0$, a property preserved by
+products (Cauchy--Binet). Thus $\binom nk$, $c(n,k)$ and $A(n,k)$ are log-concave in $k$,
+the last because $A_n$ has only real roots (homework~1).
+
+\head{Fact 1 (binary recursions).} Statements about $f$ given through $f(2n)$, $f(2n+1)$
+are proved by induction split by parity, or over blocks $[2^m,2^{m+1})$. Thus
+$s_2(2n+1)=s_2(n)+1$ gives $v_2(n!)=n-s_2(n)$ and $\sum_{k<2^m}s_2(k)=m2^{m-1}$;
+$\sum_{k<2^m}(-1)^{s_2(k)}P(k)=0$ whenever $\deg P<m$ (Prouhet, Thue--Morse); and Stern's
+sequence $s(0)=0$, $s(1)=1$, $s(2n)=s(n)$, $s(2n+1)=s(n)+s(n+1)$ has coprime neighbours,
+$s(n+1)$ being the number of ways to write $n$ as a sum of powers of $2$ used at most twice.
+
+\head{Fact 2 (parity via involutions).} If $\iota$ is an involution of a finite set $X$, then
+$|X|\equiv|\mathrm{Fix}\,\iota|\pmod 2$. Useful involutions: reversing a word, swapping two
+coordinates, $\sigma\mapsto\sigma^{-1}$; a count $\operatorname{tr}M^N$ of closed walks may
+be computed with $M$ reduced modulo~$2$.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Prove the first formula of Theorem~1 via the Lehmer code and deduce that the number
+of permutations of $[n]$ with $k$ inversions is symmetric and unimodal in $k$. Prove the
+recurrence of Theorem~2, derive from it $\sum_{m\geqslant0}(m+1)^nt^m=A_n(t)/(1-t)^{n+1}$,
+and obtain Worpitzky's identity by comparing coefficients. Compute $A_n(x)$ for $n\leqslant5$.
+
+\item Prove Theorem~3 for finite abelian groups. Show that $x\mapsto ax$ is a complete
+mapping of $\mathbb Z_n$ if and only if $\gcd(a(a+1),n)=1$, find a complete mapping of
+$\mathbb Z_2\times\mathbb Z_2$, and show that $\mathbb Z_n$ has a complete mapping exactly when
+there is a Latin square of order $n$ orthogonal to its addition table.
+
+\item For a positive integer $n$, let $f(n)$ be the number obtained by writing $n$ in binary
+and replacing every $0$ with $1$ and vice versa. For example, $n=23$ is $10111$ in binary,
+so $f(n)$ is $1000$ in binary, therefore $f(23)=8$. Prove that
+\[
+\sum_{k=1}^{n}f(k)\leqslant\frac{n^2}{4}.
+\]
+When does equality hold? \src{IMC 2015}
+
+\item Let $k$ be a positive integer. For each non-negative integer $n$, let $f(n)$ be the
+number of solutions $(x_1,\dots,x_k)\in\mathbb Z^k$ of the inequality
+$|x_1|+\dots+|x_k|\leqslant n$. Prove that for every $n\geqslant1$ we have
+$f(n-1)f(n+1)\leqslant f(n)^2$. (The symmetry of $f$ in $n$ and $k$ is Combinatorics~--~2,
+homework~8.) \src{IMC 2016}
+
+\item Fix positive integers $n$ and $k$ such that $2\leqslant k\leqslant n$ and a set $M$
+consisting of $n$ fruits. A permutation is a sequence $x=(x_1,x_2,\dots,x_n)$ such that
+$\{x_1,\dots,x_n\}=M$. Ivan prefers some (at least one) of these permutations. He realized
+that for every preferred permutation $x$, there exist $k$ indices $i_1<i_2<\dots<i_k$ with
+the following property: for every $1\leqslant j<k$, if he swaps $x_{i_j}$ and
+$x_{i_{j+1}}$, he obtains another preferred permutation. Prove that he prefers at least $k!$
+permutations. \src{IMC 2023}
+\end{enumerate}
+\end{document}

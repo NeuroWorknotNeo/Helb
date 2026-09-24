@@ -1,0 +1,130 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\sheettitle}[3]{% title, subtitle, homework-flag (empty or "Homework")
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\foreignlanguage{russian}{\rudate}\par}
+  \end{center}\vspace{0.5em}}
+\newcommand{\src}[1]{\hfill(#1)}
+\newcommand{\rudate}{\number\day~\ifcase\month\or января\or февраля\or марта\or апреля\or мая\or июня\or июля\or августа\or сентября\or октября\or ноября\or декабря\fi~\number\year~года}
+\begin{document}
+\setlength{\emergencystretch}{2em}
+\sheettitle{Euclidean geometry -- 1}{Vectors, angles, simplices and volumes in $\mathbb{R}^n$}{}
+
+\head{Theoretical minimum.} The whole metric geometry of finitely many points of
+$\mathbb{R}^n$ is stored in the Gram matrix of their difference vectors: lengths,
+angles, volumes and centres are read off from it, and a question of the type
+``how many vectors with prescribed angles fit into $\mathbb{R}^n$'' becomes a question
+about the rank of a positive semidefinite matrix.
+
+\head{Definitions.} The \emph{Gram matrix} of $v_1,\dots,v_k\in\mathbb{R}^n$ is
+$\Gamma(v_1,\dots,v_k)=\bigl(\langle v_i,v_j\rangle\bigr)=A^TA$, where
+$A=(v_1|\dots|v_k)$; it is positive semidefinite and its rank is the rank of the
+system (Linear algebra -- 5). An \emph{$n$-simplex} $S=A_0A_1\dots A_n$ is the convex
+hull of $n+1$ points not lying in one hyperplane, and $v(S)$ is its volume. Every
+$X\in\mathbb{R}^n$ is uniquely $X=\sum\lambda_iA_i$ with $\sum\lambda_i=1$
+(\emph{barycentric coordinates}); $|\lambda_i|=v(S_i)/v(S)$, where $S_i$ is $S$ with
+$A_i$ replaced by $X$, and $\lambda_i>0$ for all $i$ exactly when $X$ is interior. The
+\emph{centroid} is $G=\frac1{n+1}\sum A_i$, the \emph{circumcentre} $O$ is the centre
+of the sphere through all vertices. Points are in \emph{general position} if no
+$n+1$ of them lie in one hyperplane.
+
+\head{Theorem 1 (Gram and Cayley--Menger).} The $k$-dimensional volume of the
+parallelepiped spanned by $v_1,\dots,v_k$ equals $\sqrt{\det\Gamma(v_1,\dots,v_k)}$;
+hence $v(S)=\frac1{n!}\sqrt{\det\Gamma(A_1-A_0,\dots,A_n-A_0)}$. Since
+$2\langle A_i-A_0,A_j-A_0\rangle=d_{0i}^2+d_{0j}^2-d_{ij}^2$, where
+$d_{ij}=|A_iA_j|$, the volume depends only on the distances:
+\[
+(-1)^{n+1}2^n(n!)^2\,v(S)^2=\det\begin{pmatrix}0&\mathbf 1^T\\ \mathbf 1&(d_{ij}^2)_{i,j=0}^n\end{pmatrix}.
+\]
+\emph{Proof idea.} For $k=n$, $\det\Gamma=\det(A^TA)=(\det A)^2$; in general apply
+this inside the span of the $v_i$. The bordered form follows by row operations
+(Linear algebra -- 8, homework 8).
+
+\head{Theorem 2 (Pythagoras for volumes).} For a $k$-dimensional parallelepiped $P$
+in $\mathbb{R}^n$ and the orthogonal projections $\pi_I$ onto the coordinate
+$k$-planes, $\operatorname{vol}_k(P)^2=\sum_{|I|=k}\operatorname{vol}_k(\pi_IP)^2$:
+this is $\det(A^TA)=\sum_I(\det A_I)^2$, i.e.\ Cauchy--Binet (Linear algebra -- 8).
+A projection restricted to a $k$-plane is linear, so the identity holds for every
+measurable subset of a $k$-plane; for $k=n-1$ the projection onto $u^\perp$
+multiplies areas in a hyperplane with unit normal $\nu$ by $|\langle\nu,u\rangle|$.
+
+\head{Theorem 3 (non-acute and obtuse systems).} Let
+$v_1,\dots,v_m\in\mathbb{R}^n$ be non-zero. If $\langle v_i,v_j\rangle\le0$ for all
+$i\ne j$, then $m\le 2n$; if $\langle v_i,v_j\rangle<0$ for all $i\ne j$, then $m\le n+1$.
+\emph{Proof sketch.} The projections $w_i$ of $v_i$ onto $v_m^\perp$ satisfy
+$\langle w_i,w_j\rangle=\langle v_i,v_j\rangle-\langle v_i,v_m\rangle\langle
+v_j,v_m\rangle/|v_m|^2\le\langle v_i,v_j\rangle$, and at most one of them vanishes
+(none in the obtuse case, $m\ge3$); induct on $n$. A useful lemma: if
+$w=\sum_{i\in I}\lambda_iv_i=\sum_{j\in J}\mu_jv_j$ with disjoint $I,J$ and positive
+coefficients, then $|w|^2=\sum\lambda_i\mu_j\langle v_i,v_j\rangle\le0$, so $w=0$.
+
+\head{Theorem 4 (equiangular lines, Gerzon).} At most $\frac{n(n+1)}2$ lines through
+the origin of $\mathbb{R}^n$ make pairwise equal angles. \emph{Proof.} For unit
+directions with $|\langle v_i,v_j\rangle|=\alpha<1$ ($i\ne j$) the matrices
+$P_i=v_iv_i^T$ have the Gram matrix
+$(\operatorname{tr}P_iP_j)=(1-\alpha^2)E+\alpha^2J\succ0$, so they are linearly
+independent in the $\frac{n(n+1)}2$-dimensional space of symmetric matrices.
+
+\head{Fact 1 (centres).} $\sum_i|XA_i|^2=(n+1)|XG|^2+\sum_i|GA_i|^2$ for every $X$
+(Leibniz); the circumcentre solves the linear system
+$2\langle O-A_0,A_i-A_0\rangle=|A_i-A_0|^2$, $1\le i\le n$, with the matrix
+$2\Gamma(A_1-A_0,\dots,A_n-A_0)$. Plane combinatorial geometry is Combinatorics --
+6, and Helly, Radon and Carath\'eodory are Convex -- 1.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Prove Theorem 3 and show that both bounds are attained (compare Methods of
+proof -- 1, homework 6). Then prove that $2n$ non-zero vectors in $\mathbb{R}^n$ with
+pairwise non-acute angles always lie on $n$ pairwise orthogonal lines, two opposite
+vectors on each line; and that unit vectors $v_1,\dots,v_m$ with
+$\langle v_i,v_j\rangle\le-\beta$ for all $i\ne j$, where $\beta>0$, satisfy
+$m\le1+1/\beta$.
+
+\item Let $F_i$ denote the $(n-1)$-dimensional volume of the facet opposite $A_i$ of
+an $n$-simplex $A_0A_1\dots A_n$. (a) Prove that if the edges $A_0A_1,\dots,A_0A_n$
+are pairwise orthogonal, then $F_0^2=F_1^2+\dots+F_n^2$ (for $n=3$ this is de Gua's
+theorem). (b) Prove that $\sum_{i=0}^nF_iu_i=0$ for every $n$-simplex, where $u_i$ is
+the outer unit normal of the facet opposite $A_i$. Deduce that
+$F_0<F_1+\dots+F_n$ and that
+$F_0^2=\sum_{i=1}^nF_i^2-2\sum_{1\le i<j\le n}F_iF_j\cos\varphi_{ij}$, where
+$\varphi_{ij}$ is the dihedral angle between the facets opposite $A_i$ and $A_j$.
+
+\item Let $n\ge2$, let $A_1,A_2,\dots,A_{n+1}$ be $n+1$ points in the
+$n$-dimensional Euclidean space, not lying on the same hyperplane, and let $B$ be a
+point strictly inside the convex hull of $A_1,A_2,\dots,A_{n+1}$. Prove that
+$\angle A_iBA_j>90^\circ$ holds for at least $n$ pairs $(i,j)$ with
+$1\le i<j\le n+1$. \src{IMC~2015}
+
+\item Given an $n$-simplex with vertices $A_1,A_2,\dots,A_{n+1}$ ($n\ge2$) and any
+point $M$ in its interior, let $N_i$ be the point on the hyperplane opposite $A_i$
+such that $A_i$, $M$ and $N_i$ are collinear. Find the point $M$ for which
+\[
+\frac{\operatorname{Volume}(N_1N_2\dots N_{n+1})}{\operatorname{Volume}(A_1A_2\dots A_{n+1})}
+\]
+is maximal and find this maximum.
+\src{IMC~2025, shortlist}
+
+\item Let $n$ be a positive integer. An $n$-simplex in $\mathbb{R}^n$ is given by
+$n+1$ points $P_0,P_1,\dots,P_n$, called its vertices, which do not all belong to the
+same hyperplane. For every $n$-simplex $S$ denote by $v(S)$ its volume and by $C(S)$
+the centre of the unique sphere containing all the vertices of $S$. Suppose that $P$
+is a point inside an $n$-simplex $S$, and let $S_i$ be the $n$-simplex obtained from
+$S$ by replacing its $i$-th vertex by $P$. Prove that
+\[
+v(S_0)C(S_0)+v(S_1)C(S_1)+\dots+v(S_n)C(S_n)=v(S)C(S).
+\]
+\src{IMC~2009}
+\end{enumerate}
+\end{document}
