@@ -1,0 +1,95 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\rudate}{\number\day~\ifcase\month\or января\or февраля\or марта\or апреля\or мая\or июня\or июля\or августа\or сентября\or октября\or ноября\or декабря\fi~\number\year~года}
+\newcommand{\sheettitle}[3]{% title, subtitle, homework-flag (empty or "Homework")
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\foreignlanguage{russian}{\rudate}\par}
+  \end{center}\vspace{0.5em}}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1){\parfillskip=0pt\par}}
+\begin{document}
+\sheettitle{Number theory -- 8}{Pell equations, Markov-type equations and Vieta jumping}{}
+
+\head{Theoretical minimum.} A quadratic equation in two variables is solved in the ring
+$\mathbb Z[\sqrt d]$: the solutions are finitely many elements times the powers of one unit,
+read off from a continued fraction. An equation quadratic in each variable separately is solved
+by Vieta jumping: replace a root by the other one and descend to finitely many fundamental
+solutions. Existence of solutions of $x^2-dy^2=1$ is Number theory~--~5.
+
+\head{Definitions.} For irrational $\alpha$ put $\alpha_0=\alpha$, $a_k=\lfloor\alpha_k\rfloor$,
+$\alpha_{k+1}=1/(\alpha_k-a_k)$; then $\alpha=[a_0;a_1,a_2,\dots]$, and the convergents
+$p_k/q_k=[a_0;a_1,\dots,a_k]$ satisfy $p_k=a_kp_{k-1}+p_{k-2}$, $q_k=a_kq_{k-1}+q_{k-2}$,
+$p_kq_{k-1}-p_{k-1}q_k=(-1)^{k-1}$. For a non-square $d>1$ the norm
+$N(x+y\sqrt d)=x^2-dy^2$ is multiplicative on $\mathbb Z[\sqrt d]$; units are the elements of
+norm $\pm1$, $\eta$ is the least unit $>1$ and $\varepsilon$ the least solution $>1$ of
+$x^2-dy^2=1$, so $\varepsilon=\eta$ or $\eta^2$. A Markov triple is a solution of
+$x^2+y^2+z^2=3xyz$ in positive integers. A Vieta jump replaces a root $z$ of $z^2-sz+t=0$ by
+the other root $z'=s-z=t/z$.
+
+\head{Theorem 1 (Legendre).} $\bigl|\alpha-\frac{p_k}{q_k}\bigr|<\frac1{q_kq_{k+1}}$, and
+conversely $\bigl|\alpha-\frac pq\bigr|<\frac1{2q^2}$ implies that $p/q$ is a convergent. Hence
+if $0<|x^2-dy^2|<\sqrt d$ with $x,y>0$, then $x/y$ is a convergent of $\sqrt d$: for
+$n=x^2-dy^2>0$ one has $0<\frac xy-\sqrt d=\frac{n}{y(x+y\sqrt d)}<\frac1{2y^2}$, and for $n<0$
+the same works for $y/x$ and $1/\sqrt d$.
+
+\head{Theorem 2 (periodicity and units).} A continued fraction is eventually periodic exactly
+for quadratic irrationals (Euler, Lagrange), and $\sqrt d=[a_0;\overline{a_1,\dots,a_{r-1},2a_0}]$.
+With $\alpha_k=(P_k+\sqrt d)/Q_k$ one has $p_{k-1}^2-dq_{k-1}^2=(-1)^kQ_k$, $0<Q_k<2\sqrt d$,
+and $Q_k=1$ iff $r\mid k$. The units are $\pm\eta^k$, $k\in\mathbb Z$. \emph{Proof:} a unit
+$u=x+y\sqrt d>1$ has $|\bar u|=1/u<1$, so $x,y\geqslant1$; if $\eta^k\leqslant u<\eta^{k+1}$,
+the unit $u\eta^{-k}\in[1,\eta)$ equals $1$.
+
+\head{Theorem 3 ($x^2-dy^2=n$).} For $n\neq0$ call solutions equivalent if one is
+$\pm\varepsilon^k$ times the other. Each class contains $\beta=u+v\sqrt d$ with
+$\sqrt{|n|}\leqslant\beta<\varepsilon\sqrt{|n|}$, so there are finitely many classes, say $h$,
+and $\frac h{\ln\varepsilon}\ln X+O(1)$ positive solutions with $x\leqslant X$. Congruences
+(Number theory~--~3) often prove $h=0$, but not always (Problem~1).
+
+\head{Theorem 4 (the Markov tree).} If $x\leqslant y\leqslant z$ is a Markov triple, then
+$z'=3xy-z=(x^2+y^2)/z$ is a positive integer, and $z'<z$ unless $x=y=z=1$: the quadratic
+$t^2-3xyt+x^2+y^2$ is negative at $t=y$ once $(x,y)\neq(1,1)$. So all Markov triples descend to
+$(1,1,1)$ and form a binary tree, $(x,y,z)$ with $x<y<z$ having the children $(x,z,3xz-y)$ and
+$(y,z,3yz-x)$; Markov numbers are $1,2,5,13,29,34,89,169,194,\dots$ Likewise for the Hurwitz
+equation $x_1^2+\dots+x_n^2=ax_1\cdots x_n$ a solution with $x_n>\frac a2x_1\cdots x_{n-1}$
+jumps down, so all solutions come from finitely many fundamental ones (descent: Methods of
+proof~--~2).
+
+\head{Fact 1 (counting).} The number of Markov triples with $z\leqslant N$ is asymptotic
+to $C(\ln N)^2$, $C\approx0.18$ (Zagier), against $c\ln N$ solutions of a Pell equation. Whether $z$ determines
+the triple is Frobenius' uniqueness conjecture, still open.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Prove Theorem 1, including Legendre's criterion. Using $\sqrt{37}=[6;\overline{12}]$,
+find all integers $n$ with $0<|n|<\sqrt{37}$ for which $x^2-37y^2=n$ is solvable, and show that
+$x^2-37y^2=3$ has no integer solution although it is solvable modulo every positive
+integer~$m$.
+
+\item Let $a$ and $b$ be positive integers such that $ab+1$ divides $a^2+b^2$. Prove that
+$\dfrac{a^2+b^2}{ab+1}$ is the square of an integer. \src{IMO 1988}
+
+\item Let $a,b,c$ be positive integers with $a^2+b^2+1=abc$. Prove that $c=3$, and find all
+such pairs $(a,b)$. \src{IMS 2014}
+
+\item Prove that if $p$ and $q$ are rational numbers and $r=p+q\sqrt7$, then there exists a
+matrix $\begin{pmatrix}a&b\\c&d\end{pmatrix}\neq\pm\begin{pmatrix}1&0\\0&1\end{pmatrix}$ with
+integer entries and with $ad-bc=1$ such that $\dfrac{ar+b}{cr+d}=r$. \src{IMC 2005}
+
+\item Let $a$ be a positive integer and $n\geqslant4$. Prove that
+$x_1^2+\dots+x_n^2-ax_1x_2\cdots x_n\leqslant0$ for all real numbers with
+$2\leqslant x_1\leqslant\dots\leqslant x_n\leqslant\frac a2\,x_1\cdots x_{n-1}$, and find the
+cases of equality. What does this say about the fundamental solutions of the Hurwitz equation
+$x_1^2+\dots+x_n^2=ax_1\cdots x_n$? \src{IMC 2025, shortlist}
+\end{enumerate}
+\end{document}

@@ -1,0 +1,97 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\sheettitle}[3]{% title, subtitle, homework-flag (empty or "Homework")
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\foreignlanguage{russian}{\rudate}\par}
+  \end{center}\vspace{0.5em}}
+\newcommand{\src}[1]{\hfill(#1)}
+\newcommand{\rudate}{\number\day~\ifcase\month\or января\or февраля\or марта\or апреля\or мая\or июня\or июля\or августа\or сентября\or октября\or ноября\or декабря\fi~\number\year~года}
+\begin{document}
+\sheettitle{Polynomials -- 9}{Cyclotomic polynomials and the arithmetic of roots of unity}{Homework}
+
+\head{Theoretical minimum.} Cyclotomic polynomials $\Phi_n$: integer coefficients,
+$x^n-1=\prod_{d\mid n}\Phi_d$, the M\"obius formula $\Phi_n=\prod_{d\mid n}(x^d-1)^{\mu(n/d)}$,
+the values $\Phi_n(1)$, the formulas for $\Phi_p$ and $\Phi_{pq}$; irreducibility over
+$\mathbb{Q}$, so $\Phi_n$ is the minimal polynomial of a primitive $n$-th root of unity $\zeta$
+and $\sum a_k\zeta^k=0$ ($a_k\in\mathbb{Q}$) iff $\Phi_n\mid\sum a_kx^k$; non-negative vanishing
+sums of $pq$-th roots are unions of regular $p$- and $q$-gons, and the Lam--Leung theorem. Over
+$\mathbb{F}_p$: the power sums $\sum_x x^k$, polynomial functions of degree $<p$, Hermite's
+criterion for permutation polynomials. Annihilating ideals of the shift operator
+$f(x)\mapsto f(x+h)$ are principal and closed under gcd.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Prove the formula for $\sum_{x\in\mathbb{F}_p}x^k$ and Hermite's criterion. Deduce that
+$x^k$ permutes $\mathbb{F}_p$ if and only if $\gcd(k,p-1)=1$, and that no polynomial of degree
+$d>1$ with $d\mid p-1$ is a permutation polynomial of $\mathbb{F}_p$.
+
+\item Let $p$ be a prime. Prove that $\Phi_{pn}(x)=\Phi_n(x^p)$ if $p\mid n$, that
+$\Phi_{pn}(x)=\Phi_n(x^p)/\Phi_n(x)$ if $p\nmid n$, and that $\Phi_{2n}(x)=\Phi_n(-x)$ for odd
+$n>1$. For distinct primes $p,q$ prove that all coefficients of $\Phi_{pq}$ lie in
+$\{-1,0,1\}$ by expanding $\frac{1-x}{(1-x^p)(1-x^q)}$ modulo $x^{pq}$, and show that the coefficient of $x^7$
+in $\Phi_{105}$ equals $-2$.
+
+\item (Kronecker) Let $f\in\mathbb{Z}[x]$ be monic with $f(0)\neq0$, all of whose complex roots
+satisfy $|z|\le1$. Prove that all roots of $f$ are roots of unity. (Consider the polynomials
+$f_m=\prod(x-z_i^m)$.) Deduce that an algebraic integer all of whose conjugates have absolute
+value $1$ is a root of unity, and show by the example $\frac{3+4i}{5}$ that integrality cannot be
+dropped.
+
+\item Find all pairs of cubical dice whose faces are labelled by positive integers (repetitions
+allowed) such that the sum of the two numbers thrown has the same distribution as for two
+ordinary dice. (Factor the generating function $(x+x^2+\dots+x^6)^2$ into cyclotomic
+polynomials.)
+
+\item A family of at least two sets is called a partition of a set $X$ if the sets are pairwise
+disjoint and their union is $X$.
+\begin{enumerate}[label=\alph*)]
+\item Construct a partition of the set of all positive integers into infinitely many disjoint
+infinite arithmetic progressions with different common differences.
+\item Can the set of all positive integers be partitioned into a finite number of such
+progressions?
+\end{enumerate}
+\src{ISTCiM 2022}
+
+\item Determine all pairs $P(x),Q(x)$ of complex polynomials with leading coefficient $1$ such
+that $P(x)$ divides $Q(x)^2+1$ and $Q(x)$ divides $P(x)^2+1$.\\ \mbox{}\src{IMC 2018}
+
+\item Let $m$ be a positive integer and let $p$ be a prime divisor of $m$. Suppose that the
+complex polynomial $a_0+a_1x+\dots+a_nx^n$ with $n<\frac{p}{p-1}\varphi(m)$ and $a_n\neq0$ is
+divisible by the cyclotomic polynomial $\Phi_m(x)$. Prove that there are at least $p$ nonzero
+coefficients $a_i$. \src{VJIMC 2015}
+
+\item Suppose that for a function $f\colon\mathbb{R}\to\mathbb{R}$ and real numbers $a<b$ one
+has $f(x)=0$ for all $x\in(a,b)$. Prove that $f(x)=0$ for all $x\in\mathbb{R}$ if
+\[
+\sum_{k=0}^{p-1}f\Bigl(y+\frac kp\Bigr)=0
+\]
+for every prime number $p$ and every real number $y$. \src{IMC 2010}
+
+\item Let $p$ be an odd prime. Show that for at least $(p+1)/2$ values of $n$ in
+$\{0,1,2,\dots,p-1\}$ the number
+\[
+\sum_{k=0}^{p-1}k!\,n^k
+\]
+is not divisible by $p$ (here $0^0=1$). \src{Putnam 2011 B6}
+
+\item Let $k$ and $n$ be positive integers with $n\ge k^2-3k+4$, and let
+\[
+f(z)=z^{n-1}+c_{n-2}z^{n-2}+\dots+c_0
+\]
+be a polynomial with complex coefficients such that
+$c_0c_{n-2}=c_1c_{n-3}=\dots=c_{n-2}c_0=0$. Prove that $f(z)$ and $z^n-1$ have at most $n-k$
+common roots. \src{IMC 2017}
+\end{enumerate}
+\end{document}

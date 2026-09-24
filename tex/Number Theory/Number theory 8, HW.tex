@@ -1,0 +1,89 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\rudate}{\number\day~\ifcase\month\or января\or февраля\or марта\or апреля\or мая\or июня\or июля\or августа\or сентября\or октября\or ноября\or декабря\fi~\number\year~года}
+\newcommand{\sheettitle}[3]{% title, subtitle, homework-flag (empty or "Homework")
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\foreignlanguage{russian}{\rudate}\par}
+  \end{center}\vspace{0.5em}}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1){\parfillskip=0pt\par}}
+\begin{document}
+\sheettitle{Number theory -- 8}{Pell equations, Markov-type equations and Vieta jumping}{Homework}
+
+\head{Theoretical minimum.} If $|\alpha-p/q|<1/(2q^2)$, then $p/q$ is a convergent of $\alpha$
+(Legendre); so a solution of $0<|x^2-dy^2|<\sqrt d$ comes from a convergent of $\sqrt d$.
+Continued fractions are eventually periodic exactly for quadratic irrationals,
+$\sqrt d=[a_0;\overline{a_1,\dots,a_{r-1},2a_0}]$, and $p_{k-1}^2-dq_{k-1}^2=(-1)^kQ_k$ with
+$0<Q_k<2\sqrt d$, $Q_k=1$ iff $r\mid k$. The norm $x^2-dy^2$ is multiplicative, the units of
+$\mathbb Z[\sqrt d]$ are $\pm\eta^k$, the solutions of $x^2-dy^2=1$ are $\pm\varepsilon^k$
+with $\varepsilon\in\{\eta,\eta^2\}$ (existence: Number theory~--~5). For $n\neq0$ the
+solutions of $x^2-dy^2=n$ form $h<\infty$ classes $\pm\beta\varepsilon^k$, and there are
+$\frac{h}{\ln\varepsilon}\ln X+O(1)$ of them with $0<x\leqslant X$. Vieta jumping: with $z$
+also $z'=s-z=t/z$ is a root of $z^2-sz+t=0$; by descent all Markov triples
+($x^2+y^2+z^2=3xyz$) come from $(1,1,1)$ and form a binary tree, about $C(\ln N)^2$ of them
+below $N$, and the Hurwitz equation $\sum x_i^2=a\prod x_i$ has finitely many fundamental
+solutions, those with $x_n\leqslant\frac a2x_1\cdots x_{n-1}$.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Find a triple of integers $x,y,z$, each greater than $50$, satisfying
+$x^2+y^2+z^2=3xyz$. \src{VJIMC 1994}
+
+\item Prove that there exist infinitely many integers $n$ such that $n$, $n+1$, $n+2$ are each
+the sum of two squares of integers. (Example: $0=0^2+0^2$, $1=0^2+1^2$, $2=1^2+1^2$.)
+\src{Putnam 2000}
+
+\item Evaluate
+\[\sqrt[8]{2207-\cfrac{1}{2207-\cfrac{1}{2207-\cdots}}}\,.\]
+Express your answer in the form $\frac{a+b\sqrt c}{d}$, where $a,b,c,d$ are integers.
+\src{Putnam 1995}
+
+\item Let $a_0=1$, $a_1=2$, and $a_n=4a_{n-1}-a_{n-2}$ for $n\geqslant2$. Find an odd prime
+factor of $a_{2015}$. \src{Putnam 2015}
+
+\item Consider the power series expansion
+$\dfrac1{1-2x-x^2}=\displaystyle\sum_{n=0}^\infty a_nx^n$. Prove that, for each integer
+$n\geqslant0$, there is an integer $m$ such that $a_n^2+a_{n+1}^2=a_m$. \src{Putnam 1999}
+
+\item Let $a_0=1$ and $a_{n+1}=\dfrac{7a_n+\sqrt{45a_n^2-36}}{2}$ for $n\geqslant0$. Show that
+for all positive integers $n$: a)~$a_n$ is a positive integer; b)~$a_na_{n+1}-1$ is the square
+of an integer. \src{VJIMC 2019}
+
+\item Prove that the numbers of a Markov triple are pairwise coprime, that no Markov number is
+divisible by $4$, and that every odd prime divisor of a Markov number is $\equiv1\pmod 4$. Then
+prove that $x^2+y^2+z^2=kxyz$ has a solution in positive integers only for $k=1$ and $k=3$, and
+that the solutions for $k=1$ are exactly the triples $(3x,3y,3z)$ with $(x,y,z)$ a Markov
+triple.
+
+\item Let $d>1$ be a non-square, $\varepsilon>1$ the least solution of $x^2-dy^2=1$ and
+$n\neq0$. Prove that every solution of $x^2-dy^2=n$ equals $\pm\beta\varepsilon^k$ with
+$k\in\mathbb Z$ and $\beta=u+v\sqrt d$ a solution with
+$\sqrt{|n|}\leqslant\beta<\varepsilon\sqrt{|n|}$, and give explicit bounds for $|u|$, $|v|$.
+Deduce that the number of solutions in positive integers with $x\leqslant X$ is
+$\frac h{\ln\varepsilon}\ln X+O(1)$, where $h$ is the number of classes. Find all solutions of
+$x^2-3y^2=13$ in positive integers.
+
+\item Prove that the continued fraction of a real $\alpha$ is eventually periodic if and only
+if $\alpha$ is a quadratic irrational, and purely periodic if and only if, moreover, $\alpha>1$
+and its conjugate lies in $(-1,0)$ (Galois). Deduce that
+$\sqrt d=[a_0;\overline{a_1,\dots,a_{r-1},2a_0}]$ with $a_1,\dots,a_{r-1}$ symmetric, compute
+the continued fractions of $\sqrt{m^2+1}$ and $\sqrt{m^2-1}$ ($m\geqslant2$ in the second case), and find the corresponding units
+$\eta$ and $\varepsilon$.
+
+\item For a positive integer $N$, let $S_N$ be the number of pairs of integers
+$1\leqslant a,b\leqslant N$ such that $(a^2+a)(b^2+b)$ is a perfect square. Prove that the
+limit $\ell=\lim_{N\to\infty}S_N/N$ exists and find its value. Is it true that
+$|S_N-\ell N|\leqslant N^{1/2025}$ for all sufficiently large $N$? \src{IMC 2025 and shortlist}
+\end{enumerate}
+\end{document}

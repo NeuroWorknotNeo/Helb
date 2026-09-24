@@ -1,0 +1,115 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\sheettitle}[3]{% title, subtitle, homework-flag (empty or "Homework")
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\rudate\par}
+  \end{center}\vspace{0.5em}}
+\newcommand{\rudate}{\foreignlanguage{russian}{\number\day~\ifcase\month\or января\or февраля\or марта\or апреля\or мая\or июня\or июля\or августа\or сентября\or октября\or ноября\or декабря\fi\ \number\year~года}}
+\newcommand{\src}[1]{\hfill(#1)}
+\begin{document}
+\sheettitle{Combinatorics -- 7}{Extremal set systems and additive combinatorics}{}
+
+\head{Theoretical minimum.} How large can a graph or a family of sets be without a given
+configuration, and how small can a sumset $A+B$ be? The answers come from double counting
+with convexity, from induction on the ground set, and from splitting by binary digits.
+Sperner, Tur\'an, Ramsey and Erd\H{o}s--Ko--Rado are in Combinatorics -- 5 and are used freely.
+
+\head{Definitions.} $K_{s,t}$ is the complete bipartite graph with parts of sizes $s$ and $t$.
+The \emph{shift graph} $G_n$ has as vertices the pairs $(i,j)$, $1\leqslant i<j\leqslant n$,
+and joins $(i,j)$ with $(j,k)$ whenever $i<j<k$. A family $\mathcal F\subseteq2^{[n]}$ is an
+\emph{up-set} if $A\in\mathcal F$, $A\subseteq B$ imply $B\in\mathcal F$ (a \emph{down-set}
+dually), \emph{intersecting} if any two members meet, and \emph{union-closed} if
+$A,B\in\mathcal F\Rightarrow A\cup B\in\mathcal F$. In an abelian group
+$A+B=\{a+b:a\in A,\ b\in B\}$ and $hA=A+\dots+A$ ($h$ times).
+
+\head{Theorem 1 (K\H{o}v\'ari--S\'os--Tur\'an).} Let $G$ be bipartite with parts $U$, $W$,
+$|U|=m$, $|W|=n$, and suppose no $s$ vertices of $U$ have $t$ common neighbours. Then
+\[
+e(G)\leqslant (t-1)^{1/s}\,m\,n^{1-1/s}+(s-1)\,n .
+\]
+\emph{Proof.} Count pairs $(S,w)$ with $S\subseteq U$, $|S|=s$, $S\subseteq N(w)$:
+$\sum_{w\in W}\binom{d(w)}{s}\leqslant(t-1)\binom ms$. The function $x\mapsto\binom xs$
+(set to $0$ for $x<s-1$) is convex, so Jensen gives $n\binom{e/n}{s}\leqslant(t-1)\binom ms$,
+and $\binom xs\geqslant(x-s+1)^s/s!$ finishes. Consequently a $K_{s,t}$-free graph on $n$
+vertices ($s\leqslant t$) has at most $\frac12(t-1)^{1/s}n^{2-1/s}+\frac12(s-1)n$ edges.
+
+\head{Theorem 2 (shift graphs).} $\chi(G_n)=\lceil\log_2 n\rceil$, although $G_n$ has no
+triangle. \emph{Proof.} Colour $(i,j)$ by the highest binary digit in which $i-1$ and $j-1$
+differ: there $j$ has a $1$, while in the colour of $(j,k)$ it is $j$ that has a $0$.
+Conversely, given a proper colouring $c$ with $m$ colours put
+$S_i=\{c(i,j):j>i\}$; for $i<j$ the colour $c(i,j)$ lies in $S_i$ but not in $S_j$, so the
+$n$ sets $S_i\subseteq[m]$ are distinct and $n\leqslant 2^m$.
+
+\head{Theorem 3 (Harris--Kleitman).} If $\mathcal A,\mathcal B\subseteq2^{[n]}$ are up-sets,
+then $|\mathcal A\cap\mathcal B|\,2^n\geqslant|\mathcal A|\,|\mathcal B|$; the same holds for two
+down-sets, and the inequality reverses for an up-set and a down-set. \emph{Proof} by induction
+on $n$: split $\mathcal A$ into $\mathcal A_0=\{A:n\notin A\}$ and
+$\mathcal A_1=\{A\setminus\{n\}:n\in A\}$; then $\mathcal A_0\subseteq\mathcal A_1$, and
+Chebyshev's inequality $2(a_0b_0+a_1b_1)\geqslant(a_0+a_1)(b_0+b_1)$ for $a_0\leqslant a_1$,
+$b_0\leqslant b_1$ closes the induction.
+
+\head{Theorem 4 (Cauchy--Davenport; subgroups).} For non-empty $A,B\subseteq\mathbb Z/p\mathbb Z$,
+$p$ prime, $|A+B|\geqslant\min\{p,|A|+|B|-1\}$; in $\mathbb Z$ always
+$|A+B|\geqslant|A|+|B|-1$ (the proof by the Combinatorial Nullstellensatz is Linear
+algebra -- 6, homework 10). In a finite abelian group $G$: if $|A|+|B|>|G|$ then $A+B=G$ (pigeonhole), and
+$|A+A|=|A|$ exactly when $A$ is a coset of a subgroup. In $\mathbb F_2^n$ one has $A+A=A-A$,
+and the extremal sets are affine subspaces.
+
+\head{Fact 1 (covering pairs; designs).} If $b$ blocks of size $k$ cover all pairs of a
+$v$-set, every point lies in at least $\lceil\frac{v-1}{k-1}\rceil$ blocks, so
+$b\geqslant\lceil\frac vk\lceil\frac{v-1}{k-1}\rceil\rceil$ (Sch\"onheim). A Steiner triple
+system (every pair in exactly one triple) needs $v\equiv1,3\pmod 6$; the lines
+$\{x,y,x+y\}$ of $\mathbb F_2^m\setminus\{0\}$ give one for $v=2^m-1$ (the Fano plane for $m=3$).
+
+\head{Fact 2 (union-closed sets; dyadic arguments).} Frankl's conjecture: a union-closed
+family with a non-empty member has an element lying in at least half of the members. It is
+open; some element always lies in a fraction $\approx0.38$ of them (Gilmer and successors). If
+a set of integers contains, with any two elements of the same parity, their midpoint, and
+contains $a$ and $a+2^kd$, then it contains every $a+jd$, $0\leqslant j\leqslant2^k$: halve
+$k$ times. The $2$-adic valuation of the gap decides whether such an argument can work.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Prove Theorem 1 and deduce the bound for $K_{s,t}$-free graphs on $n$ vertices; check that
+for $s=t=2$ it gives the four-cycle bound of Combinatorics -- 5. Then prove that every
+$n\times n$ matrix of zeros and ones with at least $2n^{5/3}$ ones contains a $3\times3$
+submatrix (three rows, three columns, not necessarily adjacent) consisting of ones, for all $n$.
+
+\item Let $A,B$ be non-empty subsets of a finite abelian group $G$. Prove that $|A|+|B|>|G|$
+implies $A+B=G$, and that $|A+A|=|A|$ holds exactly for the cosets of subgroups. Then prove that
+if $|A-A|<\frac32|A|$, then $A-A$ is a subgroup (show first that $|A\cap(A+x)|>\frac12|A|$
+for every $x\in A-A$), and show that the constant $\frac32$ cannot be increased.
+
+\item There are $2n$ students in a school ($n\in\mathbb N$, $n\geqslant2$). Each week $n$
+students go on a trip. After several trips the following condition was fulfilled: every two
+students were together on at least one trip. What is the minimum number of trips needed for
+this to happen? \src{IMC 2013}
+
+\item Let $n\geqslant k$ be positive integers, and let $\mathcal F$ be a family of finite sets
+with the following properties: (i) $\mathcal F$ contains at least $\binom nk+1$ distinct sets
+containing exactly $k$ elements; (ii) for any two sets $A,B\in\mathcal F$, their union
+$A\cup B$ also belongs to $\mathcal F$. Prove that $\mathcal F$ contains at least three sets
+with at least $n$ elements. \src{IMC 2016}
+
+\item Let $n>3$ be an integer. Let $\Omega$ be the set of all triples of distinct elements of
+$\{1,2,\dots,n\}$. Let $m$ denote the minimal number of colours which suffice to colour $\Omega$
+so that whenever $1\leqslant a<b<c<d\leqslant n$, the triples $\{a,b,c\}$ and $\{b,c,d\}$ have
+different colours. Prove that
+\[
+\tfrac1{100}\log\log n\leqslant m\leqslant100\log\log n .
+\]
+\src{IMC 2022}
+\end{enumerate}
+\end{document}

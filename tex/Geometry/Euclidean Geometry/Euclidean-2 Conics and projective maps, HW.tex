@@ -1,0 +1,109 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\sheettitle}[3]{% title, subtitle, homework-flag (empty or "Homework")
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\begin{otherlanguage}{russian}\number\day~\ifcase\month\or января\or февраля\or марта\or апреля\or мая\or июня\or июля\or августа\or сентября\or октября\or ноября\or декабря\fi~\number\year~года\end{otherlanguage}\par}
+  \end{center}\vspace{0.5em}}
+\newcommand{\src}[1]{\hfill(#1)}
+\begin{document}
+\sheettitle{Euclidean geometry -- 2}{Conics, areas and projective maps}{Homework}
+
+\head{Theoretical minimum.} The conic with focus $F$, directrix $l$ and
+eccentricity $e$ is $\{X: |XF|=e\,d(X,l)\}$ (ellipse, parabola, hyperbola for
+$e<1$, $e=1$, $e>1$); in polar coordinates at $F$ it is
+$r=p/(1+e\cos\varphi)$. For $e\ne1$: $|XF_1|\pm|XF_2|=\mathrm{const}=2a$,
+$c=ea$, directrices at distance $a/e$ from the centre. The tangent bisects the
+angle between the focal radii (externally for the ellipse), so rays from one
+focus are reflected into the other. Normals to $x^2=2py$ through $(u,v)$
+have feet $t$ with $t^3+2p(p-v)t-2p^2u=0$. Up to affine maps a non-degenerate
+conic is $x^2+y^2=1$, $x^2-y^2=1$ or $y=x^2$; five points, no four collinear,
+lie on a unique conic, and the conics through four points form a pencil
+$\lambda Q_1+\mu Q_2$ with three line pairs. $[ABC]=\frac12\det(B-A,C-A)$ is
+affine in each vertex; affine maps multiply areas by $\det M$. Perspectivities
+preserve the cross-ratio $(a,b;c,d)=\frac{(c-a)(d-b)}{(c-b)(d-a)}$; projective
+maps $x\mapsto\frac{\alpha x+\beta}{\gamma x+\delta}$ are fixed by three
+points and are compositions of perspectivities. The inscribed $n$-gon of
+maximal perimeter in a smooth strictly convex curve is a billiard trajectory.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Let $A$ be the area of the region in the first quadrant bounded by the
+line $y=\frac12x$, the $x$-axis and the ellipse $\frac19x^2+y^2=1$. Find the
+positive number $m$ such that $A$ is equal to the area of the region in the
+first quadrant bounded by the line $y=mx$, the $y$-axis and the ellipse.
+\src{Putnam 1994 A2}
+
+\item A \emph{standard parabola} is the graph of a quadratic polynomial
+$y=x^2+ax+b$ with leading coefficient $1$. Three standard parabolas with
+vertices $V_1,V_2,V_3$ intersect pairwise at points $A_1,A_2,A_3$ (the ones
+with vertices $V_j,V_k$ at $A_i$, $\{i,j,k\}=\{1,2,3\}$). Let $A\mapsto s(A)$
+be the reflection of the plane in the $x$-axis. Prove that the standard
+parabolas with vertices $s(A_1),s(A_2),s(A_3)$ intersect pairwise at the
+points $s(V_1),s(V_2),s(V_3)$. \src{IMC 2002}
+
+\item Suppose that the section of the cone $x^2+y^2=z^2$, $z\ge0$, by a plane
+is an ellipse. Prove that the origin is a focus of the orthogonal projection
+of this ellipse to the plane $Oxy$. \src{МФТИ 2015}
+
+\item Let $a>b>0$ and let $\varepsilon$ be the ellipse
+$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$. Let $F$ be one of its foci, and let $A$
+and $B$ be points of $\varepsilon$ such that $F$ lies on the segment $AB$ and
+$AB$ is not the major axis. Let $C$ be the intersection point of the tangents
+to $\varepsilon$ at $A$ and $B$. Prove that (a) $CF\perp AB$; (b) $C$ lies on
+a directrix of the ellipse. \src{OMOUS 2023}
+
+\item An ellipse with foci $F_1$ and $F_2$ lies inside a circle with centre
+$O$ and radius $r$ and touches it at two points. Prove that the eccentricity
+of the ellipse equals $OF_1/r$. \src{Мехмат, матбой 2010}
+
+\item Let $A$ and $B$ be points on the same branch of the hyperbola $xy=1$.
+Suppose that $P$ is a point lying between $A$ and $B$ on this hyperbola, such
+that the area of the triangle $APB$ is as large as possible. Show that the
+region bounded by the hyperbola and the chord $AP$ has the same area as the
+region bounded by the hyperbola and the chord $PB$. \src{Putnam 2015 A1}
+
+\item Let $A,B$ be different points on a parabola. Prove that one can find
+points $P_1,P_2,\dots,P_n$ between $A$ and $B$ on the parabola such that the
+area of the convex polygon $AP_1P_2\dots P_nB$ is maximal. Prove that in this
+case the ratio of this area to the area of the parabolic segment cut off by
+$AB$ does not depend on $A$ and $B$ but only on $n$, and find it.
+\src{IMS 2008}
+
+\item Let $a,b,c$ be three points of a parabola, $b$ lying on the arc between
+$a$ and $c$, and let $A$, $B$, $C$ be the intersection points of the tangents
+at $b$ and $c$, at $c$ and $a$, at $a$ and $b$, respectively. Denote by
+$S_{xyz}$ the area of the triangle $xyz$. Prove that (a) the circumcircle of
+$ABC$ passes through the focus of the parabola; (b) the orthocentre of $ABC$
+lies on the directrix; (c) $S_{abc}=2S_{ABC}$; (d)
+$\sqrt[3]{S_{abC}}+\sqrt[3]{S_{bcA}}=\sqrt[3]{S_{caB}}$. \src{OMOUS 2024}
+
+\item Let $A,B,C,D$ be four distinct points of a non-degenerate conic. Prove
+that the cross-ratio of the lines $XA,XB,XC,XD$ (i.e.\ of their intersection
+points with a fixed line) is the same for all points $X\ne A,B,C,D$ of the
+conic (Chasles, Steiner). (Hint: map the conic to a
+circle by a projective map and use inscribed angles.) Deduce Pascal's theorem:
+for a hexagon inscribed in a non-degenerate conic, the three intersection
+points of pairs of opposite sides (possibly at infinity) lie on one line.
+
+\item Let $A_1A_2\dots A_{3n}$ be a closed broken line consisting of $3n$ line
+segments in the Euclidean plane. Suppose that no three of its vertices are
+collinear, and for each index $i=1,2,\dots,3n$, the triangle
+$A_iA_{i+1}A_{i+2}$ has counterclockwise orientation and
+$\angle A_iA_{i+1}A_{i+2}=60^\circ$, using the notation $A_{3n+1}=A_1$ and
+$A_{3n+2}=A_2$. Prove that the number of self-intersections of the broken line
+is at most $\frac32n^2-2n+1$. (Crossings of segments are also counted in
+Combinatorics -- 6.) \src{IMC 2014}
+\end{enumerate}
+\end{document}

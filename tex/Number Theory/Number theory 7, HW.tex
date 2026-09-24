@@ -1,0 +1,92 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\rudate}{\number\day~\ifcase\month\or января\or февраля\or марта\or апреля\or мая\or июня\or июля\or августа\or сентября\or октября\or ноября\or декабря\fi~\number\year~года}
+\newcommand{\sheettitle}[3]{% title, subtitle, homework-flag (empty or "Homework")
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\foreignlanguage{russian}{\rudate}\par}
+  \end{center}\vspace{0.5em}}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1)\parfillskip=0pt\par}
+\newcommand{\fl}[1]{\left\lfloor #1\right\rfloor}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\ord}{ord}
+\begin{document}
+\sheettitle{Number theory -- 7}{The integer part, sizes of roots and denominators}{Homework}
+
+\head{Theoretical minimum.} One has $\lfloor x\rfloor+\lfloor y\rfloor\leqslant\lfloor x+y\rfloor
+\leqslant\lfloor x\rfloor+\lfloor y\rfloor+1$, $\fl{\lfloor x\rfloor/n}=\lfloor x/n\rfloor$ and Hermite's identity
+$\sum_{k=0}^{n-1}\fl{x+\frac kn}=\lfloor nx\rfloor$. A sum $\sum\lfloor f(k)\rfloor$ counts lattice
+points under a graph; for coprime $p,q$ this gives
+$\sum_{k=1}^{q-1}\fl{\frac{kp}q}=\frac{(p-1)(q-1)}2$. Rayleigh--Beatty: for irrational
+$\alpha,\beta>1$ with $\frac1\alpha+\frac1\beta=1$ the sequences $\lfloor n\alpha\rfloor$ and
+$\lfloor n\beta\rfloor$ partition the positive integers. Roots are located by
+$1+\frac ta-\frac{(a-1)t^2}{2a^2}\leqslant(1+t)^{1/a}\leqslant1+\frac ta$ ($t\geqslant0$) and exact
+comparison with integer powers. For $L(n)=\lcm(1,\dots,n)$ one has $L(N)\int_0^1P\in\mathbb Z$ for
+$P\in\mathbb Z[x]$ of degree $<N$, whence $2^n\leqslant L(n)\leqslant4^n$ for $n\geqslant7$. A sum
+of rationals in which exactly one term has the least $p$-adic valuation has that valuation. Landau's
+function
+$g(n)=\max_{\sigma\in S_n}\ord\sigma$ satisfies $\ln g(n)\sim\sqrt{n\ln n}$.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Prove the converse of the Rayleigh--Beatty theorem: if $\alpha,\beta>0$ and every positive
+integer occurs exactly once among the numbers $\lfloor n\alpha\rfloor$, $\lfloor n\beta\rfloor$
+($n\geqslant1$), then $\alpha,\beta$ are irrational and $\frac1\alpha+\frac1\beta=1$. Then prove
+that the $n$-th positive integer which is not a perfect square equals
+$n+\fl{\sqrt n+\frac12}$, and describe the positive integers not of the form
+$\lfloor k\sqrt2\rfloor$. (For $\alpha$ the golden ratio see Game theory -- 1.)
+
+\item Prove that for every positive integer $n$
+$\fl{\sqrt n+\sqrt{n+1}}=\fl{\sqrt{4n+2}}$ and
+$\fl{\sqrt[3]n+\sqrt[3]{n+1}+\sqrt[3]{n+2}}=\fl{\sqrt[3]{27n+26}}$.
+
+\item What is the units (i.e., rightmost) digit of
+$\displaystyle\fl{\frac{10^{20000}}{10^{100}+3}}$? \src{Putnam 1986 A2}
+
+\item Prove that $\frac1m+\frac1{m+1}+\dots+\frac1n$ is not an integer for $1\leqslant m<n$. Prove
+that the reduced denominator of $H_n=1+\frac12+\dots+\frac1n$ divides $L(n)$ and is divisible by
+$2^{\lfloor\log_2n\rfloor}$ and by every prime $p$ with $\frac n2<p\leqslant n$, and show that it
+can be strictly smaller than $L(n)$.
+
+\item Let $n$ be a positive integer and let $a_1\leqslant a_2\leqslant\dots\leqslant a_n$ be real
+numbers such that $a_1+2a_2+\dots+na_n=0$. Prove that
+$a_1\lfloor x\rfloor+a_2\lfloor2x\rfloor+\dots+a_n\lfloor nx\rfloor\geqslant0$ for every real
+number $x$. \src{VJIMC 2018}
+
+\item Find all real numbers $x>1$ such that for every positive integer $n$ the equality
+\[
+\fl{\frac{n+1}x}=n-\fl{\frac nx}+\fl{\frac{\lfloor n/x\rfloor}x}
+-\fl{\frac{\fl{\lfloor n/x\rfloor/x}}x}+\dots
+\]
+holds (the sum on the right is finite). \src{VJIMC 2025}
+
+\item Prove that Landau's function $g(n)$ equals the maximum of $q_1q_2\cdots q_r$ over all
+collections of powers $q_1,\dots,q_r$ of distinct primes with $q_1+\dots+q_r\leqslant n$, and that
+there are absolute constants $c_1,c_2>0$ with
+$c_1\sqrt{n\ln n}\leqslant\ln g(n)\leqslant c_2\sqrt{n\ln n}$ for $n\geqslant2$. Use only
+Chebyshev's bounds for $\pi(x)$; the case of small $n$ is in Abstract algebra -- 3.
+
+\item Let $n$ be a positive integer. Prove that
+$\sum_{k=1}^{n}(-1)^{\lfloor k(\sqrt2-1)\rfloor}\geqslant0$. \src{Putnam 2020 B6}
+
+\item For a positive real number $\alpha$ define
+$S(\alpha)=\{\lfloor n\alpha\rfloor:n=1,2,3,\dots\}$. Prove that $\{1,2,3,\dots\}$ cannot be
+expressed as the disjoint union of three sets $S(\alpha)$, $S(\beta)$ and $S(\gamma)$.
+\src{Putnam 1995 B6}
+
+\item For every positive integer $n$, let $f(n),g(n)$ be the minimal positive integers such that
+$1+\frac1{1!}+\frac1{2!}+\dots+\frac1{n!}=\frac{f(n)}{g(n)}$. Determine whether there exists a positive integer $n$ for which $g(n)>n^{0.999n}$.
+\src{IMC 2023}
+\end{enumerate}
+\end{document}
