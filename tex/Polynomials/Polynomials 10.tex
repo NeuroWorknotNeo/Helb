@@ -1,0 +1,127 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\rudate}{\number\day~\ifcase\month\or января\or февраля\or марта\or апреля\or мая\or июня\or июля\or августа\or сентября\or октября\or ноября\or декабря\fi~\number\year~года}
+\newcommand{\sheettitle}[3]{% title, subtitle, homework-flag (empty or "Homework")
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\foreignlanguage{russian}{\rudate}\par}
+  \end{center}\vspace{0.5em}}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1){\parfillskip=0pt\par}}
+\begin{document}
+\sheettitle{Polynomials -- 10}{Where the roots lie: bounds, Gauss--Lucas, stability and real-rootedness}{}
+
+\head{Theoretical minimum.} The position of the roots can be read off without solving the
+equation, by two devices: comparing the sizes of the monomials (a dominant term forbids roots or
+forces a sign), and the logarithmic derivative $P'/P=\sum_j\frac1{z-z_j}$, whose real or imaginary
+part has a fixed sign away from the roots. Counting real roots (Descartes, Sturm, Newton) is done in
+Polynomials -- 4, the argument principle and Rouch\'e in Complex Analysis -- 3.
+
+\head{Definitions.} $P(z)=a_nz^n+\dots+a_1z+a_0$ with $a_n\neq0$, and $D=\frac{d}{dx}$. A real
+polynomial is \emph{real-rooted} if all its roots are real, and (\emph{Hurwitz}) \emph{stable} if
+all its roots satisfy $\operatorname{Re}z<0$. Two real-rooted polynomials $f,g$ with
+$\deg f-\deg g\in\{0,1\}$ and simple roots \emph{interlace} if their roots alternate on the line:
+between two consecutive roots of one of them there is exactly one root of the other.
+
+\head{Theorem 1 (bounds from the coefficients).} a) (Cauchy) Unless $a_0=\dots=a_{n-1}=0$, every root satisfies $|z|\le R$, where $R$ is the unique positive root of
+$|a_n|x^n=|a_{n-1}|x^{n-1}+\dots+|a_0|$; hence $|z|<1+\max_{k<n}|a_k/a_n|$ and (Fujiwara)
+$|z|\le2\max_{1\le k\le n}|a_{n-k}/a_n|^{1/k}$.
+b) (Dominant monomial) If $|a_m|r^m>\sum_{k\neq m}|a_k|r^k$, then $P$ has no roots on $|z|=r$ and
+exactly $m$ roots in $|z|<r$ (Rouch\'e). For real $x$ the same inequality with $r=|x|$ gives
+$\operatorname{sign}P(x)=\operatorname{sign}(a_mx^m)$: points at which different monomials dominate
+produce sign changes, hence real roots, by the intermediate value theorem alone.
+c) (Enestr\"om--Kakeya) If all $a_k>0$, every root satisfies
+$\min_k\frac{a_k}{a_{k+1}}\le|z|\le\max_k\frac{a_k}{a_{k+1}}$; in particular
+$0<a_0\le a_1\le\dots\le a_n$ gives $|z|\le1$.
+\emph{Proof sketch.} a) For $|z|>R$ the leading term beats all the others together, and
+$x\mapsto\sum_{k<n}|a_k|x^{k-n}$ is decreasing; for Fujiwara check the inequality at $x=2M$.
+c) In the monotone case $(1-z)P(z)+a_nz^{n+1}=a_0+\sum_{k\ge1}(a_k-a_{k-1})z^k$ has modulus at
+most $a_n|z|^n$ for $|z|\ge1$; in general put $z=\rho w$ with $\rho=\max a_k/a_{k+1}$, and use
+$z^nP(1/z)$ for the lower bound.
+
+\head{Theorem 2 (Gauss--Lucas).} The roots of $P'$ lie in the convex hull of the roots
+$z_1,\dots,z_n$ of $P$. \emph{Proof.} If $P'(w)=0\neq P(w)$, then
+$0=\overline{P'(w)/P(w)}=\sum_j\frac{w-z_j}{|w-z_j|^2}$, so $w$ is a convex combination of the $z_j$
+with weights proportional to $|w-z_j|^{-2}$. So every disc, half-plane or strip containing the roots
+of $P$ contains those of $P',P'',\dots$ (Complex Analysis -- 1). The same computation gives more:
+if all $\operatorname{Re}z_j\le c$, then $\operatorname{Re}(P'/P)>0$ on $\{\operatorname{Re}z>c\}$;
+if all $\operatorname{Im}z_j\le c$, then $\operatorname{Im}(P'/P)<0$ on $\{\operatorname{Im}z>c\}$.
+
+\head{Theorem 3 (stable polynomials).} a) Every real stable polynomial is a product of factors
+$z+\alpha$ and $z^2+pz+q$ with $\alpha,p,q>0$, so all its coefficients are non-zero and of one sign.
+Products of stable polynomials are stable, and if $f$ is stable, then so are $f'$ and $f+af'$ for
+$a\ge0$, since $\operatorname{Re}(1+af'/f)>0$ on $\{\operatorname{Re}z\ge0\}$.
+b) (Routh--Hurwitz in small degree) Let all $a_k>0$. For $n\le2$ the polynomial is stable; for $n=3$
+it is stable iff $a_1a_2>a_0a_3$; for $n=4$ iff $a_1a_2a_3>a_0a_3^2+a_4a_1^2$. In general: iff all
+leading principal minors of the Hurwitz matrix $(a_{n-2j+i})_{i,j=1}^n$ are positive (may be quoted).
+\emph{Proof idea.} The roots depend continuously on the coefficients and can leave the left
+half-plane only through $i\mathbb{R}$; the equation $P(iy)=0$ splits into the even and the odd part,
+and eliminating $y$ gives exactly the boundary $a_1a_2=a_0a_3$ (resp.\ the quartic one). Test one
+polynomial on each side, e.g.\ $(z+1)^n$.
+
+\head{Theorem 4 (operators preserving real-rootedness).} Let $f$ be real-rooted.
+a) For every real $a$ the polynomial $f+af'$ is real-rooted: by Theorem 2, $\operatorname{Im}(f'/f)\neq0$ off
+$\mathbb{R}$. Likewise, a strip $\{|\operatorname{Im}z|\le c\}$ containing the roots of $f$ contains those
+of $f+af'$. (Another proof: $f+af'=ae^{-x/a}(e^{x/a}f)'$ and Rolle, Polynomials -- 4.)
+b) (Hermite--Poulain) If $\varphi(t)=\sum_kb_kt^k$ is real-rooted, then
+$\varphi(D)f=\sum_kb_kf^{(k)}$ is real-rooted or $0$: factor $\varphi$ into $t$'s and $(1+at)$'s.
+c) (Laguerre) If $f=\sum_{k=0}^nc_kx^k$ and $\varphi$ is real-rooted with no roots in the open
+interval $(0,n)$, then $\varphi(xD)f=\sum_k\varphi(k)c_kx^k$ is real-rooted or $0$: use
+$xf'-\gamma f=x^{\gamma+1}(x^{-\gamma}f)'$ on each half-line and Rolle.
+d) (Hermite--Kakeya--Obreschkoff) For real $f,g$ without common roots and with
+$\deg f-\deg g\in\{0,1\}$, all combinations $\lambda f+\mu g$, $(\lambda,\mu)\in\mathbb{R}^2\setminus\{0\}$,
+are real-rooted iff $f$ and $g$ have simple real interlacing roots. \emph{Idea:} both conditions
+say that $g/f$ takes every value in $\mathbb{R}\cup\{\infty\}$ exactly $\deg f$ times on
+$\mathbb{R}\cup\{\infty\}$, i.e.\ is monotone between its poles. Example: $f$ and $f'$ for $f$ with simple real roots.
+
+\head{Fact 1 (Descartes for exponential sums).} For real $\lambda_1<\dots<\lambda_m$ and non-zero real
+$c_i$, the function $F(x)=\sum_ic_ie^{\lambda_ix}$ has at most as many real zeros, counted with
+multiplicity, as there are sign changes in $c_1,\dots,c_m$. \emph{Proof.} If the sign changes between
+$c_j$ and $c_{j+1}$, take $\lambda_j<\lambda<\lambda_{j+1}$: then $(e^{-\lambda x}F)'$ has one sign change
+fewer, and apply Rolle. For $\lambda_i\in\mathbb{Z}_{\ge0}$ and $x=\ln t$ this is Descartes' rule
+(Polynomials -- 4).
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Prove Theorem 1 in full. Deduce that for every $n\ge1$ all roots of
+$1+z+\frac{z^2}{2!}+\dots+\frac{z^n}{n!}$ lie in the annulus $1\le|z|\le n$, and show that the
+Cauchy radius $R$ cannot be improved: for any given moduli $|a_0|,\dots,|a_n|$ some polynomial with
+coefficients of these moduli has a root of modulus exactly $R$.
+
+\item Let $n$ be a positive integer. Show that there are positive real numbers $a_0,a_1,\dots,a_n$
+such that for each choice of signs the polynomial
+\[
+\pm a_nx^n\pm a_{n-1}x^{n-1}\pm\dots\pm a_1x\pm a_0
+\]
+has $n$ distinct real roots. \src{IMC 2014}
+
+\item Let $p$ and $q$ be complex polynomials with $\deg p>\deg q$ and let $f(z)=\frac{p(z)}{q(z)}$.
+Suppose that all roots of $p$ lie inside the unit circle $|z|=1$ and that all roots of $q$ lie
+outside the unit circle. Prove that
+\[
+\max_{|z|=1}|f'(z)|>\frac{\deg p-\deg q}{2}\,\max_{|z|=1}|f(z)|.
+\]
+\src{VJIMC 2011, cat.~II}
+
+\item Let $f(z)=a_nz^n+a_{n-1}z^{n-1}+\dots+a_1z+a_0$ be a polynomial with real coefficients. Prove
+that if all roots of $f$ lie in the left half-plane $\{z\in\mathbb{C}:\operatorname{Re}z<0\}$, then
+\[
+a_ka_{k+3}<a_{k+1}a_{k+2}
+\]
+holds for every $k=0,1,\dots,n-3$. \src{IMC 2003}
+
+\item Let $f\neq0$ be a polynomial with real coefficients. Define the sequence $f_0,f_1,f_2,\dots$
+of polynomials by $f_0=f$ and $f_{n+1}=f_n+f_n'$ for every $n\ge0$. Prove that there exists a number
+$N$ such that for every $n\ge N$ all roots of $f_n$ are real. \src{IMC 2007}
+\end{enumerate}
+\end{document}
