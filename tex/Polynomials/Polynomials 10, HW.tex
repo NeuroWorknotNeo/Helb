@@ -1,0 +1,117 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\rudate}{\number\day~\ifcase\month\or января\or февраля\or марта\or апреля\or мая\or июня\or июля\or августа\or сентября\or октября\or ноября\or декабря\fi~\number\year~года}
+\newcommand{\sheettitle}[3]{% title, subtitle, homework-flag (empty or "Homework")
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\foreignlanguage{russian}{\rudate}\par}
+  \end{center}\vspace{0.5em}}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1){\parfillskip=0pt\par}}
+\begin{document}
+\sheettitle{Polynomials -- 10}{Where the roots lie: bounds, Gauss--Lucas, stability and real-rootedness}{Homework}
+
+\head{Theoretical minimum.} Root bounds: all roots lie in $|z|\le R$, where $R>0$ solves
+$|a_n|R^n=\sum_{k<n}|a_k|R^k$ (Cauchy), or in $|z|\le2\max_k|a_{n-k}/a_n|^{1/k}$ (Fujiwara); a
+dominant monomial forbids roots and forces signs (hence real roots); if all $a_k>0$, then
+$\min\frac{a_k}{a_{k+1}}\le|z|\le\max\frac{a_k}{a_{k+1}}$ (Enestr\"om--Kakeya). Gauss--Lucas, and the
+sign of $\operatorname{Re}$ or $\operatorname{Im}$ of $P'/P=\sum\frac1{z-z_j}$ off a half-plane
+containing the roots. Hurwitz stable polynomials have positive coefficients and are closed under
+products, $f\mapsto f'$, $f\mapsto f+af'$ ($a\ge0$); Routh--Hurwitz: $a_1a_2>a_0a_3$ for $n=3$,
+$a_1a_2a_3>a_0a_3^2+a_4a_1^2$ for $n=4$. Real-rootedness is preserved by $f\mapsto f+af'$
+($a\in\mathbb{R}$), by $\varphi(D)$ for real-rooted $\varphi$ (Hermite--Poulain), by
+$\sum c_kx^k\mapsto\sum\varphi(k)c_kx^k$ for real-rooted $\varphi$ without roots in $(0,n)$
+(Laguerre); all $\lambda f+\mu g$ are real-rooted iff $f,g$ interlace (Hermite--Kakeya--Obreschkoff).
+Descartes' rule for exponential sums $\sum c_ie^{\lambda_ix}$.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item
+\begin{enumerate}[label=\alph*)]
+\item Prove Theorem 3a): a real stable polynomial has non-zero coefficients of one sign, products of
+stable polynomials are stable, and $f'$ and $f+af'$ ($a\ge0$) are stable whenever $f$ is.
+\item Prove the Routh--Hurwitz criterion for $n=3$: if $a_0,a_1,a_2,a_3>0$, then
+$a_3z^3+a_2z^2+a_1z+a_0$ is stable if and only if $a_1a_2>a_0a_3$.
+\item Using the criterion for $n=4$, determine all real $t$ for which $z^4+z^3+tz^2+z+1$ is stable,
+and find its roots for the boundary value of $t$.
+\end{enumerate}
+
+\item Prove Theorem 4b) (Hermite--Poulain) and Theorem 4c) (Laguerre), and show by the example
+$f=x^2-1$, $\varphi(t)=t-1$ that the condition on the roots of $\varphi$ in c) cannot be dropped.
+Deduce that for all positive integers $n$ and $m$ the polynomials
+\[
+\sum_{j=0}^n\binom nj\frac{x^j}{j!}\qquad\text{and}\qquad\sum_{k=0}^n\binom nk k^mx^k
+\]
+have only real roots. (For the first one apply $(1+D)^n$ to $x^n$.)
+
+\item Let $f(x)$ be a rational function with complex coefficients whose denominator does not have
+multiple roots. Let $u_0,u_1,\dots,u_n$ be the complex roots of $f$ and $w_1,w_2,\dots,w_m$ be the
+roots of $f'$. Suppose that $u_0$ is a simple root of $f$. Prove that
+\[
+\sum_{k=1}^m\frac1{w_k-u_0}=2\sum_{k=1}^n\frac1{u_k-u_0}.
+\]
+\src{CIIM 2011}
+
+\item Let $f(t)=\sum_{j=1}^Na_j\sin(2\pi jt)$, where each $a_j$ is real and $a_N$ is not equal
+to $0$. Let $N_k$ denote the number of zeros (including multiplicities) of $\frac{d^kf}{dt^k}$ in
+the interval $[0,1)$. Prove that
+\[
+N_0\le N_1\le N_2\le\cdots\qquad\text{and}\qquad\lim_{k\to\infty}N_k=2N.
+\]
+\src{Putnam 2000 B3}
+
+\item Let $a,b,c,d,e>0$ be real numbers such that $a^2+b^2+c^2=d^2+e^2$ and
+$a^4+b^4+c^4=d^4+e^4$. Compare the numbers $a^3+b^3+c^3$ and $d^3+e^3$. \src{IMC 2006}
+
+\item Let $f$ and $g$ be real polynomials without common roots, with $\deg f=n\ge1$ and
+$\deg g\in\{n-1,n\}$. Prove Theorem 4d): $\lambda f+\mu g$ has only real roots for all real
+$(\lambda,\mu)\neq(0,0)$ if and only if $f$ and $g$ have only real simple roots and these roots
+interlace. (Consider how many times $g/f$ takes each value $c\in\mathbb{R}\cup\{\infty\}$.)
+
+\item
+\begin{enumerate}[label=\alph*)]
+\item Consider the polynomial $P(X)=X^5\in\mathbb{R}[X]$. Show that for every $\alpha\in\mathbb{R}^*$
+the polynomial $P(X+\alpha)-P(X)$ has no real roots.
+\item Let $P(X)\in\mathbb{R}[X]$ be a polynomial of degree $n\ge2$ with real and distinct roots. Show
+that there exists $\alpha\in\mathbb{Q}^*$ such that the polynomial $P(X+\alpha)-P(X)$ has only real
+roots.
+\end{enumerate}
+\src{RMO 2001}
+
+\item Let $n\ge2$ be a positive integer, $g\in\mathbb{R}[X]$,
+$g=X^n+a_1X^{n-1}+\dots+a_{n-1}X+a_n$ a polynomial with all roots real, and $f\colon\mathbb{R}\to\mathbb{R}$
+a polynomial function such that
+\[
+f(x)+a_1f'(x)+a_2f''(x)+\dots+a_nf^{(n)}(x)\ge0\quad\text{for all }x\in\mathbb{R}.
+\]
+Prove that $f(x)\ge0$ for all $x\in\mathbb{R}$. \src{RMO 2025}
+
+\item (Hermite--Biehler) Let $P$ be a real stable polynomial of degree $n\ge2$ with $P(0)>0$, and
+write $P(z)=h(z^2)+zg(z^2)$ with real polynomials $h,g$.
+\begin{enumerate}[label=\alph*)]
+\item Prove that $|P(-z)|<|P(z)|$ whenever $\operatorname{Re}z>0$, and deduce that for every
+$\lambda$ with $|\lambda|=1$ all roots of $P(z)+\lambda P(-z)$ lie on the imaginary axis.
+\item Deduce that all roots of $h$ and of $g$ are real and negative.
+\item Using that $\arg P(iy)$ is strictly increasing in $y$, prove that the roots of $h$ and $g$ are
+simple and interlace, the root of $h$ closest to $0$ being closer to $0$ than every root of $g$.
+Recover from this the necessity of $a_1a_2>a_0a_3$ for $n=3$.
+\end{enumerate}
+
+\item Let $P$ be a polynomial with all real roots that satisfies the condition $P(0)>0$. Prove that
+if $m$ is a positive odd integer, then
+\[
+\sum_{k=0}^{m-1}\frac{f^{(k)}(0)}{k!}\,x^k>0
+\]
+for all real numbers $x$, where $f=P^{-m}$. \src{Schweitzer 1990}
+\end{enumerate}
+\end{document}

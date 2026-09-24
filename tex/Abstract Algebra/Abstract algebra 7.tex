@@ -1,0 +1,137 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\rudate}{\number\day~\ifcase\month\or января\or февраля\or марта\or апреля\or мая\or июня\or июля\or августа\or сентября\or октября\or ноября\or декабря\fi~\number\year~года}
+\newcommand{\sheettitle}[3]{% title, subtitle, homework-flag (empty or "Homework")
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\foreignlanguage{russian}{\rudate}\par}
+  \end{center}\vspace{0.5em}}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1){\parfillskip=0pt\par}}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\tr}{tr}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\bm}[4]{\left(\begin{smallmatrix}#1&#2\\#3&#4\end{smallmatrix}\right)}
+\begin{document}
+\sheettitle{Abstract algebra -- 7}{Generators and relations: infinite and matrix groups}{}
+
+\head{Theoretical minimum.} An infinite group is usually given by generators, and it is known
+only when we know which words in them are trivial. To identify a group from a list of
+relations one bounds the group they define from above by a normal form and realises the bound
+by a model --- matrices or geometric transformations; to show that there are no relations
+at all one lets the group act and plays ping-pong.
+
+\head{Definitions.} The free group $F(S)$ consists of the reduced words in the letters
+$s^{\pm1}$, $s\in S$ (no $ss^{-1}$ or $s^{-1}s$ inside), multiplied by concatenation and
+cancellation; $F_2=F(a,b)$. For a set $R$ of words, $\langle S\mid R\rangle=F(S)/N$, where $N$
+is the smallest normal subgroup containing $R$ (a presentation). The free product $G*H$ is
+presented by the generators and relations of both factors, e.g.
+$\Z_3*\Z_3=\langle x,y\mid x^3=y^3=e\rangle$. A group is finitely generated if
+$G=\langle g_1,\dots,g_k\rangle$; it is torsion if all its elements have finite order, and of
+exponent $m$ if $g^m=e$ for all $g$. An involution is an element with $s^2=e$. The Coxeter group
+of a symmetric matrix $(m_{ij})$, where $m_{ii}=1$ and $2\leqslant m_{ij}\leqslant\infty$ for
+$i\neq j$, is $\langle s_1,\dots,s_k\mid (s_is_j)^{m_{ij}}=e\rangle$ (no relation where
+$m_{ij}=\infty$).
+
+\head{Theorem 1 (von Dyck, Moore).} If elements $g_s$ of a group $G$
+satisfy the relations $R$, then $s\mapsto g_s$ extends to a homomorphism
+$\langle S\mid R\rangle\to G$, onto if the $g_s$ generate $G$. So to prove
+$G\cong\langle S\mid R\rangle$ one checks the relations in $G$ and shows that
+$\langle S\mid R\rangle$ has at most $|G|$ elements. The reflections $s,t$ of a regular
+$n$-gon in two axes at angle $\pi/n$ give $D_n\cong\langle s,t\mid s^2=t^2=(st)^n=e\rangle$,
+since every word reduces to $(st)^k$ or $(st)^ks$; the maps $x\mapsto-x$, $x\mapsto1-x$ of $\Z$
+give the infinite dihedral group $\Z_2*\Z_2=\langle s,t\mid s^2=t^2=e\rangle$.
+(Moore) With $s_i=(i\ \,i{+}1)$,
+\[
+S_n\cong\langle s_1,\dots,s_{n-1}\mid s_i^2=(s_is_{i+1})^3=(s_is_j)^2=e\ \text{ for } |i-j|\geqslant2\rangle .
+\]
+\emph{Idea.} In the group defined by the relations, $H=\langle s_1,\dots,s_{n-2}\rangle$ has at
+most $(n-1)!$ elements by induction, and the $n$ cosets $Hs_{n-1}s_{n-2}\cdots s_k$
+($1\leqslant k\leqslant n$) are permuted by right multiplication by every $s_i$, so there are no
+others. Generation of $S_n$ itself is Abstract algebra -- 3.
+
+\head{Fact 1 (finite generation).} Quotients and subgroups of finite index of finitely generated
+groups are finitely generated (Schreier; a subgroup of index $m$ in $F_k$ is free of rank
+$m(k-1)+1$), and so are subgroups of finitely generated abelian groups (Linear algebra -- 9);
+arbitrary subgroups need not be. To prove that $G$ is \emph{not} finitely generated, write it
+as a strictly increasing union of subgroups (like $\mathbb Q=\bigcup_n\frac1{n!}\Z$), map it
+onto such a group, or find a quantity (a denominator, a degree) bounded on each finite set of
+words.
+
+\head{Theorem 2 (ping-pong).} Let $a,b$ act on a set $X$ and let $X_1,X_2\subseteq X$ be
+disjoint and non-empty with $a^k(X_2)\subseteq X_1$ and $b^k(X_1)\subseteq X_2$ for all
+$k\neq0$. Then $\langle a,b\rangle\cong F_2$. \emph{Proof.} A non-trivial reduced word is
+conjugate to some $w=a^{k_1}b^{l_1}\cdots b^{l_{r-1}}a^{k_r}$ with non-zero exponents; reading
+from the right, $w(X_2)\subseteq X_1$, so $w\neq e$. \emph{Example} (Sanov): $A=\bm1201$,
+$B=\bm1021$ act on $\mathbb R^2$ with $X_1=\{|x|>|y|\}$, $X_2=\{|x|<|y|\}$, because
+$|x+2ky|>|y|$ when $|x|<|y|$ and $k\neq0$. Together with $-I$ they generate the kernel of
+$\SL_2(\Z)\to\SL_2(\Z_2)$, so $\SL_2(\Z)$ has a free subgroup of index $12$ (statement only).
+
+\head{Fact 2 (involutions and reflections).} $g$ is a product of two involutions if and only if
+$sgs^{-1}=g^{-1}$ for some involution $s$ (put $t=sg$). The reflections in two lines meeting at
+angle $\theta$ compose to the rotation by $2\theta$; so every element of $D_n$ and of $O(2)$
+is a product of two reflections, and reflections in mirrors at angles $\pi/m_{ij}$ satisfy the
+Coxeter relations. Every bijection of a set is a product of two involutions (Combinatorics --
+8, homework 2).
+
+\head{Theorem 3 (Minkowski).} Let $p$ be an odd prime. If $A\in\GL_n(\Z)$ has finite order and
+$A\equiv I\pmod p$, then $A=I$. \emph{Proof.} Otherwise some power of $A$ has prime order $q$;
+write it as $I+p^kB$ with $k\geqslant1$, $B\not\equiv0\pmod p$, and expand $(I+p^kB)^q=I$ modulo
+$p^{k+1}$ if $q\neq p$, modulo $p^{k+2}$ if $q=p$ (here $p\geqslant3$ is used); both give
+$B\equiv0\pmod p$. Hence reduction modulo $p$ embeds every finite subgroup of $\GL_n(\Z)$ into
+$\GL_n(\mathbb F_p)$. For $p=2$ the claim fails: $-I\equiv I$.
+
+\head{Theorem 4 (Burnside).} A subgroup $G\subseteq\GL_n(\mathbb C)$ of finite exponent $m$ is
+finite, $|G|\leqslant m^{n^3}$. \emph{Idea.} If $G$ acts irreducibly on $\mathbb C^n$, it spans
+$M_n(\mathbb C)$ (Burnside's theorem on matrix algebras; quote it). For a basis
+$g_1,\dots,g_{n^2}\in G$ the map $g\mapsto(\tr gg_i)_i$ is injective, the trace form being
+non-degenerate, and each $\tr gg_i$ is a sum of $n$ roots of unity of degree $m$
+(Abstract algebra -- 5). If $G$ is reducible, make it block triangular and induct: the kernel
+of the map to the diagonal blocks consists of unipotent matrices of finite order, which are
+trivial in characteristic $0$. (Schur: a finitely generated torsion subgroup of
+$\GL_n(\mathbb C)$ is finite.)
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Prove Theorem 1: the presentations of $D_n$ ($n\geqslant3$), of the infinite dihedral
+group (show that the words $(st)^k$ and $(st)^ks$, $k\in\Z$, give pairwise different maps of
+$\Z$) and Moore's presentation of $S_n$. Deduce that in a group the product of two elements of
+order $2$ may have infinite order, so the elements of finite order need not form a subgroup.
+
+\item Prove the ping-pong lemma and deduce that for every real $\lambda\geqslant2$ the matrices
+$\bm1\lambda01$ and $\bm10\lambda1$ generate a free group of rank $2$. Show that for
+$\lambda=1$ they do not, by finding a non-trivial reduced word in them that is equal to a
+matrix of finite order.
+
+\item Let $G$ be the subgroup of $\GL_2(\mathbb R)$ generated by $A=\bm2001$ and $B=\bm1101$.
+Let $H$ consist of those matrices $\bm{a_{11}}{a_{12}}{a_{21}}{a_{22}}$ in $G$ for which
+$a_{11}=a_{22}=1$. (a) Show that $H$ is an abelian subgroup of $G$. (b) Show that $H$ is not
+finitely generated. \src{IMC 1996}
+
+\item 
+(a) Prove that an element $g$ of a group is a product of two involutions if and only if
+$sgs^{-1}=g^{-1}$ for some involution $s$. (b) Prove that $A\in\GL_n(\mathbb C)$ is a product
+of two involutions of $\GL_n(\mathbb C)$ if and only if $A$ is similar to $A^{-1}$.
+\emph{Hint:} for a Jordan block with eigenvalue $1$ consider the operators $p(x)\mapsto p(x+1)$
+and $p(x)\mapsto p(-x)$ on the polynomials of degree less than $n$.
+
+\item Let $F=A_0A_1\dots A_n$ be a convex polygon in the plane. Define for all
+$1\leqslant k\leqslant n-1$ the operation $f_k$ which replaces $F$ with a new polygon
+$f_k(F)=A_0\dots A_{k-1}A_k'A_{k+1}\dots A_n$, where $A_k'$ is the point symmetric to $A_k$
+with respect to the perpendicular bisector of $A_{k-1}A_{k+1}$. Prove that
+$(f_1\circ f_2\circ\dots\circ f_{n-1})^n(F)=F$. We suppose that all operations are well-defined
+on the polygons to which they are applied, i.e.\ the results are convex polygons again.
+($A_0,A_1,\dots,A_n$ are the vertices of $F$ in consecutive order.) \src{IMC 2011}
+\end{enumerate}
+\end{document}
