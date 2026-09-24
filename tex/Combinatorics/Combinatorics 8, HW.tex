@@ -16,7 +16,7 @@
   {\rudate\par}
   \end{center}\vspace{0.5em}}
 \newcommand{\rudate}{\foreignlanguage{russian}{\number\day~\ifcase\month\or января\or февраля\or марта\or апреля\or мая\or июня\or июля\or августа\or сентября\or октября\or ноября\or декабря\fi\ \number\year~года}}
-\newcommand{\src}[1]{\hfill(#1)}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1){\parfillskip=0pt\par}}
 \DeclareMathOperator{\inv}{inv}
 \DeclareMathOperator{\des}{des}
 \DeclareMathOperator{\cyc}{cyc}

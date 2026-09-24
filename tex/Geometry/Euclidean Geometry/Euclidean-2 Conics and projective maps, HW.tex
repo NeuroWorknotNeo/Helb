@@ -15,7 +15,7 @@
   \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
   {\begin{otherlanguage}{russian}\number\day~\ifcase\month\or января\or февраля\or марта\or апреля\or мая\or июня\or июля\or августа\or сентября\or октября\or ноября\or декабря\fi~\number\year~года\end{otherlanguage}\par}
   \end{center}\vspace{0.5em}}
-\newcommand{\src}[1]{\hfill(#1)}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1){\parfillskip=0pt\par}}
 \begin{document}
 \sheettitle{Euclidean geometry -- 2}{Conics, areas and projective maps}{Homework}
 
