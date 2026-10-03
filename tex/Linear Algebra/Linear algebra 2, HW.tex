@@ -1,0 +1,108 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{#1}\quad}
+\newcommand{\rudate}{\number\day~\ifcase\month\or января\or февраля\or марта\or апреля\or мая\or июня\or июля\or августа\or сентября\or октября\or ноября\or декабря\fi~\number\year~года}
+\newcommand{\sheettitle}[3]{% title, subtitle, homework-flag (empty or "Homework")
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\foreignlanguage{russian}{\rudate}\par}
+  \end{center}\vspace{0.5em}}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\spn}{span}
+\begin{document}
+\sheettitle{Linear algebra -- 2}{Vector spaces, dimension and rank}{Homework}
+
+\head{Theoretical minimum.} The rank has four equivalent definitions --- dimension of the column
+space, size of the largest non-zero minor, least inner dimension in a factorisation $A=BC$, least
+number of rank-one summands --- and each of them is the convenient one in some problem. It is
+invariant under elementary operations and under multiplication by invertible matrices. The working
+inequalities are $\rank(A+B)\le\rank A+\rank B$, $\rank(AB)\le\min(\rank A,\rank B)$, Sylvester's
+$\rank(AB)\ge\rank A+\rank B-n$ and Frobenius' $\rank(AB)+\rank(BC)\le\rank B+\rank(ABC)$.
+Everything else follows from $\dim\ker A+\rank A=n$ and from the dimension formula for a sum of
+subspaces. In a space of functions, linear independence is proved by evaluating at well-chosen
+points or by differentiating; in a space of matrices, by pairing with a suitable matrix through the
+trace form.
+
+\bigskip
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Prove that every odd polynomial function of degree $2m-1$ can be written as
+\[
+P(x)=c_1C_x^1+c_2C_{x+1}^3+c_3C_{x+2}^5+\dots+c_mC_{x+m-1}^{2m-1},
+\]
+where $C_x^m=\frac{x(x-1)\cdots(x-m+1)}{m!}$.
+
+\item Let $n$ be a positive integer and let $P(x)$ be a polynomial of degree $n$ with complex
+coefficients such that $P(0),P(1),\dots,P(n)$ are all integers. Prove that the polynomial $n!P(x)$
+has integer coefficients.
+
+\item (VJIMC 2002) Differentiable functions $f_1,\dots,f_n\colon\mathbb R\to\mathbb R$ are linearly
+independent. Prove that there exist at least $n-1$ linearly independent functions among
+$f_1',\dots,f_n'$.
+
+\item (ISTCiM 2023) Let $n\ge2$ and let $X_n$ be the linear span of all $n!$ permutation matrices
+in the space $M_n(\mathbb R)$ of real $n\times n$ matrices. Find $\dim X_n$.
+
+\item (ФКН 2026, осень) Let $V$ be a real vector space of dimension at least $3$. Let $u\in V$ be a
+non-zero vector, and let $A\colon V\to V$ be a linear operator. Assume that $A(x)\in\spn\{x,u\}$ for
+every vector $x\in V$. Prove that there exists a scalar $\lambda$ and a linear function
+$\varphi\colon V\to\mathbb R$ such that
+\[
+A(x)=\lambda x+\varphi(x)u.
+\]
+
+\item (VJIMC 2011) Let $n>k$ and let $A_1,\dots,A_k$ be real $n\times n$ matrices of rank $n-1$.
+Prove that $A_1A_2\cdots A_k\ne O$.
+
+\item (Romania national olympiad 2023) Let $A,B\in M_n(\mathbb R)$. Show that $\rank A=\rank B$
+if and only if there exist non-singular matrices $X,Y,Z\in M_n(\mathbb R)$ with $AX+YB=AZB$.
+
+\item (Putnam 1988) For a positive integer $n$ let $M_n$ be the $(2n+1)\times(2n+1)$
+skew-symmetric matrix in which each entry in the first $n$ subdiagonals below the main diagonal
+is $1$ and each of the remaining entries below the main diagonal is $-1$. Find $\rank M_n$.
+
+\item (Romania national olympiad 2016) Let $n\ge2$ and let $A,B,C$ be complex matrices such that
+$A$ is invertible, $B$ is obtained from $A$ by replacing its first row with zeros, and $C$ is
+obtained by putting the last $n-1$ rows of $A$ above a row of zeros. Prove that
+\begin{enumerate}[label=\alph*)]
+\item $\rank(A^{-1}B)=\rank\bigl((A^{-1}B)^2\bigr)=\dots=\rank\bigl((A^{-1}B)^n\bigr)$;
+\item $\rank(A^{-1}C)>\rank\bigl((A^{-1}C)^2\bigr)>\dots>\rank\bigl((A^{-1}C)^n\bigr)$.
+\end{enumerate}
+
+\item (Proposed problems) Let $X,Y\in M_n(\mathbb C)$ satisfy $Y^2=YX-XY$ and
+$\rank(X+Y)=1$. Prove that $Y^3=YXY=O_n$.
+
+\item (Romania national olympiad 2004) Let $n\ge2$.
+\begin{enumerate}[label=\alph*)]
+\item Give an example of matrices $A,B\in M_n(\mathbb C)$ with
+$\rank(AB)-\rank(BA)=\bigl\lfloor\frac n2\bigr\rfloor$.
+\item Prove that $\rank(XY)-\rank(YX)\le\bigl\lfloor\frac n2\bigr\rfloor$ for all
+$X,Y\in M_n(\mathbb C)$.
+\end{enumerate}
+
+\item (Romania national olympiad 2017) Let $n\ge2$ and let $A,B\in M_n(\mathbb C)$ satisfy
+$(AB)^3=O_n$. Does it follow that $(BA)^3=O_n$?
+
+\item (ФКН, осень 2021) For $v,w\in\mathbb R^n$ let $v*w$ be the matrix whose $(i,j)$ entry is
+$v_iw_j$. Assuming that $v$ and $w$ are linearly independent, find $\rank(v*w-w*v)$.
+
+\item (IMC) For $n\ge2$, what are the minimal and the maximal possible ranks of an $n\times n$
+matrix whose $n^2$ entries are precisely the numbers $1,2,\dots,n^2$?
+
+\item (Высшая лига 2020) Let $P,Q\in M_n(\mathbb C)$ satisfy $P^2=P$ and $Q^2=Q$. Can
+$\rank(E-P-Q)$ exceed $n-|\rank P-\rank Q|$?
+
+\item (Proposed problems) Prove that $\rank(A-ABA)-\rank(B-BAB)=\rank A-\rank B$ for all
+$A,B\in M_n(\mathbb C)$.
+\end{enumerate}
+
+\end{document}
