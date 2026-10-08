@@ -1,0 +1,69 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\begin{document}
+\begin{center}
+{\huge\bfseries\foreignlanguage{russian}{Подстановка $x=2\cos\theta$ и\\ многочлены Чебышёва}\par}\vspace{1.2em}
+{\Large\foreignlanguage{russian}{Домашнее задание}\par}\vspace{0.8em}
+{\foreignlanguage{russian}{1 сентября 2026 года}\par}
+\end{center}\vspace{0.5em}
+
+\noindent\textbf{\foreignlanguage{russian}{Теоретический минимум.}}\quad
+$T_n(\cos\theta)=\cos n\theta$, $U_{n-1}(\cos\theta)=\sin n\theta/\sin\theta$, the recurrence
+$T_{n+1}=2xT_n-T_{n-1}$ and the hyperbolic branch $T_n(\cosh t)=\cosh nt$; Chebyshev's extremal
+theorem; the inequalities of Markov and Bernstein; orthogonality with weight $(1-x^2)^{-1/2}$; the
+semicircle substitution $x=2\cos\theta$ in three-term recurrences.
+
+\medskip
+\noindent\rule{\textwidth}{0.4pt}
+\medskip
+
+\begin{enumerate}[itemsep=0.6em]
+\item Prove that $T_m\circ T_n=T_{mn}$ and that these are, up to affine conjugacy, the only
+polynomial families of degree $>1$ closed under composition together with the powers $x^n$
+(\foreignlanguage{russian}{теорема Ритта, достаточно сформулировать и проверить оба примера}).
+
+\item Prove the orthogonality relations $\int_{-1}^1\frac{T_mT_n}{\sqrt{1-x^2}}\,dx=0$ for $m\ne n$,
+and expand $x^n$ in the basis $T_0,\dots,T_n$.
+
+\item Prove that the roots of $U_{n-1}$ are $\cos\frac{k\pi}{n}$ and deduce that the eigenvalues of
+the tridiagonal matrix with $0$ on the diagonal and $1$ on the neighbouring diagonals are
+$2\cos\frac{k\pi}{n+1}$; compare with the discrete Wirtinger inequality from the first sheet.
+
+\item Prove that $\min_p\max_{[a,b]}|p|=2\bigl(\frac{b-a}{4}\bigr)^n$ over monic $p$ of degree $n$,
+and find the polynomial attaining it.
+
+\item (Proposed problems, \foreignlanguage{russian}{№}235) Prove that $\cos\frac{\pi}{7}$ has minimal
+polynomial $x^3-\frac12x^2-\frac12x+\frac18$ over $\mathbb Q$, that $\cos\frac{2\pi}{7}$ has minimal
+polynomial $x^3+\frac12x^2-\frac12x-\frac18$, and that $\cos\frac{3\pi}{7}$ has the same minimal
+polynomial as $\cos\frac{\pi}{7}$.
+
+\item Prove that $2\cos\frac{2\pi}{n}$ is a rational number only for $n\in\{1,2,3,4,6\}$, using the
+recurrence $T_{n+1}=2xT_n-T_{n-1}$ and the rational root theorem.
+
+\item Let $p$ be a real polynomial of degree $n$ with $|p(x)|\le1$ on $[-1,1]$. Prove that
+$|p(x)|\le|T_n(x)|$ for every $|x|>1$, and that the leading coefficient of $p$ is at most $2^{n-1}$
+in absolute value.
+
+\item Prove that $\sum_{k=0}^nT_k(x)t^k=\frac{1-tx}{1-2tx+t^2}+O(t^{n+1})$, i.e.\ find the generating
+functions of $T_n$ and $U_n$, and deduce the addition formula $T_{m+n}+T_{m-n}=2T_mT_n$.
+
+\item (Solve in radicals) Solve the equation $x^3-3x=c$ for every real $c$ by the substitution
+$x=2\cos\theta$ when $|c|\le2$ and $x=2\cosh t$ otherwise; explain what the casus irreducibilis of
+Cardano's formula looks like in this language.
+
+\item (IMC 2026) Prove that there exists a constant $C>0$ such that for every pair $A$, $B$ of
+positive integers there is a real polynomial $p(x)$ with
+\[
+p(0)^2>\sum_{i=1}^{A}p(-i)^2+\sum_{i=1}^{B}p(i)^2\qquad\text{and}\qquad\deg p<C\sqrt{AB}.
+\]
+\end{enumerate}
+\end{document}
