@@ -1,0 +1,34 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Trigonometry -- 2. Roots of unity and the complex exponential}{Class work}
+
+\problem{1}
+\hint{1} For the filter: if $n\nmid m$ then $\varepsilon^m\ne1$ and $\sum_{k=0}^{n-1}(\varepsilon^m)^k$ is a geometric sum equal to $\frac{1-\varepsilon^{mn}}{1-\varepsilon^m}=0$; if $n\mid m$ every term is $1$. For the subsets, encode them by the generating function $f(x)=\sum_s a_sx^s$, where $a_s$ is the number of subsets with sum $s$; show that $f(x)=\prod_{k=1}^n(1+x^k)$.
+\hint{2} With $\omega=e^{2\pi i/3}$ the filter gives $\sum_{3\mid s}a_s=\frac13\bigl(f(1)+f(\omega)+f(\omega^2)\bigr)$. To compute $f(\omega)=\prod_k(1+\omega^k)$, group the factors in blocks of three consecutive $k$: $(1+\omega)(1+\omega^2)=1$, so a full block contributes $2$.
+\hint{3} Writing $n=3q+r$ one gets $f(\omega)=f(\omega^2)=2^q$ for $r=0,2$ and $f(\omega)+f(\omega^2)=2^q$ for $r=1$; so the number of subsets (the empty one included) is $\frac{2^n+2^{q+1}}3$ if $3\nmid n-1$ and $\frac{2^n+2^q}3$ if $n\equiv1\pmod 3$.
+\hint{4} The same filter applied to $g(x)=(1+x)^n=\sum_k\binom nkx^k$ gives $\sum_{3\mid k}\binom nk=\frac13\bigl(2^n+(1+\omega)^n+(1+\omega^2)^n\bigr)$; since $1+\omega=e^{i\pi/3}$, the answer is $\frac{2^n+2\cos(\pi n/3)}{3}$.
+
+\problem{2}
+\hint{1} Divide $z^n-1=\prod_{k=0}^{n-1}(z-\varepsilon^k)$ by $z-1$: $1+z+\dots+z^{n-1}=\prod_{k=1}^{n-1}(z-\varepsilon^k)$. Put $z=1$, take moduli, and use $|1-e^{i\alpha}|=2\sin\frac\alpha2$ for $0<\alpha<2\pi$.
+\hint{2} For the sum, rewrite one term algebraically: for $|w|=1$, $|1-w|^2=(1-w)(1-\bar w)=-(1-w)^2/w$, hence $\frac{1}{|1-w|^2}=\frac{1}{1-w}-\frac{1}{(1-w)^2}$. So you need $\sum_k\frac1{1-\varepsilon^k}$ and $\sum_k\frac1{(1-\varepsilon^k)^2}$.
+\hint{3} With $f(z)=\frac{z^n-1}{z-1}=\prod_{k=1}^{n-1}(z-\varepsilon^k)$ these sums are $(\log f)'(1)$ and $-(\log f)''(1)$. From $f(1)=n$, $f'(1)=\frac{n(n-1)}2$, $f''(1)=\frac{n(n-1)(n-2)}3$ one gets $\frac{n-1}2$ and $-\frac{(n-1)(n-5)}{12}$; add them.
+
+\problem{3}
+\hint{1} Write $\varepsilon=e^{2\pi ij/n}$ and $s=\varepsilon+\varepsilon^{-1}=2\cos\frac{2\pi j}n$, a real number. Then $\varepsilon^2=s\varepsilon-1$: use this relation to reduce powers of $\varepsilon$.
+\hint{2} Prove by induction that $\varepsilon^k=A_k(s)\varepsilon+B_k(s)$ with $A_k,B_k\in\mathbb Z[x]$ (take $A_{k+1}=xA_k+B_k$, $B_{k+1}=-A_k$). Hence $p(\varepsilon)=A(s)\varepsilon+B(s)$ with $A,B\in\mathbb Z[x]$.
+\hint{3} If $\varepsilon$ is not real, compare imaginary parts: $A(s)\operatorname{Im}\varepsilon=0$ forces $A(s)=0$ and $z=B(s)$. If $\varepsilon=\pm1$, $z=p(\pm1)\in\mathbb Z$ is a constant polynomial.
+\hint{4} Finally, $s=2\cos\frac{2\pi j}{n}=D_j\bigl(2\cos\frac{2\pi}n\bigr)$, where $D_0=2$, $D_1=x$, $D_{k+1}=xD_k-D_{k-1}$ are integer polynomials with $D_k(2\cos\theta)=2\cos k\theta$. Take $q=B\circ D_j$.
+
+\problem{4}
+\hint{1} Work in $\mathbb C$ and follow the hint of the sheet: write the vertices as a vector $Z=(z_0,\dots,z_{n-1})$ and express the apex of the isosceles triangle erected on $z_jz_{j+1}$ with apex angle $\varphi$ in terms of $z_j,z_{j+1}$. (Check that, since $n$ is odd, no angle equals $\pi$.)
+\hint{2} The apex is $w_j=\frac{1+ic_k}2z_j+\frac{1-ic_k}2z_{j+1}$ with $c_k=\cot\frac{\pi k}n$ for $\varphi=\frac{2\pi k}{n}$; the same formula covers the inward case $\frac{2\pi k}n>\pi$ (then $c_k<0$). So the step is the linear map $A_k=\frac{1+ic_k}2E+\frac{1-ic_k}2S$, where $S$ is the cyclic shift, and the $(n-1)$-st polygon is $A_{n-2}\cdots A_1Z$.
+\hint{3} All $A_k$ are diagonal in the basis $v_m=(1,\varepsilon^m,\dots,\varepsilon^{(n-1)m})$, $m=0,\dots,n-1$ (eigenvectors of $S$). Compute the eigenvalue $\lambda_{k,m}=\frac{1+ic_k}2+\frac{1-ic_k}2\varepsilon^m$ and show that it vanishes exactly when $m\equiv-k\pmod n$.
+\hint{4} As $k$ runs over $1,\dots,n-2$, $-k$ runs over all residues $2,\dots,n-1$; so in the expansion $Z=\sum a_mv_m$ every component with $m\ge2$ is killed, while those with $m=0,1$ survive. Hence the final vertices are $a_0+b\,\varepsilon^j$: a regular $n$-gon centred at the centroid.
+
+\problem{5}
+\hint{1} Since $\varepsilon$ is a primitive $m$-th root of unity, $\prod_{k=0}^{m-1}(x-\varepsilon^k)=x^m-1$; read off from Vieta the elementary symmetric functions $\sigma_j$ of $1,\varepsilon,\dots,\varepsilon^{m-1}$: $\sigma_1=\dots=\sigma_{m-1}=0$, $\sigma_m=(-1)^{m-1}$.
+\hint{2} Lower bound: rank is subadditive, and $\sum_{k}(E+\varepsilon^kA)=mE+\sigma_1A=mE$.
+\hint{3} Upper bound: the factors $E+\varepsilon^kA$ commute, so $\prod_k(E+\varepsilon^kA)=E+\sigma_1A+\dots+\sigma_mA^m=E+(-1)^{m-1}A^m=0$. Apply Sylvester's inequality $\operatorname{rank}(XY)\ge\operatorname{rank}X+\operatorname{rank}Y-n$ repeatedly to this product of $m$ factors.
+
+\end{document}

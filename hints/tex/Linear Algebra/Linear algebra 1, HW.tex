@@ -1,0 +1,112 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Linear algebra -- 1. Determinants and invertibility}{Homework}
+
+\problem{1}
+\hint{1}
+\(B=A-J\), where \(J\) is the all-ones matrix, which has rank \(1\). Show that \(\operatorname{rank}B^3\lt 10\) (or \(\operatorname{rank} B\lt 10\)).
+\hint{2}
+Expand \(B^3=(A-J)^3\). The term \(A^3\) vanishes, and each of the remaining \(7\) terms contains a factor \(J\), so has rank at most \(1\). Hence \(\operatorname{rank}B^3\le 7\lt 10\), so \(\det B^3=0\).
+
+\problem{2}
+\hint{1}
+Multiply the relation by \(A+B\): from \(E=(A+B)(A^{-1}+B^{-1})\) get \(AB^{-1}+BA^{-1}=-E\).
+\hint{2}
+Multiplying \(AB^{-1}+BA^{-1}=-E\) by \(B\) on the right (or by \(A\)) gives \(A+B=-BA^{-1}B\) and similarly \(A+B=-AB^{-1}A\). Equate and take determinants: \((\det A)^3=(\det B)^3\), which over \(\mathbb R\) gives \(\det A=\det B\).
+\hint{3}
+Over \(\mathbb C\) the cube roots of unity break this. Try scalar matrices \(A=\omega E\), \(B=\bar\omega E\) with \(\omega=e^{i\pi/3}\) (check \(\omega^{-1}+\bar\omega^{-1}=(\omega+\bar\omega)^{-1}\)) and \(n=2\): the answer is no.
+
+\problem{3}
+\hint{1}
+The eigenvalues of \(M\) are the roots of \(x^2-ax+b\), and they are real since \(M\) is symmetric; so \(a^2\ge 4b\) is necessary for existence.
+\hint{2}
+If the eigenvalues are distinct, \(M=Q^T\operatorname{diag}(\lambda_1,\lambda_2)Q\) and rotating \(Q\) gives infinitely many such \(M\). If \(\lambda_1=\lambda_2=\lambda\), then \(M=\lambda E\) is forced. Answer: exactly the pairs with \(a^2=4b\).
+
+\problem{4}
+\hint{1}
+\(2)\Rightarrow1)\) is immediate (take \(B_i=A_i\)). For the converse, use that \(A_i\) is symmetric: \(\langle(\sum A_i^2)x,x\rangle=\sum\lVert A_ix\rVert^2\).
+\hint{2}
+Take \(x\ne0\) in the kernel of \(\sum A_i^2\); then \(A_ix=0\) for every \(i\). So \(x\) is in the kernel of \(\sum B_i^TA_i=\bigl(\sum A_iB_i\bigr)^T\) for any \(B_i\).
+
+\problem{5}
+\hint{1}
+\(S=\sum A_i^TA_i\) is symmetric and \(\langle Sx,x\rangle=\sum\lVert A_ix\rVert^2\ge0\). What does this say about its eigenvalues?
+
+\problem{6}
+\hint{1}
+\(A\) is singular, so \(\operatorname{rank}\operatorname{adj}A\le1\).
+\hint{2}
+For a matrix \(C\) of rank \(\le1\), write \(C=uv^T\) and use the rank-one update formula: \(\det(E+C)=1+v^Tu=1+\operatorname{tr}C\). Apply it to \(C=\operatorname{adj}A\).
+
+\problem{7}
+\hint{1}
+One direction is a computation: if \(A=B^{-1}\bar B\) then \(\bar A=\bar B^{-1}B=A^{-1}\). For the converse you need \(B\) invertible with \(BA=\bar B\).
+\hint{2}
+Try \(B=zE+\bar z\,\bar A\) with \(z\in\mathbb C\setminus\{0\}\). Using \(\bar AA=E\), check that \(BA=\bar B\).
+\hint{3}
+\(B=\bar z\,(\bar A+\tfrac{z}{\bar z}E)\), and \(z/\bar z\) runs over the whole unit circle, while \(\bar A\) has only finitely many eigenvalues. Choose \(z\) so that \(-z/\bar z\) is not an eigenvalue.
+
+\problem{8}
+\note{the hypothesis should be \(a\ne0\), not \(a\ne1\). With \(a=0\) (allowed as stated) and \(A=B=O\) the relation holds but nothing is invertible. The hints prove the statement for \(a\ne0\).}
+\hint{1}
+By induction, derive \(BA^k-b^kA^kB=a\,(1+b+\dots+b^{k-1})A^{k-1}\) for \(k\ge1\). The hypotheses say exactly that \(a(1+\dots+b^{k-1})\ne0\) for \(1\le k\le n\).
+\hint{2}
+Suppose \(A\) is singular. Split \(\mathbb C^n=W\oplus U\) with \(W=\ker A^n\ne0\), \(U=\operatorname{Im}A^n\); both are \(A\)-invariant. Apply the identity with \(k=n\) to \(x\in W\): \(-b^nA^nBx\in U\) equals a non-zero multiple of \(A^{n-1}x\in W\), so \(A^{n-1}x=0\).
+\hint{3}
+Descend: if \(A^kW=0\), apply the identity with exponent \(k\) to \(x\in W\). Writing \(Bx=w+u\), the term \(A^kBx=A^ku\) lies in \(U\), while \(A^{k-1}x\in W\), so \(A^{k-1}W=0\). At the end \(W=0\), a contradiction. For \(B\): if \(b\ne0\), rewrite the relation as \(AB=-\tfrac abE+\tfrac1bBA\), which has the same form with the roles swapped; if \(b=0\), \(BA=aE\) settles it.
+
+\problem{9}
+\hint{1}
+The minors of order \(n-1\) are, up to sign, the entries of \(\operatorname{adj}A\). Suppose \(\det A=0\); then \(\operatorname{rank}\operatorname{adj}A\le1\).
+\hint{2}
+If \(\operatorname{adj}A=O\), all \(n^2\) minors vanish. Otherwise \(\operatorname{adj}A=uv^T\) with \(u,v\ne0\). If \(u\) has \(p\) zero coordinates and \(v\) has \(q\), count the zero entries of \(uv^T\): \(np+nq-pq\). Since \(k\ge1\), \(p+q\ge1\), and this count is \(\ge n\gt k\).
+
+\problem{10}
+\hint{1}
+A non-zero (real) \(X\) with \(AX=X(-A)\) exists if and only if \(A\) and \(-A\) have a common eigenvalue (Sylvester's theorem on \(AX=XB\); a complex solution gives a real one by taking real or imaginary parts). Since \(A\) is invertible, this means \(A\) has eigenvalues \(\lambda\) and \(-\lambda\) with \(\lambda\ne0\).
+\hint{2}
+\(\operatorname{tr}\operatorname{adj}A=e_3(\lambda_1,\dots,\lambda_4)\), the third elementary symmetric function of the eigenvalues. \(A^2+E\) is singular if and only if \(\pm i\) are eigenvalues, which is such a pair.
+\hint{3}
+Conversely, if the eigenvalues are \(\lambda,-\lambda,\mu,\nu\), compute \(e_1=\mu+\nu\) and \(e_3=-\lambda^2(\mu+\nu)\). The condition \(e_1=e_3\ne0\) forces \(\lambda^2=-1\).
+
+\problem{11}
+\hint{1}
+For odd \(n\): \(\det A=\det A^T=\det(-A)=(-1)^n\det A\), so \(\det A=0\).
+\hint{2}
+For even \(n\) the determinant need not vanish (try \(n=2\)). The non-zero eigenvalues of a real antisymmetric matrix are purely imaginary and come in pairs \(\pm i\lambda\), so \(\det A=\prod\lambda_k^2\ge0\). In fact \(\det A\) is the square of a polynomial in the entries, the Pfaffian.
+
+\problem{12}
+\hint{1}
+Write \(\lvert\det(E+A)\rvert=\prod\lvert1+\lambda_k\rvert\) over the complex eigenvalues of \(A\), and bound each factor using \(1+x\le e^x\).
+\hint{2}
+\(\lvert1+z\rvert^2=1+2\operatorname{Re}z+\lvert z\rvert^2\le e^{2\operatorname{Re}z+\lvert z\rvert^2}\). This gives the bound \(\exp\bigl(\sum\operatorname{Re}\lambda_k+\tfrac12\sum\lvert\lambda_k\rvert^2\bigr)\), and \(\sum\operatorname{Re}\lambda_k=\operatorname{tr}A\).
+\hint{3}
+It remains to show that \(\sum\lvert\lambda_k\rvert^2\le\sum a_{ij}^2\). Use Schur triangularization \(A=UTU^*\): the Frobenius norm is unitarily invariant and \(\lVert T\rVert_F^2\ge\sum\lvert t_{kk}\rvert^2\).
+
+\problem{13}
+\hint{1}
+Subtract the first row from each of the others. What can you say about the entries of rows \(2,\dots,n\) now?
+\hint{2}
+They are even, so a factor \(2\) comes out of each of \(n-1\) rows. For sharpness, take the first row all ones and row \(i\) (\(i\ge2\)) equal to all ones plus \(2e_i\). After the subtraction its determinant is exactly \(2^{n-1}\).
+
+\problem{14}
+\hint{1}
+Barbara wins. Look for a pairing strategy that forces two equal columns at the end.
+\hint{2}
+Pair column \(j\) with column \(j+1004\). Whenever Alan writes \(x\) in position \((i,j)\), Barbara writes the same \(x\) in the paired position in the same row. Check that the paired cell is always empty.
+
+\problem{15}
+\hint{1}
+Player 0 places only four zeros, so look for small zero patterns that force \(\det=0\) on their own: a zero row, a zero column, or a \(2\times2\) block of zeros (rows \(i,j\) and columns \(k,l\); then two rows are proportional).
+\hint{2}
+Player 0 wins, and can always force one of these patterns. Up to symmetry, Player 1 opens in a corner, on an edge, or in the center. A good first reply is any cell that shares neither a row nor a column with Player 1's first 1.
+\hint{3}
+After that, Player 0 keeps creating threats: positions where one more zero would complete a zero line or a zero \(2\times2\) block. Player 1 has to block each threat. Go through the three cases and check that Player 0 can always make a double threat in time to complete a pattern with the fourth zero.
+
+\problem{16}
+\hint{1}
+Changing entry \((i,j)\) by \(t\) changes the determinant by \(t\) times the cofactor \(C_{ij}\), since \(\det\) is linear in each entry. So you need \(\det A=0\) with every cofactor non-zero, i.e.~every entry of \(\operatorname{adj}A\) non-zero.
+\hint{2}
+Yes, for every \(n\). If \(\operatorname{rank}A=n-1\), then \(\operatorname{adj}A=uv^T\) with \(Au=0\) and \(v^TA=0\). Pick \(A\) whose kernel and left kernel are both spanned by \((1,\dots,1)\), e.g.~\(A=nE-J\); then \(\operatorname{adj}A\) is a non-zero multiple of \(J\). (\(n=1\) is trivial.)
+\end{document}

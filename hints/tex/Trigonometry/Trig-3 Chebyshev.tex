@@ -1,0 +1,36 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Trigonometry -- 3. The substitution $x=2\cos\theta$ and Chebyshev polynomials}{Class work}
+
+\problem{1}
+\hint{1} The recurrence $T_{n+1}=2xT_n-T_{n-1}$ comes from $\cos(n+1)\theta+\cos(n-1)\theta=2\cos\theta\cos n\theta$; induction gives degree $n$ and leading coefficient $2^{n-1}$ ($n\ge1$).
+\hint{2} $2^{1-n}T_n$ is monic with maximum modulus $2^{1-n}$, attained with alternating signs at the $n+1$ points $x_k=\cos\frac{k\pi}n$, $k=0,\dots,n$. Suppose a monic $p$ of degree $n$ had $\max_{[-1,1]}|p|<2^{1-n}$ and look at $q=2^{1-n}T_n-p$.
+\hint{3} $\deg q\le n-1$, and $q(x_k)$ has the sign of $(-1)^k$, so $q$ has a zero in each of the $n$ intervals $(x_{k+1},x_k)$: $q\equiv0$, contradiction. For uniqueness (when $\max|p|=2^{1-n}$) the inequalities become weak: count zeros with multiplicity, noting that a zero of $q$ at an interior $x_k$ is at least double because $q$ does not change sign there. The last claim of the problem is then the theorem itself.
+
+\problem{2}
+\hint{1} Differentiate $T_n(\cos\theta)=\cos n\theta$: $T_n'(\cos\theta)=\frac{n\sin n\theta}{\sin\theta}=nU_{n-1}(\cos\theta)$.
+\hint{2} $|\sin n\theta|\le n|\sin\theta|$ (induction, or the addition formula) gives $|T_n'|\le n^2$ on $[-1,1]$, with equality at $\theta\to0,\pi$, i.e.\ $x=\pm1$; and $|\sin n\theta|\le1$ gives $|T_n'(x)|\le n/\sqrt{1-x^2}$.
+\hint{3} For the trigonometric Bernstein inequality reduce to real $T$ (rotate by $e^{i\gamma}$ so that $T'(\theta_0)$ is real and take the real part). Assume $\|T\|_\infty<1$ but $T'(\theta_0)\ge n$, and compare $T$ with the extremal "Chebyshev" function $S(\theta)=\sin n(\theta-\alpha)=T_n\bigl(\cos(\theta-\alpha-\frac\pi{2n})\bigr)$, with $\alpha$ chosen so that $S(\theta_0)=T(\theta_0)$ on an increasing branch of $S$.
+\hint{4} $D=S-T$ is a trigonometric polynomial of degree $n$. At the $2n$ extrema of $S$ (values $\pm1$) $D$ alternates in sign, giving $2n$ zeros; in the increasing branch through $\theta_0$ one has $D(\theta_0)=0$ and $D'(\theta_0)=S'(\theta_0)-T'(\theta_0)\le n-n=0$ although $D$ goes from negative to positive, giving at least $2$ extra zeros. More than $2n$ zeros forces $D\equiv0$, contradicting $\|T\|<1$.
+
+\problem{3}
+\note{Since $a_1=a$, the literal condition ``$a_n\in\mathbb Z$ for all $n$'' just means $a\in\mathbb Z$, and then the claim is easy. The hints treat this and also the more interesting reading ``$a_n\in\mathbb Z$ for all large $n$''.}
+\hint{1} Substitute: if $|a|\le2$ write $a=2\cos\theta$, if $|a|>2$ write $a=t+t^{-1}$ with real $t$, $|t|>1$. Then $a_n=2\cos(2^{n-1}\theta)$, resp.\ $a_n=t^{2^{n-1}}+t^{-2^{n-1}}$.
+\hint{2} Behaviour: for $|a|>2$, $a_n\to+\infty$ (doubly exponentially). For $|a|\le2$ the sequence is the doubling map $\theta\mapsto2\theta$ on the circle: eventually periodic iff $\theta/\pi\in\mathbb Q$, constant $2$ eventually iff $\theta/\pi$ is a dyadic rational, and otherwise bounded without being eventually periodic (for $\theta/\pi$ irrational it is dense in $[-2,2]$ for almost every $\theta$, but not always).
+\hint{3} Integrality: if $a\in\mathbb Z$, then either $|a|\le2$, i.e.\ $a\in\{0,\pm1,\pm2\}$, or $t$ is a root of $x^2-ax+1$, a monic integer polynomial with constant term $1$, so $t$ is a (quadratic) unit.
+\hint{4} If only $a_N\in\mathbb Z$ (hence $a_n\in\mathbb Z$ for $n\ge N$), then $u=t^{2^{N-1}}$ satisfies $u^2-a_Nu+1=0$, so $t$ is a root of $x^{2^N}-a_Nx^{2^{N-1}}+1$ and is again an algebraic unit (for $|a|\le2$ take $t=e^{i\theta}$).
+
+\problem{4}
+\hint{1} Use the closed forms (with $w=\sqrt{x^2-1}$)
+\[T_n(x)=\frac{(x+w)^n+(x-w)^n}2,\qquad U_{n-1}(x)=\frac{(x+w)^n-(x-w)^n}{2w}\]
+(they satisfy the recurrence and the initial values).
+\hint{2} At $x=\frac i2$: $\sqrt{x^2-1}=\frac{i\sqrt5}2$ and $x\pm\sqrt{x^2-1}=i\varphi,\ i\psi$ with $\varphi,\psi=\frac{1\pm\sqrt5}2$. Binet's formulas $F_n=\frac{\varphi^n-\psi^n}{\sqrt5}$, $L_n=\varphi^n+\psi^n$ finish the computation.
+\hint{3} Catalan's identity $F_n^2-F_{n-r}F_{n+r}=(-1)^{n-r}F_r^2$ is the image of the polynomial identity $U_{n-1}^2-U_{n-r-1}U_{n+r-1}=U_{r-1}^2$, which is $\sin^2n\theta-\sin(n-r)\theta\sin(n+r)\theta=\sin^2r\theta$ divided by $\sin^2\theta$. Evaluate at $x=\frac i2$ and track the powers of $i$. (The analogous identity for $T_n$, $T_n^2-T_{n-r}T_{n+r}=1-T_r^2$, gives the Lucas version.)
+
+\problem{5}
+\hint{1} Put $x=\cosh\theta$. Then $T_k(x)=q_1$ and $T_{k+1}(x)=q_2$ are rational, so $x$ is a common root of the rational polynomials $P(X)=T_k(X)-q_1$ and $Q(X)=T_{k+1}(X)-q_2$. Their gcd has rational coefficients (Euclid's algorithm), so it suffices to show that $x$ is their only common complex root, and a simple one.
+\hint{2} Find all complex roots: $T_k(\cosh w)=\cosh kw$ for complex $w$, so the roots of $P$ are $\cosh\bigl(\theta+\frac{2\pi ij}k\bigr)$, $j=0,\dots,k-1$, and these $k$ numbers are distinct because $\theta>0$. Similarly for $Q$ with $k+1$.
+\hint{3} $\cosh u=\cosh v$ iff $u\equiv\pm v\pmod{2\pi i}$. The minus sign would make $2\theta$ purely imaginary; the plus sign gives $\frac jk-\frac l{k+1}\in\mathbb Z$, which forces $j=l=0$ since $\gcd(k,k+1)=1$. So $\gcd(P,Q)=X-x$, and $x\in\mathbb Q$.
+
+\end{document}

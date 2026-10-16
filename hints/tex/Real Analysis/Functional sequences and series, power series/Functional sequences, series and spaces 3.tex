@@ -1,0 +1,43 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Functional sequences, series and spaces -- 3. Power series}{Class work}
+
+\problem{1}
+\hint{1}
+Cauchy--Hadamard is the root test: \(\limsup\sqrt[n]{\lvert a_nx^n\rvert}=\lvert x\rvert/R\). For \(\lvert x\rvert\le r\lt R\) pick \(q\) with \(r/R\lt q\lt1\); then \(\lvert a_nx^n\rvert\le q^n\) for large \(n\), which also gives uniform convergence on \([-r,r]\) (M-test). For \(\lvert x\rvert\gt R\) the terms do not even tend to \(0\).
+\hint{2}
+The differentiated and integrated series have coefficients \(na_n\) and \(a_n/(n+1)\) (up to a shift of the index, which does not affect the radius); since \(\sqrt[n]n\to1\), the \(\limsup\) does not change.
+\hint{3}
+Radii: for \(\frac{n!}{n^n}\) use the ratio test, \(\frac{a_{n+1}}{a_n}=\bigl(\frac n{n+1}\bigr)^n\to\frac1e\), so \(R=e\). For \(\sum x^{n^2}\) the nonzero coefficients are \(1\) at the positions \(n^2\), so \(R=1\). For \(\frac{x^n}{a^{\sqrt n}}\) (\(a\gt0\)), \(a^{-\sqrt n/n}\to1\), so \(R=1\). For \(d(n)\), \(1\le d(n)\le n\) gives \(R=1\).
+
+\problem{2}
+\hint{1}
+Reduce to \(\sum a_n=0\) (subtract \(a_0\)). With \(s_n=a_0+\dots+a_n\), Abel summation gives \(f(x)=(1-x)\sum_n s_nx^n\) for \(\lvert x\rvert\lt1\). Since \((1-x)\sum x^n=1\), split the sum at \(N\) where \(\lvert s_n\rvert\lt\varepsilon\) for \(n\gt N\).
+\hint{2}
+Apply it to \(\ln(1+x)=\sum_{n\ge1}\frac{(-1)^{n-1}x^n}n\) and \(\arctan x=\sum_{n\ge0}\frac{(-1)^nx^{2n+1}}{2n+1}\) on \((-1,1)\): both series converge at \(x=1\) by Leibniz, and both functions are continuous at \(1\). For the converse: \(\sum(-1)^nx^n=\frac1{1+x}\to\frac12\), while \(\sum(-1)^n\) diverges.
+
+\problem{3}
+\hint{1}
+Let \(s_n=a_0+\dots+a_n\) and \(\sigma_n=\frac{s_0+\dots+s_n}{n+1}\to\sigma\). Apply Abel summation twice: \(\sum a_nx^n=(1-x)\sum s_nx^n=(1-x)^2\sum(n+1)\sigma_nx^n\). (First check that the radius is at least \(1\), which follows from the second claim.)
+\hint{2}
+Since \((1-x)^2\sum(n+1)x^n=1\), the right-hand side is a weighted average of the \(\sigma_n\) with positive weights whose mass escapes to infinity as \(x\to1^-\); split at \(N\) as in Abel's theorem to get \(f(x)\to\sigma\).
+\hint{3}
+For the second claim: \(s_n=(n+1)\sigma_n-n\sigma_{n-1}\), so \(\frac{s_n}n=\frac{n+1}n\sigma_n-\sigma_{n-1}\to\sigma-\sigma=0\). In particular \(a_n=s_n-s_{n-1}=o(n)\), so the radius is at least \(1\).
+
+\problem{4}
+\hint{1}
+Let \(f(x)\to A\) and \(na_n\to0\). Estimate \(s_N-f(x)=\sum_{n\le N}a_n(1-x^n)-\sum_{n\gt N}a_nx^n\) with the choice \(x=1-\frac1N\), using \(1-x^n\le n(1-x)\).
+\hint{2}
+The first sum is at most \(\frac1N\sum_{n\le N}n\lvert a_n\rvert\), a Cesàro mean of a null sequence. The second is at most \(\sup_{n\gt N}n\lvert a_n\rvert\cdot\frac1N\sum_nx^n=\sup_{n\gt N}n\lvert a_n\rvert\). Both tend to \(0\), and \(f(1-\frac1N)\to A\). Littlewood: \(a_n=O(1/n)\) already suffices (much harder).
+\hint{3}
+For any prescribed \(c\): \(\frac{1-x}{1+x}=1+2\sum_{n\ge1}(-1)^nx^n\) is a divergent series with Abel sum \(0\), and \(2c\sum(-1)^n\) has Abel sum \(c\) (if \(c\ne0\)). Adding them gives a divergent series with Abel sum \(c\) for every \(c\).
+
+\problem{5}
+\hint{1}
+Fix \(x_0\) in the interval and use Taylor's formula with integral remainder: \(R_n(x)=\frac{(x-x_0)^{n+1}}{n!}\int_0^1f^{(n+1)}\bigl(x_0+s(x-x_0)\bigr)(1-s)^n\,ds\). For \(x\gt x_0\) all Taylor terms and the remainder are non-negative, so \(0\le R_n(y)\le f(y)-f(x_0)\) for every \(y\gt x_0\) in the interval.
+\hint{2}
+Since \(f^{(n+1)}\ge0\) has non-negative derivative, it is non-decreasing. For \(x_0\lt x\lt y\), comparing the integrands gives \(R_n(x)\le\bigl(\frac{x-x_0}{y-x_0}\bigr)^{n+1}R_n(y)\le\bigl(\frac{x-x_0}{y-x_0}\bigr)^{n+1}\bigl(f(y)-f(x_0)\bigr)\to0\).
+\hint{3}
+So the Taylor series at \(x_0\) converges to \(f\) on \([x_0,y)\), and its radius is at least \(y-x_0\). Given any point \(c\) of the interval, choose \(x_0\lt c\lt y\): then \(f\) coincides near \(c\) with the sum of a power series centred at \(x_0\), and such a sum is real-analytic at every interior point of its interval of convergence.
+\end{document}

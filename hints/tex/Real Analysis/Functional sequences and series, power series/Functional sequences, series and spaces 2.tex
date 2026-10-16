@@ -1,0 +1,45 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Functional sequences, series and spaces -- 2. Series of functions}{Class work}
+
+\problem{1}
+\hint{1}
+All three tests are statements about the tails. Weierstrass: \(\bigl\lvert\sum_{n=N}^M u_n(x)\bigr\rvert\le\sum_{n=N}^M c_n\) and the uniform Cauchy criterion. Dirichlet and Abel: apply Abel summation \(\sum_{n=N}^M u_nv_n=u_MV_M-u_NV_{N-1}-\sum_{n=N}^{M-1}(u_{n+1}-u_n)V_n\) (with \(V_n\) the partial sums of \(v\), or the tails in Abel's case) and estimate everything uniformly in \(x\); monotonicity makes \(\sum\lvert u_{n+1}-u_n\rvert\) telescope.
+\hint{2}
+\(\sum\frac{\sin nx}{n^\alpha}\): for \(\alpha\gt1\) uniform on \(\mathbb R\) (Weierstrass). For \(0\lt\alpha\le1\) use \(\bigl\lvert\sum_{n=1}^N\sin nx\bigr\rvert\le\frac1{\lvert\sin(x/2)\rvert}\): Dirichlet gives uniform convergence on every \([\delta,2\pi-\delta]\) (and its translates by \(2\pi k\)), convergence everywhere. Near \(0\) it is not uniform: at \(x=\frac1{2N}\) the block \(\sum_{n=N}^{2N}\) has all terms at least \(\frac{\sin(1/2)}{(2N)^\alpha}\), so it is at least \(c\,N^{1-\alpha}\ge c\).
+\hint{3}
+\(\sum\frac{(-1)^n}{n+x^2}\): the Leibniz tail estimate \(\le\frac1{N+1+x^2}\le\frac1{N+1}\) gives uniform convergence on all of \(\mathbb R\), while the convergence is absolute nowhere. \(\sum x^n(1-x)\) converges on \((-1,1]\) (a geometric series; the terms vanish at \(x=1\)); its tail from \(N\) is \(x^N\) for \(\lvert x\rvert\lt1\), so the convergence is uniform on \([-a,b]\) for \(0\lt a,b\lt1\) but not on \([0,1)\), \([0,1]\) or near \(-1\); on \([0,1]\) the sum is discontinuous at \(1\).
+
+\problem{2}
+\hint{1}
+For smoothness, bound all derivatives of \(\frac1{n^2+x^2}\) uniformly in \(x\). A clean way: \(\frac1{n^2+x^2}=\frac1{2in}\Bigl(\frac1{x-in}-\frac1{x+in}\Bigr)\), so the \(k\)-th derivative is at most \(\frac{k!}{n^{k+2}}\) in absolute value; apply the M-test to every differentiated series and Theorem 3.
+\hint{2}
+Asymptotics: \(t\mapsto\frac1{t^2+x^2}\) is decreasing, so \(\int_1^\infty\frac{dt}{t^2+x^2}\le S(x)\le\int_0^\infty\frac{dt}{t^2+x^2}=\frac{\pi}{2x}\); hence \(S(x)\sim\frac{\pi}{2x}\) as \(x\to\infty\) (in fact \(S(x)=\frac{\pi x\coth\pi x-1}{2x^2}\), if you know it).
+\hint{3}
+\(\sum\frac{\sin nx}n\) converges everywhere by Dirichlet. Its sum is \(\frac{\pi-x}2\) on \((0,2\pi)\) (integrate \(\frac12+\sum_{n=1}^N\cos nt=\frac{\sin(N+\frac12)t}{2\sin(t/2)}\) from \(x\) to \(\pi\) and let \(N\to\infty\) using the Riemann--Lebesgue lemma), and \(0\) at \(x=0\). The jump at \(0\) shows the convergence cannot be uniform on any neighbourhood of \(0\): a uniform limit of continuous functions is continuous.
+
+\problem{3}
+\hint{1}
+Uniform convergence is the M-test with \(c_n=1/n^2\). Each term \(\{nx\}/n^2\) is right-continuous and is continuous except at the points with \(nx\in\mathbb Z\), where it drops by \(1/n^2\).
+\hint{2}
+Because the convergence is uniform, one-sided limits can be taken term by term. At an irrational \(x\) every term is continuous, so \(R\) is continuous. At \(x=p/q\) in lowest terms, the terms that jump are those with \(q\mid n\), and \(R(x^-)-R(x)=\sum_{q\mid n}\frac1{n^2}=\frac{\pi^2}{6q^2}\gt0\).
+\hint{3}
+Integrability: each partial sum is a bounded function with finitely many discontinuities, hence integrable, and a uniform limit of integrable functions is integrable. (Alternatively, use Lebesgue's criterion: the discontinuity set is countable.)
+
+\problem{4}
+\hint{1}
+Guess the limit: a fixed point satisfies \(f'=\frac1{1+f}\), \(f(0)=0\), i.e.~\(\bigl((1+f)^2\bigr)'=2\), so \(f(x)=\sqrt{1+2x}-1\).
+\hint{2}
+Write \(T g(x)=\int_0^x\frac{dt}{1+g(t)}\). For \(g,h\ge0\), \(\lvert Tg-Th\rvert(x)\le\int_0^x\lvert g-h\rvert(t)\,dt\), because \(\Bigl\lvert\frac1{1+g}-\frac1{1+h}\Bigr\rvert=\frac{\lvert g-h\rvert}{(1+g)(1+h)}\le\lvert g-h\rvert\). All \(f_n\) are \(\ge0\).
+\hint{3}
+Iterate this Volterra-type estimate against the fixed point \(f=Tf\): \(\lvert f_n-f\rvert(x)\le\frac{x^n}{n!}\max\lvert f_0-f\rvert\). So \(f_n\to\sqrt{1+2x}-1\), and the convergence is uniform on \([0,1]\).
+
+\problem{5}
+\hint{1}
+Each \(f_n\) is a polynomial with \(f_n'=f_{n-1}\) and \(f_n(a_n)=0\). Compute the first cases: \(f_1(x)=x-a_1\), and \(f_2(0)=0\) forces \(a_2(a_2-2a_1)=0\).
+\hint{2}
+Since \(f_n'=f_{n-1}\), every \(f_n\) is \(\frac{x^n}{n!}+c_1\frac{x^{n-1}}{(n-1)!}+\dots+c_n\) with \(c_k=f_k(0)\) (a generating function \(\sum f_n(x)s^n=C(s)e^{sx}\) makes this transparent). The condition says \(c_k=0\) for \(k\ge2\), so by induction \(f_n(x)=\frac{x^n}{n!}-a_1\frac{x^{n-1}}{(n-1)!}=\frac{x^{n-1}(x-na_1)}{n!}\).
+\hint{3}
+In the induction step, \(f_n\) is that polynomial plus the constant that makes it vanish at \(a_n\); the constant is zero iff \(a_n^{n-1}(a_n-na_1)=0\). Answer: \(a_1\) arbitrary, and for each \(n\ge2\) independently \(a_n=0\) or \(a_n=na_1\).
+\end{document}

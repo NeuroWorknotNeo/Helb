@@ -1,0 +1,50 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Integrals -- 2. Symmetry, the king's rule and periodicity}{Class work}
+
+\problem{1}
+\hint{1}
+The king's rule is the substitution \(u=a+b-x\), which maps \([a,b]\) onto itself reversing orientation. For \(\int_a^b\frac{f(x)}{f(x)+f(a+b-x)}dx\), call it \(I\), apply the rule and add the result to \(I\): the integrands add up to \(1\). For \(\int_0^\pi xf(\sin x)\,dx\) use \(u=\pi-x\) and \(\sin(\pi-x)=\sin x\), then add.
+\hint{2}
+\(\int_0^\pi\frac{x\sin x}{1+\cos^2x}dx=\frac\pi2\int_0^\pi\frac{\sin x}{1+\cos^2x}dx=\frac\pi2\left[-\arctan\cos x\right]_0^\pi=\frac{\pi^2}4\). In the second integral, \(\arctan x+\operatorname{arccot}x=\frac\pi2\) for \(x\gt 0\), so it equals \(\frac\pi2\ln\sqrt3=\frac{\pi\ln3}4\).
+
+\problem{2}
+\hint{1}
+All four are integrals over a full period (or a half period) of a function that is odd with respect to some point. Look for a substitution \(x\mapsto c-x\) or \(x\mapsto x+T\) that maps the interval onto itself (up to periodicity) and changes the sign of the integrand, or of a part of it.
+\hint{2}
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  \(\arccos y=\frac\pi2-\arcsin y\), and \(\arcsin(\sin x)\) is odd and \(2\pi\)-periodic, so its integral over a period is \(0\); the answer is \(\pi^2\). (b) \(x\mapsto\pi-x\) (with periodicity) sends \(\cos x\mapsto-\cos x\), and \(\tan\) is odd: \(0\). (c) \(x\mapsto 2\pi-x\) sends \(\sin x-x\mapsto -(\sin x-x)-2\pi\), and \(\sin\) is odd and \(2\pi\)-periodic: \(0\). (d) \(x\mapsto\pi-x\) sends \(x+\cos x\mapsto\pi-(x+\cos x)\) and \(\cos(\pi-y)=-\cos y\): \(0\).
+\end{enumerate}
+
+\problem{3}
+\hint{1}
+Split the interval into periods or into unit intervals on which the floor/ceiling functions are constant. (a) \(\lvert\sin 2018x\rvert\) has period \(\frac{\pi}{2018}\) and integral \(\frac2{2018}\) over one period. (b) \(x-\lfloor x\rfloor\) has period \(1\).
+\hint{2}
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  On \((n,n+1)\), \(\lfloor x\rfloor\lceil x\rceil=n(n+1)\) and \(\int_n^{n+1}x^2dx=n^2+n+\frac13\), so each unit interval contributes \(\frac13\). (d) \(\lfloor\log_2x\rfloor=5\) on \([50,64)\) and \(6\) on \([64,100]\).
+\end{enumerate}
+\hint{3}
+Answers: (a) \(2018^2\cdot\frac2{2018}=4036\); (b) \(\frac{256}3\); (c) \(\frac{2022}3=674\); (d) \(14\cdot5+36\cdot6=286\).
+
+\problem{4}
+\hint{1}
+Over an interval that is a whole number of periods, \(\int\sin mx\cos nx=0\) always, and \(\int\cos mx\cos nx=\int\sin mx\sin nx=0\) for \(m\ne n\) (positive integers). Expand the first product into four terms and keep only the one with equal frequencies.
+\hint{2}
+First: only \(\cos^23x\) survives, and \(\int_{-2\pi}^{2\pi}\cos^23x\,dx=2\pi\). Second and third: the integrands are odd and the interval is symmetric, so both are \(0\). Criterion: the integral vanishes if the integrand is odd about the centre of the interval, or if it is a product of trigonometric functions with different integer frequencies (or a \(\sin\cdot\cos\) pair) over a full period.
+
+\problem{5}
+\hint{1}
+Under \(x\mapsto1/x\): \(dx\mapsto -dx/x^2\) and \(\frac{dx}{1+x^2}\) is invariant, while \(\ln x\mapsto-\ln x\). So \(\int_0^\infty\frac{\ln x}{1+x^2}dx\) equals its own negative: \(0\). For the second identity, applying \(x\mapsto 1/x\) to \(\frac{1}{(1+x^2)(1+x^a)}\) gives \(\frac{x^a}{(1+x^2)(1+x^a)}\); add the two forms to get \(\int_0^\infty\frac{dx}{1+x^2}=\frac\pi2\).
+\hint{2}
+So the third integral is \(\frac\pi4\) (take \(a=\pi\)). For \(\int_0^\infty\frac{\ln x}{(1+x^2)^2}dx\) the inversion alone gives no information; substitute \(x=\tan\theta\) to get \(\int_0^{\pi/2}\cos^2\theta\ln\tan\theta\,d\theta\).
+\hint{3}
+Write \(\cos^2\theta=\frac{1+\cos2\theta}2\); the \(\frac12\) part gives \(0\) (it is the first integral again), and \(\frac12\int_0^{\pi/2}\cos2\theta\ln\tan\theta\,d\theta\) integrates by parts with \(v=\frac{\sin2\theta}2\), using \((\ln\tan\theta)'=\frac1{\sin\theta\cos\theta}\). The answer is \(-\frac\pi4\).
+\end{document}

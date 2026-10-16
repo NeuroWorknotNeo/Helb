@@ -1,0 +1,58 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Limits -- 9. Sequences defined by integrals and sums}{Homework}
+
+\problem{1}
+\hint{1} The measure $(n+1)x^n\,dx$ on $[0,1]$ has total mass $1$ and concentrates at $x=1$. Write $n\int_0^1x^ng-\frac{n}{n+1}g(1)=n\int_0^1x^n\bigl(g(x)-g(1)\bigr)dx$.
+\hint{2} Split at $1-\delta$. Near $1$, $|g(x)-g(1)|<\varepsilon$ by continuity, which contributes at most $\varepsilon$. On $[0,1-\delta]$ the contribution is at most $2\max|g|\cdot n(1-\delta)^{n+1}\to0$.
+\hint{3} For $g\in C^1$, integrate by parts: $\int_0^1x^ng=\frac{g(1)}{n+1}-\frac1{n+1}\int_0^1x^{n+1}g'$, and the last integral is $\frac{g'(1)}{n+2}+o(\frac1n)$ by the first part. Hence $n\int_0^1x^ng=g(1)-\frac{g(1)+g'(1)}{n}+o(\frac1n)$; for $g\in C^2$ the error is $O(n^{-2})$.
+
+\problem{2}
+\hint{1} Both integrals can be computed exactly: substitute $y=nx$.
+\hint{2} $\int_0^1\frac{n\,dx}{1+n^2x^2}=\arctan n\to\frac\pi2$, although the integrand tends to $0$ for every $x>0$. The mass $\frac\pi2$ escapes into a shrinking neighbourhood of $0$, and no integrable function dominates the sequence ($\sup_n\frac{n}{1+n^2x^2}=\frac1{2x}$).
+\hint{3} $\int_0^1\frac{nx\,dx}{1+n^2x^2}=\frac{\ln(1+n^2)}{2n}\to0$. Here the integrands are bounded by $\frac12$ and tend to $0$ pointwise, so dominated convergence applies, and the limit and the integral commute.
+
+\problem{3}
+\hint{1} This is Theorem 2 of the class work with the $1$-periodic function $g(y)=\{y\}$, whose mean is $\frac12$. A direct proof is just as short.
+\hint{2} Split $[0,1]$ into the intervals $[\frac{k-1}n,\frac kn]$. On each, $\int\{nx\}\,dx=\frac1{2n}$, and $f$ differs from $f(\frac kn)$ by at most $\omega(\frac1n)$, the modulus of continuity.
+\hint{3} So $\int_0^1f(x)\{nx\}dx=\frac12\cdot\frac1n\sum_kf(\frac kn)+O(\omega(\frac1n))$, which tends to $\frac12\int_0^1f$ by uniform continuity and Riemann sums.
+
+\problem{4}
+\hint{1} Let $M=\max f$. The upper bound $(\int f^n)^{1/n}\le M$ is trivial. For the lower bound, take an interval of length $\delta>0$ on which $f\ge M-\varepsilon$.
+\hint{2} Then $(\int_0^1f^n)^{1/n}\ge\delta^{1/n}(M-\varepsilon)\to M-\varepsilon$.
+\hint{3} Refinement (Laplace's method). Let $f\in C^2$ with a unique maximum at an interior point $x_0$ and $f''(x_0)<0$. Write $f^n=M^ne^{n(\ln f-\ln M)}$ with $\ln f(x)-\ln M=-\frac{|f''(x_0)|}{2M}(x-x_0)^2(1+o(1))$. As in Problem 5 of the class work, split at $|x-x_0|=n^{-1/3}$; outside, $f\le M-c$.
+\hint{4} The answer is $\int_0^1f^n\sim f(x_0)^n\sqrt{\frac{2\pi f(x_0)}{n\,|f''(x_0)|}}$.
+
+\problem{5}
+\hint{1} The weight $x^n$ concentrates the integral near $x=\pi$, where $\sin x$ vanishes linearly. Substitute $x=\pi-t$: $a_n=\int_0^\pi(\pi-t)^n\sin t\,dt$.
+\hint{2} $(\pi-t)^n=\pi^ne^{n\ln(1-t/\pi)}$, which is close to $\pi^ne^{-nt/\pi}$ for small $t$, and $\sin t\approx t$. After $t=\pi s/n$ you get $a_n\sim\pi^n\int_0^\infty t\,e^{-nt/\pi}dt=\frac{\pi^{n+2}}{n^2}$. (Justify the approximation by splitting at a small $t$; or use dominated convergence after the substitution, with $(1-\frac sn)^n\le e^{-s}$.)
+\hint{3} Then $\frac{a_{n+1}}{a_n}\to\pi$, so $\frac{a_{n+1}}{na_n}\sim\frac\pi n\to0$.
+
+\problem{6}
+\note{Only the values of $f$ on $[0,1]$ enter the sum, so the hypotheses about $[0,\infty)$ and the convergence of $\int_0^\infty f$ play no role; the statement is simply the convergence of Riemann sums for a continuous $f$ on $[0,1]$.}
+\hint{1} A continuous $f$ on $[0,1]$ is uniformly continuous. On each $[\frac{k-1}n,\frac kn]$ compare $\frac1nf(\frac kn)$ with $\int f$: the difference is at most $\frac1n\omega(\frac1n)$.
+\hint{2} Summing gives total error $\le\omega(\frac1n)\to0$.
+\hint{3} For the counterexample, take a function that is Lebesgue integrable but whose values at rational points are untypical. The indicator of the irrationals in $[0,1]$ has $\int_0^1f=1$ (Lebesgue), but every $\frac kn$ is rational, so all the Riemann sums are $0$.
+
+\problem{7}
+\hint{1} This is the error term of Theorem 1 of the class work. Work on one interval $[\frac{k-1}n,\frac kn]$ and compare $\frac1nf(\frac kn)$ with the integral, using Taylor's formula at the right endpoint.
+\hint{2} $\int_{(k-1)/n}^{k/n}f=\frac1nf(\frac kn)-\frac1{2n^2}f'(\frac kn)+O(n^{-3})$, with the constant in $O$ depending on $\max|f''|$. Summing, $n\bigl(\frac1n\sum f(\frac kn)-\int f\bigr)=\frac1{2n}\sum_kf'(\frac kn)+O(\frac1n)$, which tends to $\frac12\int_0^1f'=\frac{f(1)-f(0)}2$.
+\hint{3} For $f(x)=x^2$: $\frac1{n^3}\sum k^2=\frac{(n+1)(2n+1)}{6n^2}=\frac13+\frac1{2n}+\frac1{6n^2}$, so the limit is $\frac12=\frac{f(1)-f(0)}2$.
+
+\problem{8}
+\hint{1} $\frac1{1+x^n}\to1$ for $x\in[0,1)$ and the integrand is bounded, so $I_n\to1$. Then write $1-I_n=\int_0^1\frac{x^n}{1+x^n}dx$.
+\hint{2} Substitute $t=x^n$, so $dx=\frac1nt^{1/n-1}dt$. You get $1-I_n=\frac1n\int_0^1\frac{t^{1/n}}{1+t}dt$, and the integral tends to $\ln2$. Thus $1-I_n\sim\frac{\ln2}n$.
+\hint{3} For the next term, $t^{1/n}=1+\frac{\ln t}n+O(\frac{\ln^2t}{n^2})$ and $\int_0^1\frac{\ln t}{1+t}dt=-\frac{\pi^2}{12}$. So $1-I_n=\frac{\ln2}n-\frac{\pi^2}{12n^2}+O(n^{-3})$.
+
+\problem{9}
+\hint{1} Laplace's method: $(1-x^2)^n=e^{n\ln(1-x^2)}$, which is close to $e^{-nx^2}$ near $0$. Alternatively, use the bounds $e^{-nx^2-nx^4}\le(1-x^2)^n\le e^{-nx^2}$ for small $x$, or substitute $x=\sin\theta$ to get the integral $a_{2n+1}$ of HW~6, Problem~5.
+\hint{2} After $x=s/\sqrt n$ the integral is $\frac1{\sqrt n}\bigl(\int_0^\infty e^{-s^2}ds+o(1)\bigr)=\frac{\sqrt\pi}{2\sqrt n}(1+o(1))$. The same holds for a real exponent $m\to\infty$ in place of $n$.
+\hint{3} For the ball, slice $B^n$ by the last coordinate: $V_n=V_{n-1}\int_{-1}^1(1-x^2)^{(n-1)/2}dx\sim V_{n-1}\sqrt{\frac{2\pi}{n}}$. The ratio $V_n/V_{n-1}$ tends to $0$, so $V_n/2^n$ (ball over the cube $[-1,1]^n$) decays faster than any geometric sequence. In fact $V_n=\frac{\pi^{n/2}}{\Gamma(n/2+1)}\approx\frac{1}{\sqrt{\pi n}}\bigl(\frac{2\pi e}{n}\bigr)^{n/2}$.
+
+\problem{10}
+\hint{1} First prove the statement for $f(x)=e^{imx}$ with $m\in\mathbb Z$. For $m=0$ it is trivial; for $m\ne0$, $e^{im\alpha}\ne1$ because $\frac\alpha{2\pi}$ is irrational, so sum the geometric progression.
+\hint{2} $\bigl|\frac1n\sum_{k=1}^ne^{imk\alpha}\bigr|\le\frac{2}{n|e^{im\alpha}-1|}\to0=\frac1{2\pi}\int_0^{2\pi}e^{imx}dx$. By linearity the statement holds for all trigonometric polynomials.
+\hint{3} A continuous $2\pi$-periodic $f$ is a uniform limit of trigonometric polynomials (Weierstrass, or Fej\'er). If $\|f-P\|_\infty<\varepsilon$, both the averages and the integrals change by less than $\varepsilon$. This is Weyl's criterion: the points $\{\frac{k\alpha}{2\pi}\}$ are equidistributed in $[0,1)$. Approximating the indicator of an arc from above and below by continuous functions gives the equidistribution statement of the trigonometry sheet.
+
+\end{document}

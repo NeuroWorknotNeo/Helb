@@ -1,0 +1,43 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Combinatorics -- 1. Counting and bijections}{Class work}
+
+\problem{1}
+\hint{1}
+Stars and bars: a multiset of size \(k\) from \(\{1,\dots,n\}\) is a sequence \(m_1+\dots+m_n=k\) of multiplicities; write \(m_1\) stars, a bar, \(m_2\) stars, a bar, and so on. Multinomial theorem: expand \((x_1+\dots+x_m)^n\) as a sum over words of length \(n\) and group words by how many times each letter occurs.
+\hint{2}
+Hockey stick \(\sum_{m=k}^{n}\binom{m}{k}=\binom{n+1}{k+1}\): classify the \((k+1)\)-subsets of \(\{1,\dots,n+1\}\) by their largest element \(m+1\). Lattice paths: a path to \((a,b)\) is a word of \(a\) letters E and \(b\) letters N, determined by the positions of the E's.
+\hint{3}
+Paths avoiding a point \((c,d)\) with \(0\le c\le a\), \(0\le d\le b\): subtract those passing through it, which split uniquely into a path to \((c,d)\) followed by a path from \((c,d)\). Answer: \(\binom{a+b}{a}-\binom{c+d}{c}\binom{a+b-c-d}{a-c}\).
+
+\problem{2}
+\hint{1}
+Inclusion--exclusion: fix an element lying in exactly \(m\ge1\) of the sets and count how many times it is counted on the right-hand side; it is \(\sum_{j\ge1}(-1)^{j+1}\binom{m}{j}=1-(1-1)^m\).
+\hint{2}
+Derangements: \(A_i\) = permutations fixing \(i\), so \(\lvert\bigcap_{i\in I}A_i\rvert=(n-\lvert I\rvert)!\); this gives \(D_n=n!\sum_{j=0}^n(-1)^j/j!\) and \(\lvert D_n/n!-e^{-1}\rvert\le 1/(n+1)!\) (alternating series tail). Surjections \([n]\to[k]\): \(A_i\) = maps missing \(i\), giving \(\sum_j(-1)^j\binom{k}{j}(k-j)^n\). For \(\varphi(n)\): \(A_p\) = multiples of \(p\) in \([1,n]\) for the primes \(p\mid n\), and the sum factors as a product.
+\hint{3}
+No fixed point among the first \(k\) positions: apply inclusion--exclusion only to \(A_1,\dots,A_k\). The answer is \(\sum_{j=0}^{k}(-1)^j\binom{k}{j}(n-j)!\).
+
+\problem{3}
+\hint{1}
+For \(k\ge2\) the condition reads \(f(f(k))=f(k-1)\). List all such functions for \(n=4,5\) and look for a pattern. Let \(a=f(1)\) be the minimum value and let \(p\) be the largest index with \(f(p)=a\) (so \(p\lt n\)).
+\hint{2}
+Show that \(f\) is strictly increasing on \(\{p+1,\dots,n\}\): if \(f(k)=f(k-1)\) for some \(k\ge p+2\), then \(f(k-1)=f(f(k))=f(f(k-1))=f(k-2)\), and this propagates down to \(f(p+1)=f(p)\). Deduce from \(f(f(k))=f(k-1)\gt a\) that \(f(k)\gt p\) and then that \(f(k)=k-1\) for \(k\ge p+2\).
+\hint{3}
+So \(f=a\) on \([1,p]\), \(f(p+1)=j\), \(f(k)=k-1\) for \(k\ge p+2\), and the remaining condition \(f(j)=f(p)=a\) forces \(a\lt j\le p\). Conversely all such functions work. Count triples \(1\le a\lt j\lt p+1\le n\): \(\lvert F\rvert=\binom{n}{3}\).
+
+\problem{4}
+\hint{1}
+Fix the number of parts \(k\). What do the conditions say about the multiset \(\{a_1,\dots,a_k\}\)?
+\hint{2}
+All parts are \(q\) or \(q+1\) for some \(q\). Writing \(n=kq+r\) with \(0\le r\lt k\) shows that for each \(k\in\{1,\dots,n\}\) there is exactly one such representation (\(r\) parts equal to \(q+1\), the rest equal to \(q\)). The answer is \(n\).
+
+\problem{5}
+\hint{1}
+Each jump increases one coordinate by 1 (there are \(3n\) jumps and the total increase is \(3n\)). Encode a path as a word in letters \(x,y,z\). The condition \(y\le x\le y+1\) says the letters \(x\) and \(y\) alternate \(x,y,x,y,\dots\); what does \(z\le y\) say?
+\hint{2}
+Map \(x\) and \(y\) to an up-step \(+1\) and \(z\) to a down-step \(-2\). Check that the height after a prefix, \(\#x+\#y-2\#z\), is \(\ge0\) exactly when \(\#z\le\#y\), and that the \(x/y\) labels are recovered from the alternation. So paths correspond to sequences of \(2n\) steps \(+1\) and \(n\) steps \(-2\) with all partial sums non-negative.
+\hint{3}
+Count those by the cycle lemma: prepend one extra \(+1\) step, so there are \(2n+1\) steps \(+1\) and \(n\) steps \(-2\) with total \(+1\); among the \(3n+1\) cyclic rotations of any such sequence exactly one has all partial sums positive, giving \(\frac{1}{3n+1}\binom{3n+1}{n}\). The answer is \(\frac{1}{2n+1}\binom{3n}{n}\) (1, 3, 12, 55, \ldots).
+\end{document}

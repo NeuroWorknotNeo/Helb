@@ -1,0 +1,70 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Linear algebra -- 2. Vector spaces, dimension and rank}{Class work}
+
+\problem{1}
+\hint{1}
+For the sum and the product, compare row spaces and column spaces: the rows of \(A+B\) lie in \(\operatorname{row}A+\operatorname{row}B\), the columns of \(AB\) lie in \(\operatorname{im}A\), and the rows of \(AB\) lie in the row space of \(B\). For the block row, \(\operatorname{im}(A\mid B)=\operatorname{im}A+\operatorname{im}B\).
+\hint{2}
+Key lemma: restricting \(A\) to \(\operatorname{im}X\) and applying rank--nullity gives \(\operatorname{rank}(AX)=\operatorname{rank}X-\dim(\ker A\cap\operatorname{im}X)\).
+\hint{3}
+Apply the lemma with \(X=B\) and with \(X=BC\), and use \(\ker A\cap\operatorname{im}(BC)\subseteq\ker A\cap\operatorname{im}B\): this is Frobenius. Sylvester is Frobenius with middle matrix \(E_n\). Alternatively, the lemma with \(X=B\) gives \(\operatorname{rank}AB-(\operatorname{rank}A+\operatorname{rank}B-n)=\dim\ker A-\dim(\ker A\cap\operatorname{im}B)\), which is \(0\) exactly when \(\ker A\subseteq\operatorname{im}B\).
+\hint{4}
+For sharpness, use diagonal \(0/1\) matrices (coordinate projections onto index sets \(S,T,\dots\)). Their ranks are \(\lvert S\rvert,\lvert T\rvert\), and products correspond to intersections. Choose the sets so that the overlaps are as small as allowed, e.g.~\(A=\operatorname{diag}(E_a,0)\), \(B=\operatorname{diag}(0,E_b)\) give \(\operatorname{rank}AB=\max(0,a+b-n)\).
+
+\problem{2}
+\hint{1}
+Reduce to a linearly independent subfamily \(f_1,\dots,f_k\); the intersection of kernels does not change.
+\hint{2}
+Independence gives vectors \(e_1,\dots,e_k\) with \(f_p(e_i)=\delta_{pi}\) (the map \(V\to\mathbb R^k\), \(x\mapsto(f_1(x),\dots,f_k(x))\), is onto). For any \(x\), the vector \(y=x-\sum_j f_j(x)e_j\) lies in every \(\ker f_p\), hence in \(\ker f\). Read off the coefficients \(f(e_j)\).
+
+\problem{3}
+\hint{1}
+Split a polynomial into homogeneous parts \(P=\sum_k P_k\). The average of \(P_k\) over the circle of radius \(r\) is \(r^k\) times its average over the unit circle. So \(P\) is balanced if and only if every homogeneous part has zero average on the unit circle.
+\hint{2}
+For odd \(k\) the average is automatically \(0\) (since \(P_k(-x,-y)=-P_k(x,y)\)). For even \(k\), ``average \(=0\)'' is one non-trivial linear condition, because \((x^2+y^2)^{k/2}\) has average \(1\).
+\hint{3}
+So \(\dim V=\binom{2011}{2}-1005\), subtracting one condition for each even \(k\in\{0,\dots,2008\}\). The answer is \(2020050\).
+
+\problem{4}
+\hint{1}
+\(A=u\mathbf 1^T+\mathbf 1u^T\) with \(u=(1,\dots,n)^T\), so the rank is at most \(2\). Alternatively, subtract consecutive rows.
+\hint{2}
+For \(n\ge2\) the two rows \((2,3,\dots)\) and \((3,4,\dots)\) are not proportional. The answer: rank \(2\) for \(n\ge2\), and \(1\) for \(n=1\).
+
+\problem{5}
+\hint{1}
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  Write \(A\) as a sum of \(r\) rank-one matrices \(u_kv_k^T\) (e.g.~take a basis of the column space). Put the \(u_k\) as the columns of \(B\) and the \(v_k^T\) as the rows of \(C\). Then \(\operatorname{rank}BC\le\min(\operatorname{rank}B,\operatorname{rank}C)\le r\) forces equality.
+\end{enumerate}
+\hint{2}
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Let \(D=CB\in M_r\). Then \(A^{k+1}=BD^kC\). Take \(p\) the characteristic polynomial of \(D\) (degree \(r\)) and consider \(q(x)=x\,p(x)\); Cayley--Hamilton gives \(q(A)=Bp(D)C=0\).
+\end{enumerate}
+
+\problem{6}
+\hint{1}
+Put \(S=AB+BA\) and use \(B^2=B\). Compute \((B-E)S\), \(S(B-E)\) and \((B-E)S(B-E)\).
+\hint{2}
+You get \((B-E)S=BAB-AB\), \(S(B-E)=BAB-BA\), and \((B-E)S(B-E)=0\). Apply Frobenius' inequality to the triple \(B-E,\,S,\,B-E\), and note that \(AB-BA\) is the difference of the first two matrices.
+
+\problem{7}
+\hint{1}
+Show first that \(f(PXQ)=f(X)\) for invertible \(P,Q\): apply the inequality to \(PXQ\) and to \(X=P^{-1}(PXQ)Q^{-1}\).
+\hint{2}
+Hence \(f(X)=g(\operatorname{rank}X)\) with \(g(r)=f(\operatorname{diag}(E_r,0))\). From \(J_rJ_s=J_r\) for \(r\le s\), \(g\) is non-decreasing, and it is surjective onto \(\{0,\dots,n\}\). Hence \(g=\mathrm{id}\): the only such function is \(f(X)=\operatorname{rank}X\).
+
+\problem{8}
+\hint{1}
+Consider \(S=A_1+\dots+A_k\). What does anticommutation do to \(S^2\)?
+\hint{2}
+\(S^2=\sum A_i^2+\sum_{i\lt j}(A_iA_j+A_jA_i)=S\), so \(S\) is idempotent. For idempotents, rank equals trace, so \(n\ge\operatorname{rank}S=\operatorname{tr}S=\sum\operatorname{rank}A_i\). Finish with pigeonhole.
+\end{document}

@@ -1,0 +1,56 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Trigonometry -- 2. Roots of unity and the complex exponential}{Homework}
+
+\problem{1}
+\hint{1} Put $\zeta=e^{2\pi i/p}$ and write $|G|^2=G\bar G=\sum_{j,k}\zeta^{j^2-k^2}=\sum_{j,k}\zeta^{(j-k)(j+k)}$.
+\hint{2} Since $p$ is odd, $(j,k)\mapsto(u,v)=(j-k,j+k)$ is a bijection of $(\mathbb Z/p)^2$. So $|G|^2=\sum_u\sum_v\zeta^{uv}$, and by the root-of-unity filter the inner sum is $p$ for $u=0$ and $0$ otherwise.
+\hint{3} Each nonzero square is hit by two values of $k$, so $G=\sum_{a=0}^{p-1}\bigl(1+(\tfrac ap)\bigr)\zeta^a=\sum_a(\tfrac ap)\zeta^a$. Substituting $a\to-a$ gives $\bar G=(\tfrac{-1}p)G$, hence $G^2=(\tfrac{-1}p)|G|^2=(\tfrac{-1}p)\,p=(-1)^{(p-1)/2}p$.
+
+\problem{2}
+\hint{1} The numbers $1,\cos\frac{2\pi}7,\cos\frac{4\pi}7,\cos\frac{6\pi}7$ span the field $K=\mathbb Q(\cos\frac{2\pi}7)$, which has degree $3$ over $\mathbb Q$. So the question is whether $\sqrt[3]2\in K$, resp.\ $\sqrt[5]2\in K$.
+\hint{2} For $\sqrt[5]2$: its degree is $5$ (Eisenstein), which does not divide $3$. Answer: no.
+\hint{3} For $\sqrt[3]2$ degrees do not help. Use symmetry instead: $c_j=2\cos\frac{2\pi j}7$ ($j=1,2,3$) are the roots of $x^3+x^2-2x-1$ and $c_2=c_1^2-2$, so $c_1\mapsto c_2\mapsto c_3\mapsto c_1$ is a field automorphism $\sigma$ of $K$ (every element of $K$ is a polynomial in $c_1$). The fixed elements of $\sigma$ are exactly the rationals.
+\hint{4} If $\sqrt[3]2\in K$, then $\sigma(\sqrt[3]2)$ is a root of $x^3-2$ lying in the real field $K$, hence equal to $\sqrt[3]2$; so $\sqrt[3]2$ would be rational. Answer: no. The two answers come from different obstructions: the degree for $\sqrt[5]2$, and for $\sqrt[3]2$ the fact that $K$ is a normal (cyclic) extension while $\mathbb Q(\sqrt[3]2)$ is not.
+
+\problem{3}
+\hint{1} From $\cos(n+1)\theta+\cos(n-1)\theta=2\cos\theta\cos n\theta$ get $T_{n+1}=2xT_n-T_{n-1}$, $T_0=1$, $T_1=x$; induction gives integer coefficients and leading coefficient $2^{n-1}$ (for $n\ge1$).
+\hint{2} $D_n(x)=2T_n(x/2)$ is monic with integer coefficients and $D_n(2\cos\theta)=2\cos n\theta$, so $s=2\cos\frac{2\pi}n$ is a root of the monic integer polynomial $D_n(x)-2$: an algebraic integer.
+\hint{3} For the degree (for $n>2$): $\varepsilon=e^{2\pi i/n}$ has degree $\varphi(n)$ (irreducibility of $\Phi_n$), and it satisfies $\varepsilon^2-s\varepsilon+1=0$ over $\mathbb Q(s)$ but is not real. Hence $[\mathbb Q(\varepsilon):\mathbb Q(s)]=2$ and $[\mathbb Q(s):\mathbb Q]=\varphi(n)/2$.
+
+\problem{4}
+\hint{1} $\arctan k=\arg(1+ki)$. If the identity held, exponentiating would give $\prod_k\bigl(\frac{1+ki}{|1+ki|}\bigr)^{m_k}=\frac{1+16i}{\sqrt{257}}$. Square it and clear denominators to get an identity between Gaussian integers (move negative exponents to the other side).
+\hint{2} You get $257\prod(1+ki)^{2m_k}=(1+16i)^2\prod(1+k^2)^{m_k}$, up to moving factors across. Now $257=1+16^2$ is a prime, so $1+16i=\pi$ is a Gaussian prime of norm $257$.
+\hint{3} Compare the exponent of $\pi$ on both sides (unique factorisation in $\mathbb Z[i]$). No $1+ki$ or $1+k^2$ with $k\le15$ is divisible by $\pi$, because their norms $1+k^2\le226$ are not divisible by $257$; and $\bar\pi$ is not associate to $\pi$. The left side has $\pi$-exponent $1$, the right side $2$. Answer: no such integers exist.
+
+\problem{5}
+\hint{1} $|1-\varepsilon^k|=2\sin\frac{\pi k}n$, so you need $\sum_{k=0}^{n-1}\sin\frac{\pi k}n=\operatorname{Im}\sum_{k=0}^{n-1}e^{i\pi k/n}$.
+\hint{2} The geometric sum equals $\frac{1-e^{i\pi}}{1-e^{i\pi/n}}=\frac{2}{1-e^{i\pi/n}}$, and $1-e^{i\alpha}=-2i\sin\frac\alpha2\,e^{i\alpha/2}$; its imaginary part is $\cot\frac{\pi}{2n}$.
+\hint{3} Interpretation: $n|1-\varepsilon^k|$ is the perimeter of the star polygon $\{n/k\}$ obtained by joining every $k$-th vertex of the regular $n$-gon. So the sum is $\frac1n$ times the total perimeter of all star polygons $\{n/k\}$, $1\le k\le n-1$ (twice the total length of all sides and diagonals, divided by $n$).
+
+\problem{6}
+\hint{1} On $|z|=1$ we have $\bar z=1/z$, so $1=p(z)\overline{p(z)}=p(z)\,\bar p(1/z)$, where $\bar p$ has the conjugated coefficients. Multiply by $z^n$, $n=\deg p$, to get rid of negative powers.
+\hint{2} With $p^*(z)=z^n\bar p(1/z)$ (a polynomial) the identity $p(z)p^*(z)=z^n$ holds on the unit circle, hence everywhere. So $p$ divides $z^n$, i.e.\ $p=cz^m$, and $|c|=1$.
+\hint{3} A trigonometric polynomial is $f(\theta)=e^{-iN\theta}p(e^{i\theta})$ for a polynomial $p$; apply the first part to $p$.
+
+\problem{7}
+\hint{1} Pair $k$ with $n-k$: for $|w|=1$, $w\ne1$, one has $\frac1{1-w}+\frac1{1-\bar w}=1$. Hence $\sum_{k=1}^{n-1}\frac1{1-\varepsilon^k}=\frac{n-1}2$.
+\hint{2} $\frac{\varepsilon^k}{1-\varepsilon^k}=\frac1{1-\varepsilon^k}-1$, so the first sum is $-\frac{n-1}2$.
+\hint{3} $\frac1{1-e^{i\alpha}}=\frac12+\frac i2\cot\frac\alpha2$. Taking imaginary parts in the second sum gives $\sum_{k=1}^{n-1}\cot\frac{k\pi}n=0$ (also clear from the symmetry $k\leftrightarrow n-k$).
+
+\problem{8}
+\hint{1} Start with the product formula: every root of $z^n-1$ is a primitive $d$-th root of unity for exactly one $d\mid n$, and the primitive $d$-th roots are $e^{2\pi ik/d}$ with $(k,d)=1$. Grouping the factors of $z^n-1=\prod_k(z-\varepsilon^k)$ by order gives $\prod_{d\mid n}\Phi_d=z^n-1$.
+\hint{2} Integrality by strong induction on $n$: $\Phi_n=(z^n-1)/\prod_{d\mid n,d<n}\Phi_d$, and division by a monic integer polynomial keeps integer coefficients.
+\hint{3} $\Phi_p=1+z+\dots+z^{p-1}$; $\Phi_{p^2}=(z^{p^2}-1)/(z^p-1)=\Phi_p(z^p)$; for odd $p$, $\Phi_{2p}(z)=\Phi_p(-z)$ (the map $\zeta\mapsto-\zeta$ swaps primitive $p$-th and $2p$-th roots), while $\Phi_4=z^2+1$.
+
+\problem{9}
+\hint{1} Split the sum into $k\ge0$ and $k<0$: it equals $\operatorname{Re}\Bigl(1+2\sum_{k\ge1}(re^{i\theta})^k\Bigr)=\operatorname{Re}\frac{1+re^{i\theta}}{1-re^{i\theta}}$. Multiply numerator and denominator by $1-re^{-i\theta}$.
+\hint{2} For the series: $\sum_{k\ge1}\frac{r^k\cos k\theta}{k}=\operatorname{Re}\sum_{k\ge1}\frac{(re^{i\theta})^k}k=-\operatorname{Re}\log(1-re^{i\theta})=-\tfrac12\ln(1-2r\cos\theta+r^2)$ (equivalently, integrate $\frac{P_r(\theta)-1}{2r}$ in $r$).
+\hint{3} Let $r\to1^-$: the series $\sum\frac{\cos k\theta}k$ converges for $\theta\in(0,2\pi)$ (Dirichlet's test), so Abel's theorem applies, and $-\frac12\ln(2-2\cos\theta)=-\ln\bigl(2\sin\frac\theta2\bigr)$.
+
+\problem{10}
+\hint{1} Expand $|z-\varepsilon^k|^2=|z|^2+1-2\operatorname{Re}(\bar z\varepsilon^k)$ and use $\sum_k\varepsilon^k=0$.
+\hint{2} $\prod_k|z-\varepsilon^k|=|z^n-1|\le|z|^n+1=2$ on $|z|=1$, with equality iff $z^n=-1$. The maximum is $2$.
+
+\end{document}

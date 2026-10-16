@@ -1,0 +1,29 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Limits -- 2. Recurrences solvable in closed form}{Class work}
+
+\problem{1}
+\hint{1} By AM--GM, $x_n=\frac12\bigl(x_{n-1}+\frac{c}{x_{n-1}}\bigr)\ge\sqrt c$ for every $n\ge1$, whatever $x_0>0$ is. Use this to show that from $n=1$ on the sequence is decreasing, hence convergent; the limit $L>0$ satisfies $L=\frac12(L+c/L)$.
+\hint{2} For the speed, compute $x_n-\sqrt c=\dfrac{(x_{n-1}-\sqrt c)^2}{2x_{n-1}}\le\dfrac{(x_{n-1}-\sqrt c)^2}{2\sqrt c}$ (for $n\ge2$). So the error is squared at each step (quadratic convergence): with $e_n=(x_n-\sqrt c)/(2\sqrt c)$ one has $e_n\le e_{n-1}^2$, hence $e_n\le e_1^{2^{n-1}}$, and the number of correct digits roughly doubles each step.
+\hint{3} Newton's method for $g(x)=x^2-c$ is $x_n=x_{n-1}-g(x_{n-1})/g'(x_{n-1})$; check that this is exactly the given recurrence.
+
+\problem{2}
+\hint{1} Following the suggestion, express $a_n=(b_n^2-1)/24$ and compute $b_{n+1}^2=1+24a_{n+1}$ in terms of $b_n$. It turns out to be a perfect square.
+\hint{2} One gets $b_{n+1}^2=\bigl(\frac{b_n+3}{2}\bigr)^2$, so $b_{n+1}=\frac{b_n+3}{2}$ with $b_1=5$, a linear recurrence: $b_n-3=2^{2-n}$.
+\hint{3} Hence $a_n=\dfrac{(3+2^{2-n})^2-1}{24}=\dfrac13+\dfrac1{2^n}+\dfrac{2}{3\cdot4^n}=\dfrac{(2^n+1)(2^n+2)}{3\cdot 4^n}$.
+
+\problem{3}
+\note{The recurrence for $b$ must be used for $n\ge0$ (otherwise $b_1$ is undefined); so $b_1=a_0-b_0=1$. The recurrence for $a$ is for $n\ge0$ as well.}
+\hint{1} Compute a few terms: $a_n=1,2,5,13,34,\dots$ and $b_n=0,1,1,4,9,25,\dots$. Recognize Fibonacci numbers: conjecture $a_n=F_{2n+1}$ and $b_n=F_n^2$.
+\hint{2} Get rid of the root: $(2a_{n+1}-3a_n)^2=5a_n^2-4$ gives $a_{n+1}^2-3a_na_{n+1}+a_n^2+1=0$. This relation is symmetric in $a_n,a_{n+1}$, so both $a_{n+1}$ and $a_{n-1}$ are roots of $t^2-3a_nt+a_n^2+1=0$; $a_{n+1}$ is the larger root and $a_{n-1}<a_n\le a_{n+1}$, so by Vieta $a_{n+1}=3a_n-a_{n-1}$.
+\hint{3} $F_{2n+3}=3F_{2n+1}-F_{2n-1}$, so $a_n=F_{2n+1}$. Then prove $b_n=F_n^2$ by induction using the identity $F_n^2+F_{n+1}^2=F_{2n+1}$, i.e.\ $b_{n+1}=a_n-b_n$. Finally $b_{2n+1}=F_{2n+1}^2=a_n^2$.
+
+\problem{4}
+\hint{1} Theorem 1: the characteristic roots of $\lambda^2-6\lambda+8$ are $2$ and $4$; the right-hand side $n=n\cdot1^n$ and $1$ is not a root, so look for a particular solution $An+B$.
+\hint{2} Substituting gives $A=\frac13$, $B=\frac{10}{9}$. Then fit $a_n=C2^n+D4^n+\frac n3+\frac{10}9$ to $a_0=1$, $a_1=2$.
+\hint{3} $C=-\frac12$, $D=\frac7{18}$, i.e.\ $a_n=\dfrac{7\cdot4^n-9\cdot2^n+6n+20}{18}$ (check: $a_2=6$).
+
+\problem{5}
+\hint{1} Write $\alpha=\cos\theta$ with $\theta\in[0,\pi]$ and show by induction that $a_n=\cos n\theta$, using $\cos(n+2)\theta+\cos n\theta=2\cos\theta\cos(n+1)\theta$. Then $|a_n|\le1$ is immediate.
+\end{document}

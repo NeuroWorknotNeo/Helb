@@ -1,0 +1,59 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Methods of proof -- 6. Contradiction and proofs of impossibility}{Homework}
+
+\problem{1}
+\hint{1} Suppose $2^a,2^b,2^c$ with $a<b<c$ form an arithmetic progression: $2^a+2^c=2^{b+1}$. Divide by $2^a$ and look at parities.
+\hint{2} $1+2^{c-a}$ is odd and greater than $1$, while $2^{b-a+1}$ is even. Contradiction (this is a $2$-adic valuation argument).
+
+\problem{2}
+\note{As printed the statement is garbled and false: the $2^n$ unit cubes $\varepsilon+[0,1]^n$, $\varepsilon\in\{0,-1\}^n$, all contain the origin and pairwise touch, and $2^n>2^{n-1}+1$; the parenthetical cross-references are stray text. The hints prove the intended statement: at most $2^n$ axis-parallel unit cubes in $\mathbb R^n$ with pairwise disjoint interiors can pairwise touch (so among $2^n+1$ such cubes two are disjoint), and $2^n$ is attained.}
+\hint{1} Pairwise touching cubes pairwise intersect. Axis-parallel boxes that pairwise intersect have a common point: project to each coordinate axis and use Helly's theorem on the line (pairwise intersecting intervals have a common point).
+\hint{2} So all cubes contain a common point $P$. For each cube $c+[0,1]^n\ni P$ and each coordinate $k$, at least one of $[P_k,P_k+\varepsilon]$, $[P_k-\varepsilon,P_k]$ lies in $[c_k,c_k+1]$ (for small $\varepsilon$). Hence each cube contains one of the $2^n$ small ``orthant boxes'' at $P$.
+\hint{3} These orthant boxes have non-empty interior, and the cubes have disjoint interiors, so different cubes contain different orthant boxes: at most $2^n$ cubes. The $2^n$ cubes with a vertex at the origin show sharpness.
+
+\problem{3}
+\hint{1} You must show: for every $f$ there is a convergent sequence of pairwise distinct $a_i$ with $(f(a_i))$ convergent. Look for an infinite set on which both $x$ and $f(x)$ are bounded.
+\hint{2} $\mathbb R=\bigcup_{m\ge1}\{x\in[-m,m]:\ |f(x)|\le m\}$ is a countable union, and $\mathbb R$ is uncountable, so one of these sets is infinite.
+\hint{3} Take pairwise distinct points in it; by Bolzano--Weierstrass extract a convergent subsequence, and then a further subsequence along which the bounded values $f(a_i)$ converge.
+
+\problem{4}
+\hint{1} Encode a figure $F$ by the function $\mathbf 1_F(x,y)$ and use the rank: a rectangle $I\times J$ gives $\mathbf 1_I(x)\mathbf 1_J(y)$, a function of rank one. If $F$ is cut into $m$ rectangles, then $\mathbf 1_F$ (up to boundaries, e.g.\ as an integral operator on $L^2$) has rank at most $m$.
+\hint{2} With the squares $I_i\times J_i$, $\mathbf 1_F=\sum_{i=1}^n\mathbf 1_{I_i}\otimes\mathbf 1_{J_i}$, and this has rank exactly $n$ provided the functions $\mathbf 1_{I_1},\dots,\mathbf 1_{I_n}$ are linearly independent, and likewise the $\mathbf 1_{J_i}$. So it suffices to show that intervals of lengths $1,\frac{11}{10},\dots,(\frac{11}{10})^{n-1}$ have independent indicators.
+\hint{3} If $\sum c_i\mathbf 1_{I_i}=0$ with some $c_i\ne0$, view the intervals with $c_i\ne0$ as edges between their endpoints; the relation says the $c_i$ form a circulation, so these edges contain a cycle. Going around the cycle, the signed lengths add up to $0$: $\sum\pm(\frac{11}{10})^{k}=0$ over distinct exponents $k$.
+\hint{4} This is impossible by an $11$-adic valuation: the terms have pairwise distinct $11$-adic valuations $k$, so the term with the smallest $k$ cannot be cancelled (multiply by $10^{n-1}11^{-k_{\min}}$ and reduce modulo $11$). Hence the rank is $n$ and at least $n$ rectangles are needed.
+
+\problem{5}
+\note{With $z$ a factor the statement is false: for $x^2-2y^2$ (discriminant $8$) the value $1$ is represented, so every natural number is $1\cdot z$. The hints follow the intended reading $(ax^2+bxy+cy^2)^z$, an exponent $z>0$.}
+\hint{1} Let $D=b^2-4ac$ (not a square, so $a\ne0$ and the form vanishes only at $(0,0)$). Take an odd prime $p\nmid aD$ with $\bigl(\frac Dp\bigr)=-1$. Show that if $p\mid Q(x,y)$ then $p\mid x$ and $p\mid y$; use $4aQ=(2ax+by)^2-Dy^2$.
+\hint{2} Then $Q(x,y)=p^2Q(x/p,y/p)$, and by descent $v_p(Q(x,y))$ is even for $(x,y)\ne(0,0)$; hence $v_p(Q(x,y)^z)=z\,v_p(Q(x,y))$ is even too. So a number $N$ with $v_p(N)=1$ is not representable.
+\hint{3} There are infinitely many primes with $\bigl(\frac Dp\bigr)=-1$ (quadratic reciprocity plus Dirichlet's theorem, or a direct argument). Choose $n$ of them, $p_1,\dots,p_n$, not dividing $2aD$, and by the Chinese remainder theorem find $N$ with $N+i\equiv p_i\pmod{p_i^2}$ for $i=1,\dots,n$. Then $v_{p_i}(N+i)=1$ and none of $N+1,\dots,N+n$ is representable.
+
+\problem{6}
+\hint{1} Look at the area $s(t)$ of the horizontal cross-section at height $t$. For the parallelepiped it is constant on $(0,H)$. What is it for a tetrahedron with a horizontal face?
+\hint{2} If the tetrahedron has a horizontal face of area $A$ at height $h_0$ and apex at height $h_1$, its section at height $t$ between them is a similar triangle of area $A\bigl(\frac{t-h_1}{h_0-h_1}\bigr)^2$: a quadratic in $t$ with positive leading coefficient, and $0$ outside $[h_0,h_1]$.
+\hint{3} On an interval between consecutive heights of vertices, the constant $s(t)$ would equal a sum of such quadratics, at least one of which is present (the section is non-empty). The coefficient of $t^2$ of the sum is positive: contradiction. (Equivalently, $s''=\sum s_T''>0$ there.)
+
+\problem{7}
+\hint{1} The answer is yes. Look among commuting nilpotent matrices of rank one, e.g.\ $A=E_{12}$ and $B=E_{13}$ (matrix units); check $AB=BA=0$.
+\hint{2} Both have $A^2=B^2=0$ and rank $1$, so in a Jordan basis $f_1,f_2,f_3$ each is one $2\times2$ block on two consecutive basis vectors plus a zero block: $A$ sends one basis vector $f_{j+1}$ to $f_j$ and kills the other two, and $\operatorname{im}A=\langle f_j\rangle$.
+\hint{3} Here $\operatorname{im}A=\operatorname{im}B=\langle e_1\rangle$, so in a common Jordan basis the blocks of $A$ and $B$ sit at the same place, and then $A$ and $B$ have the same matrix, i.e.\ $A=B$. But $A\ne B$.
+
+\problem{8}
+\hint{1} The image of a continuous map from $[0,1]^2$ is compact and connected, so for an injection it is a non-degenerate segment $[a,b]$. Remove a point.
+\hint{2} Choose $P$ with $f(P)\in(a,b)$. The square minus $P$ is connected, but its image $[a,b]\setminus\{f(P)\}$ is not: contradiction.
+\hint{3} A continuous bijection $[0,1]\to[0,1]^2$ would be a homeomorphism (compact to Hausdorff); removing an interior point disconnects $[0,1]$ but not the square. A continuous surjection exists (Peano curve), since surjectivity does not see this. The invariant in both cases is connectedness of the complement of a point (cut points).
+
+\problem{9}
+\hint{1} $\sqrt[3]2$ is a root of $x^3-2$; $\cos20^\circ$ satisfies $4c^3-3c=\cos60^\circ=\frac12$, i.e.\ $x=2c$ is a root of $x^3-3x-1$. A cubic over $\mathbb Q$ is irreducible iff it has no rational root.
+\hint{2} By the rational root test the candidates are $\pm1,\pm2$ and $\pm1$ respectively, and none works; so both numbers have degree $3$.
+\hint{3} Theorem: if $\alpha$ is constructible from the points $0,1$, then $\mathbb Q(\alpha)$ lies at the top of a tower $\mathbb Q=K_0\subset K_1\subset\dots\subset K_m$ with $[K_{i+1}:K_i]=2$, so $[\mathbb Q(\alpha):\mathbb Q]$ is a power of $2$ by the tower law. Doubling the cube needs $\sqrt[3]2$, trisecting $60^\circ$ needs $\cos20^\circ$; degree $3$ is not a power of $2$.
+
+\problem{10}
+\note{The quoted argument is in fact a correct proof by contradiction, once two implicit steps are justified; the hints treat ``the error'' as these missing justifications.}
+\hint{1} Check each step under the hypothesis $\sum1/n=S<\infty$. Is regrouping a convergent series allowed? Does a strict termwise inequality between two convergent series give a strict inequality of the sums?
+\hint{2} Both are true: regrouping a convergent series does not change its sum, and $\sum(a_k-b_k)>0$ if all $a_k-b_k>0$. So the argument is valid; what is missing is exactly these justifications, which is where convergence is used (the same manipulations without the hypothesis would be meaningless).
+\hint{3} A direct proof: $s_{2^m}\ge1+\frac m2$ by grouping $\frac1{2^{j-1}+1}+\dots+\frac1{2^j}\ge\frac12$, so the partial sums are unbounded. It also gives the growth rate, which is why it is the one to submit.
+
+\end{document}

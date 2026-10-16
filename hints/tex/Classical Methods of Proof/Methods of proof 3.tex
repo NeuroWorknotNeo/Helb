@@ -1,0 +1,35 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Methods of proof -- 3. The extremal principle and compactness}{Class work}
+
+\problem{1}
+\hint{1} (Sylvester--Gallai, Kelly's proof.) Consider all pairs $(P,\ell)$, where $\ell$ is a line through at least two of the points and $P$ is one of the points not on $\ell$. There are finitely many such pairs and at least one (the points are not collinear). Choose the pair with the smallest distance $d(P,\ell)>0$.
+\hint{2} Suppose $\ell$ contains three of the points. Drop the perpendicular $PF$ to $\ell$. Two of the three points, say $B$ and $C$, lie on the same (closed) side of $F$, with $B$ between $F$ and $C$ (possibly $B=F$).
+\hint{3} Then the distance from $B$ to the line $PC$ is smaller than $d(P,\ell)$ (compare the right triangle $PFC$ with the smaller similar picture at $B$), so the pair $(B, PC)$ beats $(P,\ell)$. Hence $\ell$ contains exactly two points.
+\hint{4} (The lens.) Let $A,B$ be a closest pair. The lens is the intersection of the two discs of radius $|AB|$ centred at $A$ and $B$; a point $C$ inside it would have $|CA|<|AB|$ (or $|CB|<|AB|$), contradicting the choice. Note that here the extremal choice is the whole proof.
+
+\problem{2}
+\hint{1} For the first claim: a continuous $f$ on a compact $K$ is bounded (otherwise take $x_k$ with $|f(x_k)|>k$ and a convergent subsequence). Let $M=\sup f$, pick $x_k$ with $f(x_k)\to M$, pass to a convergent subsequence $x_k\to x^*\in K$ and use continuity.
+\hint{2} The unit sphere is compact and $q(x)=\langle Ax,x\rangle$ is continuous, so $q$ attains its maximum $\lambda$ at some unit $x_0$. For $y\perp x_0$ consider $x(t)=(x_0+ty)/|x_0+ty|$; the function $t\mapsto q(x(t))$ has a maximum at $t=0$, and its derivative there is $2\langle Ax_0,y\rangle$.
+\hint{3} Hence $Ax_0\perp x_0^{\perp}$, i.e. $Ax_0=\lambda x_0$ with $\lambda=q(x_0)$. Every eigenvalue $\mu$ with unit eigenvector $v$ satisfies $\mu=q(v)\le\lambda$, so $\lambda$ is the largest one.
+\hint{4} For the eigenbasis: $W=x_0^{\perp}$ is $A$-invariant, since $\langle Aw,x_0\rangle=\langle w,Ax_0\rangle=\lambda\langle w,x_0\rangle=0$, and $A|_W$ is again symmetric. Apply the induction hypothesis to $W$ and add $x_0$.
+
+\problem{3}
+\hint{1} Parametrise ellipsoids as $E=\{Ax+c:\ |x|\le 1\}$ with $A$ symmetric positive semidefinite; $\operatorname{vol}E=\det A\cdot\operatorname{vol}B^n$. Show that the set of $(A,c)$ with $E\subset K$ is closed and bounded (since $K$ is bounded), so the continuous function $\det A$ attains its maximum; it is positive because $K$ has interior points.
+\hint{2} Uniqueness of the shape: if $(A_1,c_1)$ and $(A_2,c_2)$ are both maximal, then $\bigl(\tfrac{A_1+A_2}{2},\tfrac{c_1+c_2}{2}\bigr)$ also gives an ellipsoid in $K$ (each of its points is the midpoint of a point of $E_1$ and a point of $E_2$). Use $\det\frac{A_1+A_2}{2}\ge\sqrt{\det A_1\det A_2}$, with equality only if $A_1=A_2$ (diagonalise $A_1^{-1/2}A_2A_1^{-1/2}$ and use AM--GM on its eigenvalues).
+\hint{3} Uniqueness of the centre: if $A_1=A_2$ but $c_1\ne c_2$, make $A_1=I$ by an affine map. Then $K$ contains the convex hull of two unit balls with centres at distance $d>0$, and this hull contains the ellipsoid centred at the midpoint with semi-axis $1+d/2$ along $c_2-c_1$ and $1$ in the orthogonal directions: a larger volume.
+\hint{4} The contact points (John's theorem): if the maximal ellipsoid is the unit ball $B$, then there are points $u_1,\dots,u_m\in\partial K\cap S^{n-1}$ and weights $c_i>0$ with $\sum c_iu_iu_i^{T}=I_n$ and $\sum c_iu_i=0$. Consequently the contact points are not contained in any closed half-sphere and $K\subset nB$ ($K\subset\sqrt n B$ if $K$ is symmetric).
+
+\problem{4}
+\hint{1} Let $S=\{x\in[0,1]: f(x)\ge x\}$; $0\in S$, so $s=\sup S$ exists. Rule out $f(s)>s$ and $f(s)<s$ separately using continuity at $s$.
+\hint{2} If $f(s)>s$, then $s<1$ and $f(x)>x$ on a right neighbourhood of $s$, contradicting $s=\sup S$. If $f(s)<s$, then $f(x)<x$ on some $(s-\delta,s]$, so $S\subset[0,s-\delta]$, again a contradiction. Hence $f(s)=s$.
+\hint{3} Counterexamples: $f=1$ on $[0,\tfrac12)$, $f=0$ on $[\tfrac12,1]$ has no fixed point (the step ``$f(x)>x$ near $s$'' fails); $f(x)=x/2$ on $(0,1)$ has none: there the set $S$ is empty, because the starting point $0\in S$ is missing, and the would-be fixed point $0$ lies outside the open interval, which is not compact.
+
+\problem{5}
+\hint{1} If $\bigcap F_i=\varnothing$, the complements $X\setminus F_i$ form an open cover of $X$. Take a finite subcover and see what it says about a finite intersection.
+\hint{2} For the graph $G=(V,E)$ let $X=\{1,\dots,k\}^V$ with the product topology; it is compact by Tychonoff (for countable $V$ a diagonal argument suffices). For each edge $uv$ let $C_{uv}=\{c\in X: c(u)\ne c(v)\}$; it depends on two coordinates only, hence is closed.
+\hint{3} A finite family $C_{u_1v_1},\dots,C_{u_mv_m}$ has a common point because the finite subgraph on these edges is $k$-colourable (extend the colouring arbitrarily). By the first part there is $c\in\bigcap_{uv\in E}C_{uv}$: a proper colouring of $G$.
+\hint{4} In the finite case one would simply take a colouring of the whole graph (or an extremal partial colouring and extend it). In the infinite case there is no ``largest finite subgraph''; the common point of the closed sets, i.e.\ a consistent limit of colourings of larger and larger finite subgraphs, is exactly what compactness supplies in place of the extremal object.
+
+\end{document}

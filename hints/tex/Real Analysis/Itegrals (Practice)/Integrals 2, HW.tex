@@ -1,0 +1,67 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Integrals -- 2. Symmetry, the king's rule and periodicity}{Homework}
+
+\problem{1}
+\hint{1}
+Substitute \(x\mapsto -x\): the integral becomes \(\int_{-a}^a\frac{f(x)}{1+e^{-x}}dx=\int_{-a}^a\frac{e^xf(x)}{1+e^x}dx\). Add it to the original: you get \(\int_{-a}^af=2\int_0^af\).
+\hint{2}
+\(\int_{-1}^1\frac{x^2}{1+e^x}dx=\int_0^1x^2dx=\frac13\) and \(\int_{-\pi/2}^{\pi/2}\frac{\cos x}{1+e^x}dx=\int_0^{\pi/2}\cos x\,dx=1\).
+
+\problem{2}
+\hint{1}
+Pair the terms: \(\frac1{1+\tan x}+\frac1{1+\cot x}\), \(\frac1{1+\cos x}+\frac1{1+\sec x}\), \(\frac1{1+\sin x}+\frac1{1+\csc x}\). Each pair has the form \(\frac1{1+u}+\frac1{1+1/u}\).
+\hint{2}
+\(\frac1{1+u}+\frac{u}{u+1}=1\), so the integrand equals \(3\) wherever it is defined, and the integral is \(3x+C\).
+
+\problem{3}
+\hint{1}
+The shift \(x\mapsto x+\pi\) sends \(\sin x\mapsto-\sin x\). So \(\int_0^{2\pi}\lfloor 2023\sin x\rfloor dx=\int_0^\pi\left(\lfloor y\rfloor+\lfloor -y\rfloor\right)dx\) with \(y=2023\sin x\).
+\hint{2}
+\(\lfloor y\rfloor+\lfloor -y\rfloor=-1\) unless \(y\) is an integer, which happens only at finitely many \(x\). So the answer is \(-\pi\).
+
+\problem{4}
+\hint{1}
+Compute the first few nested expressions separately for \(x\ge0\) and \(x\lt0\). For the first one, \(g_1=\lvert x\rvert\), \(g_{k+1}=\lvert x+g_k\rvert\): for \(x\ge0\), \(g_k=kx\); for \(x\lt0\) the values alternate \(-x,0,-x,0,\dots\).
+\hint{2}
+With \(2026\) (even) occurrences, \(g_{2026}=0\) for \(x\lt0\) and \(2026x\) for \(x\ge0\), so the first integral is \(\int_0^12026x\,dx=1013\).
+\hint{3}
+For the second, the function is even; for \(x\ge0\) let \(h_0=x\), \(h_k=\lvert h_{k-1}-1\rvert\). By induction, on \([0,n]\) the function \(h_n\) is a zigzag between \(0\) and \(1\) with slopes \(\pm1\) (a triangle wave), so its integral over \([0,n]\) is \(\frac n2\). Hence the answer is \(2\cdot\frac{2023}2=2023\).
+
+\problem{5}
+\hint{1}
+In the first integral \(x^{2024}dx\) is, up to the factor \(\frac1{2025}\), exactly \(d(x^{2025})\); so \(u=x^{2025}\) (or \(u=1-x^{2025}\), which maps \([0,1]\) to itself reversed) reduces it to a single power.
+\hint{2}
+First: \(\frac1{2025}\int_0^1u^{2025}du=\frac1{2025\cdot2026}\). Second: \(u=1-x\) gives \(\int(u^{2021}-u^{2020})\,du\) up to sign, so the answer is \(\frac{(1-x)^{2022}}{2022}-\frac{(1-x)^{2021}}{2021}+C\).
+
+\problem{6}
+\hint{1}
+\(\cos x+\cos(x+\frac{2\pi}3)+\cos(x-\frac{2\pi}3)=\operatorname{Re}\left(e^{ix}(1+\omega+\omega^2)\right)\) with \(\omega=e^{2\pi i/3}\).
+\hint{2}
+\(1+\omega+\omega^2=0\), so the integrand is identically \(0\) and the integral is a constant \(C\).
+
+\problem{7}
+\hint{1}
+Apply the king's rule to \(I=\int_a^b\frac{f}{f+g}\): since \(f(a+b-x)=g(x)\) and hence \(g(a+b-x)=f(x)\), it becomes \(\int_a^b\frac{g}{g+f}\). Add the two expressions.
+\hint{2}
+\(2I=b-a\). A classical example (Putnam 1987): \(\int_2^4\frac{\sqrt{\ln(9-x)}}{\sqrt{\ln(9-x)}+\sqrt{\ln(x+3)}}dx=1\), here \(a+b=6\) and \(f(x)=\sqrt{\ln(9-x)}\), \(g(x)=\sqrt{\ln(x+3)}\); no elementary antiderivative is known (and none is expected).
+
+\problem{8}
+\hint{1}
+Simplify each summand for non-integer \(x\) (integers form a null set): \(\lfloor\lceil x\rceil\rfloor=\lceil x\rceil\), \(\lceil\lfloor x\rfloor\rceil=\lfloor x\rfloor\), \(\lfloor\{x\}\rfloor=0\), \(\{\lfloor x\rfloor\}=0\), \(\lceil\{x\}\rceil=1\), \(\{\lceil x\rceil\}=0\).
+\hint{2}
+The integrand is \(\lfloor x\rfloor+\lceil x\rceil+1=2\lfloor x\rfloor+2\) almost everywhere, so the integral is \(2\sum_{n=0}^{999}n+2000=1001000\).
+
+\problem{9}
+\hint{1}
+\(\int_0^N\binom{\lfloor x\rfloor}{k}dx=\sum_{n=0}^{N-1}\binom nk\), and the hockey-stick identity gives \(\sum_{n=0}^{N-1}\binom nk=\binom N{k+1}\).
+\hint{2}
+So the answers are \(\binom{20}3=1140\) and \(\binom{2026}4=699938073450\).
+
+\problem{10}
+\hint{1}
+Either note that \(F(\sin x)\), with \(F'=f\), is an antiderivative and is \(2\pi\)-periodic, or use \(x\mapsto\pi-x\) (together with periodicity): \(\sin\) is unchanged and \(\cos\) changes sign.
+\hint{2}
+General criterion: if a substitution \(x\mapsto c-x\) maps the interval onto itself, or \(x\mapsto x+T\) maps it onto itself modulo a period, and turns the integrand \(h\) into \(-h\), then \(I=-I\), so \(I=0\). Good test cases from the class sheet: 2(b) with \(x\mapsto\pi-x\), 2(c) with \(x\mapsto2\pi-x\), 2(d) with \(x\mapsto\pi-x\), and the odd integrands in Problem 4.
+\end{document}

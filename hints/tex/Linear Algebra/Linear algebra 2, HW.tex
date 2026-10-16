@@ -1,0 +1,128 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Linear algebra -- 2. Vector spaces, dimension and rank}{Homework}
+
+\problem{1}
+\hint{1}
+Odd polynomials of degree at most \(2m-1\) form an \(m\)-dimensional space with basis \(x,x^3,\dots,x^{2m-1}\). It suffices to show that the \(m\) given polynomials lie in it and are independent.
+\hint{2}
+Write out \(C_{x+l-1}^{2l-1}=\dfrac{(x+l-1)\cdots(x+1)\,x\,(x-1)\cdots(x-l+1)}{(2l-1)!}=\dfrac{x(x^2-1)(x^2-4)\cdots(x^2-(l-1)^2)}{(2l-1)!}\). It is odd of degree exactly \(2l-1\), and polynomials of distinct degrees are independent.
+
+\problem{2}
+\hint{1}
+Expand \(P\) in the basis of binomial polynomials \(C_x^k=\frac{x(x-1)\cdots(x-k+1)}{k!}\), \(k=0,\dots,n\).
+\hint{2}
+Substituting \(x=0,1,\dots,n\) gives a unitriangular integer system for the coefficients \(a_k\), so by induction all \(a_k\in\mathbb Z\). Then \(n!\,C_x^k=\frac{n!}{k!}\,x(x-1)\cdots(x-k+1)\) has integer coefficients.
+
+\problem{3}
+\hint{1}
+Suppose the rank of \(f_1',\dots,f_n'\) is at most \(n-2\), with a basis \(f_1',\dots,f_k'\) of their span. Express \(f_{k+1}'\) and \(f_{k+2}'\) through it and integrate: a function with zero derivative is constant.
+\hint{2}
+You get \(\lambda_1f_1+\dots+\lambda_kf_k-f_{k+1}=c_1\) and \(\mu_1f_1+\dots+\mu_kf_k-f_{k+2}=c_2\). If some \(c_i=0\), this is already a non-trivial relation. Otherwise eliminate the constant: \(c_2(\dots)-c_1(\dots)=0\) is a non-trivial relation among the \(f_i\).
+
+\problem{4}
+\hint{1}
+Every permutation matrix has all row sums and all column sums equal to \(1\). Consider the space \(W\) of matrices whose row sums and column sums are all equal (to a common value). What is \(\dim W\)?
+\hint{2}
+A matrix in \(W\) is determined by its upper-left \((n-1)\times(n-1)\) block and the common sum, so \(\dim W=(n-1)^2+1\). This is an upper bound for \(\dim X_n\).
+\hint{3}
+For the lower bound, take differences \(P_\sigma-P_{\sigma\circ(k\,l)}\): they give the ``elementary'' matrices \(E_{ik}+E_{jl}-E_{il}-E_{jk}\), which span all matrices with zero row and column sums (dimension \((n-1)^2\)). Add \(E\), which is not in that span. Answer: \(\dim X_n=(n-1)^2+1=n^2-2n+2\).
+
+\problem{5}
+\hint{1}
+Complete \(u\) to a basis \(u,e_2,\dots,e_n\). Then \(A(e_j)=\lambda_je_j+\mu_ju\) and \(A(u)=cu\). The goal is to show that all \(\lambda_j\) are equal.
+\hint{2}
+Apply the hypothesis to \(x=e_j+e_k\) for \(j\ne k\ge2\) (this needs \(\dim V\ge3\)). Comparing with \(A(e_j)+A(e_k)\) and using the independence of \(e_j,e_k,u\) gives \(\lambda_j=\lambda_k=:\lambda\).
+\hint{3}
+Define \(\varphi\) on the basis by \(\varphi(e_j)=\mu_j\) and \(\varphi(u)=c-\lambda\). Both sides of \(A(x)=\lambda x+\varphi(x)u\) are linear and agree on the basis.
+
+\problem{6}
+\hint{1}
+Iterate Sylvester's inequality \(\operatorname{rank}(XY)\ge\operatorname{rank}X+\operatorname{rank}Y-n\).
+\hint{2}
+By induction, \(\operatorname{rank}(A_1\cdots A_k)\ge\sum\operatorname{rank}A_i-(k-1)n=k(n-1)-(k-1)n=n-k\gt0\).
+
+\problem{7}
+\hint{1}
+For ``if'': rewrite \(AX+YB=AZB\) as \(AX=(AZ-Y)B\) and as \(YB=A(ZB-X)\). Each gives a rank inequality.
+\hint{2}
+For ``only if'': equal ranks give \(A=PBQ\) with \(P,Q\) invertible. You also need an invertible \(G\) with \(BGB=B\): write \(B=C\operatorname{diag}(E_r,0)D\) and take \(G=D^{-1}C^{-1}\).
+\hint{3}
+Now try \(X=Q^{-1}\), \(Y=P\), \(Z=2Q^{-1}G\). Both sides become \(2PB\).
+
+\problem{8}
+\hint{1}
+The order is odd and the matrix is skew-symmetric, so \(\det M_n=\det(-M_n^T)=-\det M_n=0\). Thus \(\operatorname{rank}M_n\le 2n\).
+\hint{2}
+For the lower bound reduce modulo \(2\): \(M_n\equiv J-E\), where \(J\) is the all-ones matrix. A non-zero \(2n\)-minor modulo \(2\) is non-zero over \(\mathbb Q\).
+\hint{3}
+Over \(\mathbb F_2\), \((J-E)x=0\) means \(x_i=\sum_jx_j\) for all \(i\), so the kernel is spanned by \((1,\dots,1)\) and the rank is \(2n\). (Alternatively, \(M_n\) is a circulant; compute its eigenvalues.) Answer: \(\operatorname{rank}M_n=2n\).
+
+\problem{9}
+\hint{1}
+Express \(B\) and \(C\) as \(DA\) for suitable simple matrices \(D\): zeroing the first row is left multiplication by \(\operatorname{diag}(0,1,\dots,1)\), and shifting rows up is left multiplication by the nilpotent shift \(J\).
+\hint{2}
+Then \((A^{-1}DA)^m=A^{-1}D^mA\), so the ranks are those of \(D^m\). Here \(D^m=D\) in (a) (rank \(n-1\) always), and \(\operatorname{rank}J^m=n-m\) in (b).
+
+\problem{10}
+\hint{1}
+Write \(P=X+Y=uv^T\). Then \(Y^2=YX-XY=YP-PY=[Y,P]\), and \(Y\) commutes with \([Y,P]=Y^2\). Show by induction that \([Y^k,P]=kY^{k+1}\), and deduce that \(Y\) is nilpotent (look at traces).
+\hint{2}
+Let \(m\) be the nilpotency index of \(Y\). From \([Y^{m-1},P]=0\), i.e.~\(Y^{m-1}uv^T=uv^TY^{m-1}\), and nilpotency, get \(Y^{m-1}u=0\) and \(v^TY^{m-1}=0\).
+\hint{3}
+Multiply \((m-2)Y^{m-1}=Y^{m-2}uv^T-uv^TY^{m-2}\) by \(Y\) on the left and on the right; for \(m=2\), use \(YP=PY\) directly. Conclude that \(Yu=0\) or \(v^TY=0\).
+\hint{4}
+If \(Yu=0\), then \(Y^2=[Y,P]=-u(v^TY)\), and \(Y^3=-(Yu)(v^TY)=0\); the case \(v^TY=0\) is symmetric. Finally \(YXY=Y(P-Y)Y=(Yu)(v^TY)-Y^3=0\).
+
+\problem{11}
+\hint{1}
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  With \(k=\lfloor n/2\rfloor\), look for \(X\) with \(XY=X\) of rank \(k\) and \(YX=0\). Use matrix units: \(X=\sum_{i\le k}e_{i,k+i}\), \(Y=\sum_{i\le k}e_{k+i,k+i}\).
+\end{enumerate}
+\hint{2}
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Let \(d=\operatorname{rank}XY-\operatorname{rank}YX\). Sylvester for \(YX\) together with \(\operatorname{rank}XY\le\operatorname{rank}X\) gives \(d\le n-\operatorname{rank}Y\). Also trivially \(d\le\operatorname{rank}XY\le\operatorname{rank}Y\). Add the two bounds.
+\end{enumerate}
+
+\problem{12}
+\hint{1}
+\((BA)^4=B(AB)^3A=O\), so \(BA\) is nilpotent. What does this give for small \(n\)?
+\hint{2}
+For \(n\le3\), a nilpotent \(n\times n\) matrix satisfies \(N^3=O\), so the answer is yes. For \(n\ge4\) look for a counterexample with \(B\) a shift and \(A\) diagonal.
+\hint{3}
+In \(M_4\), let \(Se_i=e_{i-1}\) (\(Se_1=0\)) and \(D=\operatorname{diag}(0,1,1,1)\). With \(A=D\), \(B=S\), check that \((DS)^3=O\) but \((SD)^3e_4=e_1\). Pad with zeros for larger \(n\). So in general the answer is no (it holds only for \(n\le3\)).
+
+\problem{13}
+\hint{1}
+\(M=vw^T-wv^T\), so \(Mx=(w\cdot x)v-(v\cdot x)w\) and \(\operatorname{im}M\subseteq\operatorname{span}\{v,w\}\).
+\hint{2}
+Since \(v,w\) are independent, you can solve \(v\cdot x=0\), \(w\cdot x=1\) and \(v\cdot y=1\), \(w\cdot y=0\). Then \(Mx=v\) and \(My=-w\), so the answer is \(2\).
+
+\problem{14}
+\hint{1}
+The answers are \(2\) (minimum) and \(n\) (maximum). For the minimum, the natural arrangement \(a_{ij}=(i-1)n+j\) has rank \(2\): it is the sum of two rank-one matrices.
+\hint{2}
+Rank \(1\) would mean \(a_{ij}a_{kl}=a_{il}a_{kj}\) for all \(i,j,k,l\). Take a prime \(p\) with \(n^2/2\lt p\le n^2\) (Bertrand), placed at \((k,l)\), and pick \(i\ne k\), \(j\ne l\). Then \(p\) divides \(a_{il}a_{kj}\), but these are entries \(\le n^2\lt 2p\) different from \(p\).
+\hint{3}
+For rank \(n\), it is enough to make the determinant odd. Reduce mod \(2\): there are \(\lceil n^2/2\rceil\) odd numbers, and \(n\le\lceil n^2/2\rceil\le n(n+1)/2\). So you can place the odd numbers on the diagonal and on some cells below it, making the matrix unit lower-triangular modulo \(2\).
+
+\problem{15}
+\hint{1}
+Use idempotency to compute \((E-P-Q)P\) and \(Q(E-P-Q)\). Both equal \(-QP\).
+\hint{2}
+Apply Sylvester's inequality to each product and bound \(\operatorname{rank}QP\) by \(\operatorname{rank}Q\), respectively by \(\operatorname{rank}P\). You get \(\operatorname{rank}(E-P-Q)\le n-\operatorname{rank}P+\operatorname{rank}Q\) and the symmetric bound, so the answer is no.
+
+\problem{16}
+\hint{1}
+\(A-ABA=A(E-BA)\), and \(\ker A\subseteq\operatorname{im}(E-BA)\): if \(Ax=0\) then \((E-BA)x=x\). Equality in Sylvester's inequality then gives \(\operatorname{rank}(A-ABA)=\operatorname{rank}A+\operatorname{rank}(E-BA)-n\).
+\hint{2}
+The same holds with \(A,B\) swapped. It remains to show \(\operatorname{rank}(E-AB)=\operatorname{rank}(E-BA)\): the map \(x\mapsto Bx\) sends \(\ker(E-AB)\) injectively into \(\ker(E-BA)\), and \(y\mapsto Ay\) goes back.
+\end{document}

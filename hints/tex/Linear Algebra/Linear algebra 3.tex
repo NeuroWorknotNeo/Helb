@@ -1,0 +1,64 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Linear algebra -- 3. Eigenvalues, diagonalisability and the Jordan form}{Class work}
+
+\problem{1}
+\hint{1}
+Diagonalisability. If \(A\) is diagonalisable with distinct eigenvalues \(\lambda_1,\dots,\lambda_s\), then \(\prod(A-\lambda_iE)=O\) (check it on the eigenbasis). Conversely, if \(\mu_A=\prod(x-\lambda_i)\) with the \(\lambda_i\) distinct, use Bezout (or Lagrange interpolation polynomials \(p_i\) with \(\sum p_i=1\)) to get \(V=\bigoplus\ker(A-\lambda_iE)\).
+\hint{2}
+Frobenius form. Regard \(V\) as a \(K[x]\)-module (\(x\) acts as \(A\)). Equivalently, reduce the polynomial matrix \(xE-A\) by elementary row and column operations over \(K[x]\) to the Smith form \(\operatorname{diag}(1,\dots,1,f_1,\dots,f_k)\) with \(f_1\mid\dots\mid f_k\). The module splits into cyclic pieces \(K[x]/(f_i)\), and on each piece \(A\) acts by the companion matrix of \(f_i\).
+\hint{3}
+So \(A\sim B\) over \(K\) if and only if \(xE-A\) and \(xE-B\) have the same invariant factors. These are determined by the gcds \(d_k\) of the \(k\times k\) minors (\(f\)'s are ratios \(d_k/d_{k-1}\)). Gcds of polynomials with coefficients in \(K\) do not change when you pass to a larger field (Euclid's algorithm runs inside \(K[x]\)). Hence similarity over an extension implies similarity over \(K\).
+
+\problem{2}
+\hint{1}
+Let \(C\) be the \(n\times n\) tridiagonal matrix with zeros on the diagonal and ones just above and below it (the adjacency matrix of a path). Compute \(C^2\).
+\hint{2}
+\(C^2=A\). The eigenvalues of \(C\) are \(2\cos\frac{k\pi}{n+1}\), \(k=1,\dots,n\): try eigenvectors \((\sin\frac{jk\pi}{n+1})_j\).
+\hint{3}
+So the eigenvalues of \(A\) are \(4\cos^2\frac{k\pi}{n+1}\), \(k=1,\dots,n\). The values for \(k\) and \(n+1-k\) coincide. Hence for even \(n\) each of the \(n/2\) distinct values has multiplicity \(2\); for odd \(n\) the value \(0\) (at \(k=\frac{n+1}2\)) is simple and the remaining \(\frac{n-1}2\) values are double.
+
+\problem{3}
+\hint{1}
+\(\mu_A\) divides \(f(x)=x^{2n}+x^n+2n\). By Fact 1 / Problem 1 it suffices to show that \(f\) has no multiple roots.
+\hint{2}
+\(f'(x)=nx^{n-1}(2x^n+1)\). Check that neither \(x=0\) nor \(x^n=-\frac12\) is a root of \(f\).
+
+\problem{4}
+\hint{1}
+A real eigenvalue of the real matrix \(AB\) has a real eigenvector: \(ABv=\lambda v\), \(v\ne0\). Rewrite it as \(Bv=\lambda A^{-1}v\) and take the inner product with \(v\).
+\hint{2}
+\(\langle Bv,v\rangle\gt\lVert v\rVert^2\), while \(0\lt\langle A^{-1}v,v\rangle\lt\lVert v\rVert^2\), because the eigenvalues of \(A^{-1}\) lie in \((0,1)\). So \(\lambda=\langle Bv,v\rangle/\langle A^{-1}v,v\rangle\gt1\).
+
+\problem{5}
+\hint{1}
+By Theorem 3, \(\sum_{i\lt j}\lambda_i\lambda_j\) is the sum of the principal \(2\times2\) minors of \(A\).
+\hint{2}
+That sum equals \(\sum_{i\lt j}(a_{ii}a_{jj}-a_{ij}^2)\), so the difference is \(\sum_{i\lt j}a_{ij}^2\ge0\). Equality holds exactly for diagonal matrices.
+
+\problem{6}
+\hint{1}
+\(\langle Av,v\rangle\) depends only on the symmetric part \(S=\frac12(A+A^T)\). Show that \(S=E\), so \(A=E+K\) with \(K\) skew-symmetric.
+\hint{2}
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  The eigenvalues of a real skew-symmetric \(K\) are purely imaginary, and \(K\) is normal, hence diagonalisable over \(\mathbb C\). If all eigenvalues of \(E+K\) are real, all eigenvalues of \(K\) are \(0\), so \(K=O\). (b) Take \(K\) block-diagonal with \(1012\) blocks \(\begin{pmatrix}0&1\\-1&0\end{pmatrix}\).
+\end{enumerate}
+
+\problem{7}
+\hint{1}
+Yes, they exist. Try two square-zero matrices of rank \(1\) with the same image but different kernels, e.g.~\(A=E_{12}\) and \(B=E_{13}\) (matrix units). Check that they commute.
+\hint{2}
+In a common Jordan basis \(f_1,f_2,f_3\), each of \(A,B\) maps exactly one basis vector onto the basis vector immediately preceding it and kills the other two. Since \(\operatorname{im}A=\operatorname{im}B\), the image vector is the same basis vector for both.
+\hint{3}
+Since \(\ker A\ne\ker B\), the vectors sent onto it are different for \(A\) and \(B\). Both would have to stand immediately after it in the basis, which is impossible.
+
+\problem{8}
+\hint{1}
+You need a basis \(e_1,e_2\) with \(Me_1=0\), \(Me_2=e_1\), \(Ne_1=e_2\), \(Ne_2=0\). Start with \(e_1\ne0\) in \(\ker M\) and set \(e_2=Ne_1\).
+\hint{2}
+\(Me_2=MNe_1=(E-NM)e_1=e_1\), which also shows \(e_1,e_2\) are independent, and \(Ne_2=N^2e_1=0\). Take \(A\) with columns \(e_1,e_2\).
+\end{document}

@@ -1,0 +1,67 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Functional sequences, series and spaces -- 4. Spaces of functions}{Homework}
+
+\problem{1}
+\hint{1}
+\(C[0,1]\) is complete, so Baire's theorem applies. For each interval \(I\) with rational endpoints let \(M_I\) be the set of \(f\) that are monotone (in either direction) on \(I\). A function is nowhere monotone iff it lies in no \(M_I\), so it suffices to show each \(M_I\) is closed and nowhere dense.
+\hint{2}
+Closed: a uniform (even pointwise) limit of functions monotone on \(I\) is monotone on \(I\) (pass to a subsequence that is monotone in a fixed direction). Empty interior: given \(f\) and \(\varepsilon\), first take a piecewise linear \(g\) with \(\lVert f-g\rVert\lt\varepsilon\) and slopes at most \(L\) in absolute value, then add a zigzag of amplitude \(\varepsilon\) with slopes \(\pm(L+1)\); the result has slopes of both signs inside \(I\).
+\hint{3}
+Compare: by Lebesgue's theorem a function monotone on an interval is differentiable almost everywhere there, so every nowhere differentiable function is nowhere monotone. Hence the result also follows from the residuality of the nowhere differentiable functions, but the direct proof above is much simpler (the sets \(M_I\) are closed and obviously nowhere dense).
+
+\problem{2}
+\hint{1}
+The parallelogram law is \(\lVert f+g\rVert^2+\lVert f-g\rVert^2=2\lVert f\rVert^2+2\lVert g\rVert^2\), which every norm induced by an inner product satisfies. Find one pair violating it.
+\hint{2}
+Uniform norm: \(f=1\), \(g=x\) gives \(4+1\ne2+2\). \(L^1\) norm: \(f=x\), \(g=1-x\) gives \(\lVert f+g\rVert_1=1\), \(\lVert f-g\rVert_1=\frac12\), \(\lVert f\rVert_1=\lVert g\rVert_1=\frac12\), so \(\frac54\ne1\).
+
+\problem{3}
+\hint{1}
+Positivity gives monotonicity: \(f\le g\Rightarrow\Lambda f\le\Lambda g\). Now use \(-\lVert f\rVert\cdot1\le f\le\lVert f\rVert\cdot1\) to get \(\lvert\Lambda f\rvert\le\Lambda(1)\lVert f\rVert\).
+\hint{2}
+For \(L^1\): \(\Lambda f=f(0)\) is positive but not \(L^1\)-continuous; tents \(f_n\) with \(f_n(0)=1\) supported on \([0,\frac1n]\) have \(\lVert f_n\rVert_1\to0\) while \(\Lambda f_n=1\).
+
+\problem{4}
+\hint{1}
+Let \(E_N=\{x:\lvert\Lambda x\rvert\le N\text{ for all }\Lambda\text{ in the family}\}\). Each \(E_N\) is closed (an intersection of closed sets) and the union is the whole space by pointwise boundedness. By Baire, some \(E_N\) contains a ball \(B(x_0,r)\).
+\hint{2}
+For \(\lVert x\rVert\le r\): \(\lvert\Lambda x\rvert\le\lvert\Lambda(x_0+x)\rvert+\lvert\Lambda x_0\rvert\le2N\), so \(\lVert\Lambda\rVert\le2N/r\) for the whole family. Counterexample without completeness: finitely supported sequences with the sup norm and \(\Lambda_n(x)=nx_n\); at each \(x\) only finitely many \(\Lambda_n x\) are non-zero, but \(\lVert\Lambda_n\rVert=n\).
+
+\problem{5}
+\hint{1}
+Use the ``typewriter'' sequence: run through the dyadic intervals \(I_{k,j}=\bigl[\frac j{2^k},\frac{j+1}{2^k}\bigr]\), \(0\le j\lt2^k\), level after level, and take \(f=h_k\mathbf 1_{I_{k,j}}\) (or continuous tents on these intervals) for a height \(h_k\) to be chosen.
+\hint{2}
+The \(L^1\) norm is \(h_k2^{-k}\). Every point lies in at least one interval of every level and outside most of them, so the sequence takes the value \(0\) and a value about \(h_k\) infinitely often at every point. With \(h_k=k\) the norms tend to \(0\) while the sequence is unbounded (hence divergent) at every point.
+
+\problem{6}
+\hint{1}
+The set is uniformly bounded by \(M\) and equicontinuous (one \(\delta=\varepsilon/L\) for all its members), and it is closed under uniform limits because both inequalities pass to pointwise limits. By Arzelà--Ascoli it is compact, and a continuous function on a compact set attains its minimum.
+\hint{2}
+On the whole unit ball equicontinuity is lost and the ball is not compact; a continuous functional can then fail to attain its infimum. Example: \(\Phi(f)=\int_0^1\bigl(f(x)-\operatorname{sgn}(x-\frac12)\bigr)^2dx\) has infimum \(0\) over the unit ball, but \(\Phi(f)=0\) would force \(f\) to be the discontinuous sign function.
+
+\problem{7}
+\hint{1}
+Write the polynomials as \(\bigcup_dP_d\) with \(P_d\) the polynomials of degree at most \(d\). Each \(P_d\) is a finite-dimensional, hence closed, subspace, and it is proper; a proper closed subspace has empty interior (if it contained a ball it would contain everything, by scaling and translating).
+\hint{2}
+Weierstrass says the union is dense, not that it is large: dense sets can be of first category (the rationals in \(\mathbb R\)). What Baire forbids is a first-category set with non-empty interior or a first-category complement.
+
+\problem{8}
+\hint{1}
+For \(p\lt\infty\), finitely supported sequences with rational entries are countable and dense: cut the tail (its \(p\)-norm is small) and approximate the finitely many remaining entries.
+\hint{2}
+In \(\ell^\infty\) the uncountably many \(0\)/\(1\) sequences are at mutual distance \(1\); disjoint balls of radius \(\frac12\) around them would each need a point of a countable dense set. \(c_0\) is closed: if \(x^{(k)}\to x\) in the sup norm, choose \(k\) with \(\lVert x-x^{(k)}\rVert\lt\varepsilon\) and use \(x^{(k)}_n\to0\). It is separable by the same argument as for \(\ell^p\).
+
+\problem{9}
+\hint{1}
+Starting from \(y_0=1\), \(y_{n+1}(x)=1+\int_0^xy_n\) gives \(y_n=\sum_{k=0}^n\frac{x^k}{k!}\), and \(\lvert e^x-y_n(x)\rvert\le e^a\frac{a^{n+1}}{(n+1)!}\) on \([0,a]\) by Taylor's formula.
+\hint{2}
+The map \(Ty=1+\int_0^xy\) has Lipschitz constant \(a\) in the sup norm, so it is a contraction only for \(a\lt1\). To go further, either solve on \([0,h]\), \(h\lt1\), and restart at \(x=h\) with initial value \(y(h)\), or note that \(T^n\) has constant \(\frac{a^n}{n!}\) (so some iterate is a contraction), or use the weighted norm \(\sup e^{-2x}\lvert y(x)\rvert\), in which \(T\) is a contraction on every \([0,a]\).
+
+\problem{10}
+\hint{1}
+For a continuous \(g\) the statement is trivial: the set \(\{\lvert g\rvert\gt\lambda\}\) is empty once \(\lambda\gt\max\lvert g\rvert\). Approximate \(f\) by continuous \(g\) with \(\lVert f-g\rVert_p\lt\varepsilon\).
+\hint{2}
+\(\{\lvert f\rvert\gt\lambda\}\subset\{\lvert g\rvert\gt\lambda/2\}\cup\{\lvert f-g\rvert\gt\lambda/2\}\). For large \(\lambda\) the first set is empty, and Chebyshev's inequality bounds the measure of the second by \((2/\lambda)^p\lVert f-g\rVert_p^p\). Hence \(\limsup_{\lambda\to\infty}\lambda^pm\{\lvert f\rvert\gt\lambda\}\le2^p\varepsilon^p\) for every \(\varepsilon\).
+\end{document}

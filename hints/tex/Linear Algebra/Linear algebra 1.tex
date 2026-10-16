@@ -1,0 +1,59 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Linear algebra -- 1. Determinants and invertibility}{Class work}
+
+\problem{1}
+\hint{1}
+Regard \(\det A\) as a polynomial \(F\) in the \(n^2\) entries \(a_{ij}\). By the chain rule, \(\frac{d}{dt}\det A(t)=\sum_{i,j}\frac{\partial F}{\partial a_{ij}}\,a_{ij}'(t)\), so it suffices to compute each partial derivative.
+\hint{2}
+Expand along row \(i\): \(\det A=\sum_k a_{ik}(-1)^{i+k}M_{ik}\), and the cofactors \((-1)^{i+k}M_{ik}\) do not involve any entry of row \(i\). Hence \(\partial F/\partial a_{ij}=(-1)^{i+j}M_{ij}=(\operatorname{adj}A)_{ji}\), and \(\sum_{i,j}(\operatorname{adj}A)_{ji}a'_{ij}=\operatorname{tr}(\operatorname{adj}A\cdot A')\).
+\hint{3}
+For \(\det e^{A}\): put \(f(t)=\det e^{tA}\). Jacobi gives \(f'(t)=\operatorname{tr}(\operatorname{adj}(e^{tA})e^{tA}A)=f(t)\operatorname{tr}A\) (since \(e^{tA}\) is invertible, \(\operatorname{adj}(e^{tA})=f(t)e^{-tA}\)), and \(f(0)=1\). For \(\operatorname{adj}(\operatorname{adj}A)\): first treat invertible \(A\), where \(B=\operatorname{adj}A=(\det A)A^{-1}\) and \(\det B=(\det A)^{n-1}\); plug into \(\operatorname{adj}B\cdot B=(\det B)E\). Then extend to all \(A\) because both sides are polynomials in the entries and invertible matrices are dense (or: polynomial identity holding on a Zariski-dense set).
+
+\problem{2}
+\hint{1}
+The matrix is ``staircase''-shaped: column \(j\) equals column \(j-1\) except in rows \(i\ge j\). Subtract column \(j-1\) from column \(j\), for \(j=n,n-1,\dots,2\).
+\hint{2}
+After these operations the matrix is lower triangular with diagonal entries \(1\) and \(\frac1k-\frac1{k-1}=-\frac{1}{k(k-1)}\) for \(k=2,\dots,n\). Multiply them: the answer is \(\det A=\dfrac{(-1)^{n-1}}{(n-1)!\,n!}\).
+
+\problem{3}
+\hint{1}
+The matrix is \(D+uu^T\) with \(D=\operatorname{diag}(2,3,\dots,n)\) and \(u=(1,\dots,1)^T\). Use the rank-one update formula (Theorem 2).
+\hint{2}
+\(\det D=n!\) and \(u^TD^{-1}u=\tfrac12+\dots+\tfrac1n\), so \(D_n=n!\,\bigl(1+\tfrac12+\dots+\tfrac1n\bigr)\). So \(D_n/n!=H_n\), the harmonic number, which is unbounded: the answer is no.
+
+\problem{4}
+\hint{1}
+\(\cos((j+k)\theta)=\cos j\theta\cos k\theta-\sin j\theta\sin k\theta\), so \(A\) has rank at most \(2\): \(A=UV^T\) with \(U,V\) of size \(n\times 2\). Use \(\det(E+UV^T)=\det(E_2+V^TU)\).
+\hint{2}
+Take \(U\) with columns \((\cos k\theta)_k,(\sin k\theta)_k\) and \(V\) with columns \((\cos k\theta)_k,(-\sin k\theta)_k\). Then \(V^TU\) is the \(2\times2\) matrix of sums \(\sum\cos^2k\theta\), \(\sum\cos k\theta\sin k\theta\), \(\sum\sin^2 k\theta\) (with signs).
+\hint{3}
+With \(\theta=2\pi/n\) and \(n\ge3\) one has \(\sum_{k=1}^n\cos 2k\theta=\sum_{k=1}^n\sin 2k\theta=0\), so \(\sum\cos^2k\theta=\sum\sin^2k\theta=n/2\) and \(\sum\cos k\theta\sin k\theta=0\). The answer is \(1-\dfrac{n^2}{4}\).
+
+\problem{5}
+\hint{1}
+\(\operatorname{adj}A\) is nilpotent, hence singular, hence by the rank facts about the adjugate its rank is \(1\) or \(0\).
+\hint{2}
+A rank-one matrix is \(uv^T\), and \((uv^T)^m=(v^Tu)^{m-1}uv^T\). So nilpotency forces \(v^Tu=0\), and then already \((uv^T)^2=(v^Tu)uv^T=O\).
+
+\problem{6}
+\hint{1}
+Look for a product that the two relations make vanish. Try computing \((A^2+B^2)(A-B)\).
+\hint{2}
+\((A^2+B^2)(A-B)=A^3-A^2B+B^2A-B^3=0\). Since \(A-B\ne 0\), \(A^2+B^2\) cannot be invertible. The answer is no.
+
+\problem{7}
+\hint{1}
+By Theorem 3, the hypothesis says \(\det(A+kB)=\pm1\) for \(k=0,\dots,4\). Consider \(f(t)=\det(A+tB)\): what kind of function of \(t\) is it?
+\hint{2}
+\(f\) is a polynomial of degree at most \(2\) with integer coefficients taking values in \(\{1,-1\}\) at five points. By pigeonhole it takes the same value at three of them, so it is constant. Hence \(\det(A+5B)=\pm1\).
+
+\problem{8}
+\hint{1}
+It suffices to show the kernel is trivial (dimension count). Suppose \(\varphi(A)=0\) with \(A\ne0\). What does determinant-preservation give for \(\det(X+A)\) for arbitrary \(X\)?
+\hint{2}
+\(\det(X+A)=\det(\varphi(X)+\varphi(A))=\det\varphi(X)=\det X\) for all \(X\). Now find an \(X\) that is singular but with \(X+A\) invertible.
+\hint{3}
+If \(\operatorname{rank}A=r\ge1\), write \(A=P\operatorname{diag}(E_r,0)Q\) with \(P,Q\) invertible and take \(X=P\operatorname{diag}(0,E_{n-r})Q\). Then \(\det X=0\) but \(X+A=PQ\) is invertible, a contradiction.
+\end{document}

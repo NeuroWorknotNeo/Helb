@@ -1,0 +1,71 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Integrals -- 5. The gamma and beta functions and Wallis' formulas}{Homework}
+
+\problem{1}
+\hint{1}
+Substitute \(u=ax^b\): \(x=(u/a)^{1/b}\), \(dx=\frac1b a^{-1/b}u^{1/b-1}du\), and \(x^{s-1}dx=\frac1ba^{-s/b}u^{s/b-1}du\).
+\hint{2}
+\(\int_0^\infty e^{-x^3}dx=\frac13\Gamma(\frac13)=\Gamma(\frac43)\); \(\int_0^\infty x^5e^{-x^4}dx=\frac14\Gamma(\frac32)=\frac{\sqrt\pi}8\); \(\int_0^\infty x^3e^{-x^2}dx=\frac12\Gamma(2)=\frac12\).
+
+\problem{2}
+\hint{1}
+With \(x=\sin^2t\): \(B(s,s)=2\int_0^{\pi/2}(\sin t\cos t)^{2s-1}dt=2^{2-2s}\int_0^{\pi/2}\sin^{2s-1}2t\,dt\).
+\hint{2}
+Substituting \(u=2t\) and using symmetry about \(\frac\pi2\), the last integral is \(\int_0^{\pi/2}\sin^{2s-1}u\,du=\frac12B(s,\frac12)\). So \(B(s,s)=2^{1-2s}B(s,\frac12)\), i.e.~\(\frac{\Gamma(s)^2}{\Gamma(2s)}=2^{1-2s}\frac{\Gamma(s)\sqrt\pi}{\Gamma(s+\frac12)}\), which is the duplication formula.
+
+\problem{3}
+\hint{1}
+Substitute \(u=x^n\): the integral becomes \(\frac1n\int_0^1u^{1/n-1}(1-u)^{-1/n}du=\frac1nB\left(\frac1n,1-\frac1n\right)\).
+\hint{2}
+By the reflection formula this is \(\frac{\pi/n}{\sin(\pi/n)}\), which tends to \(1\) as \(n\to\infty\).
+
+\problem{4}
+\hint{1}
+Wallis' product: as in the class sheet, squeeze \(I_{2m}\) between \(I_{2m+1}\) and \(I_{2m-1}\), \(I_n=\int_0^{\pi/2}\sin^nx\,dx\). An equivalent form: \(\frac{(2m)!!}{(2m-1)!!}=\frac{4^m(m!)^2}{(2m)!}\sim\sqrt{\pi m}\).
+\hint{2}
+Stirling up to a constant: let \(a_n=\frac{n!\,e^n}{n^{n+1/2}}\). Then \(\ln\frac{a_n}{a_{n+1}}=(n+\frac12)\ln(1+\frac1n)-1\), which is positive and \(O(1/n^2)\); so \(a_n\) decreases to a limit \(C\gt0\) (show it stays positive by summing the \(O(1/n^2)\) bounds).
+\hint{3}
+Insert \(n!\sim Cn^{n+1/2}e^{-n}\) into \(\frac{4^m(m!)^2}{(2m)!}\): it becomes \(\sim\frac{C\sqrt m}{\sqrt2}\). Comparing with \(\sqrt{\pi m}\) gives \(C=\sqrt{2\pi}\).
+
+\problem{5}
+\hint{1}
+\(\tan^ax=\sin^ax\cos^{-a}x\), so by Fact 1 of the class sheet the integral is \(\frac12B\left(\frac{1+a}2,\frac{1-a}2\right)=\frac12\Gamma\left(\frac{1+a}2\right)\Gamma\left(\frac{1-a}2\right)\).
+\hint{2}
+By reflection it equals \(\frac{\pi}{2\sin\frac{\pi(1+a)}2}=\frac\pi{2\cos\frac{\pi a}2}\), which is even in \(a\). Directly: \(x\mapsto\frac\pi2-x\) turns \(\tan^ax\) into \(\cot^ax=\tan^{-a}x\).
+
+\problem{6}
+\hint{1}
+Substitute \(x=e^{-u}\), so \(\ln\frac1x=u\) and \(dx=-e^{-u}du\).
+\hint{2}
+You get \(\int_0^\infty u^{-1/2}e^{-u}du=\Gamma(\frac12)=\sqrt\pi\) and \(\int_0^\infty u^{s-1}e^{-u}du=\Gamma(s)\).
+
+\problem{7}
+\hint{1}
+Log-convexity: for \(\lambda\in(0,1)\) write \(x^{\lambda s+(1-\lambda)t-1}e^{-x}=\left(x^{s-1}e^{-x}\right)^\lambda\left(x^{t-1}e^{-x}\right)^{1-\lambda}\) and apply Hölder with exponents \(\frac1\lambda\), \(\frac1{1-\lambda}\): \(\Gamma(\lambda s+(1-\lambda)t)\le\Gamma(s)^\lambda\Gamma(t)^{1-\lambda}\).
+\hint{2}
+Bohr--Mollerup: if \(f\colon(0,\infty)\to(0,\infty)\) satisfies \(f(1)=1\), \(f(s+1)=sf(s)\) and \(\ln f\) is convex, then \(f=\Gamma\). Idea of proof: for \(0\lt x\le1\), compare slopes of \(\ln f\) on \([n,n+1]\), \([n+1,n+1+x]\), \([n+1,n+2]\) to get \(n^x\le\frac{f(n+1+x)}{n!}\le(n+1)^x\); with the functional equation this forces \(f(x)=\lim_{n\to\infty}\frac{n!\,n^x}{x(x+1)\cdots(x+n)}\), a formula that does not depend on \(f\).
+
+\problem{8}
+\hint{1}
+Expand \(\frac1{e^x\pm1}=\sum_{k\ge1}(\mp1)^{k-1}e^{-kx}\): then \(\int_0^\infty\frac{x^{s-1}}{e^x+1}dx=\Gamma(s)\eta(s)\) and \(\int_0^\infty\frac{x^{s-1}}{e^x-1}dx=\Gamma(s)\zeta(s)\). With \(s=1\) resp. \(s=2\): \(\eta(1)=\ln2\) and \(\Gamma(2)\zeta(2)=\frac{\pi^2}6\) (the first is also immediate: \(\int_0^\infty\frac{e^{-x}}{1+e^{-x}}dx=\ln2\)).
+\hint{2}
+For the third, expanding \(\frac1{1+e^{2x}}\) gives Gaussians with shifted centres and an alternating series that does not lead anywhere simple. Instead, \(x\mapsto-x\) turns \(\frac1{1+e^{2x}}\) into \(\frac{e^{2x}}{1+e^{2x}}\) while \(e^{-x^2}\) is even; adding, \(2I=\int_{-\infty}^\infty e^{-x^2}dx\), so \(I=\frac{\sqrt\pi}2\).
+
+\problem{9}
+\hint{1}
+Compute \(\int_{\mathbb R^n}e^{-\lvert x\rvert^2}dx\) in two ways: as \(\left(\int e^{-t^2}dt\right)^n=\pi^{n/2}\), and in spherical shells, \(\int_0^\infty e^{-r^2}\,nV_nr^{n-1}dr\), where \(nV_nr^{n-1}\) is the area of the sphere of radius \(r\).
+\hint{2}
+The radial integral is \(\frac{nV_n}2\Gamma(\frac n2)=V_n\Gamma(\frac n2+1)\), so \(V_n=\frac{\pi^{n/2}}{\Gamma(\frac n2+1)}\): \(V_2=\pi\), \(V_3=\frac43\pi\), \(V_4=\frac{\pi^2}2\).
+\hint{3}
+By Stirling, \(\Gamma(\frac n2+1)\sim\sqrt{\pi n}\left(\frac n{2e}\right)^{n/2}\), so \(V_n\sim\frac1{\sqrt{\pi n}}\left(\frac{2\pi e}n\right)^{n/2}\to0\) faster than any exponential.
+
+\problem{10}
+\hint{1}
+Use \(\frac1{x^s}=\frac1{\Gamma(s)}\int_0^\infty t^{s-1}e^{-xt}dt\) and swap the integrals; the inner integral is \(\int_0^\infty e^{-xt}\sin x\,dx=\frac1{1+t^2}\).
+\hint{2}
+You get \(\frac1{\Gamma(s)}\int_0^\infty\frac{t^{s-1}}{1+t^2}dt\), and \(u=t^2\) turns this into \(\frac1{2\Gamma(s)}\int_0^\infty\frac{u^{s/2-1}}{1+u}du=\frac{\pi}{2\Gamma(s)\sin\frac{\pi s}2}\) (class sheet, Problem 4). At \(s=1\): \(\frac\pi2\).
+\hint{3}
+The swap needs care: the double integral is not absolutely convergent near \(x=\infty\). Insert \(e^{-\varepsilon x}\) (then Fubini applies, with inner integral \(\frac{1}{1+(t+\varepsilon)^2}\)) and let \(\varepsilon\to0^+\), using dominated convergence in \(t\) and Abel-type uniform convergence in \(x\) as in the \(\frac{\sin x}x\) computation.
+\end{document}

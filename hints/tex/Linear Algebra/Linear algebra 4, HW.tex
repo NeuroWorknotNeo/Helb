@@ -1,0 +1,126 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Linear algebra -- 4. Functions of matrices and matrix equations}{Homework}
+
+\problem{1}
+\hint{1}
+\(A\) is a perfect square of a simpler integer matrix: \(A=B^2\) with \(B=\begin{pmatrix}1&1\\2&1\end{pmatrix}\). Then \(A^n-E=(B^n)^2-E\).
+\hint{2}
+By induction, \(B^n=\begin{pmatrix}p&q\\2q&p\end{pmatrix}\) with \(p^2-2q^2=\det B^n=(-1)^n\). Compute \(B^{2n}-E\): its entries are \(p^2+2q^2-1\), \(2pq\), \(4pq\).
+\hint{3}
+If \(n\) is even, \(p^2+2q^2-1=4q^2\), so all entries are divisible by \(2q\). If \(n\) is odd, \(p^2+2q^2-1=2p^2\), so they are divisible by \(2p\). Since \(p,q\to\infty\), so does \(d_n\).
+
+\problem{2}
+\hint{1}
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  What is \(f(O,B)\)? (b) Which invariant do \(AB\) and \(BA\) always share? For instance, is \((E,O)\) in the image?
+\end{enumerate}
+\hint{2}
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  No, since \(f(O,B)=(O,O)\) for every \(B\). (b) No, since \(\operatorname{tr}AB=\operatorname{tr}BA\). (c) A fixed point means \(AB=A\) and \(BA=B\). Transpose the first equation using \(A^T=-A\), \(B^T=-B\).
+\end{enumerate}
+\hint{3}
+You get \(BA=-A\), hence \(B=-A\), hence \(A^2=-A\). But \(A^2=-A^TA\) is symmetric while \(-A\) is skew, so \(A^2=O\), i.e.~\(A^TA=O\), so \(A=O\). The only fixed point is \((O,O)\).
+
+\problem{3}
+\hint{1}
+\(A^2=O\) means \(\operatorname{im}A\subseteq\ker A\). Combine with \(\dim\ker A+\operatorname{rank}A=n\).
+
+\problem{4}
+\hint{1}
+Describe \(S\): a symmetric rank-one matrix with entries \(\pm1\) is \(\varepsilon uu^T\) with \(u\in\{\pm1\}^{2025}\) and \(\varepsilon=\pm1\). Count \(\lvert S\rvert\) carefully (\(u\) and \(-u\) give the same matrix; the diagonal shows \(\varepsilon\)).
+\hint{2}
+For \(A=\varepsilon uu^T\), \(B=\delta ww^T\): \(AB=\varepsilon\delta(u\cdot w)uw^T\) and \(BA=\varepsilon\delta(u\cdot w)wu^T\). Since \(2025\) is odd, \(u\cdot w\) is an odd integer, never \(0\).
+\hint{3}
+So \(A\) and \(B\) commute if and only if \(uw^T=wu^T\), i.e.~\(w=\pm u\), i.e.~\(B=\pm uu^T\): \(2\) matrices out of \(\lvert S\rvert=2^{2025}\). The probability is \(2^{-2024}\).
+
+\problem{5}
+\hint{1}
+Let \(P=\frac1r\sum M_i\). Since \(G\) is a group, \(M_jP=P\) for every \(j\). What does this give for \(P^2\)?
+\hint{2}
+\(P^2=P\), and for an idempotent \(\operatorname{rank}P=\operatorname{tr}P=0\).
+
+\problem{6}
+\hint{1}
+All the prime entries are non-zero, so the rank is at least \(1\). Suppose \(\operatorname{rank}A=1\), i.e.~\(a_{ij}=u_iv_j\) with rational \(u_i,v_j\). Pick one entry for each of \(m+n\) distinct primes.
+\hint{2}
+Form a bipartite graph whose vertices are the \(m\) rows and \(n\) columns, with an edge for each chosen entry. It has \(m+n\) vertices and \(m+n\) edges, so it contains a cycle \(i_1j_1i_2j_2\dots i_kj_ki_1\).
+\hint{3}
+For a rank-one matrix, \(\prod_s a_{i_sj_s}=\prod_s u_{i_s}v_{j_s}=\prod_s a_{i_{s+1}j_s}\). The two products run over complementary halves of the cycle's edges, so in absolute value they are products of disjoint sets of primes. This contradicts unique factorisation.
+
+\problem{7}
+\hint{1}
+For ``only if'', take \(P(x)=x^2\) and expand.
+\hint{2}
+For ``if'', by linearity it suffices to treat \(P=x^k\): prove \((A+B)^k=A^k+kA^{k-1}B\) by induction. Multiply by \(A+B\) on the right and use \(BA+B^2=AB\).
+
+\problem{8}
+\hint{1}
+Show that both sides are positive definite solutions \(X\) of the equation \(XA^{-1}X=B\), and that this equation has only one positive definite solution (the ``geometric mean'' of \(A\) and \(B\)).
+\hint{2}
+For the left side \(X=\sqrt A\,M\sqrt A\) with \(M^2=\sqrt A^{-1}B\sqrt A^{-1}\), a direct computation gives \(XA^{-1}X=B\). The right side \(Y\) satisfies \(YB^{-1}Y=A\) by the same computation, and inverting gives \(YA^{-1}Y=B\).
+\hint{3}
+Uniqueness: if \(XA^{-1}X=B\) with \(X\) positive definite, then \(Z=\sqrt A^{-1}X\sqrt A^{-1}\) is positive definite with \(Z^2=\sqrt A^{-1}B\sqrt A^{-1}\). So \(Z\) is the unique positive definite square root.
+
+\problem{9}
+\hint{1}
+Rewrite the recursion as \(c\,x_j=j\,x_{j+1}+(n-j+1)\,x_{j-1}\) for \(j=1,\dots,n\), with \(x_0=x_{n+1}=0\). So \((x_1,\dots,x_n)\) is an eigenvector of an \(n\times n\) tridiagonal matrix with eigenvalue \(c\), and you want its largest eigenvalue.
+\hint{2}
+Encode the vector as a polynomial \(g(t)=\sum_j x_jt^{j-1}\) of degree \(\le n-1\). The eigen-equation becomes the differential equation \((1-t^2)g'+(n-1)t\,g=c\,g\).
+\hint{3}
+Try \(g=(1+t)^a(1-t)^b\) with \(a+b=n-1\): this gives \(c=a-b\). The largest value is \(c=n-1\), with \(g=(1+t)^{n-1}\). Answer: \(x_k=\binom{n-1}{k-1}\).
+
+\problem{10}
+\hint{1}
+Lie--Trotter: let \(X_n=e^{A/n}e^{B/n}\) and \(Y_n=e^{(A+B)/n}\). Then \(\lVert X_n-Y_n\rVert=O(1/n^2)\), and both norms are at most \(e^{(\lVert A\rVert+\lVert B\rVert)/n}\). Telescope: \(X^n-Y^n=\sum_k X^{k}(X-Y)Y^{n-1-k}\).
+\hint{2}
+BCH: expand \(e^{tA}e^{tB}=E+t(A+B)+t^2(\frac{A^2}2+AB+\frac{B^2}2)+O(t^3)\) and apply \(\log(E+Z)=Z-\frac{Z^2}2+\dots\). The \(t^2\) term is \(\frac12[A,B]\).
+\hint{3}
+\(\det e^A=(\det e^{A/n})^n\), and \(\det(E+\frac An+O(n^{-2}))=1+\frac{\operatorname{tr}A}n+O(n^{-2})\); let \(n\to\infty\). (Or triangularise: the diagonal of \(e^A\) is \(e^{\lambda_i}\).) Invertibility: \(e^Ae^{-A}=E\), since \(A\) and \(-A\) commute.
+
+\problem{11}
+\hint{1}
+Look for a symmetry of \(M\). Compare \(M^T\) with \(M\) after swapping the first two indices.
+\hint{2}
+With \(P\) the permutation matrix of the transposition \((1\,2)\), one has \(M=PM^TP\). Hence \(M^n=P(M^n)^TP\), and comparing diagonal entries gives \((M^n)_{11}=(M^n)_{22}\).
+
+\problem{12}
+\hint{1}
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  The equation is \((A+\varepsilon E)X=B\). It is uniquely solvable when \(-\varepsilon\) is not an eigenvalue of \(A\); take \(a\) smaller than the modulus of every non-zero eigenvalue.
+\end{enumerate}
+\hint{2}
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \(\varepsilon\operatorname{tr}(BX)=\varepsilon\operatorname{tr}\bigl(B(A+\varepsilon E)^{-1}B\bigr)=\varepsilon\operatorname{tr}(A+\varepsilon E)^{-1}\), using the cyclicity of the trace and \(B^2=E\). This equals \(\sum_i\frac{\varepsilon}{\lambda_i+\varepsilon}\).
+\end{enumerate}
+\hint{3}
+The limit counts the zero eigenvalues of \(A\) with algebraic multiplicity. For diagonalisable \(A\) this equals \(\dim\ker A=n-\operatorname{rank}A\).
+
+\problem{13}
+\hint{1}
+If \(p(B)=a_0E+\dots+a_mB^m\) is invertible, then \(A=Bp(B)^{-1}\) is a function of \(B\) and commutes with it. So show that \(p(B)\) is invertible.
+\hint{2}
+Otherwise \(p(\mu)=0\) for some eigenvalue \(\mu\) of \(B\), and \(\mu\ne0\) since \(p(0)=a_0\ne0\). Apply the relation to an eigenvector \(Bv=\mu v\): the left side gives \(p(\mu)Av=0\), the right side gives \(\mu v\ne0\).
+
+\problem{14}
+\hint{1}
+(Real matrices.) Guess the solutions from the scalar case \(y=1/(c-x)\): check that \(Y(x)=(C-xE)^{-1}\) solves \(Y'=Y^2\).
+\hint{2}
+If \(Y(x_0)\) is invertible, put \(C=Y(x_0)^{-1}+x_0E\). By uniqueness for the ODE, \(Y=(C-xE)^{-1}\) wherever the solution exists. It is defined on all of \(\mathbb R\) if and only if \(C\) has no real eigenvalue.
+\hint{3}
+A real matrix of odd size always has a real eigenvalue; one of even size need not (block rotations). Answer: (i) yes, (ii) no.
+\end{document}

@@ -1,0 +1,74 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Combinatorics -- 1. Counting and bijections}{Homework}
+
+\problem{1}
+\hint{1}
+Identify the three colours with \(0,1,2\in\mathbb Z/3\). For three colours \(a,b,c\), when is ``two equal, one different'' true, in terms of \(a+b+c \bmod 3\)?
+\hint{2}
+All equal or all distinct is exactly \(a+b+c\equiv0\); so the condition is that every face sum is non-zero mod 3. Consider the linear map \(\mathbb F_3^{30}\to\mathbb F_3^{20}\) sending an edge colouring to its 20 face sums; the answer is \(2^{20}\) times the size of a fibre, provided the map is surjective.
+\hint{3}
+The map is the unsigned vertex--edge incidence map of the dual graph (the dodecahedron: faces are vertices, edges join adjacent faces). For a connected non-bipartite graph this map is onto over a field of characteristic \(\ne2\) (adjust values along a spanning tree, and use an odd cycle to fix the last degree of freedom). The kernel has dimension \(10\), so the answer is \(2^{20}3^{10}\).
+
+\problem{2}
+\hint{1}
+Note that the weights \(1,1,2,\dots,63\) add up to \(2017\). Let \(N_c\) be the number of tuples with weighted sum \(\equiv c\). Multiplying all \(x_i\) by a non-zero residue shows \(N_c\) is the same for all \(c\ne0\), and \(N_0+2016N_1=2017!/1953!\). One more relation is needed.
+\hint{2}
+Compute \(S=\sum\omega^{x_0+x_1+2x_2+\dots+63x_{63}}\) over tuples of distinct elements, with \(\omega\) a primitive 2017th root of unity; then \(S=N_0-N_1\). Remove the distinctness condition by Möbius inversion over set partitions of the 64 indices: a partition \(\pi\) contributes \(\mu(\pi)\prod_{B\in\pi}\sum_x\omega^{w(B)x}\), where \(w(B)\) is the total weight of block \(B\).
+\hint{3}
+An inner sum is \(2017\) if \(w(B)\equiv0\) and \(0\) otherwise, and only the whole set has weight divisible by 2017. So only the one-block partition survives, with \(\mu=(-1)^{63}63!\), giving \(N_0-N_1=-2017\cdot63!\). Solving: \(N_0=\frac{2016!}{1953!}-2016\cdot63!\).
+
+\problem{3}
+\hint{1}
+Write \(N=\frac{10^a-1}{9}\cdot10^b\) with \(a\ge1\) ones and \(b\ge0\) zeros, \(a+b\le2020\). Factor \(2020=4\cdot5\cdot101\).
+\hint{2}
+\(4\cdot5\mid N\) iff \(b\ge2\), and \(101\mid N\) iff \(10^a\equiv1\pmod{101}\) iff \(4\mid a\) (the order of \(10\) mod \(101\) is \(4\)). Count the pairs \(a=4k\), \(2\le b\le2020-4k\): \(\sum_{k=1}^{504}(2019-4k)=508536\).
+
+\problem{4}
+\hint{1}
+Use the Chinese remainder theorem: \(x^2-x=x(x-1)\), and \(x\), \(x-1\) are coprime.
+\hint{2}
+\(10^{2006}\mid x(x-1)\) iff \(x\equiv0\) or \(1\) mod \(2^{2006}\) and \(x\equiv0\) or \(1\) mod \(5^{2006}\): four residues mod \(10^{2006}\), one of which is \(0\). The answer is \(3\).
+
+\problem{5}
+\hint{1}
+Factor over \(\mathbb C\): \((P+iQ)(P-iQ)=X^{2n}+1\). What are the degrees and leading coefficients of the two factors, given \(\deg Q\lt\deg P\)?
+\hint{2}
+\(\deg P=n\), and \(P+iQ\) has real leading coefficient \(c\) with \(c^2=1\). Its roots are \(n\) of the \(2n\) roots of \(X^{2n}=-1\), and \(P-iQ\) (its conjugate) takes the conjugate roots, so \(P+iQ\) contains exactly one root from each conjugate pair. Conversely each choice gives valid real \(P,Q\) with \(\deg Q\lt n\). The answer is \(2\cdot2^n=2^{n+1}\).
+
+\problem{6}
+\hint{1}
+Try small grids (\(2\times n\), \(3\times3\)). Each coin moves along its diagonal; describe which sets of coins have moved (each coin moves at most once, since afterwards some square it needs is occupied).
+\hint{2}
+Show by induction on moves that in every reachable configuration the moved coins form an ``up-right closed'' set: there is a monotone lattice path from the bottom-left to the top-right corner of the \((m-1)\times(n-1)\) board separating moved coins from unmoved ones, and conversely every such path is reachable. The answer is \(\binom{m+n-2}{m-1}\).
+
+\problem{7}
+\note{as stated the answer is infinite. The original (Putnam 2011 A1) asks how many points \((x,y)\) with \(0\le x,y\le2011\) are \textbf{not} the endpoint of a growing spiral; hints are for that version.}
+\hint{1}
+With lengths \(a_1\lt a_2\lt\dots\), the endpoint is \(x=a_1-a_3+a_5-\dots\), \(y=a_2-a_4+\dots\). For an endpoint in the closed first quadrant, determine which \(n\) (mod 4) are possible by looking at the sign of the last horizontal and vertical pairs.
+\hint{2}
+Only \(n=2\) and \(n\equiv2\pmod4\), \(n\ge6\), give first-quadrant endpoints. With \(n=2\) you get exactly the points with \(0\lt x\lt y\). With \(n\ge6\) you get \(x=a_1+(a_5-a_3)+\dots\ge3\) and \(y=a_2+(a_6-a_4)+\dots\ge4\), and \(n=6\) already realises every such point.
+\hint{3}
+So the non-endpoints are: \(x=0\) (2012 points), \((1,y)\) with \(y\le1\), \((2,y)\) with \(y\le2\), and \((x,y)\) with \(x\ge3\), \(y\le3\). Total \(2012+2+3+4\cdot2009=10053\).
+
+\problem{8}
+\hint{1}
+Only residues mod 3 matter. Among \(1,\dots,3k+1\) there are \(k+1\) numbers \(\equiv1\), \(k\) numbers \(\equiv2\), \(k\) numbers \(\equiv0\). Zeros do not change the running sum mod 3 (but cannot come first).
+\hint{2}
+Ignoring zeros, the running sum must avoid \(0\) mod 3, which forces the residue sequence \(1,1,2,1,2,\dots,1,2\) (or starting \(2,2,1,\dots\), impossible with these counts). Compute the probability that the non-zero residues come in this order and that the first number is not \(\equiv0\); the answer is \(\frac{k!\,(k+1)!}{(3k+1)\,(2k)!}\).
+
+\problem{9}
+\hint{1}
+Inclusion--exclusion with \(A_i\) = maps \([n]\to[k]\) missing the value \(i\); \(\lvert\bigcap_{i\in I}A_i\rvert=(k-\lvert I\rvert)^n\).
+\hint{2}
+A surjection is the same as a partition of \([n]\) into \(k\) non-empty blocks together with a bijection from blocks to \([k]\); hence the count is \(k!\,S(n,k)\) and \(S(n,k)=\frac1{k!}\sum_{j}(-1)^j\binom{k}{j}(k-j)^n\).
+
+\problem{10}
+\hint{1}
+\(f(n)\) counts tuples \((c_1,\dots,c_n)\) of non-negative integers with \(\sum c_k\,k!=n!\). Once \(c_2,\dots,c_n\) are chosen, \(c_1\) is determined (if non-negative). Both bounds come from estimating \(\prod_{k=1}^{n-1}\frac{n!}{k!}\).
+\hint{2}
+Upper bound: \(c_k\le n!/k!\), so \(f(n)\le\prod_{k=1}^{n}(n!/k!+1)\le 2^n\prod_{k=1}^{n}n!/k!\). Lower bound: choose \(c_k\in[0,\frac{n!}{n\cdot k!}]\) freely for \(2\le k\le n-1\) and \(c_n=0\); then the sum is at most \(n!\) and \(c_1\) completes it. This gives \(f(n)\ge\prod_{k=2}^{n-1}\frac{n!}{n\,k!}\).
+\hint{3}
+Use Stirling in the form \(\log k!=k\log k-k+O(\log k)\): \(\log\prod_{k\le n}\frac{n!}{k!}=n\log n!-\sum_{k\le n}\log k!=\frac{n^2}2\log n-\frac{n^2}4+O(n\log n)\). All the losses (\(2^n\), \(n^{n}\), the \(O(n\log n)\) error) are of the form \(n^{O(n)}\), which is what the constant \(C\) absorbs.
+\end{document}

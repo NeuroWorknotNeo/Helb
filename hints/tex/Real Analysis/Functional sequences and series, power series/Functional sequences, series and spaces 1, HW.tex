@@ -1,0 +1,69 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Functional sequences, series and spaces -- 1. Sequences of functions and uniform convergence}{Homework}
+
+\problem{1}
+\hint{1}
+If \(\sup\lvert f-f_n\rvert\le\varepsilon\), then on every subinterval the oscillation of \(f\) is at most the oscillation of \(f_n\) plus \(2\varepsilon\), so \(U(f,P)-L(f,P)\le U(f_n,P)-L(f_n,P)+2\varepsilon(b-a)\). Also \(f\) is bounded. Then \(\lvert\int f_n-\int f\rvert\le(b-a)\sup\lvert f_n-f\rvert\).
+\hint{2}
+Pointwise failures: indicators of finite sets \(\{r_1,\dots,r_n\}\) of rationals are integrable and converge pointwise to the Dirichlet function, which is not integrable; and \(n\,\mathbf 1_{(0,1/n)}\) (or \(nxe^{-nx^2}\)) converges to \(0\) with integrals not tending to \(0\). Arzelà's theorem says what is missing: if the \(f_n\) are uniformly bounded and the pointwise limit is Riemann integrable, then the integrals do converge.
+
+\problem{2}
+\hint{1}
+For the example, any continuous nowhere differentiable function (Weierstrass, Takagi) is a uniform limit of \(C^1\) functions: of its partial sums, or of polynomials by the Weierstrass approximation theorem.
+\hint{2}
+For the positive statement, let \(g=\lim f_n'\) (continuous, as a uniform limit) and pass to the limit in \(f_n(x)=f_n(0)+\int_0^x f_n'(t)\,dt\); the fundamental theorem of calculus then gives \(f'=g\).
+
+\problem{3}
+\hint{1}
+If all \(f_n\) were bounded, \(\varepsilon_n=1/(n\sup\lvert f_n\rvert+1)\) would work; but the \(f_n\) are arbitrary, and the answer is no. The point is that \([0,1]\) is big enough to index all possible ``growth rates'': it has the same cardinality as the set \(\mathbb N^{\mathbb N}\) of all sequences of naturals.
+\hint{2}
+Fix a bijection \(x\mapsto a^{(x)}\) from \([0,1]\) onto \(\mathbb N^{\mathbb N}\) and put \(f_n(x)=a^{(x)}_n\). Given any \(\varepsilon_n\gt0\), choose the sequence \(a_n=\lceil n/\varepsilon_n\rceil\) and let \(x\) be the point coding it: then \(\varepsilon_nf_n(x)\ge n\).
+
+\problem{4}
+\hint{1}
+Let \(E\) be the set of positive measure where \(g(x)=\lim\sin(\alpha_nx)\) exists (you may shrink \(E\) to a bounded set). First show \((\alpha_n)\) is bounded. If \(\lvert\alpha_{n_k}\rvert\to\infty\), use dominated convergence together with the Riemann--Lebesgue lemma.
+\hint{2}
+Along such a subsequence, \(\int_E\sin^2(\alpha_{n_k}x)\,dx=\frac12\int_E(1-\cos 2\alpha_{n_k}x)\,dx\to\frac{\lvert E\rvert}2\) and \(\int_A\sin(\alpha_{n_k}x)\,dx\to0\) for every measurable \(A\subset E\), so \(g=0\) a.e. on \(E\). But dominated convergence also gives \(\int_E\sin^2(\alpha_{n_k}x)\to\int_E g^2=0\), a contradiction.
+\hint{3}
+So \((\alpha_n)\) is bounded; if it had two limit points \(\beta\ne\gamma\), then \(\sin\beta x=\sin\gamma x\) for all \(x\in E\). But \(\sin\beta x-\sin\gamma x=2\cos\frac{(\beta+\gamma)x}2\sin\frac{(\beta-\gamma)x}2\) has only countably many zeros when \(\beta\ne\gamma\).
+
+\problem{5}
+\hint{1}
+On a compact interval an equicontinuous family is uniformly equicontinuous: one \(\delta\) works for all points and all \(n\) (prove this by compactness, or as in Heine--Cantor).
+\hint{2}
+Given \(\varepsilon\), pick finitely many points \(y_1,\dots,y_k\) of the dense set forming a \(\delta\)-net of \([a,b]\), and \(N\) such that \(\lvert f_n(y_i)-f_m(y_i)\rvert\lt\varepsilon\) for all \(i\) and \(n,m\ge N\). Then \(\lvert f_n(x)-f_m(x)\rvert\lt3\varepsilon\) for every \(x\), and the Cauchy criterion finishes it.
+
+\problem{6}
+\hint{1}
+Try \(f_n(x)=\sin(2\pi nx)\). A sequence in the closed ball with a uniformly convergent subsequence would in particular have a pointwise convergent one, so it suffices to rule out pointwise convergence of any subsequence.
+\hint{2}
+If \(f_{n_k}\) converged pointwise, then \(h_k=(f_{n_k}-f_{n_{k+1}})^2\) would be continuous, bounded by \(4\), and tend to \(0\) pointwise, so \(\int_0^1h_k\to0\) by the bounded convergence theorem (Arzelà's theorem suffices). But by orthogonality \(\int_0^1(\sin 2\pi nx-\sin 2\pi mx)^2dx=1\) for \(n\ne m\).
+
+\problem{7}
+\hint{1}
+Let \(x\to a^+\) in \(\lvert f_n(x)-f_m(x)\rvert\le\sup\lvert f_n-f_m\rvert\) to get \(\lvert L_n-L_m\rvert\le\sup\lvert f_n-f_m\rvert\); so \((L_n)\) is Cauchy, with limit \(L\).
+\hint{2}
+Then \(\lvert f(x)-L\rvert\le\lvert f(x)-f_n(x)\rvert+\lvert f_n(x)-L_n\rvert+\lvert L_n-L\rvert\): fix \(n\) large to make the outer terms small, then take \(x\) close to \(a\). Counterexample for pointwise convergence: \(f_n(x)=x^{1/n}\) on \((0,1)\), with \(L_n=0\) but \(f\equiv1\).
+
+\problem{8}
+\hint{1}
+Use tall thin spikes that move to a point where they never are: a triangle \(f_n\) supported on \([0,2/n^3]\) with \(f_n(0)=0\) and peak value \(n\) at \(1/n^3\). Then \(f_n\to0\) at every point, \(\int f_n=1/n^2\), and \(\max f_n=n\).
+\hint{2}
+If \(f_n\) were nonincreasing in \(n\), then \(\max f_n\le\max f_1\); if nondecreasing with limit \(0\), then \(f_n\le0\). Either way \(\max f_n\not\to\infty\). (For a decreasing sequence Dini's theorem even gives uniform convergence.)
+
+\problem{9}
+\hint{1}
+Polynomials of degree at most \(d\) are determined by their values at \(d+1\) fixed nodes \(t_0,\dots,t_d\), and the Lagrange formula expresses them linearly through these values.
+\hint{2}
+If \(p_n\to f\) uniformly, the values \(p_n(t_i)\) converge to \(f(t_i)\), so by the Lagrange formula \(p_n\) converges uniformly (on the bounded interval) to the interpolation polynomial \(p\) of the values \(f(t_i)\), hence \(f=p\). For the second part apply the Weierstrass approximation theorem to a continuous nowhere differentiable function.
+
+\problem{10}
+\hint{1}
+The answer is no. Baire's theorem only gives, for each \(\varepsilon\), an interval on which \(\sup_{n\ge N}\lvert f_n-f\rvert\le\varepsilon\), and these intervals may shrink as \(\varepsilon\to0\); a counterexample has to exploit exactly this.
+\hint{2}
+Let \(\varphi_n(t)=\max(0,1-\lvert nt-1\rvert)\), a spike of height \(1\) on \([0,2/n]\); \(\varphi_n\to0\) pointwise. Enumerate the rationals \(r_k\) of \([0,1]\) and set \(f_n(x)=\sum_k2^{-k}\varphi_n(x-r_k)\).
+\hint{3}
+Check: \(f_n\) is continuous with values in \([0,1]\) (M-test), \(f_n(x)\to0\) for each \(x\) (each term tends to \(0\) and is dominated by \(2^{-k}\)), but every interval contains some \(r_k\) in its interior, and then \(\sup f_n\ge2^{-k}\) on that interval for all large \(n\).
+\end{document}

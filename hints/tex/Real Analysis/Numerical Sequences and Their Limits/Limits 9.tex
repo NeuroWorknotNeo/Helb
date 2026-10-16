@@ -1,0 +1,32 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Limits -- 9. Sequences defined by integrals and sums}{Class work}
+
+\problem{1}
+\hint{1} The Riemann sum $\frac1n\sum f(\frac kn)$ lies between the lower and upper Darboux sums of the uniform partition, and both tend to $\int_0^1f$ for integrable $f$. For monotone (say increasing) $f$, on each piece $\int_{(k-1)/n}^{k/n}f$ lies between $\frac1nf(\frac{k-1}n)$ and $\frac1nf(\frac kn)$. Summing, the error is at most $\frac1n\sum_k\bigl(f(\frac kn)-f(\frac{k-1}n)\bigr)=\frac{f(1)-f(0)}n$.
+\hint{2} For smooth $f$, Taylor-expand around the right endpoint: $\frac1nf(\frac kn)-\int_{(k-1)/n}^{k/n}f=\frac1{2n^2}f'(\frac kn)+O(n^{-3})$. Summing, $\frac1{2n}\cdot\frac1n\sum f'(\frac kn)+O(n^{-2})=\frac{f(1)-f(0)}{2n}+O(n^{-2})$.
+\hint{3} The two sums in the question are the same sum, because $\frac1n\cdot\frac1{1+(k/n)^2}=\frac n{n^2+k^2}$. Both limits equal $\int_0^1\frac{dx}{1+x^2}=\frac\pi4$.
+
+\problem{2}
+\hint{1} First take $f=\mathbf 1_{[c,d]}$. Then $\int_c^dg(nx)\,dx=\frac1n\int_{nc}^{nd}g$. The interval $[nc,nd]$ contains about $n(d-c)/T$ full periods, and the incomplete pieces contribute $O(\frac1n)$. So the integral tends to $(d-c)\cdot\frac1T\int_0^Tg$. By linearity the same holds for step functions.
+\hint{2} For integrable $f$ and $\varepsilon>0$, choose a step function $s$ with $\int_a^b|f-s|<\varepsilon$. Since $g$ is bounded, $\bigl|\int(f-s)g(nx)\bigr|\le\sup|g|\cdot\varepsilon$. (A Riemann integrable $g$ is bounded.) For Riemann--Lebesgue take $g=\sin$, whose mean is $0$.
+\hint{3} In the example, $g(y)=\frac1{1+3\cos^2y}$ has period $\pi$, and $\frac1\pi\int_0^\pi\frac{dy}{4\cos^2y+\sin^2y}=\frac1\pi\cdot\frac{\pi}{2\cdot1}=\frac12$ (substitute $u=\tan y$). Replacing $n$ by $2n$ changes nothing. The limit is $\frac12\int_0^\pi\sin x\,dx=1$.
+
+\problem{3}
+\hint{1} The integrand is largest near $x=1$. Compare $a_n$ with $\int_0^1x^n\,dx$, and use $a_n+a_{n+1}=\int_0^1x^n\,dx=\frac1{n+1}$.
+\hint{2} $(a_n)$ decreases, so $2a_{n+1}\le a_n+a_{n+1}=\frac1{n+1}\le2a_n$. Hence $a_n\sim\frac1{2n}$. The series $\sum(-1)^na_n$ converges by Leibniz's test.
+\hint{3} To get the sum, sum the geometric series under the integral: $\sum_{n=1}^N(-1)^nx^n=\frac{-x+(-x)^{N+1}}{1+x}$. The remainder term integrates to at most $\int_0^1x^{N+1}dx\to0$. So the sum is $-\int_0^1\frac{x}{(1+x)^2}dx=\frac12-\ln2$.
+
+\problem{4}
+\note{As stated, the limit is not determined by $C$. If $C<1$, both series converge and the ratio of the sums depends on $f$; for example, change $f$ on $[0,1]$ only, which changes $b_1$ alone. If $C>1$, take $f(t)=C\exp(\varphi(t)/\sqrt t)$ with $\varphi\approx1$ near $m^2$ for odd $m$ and $\varphi\approx0$ near $m^2$ for even $m$. Then $f\to C$, but the ratio oscillates between $\frac{eC+1}{C+e}$ and its reciprocal. (For $f\equiv C$ the ratio is exactly $1$.) The hints establish the key relation and the correct general statement: if $A_n=a_1+\dots+a_n\to\infty$ and $a_{n+1}/A_n\to L$, the limit is $\frac{C}{1+L}$.}
+\hint{1} Look at which interval $b_{n+1}$ uses. It is $[n^2,n^2+1]$, the same interval as $a_n$, but with exponent $n+1$ instead of $n$. Compare $b_{n+1}$ with $a_n$.
+\hint{2} $b_{n+1}=\int_{n^2}^{n^2+1}f\cdot f^n$, so $\min_{[n^2,n^2+1]}f\le b_{n+1}/a_n\le\max_{[n^2,n^2+1]}f$, and both bounds tend to $C$. Hence $b_{n+1}=(C+o(1))a_n$. (Note $a_n>0$ for large $n$, since $f>0$ far out.)
+\hint{3} Therefore $b_1+\dots+b_{n+1}=b_1+\sum_{k\le n}(C+o(1))a_k=(C+o(1))A_n$ when $A_n\to\infty$ (a Ces\`aro/Stolz argument). The denominator is $A_{n+1}=A_n(1+a_{n+1}/A_n)$. So the ratio tends to $\frac{C}{1+L}$ whenever $a_{n+1}/A_n\to L$. For instance, when $a_{n+1}/A_n\to0$ the limit is $C$, and for $f\equiv C>1$ one has $L=C-1$ and the limit is $1$.
+
+\problem{5}
+\hint{1} Substitute $x=\frac\pi2-t$: the integral becomes $\int_0^{\pi/2}\cos^nt\,dt$, and the mass concentrates near $t=0$, where $\cos^nt=e^{n\ln\cos t}\approx e^{-nt^2/2}$.
+\hint{2} Split at $t=n^{-1/3}$ (so that $nt^3\to0$ but $nt^2\to\infty$). On $[0,n^{-1/3}]$, $n\ln\cos t=-\frac{nt^2}2(1+O(t^2))$, and after $t=s/\sqrt n$ the integral is $\frac1{\sqrt n}\bigl(\int_0^\infty e^{-s^2/2}ds+o(1)\bigr)=\frac{1}{\sqrt n}\sqrt{\frac\pi2}\,(1+o(1))$. The rest is at most $\frac\pi2\cos^n(n^{-1/3})\le\frac\pi2e^{-cn^{1/3}}$.
+\hint{3} Wallis: the exact recursion gives $a_{2m}=\frac{(2m-1)!!}{(2m)!!}\frac\pi2$ and $a_{2m+1}=\frac{(2m)!!}{(2m+1)!!}$. The asymptotics give $a_{2m}/a_{2m+1}\to1$, which is Wallis' product $\frac\pi2=\prod_{k\ge1}\frac{(2k)^2}{(2k-1)(2k+1)}$. With the gamma function, $a_n=\frac{\sqrt\pi}2\,\frac{\Gamma(\frac{n+1}2)}{\Gamma(\frac n2+1)}$ (a Beta integral), and $\Gamma(x+\frac12)/\Gamma(x+1)\sim x^{-1/2}$ (from Stirling) gives the same $\sqrt{\pi/(2n)}$.
+
+\end{document}
