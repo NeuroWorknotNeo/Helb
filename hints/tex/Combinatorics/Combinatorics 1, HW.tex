@@ -44,7 +44,6 @@ Try small grids (\(2\times n\), \(3\times3\)). Each coin moves along its diagona
 Show by induction on moves that in every reachable configuration the moved coins form an ``up-right closed'' set: there is a monotone lattice path from the bottom-left to the top-right corner of the \((m-1)\times(n-1)\) board separating moved coins from unmoved ones, and conversely every such path is reachable. The answer is \(\binom{m+n-2}{m-1}\).
 
 \problem{7}
-\note{as stated the answer is infinite. The original (Putnam 2011 A1) asks how many points \((x,y)\) with \(0\le x,y\le2011\) are \textbf{not} the endpoint of a growing spiral; hints are for that version.}
 \hint{1}
 With lengths \(a_1\lt a_2\lt\dots\), the endpoint is \(x=a_1-a_3+a_5-\dots\), \(y=a_2-a_4+\dots\). For an endpoint in the closed first quadrant, determine which \(n\) (mod 4) are possible by looking at the sign of the last horizontal and vertical pairs.
 \hint{2}

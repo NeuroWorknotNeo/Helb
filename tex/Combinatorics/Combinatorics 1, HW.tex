@@ -1,0 +1,87 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.3}
+\frenchspacing
+\hyphenpenalty=10000
+
+\newcommand{\head}[1]{\par\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\sheettitle}[4]{% title, subtitle, homework-flag, date
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{\dimexpr1.2em-1pt\relax minus 3.6pt}
+  {\Large #2\par}\vspace{\dimexpr1em+1pt\relax minus 1.2pt}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{\dimexpr1.15em-1pt\relax minus 3.6pt}\fi
+  {\foreignlanguage{russian}{#4}\par}
+  \end{center}\vspace{0.5pt minus 1.2pt}}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1){\parfillskip=0pt\par}}
+\begin{document}
+\sheettitle{Combinatorics -- 1}{Counting and bijections}{Homework}{14 сентября 2026 года}
+
+\head{Theoretical minimum.} Ordered $k$-tuples of distinct elements of an $n$-set number
+$n(n-1)\cdots(n-k+1)$, subsets $\binom nk$, multisets $\binom{n+k-1}k$ by stars and bars, and
+ordered set partitions with prescribed block sizes $\frac{n!}{k_1!\cdots k_m!}$. An identity
+between two counts should be proved by a bijection or by counting one set in two ways; the second
+method gives $\sum_v\deg v=2|E|$, $k\binom nk=n\binom{n-1}{k-1}$ and the hockey-stick identity.
+Inclusion--exclusion says
+$|\bigcup A_i|=\sum_{I\ne\varnothing}(-1)^{|I|+1}|\bigcap_{i\in I}A_i|$, because an element lying
+in exactly $m$ of the sets is counted $\sum_j(-1)^{j+1}\binom mj=1$ times; its standard
+consequences are the derangement count $D_n=n!\sum_{j\leqslant n}(-1)^j/j!$ with
+$D_n/n!\to e^{-1}$, the number of surjections, and Euler's $\varphi$. Counting up to a group
+action is Burnside's lemma (Abstract algebra~-- 4).
+
+\par\vspace{-1pt}\noindent\rule{\linewidth}{0.4pt}\par\vspace{7pt}
+
+\begin{enumerate}
+\item The $30$ edges of a regular icosahedron are labelled $1,\dots,30$. In how many ways can
+each edge be painted red, white or blue so that each of the $20$ triangular faces has two edges
+of one colour and the third of a different colour? \src{Putnam 2017}
+
+\item Find the number of ordered $64$-tuples $(x_0,x_1,\dots,x_{63})$ of distinct elements of
+$\{1,2,\dots,2017\}$ such that $x_0+x_1+2x_2+3x_3+\dots+63x_{63}$ is divisible by $2017$.
+\src{Putnam 2017}
+
+\item How many positive integers $N$ satisfy all of: $N$ is divisible by $2020$; $N$ has at most
+$2020$ decimal digits; the decimal digits of $N$ are a string of consecutive ones followed by a
+string of consecutive zeros? (Putnam 2020)
+
+\pagebreak
+\item Find the number of positive integers $x$ with $x<10^{2006}$ such that $x^2-x$ is divisible
+by $10^{2006}$. (The related IMC question about unit vectors pairwise orthogonal in triples is
+Linear algebra~-- 6, problem 2.) (IMC 2006)
+
+\item Let $n$ be a positive integer. Find the number of pairs $P,Q$ of polynomials with real
+coefficients such that $P(X)^2+Q(X)^2=X^{2n}+1$ and $\deg P>\deg Q$. \src{Putnam}
+
+\item Consider an $m\times n$ grid of unit squares indexed by $(i,j)$. There are $(m-1)(n-1)$
+coins, placed initially in the squares with $i\leqslant m-1$ and $j\leqslant n-1$. If a coin
+occupies $(i,j)$ with $i\leqslant m-1$, $j\leqslant n-1$ and the squares $(i+1,j)$, $(i,j+1)$,
+$(i+1,j+1)$ are empty, it may slide from $(i,j)$ to $(i+1,j+1)$. How many distinct configurations
+can be reached from the initial one? \src{Putnam 2023}
+
+\item Define a \emph{growing spiral} to be a sequence of lattice points
+$P_0=(0,0),P_1,\dots,P_n$ with $n\geqslant2$ such that the directed segments
+$P_0P_1,\dots,P_{n-1}P_n$ point east, north, west, south, east, \dots\ in this cyclic order and
+their lengths are strictly increasing. How many of the points $(x,y)$ with integer coordinates
+$0\leqslant x\leqslant2011$, $0\leqslant y\leqslant2011$ are not the endpoint of any growing
+spiral? \src{Putnam}
+
+\item The integers $1,2,\dots,3k+1$ are written in a uniformly random order. What is the
+probability that at no moment is the sum of the numbers written so far a positive integer
+divisible by $3$? \src{Putnam 2007}
+
+\item Prove that the number of surjections from an $n$-set onto a $k$-set equals
+$k!\,S(n,k)=\sum_j(-1)^j\binom kj(k-j)^n$, where $S(n,k)$ is the Stirling number of the second
+kind (the numbers themselves are studied in Combinatorics~-- 3). Deduce a formula for the number
+of ways to partition an $n$-set into exactly $k$ non-empty blocks.
+
+\item For each positive integer $n$ let $f(n)$ be the number of ways to make $n!$ cents from an
+unordered collection of coins, each worth $k!$ cents for some $1\leqslant k\leqslant n$. Prove
+that for some constant $C$ independent of $n$,
+$n^{n^2/2-Cn}e^{-n^2/4}\leqslant f(n)\leqslant n^{n^2/2+Cn}e^{-n^2/4}$. \src{Putnam}
+\end{enumerate}
+\end{document}

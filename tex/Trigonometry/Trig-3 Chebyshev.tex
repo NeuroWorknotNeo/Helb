@@ -1,0 +1,70 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\newtheoremstyle{ruthm}{\topsep}{\topsep}{\itshape}{}{\bfseries}{}{ }%
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
+\theoremstyle{ruthm}
+\newtheorem{thm}{\foreignlanguage{russian}{Теорема}}
+\newcommand{\ul}[1]{\underline{\textbf{#1}}}
+\begin{document}
+\begin{center}
+{\huge\bfseries\foreignlanguage{russian}{Подстановка $x=2\cos\theta$ и\\ многочлены Чебышёва}\par}\vspace{1.2em}
+{\foreignlanguage{russian}{1 сентября 2026 года}\par}
+\end{center}\vspace{0.5em}
+
+\noindent\ul{\foreignlanguage{russian}{Теоретический минимум.}}\par\medskip
+
+\ul{\foreignlanguage{russian}{Опр.}} The Chebyshev polynomials are defined by $T_n(\cos\theta)=\cos n\theta$
+and $U_{n-1}(\cos\theta)=\frac{\sin n\theta}{\sin\theta}$; equivalently $T_0=1$, $T_1=x$,
+$T_{n+1}=2xT_n-T_{n-1}$. On $|x|>1$ the same recurrence is realised by $T_n(\cosh t)=\cosh nt$.
+
+\begin{thm}[\foreignlanguage{russian}{экстремальное свойство, Чебышёв 1854}]
+Among all monic real polynomials of degree $n$ the polynomial $2^{1-n}T_n$ has the smallest possible
+maximum modulus on $[-1,1]$, namely $2^{1-n}$, and it is the unique such polynomial.
+\end{thm}
+
+\begin{thm}[\foreignlanguage{russian}{Марков 1889, Бернштейн 1912}]
+If $\deg p\le n$ and $|p|\le1$ on $[-1,1]$, then $|p'|\le n^2$ on $[-1,1]$, with equality only for
+$\pm T_n$ at the endpoints; and $|p'(x)|\le n/\sqrt{1-x^2}$ inside.
+\end{thm}
+
+\medskip
+\ul{\foreignlanguage{russian}{Факт 1}}\quad The substitution $x=2\cos\theta$ turns $x^2-2$ into
+$2\cos2\theta$; hence the map $x\mapsto x^2-2$ acts on $[-2,2]$ as doubling of the angle, and $\pm2$,
+$\pm1$ are its only rational periodic points.
+
+\medskip
+\noindent\rule{\textwidth}{0.4pt}\par\medskip
+
+\begin{enumerate}[itemsep=0.6em]
+\item Prove that $T_n$ is a polynomial of degree $n$ with leading coefficient $2^{n-1}$, prove
+Theorem 1, and use it to show that $\max_{[-1,1]}|p|\ge2^{1-n}$ for every monic $p$.
+
+\item Prove Theorem 2 for the special case $p=T_n$, then deduce the general Bernstein inequality
+$\|T'\|_\infty\le n\|T\|_\infty$ for trigonometric polynomials of degree $n$.
+
+\item Let $a_1=a$ and $a_{n+1}=a_n^2-2$. Describe the behaviour of the sequence for every real $a$,
+and prove that $a_n$ is an integer for all sufficiently large $n$ only when $a\in\{0,\pm1,\pm2\}$ or
+$a=t+t^{-1}$ with $t$ an algebraic unit.
+
+\item (Proposed problems) Let $(T_n)$ be the Chebyshev polynomials and let $(F_n)$ be the Fibonacci
+sequence, $F_0=0$, $F_1=1$. Prove that $T_n\bigl(\frac i2\bigr)=\frac{i^nL_n}2$ and
+$U_{n-1}\bigl(\frac i2\bigr)=i^{n-1}F_n$, where $L_n=F_{n-1}+F_{n+1}$; deduce Catalan's identity for
+Fibonacci numbers from the corresponding identity for $T_n$.
+
+\item (IMC) Let $\theta>0$ and let $\cosh t=\frac{e^t+e^{-t}}2$. Show that if $k\in\mathbb N$ and both
+$\cosh k\theta$ and $\cosh(k+1)\theta$ are rational, then so is $\cosh\theta$.
+\end{enumerate}
+\end{document}

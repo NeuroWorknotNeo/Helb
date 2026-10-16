@@ -15,11 +15,10 @@
 \hint{4} $D=S-T$ is a trigonometric polynomial of degree $n$. At the $2n$ extrema of $S$ (values $\pm1$) $D$ alternates in sign, giving $2n$ zeros; in the increasing branch through $\theta_0$ one has $D(\theta_0)=0$ and $D'(\theta_0)=S'(\theta_0)-T'(\theta_0)\le n-n=0$ although $D$ goes from negative to positive, giving at least $2$ extra zeros. More than $2n$ zeros forces $D\equiv0$, contradicting $\|T\|<1$.
 
 \problem{3}
-\note{Since $a_1=a$, the literal condition ``$a_n\in\mathbb Z$ for all $n$'' just means $a\in\mathbb Z$, and then the claim is easy. The hints treat this and also the more interesting reading ``$a_n\in\mathbb Z$ for all large $n$''.}
 \hint{1} Substitute: if $|a|\le2$ write $a=2\cos\theta$, if $|a|>2$ write $a=t+t^{-1}$ with real $t$, $|t|>1$. Then $a_n=2\cos(2^{n-1}\theta)$, resp.\ $a_n=t^{2^{n-1}}+t^{-2^{n-1}}$.
 \hint{2} Behaviour: for $|a|>2$, $a_n\to+\infty$ (doubly exponentially). For $|a|\le2$ the sequence is the doubling map $\theta\mapsto2\theta$ on the circle: eventually periodic iff $\theta/\pi\in\mathbb Q$, constant $2$ eventually iff $\theta/\pi$ is a dyadic rational, and otherwise bounded without being eventually periodic (for $\theta/\pi$ irrational it is dense in $[-2,2]$ for almost every $\theta$, but not always).
-\hint{3} Integrality: if $a\in\mathbb Z$, then either $|a|\le2$, i.e.\ $a\in\{0,\pm1,\pm2\}$, or $t$ is a root of $x^2-ax+1$, a monic integer polynomial with constant term $1$, so $t$ is a (quadratic) unit.
-\hint{4} If only $a_N\in\mathbb Z$ (hence $a_n\in\mathbb Z$ for $n\ge N$), then $u=t^{2^{N-1}}$ satisfies $u^2-a_Nu+1=0$, so $t$ is a root of $x^{2^N}-a_Nx^{2^{N-1}}+1$ and is again an algebraic unit (for $|a|\le2$ take $t=e^{i\theta}$).
+\hint{3} Integrality, first in the simplest case $a\in\mathbb Z$ (then all $a_n$ are integers): either $|a|\le2$, i.e.\ $a\in\{0,\pm1,\pm2\}$, or $t$ is a root of $x^2-ax+1$, a monic integer polynomial with constant term $1$, so $t$ is a (quadratic) unit.
+\hint{4} In general, if $a_n\in\mathbb Z$ for all $n\ge N$, then already $a_N\in\mathbb Z$ gives that $u=t^{2^{N-1}}$ satisfies $u^2-a_Nu+1=0$, so $t$ is a root of $x^{2^N}-a_Nx^{2^{N-1}}+1$ and is again an algebraic unit (for $|a|\le2$ take $t=e^{i\theta}$).
 
 \problem{4}
 \hint{1} Use the closed forms (with $w=\sqrt{x^2-1}$)

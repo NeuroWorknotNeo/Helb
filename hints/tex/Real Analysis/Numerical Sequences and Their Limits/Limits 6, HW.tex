@@ -19,9 +19,8 @@
 \hint{3} Finally $e^{-1/(8n)+O(n^{-2})}=1-\frac1{8n}+O(n^{-2})$.
 
 \problem{4}
-\note{The prime number theorem in the form $\pi(x)\sim x/\ln x$ gives only $p_n\sim n\ln n$; with that precision the error $o(n\ln n)$ swamps $n\ln\ln n$, and ``$p_n\sim n\ln n+n\ln\ln n$'' says nothing more than $p_n\sim n\ln n$. The hints explain the second term in the meaningful form $p_n=n\ln n+n\ln\ln n+O(n)$, which needs the PNT with a relative error, $\pi(x)=\frac{x}{\ln x}\bigl(1+O(\frac1{\ln x})\bigr)$.}
 \hint{1} Put $x=p_n$ into the PNT: $\pi(p_n)=n$, so $n\sim p_n/\ln p_n$. Take logarithms: $\ln n=\ln p_n-\ln\ln p_n+o(1)$, so $\ln p_n\sim\ln n$ and $p_n\sim n\ln p_n\sim n\ln n$.
-\hint{2} The correction comes from not replacing $\ln p_n$ by $\ln n$ too early. From $p_n=n\ln p_n\,(1+O(1/\ln n))$ (the stronger PNT) you get $\ln p_n=\ln n+\ln\ln p_n+O(1/\ln n)=\ln n+\ln\ln n+o(1)$.
+\hint{2} The correction comes from not replacing $\ln p_n$ by $\ln n$ too early. From $p_n=n\ln p_n\,(1+O(1/\ln n))$ (the PNT in the form given) you get $\ln p_n=\ln n+\ln\ln p_n+O(1/\ln n)=\ln n+\ln\ln n+o(1)$.
 \hint{3} Substitute back: $p_n=n(\ln n+\ln\ln n+o(1))(1+O(1/\ln n))=n\ln n+n\ln\ln n+O(n)$. So the term $n\ln\ln n$ comes from the factor $\ln p_n$ itself being $\ln n+\ln\ln n$.
 
 \problem{5}

@@ -4,7 +4,6 @@
 \hintstitle{Methods of proof -- 1}{Class work}
 
 \problem{1}
-\note{The last claim is false with the fractional part $\{q\alpha\}$: for $\alpha=1-\varepsilon$ with small $\varepsilon>0$ one has $\{q\alpha\}=1-q\varepsilon>1/N$ for all $q\le N$. The correct statement uses the distance to the nearest integer: there is $q\le N$ with $\|q\alpha\|<1/N$. The hints prove this version, which is enough for the density.}
 \hint{1} For the pigeonhole: if every box held at most $\lceil n/k\rceil-1$ objects, the total would be at most $k(\lceil n/k\rceil-1)<n$. For the approximation, look at the $N+1$ numbers $\{0\cdot\alpha\},\{\alpha\},\dots,\{N\alpha\}$ and the $N$ boxes $[j/N,(j+1)/N)$, $j=0,\dots,N-1$.
 \hint{2} Two of them, $\{a\alpha\}$ and $\{b\alpha\}$ with $a<b$, share a box. With $q=b-a\le N$ this gives an integer $p$ with $|q\alpha-p|<1/N$, so $\|q\alpha\|<1/N$, and then $|\alpha-p/q|<1/(qN)\le 1/q^2$. To get infinitely many fractions: since $\alpha$ is irrational, $|\alpha-p/q|>0$, so choose $N$ with $1/N$ smaller than this error and get a new fraction.
 \hint{3} Density: given an interval of length $\varepsilon$ in $[0,1]$, take $N>1/\varepsilon$ and $q$ with $\delta=\|q\alpha\|<1/N$, $\delta>0$. The points $\{mq\alpha\}$, $m=1,2,\dots$, then move along the circle $\mathbb R/\mathbb Z$ in steps of exactly $\delta$ (forwards if $\{q\alpha\}=\delta$, backwards if $\{q\alpha\}=1-\delta$). Steps shorter than $\varepsilon$ cannot jump over the interval.
@@ -26,7 +25,6 @@
 \hint{3} If $i<j$ and $\ell_i=\ell_j$, then $a_i>a_j$, since otherwise $a_j$ would extend the sequence ending at $a_i$ and $\ell_j>\ell_i$. Hence the $n+1$ terms with equal label form a decreasing subsequence.
 
 \problem{5}
-\note{As stated (``a two-colouring \dots{} has no monochromatic $K_k$'') the claim is false, e.g.\ for the colouring with one colour. The intended statement (Erd\H{o}s) is: if $n<2^{k/2}$ (and $k\ge 3$), there EXISTS a two-colouring of the edges of $K_n$ with no monochromatic $K_k$.}
 \hint{1} Count pairs (colouring, monochromatic $k$-set). There are $2^{\binom n2}$ colourings in total. A fixed $k$-set of vertices is monochromatic in exactly $2\cdot 2^{\binom n2-\binom k2}$ of them. Equivalently: colour at random, and the expected number of monochromatic $K_k$ is $\binom nk 2^{1-\binom k2}$.
 \hint{2} If this number is $<1$, the bad colourings cannot cover all colourings, so a good one exists. Check: $\binom nk 2^{1-\binom k2}<\frac{n^k}{k!}2^{1-k(k-1)/2}<\frac{2^{1+k/2}}{k!}\le 1$ for $k\ge 3$, using $n^k<2^{k^2/2}$.
 \hint{3} The general principle: if the bad events $B_i$ satisfy $\sum_i P(B_i)<1$ (the union bound), some outcome avoids all of them. Equivalently, if (number of bad configurations) times (the largest number of objects each one spoils) is less than the total, a good object exists.

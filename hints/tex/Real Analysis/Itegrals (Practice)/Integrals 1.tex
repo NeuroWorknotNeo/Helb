@@ -12,13 +12,12 @@ For \(\int\frac{dx}{x\sqrt{x^2+4x+3}}\) you can use \(y=xt+\sqrt3\) (since \(c=3
 For \(\int\sqrt{x^2+1}\,dx\): Euler \(\sqrt{x^2+1}=t-x\) gives \(x=\frac{t^2-1}{2t}\), \(\sqrt{x^2+1}=\frac{t^2+1}{2t}\); hyperbolic \(x=\sinh u\) gives \(\int\cosh^2u\,du\). Both lead to \(\frac12\left(x\sqrt{x^2+1}+\ln(x+\sqrt{x^2+1})\right)+C\); note \(t=x+\sqrt{x^2+1}=e^u\), which explains why the answers agree.
 
 \problem{2}
-\note{as stated, the problem claims \(t=\tan\frac x2\) loses to \(t=\cos x\) in the third integral, but here the half-angle substitution actually gives the simpler integrand \(\frac{1-t^2}{2t}\). Do both and compare honestly.}
 \hint{1}
 Write \(\sin x=2\sin\frac x2\cos\frac x2\), \(\cos x=\cos^2\frac x2-\sin^2\frac x2\), divide by \(1=\cos^2\frac x2+\sin^2\frac x2\), and divide numerator and denominator by \(\cos^2\frac x2\). For \(dx\) differentiate \(x=2\arctan t\).
 \hint{2}
 \(\int\frac{dx}{2+\cos x}=\int\frac{2\,dt}{t^2+3}=\frac{2}{\sqrt3}\arctan\frac{\tan(x/2)}{\sqrt3}+C\) (on each interval of continuity of \(\tan\frac x2\)). \(\int\frac{dx}{1+\sin x}=\int\frac{2\,dt}{(1+t)^2}=-\frac{2}{1+\tan(x/2)}+C\), which equals \(\tan x-\sec x\) up to a constant (or multiply by \(1-\sin x\) directly).
 \hint{3}
-For the third: \(\frac1{\sin x+\tan x}=\frac{\cos x}{\sin x(1+\cos x)}\) is odd in \(\sin x\), so \(t=\cos x\) works after multiplying top and bottom by \(\sin x\): you get \(-\int\frac{t\,dt}{(1-t)(1+t)^2}\) and partial fractions. Compare with \(t=\tan\frac x2\), which gives \(\int\frac{1-t^2}{2t}\,dt=\frac12\ln\lvert\tan\frac x2\rvert-\frac14\tan^2\frac x2+C\).
+For the third: \(\frac1{\sin x+\tan x}=\frac{\cos x}{\sin x(1+\cos x)}\) is odd in \(\sin x\), so \(t=\cos x\) works after multiplying top and bottom by \(\sin x\): you get \(-\int\frac{t\,dt}{(1-t)(1+t)^2}\) and partial fractions. Now compare with \(t=\tan\frac x2\): \(\sin x+\tan x=\frac{4t}{(1+t^2)(1-t^2)}\), and the factor \(1+t^2\) cancels against \(dx=\frac{2\,dt}{1+t^2}\), so you get the much simpler \(\int\frac{1-t^2}{2t}\,dt=\frac12\ln\lvert\tan\frac x2\rvert-\frac14\tan^2\frac x2+C\), with no partial fractions at all. That is why the half-angle substitution wins here.
 
 \problem{3}
 \hint{1}

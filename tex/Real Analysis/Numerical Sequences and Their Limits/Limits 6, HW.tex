@@ -1,0 +1,63 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.3}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\head}[1]{\par\bigskip\noindent\textbf{\underline{#1}}\quad}
+\begin{document}
+\begin{center}
+{\huge\bfseries Limits -- 6\par}\vspace{1.2em}
+{\Large Asymptotics and sharp estimates: sums, integrals, Stirling\par}\vspace{0.8em}
+{\Large Homework\par}\vspace{0.8em}
+{\foreignlanguage{russian}{1 сентября 2026 года}\par}
+\end{center}
+
+\noindent\textbf{\underline{Theoretical minimum.}}\quad Comparison of a sum with an integral and Euler's constant; the
+Euler--Maclaurin formula and Bernoulli numbers; Stirling's formula and Wallis' product; asymptotics
+of partial sums and of tails of series; Stolz's rule as a way of extracting the leading term; the
+expansions of $\ln(1+x)$ and $e^x$ as a source of corrections.
+
+\noindent\rule{\textwidth}{0.4pt}\par\medskip
+
+\begin{enumerate}[itemsep=0.6em]
+\item Prove that $\sum_{k=n+1}^\infty\frac1{k^2}=\frac1n-\frac1{2n^2}+O\bigl(\frac1{n^3}\bigr)$ and
+find the analogous expansion for $\sum_{k>n}\frac1{k^3}$.
+
+\item Find the asymptotics of $\bigl(1+\frac1n\bigr)^n$ up to $O(n^{-2})$ and deduce
+$\lim n\bigl(e-(1+\frac1n)^n\bigr)$.
+
+\item Prove that $\binom{2n}{n}=\frac{4^n}{\sqrt{\pi n}}\bigl(1-\frac1{8n}+O\bigl(\frac1{n^2}\bigr)\bigr)$.
+
+\item Assuming the prime number theorem in the form
+$\pi(x)=\frac{x}{\ln x}\bigl(1+O\bigl(\frac1{\ln x}\bigr)\bigr)$, find the asymptotics of the
+$n$-th prime up to the leading term and explain where the correction in
+$p_n=n\ln n+n\ln\ln n+O(n)$ comes from.
+
+\item Let $a_n=\int_0^{\pi/2}\sin^nx\,dx$. Find the asymptotics of $a_n$ as $n\to\infty$ and prove
+that $na_na_{n-1}=\frac\pi2$.
+
+\item Prove that $\sum_{k=1}^n\frac1k-\ln n\to\gamma$ and that
+$\gamma=\int_0^1\bigl(\frac1{\ln x}+\frac1{1-x}\bigr)dx$.
+
+\item Find $\lim_{n\to\infty}n\Bigl(\frac{\sum_{k=1}^nk^p}{n^{p+1}}-\frac1{p+1}\Bigr)$ for $p>0$.
+
+\item Prove that $\ln(n!)=n\ln n-n+\frac12\ln n+C+o(1)$ by Stolz's method, without using the
+Euler--Maclaurin formula.
+
+\item Let $x_n$ be the root of $\tan x=x$ in the interval $\bigl(\pi n-\frac\pi2,\pi n+\frac\pi2\bigr)$.
+Find the asymptotics of $x_n$ up to $O(n^{-3})$.
+
+\item Prove that $\sum_{k=1}^n\frac1{\sqrt k}=2\sqrt n+\zeta\bigl(\frac12\bigr)+\frac1{2\sqrt n}+O\bigl(n^{-3/2}\bigr)$
+and explain in what sense the value of the zeta function at $\frac12$ appears here.
+\end{enumerate}
+\end{document}

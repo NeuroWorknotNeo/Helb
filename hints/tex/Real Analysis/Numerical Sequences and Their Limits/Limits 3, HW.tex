@@ -4,10 +4,9 @@
 \hintstitle{Limits -- 3. Asymptotics of sequences}{Homework}
 
 \problem{1}
-\note{As printed the answer is degenerate: $\lim\sqrt n\,x_n=0$ for $x_0\in[0,1]$ and $-\infty$ for $x_0\in[-1,0)$. A nonzero finite limit would need a cubic term, e.g.\ $x_{n+1}=x_n-\arcsin(\sin^3x_n)$, where the same method gives $\sqrt n\,x_n\to\pm\frac1{\sqrt2}$ (sign of $x_0$). The hints treat the printed version.}
-\hint{1} Since $\arcsin(\sin^2x)\ge0$, the sequence is non-increasing. Its limit, if finite, is a fixed point: $\sin L=0$.
-\hint{2} For $x\in(0,1]$: $\sin^2x<\sin x$, so $0<\arcsin(\sin^2x)<x$ and $x_n$ stays positive, $x_n\to0$. Here $x_{n+1}=x_n-x_n^2+O(x_n^4)$, so by Theorem 1 ($p=2$, $a=1$) $nx_n\to1$, hence $\sqrt n\,x_n\to0$.
-\hint{3} For $x_0<0$: with $x=-\pi+u$, $u\in[0,\pi]$, check $\arcsin(\sin^2u)\le u$, so the map sends $[-\pi,0]$ into itself; $x_n$ decreases to the fixed point $-\pi$, and $\sqrt n\,x_n\to-\infty$.
+\hint{1} The map $g(x)=x-\arcsin(\sin^3x)$ is odd, so it suffices to take $x_0\in(0,1]$ (for $x_0=0$ the sequence is $0$). For $x\in(0,1]$: $0<\sin^3x<\sin x$, so $0<\arcsin(\sin^3x)<x$; hence $x_n$ stays in $(0,1]$, decreases, and tends to a fixed point, i.e.\ to $0$.
+\hint{2} Here $\arcsin(\sin^3x)=x^3+O(x^5)$, so $x_{n+1}=x_n-x_n^3+O(x_n^5)$: Theorem 1 with $p=3$, $a=1$. Telescoping: $\dfrac1{x_{n+1}^2}-\dfrac1{x_n^2}\to2$, and Stolz gives $nx_n^2\to\frac12$.
+\hint{3} Answer: $\lim\sqrt n\,x_n=\frac1{\sqrt2}$ for $x_0\in(0,1]$, $-\frac1{\sqrt2}$ for $x_0\in[-1,0)$, and $0$ for $x_0=0$.
 
 \problem{2}
 \hint{1} Substitute $t=nx$: $b_n=\frac1n\int_0^nf(t)\,dt=\frac1n\sum_{k=0}^{n-1}a_k$.
@@ -34,10 +33,9 @@
 \hint{4} Iterating these bounds (compute the first few $y_k$ exactly, estimate the tail) sharpens them; numerically $L\approx1.4782$.
 
 \problem{7}
-\note{As printed the product is $0$: the factors are $1-\frac4n+O(n^{-2})$, so the partial products behave like $Cn^{-4}$. Presumably the second factor should be $\frac{(n+1)^2}{n^2}$; then the factors are $1+O(n^{-2})$ and the hints compute that product.}
 \hint{1} Factor: $(2n)^4-1=\bigl(1-\frac1{(2n)^2}\bigr)\bigl(1+\frac1{(2n)^2}\bigr)(2n)^4$ and similarly for $(2n+1)^4-1$. Then the product splits into products whose values come from the sine product $\frac{\sin\pi x}{\pi x}=\prod_{n\ge1}\bigl(1-\frac{x^2}{n^2}\bigr)$ (and its versions for $\cos$, $\sinh$, $\cosh$).
 \hint{2} Needed: $\prod_{n\ge1}\bigl(1-\frac1{4n^2}\bigr)=\frac2\pi$, $\prod_{n\ge1}\bigl(1+\frac1{4n^2}\bigr)=\frac{2\sinh(\pi/2)}{\pi}$, $\prod_{n\ge1}\bigl(1-\frac1{(2n+1)^2}\bigr)=\frac\pi4$, $\prod_{n\ge1}\bigl(1+\frac1{(2n+1)^2}\bigr)=\frac{\cosh(\pi/2)}2$. The remaining factor is $\frac{(2n)^4(n+1)^2}{(2n+1)^4n^2}=\bigl(1-\frac1{(2n+1)^2}\bigr)^2$.
-\hint{3} Combining, the (corrected) product equals $\dfrac{2}{\pi}\tanh\dfrac\pi2\approx0.5839$.
+\hint{3} Combining, the product equals $\dfrac{2}{\pi}\tanh\dfrac\pi2\approx0.5839$.
 
 \problem{8}
 \hint{1} Invert: $\dfrac1{a_{n+1}}=\dfrac1{a_n}+1+a_n$.

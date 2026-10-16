@@ -4,14 +4,12 @@
 \hintstitle{Methods of proof -- 1}{Homework}
 
 \problem{1}
-\note{``Rationally independent $\alpha_i$'' is not enough for Kronecker's theorem. For example, $\sqrt2$ and $1+\sqrt2$ are linearly independent over $\mathbb Q$, but the points $(\{q\sqrt2\},\{q(1+\sqrt2)\})$ all lie on the diagonal. The correct hypothesis is that $1,\alpha_1,\dots,\alpha_k$ are linearly independent over $\mathbb Q$, and the hints use it.}
 \hint{1} Cut the unit cube $[0,1)^k$ into $N^k$ small cubes of side $1/N$, and place the $N^k+1$ points $(\{q\alpha_1\},\dots,\{q\alpha_k\})$, $q=0,1,\dots,N^k$, into them.
 \hint{2} Two points with indices $a<b$ fall into the same small cube. Then $q=b-a\le N^k$ satisfies $\|q\alpha_i\|<1/N$ for every $i$.
 \hint{3} For density, recurrence near $0$ is not enough when $k\ge 2$: multiples of one small vector only fill a line. Use Weyl's criterion instead. For an integer vector $h\neq0$, the number $h\cdot\alpha$ is not an integer (this is exactly where the independence of $1,\alpha_1,\dots,\alpha_k$ enters). So $\frac1Q\sum_{q=1}^Q e^{2\pi i q\,h\cdot\alpha}$ is a geometric sum bounded by $\frac{2}{Q|1-e^{2\pi i h\cdot\alpha}|}\to0$.
 \hint{4} Hence $\frac1Q\sum_{q\le Q}P(q\alpha)\to\int_{[0,1]^k}P$ for every trigonometric polynomial $P$. Given a small open box $B$, take a continuous $0\le\varphi\le\mathbf 1_B$ with $\int\varphi>0$ and approximate it uniformly by a trigonometric polynomial (Fej\'er or Stone--Weierstrass). The averages of $\varphi(q\alpha)$ have a positive limit, so some $q\alpha$ lies in $B$ modulo $\mathbb Z^k$.
 
 \problem{2}
-\note{The optimal constant $d_n$ (the largest possible minimum distance of $n$ points in a unit square) is not known in closed form for general $n$. It is the classical problem of packing equal circles in a square, solved only for small $n$. The hints cover the case $n=5$, the order of magnitude $d_n\asymp n^{-1/2}$, and the true asymptotics.}
 \hint{1} For five points, cut the square into four squares of side $\tfrac12$. Two points lie in the same small closed square, so their distance is at most its diagonal, $\sqrt2/2$. The bound is attained by the four corners together with the centre.
 \hint{2} Upper bound for $n$ points: if $m^2<n$, cut the square into $m^2$ squares of side $1/m$. This gives $d_n\le\sqrt2/m$, so $d_n\le\sqrt2/(\lceil\sqrt n\rceil-1)\sim\sqrt{2/n}$. Lower bound: choose $n$ points of the $k\times k$ grid with spacing $1/(k-1)$, where $k=\lceil\sqrt n\rceil$. This gives $d_n\ge 1/(\lceil\sqrt n\rceil-1)\ge1/\sqrt n$.
 \hint{3} A better upper bound comes from area instead of boxes. The disks of radius $d_n/2$ around the points are disjoint and lie in the square enlarged by $d_n/2$ on each side, so $n\pi d_n^2/4\le(1+d_n)^2$. This gives $d_n\le(1+o(1))\,2/\sqrt{\pi n}$.
@@ -29,18 +27,16 @@
 \hint{4} Both proofs extend to $\mathbb R^n$: the density theorem holds there with balls or cubes, by the Vitali lemma in $\mathbb R^n$. The regularity proof from the class work ($K\subseteq A$ compact, $U\supseteq K$ open with $m(U)<2m(K)$, and $K+t\subseteq U$ for small $t$) needs no covering lemma at all. It extends further, to every locally compact group with Haar measure, where density theorems can fail.
 
 \problem{5}
-\note{(1) For odd $n$ the first claim is false: $\{\frac{n+1}2,\dots,n\}$ has $\frac{n+1}2>\frac n2$ elements, and none of them divides another (e.g.\ $\{2,3\}$ for $n=3$). The correct hypothesis is $|A|>\lceil n/2\rceil$, which is the same as $|A|>n/2$ for even $n$. (2) As stated, the second claim holds as soon as $|A|\ge2$, and the bound $2n/3$ plays no role. The hints prove both claims in these forms.}
 \hint{1} Use the odd parts as boxes, as in the class work. Writing $a=2^s u$ with $u$ odd, there are $\lceil n/2\rceil$ possible values of $u\le n$. Two elements with the same odd part divide one another.
-\hint{2} For $A+A$: take any two elements $a<b$ of $A$ and look at $a+a$, $a+b$, $b+b$.
+\hint{2} For the progression the boxes are the blocks of three consecutive numbers $\{3j+1,3j+2,3j+3\}$, $0\le j<\lfloor n/3\rfloor$, plus the remaining $n-3\lfloor n/3\rfloor\le2$ numbers. If no block lies entirely in $A$, then $|A|\le2\lfloor n/3\rfloor+(n-3\lfloor n/3\rfloor)=n-\lfloor n/3\rfloor=\lceil 2n/3\rceil$. So for $|A|>\lceil2n/3\rceil$ some block lies in $A$, and its three numbers form a progression with difference $1$.
 
 \problem{6}
-\note{The first claim is false: the $n+1$ vectors from the centre of a regular simplex to its vertices make pairwise obtuse angles. The correct statement is that any $n+2$ vectors in $\mathbb R^n$ contain two with angle at most $\pi/2$, i.e.\ at most $n+1$ vectors can be pairwise obtuse. This gives the second claim for $n\ge2$, since $2^n\ge n+2$. For $n=1$ the vectors $1,-1$ are a counterexample. The hints prove the bound $n+1$.}
 \hint{1} Pairwise obtuse means $\langle v_i,v_j\rangle<0$ for all $i\neq j$. Induct on $n$. In $\mathbb R^1$ at most two non-zero numbers can have pairwise negative products.
 \hint{2} Given pairwise obtuse $v_0,\dots,v_m$ in $\mathbb R^n$, project $v_1,\dots,v_m$ onto $v_0^\perp$: write $v_i=w_i+c_iv_0$, where $c_i=\langle v_i,v_0\rangle/|v_0|^2<0$.
 \hint{3} Then $\langle w_i,w_j\rangle=\langle v_i,v_j\rangle-c_ic_j|v_0|^2<0$. So $w_1,\dots,w_m$ are pairwise obtuse (in particular non-zero) vectors in an $(n-1)$-dimensional space. By induction $m\le n$, so there are at most $n+1$ vectors. The simplex shows the bound is sharp.
+\hint{4} Hence any $n+2$ vectors contain two with $\langle v_i,v_j\rangle\ge0$, i.e.\ with angle at most $\pi/2$. For $n\ge2$ we have $2^n\ge n+2$, so $2^n$ pairwise obtuse vectors cannot exist. (For $n=1$ the two vectors $1,-1$ show why $n\ge2$ is needed.)
 
 \problem{7}
-\note{The inequality $X\ge m-\lambda\sigma$ only bounds the lower tail and cannot by itself push a random cut above its mean $m/2$. The hints prove the inequality and then get the excess $c\sqrt m$ from a lower bound on $\mathrm E|X-\mathrm EX|$, which is again a moment argument.}
 \hint{1} The inequality is Chebyshev: $P(X<m-\lambda\sigma)\le P(|X-m|\ge\lambda\sigma)\le \operatorname{Var}X/(\lambda\sigma)^2\le1/\lambda^2$.
 \hint{2} Put independent random signs $\varepsilon_v=\pm1$ on the vertices and let $X$ be the number of edges whose endpoints get different signs. Then $X=\frac m2-\frac12Y$ with $Y=\sum_{uv\in E}\varepsilon_u\varepsilon_v$, $\mathrm EY=0$ and $\mathrm EY^2=m$, because the products $\varepsilon_u\varepsilon_v$ for distinct edges are orthogonal.
 \hint{3} Bound $\mathrm EY^4$. Expanding, only ordered 4-tuples of edges in which every vertex appears an even number of times contribute $1$. These are the tuples of the form $e,e,f,f$ (at most $3m^2$ of them) and the 4-cycles. A pair of disjoint opposite edges lies in at most two 4-cycles, so the 4-cycles contribute $O(m^2)$. Hence $\mathrm EY^4\le Cm^2$.

@@ -1,0 +1,69 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\head}[1]{\par\bigskip\noindent\textbf{\underline{#1}}\quad}
+\begin{document}
+\begin{center}
+{\huge\bfseries Methods of proof -- 1\par}\vspace{1.2em}
+{\Large The pigeonhole principle: discrete, continuous, probabilistic\par}\vspace{0.8em}
+{\foreignlanguage{russian}{13 сентября 2026 года}\par}
+\end{center}\vspace{0.5em}
+
+\noindent\textbf{\underline{Theoretical minimum.}}\par
+
+\head{Fact 1 (the discrete form).} If $n$ objects are put into $k$ boxes, some box contains at
+least $\lceil n/k\rceil$ of them. The whole art is choosing the boxes: residues, dyadic scales,
+sign patterns, first digits, positions in an ordering.
+
+\head{Theorem 1 (the continuous form).} If sets $A_1,\dots,A_n$ inside a set of measure $\mu$
+have total measure greater than $k\mu$, some point lies in at least $k+1$ of them (Blichfeldt).
+Two consequences: Minkowski's theorem --- a centrally symmetric convex body of volume greater
+than $2^n$ contains a non-zero lattice point (Convex -- 10) --- and Steinhaus' theorem: if $A$
+has positive measure, then $A-A$ contains an interval around zero.
+
+\head{Theorem 2 (Dirichlet's approximation).} For every irrational $\alpha$ there are
+infinitely many fractions with $\bigl|\alpha-\frac pq\bigr|<\frac1{q^2}$; the proof is the
+pigeonhole applied to the fractional parts $\{q\alpha\}$ in $N$ boxes. The same argument gives
+the density of $\{n\alpha\}$, which was upgraded to equidistribution in Trig-5.
+
+\head{Fact 2 (the probabilistic form).} There is always an element at least as good as the
+average: if $\mathrm E\,X=m$ then $X\ge m$ with positive probability. This is the pigeonhole
+with weights, and the second moment refines it --- a small variance means that almost every
+element is close to the average (Probability -- 1 and Inequalities -- 8).
+
+\bigskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]\interlinepenalty=10000
+\item Prove the discrete pigeonhole in the form with $\lceil n/k\rceil$ and deduce Dirichlet's
+approximation theorem; then prove that for every irrational $\alpha$ and every $N$ there is
+$q\le N$ with $\|q\alpha\|<\frac1N$, and deduce the density of $\{n\alpha\}$ in $[0,1]$.
+
+\item Prove Blichfeldt's lemma and derive from it both Minkowski's theorem on a symmetric convex
+body and Steinhaus' theorem that $A-A$ contains an interval whenever $m(A)>0$. Deduce that an
+additive function bounded on a set of positive measure is linear (compare with Continuous
+functions -- 6).
+
+\item (IMC) Let $X$ be a set of $\binom{2k-4}{k-2}+1$ real numbers, $k\ge2$. Prove that there
+exists a monotone sequence $\{x_i\}_{i=1}^k\subseteq X$ such that $|x_{i+1}-x_1|\ge2|x_i-x_1|$
+for all $i=2,\dots,k-1$.
+
+\item Prove that among any $n+1$ numbers chosen from $\{1,2,\dots,2n\}$ some one divides
+another, and that among any $n^2+1$ distinct reals there is a monotone subsequence of length
+$n+1$; identify the boxes in each case.
+
+\item Prove by a counting argument that for $k\ge3$ and $n<2^{k/2}$ there exists a
+two-colouring of the edges of $K_n$ with no monochromatic $K_k$, and state the general
+principle: to prove existence, count the bad configurations and show that they cannot cover
+everything.
+\end{enumerate}
+\end{document}
