@@ -1,0 +1,41 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Functional sequences, series and spaces -- 1. Sequences of functions and uniform convergence}{Class work}
+
+\problem{1}
+\hint{1}
+The supremum criterion is just the definition unpacked: ``for every \(\varepsilon\) there is \(N\) such that \(\lvert f_n(x)-f(x)\rvert\le\varepsilon\) for all \(x\) and \(n\ge N\)'' is the same as \(\sup_x\lvert f_n-f\rvert\le\varepsilon\) for \(n\ge N\). For the Cauchy criterion, the nontrivial direction: the Cauchy condition makes each \(f_n(x)\) a Cauchy sequence, so define \(f\) pointwise, then let \(m\to\infty\) in \(\lvert f_n(x)-f_m(x)\rvert\le\varepsilon\) with \(x\) fixed.
+\hint{2}
+Continuity: the \(\varepsilon/3\) argument \(\lvert f(x)-f(y)\rvert\le \lvert f-f_n\rvert(x)+\lvert f_n(x)-f_n(y)\rvert+\lvert f_n-f\rvert(y)\). Integrability: if \(\sup\lvert f-f_n\rvert\le\varepsilon\), then for every partition \(U(f,P)-L(f,P)\le U(f_n,P)-L(f_n,P)+2\varepsilon(b-a)\), and \(\lvert\int f_n-\int f\rvert\le\varepsilon(b-a)\).
+\hint{3}
+Derivatives: write \(f_n(x)=f_n(x_0)+\int_{x_0}^x f_n'\) and pass to the limit (the integral part converges uniformly on a bounded interval by the previous part); then \(f(x)=f(x_0)+\int_{x_0}^x g\) with \(g\) continuous, so \(f'=g\). For the zoo: \(x^n\) and \(nxe^{-nx^2}\) do not converge uniformly (find the moving point: \(x=1-1/n\), resp. \(x=1/\sqrt{2n}\) where the value is \(\sqrt{n/2}\,e^{-1/2}\)); \(\frac{\sin nx}{\sqrt n}\) converges uniformly but \(f_n'=\sqrt n\cos nx\) does not converge; for \(\frac{x}{1+n^2x^2}\) the derivatives converge only pointwise (limit \(1\) at \(0\), \(0\) elsewhere), and indeed \(f'=0\ne g(0)\).
+
+\problem{2}
+\hint{1}
+Necessity: a precompact set is totally bounded; take a finite \(\varepsilon\)-net \(g_1,\dots,g_k\) in \(\mathcal F\). Boundedness is immediate, and equicontinuity follows from the (uniform) continuity of the finitely many \(g_i\) plus the \(\varepsilon/3\) trick.
+\hint{2}
+Sufficiency: given a sequence in \(\mathcal F\), take a countable dense set \(\{x_j\}\subset K\) and use a diagonal argument (each \((f_n(x_j))_n\) is bounded) to get a subsequence converging at every \(x_j\).
+\hint{3}
+Show that this subsequence is uniformly Cauchy: on a compact set equicontinuity is uniform (one \(\delta\) for all points and all \(f\)), cover \(K\) by finitely many \(\delta\)-balls around points \(x_j\) of the dense set, and compare \(f_n(x)\) with \(f_n(x_j)\). Counterexamples: \(x^n\) or \(\sin nx\) (bounded, not equicontinuous, no uniformly convergent subsequence), and the constants \(f_n\equiv n\) (equicontinuous, unbounded).
+
+\problem{3}
+\hint{1}
+For uniform convergence the answer is yes: an \(\varepsilon/3\) argument, choosing first \(n\) with \(\sup\lvert f_n-f\rvert\lt\varepsilon/3\) and then \(\delta\) from the uniform continuity of that single \(f_n\).
+\hint{2}
+For pointwise convergence the answer is no. Truncate a function that is continuous but not uniformly continuous on \(\mathbb R\), e.g.~\(f_n(x)=\min(x^2,n)\): each \(f_n\) is Lipschitz, and \(f_n\to x^2\) pointwise.
+
+\problem{4}
+\hint{1}
+First pass to a subsequence in which all functions are monotone in the same direction (infinitely many are nondecreasing or infinitely many are nonincreasing). Then use a diagonal argument to get a subsequence converging at every rational point of \([a,b]\) (and at \(a,b\)).
+\hint{2}
+The limit \(\varphi\) on the rationals is monotone; extend it to a monotone function \(g\) on \([a,b]\). At every continuity point \(x\) of \(g\), squeeze \(f_n(x)\) between \(f_n(r)\) and \(f_n(s)\) with rationals \(r\lt x\lt s\) close to \(x\) to show \(f_n(x)\to g(x)\).
+\hint{3}
+A monotone \(g\) has at most countably many discontinuities; one more diagonal argument handles them. The limit is monotone: a pointwise limit of nondecreasing functions is nondecreasing (after the first reduction all \(f_n\) have the same direction).
+
+\problem{5}
+\hint{1}
+Compute \(f_n(1)\) first: the product telescopes to \(n+1\), so \(f_n(1)=1\). Also note each \(f_n\) is increasing in \(x\) and nonnegative on \([0,1]\).
+\hint{2}
+Use \(1+t\le e^t\): \(\prod_{k=1}^n(1+x/k)\le e^{xH_n}\le e^{x}\,n^{x}\), where \(H_n\le 1+\ln n\). Hence on \([0,a]\) with \(a\lt 1\) we have \(0\le f_n\le f_n(a)\le e\, n^{a}/(n+1)\to0\), which is uniform convergence. The pointwise limit is \(0\) on \([0,1)\) and \(1\) at \(x=1\) (so the convergence is not uniform on \([0,1]\)).
+\end{document}

@@ -1,0 +1,44 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Integrals -- 3. Differentiation under the integral sign and Frullani integrals}{Class work}
+
+\problem{1}
+\hint{1}
+Work with \(\int_\varepsilon^R\) and split it into two integrals; in each substitute \(t=ax\) resp. \(t=bx\). Everything cancels except \(\int_{a\varepsilon}^{b\varepsilon}\frac{f(t)}t\,dt-\int_{aR}^{bR}\frac{f(t)}t\,dt\).
+\hint{2}
+By the mean value theorem for integrals, \(\int_{a\varepsilon}^{b\varepsilon}\frac{f(t)}tdt=f(\xi)\ln\frac ba\to f(0)\ln\frac ba\), and similarly the second piece tends to \(f(\infty)\ln\frac ba\). Hence \(\int_0^\infty\frac{e^{-ax}-e^{-bx}}x dx=\ln\frac ba\). For \(\cos\), \(f(\infty)\) does not exist, but \(\int_{aR}^{bR}\frac{\cos t}tdt\to0\) (integrate by parts once), so the same proof gives \(\ln\frac ba\).
+\hint{3}
+For \(F(b)=\int_0^1\frac{x^b-x^a}{\ln x}dx\): \(F'(b)=\int_0^1x^b\,dx=\frac1{b+1}\) and \(F(a)=0\), so \(F(b)=\ln\frac{b+1}{a+1}\) (for \(a,b\gt -1\)).
+
+\problem{2}
+\note{the differential equation only gives \(I(\alpha)=I(0)e^{-\alpha^2/4}\); the value \(I(0)=\frac{\sqrt\pi}2\) is not a ``special case'' of it and needs a separate argument (Hint 3).}
+\hint{1}
+Differentiate under the integral sign (justified: \(\lvert x e^{-x^2}\sin\alpha x\rvert\le xe^{-x^2}\) is integrable, uniformly in \(\alpha\)): \(I'(\alpha)=-\int_0^\infty xe^{-x^2}\sin(\alpha x)\,dx\). Integrate by parts with \(dv=xe^{-x^2}dx\), \(v=-\frac12e^{-x^2}\).
+\hint{2}
+You get \(I'=-\frac\alpha2I\), so \(I(\alpha)=I(0)e^{-\alpha^2/4}\).
+\hint{3}
+For \(I(0)\) use another parameter: \(G(t)=\left(\int_0^te^{-x^2}dx\right)^2+\int_0^1\frac{e^{-t^2(1+u^2)}}{1+u^2}du\). Show \(G'(t)=0\) (substitute \(x=tu\) in the first term's derivative), so \(G(t)=G(0)=\frac\pi4\); letting \(t\to\infty\) gives \(\left(\int_0^\infty e^{-x^2}\right)^2=\frac\pi4\).
+
+\problem{3}
+\hint{1}
+\(I'(a)=\int_0^\pi\frac{2a-2\cos x}{1-2a\cos x+a^2}dx\) for \(\lvert a\rvert\ne1\). Write \(2a-2\cos x=\frac1a\left[(1-2a\cos x+a^2)-(1-a^2)\right]\) and use \(\int_0^\pi\frac{dx}{1-2a\cos x+a^2}=\frac{\pi}{\lvert 1-a^2\rvert}\) (half-angle substitution).
+\hint{2}
+So \(I'(a)=0\) for \(\lvert a\rvert\lt1\) and \(I'(a)=\frac{2\pi}a\) for \(\lvert a\rvert\gt1\). Since \(I(0)=0\), \(I\equiv0\) on \((-1,1)\). For \(\lvert a\rvert\gt1\) factor out \(a^2\): \(I(a)=2\pi\ln\lvert a\rvert+I(1/a)=2\pi\ln\lvert a\rvert\).
+\hint{3}
+For \(a=\pm1\): \(\int_0^\pi\ln(2\mp2\cos x)\,dx=\int_0^\pi\ln\left(4\sin^2\tfrac x2\right)dx\) (or with \(\cos\)), which is \(0\) by \(\int_0^{\pi/2}\ln\sin u\,du=-\frac\pi2\ln2\). Answer: \(0\) for \(\lvert a\rvert\le1\), \(2\pi\ln\lvert a\rvert\) for \(\lvert a\rvert\gt1\).
+
+\problem{4}
+\hint{1}
+Let \(F(\alpha)=\int_0^\infty e^{-\alpha x}\frac{\sin x}xdx\), \(\alpha\ge0\). For \(\alpha\ge\alpha_0\gt0\) the derivative integral \(-\int_0^\infty e^{-\alpha x}\sin x\,dx\) converges uniformly, and equals \(-\frac1{1+\alpha^2}\).
+\hint{2}
+So \(F(\alpha)=C-\arctan\alpha\); since \(\lvert F(\alpha)\rvert\le\int_0^\infty e^{-\alpha x}dx=\frac1\alpha\to0\), \(C=\frac\pi2\).
+\hint{3}
+The delicate part is continuity of \(F\) at \(0^+\). Show the tails are uniformly small: for \(\alpha\ge0\), \(\left\lvert\int_A^\infty e^{-\alpha x}\frac{\sin x}xdx\right\rvert\le\frac 2A\) (integrate by parts, or use the second mean value theorem, since \(e^{-\alpha x}/x\) decreases in \(x\)). Then \(F\) is a uniform limit of continuous functions on \([0,\infty)\), and \(F(0)=\lim_{\alpha\to0^+}F(\alpha)=\frac\pi2\).
+
+\problem{5}
+\hint{1}
+Use \(\int_{-\infty}^\infty e^{-cx^2}dx=\sqrt{\pi/c}\). (a) complete the square: \(-2x^2-5x-3=-2(x+\frac54)^2+\frac18\). (b) shift \(x\mapsto x+2024\). (c) substitute \(u=x^2\) resp. \(u=x^4\) to get Gamma integrals. (d) substitute \(u=1/t\).
+\hint{2}
+Answers: (a) \(e^{1/8}\sqrt{\pi/2}\); (b) \(2\sqrt\pi\); (c) \(\frac12\Gamma(2)=\frac12\) and \(\frac14\Gamma(\frac32)=\frac{\sqrt\pi}8\); (d) \(\int_0^\infty e^{-2019u^2/4}du=\sqrt{\pi/2019}\).
+\end{document}

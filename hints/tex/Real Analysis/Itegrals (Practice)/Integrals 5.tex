@@ -1,0 +1,42 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Integrals -- 5. The gamma and beta functions and Wallis' formulas}{Class work}
+
+\problem{1}
+\hint{1}
+Write \(\Gamma(p)\Gamma(q)=\int_0^\infty\int_0^\infty x^{p-1}y^{q-1}e^{-x-y}\,dx\,dy\) and substitute \(x=u^2\), \(y=v^2\): it becomes \(4\iint_{u,v\gt0}u^{2p-1}v^{2q-1}e^{-(u^2+v^2)}du\,dv\).
+\hint{2}
+In polar coordinates \(u=r\cos\theta\), \(v=r\sin\theta\) the integral factors: \(2\int_0^\infty r^{2(p+q)-1}e^{-r^2}dr=\Gamma(p+q)\) and \(2\int_0^{\pi/2}\cos^{2p-1}\theta\sin^{2q-1}\theta\,d\theta=B(p,q)\) (Fact 1). For \(p=q=\frac12\): \(\Gamma(\frac12)^2=\Gamma(1)B(\frac12,\frac12)=2\cdot\frac\pi2=\pi\).
+
+\problem{2}
+\hint{1}
+Theorem 2 is Fact 1 with \(2p-1=n\), \(2q-1=0\). For even \(n=2m\) use \(\Gamma(m+\frac12)=\frac{(2m-1)!!}{2^m}\sqrt\pi\) to get \(\int_0^{\pi/2}\sin^{2m}x\,dx=\frac{(2m-1)!!}{(2m)!!}\cdot\frac\pi2\); for odd \(n=2m+1\) you get \(\frac{(2m)!!}{(2m+1)!!}\).
+\hint{2}
+For the product: \(I_n=\int_0^{\pi/2}\sin^nx\,dx\) decreases in \(n\), so \(I_{2m+1}\le I_{2m}\le I_{2m-1}\), and \(\frac{I_{2m-1}}{I_{2m+1}}=\frac{2m+1}{2m}\to1\); hence \(\frac{I_{2m}}{I_{2m+1}}\to1\), which is the Wallis product.
+\hint{3}
+\(\int_0^{2\pi}\cos^{2020}x\,dx=4I_{2020}=2\pi\binom{2020}{1010}2^{-2020}\). For the second, \(\sin^2x\cos^2x=\frac14\sin^22x\), so the integral is \(\frac\pi8\).
+
+\problem{3}
+\hint{1}
+Bring each integral to the form \(\int_0^1u^{p-1}(1-u)^{q-1}du\): (a) is already \(B(\frac32,\frac32)\); (b) put \(u=x^2\); (c) put \(x=t^2\); (d) put \(u=x^{2025}\).
+\hint{2}
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  \(\frac{\Gamma(3/2)^2}{\Gamma(3)}=\frac\pi8\); (b) \(\frac12B(\frac12,\frac32)=\frac\pi4\); (c) \(2B(2,\frac32)=\frac8{15}\); (d) \(\frac1{2025}B(1,2026)=\frac1{2025\cdot2026}\).
+\end{enumerate}
+
+\problem{4}
+\hint{1}
+Substitute \(x=\frac{t}{1-t}\) (the inverse of \(t=\frac x{1+x}\)): then \(1+x=\frac1{1-t}\), \(dx=\frac{dt}{(1-t)^2}\) and the integral becomes \(\int_0^1t^{a-1}(1-t)^{-a}dt=B(a,1-a)\).
+\hint{2}
+\(B(a,1-a)=\Gamma(a)\Gamma(1-a)=\frac\pi{\sin\pi a}\). The contour method gets the same value from the residue at \(-1\) of \(\frac{z^{a-1}}{1+z}\) on a keyhole contour; here the work is hidden in the reflection formula (which in turn can be proved by this very integral).
+
+\problem{5}
+\hint{1}
+Pointwise, \(e^{-x^{2n}}\to1\) for \(\lvert x\rvert\lt1\) and \(\to0\) for \(\lvert x\rvert\gt1\); dominate by \(e^{-x^2}\) for \(\lvert x\rvert\ge1\) and by \(1\) for \(\lvert x\rvert\lt1\). The graph tends to the indicator of \([-1,1]\), a rectangle of area \(2\).
+\hint{2}
+Exactly: \(u=x^{2n}\) gives \(\int_{-\infty}^\infty e^{-x^{2n}}dx=\frac1n\Gamma\left(\frac1{2n}\right)=2\Gamma\left(1+\frac1{2n}\right)\to2\Gamma(1)=2\).
+\end{document}

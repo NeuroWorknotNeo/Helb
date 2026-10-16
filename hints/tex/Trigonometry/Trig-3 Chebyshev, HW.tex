@@ -1,0 +1,53 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Trigonometry -- 3. The substitution $x=2\cos\theta$ and Chebyshev polynomials}{Homework}
+
+\problem{1}
+\hint{1} $T_m(T_n(\cos\theta))=T_m(\cos n\theta)=\cos mn\theta=T_{mn}(\cos\theta)$; two polynomials agreeing on $[-1,1]$ are equal.
+\hint{2} A conceptual reason: with $D_n(x)=2T_n(x/2)$ one has $D_n(z+z^{-1})=z^n+z^{-n}$, i.e.\ $D_n\circ h=h\circ z^n$ for $h(z)=z+z^{-1}$. So the Chebyshev family is the ``shadow'' of the power family $z^n$, and both are closed under composition ($z^m\circ z^n=z^{mn}$).
+\hint{3} Ritt's theorem (to be stated, not proved): if two polynomials of degree $>1$ commute and are not iterates of a common polynomial, then after a simultaneous affine change of variable they are both powers $x^n$ or both $\pm T_n$. Check that conjugating $T_n$ by $x\mapsto2x$ gives $D_n$, so these are the same family up to affine conjugacy.
+
+\problem{2}
+\hint{1} Substitute $x=\cos\theta$: $\frac{dx}{\sqrt{1-x^2}}$ becomes $d\theta$ on $[0,\pi]$ and the integral becomes $\int_0^\pi\cos m\theta\cos n\theta\,d\theta$, which is $0$ for $m\ne n$ (product-to-sum).
+\hint{2} For the expansion write $\cos^n\theta=2^{-n}(e^{i\theta}+e^{-i\theta})^n$ and pair the terms $e^{\pm i(n-2k)\theta}$: $x^n=2^{1-n}\sum_{0\le k<n/2}\binom nkT_{n-2k}(x)$, plus $2^{-n}\binom n{n/2}$ when $n$ is even.
+
+\problem{3}
+\hint{1} $U_{n-1}(\cos\theta)=\frac{\sin n\theta}{\sin\theta}$ vanishes at $\theta=\frac{k\pi}n$, $k=1,\dots,n-1$; these give $n-1$ distinct roots of a polynomial of degree $n-1$.
+\hint{2} Let $J_n$ be the $n\times n$ tridiagonal matrix. Expanding $P_n(x)=\det(xE-J_n)$ along the last row gives $P_n=xP_{n-1}-P_{n-2}$, $P_0=1$, $P_1=x$. Compare with the recurrence for $U_n(x/2)$: $P_n(x)=U_n(x/2)$, whose roots are $2\cos\frac{k\pi}{n+1}$, $k=1,\dots,n$.
+\hint{3} Wirtinger: for $x_0=x_n=0$, $\sum_{k=1}^n(x_k-x_{k-1})^2=x^{\mathsf T}(2E-J_{n-1})x$ with $x=(x_1,\dots,x_{n-1})$. Its smallest eigenvalue is $2-2\cos\frac\pi n=4\sin^2\frac\pi{2n}$, which is the sharp constant, attained by the eigenvector $x_k=\sin\frac{k\pi}n$.
+
+\problem{4}
+\hint{1} Use the affine map $x=\frac{a+b}2+\frac{b-a}2t$, $t\in[-1,1]$. A monic polynomial of degree $n$ in $x$ becomes $\bigl(\frac{b-a}2\bigr)^n$ times a monic polynomial in $t$.
+\hint{2} By Chebyshev's theorem the minimum is $\bigl(\frac{b-a}2\bigr)^n2^{1-n}=2\bigl(\frac{b-a}4\bigr)^n$, attained only by $p(x)=2\bigl(\frac{b-a}4\bigr)^nT_n\bigl(\frac{2x-a-b}{b-a}\bigr)$.
+
+\problem{5}
+\hint{1} $\cos7\theta=-1$ for $\theta=\frac\pi7,\frac{3\pi}7,\frac{5\pi}7,\pi$. So $\cos\frac\pi7,\cos\frac{3\pi}7,\cos\frac{5\pi}7$ are roots of $T_7(x)+1=64x^7-112x^5+56x^3-7x+1$, which is divisible by $x+1$.
+\hint{2} One checks $T_7(x)+1=(x+1)(8x^3-4x^2-4x+1)^2$, so the three distinct numbers above are exactly the roots of $x^3-\frac12x^2-\frac12x+\frac18$. Alternatively, find this cubic from Vieta: compute $\sum\cos\frac{(2j+1)\pi}7$, the sum of pairwise products and the product with product-to-sum formulas.
+\hint{3} Irreducibility: by the rational root theorem a rational root of $8x^3-4x^2-4x+1$ is among $\pm1,\pm\frac12,\pm\frac14,\pm\frac18$; none works, and a cubic without rational roots is irreducible. Since $\cos\frac{2\pi}7=-\cos\frac{5\pi}7$, its minimal polynomial is obtained by $x\mapsto-x$; $\cos\frac{3\pi}7$ is another root of the first cubic.
+
+\problem{6}
+\hint{1} With $D_n(x)=2T_n(x/2)$ the recurrence $D_{n+1}=xD_n-D_{n-1}$, $D_0=2$, $D_1=x$, shows that $D_n$ is monic with integer coefficients, and $D_n(2\cos\frac{2\pi}n)=2\cos2\pi=2$.
+\hint{2} So $2\cos\frac{2\pi}n$ is a root of the monic integer polynomial $D_n(x)-2$; by the rational root theorem, if it is rational it is an integer in $[-2,2]$. Check which $n$ give $2,-2,0,\pm1$: $n=1,2,4,3,6$.
+
+\problem{7}
+\hint{1} Suppose $|p(x_0)|>|T_n(x_0)|$ for some $x_0>1$ (the case $x_0<-1$ is symmetric). Put $\lambda=T_n(x_0)/p(x_0)$, so $|\lambda|<1$, and consider $q=T_n-\lambda p$.
+\hint{2} $q(x_0)=0$, and at the $n+1$ points $\cos\frac{k\pi}n$ the sign of $q$ is that of $T_n=(-1)^k$, because $|\lambda p|<1$. So $q$ has $n+1$ zeros and degree $\le n$: $q\equiv0$, i.e.\ $T_n=\lambda p$, which contradicts $T_n(1)=1>|\lambda|$.
+\hint{3} For the leading coefficient $c$: $|c|=\lim_{x\to\infty}|p(x)|/x^n\le\lim_{x\to\infty}|T_n(x)|/x^n=2^{n-1}$.
+
+\problem{8}
+\hint{1} Multiply $G(t)=\sum_{k\ge0}T_k(x)t^k$ by $1-2xt+t^2$ and use the recurrence: all coefficients of $t^k$, $k\ge2$, vanish, leaving $T_0+(T_1-2xT_0)t=1-xt$. Hence $G(t)=\frac{1-tx}{1-2tx+t^2}$, and the same computation gives $\sum_kU_kt^k=\frac1{1-2tx+t^2}$.
+\hint{2} The addition formula is $\cos(m+n)\theta+\cos(m-n)\theta=2\cos m\theta\cos n\theta$ written with $x=\cos\theta$ (for $m\ge n$); a polynomial identity valid on $[-1,1]$ holds everywhere. (With generating functions: $\frac{1-tx}{1-2tx+t^2}=\frac12\bigl(\frac1{1-tz}+\frac1{1-t/z}\bigr)$ for $x=\frac{z+z^{-1}}2$, i.e.\ $T_k=\frac{z^k+z^{-k}}2$, and the formula becomes an identity for powers of $z$.)
+
+\problem{9}
+\hint{1} For $x=2\cos\theta$: $x^3-3x=2\cos3\theta$. If $|c|\le2$, put $\cos3\theta=\frac c2$; the three real roots are $2\cos\bigl(\theta_0+\frac{2\pi k}3\bigr)$, $k=0,1,2$, with $\theta_0=\frac13\arccos\frac c2$.
+\hint{2} If $c>2$, $x=2\cosh t$ gives $2\cosh3t=c$, so the unique real root is $2\cosh\bigl(\frac13\operatorname{arccosh}\frac c2\bigr)=u+u^{-1}$ with $u^3=\frac{c+\sqrt{c^2-4}}2$ -- exactly Cardano's formula; for $c<-2$ use $x=-2\cosh t$.
+\hint{3} For $|c|<2$ Cardano gives $u^3=\frac{c\pm i\sqrt{4-c^2}}2=e^{\pm3i\theta_0}$: the roots are $u+\bar u=2\cos\theta_0$ with $u$ a cube root of a non-real number. That is the casus irreducibilis: the real roots require trisecting an angle, i.e.\ extracting cube roots of complex numbers.
+
+\problem{10}
+\hint{1} The condition says the value at $0$ dominates the $\ell^2$-mass on the integer points $-A,\dots,-1,1,\dots,B$. Look for a polynomial that equals $1$ at $0$ and decays like $1/|j|$ at the point $j$, with a small constant: then $\sum_{j\ne0}p(j)^2\le\text{const}^2\cdot\frac{\pi^2}3<1$.
+\hint{2} Lagrange basis polynomials at Chebyshev nodes do this. If $y_0=\cos\theta_0$ is a zero of $T_m$, then $\ell(y)=\frac{T_m(y)}{(y-y_0)T_m'(y_0)}$ has degree $m-1$, $\ell(y_0)=1$, and $|\ell(y)|\le\frac{\sin\theta_0}{m|y-y_0|}$ on $[-1,1]$, since $|T_m'(y_0)|=\frac m{\sin\theta_0}$.
+\hint{3} Use an affine map $y=y_0+x/R$ sending $[-A,B]$ into $[-1,1]$ and $0$ to the node $y_0$. Then $|\ell(y_0+j/R)|\le\frac{R\sin\theta_0}{m|j|}$, so you need $R\sin\theta_0\le cm$ with a small constant $c$, for $m\approx C\sqrt{AB}$.
+\hint{4} Let $A\le B$. The interval of length $A+B$ must fit: $R\ge\max\bigl(\frac A{1+y_0},\frac B{1-y_0}\bigr)$. Choose the node with $\varphi=\pi-\theta_0$ of order $\sqrt{A/B}$ (Chebyshev nodes are $\frac\pi m$ apart in angle, and $\frac\pi m\lesssim\sqrt{A/B}$ once $C$ is large): then $1+y_0\approx\frac{\varphi^2}2$, $R\approx B$ and $R\sin\theta_0\approx B\varphi\approx\sqrt{AB}$. With $m=\lceil C\sqrt{AB}\rceil$ and $C$ large the ratio $\frac{R\sin\theta_0}m$ is small. (When $A$ and $B$ are comparable a node near $\theta_0=\frac\pi2$ and $R\approx A+B$ do the job.)
+
+\end{document}

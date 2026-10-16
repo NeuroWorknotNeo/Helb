@@ -1,0 +1,70 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Functional sequences, series and spaces -- 2. Series of functions}{Homework}
+
+\problem{1}
+\hint{1}
+Continuity is the M-test (\(\lvert x-r_n\rvert\le1\)). For differentiability, look at the difference quotient term by term: \(\frac{\lvert x+h-r_n\rvert-\lvert x-r_n\rvert}h\) is bounded by \(1\) in absolute value, so the series of difference quotients is dominated by \(\sum2^{-n}\) uniformly in \(h\).
+\hint{2}
+At an irrational \(x\) each quotient tends to \(\operatorname{sgn}(x-r_n)\) as \(h\to0\), so by dominated convergence for series (Tannery's theorem) \(F'(x)=\sum_n2^{-n}\operatorname{sgn}(x-r_n)\). So \(F\) is differentiable at every irrational point, in particular almost everywhere. (Alternatively: \(F\) is convex.)
+\hint{3}
+At \(x=r_k\), do the same with the \(k\)-th term separated: the right and left derivatives exist and differ by \(2\cdot2^{-k}\), the jump of the derivative of \(2^{-k}\lvert x-r_k\rvert\).
+
+\problem{2}
+\hint{1}
+For each fixed \(x\ge0\) this is a Leibniz series, and the tail after \(N\) is at most \(\frac1{N+1+x}\le\frac1{N+1}\); non-absolute convergence is comparison with the harmonic series. The same tail bound gives \(\lvert S(x)\rvert\le\frac1{1+x}\to0\).
+\hint{2}
+For the asymptotics write \(\frac1{n+x}=\int_0^1t^{n+x-1}\,dt\) and sum the geometric series: \(S(x)=\sum_{n\ge1}\frac{(-1)^n}{n+x}=-\int_0^1\frac{t^x}{1+t}\,dt\) (justify the interchange, e.g.~by the uniform bound on the partial sums \(\bigl\lvert\sum_{n\le N}(-t)^n\bigr\rvert\le1\)).
+\hint{3}
+As \(x\to\infty\) the mass of \(t^x\) concentrates at \(t=1\), where \(\frac1{1+t}=\frac12\), and \(\int_0^1t^x\,dt=\frac1{x+1}\). Hence \(S(x)\sim-\frac1{2x}\).
+
+\problem{3}
+\hint{1}
+Represent \(\frac1{(n+m)^2}\) as an integral that factors in \(n\) and \(m\), e.g.~\(\frac1{(n+m)^2}=\int_0^\infty te^{-(n+m)t}\,dt\).
+\hint{2}
+The double sum becomes \(\int_0^\infty t\,\Bigl(\sum_{n=1}^N\frac{(-1)^ne^{-nt}}{n^n}\Bigr)^2dt\), which is \(\ge0\). It is strictly positive because the integrand is a continuous function that is not identically zero (a nonzero polynomial in \(e^{-t}\) has finitely many zeros).
+
+\problem{4}
+\hint{1}
+Continuity: M-test with \(c_n=a^n\). The term-by-term differentiated series is \(-\sum(ab)^n\sin(b^nx)\); since \(ab\gt1\) it can converge only where \(\sin(b^nx)\to0\).
+\hint{2}
+Show that \(\sin(b^nx)\to0\) cannot hold on a whole interval \(I\): by the Riemann--Lebesgue lemma \(\int_I\sin^2(b^nx)\,dx=\frac12\int_I(1-\cos2b^nx)\,dx\to\frac{\lvert I\rvert}2\), contradicting bounded convergence. So the differentiated series diverges on a dense set of points, and term-by-term differentiation is meaningless. Nowhere differentiability: Weierstrass's condition is \(b\) an odd integer and \(ab\gt1+\frac{3\pi}2\) (proved in Differentiable functions -- 8); Hardy showed that \(ab\ge1\) suffices.
+
+\problem{5}
+\hint{1}
+The \(k\)-times differentiated series is \(\sum(-\ln n)^kn^{-x}\). On \([1+\delta,\infty)\) it is dominated by \(\sum(\ln n)^kn^{-1-\delta}\lt\infty\); use the M-test and the term-by-term differentiation theorem, then cover \((1,\infty)\) by such half-lines.
+\hint{2}
+Non-uniformity on \((1,\infty)\): for any \(N\) and \(M\), \(\sup_{x\gt1}\sum_{n=N}^M\frac{\ln n}{n^x}=\sum_{n=N}^M\frac{\ln n}n\) (let \(x\to1^+\)), which is unbounded in \(M\). So the tails do not tend to \(0\) uniformly.
+\hint{3}
+Compare with integrals: \(t^{-x}\) is decreasing, so \(\frac1{x-1}=\int_1^\infty t^{-x}\,dt\le\zeta(x)\le1+\int_1^\infty t^{-x}\,dt=1+\frac1{x-1}\).
+
+\problem{6}
+\hint{1}
+For \(\lvert x\rvert\ge1\) the terms do not tend to \(0\) (or are undefined, for \(x=-1\) and odd \(n\)); for \(\lvert x\rvert\lt1\) compare with the geometric series. On \([-a,a]\), \(a\lt1\): \(\bigl\lvert\frac{x^n}{1+x^n}\bigr\rvert\le\frac{a^n}{1-a}\), so the M-test applies. The set is \((-1,1)\).
+\hint{2}
+For \(x\to1^-\) put \(x=e^{-t}\), \(t\to0^+\): the sum is \(\sum_{n\ge1}\frac1{e^{nt}+1}\), a Riemann sum with step \(t\) of a decreasing function. Hence it is \(\sim\frac1t\int_0^\infty\frac{du}{e^u+1}=\frac{\ln2}t\sim\frac{\ln2}{1-x}\).
+
+\problem{7}
+\hint{1}
+The partial sums \(S_n\) are continuous and increase pointwise to the continuous sum \(S\), so \(S-S_n\) decreases to \(0\): this is exactly Dini's theorem.
+\hint{2}
+Counterexample: take any continuous \(f_n\to0\) pointwise but not uniformly (e.g.~\(f_n(x)=nxe^{-nx^2}\) on \([0,1]\)) and telescope: \(u_1=f_1\), \(u_n=f_n-f_{n-1}\). The partial sums are \(f_n\), the sum is \(0\).
+
+\problem{8}
+\hint{1}
+Telescoping again turns a sequence example into a series example: find smooth \(f_n\to f\) uniformly with \(f_n'\) converging pointwise to something other than \(f'\).
+\hint{2}
+Take \(f_n(x)=\frac{x}{1+n^2x^2}\) from the standard zoo: \(\sup\lvert f_n\rvert=\frac1{2n}\), \(f_n'(x)=\frac{1-n^2x^2}{(1+n^2x^2)^2}\to\mathbf 1_{\{0\}}(x)\). With \(u_1=f_1\), \(u_n=f_n-f_{n-1}\), the sum is \(0\), while the differentiated series sums to \(1\) at \(x=0\).
+
+\problem{9}
+\hint{1}
+Use the uniform Cauchy criterion: if \(\lvert S_n(x)-S_m(x)\rvert\le\varepsilon\) for all \(x\in E\), then by continuity of \(S_n-S_m\) the same holds on \(\overline E\). The rationals are dense in \([0,1]\).
+
+\problem{10}
+\note{the final deduction is false. Hint 3 of Problem 10 in the homework of sheet 1 gives continuous \(f_n\ge0\) on \([0,1]\) converging pointwise to \(0\) but not uniformly on any subinterval; telescoping (\(u_1=f_1\), \(u_n=f_n-f_{n-1}\)) turns it into a series with continuous sum \(0\). What Baire does give is: for each \(\varepsilon\), every interval contains a subinterval on which the tails are eventually at most \(\varepsilon\) uniformly (the interval depends on \(\varepsilon\)).}
+\hint{1}
+Let \(R_n=S-S_n\), the tails; they are continuous because \(S\) is. For fixed \(\varepsilon\) put \(E_N=\{x:\lvert R_n(x)\rvert\le\varepsilon\text{ for all }n\ge N\}\). Each \(E_N\) is closed and \(\bigcup_NE_N=[0,1]\) by pointwise convergence.
+\hint{2}
+By the Baire category theorem some \(E_N\) has non-empty interior, i.e.~contains an interval \(I\), on which \(\sup_{n\ge N}\lvert R_n\rvert\le\varepsilon\). Applying the same argument inside any given interval shows such intervals are dense. Repeating with \(\varepsilon=1,\frac12,\frac14,\dots\) gives nested intervals, but they may shrink to a point; that is why the last claim fails (see the note).
+\end{document}

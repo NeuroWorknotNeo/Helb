@@ -1,0 +1,55 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Limits -- 3. Asymptotics of sequences}{Homework}
+
+\problem{1}
+\note{As printed the answer is degenerate: $\lim\sqrt n\,x_n=0$ for $x_0\in[0,1]$ and $-\infty$ for $x_0\in[-1,0)$. A nonzero finite limit would need a cubic term, e.g.\ $x_{n+1}=x_n-\arcsin(\sin^3x_n)$, where the same method gives $\sqrt n\,x_n\to\pm\frac1{\sqrt2}$ (sign of $x_0$). The hints treat the printed version.}
+\hint{1} Since $\arcsin(\sin^2x)\ge0$, the sequence is non-increasing. Its limit, if finite, is a fixed point: $\sin L=0$.
+\hint{2} For $x\in(0,1]$: $\sin^2x<\sin x$, so $0<\arcsin(\sin^2x)<x$ and $x_n$ stays positive, $x_n\to0$. Here $x_{n+1}=x_n-x_n^2+O(x_n^4)$, so by Theorem 1 ($p=2$, $a=1$) $nx_n\to1$, hence $\sqrt n\,x_n\to0$.
+\hint{3} For $x_0<0$: with $x=-\pi+u$, $u\in[0,\pi]$, check $\arcsin(\sin^2u)\le u$, so the map sends $[-\pi,0]$ into itself; $x_n$ decreases to the fixed point $-\pi$, and $\sqrt n\,x_n\to-\infty$.
+
+\problem{2}
+\hint{1} Substitute $t=nx$: $b_n=\frac1n\int_0^nf(t)\,dt=\frac1n\sum_{k=0}^{n-1}a_k$.
+\hint{2} So $b_n$ is the Ces\`aro mean of $(a_k)$, and converges to the same limit (Stolz--Ces\`aro).
+
+\problem{3}
+\hint{1} The recurrence is $\frac{x_{n+1}}{x_n}=2018\cdot\frac{n+1}n$; multiply these ratios.
+\hint{2} $x_n=2018^n\,n$, so $n-\log_{2018}x_n=-\log_{2018}n$, and the limit is $\dfrac{\log_2n}{-\log_{2018}n}=-\log_22018$.
+
+\problem{4}
+\hint{1} Compute the first terms: $1,3,2,\frac32,\frac74,\frac{13}8,\frac{25}{16},\frac{51}{32},\dots$ and keep track of which of the three previous terms is discarded (the largest).
+\hint{2} From $(b_5,b_6,b_7)$ on, the pattern is periodic with period $3$: if $p>q>r$ are three consecutive terms, the next three are $s=\frac{q+r}2$, $t=\frac{q+3r}4$, $u=\frac{q+7r}8$, and again $s>t>u$. So the pair $(q,r)$ is mapped to $(t,u)$, independent of $p$.
+\hint{3} The map $(q,r)\mapsto\bigl(\frac{q+3r}4,\frac{q+7r}8\bigr)$ preserves $q+6r$ and divides $q-r$ by $8$. Starting from $(b_6,b_7)=(\frac{13}8,\frac{25}{16})$, $q+6r=11$, so $\lim b_n=\frac{11}7$.
+
+\problem{5}
+\hint{1} The candidate is $L=4$ ($L=2\sqrt L$). Note $c_{n+1}$ lies between $2\sqrt{\min(c_n,c_{n-1})}$ and $2\sqrt{\max(c_n,c_{n-1})}$, and $2\sqrt x\ge x$ exactly for $x\le4$.
+\hint{2} Hence with $m_n=\min(c_n,c_{n-1},4)$ and $M_n=\max(c_n,c_{n-1},4)$ we get $c_{n+1}\in[m_n,M_n]$: the sequence is bounded and bounded away from $0$.
+\hint{3} Let $M=\limsup c_n$, $m=\liminf c_n$ (both in $(0,\infty)$). Passing to the limit, $M\le2\sqrt M$ and $m\ge2\sqrt m$, so $M\le4\le m$; thus $c_n\to4$.
+
+\problem{6}
+\hint{1} Rewrite: $x_{n+2}-2x_{n+1}=(x_{n+1}-2x_n)+\frac{2^n}{x_n}$. So $d_n=x_{n+1}-2x_n$ satisfies $d_1=0$, $d_{n+1}=d_n+\frac{2^n}{x_n}$.
+\hint{2} Put $y_n=x_n/2^n$. Dividing by $2^{n+1}$: $y_{n+1}-y_n=\frac{d_n}{2^{n+1}}$, and $\frac{2^n}{x_n}=\frac1{y_n}$, so $d_n=\sum_{k=1}^{n-1}\frac1{y_k}$. Hence $d_n\ge0$, $y_n$ is non-decreasing, $y_n\ge y_1=1$ and $d_n\le n-1$.
+\hint{3} Then $0\le y_{n+1}-y_n\le\frac{n-1}{2^{n+1}}$ is summable, so $L=\lim y_n$ exists and $L\le1+\sum_{n\ge1}\frac{n-1}{2^{n+1}}=\frac32$. Using $y_k\le\frac32$ in $d_n$ gives $L\ge1+\frac23\cdot\frac12=\frac43$.
+\hint{4} Iterating these bounds (compute the first few $y_k$ exactly, estimate the tail) sharpens them; numerically $L\approx1.4782$.
+
+\problem{7}
+\note{As printed the product is $0$: the factors are $1-\frac4n+O(n^{-2})$, so the partial products behave like $Cn^{-4}$. Presumably the second factor should be $\frac{(n+1)^2}{n^2}$; then the factors are $1+O(n^{-2})$ and the hints compute that product.}
+\hint{1} Factor: $(2n)^4-1=\bigl(1-\frac1{(2n)^2}\bigr)\bigl(1+\frac1{(2n)^2}\bigr)(2n)^4$ and similarly for $(2n+1)^4-1$. Then the product splits into products whose values come from the sine product $\frac{\sin\pi x}{\pi x}=\prod_{n\ge1}\bigl(1-\frac{x^2}{n^2}\bigr)$ (and its versions for $\cos$, $\sinh$, $\cosh$).
+\hint{2} Needed: $\prod_{n\ge1}\bigl(1-\frac1{4n^2}\bigr)=\frac2\pi$, $\prod_{n\ge1}\bigl(1+\frac1{4n^2}\bigr)=\frac{2\sinh(\pi/2)}{\pi}$, $\prod_{n\ge1}\bigl(1-\frac1{(2n+1)^2}\bigr)=\frac\pi4$, $\prod_{n\ge1}\bigl(1+\frac1{(2n+1)^2}\bigr)=\frac{\cosh(\pi/2)}2$. The remaining factor is $\frac{(2n)^4(n+1)^2}{(2n+1)^4n^2}=\bigl(1-\frac1{(2n+1)^2}\bigr)^2$.
+\hint{3} Combining, the (corrected) product equals $\dfrac{2}{\pi}\tanh\dfrac\pi2\approx0.5839$.
+
+\problem{8}
+\hint{1} Invert: $\dfrac1{a_{n+1}}=\dfrac1{a_n}+1+a_n$.
+\hint{2} Hence $\frac1{a_n}\ge\frac1{a_0}+n$, so $a_n\to0$; then $\frac1{a_{n+1}}-\frac1{a_n}\to1$ and Stolz gives $\lim na_n=1$.
+
+\problem{9}
+\hint{1} $x_n=P_n(x_1)$, where $P_n$ is a polynomial with non-negative coefficients and no constant term; on $(0,\infty)$ it is strictly increasing. Note $x_{n+1}>x_n\iff x_n>1-\frac1n$.
+\hint{2} So the condition is: $x_1>0$ and $1-\frac1n<P_n(x_1)<1$ for all $n$. Let $a_n,b_n>0$ be defined by $P_n(a_n)=1-\frac1n$, $P_n(b_n)=1$. Then $P_{n+1}(a_n)=(1-\frac1n)\cdot1<1-\frac1{n+1}$ and $P_{n+1}(b_n)=1+\frac1n>1$, so $a_n$ increases and $b_n$ decreases; nested intervals give existence.
+\hint{3} Uniqueness: $P_n(x)/x$ is non-decreasing, so $P_n(b_n)-P_n(a_n)\ge(b_n-a_n)\frac{P_n(a_n)}{a_n}$, i.e.\ $\frac1n\ge(b_n-a_n)\frac{1-1/n}{a_n}$. With $a_n<1$ this gives $b_n-a_n\le\frac1{n-1}\to0$.
+
+\problem{10}
+\hint{1} Fix $\varepsilon>0$ and let $E_N=\{x>0:\ |f(nx)|\le\varepsilon\ \text{for all }n\ge N\}$. Each $E_N$ is closed in $(0,\infty)$ (continuity of $f$), and $\bigcup_NE_N=(0,\infty)$ by hypothesis.
+\hint{2} By Baire's theorem some $E_N$ contains an interval $(a,b)$, $0<a<b$. Then $|f|\le\varepsilon$ on $\bigcup_{n\ge N}(na,nb)$.
+\hint{3} For $n>\frac a{b-a}$ consecutive intervals $(na,nb)$ and $((n+1)a,(n+1)b)$ overlap, so this union contains a half-line $(M,\infty)$. Hence $|f(x)|\le\varepsilon$ for $x>M$.
+\end{document}

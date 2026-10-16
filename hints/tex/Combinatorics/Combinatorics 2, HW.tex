@@ -1,0 +1,73 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Combinatorics -- 2. Recurrences and generating functions}{Homework}
+
+\problem{1}
+\hint{1}
+\(p(n-1)\) counts the partitions of \(n\) that contain at least one part \(1\): remove one \(1\). The rest of the partitions of \(n\) have all parts \(\ge2\). (In generating functions: multiply \(\prod_{k\ge1}(1-x^k)^{-1}\) by \(1-x\).)
+
+\problem{2}
+\hint{1}
+By the formal binomial series, \([x^n](1-4x)^{-1/2}=\binom{-1/2}{n}(-4)^n\). Write \(\binom{-1/2}{n}=\frac{(-1)^n\,1\cdot3\cdots(2n-1)}{2^n\,n!}\) and multiply out.
+\hint{2}
+\(\sum_k\binom nk^2=\sum_k\binom nk\binom n{n-k}\) is the coefficient of \(x^n\) in \((1+x)^n(1+x)^n=(1+x)^{2n}\). Double count: choose \(n\) people out of \(n\) men and \(n\) women, classifying by the number \(k\) of men. (Squaring the series also gives \(\sum_k\binom{2k}k\binom{2n-2k}{n-k}=4^n\).)
+
+\problem{3}
+\hint{1}
+Every permutation is a set of fixed points plus a derangement of the rest: \(n!=\sum_k\binom nkD_{n-k}\), i.e.~\(\frac1{1-x}=e^xD(x)\) for exponential generating functions.
+\hint{2}
+An involution is a set of cycles of length \(1\) or \(2\); the EGF of a single such component is \(x+x^2/2\), so the involutions have \(e^{x+x^2/2}\). A set partition is a set of non-empty blocks, a block has EGF \(e^x-1\), so Bell numbers have \(e^{e^x-1}\).
+\hint{3}
+Differentiate \(I(x)=e^{x+x^2/2}\): \(I'=(1+x)I\), i.e.~\(I_{n+1}=I_n+nI_{n-1}\) (combinatorially: \(n+1\) is fixed or paired with one of the other \(n\)).
+
+\problem{4}
+\hint{1}
+For \(101\), the states are the longest suffix that is a proper prefix of \(101\): \(\varepsilon\) (or ending in \(00\)), \(1\), \(10\). Write the \(3\times3\) transfer matrix.
+\hint{2}
+Avoiding \(101\) gives \(a_n=2a_{n-1}-a_{n-2}+a_{n-3}\) (\(2,4,7,12,21,37,\dots\)), characteristic polynomial \(t^3-2t^2+t-1\), growth rate \(\approx1.755\). Avoiding \(11\) gives Fibonacci growth \(\frac{1+\sqrt5}2\approx1.618\).
+
+\problem{5}
+\hint{1}
+Let there be \(n\) digits, \(z\) of them zeros; by symmetry assume \(z\le n/2\). Show that two zeros are never adjacent, and more generally that the gaps of ones between consecutive zeros take only two consecutive values \(m,m+1\).
+\hint{2}
+Replace each block ``\(0\,1^m\)'' by one letter and each ``\(0\,1^{m+1}\)'' by another; show the new circular word is again balanced (an arc of the new word corresponds to an arc of the old one). This is a Euclidean-algorithm descent on \((n,z)\).
+\hint{3}
+Conclude by induction that the balanced collections are exactly the rotations of the ``mechanical'' word in which position \(k\) (\(1\le k\le n\)) is a zero iff \(\lfloor kz/n\rfloor\gt\lfloor (k-1)z/n\rfloor\), i.e.~zeros as evenly spread as possible; conversely check this word is balanced, since every arc of length \(L\) contains \(\lfloor Lz/n\rfloor\) or \(\lceil Lz/n\rceil\) zeros.
+
+\problem{6}
+\hint{1}
+Divide the relation by \(a_{n-1}a_{n-2}a_{n-3}\) and look at the ratios \(b_n=a_n/a_{n-1}\).
+\hint{2}
+\(b_n=b_{n-1}+b_{n-2}\) with \(b_2=1\), \(b_3=2\), so \(b_n=F_n\) and \(a_n=F_1F_2\cdots F_n\).
+\hint{3}
+Imitate the proof that \(e\) is irrational. If \(S=p/q\), pick \(N\) with \(q\mid a_N\) (every integer divides some Fibonacci number). Then \(a_NS-\sum_{n\le N}a_N/a_n=\sum_{n\gt N}a_N/a_n\) is a positive integer, but it is less than \(\frac1{F_{N+1}}+\frac1{F_{N+1}F_{N+2}}+\dots\lt1\) for large \(N\).
+
+\problem{7}
+\hint{1}
+For a path ending at \((a,b)\) with \(a\ge b\) that touches \(y=x+1\), reflect the part of the path before the first touching point in the line \(y=x+1\). Where does the starting point \((0,0)\) go?
+\hint{2}
+The reflected path runs from \((-1,1)\) to \((a,b)\); this is a bijection with all paths between these points, i.e.~(after translation) with paths to \((a+1,b-1)\): there are \(\binom{a+b}{a+1}\) of them. Hence paths staying weakly below the diagonal number \(\binom{a+b}{a}-\binom{a+b}{a+1}=\frac{a-b+1}{a+1}\binom{a+b}a\) (ballot), and \(a=b=n\) gives \(C_n=\frac1{n+1}\binom{2n}n\).
+
+\problem{8}
+\hint{1}
+Fix \(n\) and find \(\sum_m f(m,n)x^m\): the generating function for one integer \(t\) by \(\lvert t\rvert\) is \(\frac{1+x}{1-x}\), and ``\(\le m\)'' contributes an extra factor \(\frac1{1-x}\).
+\hint{2}
+So \(\sum_{m,n}f(m,n)x^my^n=\frac1{1-x}\sum_n\Big(\frac{y(1+x)}{1-x}\Big)^n=\frac1{1-x-y-xy}\), which is symmetric in \(x,y\).
+
+\problem{9}
+\hint{1}
+\(2\times n\): the leftmost column is a vertical domino or the start of two horizontal ones, so \(d_n=d_{n-1}+d_{n-2}\), \(d_n=F_{n+1}\). For \(3\times2n\), look at the first place where a vertical cut does not cross any domino.
+\hint{2}
+The first such cut is at width 2 (3 ways) or at an even width \(2j\ge4\) (2 ways each), so \(t_n=3t_{n-1}+2(t_{n-2}+\dots+t_0)\); subtract the same identity for \(n-1\) to get \(t_n=4t_{n-1}-t_{n-2}\), \(t_0=1\), \(t_1=3\).
+\hint{3}
+Generating function \(\frac{1-x}{1-4x+x^2}\), closed form \(t_n=\frac{(3+\sqrt3)(2+\sqrt3)^n+(3-\sqrt3)(2-\sqrt3)^n}{6}\).
+
+\problem{10}
+\hint{1}
+(\(\Rightarrow\)) If \(a_n=\sum_{i=1}^kc_ia_{n-i}\) for \(n\ge n_0\), then in \(H_N=(a_{i+j})_{0\le i,j\le N}\) with \(N\ge n_0\) the row with index \(n_0\) is a linear combination of the \(k\) rows above it.
+\hint{2}
+(\(\Leftarrow\)) Let \(D_N=\det H_N\) and take \(p\) minimal with \(D_N=0\) for all \(N\ge p\) (with the convention \(D_{-1}=1\)); then \(D_{p-1}\ne0\), so the last row of \(H_p\) is a combination of the first \(p\): \(a_{p+j}=\sum_{i\lt p}c_ia_{i+j}\) for \(0\le j\le p\). Let \(\varepsilon_j=a_{p+j}-\sum c_ia_{i+j}\) and suppose \(m\) is the first index with \(\varepsilon_m\ne0\).
+\hint{3}
+In \(H_m\) subtract from each row \(r\ge p\) the combination of rows \(r-p,\dots,r-1\): rows \(p,\dots,m\) become \((\varepsilon_{r-p+j})_j\), which vanish for \(r-p+j\lt m\). The matrix becomes block triangular with an anti-triangular block having \(\varepsilon_m\) on the antidiagonal, so \(D_m=\pm D_{p-1}\varepsilon_m^{m-p+1}\ne0\), a contradiction. For \(\binom{2n}n\): either compute the Hankel determinants (they equal \(2^N\)), or note that \((1-4x)^{-1/2}\) is not rational because \(1-4x\) is not a square of a rational function; so no recurrence.
+\end{document}

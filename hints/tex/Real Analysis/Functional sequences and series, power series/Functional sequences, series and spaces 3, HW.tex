@@ -1,0 +1,71 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Functional sequences, series and spaces -- 3. Power series}{Homework}
+
+\problem{1}
+\hint{1}
+Inside the smaller radius both series converge absolutely, and the Cauchy product of two absolutely convergent series converges to the product of the sums (Mertens; or rearrange the absolutely convergent double series). Grouping \(a_kx^k\cdot b_mx^m\) by \(k+m=n\) gives the power series with coefficients \(c_n=\sum_{k=0}^na_kb_{n-k}\).
+\hint{2}
+For \(\bigl(\sum\frac{x^n}{n!}\bigr)^2\): \(c_n=\sum_k\frac1{k!(n-k)!}=\frac1{n!}\sum_k\binom nk=\frac{2^n}{n!}\). The classical divergent example is \(\sum\frac{(-1)^n}{\sqrt{n+1}}\) multiplied by itself: the \(n\)-th term of the product has absolute value \(\sum_{k}\frac1{\sqrt{(k+1)(n-k+1)}}\ge\frac{2(n+1)}{n+2}\), so it does not tend to \(0\).
+
+\problem{2}
+\hint{1}
+Look at \(g(X)=Xf(X)=\sum_{n\ge0}X^{2^n}\). In characteristic \(2\) squaring is additive, and \(g(X)^2+g(X)=X\); equivalently \(Xf(X)^2+f(X)=1\).
+\hint{2}
+Prove the identity first in the universal case \(R_0=\mathbb F_2[\alpha,\beta]\) (an integral domain, so \(R_0[[X]]\) is too, and one may cancel), then specialize \(\alpha,\beta\) by a ring homomorphism. Put \(u=g(\alpha^2X)\), \(v=g(\beta^2X)\), \(w=g((\alpha+\beta)^2X)\). Then \(z=w-u-v\) satisfies \(z^2+z=0\) with \(z(0)=0\); since \(1+z\) is invertible, \(w=u+v\).
+\hint{3}
+Let \(A,B,C\) be the three factors, so \(u=\alpha^2XA\) etc. Using \(u^2=u+\alpha^2X\) and \(v^2=v+\beta^2X\): \(uvw=u^2v+uv^2=X(\alpha^2v+\beta^2u)=\alpha^2\beta^2X^2(A+B)\), and \(A+B=X(\alpha A+\beta B)^2\) from \(A=1+\alpha^2XA^2\). Hence \((\alpha+\beta)^2ABC=(\alpha A+\beta B)^2\).
+\hint{4}
+Finally, \(\alpha A+\beta B\) is divisible by \(\alpha+\beta\): if \(f=\sum c_nX^n\), its coefficients are \(c_n(\alpha^{2n+1}+\beta^{2n+1})\) and \(\alpha^{2n+1}+\beta^{2n+1}=(\alpha+\beta)\sum_{i=0}^{2n}\alpha^i\beta^{2n-i}\). So \(ABC=D^2\) with \(D=\sum_nc_n\bigl(\sum_{i=0}^{2n}\alpha^i\beta^{2n-i}\bigr)X^n\), an identity with coefficients in \(\mathbb F_2[\alpha,\beta]\) that specializes to any \(R\).
+
+\problem{3}
+\hint{1}
+All three radii equal \(1\): the coefficients are \(\ge1\), and \(d(n)\le n\), \(\sigma(n)\le n^2\), while for partitions use \(\sum p(n)x^n=\prod_{k\ge1}\frac1{1-x^k}\), which converges for \(0\le x\lt1\).
+\hint{2}
+Rewrite as Lambert-type series: \(\sum d(n)x^n=\sum_k\frac{x^k}{1-x^k}\), \(\sum\sigma(n)x^n=\sum_k\frac{kx^k}{1-x^k}\), \(\ln\sum p(n)x^n=\sum_k-\ln(1-x^k)=\sum_m\frac1m\frac{x^m}{1-x^m}\). Then put \(x=e^{-t}\), \(t\sim1-x\to0^+\), and compare the sums with Riemann sums/integrals.
+\hint{3}
+Results: \(\sum_k\frac1{e^{kt}-1}\sim\frac1t\ln\frac1t\); \(\sum_k\frac k{e^{kt}-1}\sim\frac1{t^2}\int_0^\infty\frac{u\,du}{e^u-1}=\frac{\pi^2}{6t^2}\); and \(\ln\sum p(n)x^n\sim\sum_m\frac1{m^2t}=\frac{\pi^2}{6t}\). So the growth orders are \(\frac1{1-x}\ln\frac1{1-x}\), \(\frac{\pi^2}{6(1-x)^2}\) and \(\exp\bigl(\frac{\pi^2}{6(1-x)}(1+o(1))\bigr)\).
+
+\problem{4}
+\hint{1}
+\(\sum(-1)^nx^n=\frac1{1+x}\to\frac12\) and \(\sum_n(-1)^nnx^n=-\frac x{(1+x)^2}\to-\frac14\).
+\hint{2}
+Cesàro implies Abel: with \(\sigma_n\) the Cesàro means, \(\sum a_nx^n=(1-x)^2\sum(n+1)\sigma_nx^n\) (Abel summation twice), and \((1-x)^2\sum(n+1)x^n=1\), so the Abel limit equals \(\lim\sigma_n\) (this is Problem 3 of the class sheet). The series \(\sum(-1)^nn\) is not Cesàro summable, because Cesàro summability forces \(s_n/n\to0\), while here \(\lvert s_n\rvert\approx n/2\).
+
+\problem{5}
+\hint{1}
+If \(\zeta^{2^m}=1\), then \((r\zeta)^{2^n}=r^{2^n}\) for \(n\ge m\), so \(f(r\zeta)=\sum_{n\lt m}(r\zeta)^{2^n}+\sum_{n\ge m}r^{2^n}\), and the second sum tends to \(+\infty\) as \(r\to1^-\) (monotone convergence).
+\hint{2}
+Dyadic roots of unity are dense on the circle. An analytic continuation across an arc would extend \(f\) continuously to a neighbourhood of the arc, so \(f\) would be bounded near every point of the arc, contradicting the infinite radial limits at the dyadic roots in it.
+
+\problem{6}
+\hint{1}
+For \(0\le x\lt1\) and every \(N\): \(f(x)\ge\sum_{n\le N}a_nx^n\), and the right-hand side tends to \(\sum_{n\le N}a_n\) as \(x\to1^-\). So \(\liminf_{x\to1^-}f(x)\ge\sum_{n\le N}a_n\) for every \(N\). (And \(f\) is increasing, so the limit exists.)
+\hint{2}
+Example: \(a_n=\frac1{n^2}\); the radius is \(1\) and \(0\le f\le\frac{\pi^2}6\) on \([0,1)\).
+
+\problem{7}
+\hint{1}
+Look for \(g=\sum_{n\ge1}b_nx^n\) with \(f(g(x))=x\). The coefficient of \(x^n\) in \(f\circ g\) is \(a_1b_n+P_n(b_1,\dots,b_{n-1})\) for a polynomial \(P_n\) (in the \(a_k\)), so the \(b_n\) are determined recursively because \(a_1\ne0\). A right inverse that is itself invertible is also a left inverse.
+\hint{2}
+For \(y=x+x^2\) solve the quadratic: \(x=\frac{-1+\sqrt{1+4y}}2=y-y^2+2y^3-\dots\). Lagrange inversion: \([y^n]\,g=\frac1n[x^{n-1}]\bigl(\frac x{f(x)}\bigr)^n\); check it here with \(\frac x{f(x)}=\frac1{1+x}\) (the coefficients are \((-1)^{n-1}\frac1n\binom{2n-2}{n-1}\)).
+
+\problem{8}
+\hint{1}
+First the case of accumulation at the centre: if not all \(a_n\) vanish and \(a_k\) is the first non-zero one, then \(f(x)=x^k(a_k+a_{k+1}x+\dots)\), and the bracket is non-zero near \(0\), so the zeros of \(f\) do not accumulate at \(0\). The same argument at any point \(c\) uses the re-expansion of \(f\) at \(c\) (a power series is analytic inside its interval).
+\hint{2}
+Let \(S\) be the set of points of \((-R,R)\) where all derivatives of \(f\) vanish. By the first hint an accumulation point of zeros lies in \(S\), so \(S\ne\varnothing\). \(S\) is closed (continuity of the derivatives) and open (near a point of \(S\) the re-expansion is identically \(0\)). By connectedness \(S=(-R,R)\), so \(a_n=f^{(n)}(0)/n!=0\). For the corollary, apply this to the difference of the two series.
+
+\problem{9}
+\hint{1}
+Fibonacci: the recurrence gives \(F(x)(1-x-x^2)=x\); decompose into partial fractions with the roots of \(1-x-x^2\) to get Binet's formula \(F_n=\frac{\varphi^n-\psi^n}{\sqrt5}\), \(\varphi,\psi=\frac{1\pm\sqrt5}2\).
+\hint{2}
+Catalan: splitting at the first return gives \(C(x)=1+xC(x)^2\), so \(C(x)=\frac{1-\sqrt{1-4x}}{2x}\) (the sign is fixed by \(C(0)=1\)); expanding \(\sqrt{1-4x}\) binomially gives \(c_n=\frac1{n+1}\binom{2n}n\). Euler: \(\prod_k(1+x^k)=\prod_k\frac{1-x^{2k}}{1-x^k}=\prod_k\frac1{1-x^{2k-1}}\), as all even factors cancel.
+
+\problem{10}
+\hint{1}
+If the radius exceeds \(1\), the series converges at \(x=1\) absolutely, so \(a_n\to0\); integers tending to \(0\) are eventually \(0\). Equivalently: a non-polynomial series with integer coefficients has infinitely many \(\lvert a_n\rvert\ge1\), hence radius at most \(1\).
+\hint{2}
+Radius exactly \(1\) is possible for non-polynomials in both extreme ways: rational functions such as \(\frac1{1-x}\), and series with a natural boundary such as \(\sum x^{2^n}\). The Pólya--Carlson theorem says these are the only possibilities: a power series with integer coefficients and radius \(1\) is either a rational function or has the unit circle as a natural boundary.
+\end{document}

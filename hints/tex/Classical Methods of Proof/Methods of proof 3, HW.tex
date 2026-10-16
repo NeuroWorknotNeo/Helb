@@ -1,0 +1,60 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Methods of proof -- 3. The extremal principle and compactness}{Homework}
+
+\problem{1}
+\hint{1} Existence: the convex body $K$ is compact, so $K^3$ is compact, and the area of the triangle $XYZ$ is a continuous function of $(X,Y,Z)\in K^3$. It is not identically zero since $K$ has interior points.
+\hint{2} For the maximal triangle $ABC$, fix $A$ and $B$: the vertex $C$ maximises the distance to the line $AB$ over $K$. So $K$ lies in the strip between the line $AB$ and the line through $C$ parallel to $AB$.
+\hint{3} Thus the line through $C$ parallel to $AB$ is a supporting line of $K$ at $C$ (the tangent line if the boundary is smooth at $C$); the same holds for $A$ and $B$. (Equivalently, $K$ lies in the triangle with vertices $B+C-A$, $C+A-B$, $A+B-C$.)
+
+\problem{2}
+\note{The statement needs at least five points: four points, three forming a triangle and one inside it, contain no convex quadrilateral. The hints prove the claim for five (hence for any $\ge5$) points in general position.}
+\hint{1} Take five of the points and look at their convex hull. If it is a quadrilateral or a pentagon, you are done at once (for a pentagon take any four vertices).
+\hint{2} Otherwise the hull is a triangle $ABC$ with two points $D,E$ inside. Draw the line $DE$; it misses all vertices (no three collinear), so two vertices of the triangle lie on the same side of it.
+\hint{3} If $A,B$ are on the same side of $DE$, then $A,B,D,E$ is a convex quadrilateral: $A$ and $B$ are vertices of the triangle $ABC$, so neither lies in the triangle of the other three; and if, say, $D$ were inside $ABE$, the ray $ED$ would cross the segment $AB$, putting $A$ and $B$ on opposite sides of the line $DE$.
+
+\problem{3}
+\hint{1} Since $f\not\equiv0$, there is $x_0$ with, say, $f(x_0)>0$ (otherwise apply the argument to $-f$). Use $f\to0$ to choose $R$ with $|f(x)|<f(x_0)$ for $|x|>R$.
+\hint{2} On the compact interval $[-R,R]$ (which contains $x_0$) $f$ attains a maximum $M\ge f(x_0)$, and outside it $f<f(x_0)\le M$; so $M$ is the global maximum.
+\hint{3} Example: $f(x)=e^{-x^2}$ attains its maximum $1$, while $\inf f=0$ is not attained.
+
+\problem{4}
+\hint{1} Put the bounded set $A$ in a cube and bisect it into $2^n$ subcubes: one of them contains infinitely many points of $A$. Iterate to get nested cubes with side $\to0$, each containing infinitely many points of $A$; their common point is an accumulation point.
+\hint{2} For nested non-empty compact sets $K_1\supset K_2\supset\dots$ choose $x_k\in K_k$. Either some value repeats infinitely often, or the set of values is infinite and bounded and has an accumulation point $x$. In both cases $x\in K_m$ for each $m$, because $x_k\in K_m$ for $k\ge m$ and $K_m$ is closed.
+\hint{3} Without boundedness this fails: $F_k=[k,\infty)\subset\mathbb R$ are nested, closed, non-empty, with empty intersection.
+
+\problem{5}
+\hint{1} A finite metric space has finitely many pairs, so a pair at maximal distance exists. For non-uniqueness take the four vertices of a square (both diagonals) or any equilateral triangle.
+\hint{2} For a compact metric space $X$, the distance $d\colon X\times X\to\mathbb R$ is continuous (by the triangle inequality, $|d(x,y)-d(x',y')|\le d(x,x')+d(y,y')$) on the compact space $X\times X$, so it attains its supremum, the diameter.
+
+\problem{6}
+\hint{1} Existence for any norm: $P_n$ is finite-dimensional, and only polynomials with $\|p\|\le 2\|f\|$ can compete with $p=0$. This set is closed and bounded in the finite-dimensional space $P_n$, hence compact, and $p\mapsto\|f-p\|$ is continuous on it.
+\hint{2} $L^2$: the norm comes from an inner product, and the best approximation is the orthogonal projection of $f$ onto $P_n$. Uniqueness follows from strict convexity: if $p\ne q$ are both best, the parallelogram law shows $\|f-\frac{p+q}{2}\|<\|f-p\|$.
+\hint{3} Uniform norm: it is not strictly convex, so the argument of Hint 2 fails in general (for approximation by other finite-dimensional families uniqueness may indeed fail). For polynomials uniqueness still holds, but by a special reason: if $p,q$ are best with error $E$, then so is $r=\frac{p+q}{2}$, and by Chebyshev's alternation theorem $f-r$ attains $\pm E$ with alternating signs at $n+2$ points.
+\hint{4} At each of these points $f-p$ and $f-q$ must both equal the same value $\pm E$, so $p-q$ has $n+2$ zeros and $p=q$. So: the $L^2$ uniqueness is a general Hilbert-space fact, the uniform one uses the Haar property of polynomials.
+
+\problem{7}
+\hint{1} Since $|p(z)|\ge |a_n||z|^n\bigl(1-\sum_{k<n}|a_k|/(|a_n||z|^{n-k})\bigr)\to\infty$, the infimum of $|p|$ is the same as its infimum over a large closed disc, where it is attained by compactness.
+\hint{2} Let $|p|$ be minimal at $z_0$ and suppose $p(z_0)\ne0$. Expand $p(z_0+w)=p(z_0)+c_kw^k+c_{k+1}w^{k+1}+\dots$ with $c_k\ne0$ the first non-zero coefficient after the constant one.
+\hint{3} Choose $\omega$ with $c_k\omega^k=-p(z_0)$ (a $k$-th root exists in $\mathbb C$). Then $p(z_0+t\omega)=p(z_0)(1-t^k)+O(t^{k+1})$, so $|p(z_0+t\omega)|<|p(z_0)|$ for small $t>0$: a contradiction. Hence the minimum is $0$.
+
+\problem{8}
+\note{As stated (closed intervals) the claim is false: $[-1,0]$ together with $[\frac1{k+1},\frac1k]$, $k\ge1$, cover $[0,1]$, but no finite subfamily does. The hints follow the intended version with open intervals (open relative to $[0,1]$).}
+\hint{1} Let $s=\sup\{x\in[0,1]: [0,x]\text{ is covered by finitely many members of }\mathcal A\}$; the set is non-empty because $0$ lies in some interval.
+\hint{2} Take $I\in\mathcal A$ containing $s$; it contains $(s-\varepsilon,s+\varepsilon)\cap[0,1]$. Pick $x\in(s-\varepsilon,s]$ with $[0,x]$ finitely covered and add $I$: then $[0,\min(s+\varepsilon/2,1)]$ is finitely covered. Hence $s=1$ and the supremum is attained.
+\hint{3} The standard proof argues by contradiction with bisection: if $[0,1]$ had no finite subcover, one of the halves would not either, and so on; the nested intervals shrink to a point covered by one open interval, which then covers a whole small interval of the sequence. The sup argument is the same compactness (completeness of $\mathbb R$) used extremally.
+
+\problem{9}
+\hint{1} Work with convex compact sets $C$ of perimeter at most $L$, translated so that they contain the origin; they lie in the disc of radius $L/2$. By Blaschke's selection theorem this family is compact in the Hausdorff metric, and area and perimeter are continuous on convex sets, so a set $C^*$ of maximal area exists. It has perimeter exactly $L$ (otherwise enlarge it by a homothety).
+\hint{2} Steiner symmetrisation $S_u$ with respect to a line perpendicular to a direction $u$ preserves convexity and area and does not increase the perimeter; the perimeter stays the same only if the midpoints of the chords of $C$ parallel to $u$ lie on one line perpendicular to $u$, i.e.\ $C$ is already symmetric about such a line.
+\hint{3} If $S_uC^*$ had smaller perimeter, a homothetic copy of it with perimeter $L$ would have larger area than $C^*$. So for every direction $u$ the set $C^*$ has an axis of symmetry perpendicular to $u$. Each axis passes through the centroid, so $C^*$ is symmetric about every line through its centroid, hence invariant under all rotations about it: a disc.
+\hint{4} Existence is used in Hint 3: the argument ``a non-disc can be improved'' proves nothing unless a maximiser is known to exist (compare Perron's paradox: ``the largest natural number is $1$, since $n^2>n$ for $n>1$''). Steiner's original proof missed exactly this step.
+
+\problem{10}
+\hint{1} (A tree here is connected.) Fix a root $r$. Since $r$ has finitely many neighbours and $T$ is infinite, one of the subtrees hanging from $r$ is infinite.
+\hint{2} Move to the root $v_1$ of that infinite subtree and repeat: each vertex of an infinite subtree has finitely many children, so one child carries an infinite subtree. The resulting $r,v_1,v_2,\dots$ is an infinite path.
+\hint{3} Compactness, countable case: let $p_1,p_2,\dots$ be the variables and $\varphi_1,\varphi_2,\dots$ the formulas, every finite subset satisfiable. Let the vertices at level $n$ be the truth assignments $s$ to $p_1,\dots,p_n$ that make true every $\varphi_i$ with $i\le n$ whose variables are among $p_1,\dots,p_n$; the parent of $s$ is its restriction to $p_1,\dots,p_{n-1}$.
+\hint{4} Check that restriction keeps the defining property (so this is a tree), that each level is non-empty (restrict a valuation satisfying $\varphi_1,\dots,\varphi_n$), and that degrees are at most $3$. An infinite path is a valuation $v$ of all variables; each $\varphi_i$ is true under $v$, since for $n\ge i$ large enough all variables of $\varphi_i$ are among $p_1,\dots,p_n$.
+
+\end{document}

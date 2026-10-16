@@ -1,0 +1,139 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Linear algebra -- 3. Eigenvalues, diagonalisability and the Jordan form}{Homework}
+
+\problem{1}
+\hint{1}
+A real matrix with only real eigenvalues can be triangularised by an orthogonal matrix (real Schur form): \(A=QTQ^T\) with \(T\) upper triangular. Rewrite the equation in terms of \(T\).
+\hint{2}
+\(T+T^k=T^T\): the left side is upper triangular and the right side is lower triangular, so \(T\) is diagonal. Then \(T^k=O\) for a diagonal \(T\). Answer: only \(A=O\).
+
+\problem{2}
+\hint{1}
+\(A^m=2021B-B^2\) is symmetric, and its eigenvalues are \(2021\beta-\beta^2\le 2021^2/4\). Use this for even exponents.
+\hint{2}
+\(A^{2m}=(A^m)^2\) is the square of a symmetric matrix, so its eigenvalues lie in \([0,2021^2/4]\). Then \(\lvert\det A\rvert^{2m}=\det A^{2m}\le(2021^2/4)^n\) for every \(m\); let \(m\to\infty\).
+
+\problem{3}
+\hint{1}
+Compute \(A^4\) using \(A^2=A^T\) twice.
+\hint{2}
+\(A^4=(A^T)^2=(A^2)^T=A\), so every eigenvalue satisfies \(\lambda^4=\lambda\): \(\lambda=0\) or \(\lambda^3=1\). All four values occur: \(O\), \(E\), and the \(2\times2\) rotation by \(2\pi/3\) (for which \(R^T=R^{-1}=R^2\)). Answer: \(\lambda\in\{0,1,e^{\pm2\pi i/3}\}\).
+
+\problem{4}
+\hint{1}
+Write the rotation as a matrix product: with \(J\) the anti-diagonal permutation matrix (ones on the anti-diagonal), \(A^R=JA^T\). So the condition is \(A=JA^T\), i.e.~\(A^T=JA\), and transposing, \(A^T=AJ\).
+\hint{2}
+Hence \(JA=AJ\), and \(A^TA=JA^2=AA^T\): \(A\) is normal. For a normal real matrix, \(Av=\lambda v\) implies \(A^Tv=\bar\lambda v\).
+\hint{3}
+Then \(\bar\lambda v=A^Tv=JAv=\lambda Jv\). If \(\lambda\ne0\), \(v\) is an eigenvector of \(J\) with eigenvalue \(\bar\lambda/\lambda\), and \(J^2=E\) forces \((\bar\lambda/\lambda)^2=1\), i.e.~\(\bar\lambda=\pm\lambda\).
+
+\problem{5}
+\hint{1}
+Factor \(3x^3-x^2-x-1=(x-1)(3x^2+2x+1)\).
+\hint{2}
+The roots are \(1\) and two complex roots of modulus \(1/\sqrt3\), all simple. So \(A\) is diagonalisable over \(\mathbb C\) with eigenvalues among these. Hence \(A^k\) converges to the projection onto the \(1\)-eigenspace along the others, which is idempotent (and real, as a limit of real matrices).
+
+\problem{6}
+\hint{1}
+A rank-one matrix is \(C=uv^T\), and \(C^2=(v^Tu)C=(\operatorname{tr}C)\,C\). What is \(\operatorname{tr}(AB-BA)\)?
+
+\problem{7}
+\hint{1}
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  The polynomial \(x^3-x-1\) has a real root \(r\). Try a scalar matrix.
+\end{enumerate}
+\hint{2}
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  The eigenvalues of \(A\) are roots of \(x^3-x-1\). This polynomial has exactly one real root, and it is positive (study \(f'\) and \(f(0)\)). Since \(A\) is real, its non-real eigenvalues come in conjugate pairs with equal multiplicities, so \(\det A=r^a\lvert z\rvert^{2b}\gt0\).
+\end{enumerate}
+
+\problem{8}
+\hint{1}
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  The minimal polynomial divides \(x^2-1=(x-1)(x+1)\), which has simple roots (over \(\mathbb R\) or \(\mathbb C\), characteristic \(\ne2\)). Explicitly, \(v=\frac{v+Av}2+\frac{v-Av}2\).
+\end{enumerate}
+\hint{2}
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Commuting diagonalisable operators are simultaneously diagonalisable: each preserves the eigenspaces of the others. In a common eigenbasis every involution is \(\operatorname{diag}(\pm1,\dots,\pm1)\). Answer: \(2^n\).
+\end{enumerate}
+
+\problem{9}
+\hint{1}
+Write \(Y=XN\), where \(N\) is the shift with \(Ne_j=e_{j+1}\) for \(j\lt n\) and \(Ne_n=0\).
+\hint{2}
+Then \(B=X^{-1}Y=N\) and \(A=YX^{-1}=XNX^{-1}\). Both are similar to the nilpotent Jordan block \(N\), which has rank \(n-1\).
+
+\problem{10}
+\hint{1}
+The condition says \((1,\dots,1)A=\lambda(1,\dots,1)\), so \(\lambda\) is an eigenvalue of \(A^T\). Now use \(\chi_{A^T}=\chi_A\).
+
+\problem{11}
+\hint{1}
+\(\operatorname{rank}A\ne\operatorname{rank}A^2\) means \(\ker A\subsetneq\ker A^2\): there is \(x\) with \(A^2x=0\) but \(y=Ax\ne0\). Look for \(B\) of rank one, \(B=yz^T\).
+\hint{2}
+Take \(z\ne0\) with \(z^TA=0\) (it exists since \(A\) is singular). Then \(AB=(Ay)z^T=O\), \(BA=y(z^TA)=O\) and \(B^2=(z^Ty)B\) with \(z^Ty=z^TAx=0\).
+
+\problem{12}
+\hint{1}
+Since \(A\) is not scalar, some \(v\) is not an eigenvector, so \(v,Av\) are independent. In a basis starting with \(v,Av\) the first column is \((0,1,0,\dots,0)^T\); in particular the \((1,1)\) entry is \(0\). Prove by induction the stronger claim that the diagonal can be made \((0,\dots,0,\operatorname{tr}A)\).
+\hint{2}
+Let \(A'\) be the lower-right \((n-1)\times(n-1)\) block. Conjugating by \(\operatorname{diag}(1,P)\) keeps the \((1,1)\) entry \(0\) and replaces \(A'\) by \(P^{-1}A'P\). So if \(A'\) is not scalar, you are done by induction.
+\hint{3}
+If \(A'=cE\) (and \(n\ge3\)), change the basis \(v,Av,w_3,\dots,w_n\) to \(v,Av,w_3+v,w_4,\dots\). The first column is unchanged, and the new block becomes \(cE\) plus a non-zero off-diagonal entry, so it is no longer scalar. The base case \(n=2\) is the companion matrix in the basis \(v,Av\).
+
+\problem{13}
+\hint{1}
+\(C\) is nilpotent if and only if \(\chi_C(x)=x^n\). Each coefficient of \(\det(xE-A-tB)\) is a polynomial in \(t\) of degree at most \(n\).
+\hint{2}
+These polynomials vanish at \(n+1\) points (except the leading \(x^n\)), so they vanish identically: \(A+tB\) is nilpotent for all \(t\). Hence \((A+tB)^n=O\) for all \(t\). Look at the coefficients of \(t^0\) and \(t^n\).
+
+\problem{14}
+\hint{1}
+The coefficients of \(\chi_A\) are, up to sign, the sums of principal minors, so \(\chi_A=x^n\) and \(A^n=O\) by Cayley--Hamilton. For the permutation, consider the directed graph with an edge \(j\to k\) whenever \(a_{jk}\ne0\).
+\hint{2}
+It suffices to show this graph has no directed cycles: then a topological order of the vertices gives \(\sigma\). Diagonal entries are \(1\times1\) minors, so there are no loops.
+\hint{3}
+Take a shortest directed cycle \(j_1\to\dots\to j_m\to j_1\). A chord would create a shorter cycle, so the induced subgraph on these vertices is exactly this cycle. In the expansion of the principal minor on \(\{j_1,\dots,j_m\}\) only one permutation contributes. So the minor is \(\pm\prod a_{j_ij_{i+1}}\ne0\), a contradiction.
+
+\problem{15}
+\note{as stated, (a) is false. For \(X=\operatorname{diag}(1,0)\), any \(Y\) with \(Y^2=X^2\) commutes with \(X^2=\operatorname{diag}(1,0)\), hence is diagonal, hence \(Y=\pm X\). (Part (b) as stated is true: for \(A=E+E_{12}+E_{23}\), \(A^2\) is a single Jordan block with eigenvalue \(1\), and such a matrix has only the two square roots \(\pm A\).) The original SEEMOUS 2016 problem reads: (a) for every \(X\in M_2(\mathbb C)\) there is \(Y\) with \(Y^3=X^2\); (b) there is \(A\in M_3(\mathbb C)\) with \(Z^3\ne A^2\) for all \(Z\). The hints are for this version.}
+\hint{1}
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  Reduce to the Jordan form of \(X\). If \(X\) is diagonalisable, take cube roots of the eigenvalues of \(X^2\). If \(X=\lambda E+N\) with \(N\ne O\), \(N^2=O\), then \(X^2=\lambda^2E+2\lambda N\).
+\end{enumerate}
+\hint{2}
+For \(\lambda=0\) take \(Y=O\). For \(\lambda\ne0\) look for \(Y=cE+dN\): \(Y^3=c^3E+3c^2dN\), so solve \(c^3=\lambda^2\), \(3c^2d=2\lambda\).
+\hint{3}
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Take \(A\) the nilpotent \(3\times3\) Jordan block, so \(A^2\ne O\) but \(A^3=O\). If \(Z^3=A^2\), then \(Z^6=O\), so \(Z\) is nilpotent, and in size \(3\) this forces \(Z^3=O\).
+\end{enumerate}
+
+\problem{16}
+\hint{1}
+Take \(n\) of the eigenvectors as a basis, \(Av_i=\lambda_iv_i\), and write the last one as \(v_{n+1}=\sum c_iv_i\). Why are all \(c_i\ne0\)?
+\hint{2}
+Apply \(A\): \(\sum c_i\lambda_iv_i=\mu\sum c_iv_i\), so every \(\lambda_i=\mu\). Answer: yes, \(A=\mu E\).
+\end{document}

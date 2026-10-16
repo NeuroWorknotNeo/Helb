@@ -1,0 +1,41 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Functional sequences, series and spaces -- 5. Hilbert spaces and orthogonal systems}{Class work}
+
+\problem{1}
+\hint{1}
+Expand a square. With \(c_n=\langle x,e_n\rangle\) one gets \(\bigl\lVert x-\sum_{n\le N}c_ne_n\bigr\rVert^2=\lVert x\rVert^2-\sum_{n\le N}\lvert c_n\rvert^2\ge0\), which is Bessel. More generally, for \(y\in L\) and \(x-Px\perp L\): \(\lVert x-y\rVert^2=\lVert x-Px\rVert^2+\lVert Px-y\rVert^2\) (Pythagoras), so \(Px\) is the unique best approximation. Conversely, if \(Px\) is best, then \(t\mapsto\lVert x-Px-tv\rVert^2\) is minimal at \(t=0\) for every \(v\in L\), which gives \(\langle x-Px,v\rangle=0\).
+\hint{2}
+Parseval \(\Leftrightarrow\) completeness. By the identity in Hint 1, Parseval for \(x\) means exactly that the partial sums \(S_Nx=\sum_{n\le N}c_ne_n\) tend to \(x\), i.e.~\(x\) lies in the closed span. If the system is complete, \(x\) is a limit of finite combinations, and since \(S_Nx\) is the best approximation from \(\operatorname{span}(e_1,\dots,e_N)\) the distance \(\lVert x-S_Nx\rVert\) goes to \(0\).
+
+\problem{2}
+\hint{1}
+It suffices to approximate every element of a dense class in the \(L^2\) norm. Continuous functions are dense in \(L^2[0,2\pi]\), and a continuous function can be changed on a short interval near \(2\pi\) to become periodic at small \(L^2\) cost. A periodic continuous function is a uniform limit of trigonometric polynomials (Fejér, or Stone--Weierstrass), and \(\lVert g\rVert_2\le\sqrt{2\pi}\,\lVert g\rVert_\infty\).
+\hint{2}
+Parseval for real continuous periodic \(f\): \(\frac1\pi\int_0^{2\pi}f^2=\frac{a_0^2}2+\sum_{n\ge1}(a_n^2+b_n^2)\). If a continuous \(f\) is orthogonal to all \(e^{inx}\), all its Fourier coefficients vanish, so \(\int\lvert f\rvert^2=0\) by Parseval, and a continuous function with \(\int\lvert f\rvert^2=0\) is identically \(0\).
+
+\problem{3}
+\hint{1}
+Start in \(L^2[0,1]\), where \(\langle x^a,x^b\rangle=\frac1{a+b+1}\). The squared distance from \(x^m\) to \(\operatorname{span}(x^{\lambda_1},\dots,x^{\lambda_N})\) is a ratio of two Gram determinants, and Gram determinants of this kind are Cauchy determinants \(\det\bigl(\frac1{a_i+b_j}\bigr)\), which have a product formula.
+\hint{2}
+The result is \(\operatorname{dist}_{L^2}(x^m,\operatorname{span}\{x^{\lambda_k}\}_{k\le N})^2=\frac1{2m+1}\prod_{k=1}^N\Bigl(\frac{m-\lambda_k}{m+\lambda_k+1}\Bigr)^2\). For \(m\) not among the exponents, the infinite product \(\prod\bigl(1-\frac{2m+1}{m+\lambda_k+1}\bigr)\) tends to \(0\) iff \(\sum\frac1{\lambda_k}=\infty\). So in \(L^2\), all monomials (hence, by Weierstrass, everything) can be approximated exactly when the series diverges.
+\hint{3}
+From \(L^2\) to uniform: for \(m\ge1\), \(x^m=m\int_0^xt^{m-1}dt\), and by Cauchy--Schwarz \(\bigl\lvert\int_0^x(t^{m-1}-q(t))\,dt\bigr\rvert\le\lVert t^{m-1}-q\rVert_{L^2}\). Approximating \(t^{m-1}\) in \(L^2\) by combinations of \(t^{n_k-1}\) (their exponents still have divergent reciprocal sum) and integrating gives uniform approximation of \(x^m\) by combinations of the \(x^{n_k}\); \(1=x^{n_0}\) is in the system. Conversely, if \(\sum\frac1{n_k}\lt\infty\), some \(x^m\) has positive \(L^2\) distance from the span, and \(\lVert\cdot\rVert_2\le\lVert\cdot\rVert_\infty\) on \([0,1]\).
+
+\problem{4}
+\hint{1}
+Let \(A_n=\frac1n\sum_{i=1}^nU^i\); then \(\lVert A_n\rVert\le1\). On invariant vectors \(A_nx=x\). On vectors of the form \(x=Uy-y\) the sum telescopes: \(A_nx=\frac{U^{n+1}y-Uy}n\to0\).
+\hint{2}
+Show \(H=\ker(U-I)\oplus\overline{\operatorname{Ran}(U-I)}\): the orthogonal complement of the range is \(\ker(U^*-I)\), and for unitary \(U\), \(U^*x=x\iff Ux=x\). The uniform bound \(\lVert A_n\rVert\le1\) extends \(A_n\to0\) from the range to its closure, which gives \(A_nx\to Px\).
+\hint{3}
+The shift on \(\ell^2(\mathbb Z)\) is unitary, and its invariant vectors are constant sequences, which lie in \(\ell^2\) only if they are \(0\). Hence \(P=0\) and the averages tend to \(0\) in \(\ell^2\).
+
+\problem{5}
+\hint{1}
+Gram--Schmidt gives \(P_n\) of degree exactly \(n\), orthogonal to every polynomial of degree less than \(n\). (Rodrigues' formula \(P_n=c_n\frac{d^n}{dx^n}(x^2-1)^n\) gives the same polynomials: check orthogonality by integrating by parts.)
+\hint{2}
+Three-term recurrence: expand \(xP_n\) (degree \(n+1\)) in \(P_0,\dots,P_{n+1}\). The coefficient of \(P_k\) is proportional to \(\langle xP_n,P_k\rangle=\langle P_n,xP_k\rangle\), which vanishes for \(k+1\lt n\); so \(xP_n=a_nP_{n+1}+b_nP_n+c_nP_{n-1}\), and \(b_n=0\) by parity.
+\hint{3}
+Roots: if \(P_n\) changed sign in \((-1,1)\) only at \(r\lt n\) points \(x_1,\dots,x_r\), then \(P_n(x)\prod(x-x_i)\) would have constant sign and yet integral \(0\) by orthogonality. So there are \(n\) simple roots in \((-1,1)\). Interlacing: use the recurrence (or the Christoffel--Darboux identity, which gives \(P_{n+1}'P_n-P_{n+1}P_n'\gt0\) for a suitable normalization) to show that \(P_{n+1}\) alternates in sign at consecutive roots of \(P_n\), then count the roots.
+\end{document}

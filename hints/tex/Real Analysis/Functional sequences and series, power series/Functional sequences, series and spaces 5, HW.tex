@@ -1,0 +1,71 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Functional sequences, series and spaces -- 5. Hilbert spaces and orthogonal systems}{Homework}
+
+\problem{1}
+\hint{1}
+The answer is no. Suppose \(f_n(x)\) converges at every point and \(\lvert f_n\rvert\le M\). Look at \(h_n=(f_n-f_{n+1})^2\): by orthonormality \(\int_0^1h_n=2\) for every \(n\).
+\hint{2}
+But \(h_n\to0\) at every point and \(0\le h_n\le4M^2\), so \(\int h_n\to0\) by the bounded convergence theorem (Arzelà's theorem is enough in the Riemann setting, since the limit \(0\) is integrable). Contradiction.
+
+\problem{2}
+\hint{1}
+In finite dimensions every subspace is closed, so look in infinite dimensions. A convenient frame is \(H=\ell^2\oplus\ell^2\) with \(V=\ell^2\oplus0\) and \(W\) the graph \(\{(x,Tx)\}\) of a bounded operator \(T\); graphs of bounded operators are closed.
+\hint{2}
+Then \(V+W=\ell^2\oplus\operatorname{Ran}T\), which is closed iff \(\operatorname{Ran}T\) is closed. Take \(T=\operatorname{diag}(1,\frac12,\frac13,\dots)\): its range contains all finitely supported sequences (so it is dense) but not \((\frac1n)\), so it is not closed. The answer is no.
+
+\problem{3}
+\subpart{a}
+\hint{1}
+\(L^2(\mathbb R^d)\) is separable; take a countable dense set \(\{g_k\}\). The numbers \(\langle f_n,g_k\rangle\) are bounded by \(\lVert g_k\rVert\), so a diagonal argument gives a subsequence along which \(\langle f_{n_j},g_k\rangle\) converges for every \(k\).
+\hint{2}
+By the uniform bound \(\lVert f_n\rVert=1\) and an \(\varepsilon/3\) argument, \(\ell(g)=\lim\langle f_{n_j},g\rangle\) exists for every \(g\in L^2\); it is a bounded (conjugate-)linear functional of norm at most \(1\). By the Riesz representation theorem \(\ell(g)=\langle f,g\rangle\) for some \(f\) with \(\lVert f\rVert\le1\).
+\subpart{b}
+\hint{1}
+Expand \(\lVert f_n-f\rVert^2=\lVert f_n\rVert^2-2\operatorname{Re}\langle f_n,f\rangle+\lVert f\rVert^2\) and let \(n\to\infty\), using weak convergence with \(g=f\).
+
+\problem{4}
+\hint{1}
+Bessel gives \(\sum\lvert\langle x,e_n\rangle\rvert^2\le\lVert x\rVert^2\). For divergence of \(\sum\lvert\langle x,e_n\rangle\rvert\) use Riesz--Fischer: \(x=\sum\frac1ne_n\) exists and has coefficients \(\frac1n\).
+\hint{2}
+By Riesz--Fischer (and Bessel) the coefficient sequences \((\langle x,e_n\rangle)\) run over all of \(\ell^2\) (for \(x\) in the closed span). So the question is: for which \((c_n)\) does \(\sum c_na_n\) converge for every \((a_n)\in\ell^2\)? Answer: exactly for \((c_n)\in\ell^2\). Sufficiency is Cauchy--Schwarz.
+\hint{3}
+Necessity: if \(S_n=\sum_{k\le n}\lvert c_k\rvert^2\to\infty\), take \(a_n=\overline{c_n}/S_n\). Then \(\sum\lvert a_n\rvert^2=\sum\frac{\lvert c_n\rvert^2}{S_n^2}\le\sum\bigl(\frac1{S_{n-1}}-\frac1{S_n}\bigr)\lt\infty\) (from the first non-zero term on), while \(\sum c_na_n=\sum\frac{S_n-S_{n-1}}{S_n}=\infty\) (Abel--Dini). Alternatively use Banach--Steinhaus.
+
+\problem{5}
+\hint{1}
+The Gram matrix \(G=(\langle x_j,x_i\rangle)\) satisfies \(v^*Gv=\bigl\lVert\sum v_ix_i\bigr\rVert^2\) (with the appropriate conjugations). So \(G\) is positive semidefinite, and it has a non-trivial kernel exactly when some non-trivial combination vanishes. Hence \(\det G\ne0\) iff the vectors are independent, and then \(\det G\gt0\).
+\hint{2}
+Write \(x=y+h\) with \(y\) in the span and \(h\) orthogonal to it. Subtracting suitable combinations of the first \(n\) rows and columns (which does not change the determinant) replaces \(x\) by \(h\) in \(G(x_1,\dots,x_n,x)\), and the matrix becomes block diagonal: \(G(x_1,\dots,x_n,x)=G(x_1,\dots,x_n)\lVert h\rVert^2\), with \(\lVert h\rVert=\operatorname{dist}(x,\operatorname{span})\).
+
+\problem{6}
+\hint{1}
+Substitute \(x=\cos\theta\): \(T_n(\cos\theta)=\cos n\theta\) and \(\frac{dx}{\sqrt{1-x^2}}\) becomes \(d\theta\) on \([0,\pi]\), so \(\int_{-1}^1\frac{T_nT_m}{\sqrt{1-x^2}}dx=\int_0^\pi\cos n\theta\cos m\theta\,d\theta=0\) for \(n\ne m\).
+\hint{2}
+Every monic \(p\) of degree \(n\) equals the monic orthogonal polynomial of degree \(n\) plus a combination of lower-degree ones, so by Pythagoras the monic orthogonal polynomial minimizes the norm of the corresponding \(L^2\) space: the monic Legendre polynomial for the weight \(1\), the monic Chebyshev polynomial \(2^{1-n}T_n\) for the weight \((1-x^2)^{-1/2}\). The uniform-norm extremality of \(2^{1-n}T_n\) is a different statement, proved by equioscillation rather than orthogonality; the uniform and the unweighted \(L^2\) problems have different minimizers.
+
+\problem{7}
+\hint{1}
+Completeness: a Cauchy sequence \(x^{(k)}\) converges in each coordinate to some \(x_n\). For every \(N\), \(\sum_{n\le N}\lvert x^{(k)}_n-x^{(j)}_n\rvert^2\le\varepsilon^2\); let \(j\to\infty\), then \(N\to\infty\), to get \(x\in\ell^2\) and \(\lVert x^{(k)}-x\rVert\le\varepsilon\). Separability: finitely supported rational sequences.
+\hint{2}
+The unit vectors satisfy \(\lVert e_n-e_m\rVert=\sqrt2\), so no subsequence converges. For any orthonormal sequence and any \(y\), Bessel gives \(\sum\lvert\langle y,e_n\rangle\rvert^2\lt\infty\), hence \(\langle y,e_n\rangle\to0\): that is weak convergence to \(0\).
+
+\problem{8}
+\hint{1}
+Riesz--Fischer: by orthogonality \(\bigl\lVert\sum_{n=N}^Mc_ne_n\bigr\rVert^2=\sum_{n=N}^M\lvert c_n\rvert^2\), so the partial sums form a Cauchy sequence, which converges by completeness; continuity of the inner product shows the sum has coefficients \(c_n\).
+\hint{2}
+For the second claim use \(\lVert x-S_Nx\rVert^2=\lVert x\rVert^2-\sum_{n\le N}\lvert\langle x,e_n\rangle\rvert^2\) with \(S_Nx\) the best approximation of \(x\) from \(\operatorname{span}(e_1,\dots,e_N)\). The closed span is the closure of the increasing union of these spans, so \(x\) lies in it iff \(\operatorname{dist}(x,\operatorname{span}(e_1,\dots,e_N))\to0\), i.e.~iff equality holds in Bessel.
+
+\problem{9}
+\hint{1}
+Put \(H_n(x)=(-1)^ne^{x^2}\frac{d^n}{dx^n}e^{-x^2}\). By induction (\(H_{n+1}=2xH_n-H_n'\)) it is a polynomial of degree \(n\) with leading coefficient \(2^n\). An orthogonal polynomial of degree \(n\) for a given weight is unique up to a constant factor, so it suffices to prove orthogonality to lower degrees.
+\hint{2}
+For any polynomial \(p\), integrating by parts \(n\) times (boundary terms vanish thanks to \(e^{-x^2}\)) gives \(\int_{\mathbb R}pH_ne^{-x^2}dx=\int_{\mathbb R}p^{(n)}e^{-x^2}dx\). This is \(0\) when \(\deg p\lt n\); with \(p=H_n\), \(p^{(n)}=2^nn!\), so \(\lVert H_n\rVert^2=2^nn!\sqrt\pi=2^n\Gamma(n+1)\Gamma(\tfrac12)\).
+
+\problem{10}
+\hint{1}
+Apply Gram--Schmidt to the countable dense sequence, skipping each vector that depends linearly on the previous ones. The resulting orthonormal system has the same linear span as the dense set, so its closed span is the whole space: it is a countable orthonormal basis, infinite if the space is infinite-dimensional.
+\hint{2}
+Map \(x\mapsto(\langle x,e_n\rangle)_n\). Parseval (valid since the system is complete) makes it an isometry into \(\ell^2\), and Riesz--Fischer makes it onto; an isometric linear bijection preserves inner products by polarization.
+\end{document}

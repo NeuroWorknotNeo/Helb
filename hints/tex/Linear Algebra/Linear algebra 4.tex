@@ -1,0 +1,51 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Linear algebra -- 4. Functions of matrices and matrix equations}{Class work}
+
+\problem{1}
+\hint{1}
+Kronecker route: \(X\mapsto AX-XB\) is a linear operator on \(M_n\). Under \(\operatorname{vec}\) its matrix is \(E\otimes A-B^T\otimes E\). Triangularise \(A\) and \(B\) (hence \(B^T\)) simultaneously in the two tensor factors to see that its eigenvalues are \(\lambda_i-\mu_j\). Unique solvability for every \(C\) means this operator is invertible.
+\hint{2}
+Integral route: let the contour \(\Gamma\) surround \(\operatorname{Spec}A\) but not \(\operatorname{Spec}B\). Use \(A(zE-A)^{-1}=z(zE-A)^{-1}-E\) and the analogous identity for \(B\) to compute \(AX-XB\) for the given integral. Two integrals remain: \(\frac1{2\pi i}\oint(zE-A)^{-1}dz=E\) and \(\oint(zE-B)^{-1}dz=O\).
+\hint{3}
+Conversely, if \(\lambda\) is a common eigenvalue, \(X=uw^T\) with \(Au=\lambda u\), \(w^TB=\lambda w^T\) is a non-zero solution of \(AX-XB=O\). For the last claim, take \(X=E_{ij}\) (matrix units) in \(AX=XA\).
+
+\problem{2}
+\hint{1}
+The two matrices must not commute. Try nilpotent ones, whose exponentials are trivial to compute: \(A=E_{12}\), \(B=E_{21}\).
+\hint{2}
+\(e^Ae^B=(E+E_{12})(E+E_{21})\) has integer entries. \(A+B=\begin{pmatrix}0&1\\1&0\end{pmatrix}\) squares to \(E\), so \(e^{A+B}=\cosh1\,E+\sinh1\,(A+B)\).
+
+\problem{3}
+\hint{1}
+The target is not diagonalisable. If \(A\) had two distinct eigenvalues, \(A\) and hence \(\sin A\) would be diagonalisable. If \(A\) is scalar, so is \(\sin A\).
+\hint{2}
+So \(A=\lambda E+N\) with \(N\ne O\), \(N^2=O\), and \(\sin A=\sin\lambda\,E+\cos\lambda\,N\). The eigenvalue condition gives \(\sin\lambda=1\), hence \(\cos\lambda=0\) and \(\sin A=E\). Answer: no such \(A\).
+
+\problem{4}
+\hint{1}
+A matrix is nilpotent if and only if all its eigenvalues are \(0\). By the spectral mapping principle, the eigenvalues of \(p(e^{AB})\) are \(p(e^{\lambda})\) over the eigenvalues \(\lambda\) of \(AB\).
+\hint{2}
+\(AB\) and \(BA\) have the same characteristic polynomial, so the same eigenvalues. The statement is true.
+
+\problem{5}
+\hint{1}
+The left side is \(L(X)=(I+\mathcal N)(X)\), where \(\mathcal N(X)=AX+XA^2\) is the sum of two commuting nilpotent operators on \(M_n(\mathbb R)\) (left multiplication by \(A\) and right multiplication by \(A^2\)). So \(\mathcal N\) is nilpotent and \(L\) is invertible.
+\hint{2}
+\(X=L^{-1}(A)=\sum_k(-1)^k\mathcal N^k(A)\). Compute \(\mathcal N(A)=A^2\) and \(\mathcal N^2(A)=0\). Answer: \(X=A-A^2\).
+
+\problem{6}
+\hint{1}
+Write the left side as a linear operator on matrices: \(L=\alpha_{00}I+\sum_{(i,j)\ne(0,0)}\alpha_{ij}\,\mathcal L_A^i\mathcal R_A^j\), where \(\mathcal L_A X=AX\) and \(\mathcal R_AX=XA\).
+\hint{2}
+\(\mathcal L_A\) and \(\mathcal R_A\) commute and are nilpotent, so the second sum is nilpotent. A non-zero scalar plus a nilpotent operator is invertible.
+
+\problem{7}
+\hint{1}
+Any solution commutes with \(A=X^2\). First find one obvious square root that is a polynomial in \(A\): with \(M=A-\frac14E\) (so \(M^2=O\)), try \(F=\frac12E+M\).
+\hint{2}
+\(F=A+\frac14E\) satisfies \(F^2=A\) and is invertible. For any solution \(X\), put \(S=XF^{-1}\). Since \(X\) and \(F\) commute, \(S^2=X^2F^{-2}=E\), and \(S\) commutes with \(A\).
+\hint{3}
+Conversely, every involution \(S\) commuting with \(A\) gives a solution \(X=S(A+\frac14E)\). Describe these \(S\): either \(S=\pm E\), or \(S\) splits \(\mathbb C^4\) into two \(A\)-invariant \(2\)-dimensional subspaces on which \(A\) is a single Jordan block. In the basis of the sheet, a matrix commuting with \(A\) has \(2\times2\) blocks \(aE+bN\), \(N=E_{12}\).
+\end{document}

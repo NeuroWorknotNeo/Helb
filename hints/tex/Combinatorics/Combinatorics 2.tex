@@ -1,0 +1,43 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Combinatorics -- 2. Recurrences and generating functions}{Class work}
+
+\problem{1}
+\hint{1}
+Multiply \(A(x)\) by \(Q(x)=1-c_1x-\dots-c_kx^k\): the coefficient of \(x^n\) in \(Q(x)A(x)\) is \(a_n-c_1a_{n-1}-\dots-c_ka_{n-k}\), which vanishes for \(n\ge k\). So \(QA\) is a polynomial of degree \(\lt k\), and conversely.
+\hint{2}
+For the explicit form, decompose \(P/Q\) into partial fractions \(\sum_i\sum_{j\lt m_i}\frac{b_{ij}}{(1-\lambda_ix)^{j+1}}\) and use \([x^n](1-\lambda x)^{-(j+1)}=\binom{n+j}{j}\lambda^n\), a polynomial in \(n\) of degree \(j\) times \(\lambda^n\). For \(a_n=4a_{n-1}-4a_{n-2}\) the root \(2\) is double, so \(a_n=(\alpha+\beta n)2^n\); the initial values give \(a_n=(n+2)2^{n-1}\).
+\hint{3}
+If all \(\lvert\lambda_i\rvert\lt1\), then \(a_n=\sum p_i(n)\lambda_i^n\to0\); integers tending to \(0\) are eventually \(0\). (Once \(k\) consecutive terms vanish, the recurrence keeps all later ones at \(0\) anyway.)
+
+\problem{2}
+\hint{1}
+Solve \((\sum a_nx^n)(\sum b_nx^n)=1\) coefficient by coefficient: \(a_0b_0=1\) and \(a_0b_n=-\sum_{k\ge1}a_kb_{n-k}\) determine the \(b_n\) recursively exactly when \(a_0\ne0\).
+\hint{2}
+For \(1/(1-x-x^2)=\sum b_nx^n\) the recursion gives \(b_n=b_{n-1}+b_{n-2}\), \(b_0=b_1=1\), so \(b_n=F_{n+1}\). The dictionary rules: a pair of objects of sizes \(i,j\) contributes \(x^{i+j}\), so the generating function of pairs is the product; a sequence of \(m\) pieces is counted by \(F^m\), and \(\sum_m F^m=1/(1-F)\) is a well-defined formal series when \(F(0)=0\).
+\hint{3}
+Compositions into parts \(1\) and \(2\): sequences of pieces counted by \(F=x+x^2\), so the generating function is \(1/(1-x-x^2)\) and the count is \(F_{n+1}\).
+
+\problem{3}
+\hint{1}
+Compute a few more terms or test a linear recurrence of order 2 on the given ones: \(26=6\cdot5-4\cdot1\), \(136=6\cdot26-4\cdot5\), \ldots{} The roots of \(t^2-6t+4\) are \(3\pm\sqrt5\).
+\hint{2}
+Define \(y_n=A(3+\sqrt5)^n+B(3-\sqrt5)^n\) with \(y_0=1\), \(y_1=5\), i.e.~\(A=\frac{5+2\sqrt5}{10}\), \(B=\frac{5-2\sqrt5}{10}\). Check that \(y_{n+1}-3y_n=\sqrt5\,(A\alpha^n-B\beta^n)\) while \(\sqrt5\,y_n=\sqrt5\,(A\alpha^n+B\beta^n)\).
+\hint{3}
+So \(\sqrt5\,y_n-(y_{n+1}-3y_n)=2\sqrt5\,B(3-\sqrt5)^n\in(0,1)\), hence \(y_{n+1}=3y_n+\lfloor y_n\sqrt5\rfloor\) and \(x_n=y_n=\frac{5+2\sqrt5}{10}(3+\sqrt5)^n+\frac{5-2\sqrt5}{10}(3-\sqrt5)^n\) by induction.
+
+\problem{4}
+\hint{1}
+Look for a polynomial \(f\) of degree \(\le3\) with \(f(0)=1\) and \(f(k)\le0\) for all integers \(k\ge1\); then \(\Pr(X=0)\ge E f(X)\), and \(Ef(X)\) is computable from the moments.
+\hint{2}
+Take \(f(x)=-\frac{(x-1)(x-2)(x-3)}{6}\). Then \(Ef(X)=-\frac{EX^3-6EX^2+11EX-6}{6}=\frac13\). Equality needs \(X\) supported on \(\{0,1,2,3\}\): solve for the distribution (\(\Pr(X=0)=\frac13\), \(\Pr(X=1)=\frac12\), \(\Pr(X=3)=\frac16\)). The minimum is \(\frac13\).
+
+\problem{5}
+\hint{1}
+Words without \(11\): states ``last letter \(0\)'' and ``last letter \(1\)'', matrix \(\begin{pmatrix}1&1\\1&0\end{pmatrix}\); the count is \(F_{n+2}\) and the growth rate \(\frac{1+\sqrt5}2\). For \(2\times n\) domino tilings, cut at the first column: either a vertical domino or two horizontal ones, giving \(t_n=t_{n-1}+t_{n-2}\).
+\hint{2}
+For \(3\times n\), use as states the set of cells of the next column already covered by horizontal dominoes sticking out of the current one (8 subsets, but only a few are reachable). Equivalently, \(t_m\) for a \(3\times2m\) board satisfies \(t_m=3t_{m-1}+2(t_{m-2}+\dots+t_0)\), i.e.~\(t_m=4t_{m-1}-t_{m-2}\), and odd widths give \(0\).
+\hint{3}
+So the generating function is \(\frac{1-x^2}{1-4x^2+x^4}\) in the width \(n\); characteristic polynomial \(t^2-4t+1\) in \(m\); growth rate \(2+\sqrt3\) per two columns, i.e.~\(\sqrt{2+\sqrt3}\approx1.932\) per column.
+\end{document}

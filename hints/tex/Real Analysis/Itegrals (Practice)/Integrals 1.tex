@@ -1,0 +1,49 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Integrals -- 1. Substitutions: rationalisation, Euler, the half-angle substitution}{Class work}
+
+\problem{1}
+\hint{1}
+For each Euler substitution, square the defining relation: e.g.~\(ax^2+bx+c=(\sqrt a\,x+t)^2\) makes the \(x^2\) terms cancel, so \(x\) is found from a \emph{linear} equation in \(x\) and is rational in \(t\); similarly \(y=xt\pm\sqrt c\) kills the constant term (divide by \(x\)), and \(y=t(x-x_1)\) lets you cancel the factor \(x-x_1\). The first needs \(a>0\), the second \(c>0\), the third real roots; pick the one whose resulting rational function has the lowest degree.
+\hint{2}
+For \(\int\frac{dx}{x\sqrt{x^2+4x+3}}\) you can use \(y=xt+\sqrt3\) (since \(c=3>0\)), or \(y=t(x+1)\) (roots \(-1,-3\)). A faster route: \(x=1/u\) turns it (for \(x\gt 0\)) into \(-\int\frac{du}{\sqrt{3u^2+4u+1}}\), a standard \(\log\) integral. For \(x\gt 0\) the answer is \(-\frac1{\sqrt3}\ln\left\lvert\frac{2x+3+\sqrt3\sqrt{x^2+4x+3}}{x}\right\rvert+C\).
+\hint{3}
+For \(\int\sqrt{x^2+1}\,dx\): Euler \(\sqrt{x^2+1}=t-x\) gives \(x=\frac{t^2-1}{2t}\), \(\sqrt{x^2+1}=\frac{t^2+1}{2t}\); hyperbolic \(x=\sinh u\) gives \(\int\cosh^2u\,du\). Both lead to \(\frac12\left(x\sqrt{x^2+1}+\ln(x+\sqrt{x^2+1})\right)+C\); note \(t=x+\sqrt{x^2+1}=e^u\), which explains why the answers agree.
+
+\problem{2}
+\note{as stated, the problem claims \(t=\tan\frac x2\) loses to \(t=\cos x\) in the third integral, but here the half-angle substitution actually gives the simpler integrand \(\frac{1-t^2}{2t}\). Do both and compare honestly.}
+\hint{1}
+Write \(\sin x=2\sin\frac x2\cos\frac x2\), \(\cos x=\cos^2\frac x2-\sin^2\frac x2\), divide by \(1=\cos^2\frac x2+\sin^2\frac x2\), and divide numerator and denominator by \(\cos^2\frac x2\). For \(dx\) differentiate \(x=2\arctan t\).
+\hint{2}
+\(\int\frac{dx}{2+\cos x}=\int\frac{2\,dt}{t^2+3}=\frac{2}{\sqrt3}\arctan\frac{\tan(x/2)}{\sqrt3}+C\) (on each interval of continuity of \(\tan\frac x2\)). \(\int\frac{dx}{1+\sin x}=\int\frac{2\,dt}{(1+t)^2}=-\frac{2}{1+\tan(x/2)}+C\), which equals \(\tan x-\sec x\) up to a constant (or multiply by \(1-\sin x\) directly).
+\hint{3}
+For the third: \(\frac1{\sin x+\tan x}=\frac{\cos x}{\sin x(1+\cos x)}\) is odd in \(\sin x\), so \(t=\cos x\) works after multiplying top and bottom by \(\sin x\): you get \(-\int\frac{t\,dt}{(1-t)(1+t)^2}\) and partial fractions. Compare with \(t=\tan\frac x2\), which gives \(\int\frac{1-t^2}{2t}\,dt=\frac12\ln\lvert\tan\frac x2\rvert-\frac14\tan^2\frac x2+C\).
+
+\problem{3}
+\hint{1}
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  needs no substitution: expand the product. With \(a=x^{1/2}\), \(b=x^{1/3}\) it equals \(3+a+\frac1a+b+\frac1b+\frac ab+\frac ba\), and \(\frac ab=x^{1/6}\); integrate each power. (c) simplifies first: \(x+\sqrt x=\sqrt x(\sqrt x+1)\).
+\end{enumerate}
+\hint{2}
+(b), (d): put \(x=t^2\), \(dx=2t\,dt\). (b) becomes \(\int\frac{2t\,dt}{(t+2)^2+1}\), giving \(\ln(x+4\sqrt x+5)-4\arctan(\sqrt x+2)+C\). (d) becomes \(\int\frac{2\,dt}{t+3}=2\ln(\sqrt x+3)+C\). (c) is \(\frac23x^{3/2}+C\).
+
+\problem{4}
+\hint{1}
+Look for the derivative of an inner function: (a) \(u=x^3+2\); (b) \(u=x^2+1\), writing \(x^3=x^2\cdot x\); (c) \(u=x^2\) (then complete the square in \(u^2+u+1\)); (d) multiply by \(x/x\) and put \(u=x^2\), or use \(\frac1{x(x^2+1)}=\frac1x-\frac x{x^2+1}\); (e) \(u=x^6\).
+\hint{2}
+Answers: (a) \(\frac29(x^3+2)^{3/2}\); (b) \(\frac15(x^2+1)^{5/2}-\frac13(x^2+1)^{3/2}\); (c) \(\frac1{\sqrt3}\arctan\frac{2x^2+1}{\sqrt3}\); (d) \(\ln\lvert x\rvert-\frac12\ln(x^2+1)\); (e) \(\frac1{6\sqrt2}\arctan\frac{x^6}{\sqrt2}\) (all \(+C\)).
+\hint{3}
+(f): put \(x=t^4\). Then \(x\sqrt x-x^2=t^6-t^8=t^6(1-t^2)\) and \(dx=4t^3dt\), so the integral is \(\int\frac{4\,dt}{\sqrt{1-t^2}}=4\arcsin(x^{1/4})+C\).
+
+\problem{5}
+\hint{1}
+Define the infinite radical as the limit of the recursion \(y_{n+1}=\sqrt{x+y_n}\) (resp. \(y_{n+1}=\sqrt{x\,y_n}\)), \(y_0=0\) or \(y_0=\sqrt x\). Show the sequence is monotone and bounded, so the limit \(y\) exists and satisfies the fixed-point equation \(y=\sqrt{x+y}\) (resp. \(y=\sqrt{xy}\)), and take the positive root.
+\hint{2}
+First: \(y^2-y-x=0\), \(y=\frac{1+\sqrt{1+4x}}2\), so the integral is \(\frac x2+\frac1{12}(1+4x)^{3/2}+C\). Second: \(y=x^{1/2+1/4+\cdots}=x\) for \(x\gt 0\), so the answer is \(\frac{x^2}2+C\).
+\hint{3}
+Third: \(y^2-y-(x^2+x)=0\) gives \(y=\frac{1+\sqrt{(2x+1)^2}}{2}=x+1\) for \(x\ge 0\). Hence \(\int_0^1(x+1)\,dx=\frac32\).
+\end{document}

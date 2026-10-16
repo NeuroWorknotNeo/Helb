@@ -1,0 +1,57 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Limits -- 6. Asymptotics and sharp estimates: sums, integrals, Stirling}{Homework}
+
+\problem{1}
+\hint{1} Find a telescoping sequence that is very close to $\frac1{k^2}$. For example, $\frac1{k-\frac12}-\frac1{k+\frac12}=\frac1{k^2-\frac14}$.
+\hint{2} So $\sum_{k>n}\frac1{k^2-1/4}=\frac1{n+1/2}=\frac1n-\frac1{2n^2}+O(n^{-3})$. The difference $\frac1{k^2-1/4}-\frac1{k^2}=O(k^{-4})$ sums to $O(n^{-3})$ over $k>n$. (Euler--Maclaurin gives the same: integral $\frac1n$ minus the boundary term $\frac{f(n)}2$.)
+\hint{3} For cubes, $\int_n^\infty x^{-3}dx-\frac12n^{-3}$ suggests $\sum_{k>n}\frac1{k^3}=\frac1{2n^2}-\frac1{2n^3}+O(n^{-4})$. Prove it with Euler--Maclaurin, or by comparing with the telescoping $\frac12\bigl(\frac1{(k-\frac12)^2}-\frac1{(k+\frac12)^2}\bigr)=\frac{k}{(k^2-\frac14)^2}$.
+
+\problem{2}
+\hint{1} Write $(1+\frac1n)^n=\exp\bigl(n\ln(1+\frac1n)\bigr)$ and expand the logarithm to the term in $n^{-2}$.
+\hint{2} $n\ln(1+\frac1n)=1-\frac1{2n}+\frac1{3n^2}+O(n^{-3})$. Exponentiating gives $(1+\frac1n)^n=e\bigl(1-\frac1{2n}+\frac{11}{24n^2}+O(n^{-3})\bigr)$. In particular $(1+\frac1n)^n=e-\frac{e}{2n}+O(n^{-2})$.
+\hint{3} Hence $n\bigl(e-(1+\frac1n)^n\bigr)\to\frac e2$.
+
+\problem{3}
+\hint{1} Apply Stirling's formula in the sharp form of the class work, $n!=\sqrt{2\pi n}(n/e)^ne^{\theta_n}$ with $\theta_n=\frac1{12n}+O(n^{-2})$, to $(2n)!$ and to $n!$.
+\hint{2} The main factors give $\frac{\sqrt{4\pi n}\,(2n/e)^{2n}}{2\pi n\,(n/e)^{2n}}=\frac{4^n}{\sqrt{\pi n}}$. The correction is $e^{\theta_{2n}-2\theta_n}$ with $\theta_{2n}-2\theta_n=\frac1{24n}-\frac1{6n}+O(n^{-2})=-\frac1{8n}+O(n^{-2})$.
+\hint{3} Finally $e^{-1/(8n)+O(n^{-2})}=1-\frac1{8n}+O(n^{-2})$.
+
+\problem{4}
+\note{The prime number theorem in the form $\pi(x)\sim x/\ln x$ gives only $p_n\sim n\ln n$; with that precision the error $o(n\ln n)$ swamps $n\ln\ln n$, and ``$p_n\sim n\ln n+n\ln\ln n$'' says nothing more than $p_n\sim n\ln n$. The hints explain the second term in the meaningful form $p_n=n\ln n+n\ln\ln n+O(n)$, which needs the PNT with a relative error, $\pi(x)=\frac{x}{\ln x}\bigl(1+O(\frac1{\ln x})\bigr)$.}
+\hint{1} Put $x=p_n$ into the PNT: $\pi(p_n)=n$, so $n\sim p_n/\ln p_n$. Take logarithms: $\ln n=\ln p_n-\ln\ln p_n+o(1)$, so $\ln p_n\sim\ln n$ and $p_n\sim n\ln p_n\sim n\ln n$.
+\hint{2} The correction comes from not replacing $\ln p_n$ by $\ln n$ too early. From $p_n=n\ln p_n\,(1+O(1/\ln n))$ (the stronger PNT) you get $\ln p_n=\ln n+\ln\ln p_n+O(1/\ln n)=\ln n+\ln\ln n+o(1)$.
+\hint{3} Substitute back: $p_n=n(\ln n+\ln\ln n+o(1))(1+O(1/\ln n))=n\ln n+n\ln\ln n+O(n)$. So the term $n\ln\ln n$ comes from the factor $\ln p_n$ itself being $\ln n+\ln\ln n$.
+
+\problem{5}
+\hint{1} Integrate by parts to get $a_n=\frac{n-1}{n}a_{n-2}$, with $a_0=\frac\pi2$ and $a_1=1$.
+\hint{2} Then $na_na_{n-1}=(n-1)a_{n-1}a_{n-2}$, so this quantity does not depend on $n$; it equals $1\cdot a_1a_0=\frac\pi2$.
+\hint{3} Since $0\le\sin x\le1$, $(a_n)$ decreases: $a_{n+1}\le a_n\le a_{n-1}$. Multiply by $a_n$ and use the identity to get $\frac{\pi}{2(n+1)}\le a_n^2\le\frac{\pi}{2n}$. Hence $a_n\sim\sqrt{\frac{\pi}{2n}}$.
+
+\problem{6}
+\hint{1} For the first part show that $H_n-\ln n$ is decreasing and positive (compare $\frac1k$ with $\int_k^{k+1}\frac{dx}x$). For the integral, write everything as integrals over $[0,1]$: $\frac1k=\int_0^1x^{k-1}dx$, so $H_n=\int_0^1\frac{1-x^n}{1-x}dx$.
+\hint{2} Also $\ln(n+1)=\int_0^1\frac{x^n-1}{\ln x}\,dx$: differentiate in $n$ (both sides have derivative $\frac1{n+1}$) and note that both vanish at $n=0$.
+\hint{3} So $H_n-\ln(n+1)=\int_0^1(1-x^n)\,g(x)\,dx$ with $g(x)=\frac1{1-x}+\frac1{\ln x}$. Check that $g$ is bounded on $(0,1)$ (it tends to $1$ at $0$ and to $\frac12$ at $1$). Then $\int_0^1x^ng\to0$, and $\ln(n+1)-\ln n\to0$.
+
+\problem{7}
+\hint{1} This is $n\bigl(\frac1n\sum f(\frac kn)-\int_0^1f\bigr)$ for $f(x)=x^p$, so expect $\frac{f(1)-f(0)}2=\frac12$. But $x^p$ is not smooth at $0$ when $p<1$, so use a different route: Stolz's rule.
+\hint{2} The expression equals $\frac{A_n}{n^p}$ with $A_n=\sum_{k\le n}k^p-\frac{n^{p+1}}{p+1}$, and $n^p\uparrow\infty$. Apply Stolz: compute $A_{n+1}-A_n=(n+1)^p-\frac{(n+1)^{p+1}-n^{p+1}}{p+1}$ by the binomial expansion.
+\hint{3} $A_{n+1}-A_n=\frac p2n^{p-1}+O(n^{p-2})$ and $(n+1)^p-n^p=pn^{p-1}+O(n^{p-2})$. The limit is $\frac12$ for every $p>0$.
+
+\problem{8}
+\hint{1} Extract the terms one at a time, applying Stolz each time to the remainder divided by the next candidate term. First, $\frac{\ln n!}{n\ln n}\to1$, since $\frac{\ln(n+1)}{(n+1)\ln(n+1)-n\ln n}\to1$.
+\hint{2} Next, $\frac{\ln n!-n\ln n}{n}\to-1$, because the difference of the numerator is $-n\ln(1+\frac1n)\to-1$. Then $\frac{\ln n!-n\ln n+n}{\ln n}\to\frac12$, because the difference of the numerator is $1-n\ln(1+\frac1n)=\frac1{2n}+O(n^{-2})$ and that of $\ln n$ is $\frac1n+O(n^{-2})$.
+\hint{3} Stolz cannot produce the constant itself. For $d_n=\ln n!-n\ln n+n-\frac12\ln n$ compute $d_{n+1}-d_n=1-(n+\frac12)\ln(1+\frac1n)=-\frac1{12n^2}+O(n^{-3})$. The increments are summable, so $d_n\to C$.
+
+\problem{9}
+\hint{1} On this interval $\tan$ increases from $-\infty$ to $+\infty$, and $\tan x-x$ is increasing there (its derivative is $\tan^2 x\ge0$), so the root is unique. For $n\ge1$ it lies close to the right end. Put $q=\pi n+\frac\pi2$ and $x_n=q-\varepsilon_n$ with $0<\varepsilon_n<\frac\pi2$.
+\hint{2} Then $\tan x_n=\cot\varepsilon_n$, so the equation is $\cot\varepsilon_n=q-\varepsilon_n$. Hence $\varepsilon_n\to0$ and $\varepsilon_n\sim\frac1q$. Iterate: $\tan\varepsilon_n=\frac1{q-\varepsilon_n}$ gives $\varepsilon_n=\frac1q+\frac{2}{3q^3}+O(q^{-5})$. (Use $\arctan u=u-\frac{u^3}3+\dots$ and $\frac1{q-\varepsilon}=\frac1q+\frac{\varepsilon}{q^2}+\dots$.)
+\hint{3} Now expand in $n$: $\frac1q=\frac1{\pi n}-\frac1{2\pi n^2}+O(n^{-3})$. So $x_n=\pi n+\frac\pi2-\frac1{\pi n}+\frac1{2\pi n^2}+O(n^{-3})$.
+
+\problem{10}
+\hint{1} Apply Euler--Maclaurin to $f(x)=x^{-1/2}$: $\sum_{k=1}^nf(k)=\int_1^nf+\frac{f(1)+f(n)}2+\frac{B_2}{2}\bigl(f'(n)-f'(1)\bigr)+R_n$, where the remainder involves $f'''\sim x^{-7/2}$. The first-step remainder with $f''$ also works if you only need $O(n^{-3/2})$.
+\hint{2} The terms are $2\sqrt n-2$ and $\frac1{2\sqrt n}$; the remaining ones contribute a constant plus $O(n^{-3/2})$. So $\sum_{k\le n}\frac1{\sqrt k}=2\sqrt n+C+\frac1{2\sqrt n}+O(n^{-3/2})$. It remains to identify $C$.
+\hint{3} Do the same for $k^{-s}$ with real $s>1$. Then $Z(s)=\lim_n\bigl(\sum_{k\le n}k^{-s}-\frac{n^{1-s}}{1-s}\bigr)$ exists for all $s>0$, $s\ne1$, and equals $\zeta(s)$ for $s>1$, because $n^{1-s}\to0$ there. The Euler--Maclaurin remainder is an integral that converges locally uniformly, so $Z$ is analytic on $\operatorname{Re}s>0$, $s\ne1$. Thus $Z$ is the analytic continuation of $\zeta$, and $C=Z(\frac12)=\zeta(\frac12)\approx-1.4604$. The series $\sum k^{-1/2}$ itself diverges; $\zeta(\frac12)$ is the constant term of its partial sums.
+
+\end{document}

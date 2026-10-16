@@ -1,0 +1,57 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Methods of proof -- 4. Invariants, monovariants and double counting}{Homework}
+
+\problem{1}
+\hint{1} Look at the parity of the sum of the numbers on the board: replacing $a,b$ by $|a-b|$ changes the sum by $2\min(a,b)$.
+\hint{2} So the parity of the sum is invariant, and the last number has the parity of $1+\dots+n=\frac{n(n+1)}2$. Zero is possible only if $n\equiv0$ or $3\pmod4$.
+\hint{3} Construction: four consecutive numbers $k,k+1,k+2,k+3$ give $1,1$ and then $0$; for $n\equiv3$ first turn $1,2,3$ into $3-2=1$ and $1-1=0$. Then combine the zeros ($|0-0|=0$).
+
+\problem{2}
+\hint{1} Colour the cell $(i,j)$, $0\le i,j\le9$, with colour $(i+j)\bmod 4$. Every $1\times4$ piece covers each colour exactly once.
+\hint{2} Count the colours on the $10\times10$ board: they occur $25,26,25,24$ times (colours $0,1,2,3$), not equally often, so no tiling.
+\hint{3} General case: an $m\times n$ board is tileable by $1\times k$ pieces iff $k\mid m$ or $k\mid n$. ``If'' is clear. For ``only if'', put the weight $\omega^{i+j}$ on the cell $(i,j)$, $\omega=e^{2\pi i/k}$: each piece has total weight $0$, while the board has weight $\bigl(\sum_{i<m}\omega^i\bigr)\bigl(\sum_{j<n}\omega^j\bigr)$, which vanishes only if $k\mid m$ or $k\mid n$.
+
+\problem{3}
+\note{``Changes sides'' is read as: the person turns all his friendships into enmities and vice versa (non-friends are enemies). For the reading with two camps and enemies inside one's own camp the same monovariant (hostile pairs inside camps) works.}
+\hint{1} Watch the total number of hostile pairs.
+\hint{2} If the person has $e$ enemies and $f$ friends with $e>f$, after the switch he has $f$ enemies and $e$ friends, and no other pair changes. So the number of hostile pairs drops by $e-f\ge1$.
+\hint{3} It is a non-negative integer at most $\binom n2$ at the start, so there are at most $\binom n2$ steps.
+
+\problem{4}
+\hint{1} $\sum_k\binom nk^2=\binom{2n}n$: choose $n$ people from $n$ men and $n$ women, and sort by the number $k$ of men; use $\binom nk=\binom n{n-k}$.
+\hint{2} $\sum_k k\binom nk=n2^{n-1}$: count committees with a chairman from $n$ people, choosing the committee first or the chairman first. A second way: differentiate $(1+x)^n=\sum\binom nkx^k$ and put $x=1$.
+\hint{3} Vandermonde $\sum_k\binom mk\binom n{r-k}=\binom{m+n}r$: an $r$-subset of $M\sqcup N$ ($|M|=m$, $|N|=n$) corresponds bijectively to the pair (its part in $M$, its part in $N$); sort by the size $k$ of the first part.
+
+\problem{5}
+\hint{1} Let the design have $v$ points, $b$ blocks of size $k<v$, every point in $r$ blocks and every pair of points in $\lambda\ge1$ blocks. Counting pairs $(x,A)$ with $x\in A$ gives $bk=vr$; counting triples $(x,y,A)$, $x\ne y$ in $A$, with $x$ fixed gives $r(k-1)=\lambda(v-1)$.
+\hint{2} Fisher's inequality $b\ge v$ is equivalent to $r\ge k$. Fix a block $B$ and let $m_C=|B\cap C|$ for the other $b-1$ blocks. Double count again: $\sum_C m_C=k(r-1)$ and $\sum_C m_C(m_C-1)=k(k-1)(\lambda-1)$.
+\hint{3} Cauchy--Schwarz $(\sum m_C)^2\le(b-1)\sum m_C^2$; after substituting $\lambda$ and $b$ from Hint 1 it simplifies to $\frac{r(r-k)(v-k)^2}{v-1}\ge0$, so $r\ge k$ and $b\ge v$. (The usual alternative is the rank of $NN^T=(r-\lambda)I+\lambda J$.)
+
+\problem{6}
+\hint{1} Trace and characteristic polynomial are invariant under similarity. Over $\mathbb C$ (or the algebraic closure) a nilpotent $N$ is similar to a strictly upper triangular matrix, since its only eigenvalue is $0$.
+\hint{2} Hence $\operatorname{tr}N=0$ (the sum of the eigenvalues with multiplicity, all zero). For the commutator use $\operatorname{tr}(AB)=\operatorname{tr}(BA)$: $\operatorname{tr}(AB-BA)=0$, while $\operatorname{tr}E=n\ne0$ in characteristic $0$.
+\hint{3} (In characteristic $p$ with $p\mid n$ the trace argument fails, and indeed $AB-BA=E$ is then possible, e.g.\ for $n=p$ with differentiation and multiplication by $x$ on $\mathbb F_p[x]/(x^p)$.)
+
+\problem{7}
+\hint{1} First check that swapping two adjacent entries changes the number of inversions by exactly $\pm1$.
+\hint{2} A transposition of the entries in positions $i<j$ is a composition of $2(j-i)-1$ adjacent swaps, an odd number; so the parity of the number of inversions flips. Hence $\operatorname{sgn}\colon S_n\to\{\pm1\}$ is a well-defined homomorphism.
+\hint{3} For $n\ge2$ it is surjective, so its kernel $A_n$ has index $2$. Application: the 15-puzzle (class work, problem 1), or the Rubik's cube fact that a single swap of two edge pieces is impossible.
+
+\problem{8}
+\hint{1} Extremal proof: if the set has at least two points, take two points $A,B$ at the minimal distance. What about $A$ and the midpoint of $AB$?
+\hint{2} The midpoint $M$ is in the set and $|AM|=|AB|/2<|AB|$: contradiction. Monovariant (descent) proof: starting from $A\ne B$, the points $A+(B-A)/2^k$, $k=0,1,2,\dots$, all belong to the set and are pairwise distinct, contradicting finiteness.
+\hint{3} Lattice comparison: $\mathbb Z^2$ is not midpoint-closed, but among any five lattice points two have the same parity pattern of coordinates, so their midpoint is a lattice point; there the obstruction is a residue (pigeonhole on $\mathbb Z^2/2\mathbb Z^2$) instead of a size.
+
+\problem{9}
+\hint{1} If $n$ has at least two digits, then $S(n)<n$: compare $\sum d_i10^i$ with $\sum d_i$. So the value strictly decreases until it is a single digit.
+\hint{2} Since $10^i\equiv1\pmod9$, $n\equiv S(n)\pmod9$: the residue modulo $9$ is invariant.
+\hint{3} The process ends at the unique digit $1,\dots,9$ congruent to $n$ modulo $9$: the digital root of $n\ge1$ is $1+((n-1)\bmod9)$.
+
+\problem{10}
+\hint{1} Take a connected plane graph. If it contains a cycle, delete one edge of the cycle. What happens to $V$, $E$ and $F$?
+\hint{2} The cycle separates the plane (Jordan curve theorem), so the edge borders two different faces, which merge: $E$ and $F$ both drop by $1$ and $V-E+F$ is unchanged. $E$ is a decreasing monovariant, so the process ends in a tree, where $V-E+F=V-(V-1)+1=2$.
+\hint{3} $K_5$: if it were planar, $F=2-5+10=7$. Count edge--face incidences: each face is bounded by at least $3$ edges, each edge borders at most $2$ faces, so $3F\le2E=20$, i.e.\ $F\le6$. Contradiction.
+
+\end{document}

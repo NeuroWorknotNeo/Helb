@@ -1,0 +1,71 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Integrals -- 4. Series and integrals}{Homework}
+
+\problem{1}
+\hint{1}
+Expand \(\frac1{1\mp x}\) and \(\ln(1+x)\) in powers of \(x\) and use \(\int_0^1x^n\ln x\,dx=-\frac1{(n+1)^2}\). The first series has constant sign; the other two are alternating (dominated or Abel/Leibniz on \([0,1]\)).
+\hint{2}
+You get \(-\zeta(2)=-\frac{\pi^2}6\), \(-\eta(2)=-\frac{\pi^2}{12}\) and \(\eta(2)=\sum\frac{(-1)^{n+1}}{n^2}=\frac{\pi^2}{12}\). The factor \(\frac12\): \(\eta(2)=\zeta(2)-2\sum\frac1{(2n)^2}=\left(1-\frac24\right)\zeta(2)\).
+
+\problem{2}
+\hint{1}
+\(\frac{\arctan x}x=\sum_{k\ge0}\frac{(-1)^kx^{2k}}{2k+1}\); the partial sums converge uniformly on \([0,1]\) (alternating series with remainder at most \(\frac{x^{2N}}{2N+1}\le\frac1{2N+1}\)). Integrate termwise.
+\hint{2}
+For the second, substitute \(t=\tan x\): \(\int_0^{\pi/4}\ln\tan x\,dx=\int_0^1\frac{\ln t}{1+t^2}dt=\sum_k(-1)^k\int_0^1t^{2k}\ln t\,dt=-\sum_k\frac{(-1)^k}{(2k+1)^2}=-G\). (Alternatively, integrate the first integral by parts.)
+
+\problem{3}
+\hint{1}
+\(I_n=\int_0^1\frac{x^n}{1+x}dx\) satisfies \(I_n+I_{n-1}=\int_0^1x^{n-1}dx=\frac1n\) and \(I_0=\ln2\). So \(I_n=(-1)^n\left(\ln2-\sum_{k=1}^n\frac{(-1)^{k-1}}k\right)\).
+\hint{2}
+\(I_n\) is decreasing in \(n\), so \(\frac1{n+1}=I_n+I_{n+1}\le2I_n\le I_{n-1}+I_n=\frac1n\), which gives \(I_n\sim\frac1{2n}\).
+
+\problem{4}
+\hint{1}
+On \((1,\infty)\) write \(\frac1{1+x^2}=\frac{1}{x^2}\cdot\frac1{1+x^{-2}}=\sum_k(-1)^kx^{-2k-2}\), and similarly \(\frac{x^{a-1}}{1+x}=\sum_n(-1)^nx^{a-2-n}\). On \((0,1)\) expand in powers of \(x\).
+\hint{2}
+For \(\frac{\ln x}{1+x^2}\) the two parts give \(-G\) and \(+G\), total \(0\). For \(0\lt a\lt1\), \(\int_0^\infty\frac{x^{a-1}}{1+x}dx=\sum_{n\ge0}(-1)^n\left(\frac1{n+a}+\frac1{n+1-a}\right)=\frac1a+\sum_{n\ge1}(-1)^n\frac{2a}{a^2-n^2}\).
+\hint{3}
+This is the partial-fraction expansion of the cosecant, \(\frac\pi{\sin\pi a}=\frac1a+\sum_{n\ge1}(-1)^n\frac{2a}{a^2-n^2}\), so the answer is \(\frac{\pi}{\sin\pi a}\).
+
+\problem{5}
+\hint{1}
+\(\frac1{\binom{2n}n}=\frac{(n!)^2}{(2n)!}=\frac n2B(n,n)\), so \(\frac1{n^2\binom{2n}n}=\frac1{2n}\int_0^1\left(x(1-x)\right)^{n-1}dx\).
+\hint{2}
+Summing under the integral (nonnegative terms): \(\sum_{n\ge1}\frac{u^{n-1}}{2n}=-\frac{\ln(1-u)}{2u}\) with \(u=x(1-x)\), so the sum is \(-\int_0^1\frac{\ln(1-x+x^2)}{2x(1-x)}dx\). Split \(\frac1{x(1-x)}=\frac1x+\frac1{1-x}\) and use the symmetry \(x\mapsto1-x\): it equals \(-\int_0^1\frac{\ln(1-x+x^2)}xdx\).
+\hint{3}
+\(1-x+x^2=\frac{1+x^3}{1+x}\), so the integral is \(\int_0^1\frac{\ln(1+x)}xdx-\int_0^1\frac{\ln(1+x^3)}xdx=\frac{\pi^2}{12}-\frac13\cdot\frac{\pi^2}{12}=\frac{\pi^2}{18}\) (substitute \(t=x^3\) in the second).
+
+\problem{6}
+\hint{1}
+Substitute \(u=1/x\): \(\int_1^\infty\frac{\{u\}}{u^2}du=\sum_{n\ge1}\int_n^{n+1}\frac{u-n}{u^2}du\).
+\hint{2}
+Each term is \(\ln\frac{n+1}n-\frac1{n+1}\); the partial sums are \(\ln(N+1)-(H_{N+1}-1)\to1-\gamma\).
+
+\problem{7}
+\hint{1}
+First integral: either directly, \(\int_0^1\ln(1+x)dx-\int_0^1\ln(1-x)dx=(2\ln2-1)+1\), or by the series \(\ln\frac{1+x}{1-x}=2\sum_k\frac{x^{2k+1}}{2k+1}\), which gives \(2\sum_k\frac1{(2k+1)(2k+2)}=2\ln2\). Both work; the answer is \(2\ln2\).
+\hint{2}
+Second: no series needed (an expansion in \(e^x\) would only be valid for \(x\lt0\) and lead to a sum you then have to recognise). Write \(\frac{1+e^x}{1-e^x}=1+\frac{2e^x}{1-e^x}\), so the antiderivative is \(x-2\ln\lvert1-e^x\rvert+C\).
+
+\problem{8}
+\hint{1}
+The proof is as in the class sheet: expand \(x^{\mp x}=e^{\mp x\ln x}\), use \(\int_0^1x^n\ln^nx\,dx=\frac{(-1)^nn!}{(n+1)^{n+1}}\), justify by monotone resp. dominated convergence.
+\hint{2}
+For \(\sum n^{-n}\) the tail after \(N\) terms is \(\sum_{n\gt N}n^{-n}\le\sum_{n\gt N}(N+1)^{-n}\), a geometric series about \((N+1)^{-(N+1)}\); for the alternating series the remainder is at most the first omitted term \((N+1)^{-(N+1)}\). Since \(7^{-7}\approx1.2\cdot10^{-6}\) and \(8^{-8}\approx6\cdot10^{-8}\), seven terms suffice in both cases (six do not).
+
+\problem{9}
+\hint{1}
+\(\frac1{e^x-1}=\sum_{k\ge1}e^{-kx}\) and \(\int_0^\infty e^{-kx}\sin x\,dx=\frac1{k^2+1}\); the interchange is justified by domination (\(\lvert\sin x\rvert\le x\) and \(\int_0^\infty\frac{x}{e^x-1}dx\lt\infty\)).
+\hint{2}
+Use \(\pi\cot\pi z=\frac1z+\sum_{k\ge1}\frac{2z}{z^2-k^2}\) at \(z=i\): \(\sum_{k\ge1}\frac1{k^2+1}=\frac{\pi\coth\pi-1}2\), where \(\pi\coth\pi=i\pi\cot(i\pi)\). So the integral is \(\frac{\pi\coth\pi-1}2\approx1.0767\).
+
+\problem{10}
+\hint{1}
+Assume \(f\) is analytic in \(\operatorname{Re}z\ge0\) and decays fast enough there. The function \(\pi\cot\pi z\) has residue \(1\) at each integer, so \(\sum_{n=0}^Nf(n)\) is a contour integral of \(\frac1{2i}f(z)\cot(\pi z)\) around \([0,N]\), with only half the residue at \(z=0\) if the contour passes through \(0\) along the imaginary axis; this is where \(\frac{f(0)}2\) comes from.
+\hint{2}
+In the upper half-plane write \(\cot\pi z=-i-\frac{2i}{e^{-2\pi iz}-1}\), in the lower one \(\cot\pi z=i+\frac{2i}{e^{2\pi iz}-1}\). The constant parts \(\mp i\) give, after deforming to the real axis, exactly \(\int_0^\infty f(x)\,dx\); the remaining parts decay exponentially away from the real axis, so their contours can be rotated onto the imaginary axis \(z=\pm it\), producing \(i\int_0^\infty\frac{f(it)-f(-it)}{e^{2\pi t}-1}dt\).
+\hint{3}
+For \(f(x)=\frac1{(x+a)^2}\), \(a\gt0\): \(f(it)-f(-it)=\frac{-4iat}{(a^2+t^2)^2}\), so the formula reads \(\psi'(a)=\sum_{n\ge0}\frac1{(n+a)^2}=\frac1a+\frac1{2a^2}+\int_0^\infty\frac{4at\,dt}{(a^2+t^2)^2(e^{2\pi t}-1)}\). Check it numerically (e.g.~\(a=1\) gives \(\zeta(2)\)), or compare with Binet's formula for \(\ln\Gamma\) differentiated twice.
+\end{document}

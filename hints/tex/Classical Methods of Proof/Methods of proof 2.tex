@@ -1,0 +1,44 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Methods of proof -- 2}{Class work}
+
+\problem{1}
+\hint{1} The naive statement $\sum_{k\le n}1/k^2\le 2$ does not close: from $S_n\le2$ you cannot conclude $S_n+\frac1{(n+1)^2}\le2$. With the bound $2-\frac1n$, the step needs $\frac1{(n+1)^2}\le\frac1n-\frac1{n+1}=\frac1{n(n+1)}$, which is true.
+\hint{2} For the product $P_n=\prod_{k\le n}\frac{2k-1}{2k}$, the weaker bound $P_n\le\frac1{\sqrt{3n}}$ is also true, but its induction step fails. Check that $\frac{2n+1}{2n+2}\le\sqrt{\frac{3n}{3n+3}}$ is false. With $\frac1{\sqrt{3n+1}}$, the step needs $\frac{2n+1}{2n+2}\le\sqrt{\frac{3n+1}{3n+4}}$.
+\hint{3} Square and clear denominators: $(2n+1)^2(3n+4)\le(2n+2)^2(3n+1)$. Expanding gives $12n^3+28n^2+19n+4\le12n^3+28n^2+20n+4$. The base case $n=1$ holds with equality.
+
+\problem{2}
+\note{The first statement needs characteristic $\neq2$: over $\mathbb F_2$ the form $B(x,y)=x_1y_2+x_2y_1$ has $B(v,v)=0$ for all $v$ and no orthogonal basis. The hints assume $\operatorname{char}\neq2$ (e.g.\ $\mathbb R$ or $\mathbb C$).}
+\subpart{orthogonal basis}
+\hint{1} If $B\equiv0$, any basis works. Otherwise there is a $v$ with $B(v,v)\neq0$, by polarisation: $2B(x,y)=B(x+y,x+y)-B(x,x)-B(y,y)$.
+\hint{2} Then $V=\langle v\rangle\oplus v^\perp$, where $v^\perp=\{w:B(v,w)=0\}$ is the kernel of a non-zero functional, so it has dimension $n-1$. By induction $B|_{v^\perp}$ has an orthogonal basis; add $v$ to it.
+\subpart{rank-one decomposition}
+\hint{1} Let $A$ have rank $r\geq 1$. Find a rank-one matrix $R$ with $\operatorname{rank}(A-R)=r-1$ and induct on the rank.
+\hint{2} Choose a basis $c_1,\dots,c_r$ of the column space. Each column of $A$ is $\sum_i\lambda_{ij}c_i$, so $A=\sum_{i=1}^r c_i\rho_i^T$ with $\rho_i=(\lambda_{i1},\dots,\lambda_{in})$. As an induction: subtracting $c_r\rho_r^T$ leaves a matrix whose column space is spanned by $c_1,\dots,c_{r-1}$. Alternatively, if $a_{ij}\neq0$, the matrix $A-\frac1{a_{ij}}(Ae_j)(e_i^TA)$ has rank $r-1$.
+
+\problem{3}
+\hint{1} Statement: if finitely many convex sets $C_1,\dots,C_m$ in $\mathbb R^n$ ($m\ge n+1$) are such that every $n+1$ of them intersect, then all of them intersect. Induct on $m$; the base case $m=n+1$ is the hypothesis. The tool that uses the dimension is Radon's lemma: any $n+2$ points in $\mathbb R^n$ split into two parts whose convex hulls meet.
+\hint{2} For $m\ge n+2$: by the induction hypothesis, for each $i$ the family without $C_i$ has a common point $x_i$. Apply Radon to $x_1,\dots,x_m$ (in fact to $n+2$ of them): $\{1,\dots,m\}=I\sqcup J$ and a point $p\in\operatorname{conv}\{x_i:i\in I\}\cap\operatorname{conv}\{x_j:j\in J\}$.
+\hint{3} For each $k$, either $k\notin I$, and then all $x_i$ with $i\in I$ lie in $C_k$, so $p\in C_k$ by convexity; or $k\notin J$, and the same argument applies with $J$. Hence $p\in\bigcap C_k$. The dimension enters only through Radon's lemma ($n+2$ points in $\mathbb R^n$ are affinely dependent). The number of sets enters through the induction.
+
+\problem{4}
+\hint{1} $\sqrt2$: if $\sqrt2=p/q$ with $q$ minimal, then $\sqrt2=\frac{2q-p}{p-q}$ with $0<p-q<q$, which contradicts minimality. (Alternatively, $p^2=2q^2$ forces $p$ and then $q$ to be even.)
+\subpart{$x^4+y^4=z^2$}
+\hint{1} Take a solution with $z$ minimal. Then $\gcd(x,y)=1$, and $(x^2,y^2,z)$ is a primitive Pythagorean triple. Say $x$ is odd: $x^2=a^2-b^2$, $y^2=2ab$, $z=a^2+b^2$ with $\gcd(a,b)=1$ and $a,b$ of opposite parity.
+\hint{2} From $x^2+b^2=a^2$ with $x$ odd, $b$ is even and $a$ is odd: $x=c^2-d^2$, $b=2cd$, $a=c^2+d^2$ with $\gcd(c,d)=1$. Then $y^2=4cd(c^2+d^2)$, and the factors $c$, $d$, $c^2+d^2$ are pairwise coprime.
+\hint{3} So each factor is a square: $c=u^2$, $d=v^2$, $c^2+d^2=w^2$. This gives $u^4+v^4=w^2$ with $w\le a<z$, a smaller solution.
+\subpart{fundamental theorem of arithmetic}
+\hint{1} Existence: a minimal integer $>1$ without a factorisation can be neither prime nor a product of two smaller numbers. For uniqueness, let $n$ be the least number with two different factorisations $p_1\cdots p_r=q_1\cdots q_s$. Then no $p_i$ equals any $q_j$, since otherwise you could cancel and get a smaller counterexample.
+\hint{2} Say $p_1<q_1$. Consider $n'=n-p_1q_2\cdots q_s=(q_1-p_1)q_2\cdots q_s$. Then $0<n'<n$ and $p_1\mid n'$. Factor $q_1-p_1$ and compare with a factorisation of $n'$ that contains $p_1$. By minimality these agree, so $p_1\mid q_1-p_1$, i.e.\ $p_1\mid q_1$, which is a contradiction.
+
+\problem{5}
+\subpart{basis}
+\hint{1} Apply Zorn's lemma to the linearly independent subsets of $V$, ordered by inclusion. The union of a chain is again independent, because any finite subset of it lies in one member of the chain.
+\hint{2} A maximal independent set $S$ spans $V$: if $v\notin\operatorname{span}S$, then $S\cup\{v\}$ is independent, which contradicts maximality.
+\subpart{two points on every line}
+\hint{1} Well-order the set of lines as $(\ell_\alpha)_{\alpha<\mathfrak c}$, so that every initial segment has fewer than $\mathfrak c$ elements (the initial ordinal of the continuum). Build increasing sets $A_\alpha$, no three points collinear, each of size $<\mathfrak c$, such that $\ell_\beta$ meets $A_{\alpha}$ in exactly two points for $\beta<\alpha$.
+\hint{2} At step $\alpha$: if $\ell_\alpha$ already contains two points, do nothing. It cannot contain three. Otherwise it contains at most one point. Avoid the lines through two points of the current set: there are fewer than $\mathfrak c$ of them, none equals $\ell_\alpha$, and each meets $\ell_\alpha$ in at most one point. Since $\ell_\alpha$ has $\mathfrak c$ points, add one or two new points on it.
+\hint{3} New points avoid all lines through two old points, so no three points become collinear, and $\ell_\alpha$ now has exactly two points. Later steps never add a third point to $\ell_\alpha$. Take $A=\bigcup_\alpha A_\alpha$. A countable construction cannot work here, because there are $\mathfrak c$ lines.
+
+\end{document}

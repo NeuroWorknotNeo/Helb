@@ -1,0 +1,43 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Functional sequences, series and spaces -- 4. Spaces of functions}{Class work}
+
+\problem{1}
+\hint{1}
+Completeness: a Cauchy sequence in the uniform norm converges uniformly (Cauchy criterion), and the limit is continuous. Separability: polynomials with rational coefficients (Weierstrass), or piecewise linear functions with rational nodes and values (uniform continuity), form a countable dense set.
+\hint{2}
+Non-compactness of the ball: tents \(\varphi_n\) of height \(1\) supported on disjoint intervals \(\bigl[\frac1{n+1},\frac1n\bigr]\) satisfy \(\lVert\varphi_n-\varphi_m\rVert=1\) for \(n\ne m\), so no subsequence is Cauchy.
+\hint{3}
+Riesz's lemma: for a closed proper subspace \(Y\) and \(\theta\lt1\), take \(x_0\notin Y\), \(d=\operatorname{dist}(x_0,Y)\gt0\), and \(y_0\in Y\) with \(\lVert x_0-y_0\rVert\le d/\theta\); then \(x=\frac{x_0-y_0}{\lVert x_0-y_0\rVert}\) has \(\operatorname{dist}(x,Y)\ge\theta\). In infinite dimensions apply it repeatedly to the (closed, because finite-dimensional) spans of \(x_1,\dots,x_{n-1}\), getting unit vectors with pairwise distances at least \(\frac12\).
+
+\problem{2}
+\hint{1}
+Banach: \(d(x_{n+1},x_n)\le q^nd(x_1,x_0)\), so \((x_n)\) is Cauchy, with geometric bound \(d(x_n,x)\le\frac{q^n}{1-q}d(x_1,x_0)\); the limit is fixed by continuity, and two fixed points satisfy \(d(x,y)\le q\,d(x,y)\).
+\hint{2}
+Picard: on a box \(\lvert x-x_0\rvert\le a\), \(\lvert y-y_0\rvert\le b\) let \(\lvert f\rvert\le M\) and \(L\) be the Lipschitz constant. On the closed subset \(\{y\in C[x_0-h,x_0+h]:\lvert y-y_0\rvert\le b\}\) the map \(Ty(x)=y_0+\int_{x_0}^xf(t,y(t))\,dt\) maps the set into itself if \(hM\le b\), and is a contraction if \(hL\lt1\). Fixed points of \(T\) are exactly the solutions (fundamental theorem of calculus).
+\hint{3}
+Without Lipschitz: \(y'=3y^{2/3}\), \(y(0)=0\) has the solutions \(y\equiv0\) and \(y=x^3\) (and many more glued ones).
+
+\problem{3}
+\hint{1}
+Use the Faber--Schauder system: \(\varphi_0=1\), \(\varphi_1=x\), and then, for \(k\ge0\) and \(0\le j\lt2^k\), the tent of height \(1\) supported on \(\bigl[\frac j{2^k},\frac{j+1}{2^k}\bigr]\) with peak at the midpoint, ordered level by level.
+\hint{2}
+Choose the coefficients so that after finishing level \(k\) the partial sum is the piecewise linear interpolant \(L_kf\) of \(f\) at the dyadic points \(\frac i{2^{k+1}}\): the coefficient of a new tent is \(f\)(midpoint) minus the average of \(f\) at the two endpoints. Uniform continuity gives \(\lVert f-L_kf\rVert\le2\,\omega(f,2^{-k-1})\to0\).
+\hint{3}
+Partial sums inside a level are again piecewise linear interpolants of \(f\) at a set of nodes of mesh at most \(2^{-k}\), so the same estimate holds for every partial sum, not just the block sums. Uniqueness of the coefficients: evaluating a uniformly convergent expansion at the dyadic points recovers them one by one.
+
+\problem{4}
+\hint{1}
+Non-completeness: continuous \(f_n\) equal to \(0\) on \([0,\frac12]\), to \(1\) on \([\frac12+\frac1n,1]\) and linear in between are \(\rho\)-Cauchy. If \(\rho(f_n,g)\to0\) with \(g\) continuous, then \(\int_0^1\lvert g-\mathbf 1_{(1/2,1]}\rvert=0\), which forces \(g=0\) on \([0,\frac12)\) and \(g=1\) on \((\frac12,1]\), impossible.
+\hint{2}
+Build the completion: \(W\) is the set of \(\rho\)-Cauchy sequences modulo \((f_n)\sim(g_n)\iff\rho(f_n,g_n)\to0\), with \(\tilde\rho\bigl([f_n],[g_n]\bigr)=\lim\rho(f_n,g_n)\) (the limit exists because \(\lvert\rho(f_n,g_n)-\rho(f_m,g_m)\rvert\le\rho(f_n,f_m)+\rho(g_n,g_m)\)). Addition and scalar multiplication are termwise and well defined because \(\rho\) comes from a norm.
+\hint{3}
+The embedding is \(f\mapsto[(f,f,\dots)]\); it is an isometry, and its image is dense because \([(f_n)]\) is the \(\tilde\rho\)-limit of the constant sequences \([(f_k,f_k,\dots)]\) as \(k\to\infty\). For completeness of \(W\), approximate a \(\tilde\rho\)-Cauchy sequence \(w_k\) by elements \(f_k\) of the image with \(\tilde\rho(w_k,f_k)\lt\frac1k\); then \((f_k)\) is \(\rho\)-Cauchy and its class is the limit. (Concretely \(W\) is \(L^1[0,1]\).)
+
+\problem{5}
+\hint{1}
+Let \(c=T(1)\). Since \(T\) commutes with differentiation, \(c'=T(1')=T(0)=0\), so \(c\) is a constant function.
+\hint{2}
+Fix a point \(a\). By Hadamard's lemma every \(f\in C^\infty(\mathbb R)\) can be written \(f(x)=f(a)+(x-a)g(x)\) with \(g(x)=\int_0^1f'(a+t(x-a))\,dt\) smooth. Apply \(T\), using linearity and the commutation with multiplication by \(x\) (hence by \(x-a\)): \(Tf=cf(a)+(x-a)\,Tg\). Evaluating at \(x=a\) gives \((Tf)(a)=cf(a)\).
+\end{document}

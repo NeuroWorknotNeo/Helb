@@ -1,0 +1,26 @@
+% Common preamble for the hint sheets (\input from each file)
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[a4paper,margin=2.3cm]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.35em}
+% \hintstitle{Sheet title}{Class work / Homework}
+\newcommand{\hintstitle}[2]{\begin{center}{\LARGE\bfseries Hints: #1\par}\vspace{0.5em}{\large #2\par}\end{center}
+\noindent\textit{The hints to each problem are cumulative. Read one, try again, and open the next only if you are still stuck.}\par\medskip\hrule\medskip}
+\newcommand{\problem}[1]{\par\bigskip{\large\bfseries Problem #1}\par\nopagebreak\smallskip}
+\newcommand{\subpart}[1]{\par\smallskip\textbf{(#1)}\par\nopagebreak}
+\newcommand{\hint}[1]{\par\smallskip\noindent\textcolor{black!70}{\textbf{Hint #1.}}\enspace}
+\newcommand{\note}[1]{\par\smallskip\noindent\textit{Note.} #1\par}
+\providecommand{\lt}{<}
+\providecommand{\gt}{>}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\emergencystretch=3em
