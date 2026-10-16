@@ -45,10 +45,9 @@ A formal power series solution of this ODE is unique (the coefficient of $x^m$ d
 \hint{2} By Theorem 2, $S_n$ satisfies $S_{n+1}=2S_n+4S_{n-1}$ ($1\pm\sqrt5$ are the roots of $x^2-2x-4$), with $S_1=1$, $S_2=2$. Prove $2^{n-1}\mid S_n$ by strong induction. (Equivalently, $S_n=2^{n-1}F_n$.)
 
 \problem{9}
-\note{The original IMC 2022 problem asks for the number of ways to be back at $0$ after $p-1$ minutes, modulo $p$. The hints first treat the printed version ($p$ minutes), and the last hint treats the original one.}
-\hint{1} The number of ways is the constant term of $(x^{-1}+1+x)^p$, i.e.\ $T_p=\sum_{k}\dfrac{p!}{k!\,k!\,(p-2k)!}$ ($k$ left jumps, $k$ right jumps).
-\hint{2} Modulo $p$: $(x^{-1}+1+x)^p\equiv x^{-p}+1+x^p$ (Frobenius), whose constant term is $1$; so $T_p\equiv1\pmod p$. Combinatorially: the cyclic shift acts on the walks, and every orbit has size $p$ except the walk that always stays.
-\hint{3} Original version: $f(p)=\sum_k\binom{p-1}{2k}\binom{2k}k\equiv\sum_{k=0}^{(p-1)/2}\binom{2k}k\pmod p$, since $\binom{p-1}{j}\equiv(-1)^j$. With $m=\frac{p-1}2\equiv-\frac12$ one has $\binom{2k}k\equiv(-4)^k\binom mk$, so the sum is $\equiv(1-4)^m=(-3)^{(p-1)/2}$, which by Euler's criterion and $\bigl(\frac{-3}{p}\bigr)=\bigl(\frac p3\bigr)$ is $\equiv0,1,-1$ according as $p=3$, $p\equiv1$, $p\equiv2\pmod 3$ (check: $f(3)=3$, $f(5)=19$, $f(7)=141$).
+\hint{1} The number of ways is the constant term of $(x^{-1}+1+x)^{p-1}$. Choosing first which $2k$ minutes are jumps and then which $k$ of them go to the right, $f(p)=\sum_k\binom{p-1}{2k}\binom{2k}k$ (check: $f(3)=3$, $f(5)=19$, $f(7)=141$). For $p=2$: $f(2)=1$.
+\hint{2} Modulo $p$ one has $\binom{p-1}{j}\equiv(-1)^j$, so $f(p)\equiv\sum_{k=0}^{(p-1)/2}\binom{2k}k\pmod p$ for odd $p$. With $m=\frac{p-1}2\equiv-\frac12$ one has $\binom{2k}k=(-4)^k\binom{-1/2}{k}\equiv(-4)^k\binom mk$ (all denominators are $k!$ with $k<p$).
+\hint{3} Hence $f(p)\equiv\sum_{k=0}^m\binom mk(-4)^k=(-3)^{(p-1)/2}$, which by Euler's criterion and $\bigl(\frac{-3}{p}\bigr)=\bigl(\frac p3\bigr)$ is $\equiv0,1,-1$ according as $p=3$, $p\equiv1$, $p\equiv2\pmod 3$ (and $f(2)=1$).
 
 \problem{10}
 \hint{1} Get rid of the root: $(a_{n+2}-5(a_{n+1}+a_n))^2=4(6a_{n+1}^2+15a_{n+1}a_n+6a_n^2)$. Expand and look at the symmetry of the result.
@@ -56,12 +55,12 @@ A formal power series solution of this ODE is unique (the coefficient of $x^m$ d
 \hint{3} The sequence is increasing, so $a_{n-1}<5(a_{n+1}+a_n)\le a_{n+2}$: they are the two different roots, and Vieta gives $a_{n+2}=10(a_{n+1}+a_n)-a_{n-1}$. With $a_3=71$ computed directly, integrality follows by induction.
 
 \problem{11}
-\note{Part (c) asks whether $\sum_{n\ge0}\frac2{3^n+1}$ is rational. It is irrational, but the only known proofs (P. Borwein, \emph{On the irrationality of $\sum 1/(q^n+r)$}, 1991) are far beyond olympiad level, so probably the intended question is different; the hint for (c) only records the answer.}
 \subpart{a}
 \hint{1} Compute: $1,2,5,14,41,122,\dots$; guess $a_n=\frac{3^n+1}2$.
 \hint{2} Verify by induction: $\frac{3^{n+1}+1}2\cdot\frac{3^{n-1}+1}2=3^{n-1}+\bigl(\frac{3^n+1}2\bigr)^2$ (both sides minus $\frac{3^{2n}+1}{4}$ equal $\frac{10\cdot3^{n-1}}4$). Equivalently $a_{n+1}=4a_n-3a_{n-1}$, which gives integrality directly.
 \subpart{b}
 \hint{1} $\frac1{a_n}=\frac2{3^n+1}<2\cdot3^{-n}$: compare with a geometric series. It converges.
 \subpart{c}
-\hint{1} The sum is $\sum_{n\ge0}\frac{2}{3^n+1}$, which is irrational by Borwein's theorem (for integer $q\ge2$ and rational $r\ne0$, $r\ne -q^n$, the sum $\sum1/(q^n+r)$ is irrational).
+\hint{1} By (a), $\frac{2^n}{a_{2^n}}=\frac{2^{n+1}}{y_n+1}$ with $y_n=3^{2^n}$, and $y_{n+1}=y_n^2$. Check the identity $\dfrac1{y+1}=\dfrac1{y-1}-\dfrac2{y^2-1}$.
+\hint{2} Hence $\dfrac{2^{n+1}}{y_n+1}=\dfrac{2^{n+1}}{y_n-1}-\dfrac{2^{n+2}}{y_{n+1}-1}$, the series telescopes and its sum is $\dfrac{2}{y_0-1}=1$ (the remainder $\frac{2^{N+1}}{3^{2^N}-1}\to0$). Rational.
 \end{document}

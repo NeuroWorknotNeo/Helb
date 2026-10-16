@@ -1,0 +1,76 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.3}
+\frenchspacing
+\hyphenpenalty=10000
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\head}[1]{\par\vspace{15pt}\noindent\textbf{\underline{#1}}\quad\ignorespaces}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1){\parfillskip=0pt\par}}
+\begin{document}
+\begin{center}
+{\huge\bfseries Methods of proof -- 4\par}\vspace{1.1em}
+{\Large Invariants, monovariants and double counting\par}\vspace{1.1em}
+{\Large Homework\par}\vspace{1.1em}
+{\foreignlanguage{russian}{13 сентября 2026 года}\par}
+\end{center}\vspace{0.0pt}
+
+\noindent\textbf{\underline{Theoretical minimum.}}\quad An invariant proves impossibility, a
+monovariant proves termination, and double counting proves identities and inequalities. To find an
+invariant, look at what the allowed operation does to the simplest functionals: sum, sum of
+squares, parity, residue, sign of a permutation, rank, determinant; the right invariant is usually
+the one that the operation multiplies by a constant or leaves untouched. To find a monovariant,
+look for a bounded integer quantity that strictly decreases, or for a continuous quantity with a
+sign-definite derivative. Double counting is the habit of computing one number in two ways; when
+the count is over incidences it produces an inequality, and when it is over a set of pairs it
+produces a bijective proof. A generating function is the same bookkeeping written algebraically.
+
+\medskip
+\noindent\rule{\textwidth}{0.4pt}
+
+\begin{enumerate}[itemsep=0.4em,topsep=7.4pt]
+\item Numbers $1,2,\dots,n$ are written on a board; one may erase two numbers and write their
+difference. Determine for which $n$ the last remaining number can be zero, and find the invariant
+responsible.
+
+\item Prove that a $10{\times}10$ board cannot be tiled by $1{\times}4$ pieces, by a colouring
+invariant, and determine all $m\times n$ boards tileable by $1\times k$ pieces.
+
+\item In a group of people every two are friends or enemies. Each step, a person with more
+enemies than friends changes sides: his friends become his enemies and vice versa. Prove that the process terminates, by exhibiting a monovariant, and estimate the
+number of steps.
+
+\item Prove that $\sum_k\binom nk^2=\binom{2n}n$ by double counting, and
+$\sum_kk\binom nk=n2^{n-1}$ in two ways; then give a bijective proof of Vandermonde's identity.
+
+\item Prove that in any finite set system the number of pairs $(x,A)$ with $x\in A$ counted in two
+ways gives Fisher's inequality for a design, and deduce the bound on the number of blocks.
+
+\item Prove that the trace of a nilpotent matrix is zero by using an invariant of similarity, and
+deduce that $AB-BA=E$ is impossible over a field of characteristic zero (compare with Linear
+algebra -- 12).
+
+\item Prove that the parity of the number of inversions is invariant under a transposition, and
+use it to show that the alternating group has index two; then apply the sign invariant to a
+puzzle of your choice.
+
+\item A finite set of points in the plane is such that the midpoint of any two of them also
+belongs to the set. Prove that the set has one point, and give the monovariant proof and the
+extremal proof; compare with the lattice version (Convex -- 10).
+
+\item Prove that a sequence of moves in which a number is replaced by the sum of its digits
+terminates, find the invariant modulo $9$, and prove the general statement about the digital root.
+
+\item Prove Euler's formula $V-E+F=2$ for planar graphs by an induction that is really a
+monovariant argument, and deduce that $K_5$ is not planar by double counting the incidences
+between faces and edges.
+\end{enumerate}
+\end{document}

@@ -48,9 +48,8 @@ Try \(B=zE+\bar z\,\bar A\) with \(z\in\mathbb C\setminus\{0\}\). Using \(\bar A
 \(B=\bar z\,(\bar A+\tfrac{z}{\bar z}E)\), and \(z/\bar z\) runs over the whole unit circle, while \(\bar A\) has only finitely many eigenvalues. Choose \(z\) so that \(-z/\bar z\) is not an eigenvalue.
 
 \problem{8}
-\note{the hypothesis should be \(a\ne0\), not \(a\ne1\). With \(a=0\) (allowed as stated) and \(A=B=O\) the relation holds but nothing is invertible. The hints prove the statement for \(a\ne0\).}
 \hint{1}
-By induction, derive \(BA^k-b^kA^kB=a\,(1+b+\dots+b^{k-1})A^{k-1}\) for \(k\ge1\). The hypotheses say exactly that \(a(1+\dots+b^{k-1})\ne0\) for \(1\le k\le n\).
+By induction, derive \(BA^k-b^kA^kB=a\,(1+b+\dots+b^{k-1})A^{k-1}\) for \(k\ge1\). The hypotheses guarantee that \(a(1+\dots+b^{k-1})\ne0\) for \(1\le k\le n\).
 \hint{2}
 Suppose \(A\) is singular. Split \(\mathbb C^n=W\oplus U\) with \(W=\ker A^n\ne0\), \(U=\operatorname{Im}A^n\); both are \(A\)-invariant. Apply the identity with \(k=n\) to \(x\in W\): \(-b^nA^nBx\in U\) equals a non-zero multiple of \(A^{n-1}x\in W\), so \(A^{n-1}x=0\).
 \hint{3}

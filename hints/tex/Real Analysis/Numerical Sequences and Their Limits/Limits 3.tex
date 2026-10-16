@@ -9,7 +9,6 @@
 \hint{3} So $S_n\sim\frac{m^3}6\sim\frac{(2n)^{3/2}}6=\frac{\sqrt2}3\,n^{3/2}$. The limit is finite and positive only for $\alpha=\frac32$; answer: $(\alpha,\beta)=\bigl(\frac32,\frac{\sqrt2}3\bigr)$.
 
 \problem{2}
-\note{The condition $0<x_0<x_1$ is impossible, since $x_1=x_0-x_0^2<x_0$. The intended condition is $0<x_0<1$; the hints use it.}
 \hint{1} Show that $0<x_n<1$ and $x_n$ decreases, so $x_n\to L$ with $L=L-L^2$, i.e.\ $L=0$.
 \hint{2} Telescoping (Fact 1 with $p=2$): $\dfrac1{x_{n+1}}-\dfrac1{x_n}=\dfrac1{1-x_n}\to1$. By Stolz--Ces\`aro (or Ces\`aro means) $\frac1{nx_n}\to1$, so $\lim nx_n=1$.
 
@@ -20,10 +19,9 @@
 \hint{4} Therefore $x_n=\sqrt{\dfrac3n}\Bigl(1-\dfrac{3\ln n}{10\,n}+O\bigl(\tfrac1n\bigr)\Bigr)=\sqrt{\dfrac3n}-\dfrac{3\sqrt3}{10}\,\dfrac{\ln n}{n^{3/2}}+O\bigl(n^{-3/2}\bigr)$.
 
 \problem{4}
-\note{As printed the answer is $\lim x_n^3\ln n=0$; the natural quantity with a finite nonzero limit is $x_n^2\ln n\to3$. The hints derive both.}
 \hint{1} Put $y_n=x_{n+1}^3=\frac1n\sum_{k\le n}\sin^3x_k$. Then $(n+1)y_{n+1}=ny_n+\sin^3x_{n+1}$, i.e.\ $y_{n+1}-y_n=\dfrac{\sin^3x_{n+1}-x_{n+1}^3}{n+1}<0$. Deduce that $y_n\downarrow0$ (if $y_n\to L>0$, the decrements are $\ge c/n$ and sum to $\infty$).
 \hint{2} Since $\sin^3t-t^3=-\frac{t^5}2+O(t^7)$, we get $y_{n+1}=y_n-\dfrac{y_n^{5/3}}{2(n+1)}(1+o(1))$. This is a neutral fixed point with an extra factor $\frac1n$: telescope in the power $y^{-2/3}$.
-\hint{3} $y_{n+1}^{-2/3}-y_n^{-2/3}=\dfrac{1+o(1)}{3(n+1)}$, so by Stolz with $b_n=\ln n$: $y_n^{-2/3}\sim\frac{\ln n}3$. Hence $x_n^2\sim\frac3{\ln n}$, so $x_n^2\ln n\to3$ and $x_n^3\ln n\sim 3^{3/2}(\ln n)^{-1/2}\to0$.
+\hint{3} $y_{n+1}^{-2/3}-y_n^{-2/3}=\dfrac{1+o(1)}{3(n+1)}$, so by Stolz with $b_n=\ln n$: $y_n^{-2/3}\sim\frac{\ln n}3$. Hence $x_n^2\sim\frac3{\ln n}$, i.e.\ $\lim x_n^2\ln n=3$.
 
 \problem{5}
 \hint{1} No continuity is assumed, so use order instead of the intermediate value theorem: consider $A=\{x\in[a,b]: f(x)\ge x\}$, which contains $a$, and $\xi=\sup A$.

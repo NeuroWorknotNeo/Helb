@@ -8,7 +8,6 @@
 \hint{2} $1+2^{c-a}$ is odd and greater than $1$, while $2^{b-a+1}$ is even. Contradiction (this is a $2$-adic valuation argument).
 
 \problem{2}
-\note{As printed the statement is garbled and false: the $2^n$ unit cubes $\varepsilon+[0,1]^n$, $\varepsilon\in\{0,-1\}^n$, all contain the origin and pairwise touch, and $2^n>2^{n-1}+1$; the parenthetical cross-references are stray text. The hints prove the intended statement: at most $2^n$ axis-parallel unit cubes in $\mathbb R^n$ with pairwise disjoint interiors can pairwise touch (so among $2^n+1$ such cubes two are disjoint), and $2^n$ is attained.}
 \hint{1} Pairwise touching cubes pairwise intersect. Axis-parallel boxes that pairwise intersect have a common point: project to each coordinate axis and use Helly's theorem on the line (pairwise intersecting intervals have a common point).
 \hint{2} So all cubes contain a common point $P$. For each cube $c+[0,1]^n\ni P$ and each coordinate $k$, at least one of $[P_k,P_k+\varepsilon]$, $[P_k-\varepsilon,P_k]$ lies in $[c_k,c_k+1]$ (for small $\varepsilon$). Hence each cube contains one of the $2^n$ small ``orthant boxes'' at $P$.
 \hint{3} These orthant boxes have non-empty interior, and the cubes have disjoint interiors, so different cubes contain different orthant boxes: at most $2^n$ cubes. The $2^n$ cubes with a vertex at the origin show sharpness.
@@ -25,7 +24,6 @@
 \hint{4} This is impossible by an $11$-adic valuation: the terms have pairwise distinct $11$-adic valuations $k$, so the term with the smallest $k$ cannot be cancelled (multiply by $10^{n-1}11^{-k_{\min}}$ and reduce modulo $11$). Hence the rank is $n$ and at least $n$ rectangles are needed.
 
 \problem{5}
-\note{With $z$ a factor the statement is false: for $x^2-2y^2$ (discriminant $8$) the value $1$ is represented, so every natural number is $1\cdot z$. The hints follow the intended reading $(ax^2+bxy+cy^2)^z$, an exponent $z>0$.}
 \hint{1} Let $D=b^2-4ac$ (not a square, so $a\ne0$ and the form vanishes only at $(0,0)$). Take an odd prime $p\nmid aD$ with $\bigl(\frac Dp\bigr)=-1$. Show that if $p\mid Q(x,y)$ then $p\mid x$ and $p\mid y$; use $4aQ=(2ax+by)^2-Dy^2$.
 \hint{2} Then $Q(x,y)=p^2Q(x/p,y/p)$, and by descent $v_p(Q(x,y))$ is even for $(x,y)\ne(0,0)$; hence $v_p(Q(x,y)^z)=z\,v_p(Q(x,y))$ is even too. So a number $N$ with $v_p(N)=1$ is not representable.
 \hint{3} There are infinitely many primes with $\bigl(\frac Dp\bigr)=-1$ (quadratic reciprocity plus Dirichlet's theorem, or a direct argument). Choose $n$ of them, $p_1,\dots,p_n$, not dividing $2aD$, and by the Chinese remainder theorem find $N$ with $N+i\equiv p_i\pmod{p_i^2}$ for $i=1,\dots,n$. Then $v_{p_i}(N+i)=1$ and none of $N+1,\dots,N+n$ is representable.
@@ -51,7 +49,7 @@
 \hint{3} Theorem: if $\alpha$ is constructible from the points $0,1$, then $\mathbb Q(\alpha)$ lies at the top of a tower $\mathbb Q=K_0\subset K_1\subset\dots\subset K_m$ with $[K_{i+1}:K_i]=2$, so $[\mathbb Q(\alpha):\mathbb Q]$ is a power of $2$ by the tower law. Doubling the cube needs $\sqrt[3]2$, trisecting $60^\circ$ needs $\cos20^\circ$; degree $3$ is not a power of $2$.
 
 \problem{10}
-\note{The quoted argument is in fact a correct proof by contradiction, once two implicit steps are justified; the hints treat ``the error'' as these missing justifications.}
+\note{The quoted argument is in fact a correct proof by contradiction once two implicit steps are justified, so ``the error'' to be found is the omission of these justifications.}
 \hint{1} Check each step under the hypothesis $\sum1/n=S<\infty$. Is regrouping a convergent series allowed? Does a strict termwise inequality between two convergent series give a strict inequality of the sums?
 \hint{2} Both are true: regrouping a convergent series does not change its sum, and $\sum(a_k-b_k)>0$ if all $a_k-b_k>0$. So the argument is valid; what is missing is exactly these justifications, which is where convergence is used (the same manipulations without the hypothesis would be meaningless).
 \hint{3} A direct proof: $s_{2^m}\ge1+\frac m2$ by grouping $\frac1{2^{j-1}+1}+\dots+\frac1{2^j}\ge\frac12$, so the partial sums are unbounded. It also gives the growth rate, which is why it is the one to submit.

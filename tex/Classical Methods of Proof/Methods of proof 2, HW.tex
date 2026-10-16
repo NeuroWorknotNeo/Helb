@@ -1,0 +1,77 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.3}
+\frenchspacing
+\hyphenpenalty=10000
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\head}[1]{\par\vspace{15pt}\noindent\textbf{\underline{#1}}\quad\ignorespaces}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1){\parfillskip=0pt\par}}
+\begin{document}
+\begin{center}
+{\huge\bfseries Methods of proof -- 2\par}\vspace{0.8em}
+{\Large Induction: strengthening, dimension, descent\par}\vspace{0.8em}
+{\Large Homework\par}\vspace{0.8em}
+{\foreignlanguage{russian}{13 сентября 2026 года}\par}
+\end{center}\vspace{-3.3pt}
+
+\noindent\textbf{\underline{Theoretical minimum.}}\quad Three reflexes. First: if the induction
+step does not close, strengthen the statement~--- replace a constant by a function of $n$, add an
+extra term, prove the inequality with a remainder. Second: choose the right parameter to induct
+on~--- dimension, rank, degree, number of prime factors, size of a block~--- and if two parameters
+are involved, order the pairs lexicographically. Third: over the integers a minimal counterexample
+always exists, so descent is available; over the reals it is not, and the substitute is
+compactness or a limiting argument. Zorn's lemma is the transfinite form of ``take a maximal
+element'' and is needed exactly when the object cannot be built in countably many steps.
+
+\medskip
+\noindent\rule{\textwidth}{0.4pt}
+
+\begin{enumerate}[itemsep=0.4em,topsep=7.4pt]
+\item Prove that $n$ lines in general position divide the plane into $\frac{n^2+n+2}{2}$ parts,
+and find and prove the analogous formula for hyperplanes in $\mathbb R^d$ by a double induction on
+$n$ and $d$.
+
+\item Prove by induction on the degree that a polynomial of degree $n$ with $n+1$ integer values
+at consecutive integers has integer finite differences, and deduce that $\binom xk$ form a basis
+of the integer-valued polynomials (compare with Polynomials -- 7).
+
+\item Prove the Cauchy--Schwarz inequality by induction on the number of terms, and the AM--GM
+inequality by Cauchy's forward-backward induction; explain why the second one needs a
+non-standard induction scheme.
+
+\item Prove that every finite group of order $p^k$ has a non-trivial centre, by induction on $k$
+using the class equation, and deduce that a group of order $p^2$ is abelian.
+
+\item Prove by descent that the equation $x^2+y^2+z^2=2xyz$ has no positive integer solutions, and
+that $x^3+2y^3=4z^3$ has none either.
+
+\item Prove by induction on the rank that every matrix over a field is equivalent to a matrix with
+ones and zeros on the diagonal, and by induction on the size that a nilpotent matrix is similar
+to a strictly upper triangular one.
+
+\item Show that the statement ``every continuous function on $[0,1]$ is bounded'' becomes false
+if $[0,1]$ is replaced by $[0,1]\cap\mathbb Q$, so that no argument using only finitely many
+points at a time (such as an induction on a natural parameter) can prove it, and give the
+compactness proof; then explain the general rule about when an induction on $\mathbb N$ is
+available at all.
+
+\item Prove by induction on the number of vertices that a planar graph has a vertex of degree at
+most five, and deduce the five-colour theorem.
+
+\item Prove the existence of a maximal ideal in every ring with unit and of a maximal linearly
+independent subset in every vector space, each by Zorn's lemma; then show that for a countably
+generated space the countable procedure suffices.
+
+\item Prove Sperner's lemma by induction on the dimension, and deduce Brouwer's fixed point
+theorem; compare with the one-dimensional case in Continuous functions -- 5.
+\end{enumerate}
+\end{document}

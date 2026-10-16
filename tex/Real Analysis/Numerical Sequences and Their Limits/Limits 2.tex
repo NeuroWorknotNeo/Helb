@@ -1,0 +1,69 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.3}
+\frenchspacing
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\head}[2][0pt]{\par\vspace{\dimexpr0.85em+#1\relax}\noindent\textbf{\underline{#2}}\quad}
+\begin{document}
+\begin{center}
+{\huge\bfseries Limits -- 2\par}\vspace{0.9em}
+{\Large Recurrences solvable in closed form\par}\vspace{0.88em}
+{\foreignlanguage{russian}{1 сентября 2026 года}\par}
+\end{center}\vspace{-1pt}
+
+\noindent\textbf{\underline{Theoretical minimum.}}
+
+\vspace{5pt}\noindent\textbf{\underline{Def.}}\quad A recurrence is \emph{solvable in closed form} when the sequence can be written
+through $n$ by elementary functions. Three standard routes: a linear recurrence with constant
+coefficients; a substitution turning the recurrence into a linear one; and guessing the answer
+with a proof by induction.
+
+\head{Theorem 1 (linear recurrences).} If $a_{n+k}=c_1a_{n+k-1}+\dots+c_ka_n$ and the
+characteristic polynomial $\lambda^k-c_1\lambda^{k-1}-\dots-c_k$ has roots
+$\lambda_1,\dots,\lambda_s$ with multiplicities $m_1,\dots,m_s$, then
+$a_n=\sum_iP_i(n)\lambda_i^n$ with $\deg P_i<m_i$. For an inhomogeneous right-hand side of the
+form $Q(n)\mu^n$ a particular solution is sought in the same shape, with an extra factor $n^m$
+if $\mu$ is a root of multiplicity~$m$.
+
+\head[3.8pt]{Theorem 2 (conjugate surds).} If $\alpha,\beta$ are the roots of $x^2-px+q$ with integer
+$p,q$, then $a_n=\alpha^n+\beta^n$ satisfies $a_{n+1}=pa_n-qa_{n-1}$ and is an integer for all
+$n$; the same trick proves integrality of sequences given by a square root, once one guesses the
+conjugate.
+
+\head[5.9pt]{Fact 1.} The generating function $F(x)=\sum a_nx^n$ turns a linear recurrence into a
+rational function; partial fractions return the closed formula, and the pole of smallest modulus
+gives the asymptotics $a_n\sim C\lambda^n$.
+
+
+\noindent\rule{\textwidth}{0.4pt}\par\vspace{4pt}
+
+\begin{enumerate}
+\item Let $c$ and $x_0$ be fixed positive numbers and
+$x_n=\frac12\bigl(x_{n-1}+\frac c{x_{n-1}}\bigr)$ for $n\ge1$. Prove that the sequence converges
+and that its limit is $\sqrt c$; estimate the speed of convergence and explain why the method is
+called Newton's.
+
+\item Define $(a_n)$ by $a_1=1$ and $a_{n+1}=\frac{1+4a_n+\sqrt{1+24a_n}}{16}$ for $n\ge1$.
+Find an explicit formula for $a_n$. \emph{(Hint: substitute $b_n=\sqrt{1+24a_n}$.)}
+
+\item Consider $a_0=1$, $a_{n+1}=\frac{3a_n+\sqrt{5a_n^2-4}}2$ and $b_0=0$, $b_{n+1}=a_n-b_n$
+for $n\ge0$. Prove that $a_n^2=b_{2n+1}$ for all $n$.
+
+\item Find $a_n$ if $a_0=1$, $a_1=2$ and $a_n=6a_{n-1}-8a_{n-2}+n$ for $n\ge2$.
+
+\item (IMC 2025 shortlist) Let $\alpha\in\mathbb R$ with $|\alpha|\le1$, and let $a_0=1$,
+$a_1=\alpha$, $a_{n+2}=2\alpha a_{n+1}-a_n$ for $n\ge0$. Prove that $|a_n|\le1$ for every $n$.
+\emph{(Hint: this is exactly the Chebyshev recurrence; put $\alpha=\cos\theta$.)}
+\end{enumerate}
+\end{document}

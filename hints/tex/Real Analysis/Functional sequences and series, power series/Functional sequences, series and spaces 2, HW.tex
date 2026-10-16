@@ -62,9 +62,10 @@ Take \(f_n(x)=\frac{x}{1+n^2x^2}\) from the standard zoo: \(\sup\lvert f_n\rvert
 Use the uniform Cauchy criterion: if \(\lvert S_n(x)-S_m(x)\rvert\le\varepsilon\) for all \(x\in E\), then by continuity of \(S_n-S_m\) the same holds on \(\overline E\). The rationals are dense in \([0,1]\).
 
 \problem{10}
-\note{the final deduction is false. Hint 3 of Problem 10 in the homework of sheet 1 gives continuous \(f_n\ge0\) on \([0,1]\) converging pointwise to \(0\) but not uniformly on any subinterval; telescoping (\(u_1=f_1\), \(u_n=f_n-f_{n-1}\)) turns it into a series with continuous sum \(0\). What Baire does give is: for each \(\varepsilon\), every interval contains a subinterval on which the tails are eventually at most \(\varepsilon\) uniformly (the interval depends on \(\varepsilon\)).}
 \hint{1}
 Let \(R_n=S-S_n\), the tails; they are continuous because \(S\) is. For fixed \(\varepsilon\) put \(E_N=\{x:\lvert R_n(x)\rvert\le\varepsilon\text{ for all }n\ge N\}\). Each \(E_N\) is closed and \(\bigcup_NE_N=[0,1]\) by pointwise convergence.
 \hint{2}
-By the Baire category theorem some \(E_N\) has non-empty interior, i.e.~contains an interval \(I\), on which \(\sup_{n\ge N}\lvert R_n\rvert\le\varepsilon\). Applying the same argument inside any given interval shows such intervals are dense. Repeating with \(\varepsilon=1,\frac12,\frac14,\dots\) gives nested intervals, but they may shrink to a point; that is why the last claim fails (see the note).
+By the Baire category theorem some \(E_N\) has non-empty interior, i.e.~contains an interval \(I\), on which \(\sup_{n\ge N}\lvert R_n\rvert\le\varepsilon\). Applying the same argument inside any given interval shows such intervals are dense. Repeating with \(\varepsilon=1,\frac12,\frac14,\dots\) gives nested intervals, but they may shrink to a point, so uniform convergence on a subinterval does not follow.
+\hint{3}
+For the example take the continuous \(f_n\ge0\) on \([0,1]\) from Hints 2--3 of Problem 10 in the homework of sheet 1: they converge pointwise to \(0\), but not uniformly on any subinterval. Telescoping, \(u_1=f_1\), \(u_n=f_n-f_{n-1}\), turns them into a series of continuous functions with partial sums \(f_n\) and continuous sum \(0\).
 \end{document}

@@ -14,7 +14,6 @@
 \hint{3} General case: an $m\times n$ board is tileable by $1\times k$ pieces iff $k\mid m$ or $k\mid n$. ``If'' is clear. For ``only if'', put the weight $\omega^{i+j}$ on the cell $(i,j)$, $\omega=e^{2\pi i/k}$: each piece has total weight $0$, while the board has weight $\bigl(\sum_{i<m}\omega^i\bigr)\bigl(\sum_{j<n}\omega^j\bigr)$, which vanishes only if $k\mid m$ or $k\mid n$.
 
 \problem{3}
-\note{``Changes sides'' is read as: the person turns all his friendships into enmities and vice versa (non-friends are enemies). For the reading with two camps and enemies inside one's own camp the same monovariant (hostile pairs inside camps) works.}
 \hint{1} Watch the total number of hostile pairs.
 \hint{2} If the person has $e$ enemies and $f$ friends with $e>f$, after the switch he has $f$ enemies and $e$ friends, and no other pair changes. So the number of hostile pairs drops by $e-f\ge1$.
 \hint{3} It is a non-negative integer at most $\binom n2$ at the start, so there are at most $\binom n2$ steps.

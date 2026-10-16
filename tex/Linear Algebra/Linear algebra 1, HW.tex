@@ -1,0 +1,110 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.3}
+\frenchspacing
+\hyphenpenalty=10000
+
+\newcommand{\head}[1]{\par\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\sheettitle}[4]{% title, subtitle, homework-flag, date
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{\dimexpr1.2em-1pt\relax minus 3.6pt}
+  {\Large #2\par}\vspace{\dimexpr1em+1pt\relax minus 1.2pt}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{\dimexpr1.15em-1pt\relax minus 3.6pt}\fi
+  {\foreignlanguage{russian}{#4}\par}
+  \end{center}\vspace{0.5pt minus 1.2pt}}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1){\parfillskip=0pt\par}}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\adj}{adj}
+\newcommand{\T}{\mathsf T}
+\begin{document}
+\sheettitle{Linear algebra -- 1}{Determinants and invertibility}{Homework}{12 сентября 2026 года}
+
+\head{Theoretical minimum.} The adjugate satisfies $A\adj A=(\det A)E$ and has rank $n$, $1$ or
+$0$ according to the rank of $A$; Jacobi's formula differentiates a determinant and gives
+$\det e^A=e^{\tr A}$. A determinant of a matrix which is a small-rank perturbation of a simple one
+is computed by $\det(A+UV^\T)=\det A\cdot\det(E+V^\T A^{-1}U)$. An integer matrix is invertible
+over $\mathbb Z$ exactly when $\det A=\pm1$, and since $\det$ is a polynomial with integer
+coefficients, identities transfer to any commutative ring and reduction modulo a prime proves
+non-vanishing. Singularity has three equivalent faces --- dependent columns, a zero eigenvalue, a
+non-trivial kernel --- and the art is to pick the right one. Finally, over $\mathbb R$ a
+determinant is a continuous function of the entries, so a determinant identity proved on a dense
+set holds everywhere: this is how one passes from invertible matrices to all of them.
+
+\par\vspace{-1pt}\noindent\rule{\linewidth}{0.4pt}\par\vspace{7pt}
+
+\begin{enumerate}
+\item (VJIMC 2013) Let $A=(a_{ij})$ and $B=(b_{ij})$ be two real $10\times10$ matrices such that
+$a_{ij}=b_{ij}+1$ for all $i,j$ and $A^3=O$. Prove that $\det B=0$.
+
+\item (IMC 2015) For any integer $n\geqslant2$ and two $n\times n$ matrices with real entries
+$A,B$ satisfying $A^{-1}+B^{-1}=(A+B)^{-1}$, prove that $\det A=\det B$. Does the same
+conclusion hold for matrices with complex entries?
+
+\item (IMC 2014) Determine all pairs $(a,b)$ of real numbers for which there exists a unique
+symmetric $2\times2$ matrix $M$ with real entries satisfying $\tr M=a$ and $\det M=b$.
+
+\item (Romania national olympiad 2017) Let $n\geqslant2$ and $k$ be natural numbers and let
+$A_1,\dots,A_k$ be symmetric real $n\times n$ matrices. Prove that the following are equivalent:
+\begin{enumerate}[label=\arabic*),align=left]
+\item $\det\bigl(\sum_{i=1}^kA_i^2\bigr)=0$;
+\item $\det\bigl(\sum_{i=1}^kA_iB_i\bigr)=0$ for all $B_1,\dots,B_k\in M_n(\mathbb R)$.
+\end{enumerate}
+
+\item (Romania national olympiad 1995) Let $n,k$ be positive integers and let
+$A_i\in M_n(\mathbb R)$, $i=1,\dots,k$. Prove that
+$\det\bigl(\sum_{i=1}^kA_i^\T A_i\bigr)\geqslant0$.
+
+\item (Romania national olympiad 2011) Let $A$ be a singular real matrix of order $n\geqslant2$
+and let $\adj A$ be its adjugate. Prove that $\tr(\adj A)\ne-1$ if and only if the matrix
+$E+\adj A$ is invertible.
+
+\item (Romania national olympiad 2008) Let $A$ be an $n\times n$ matrix with complex entries.
+Prove that $A^{-1}=\overline A$ if and only if there exists an invertible complex matrix $B$ with
+$A=B^{-1}\overline B$.
+
+\item (Romania national olympiad 2025) Let $n$ be a positive integer and let $a,b$ be complex
+numbers with $a\ne0$ and $b^k\ne1$ for every $k\in\{1,2,\dots,n\}$. The matrices
+$A,B\in M_n(\mathbb C)$ satisfy $BA=aE+bAB$. Prove that $A$ and $B$ are invertible.
+
+\item (Romania national olympiad 2012) Let $n\geqslant2$ and $1\leqslant k\leqslant n-1$. Prove
+that if $A\in M_n(\mathbb C)$ has exactly $k$ minors of order $n-1$ equal to zero, then
+$\det A\ne0$.
+
+\item (Romania national olympiad 2014) Let $A\in M_4(\mathbb R)$ be invertible with
+$\tr A=\tr(\adj A)\ne0$. Show that $A^2+E$ is singular if and only if there is a non-zero matrix
+in $M_4(\mathbb R)$ anticommuting with $A$.
+
+\item (VJIMC 1991) Compute the determinant of an antisymmetric matrix $(a_{ij})_{i,j=1}^n$,
+where $a_{ij}=-a_{ji}$ and $a_{ii}=0$, for odd $n$, and explain what changes for even $n$.
+
+\item (\foreignlanguage{russian}{Мехмат}, 2007) Prove Carleman's inequality: for every
+real matrix~$A=(a_{ij})_{i,j\leqslant n}$
+\[
+|\det(E+A)|\leqslant\exp\Bigl(\tr A+\tfrac12\sum_{i,j=1}^na_{ij}^2\Bigr).
+\]
+
+\item Prove that if all entries of an integer $n\times n$ matrix are odd, then $2^{n-1}$ divides
+its determinant, and show that the exponent $n-1$ cannot be improved.
+
+\item (Putnam 2008) Alan and Barbara play a game in which they take turns filling entries of an
+initially empty $2008\times2008$ array. Alan plays first. At each turn a player chooses a real
+number and places it in a vacant entry. The game ends when all the entries are filled. Alan wins
+if the determinant of the resulting matrix is non-zero, Barbara wins if it is zero. Which player
+has a winning strategy?
+
+\item (Putnam 2002) In Determinant Tic-Tac-Toe, Player 1 enters a 1 in an empty $3\times3$
+matrix, Player 0 counters with a 0 in a vacant position, and play continues in turn until the
+matrix is filled with five ones and four zeros. Player 0 wins if the determinant is 0 and Player 1
+wins otherwise. Assuming optimal play, who wins and how?
+
+\item (CIIM 2009) Determine whether for every natural $n$ there is a real $n\times n$ matrix whose
+determinant is zero but such that changing any single entry produces a matrix with non-zero
+determinant.
+\end{enumerate}
+\end{document}

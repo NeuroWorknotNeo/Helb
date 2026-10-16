@@ -1,0 +1,80 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.3}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\head}[1]{\par\bigskip\noindent\textbf{\underline{#1}}\quad}
+\begin{document}
+\begin{center}
+{\huge\bfseries Functional sequences, series and spaces -- 2\par}\vspace{1.2em}
+{\Large Series of functions\par}\vspace{0.8em}
+{\Large Homework\par}\vspace{0.8em}
+{\foreignlanguage{russian}{13 сентября 2026 года}\par}
+\end{center}
+
+\noindent\textbf{\underline{Theoretical minimum.}}\quad Weierstrass' test gives uniform and absolute convergence simultaneously
+and therefore never applies to a conditionally convergent series; there one uses the uniform
+versions of the Dirichlet and Abel tests, which are Abel summation with the estimates taken
+uniformly in $x$. A uniformly convergent series of continuous functions has a continuous sum and
+can be integrated term by term; to differentiate term by term one needs uniform convergence of the
+differentiated series, not of the original one. To build a function with prescribed bad points, put
+a scaled copy of a singularity at each of them: $\sum2^{-n}\varphi(x-r_n)$ and $\sum\{nx\}/n^2$ are
+the two standard machines. Finally, a series whose terms have a fixed sign behaves like a numerical
+series with a parameter, and for it uniform convergence follows from continuity of the sum on a
+compact set --- Dini's theorem in the form for series.
+
+\noindent\rule{\textwidth}{0.4pt}\par\medskip
+
+\begin{enumerate}[itemsep=0.6em]
+\item Let $(r_n)$ be an enumeration of the rationals in $[0,1]$. Prove that
+$F(x)=\sum_{n\ge1}2^{-n}|x-r_n|$ is continuous on $[0,1]$, that $F$ is not differentiable at any
+rational, and that $F$ is differentiable at almost every point.
+
+\item Prove that $\sum_{n\ge1}\frac{(-1)^n}{n+x}$ converges uniformly on $[0,\infty)$ but not
+absolutely at any point, and find $\lim_{x\to\infty}$ of the sum together with the first term of
+its asymptotics.
+
+\item (ISTCiM 2021) Prove that $\sum\limits_{n,m=1}^N\frac{(-1)^{n+m}}{n^nm^m(n+m)^2}>0$ for every
+positive integer $N$.
+
+\item Prove that $W(x)=\sum_{n\ge0}a^n\cos(b^nx)$ with $0<a<1$, $ab>1$ is continuous on $\mathbb R$
+and that the series may not be differentiated term by term; state the condition under which $W$ is
+nowhere differentiable and say where this is proved (Differentiable functions -- 8).
+
+\item Prove that $\zeta(x)=\sum_{n\ge1}n^{-x}$ is infinitely differentiable on $(1,\infty)$, that the
+differentiated series converges uniformly on $[1+\delta,\infty)$ but not on $(1,\infty)$, and that
+$\zeta(x)\sim\frac1{x-1}$ as $x\to1^+$.
+
+\item Find the set of $x$ for which $\sum_{n\ge1}\frac{x^n}{1+x^n}$ converges, prove that the
+convergence is uniform on compact subsets of $(-1,1)$, and find the asymptotics of the sum as
+$x\to1^-$.
+
+\item Prove Dini's theorem for series: if $u_n\ge0$ are continuous on a compact $K$ and $\sum u_n$
+has a continuous sum, then the convergence is uniform. Give a counterexample when the terms are
+allowed to change sign.
+
+\item Give an example of a series of $C^\infty$ functions which converges uniformly, whose
+differentiated series converges pointwise everywhere, and for which the sum of the differentiated
+series is nevertheless not the derivative of the sum.
+
+\item Prove that if $\sum u_n$ converges uniformly on a set $E$ and all $u_n$ are continuous, then it
+converges uniformly on the closure of $E$. Deduce that for continuous terms uniform convergence on
+the rationals of $[0,1]$ implies uniform convergence on $[0,1]$.
+
+\item Let $u_n$ be continuous on $[0,1]$ with $\sum u_n$ converging pointwise to a continuous sum.
+Prove that for every $\varepsilon>0$ every subinterval of $[0,1]$ contains an interval on which the
+tails are eventually smaller than $\varepsilon$ uniformly, and show by an example that the
+convergence need not be uniform on any subinterval. (Use the Baire category theorem, Continuous
+functions -- 8.)
+\end{enumerate}
+\end{document}

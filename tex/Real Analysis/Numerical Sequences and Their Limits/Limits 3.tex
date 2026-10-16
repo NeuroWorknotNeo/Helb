@@ -1,0 +1,71 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.3}
+\frenchspacing
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\head}[2][0pt]{\par\vspace{\dimexpr0.85em+#1\relax}\noindent\textbf{\underline{#2}}\quad}
+\begin{document}
+\begin{center}
+{\huge\bfseries Limits -- 3\par}\vspace{1.07em}
+{\Large Asymptotics of sequences\par}\vspace{1.1em}
+{\foreignlanguage{russian}{1 сентября 2026 года}\par}
+\end{center}\vspace{0pt}
+
+\noindent\textbf{\underline{Theoretical minimum.}}
+
+\vspace{5pt}\noindent\textbf{\underline{Def.}}\quad Knowing the limit is not enough: an olympiad
+problem usually asks for the rate. The standard answer has the form $x_n\sim Cn^{-\alpha}$ or
+$x_n=L+Cq^n+o(q^n)$, and the choice between the two is decided by the behaviour of $f$ at the
+fixed point.
+
+\head{Theorem 1 (neutral fixed point).} Let $x_n\to0$, $x_n>0$ and
+$x_{n+1}=x_n-ax_n^p+o(x_n^p)$ with $a>0$, $p>1$. Then
+\[
+x_n\sim\Bigl(\frac1{a(p-1)n}\Bigr)^{1/(p-1)}.
+\]
+In particular $x_{n+1}=x_n-x_n^2$ gives $nx_n\to1$, while $x_{n+1}=\sin x_n$ (where $p=3$,
+$a=\frac16$) gives $x_n\sim\sqrt{3/n}$.
+
+\head[5.8pt]{Theorem 2 (Stolz--Ces\`aro).} If $b_n$ is strictly increasing and unbounded and
+$\lim\frac{a_{n+1}-a_n}{b_{n+1}-b_n}=L$, then $\lim\frac{a_n}{b_n}=L$. This is the discrete
+analogue of l'H\^opital's rule, and it is exactly what proves Theorem 1: apply it to
+$y_n=x_n^{1-p}$.
+
+\head[3.5pt]{Fact 1.} The telescoping trick in powers of $x_n$: from $x_{n+1}=x_n-ax_n^p$ one gets
+$x_{n+1}^{1-p}-x_n^{1-p}\to a(p-1)$, and then Stolz finishes the job. This trick solves almost
+every problem of the sheet.
+
+\noindent\rule{\textwidth}{0.4pt}\par\vspace{8.4pt}
+\begin{enumerate}
+\item (IMC 2014) Consider the sequence
+$(a_n)_{n\ge1}=(1,1,2,1,2,3,1,2,3,4,1,2,3,4,5,1,\dots)$.
+Find all pairs $(\alpha,\beta)$ of positive reals such that
+$\lim_{n\to\infty}\frac{\sum_{k=1}^na_k}{n^\alpha}=\beta$.
+
+\item (Putnam 1966) Let $0<x_0<1$ and $x_{n+1}=x_n-x_n^2$ for $n\ge0$. Compute
+$\lim_{n\to\infty}nx_n$.
+
+\newpage
+\item For an arbitrary $x_0\in(0,\pi)$ define $x_{n+1}=\sin x_n$. Compute
+$\lim_{n\to\infty}\sqrt n\,x_n$, and find the next term of the asymptotics.
+
+\item (AKHIMO 2022) Let $x_1\in\bigl(0,\frac\pi2\bigr)$ and
+$x_{n+1}=\sqrt[3]{\frac{\sin^3x_1+\dots+\sin^3x_n}n}$ for $n\ge1$. Find
+$\lim_{n\to\infty}x_n^2\ln n$.
+
+\item Let $f\colon[a,b]\to[a,b]$ be an increasing function. Show that there exists $\xi\in[a,b]$
+with $f(\xi)=\xi$, and give an example of a decreasing $f$ for which the iterations
+$x_{n+1}=f(x_n)$ do not converge although the fixed point is unique.
+\end{enumerate}
+\end{document}

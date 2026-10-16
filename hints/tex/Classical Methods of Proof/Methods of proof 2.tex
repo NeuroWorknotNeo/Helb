@@ -9,9 +9,8 @@
 \hint{3} Square and clear denominators: $(2n+1)^2(3n+4)\le(2n+2)^2(3n+1)$. Expanding gives $12n^3+28n^2+19n+4\le12n^3+28n^2+20n+4$. The base case $n=1$ holds with equality.
 
 \problem{2}
-\note{The first statement needs characteristic $\neq2$: over $\mathbb F_2$ the form $B(x,y)=x_1y_2+x_2y_1$ has $B(v,v)=0$ for all $v$ and no orthogonal basis. The hints assume $\operatorname{char}\neq2$ (e.g.\ $\mathbb R$ or $\mathbb C$).}
 \subpart{orthogonal basis}
-\hint{1} If $B\equiv0$, any basis works. Otherwise there is a $v$ with $B(v,v)\neq0$, by polarisation: $2B(x,y)=B(x+y,x+y)-B(x,x)-B(y,y)$.
+\hint{1} If $B\equiv0$, any basis works. Otherwise there is a $v$ with $B(v,v)\neq0$, by polarisation (here $\operatorname{char}\neq2$ is used): $2B(x,y)=B(x+y,x+y)-B(x,x)-B(y,y)$.
 \hint{2} Then $V=\langle v\rangle\oplus v^\perp$, where $v^\perp=\{w:B(v,w)=0\}$ is the kernel of a non-zero functional, so it has dimension $n-1$. By induction $B|_{v^\perp}$ has an orthogonal basis; add $v$ to it.
 \subpart{rank-one decomposition}
 \hint{1} Let $A$ have rank $r\geq 1$. Find a rank-one matrix $R$ with $\operatorname{rank}(A-R)=r-1$ and induct on the rank.

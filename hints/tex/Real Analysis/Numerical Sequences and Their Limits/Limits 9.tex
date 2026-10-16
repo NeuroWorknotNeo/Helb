@@ -19,10 +19,9 @@
 \hint{3} To get the sum, sum the geometric series under the integral: $\sum_{n=1}^N(-1)^nx^n=\frac{-x+(-x)^{N+1}}{1+x}$. The remainder term integrates to at most $\int_0^1x^{N+1}dx\to0$. So the sum is $-\int_0^1\frac{x}{(1+x)^2}dx=\frac12-\ln2$.
 
 \problem{4}
-\note{As stated, the limit is not determined by $C$. If $C<1$, both series converge and the ratio of the sums depends on $f$; for example, change $f$ on $[0,1]$ only, which changes $b_1$ alone. If $C>1$, take $f(t)=C\exp(\varphi(t)/\sqrt t)$ with $\varphi\approx1$ near $m^2$ for odd $m$ and $\varphi\approx0$ near $m^2$ for even $m$. Then $f\to C$, but the ratio oscillates between $\frac{eC+1}{C+e}$ and its reciprocal. (For $f\equiv C$ the ratio is exactly $1$.) The hints establish the key relation and the correct general statement: if $A_n=a_1+\dots+a_n\to\infty$ and $a_{n+1}/A_n\to L$, the limit is $\frac{C}{1+L}$.}
 \hint{1} Look at which interval $b_{n+1}$ uses. It is $[n^2,n^2+1]$, the same interval as $a_n$, but with exponent $n+1$ instead of $n$. Compare $b_{n+1}$ with $a_n$.
 \hint{2} $b_{n+1}=\int_{n^2}^{n^2+1}f\cdot f^n$, so $\min_{[n^2,n^2+1]}f\le b_{n+1}/a_n\le\max_{[n^2,n^2+1]}f$, and both bounds tend to $C$. Hence $b_{n+1}=(C+o(1))a_n$. (Note $a_n>0$ for large $n$, since $f>0$ far out.)
-\hint{3} Therefore $b_1+\dots+b_{n+1}=b_1+\sum_{k\le n}(C+o(1))a_k=(C+o(1))A_n$ when $A_n\to\infty$ (a Ces\`aro/Stolz argument). The denominator is $A_{n+1}=A_n(1+a_{n+1}/A_n)$. So the ratio tends to $\frac{C}{1+L}$ whenever $a_{n+1}/A_n\to L$. For instance, when $a_{n+1}/A_n\to0$ the limit is $C$, and for $f\equiv C>1$ one has $L=C-1$ and the limit is $1$.
+\hint{3} Write $A_n=a_1+\dots+a_n$. Then $b_1+\dots+b_{n+1}=b_1+\sum_{k\le n}(C+o(1))a_k=(C+o(1))A_n$ since $A_n\to\infty$ (a Ces\`aro/Stolz argument). The denominator is $A_{n+1}=A_n(1+a_{n+1}/A_n)$. So the ratio tends to $\frac{C}{1+L}$. For instance, when $a_{n+1}/A_n\to0$ the limit is $C$, and for $f\equiv C>1$ one has $L=C-1$ and the limit is $1$. The hypotheses on $A_n$ are needed: for $C<1$ both series converge, and changing $f$ on $[0,1]$ changes only $b_1$, hence the ratio of the sums.
 
 \problem{5}
 \hint{1} Substitute $x=\frac\pi2-t$: the integral becomes $\int_0^{\pi/2}\cos^nt\,dt$, and the mass concentrates near $t=0$, where $\cos^nt=e^{n\ln\cos t}\approx e^{-nt^2/2}$.

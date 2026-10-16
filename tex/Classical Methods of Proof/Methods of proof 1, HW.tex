@@ -1,0 +1,76 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\begin{document}
+\begin{center}
+{\huge\bfseries Methods of proof -- 1\par}\vspace{1.2em}
+{\Large The pigeonhole principle: discrete, continuous, probabilistic\par}\vspace{0.8em}
+{\Large Homework\par}\vspace{0.8em}
+{\foreignlanguage{russian}{13 сентября 2026 года}\par}
+\end{center}\vspace{0.5em}
+
+\head{Theoretical minimum.} In the discrete form the only difficulty is the choice of boxes; in
+the continuous form the boxes are replaced by measure and the statement becomes Blichfeldt's
+lemma, from which Minkowski's and Steinhaus' theorems follow; in the probabilistic form the
+boxes are replaced by an average, and the principle reads ``there is an element at least as
+good as the mean''. Three standard box systems are worth remembering: residues modulo $N$ for
+approximation problems, dyadic scales for problems about orders of magnitude, and the positions
+in a linear order for monotone subsequences. When the required object is not just present but
+plentiful, count the bad configurations instead: if their number is smaller than the total, a
+good one exists.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Prove the simultaneous version of Dirichlet's theorem: for reals $\alpha_1,\dots,\alpha_k$
+and every $N$ there is $q\le N^k$ with $\|q\alpha_i\|<\frac1N$ for all $i$; deduce Kronecker's
+theorem on the density of $\{(q\alpha_1,\dots,q\alpha_k)\}$ when $1,\alpha_1,\dots,\alpha_k$
+are linearly independent over $\mathbb Q$.
+
+\item Prove that among any five points in a unit square two are at distance at most
+$\frac{\sqrt2}{2}$, prove that the optimal constant for $n$ points is of order $n^{-1/2}$, and
+find the asymptotics of that constant as $n\to\infty$.
+
+\item Prove that there is a power of $2$ whose decimal expansion begins with $2026$, and
+describe all sequences of digits that occur as the beginning of a power of $2$.
+
+\item Prove the Lebesgue density theorem for a measurable set, and use it to prove Steinhaus'
+theorem again; explain which of the two proofs generalises to $\mathbb R^n$.
+
+\item Let $A\subseteq\{1,\dots,n\}$ have more than $\lceil\frac n2\rceil$ elements. Prove that
+$A$ contains two elements one of which divides the other, and that $A$ contains an arithmetic
+progression of length three when $|A|>\lceil\frac{2n}3\rceil$.
+
+\item Prove that any $n+2$ vectors in $\mathbb R^n$ contain two making an angle at most
+$\frac\pi2$ with each other, and that $2^n$ vectors with pairwise obtuse angles cannot exist in
+$\mathbb R^n$ for $n\ge2$.
+
+\item Prove the second-moment refinement: if $\mathrm E\,X=m$ and $\operatorname{Var}X\le\sigma^2$,
+then $X\ge m-\lambda\sigma$ with probability at least $1-\frac1{\lambda^2}$; then, using the
+second and fourth moments of a random cut, show that a graph with $m$ edges contains a
+bipartite subgraph with at least $\frac m2+c\sqrt m$ edges.
+
+\item Prove the infinite pigeonhole principle: a colouring of an infinite set in finitely many
+colours has an infinite monochromatic subset; deduce the infinite Ramsey theorem for pairs and
+explain where compactness would be needed for the finite version.
+
+\item Prove that for every set $A\subseteq\mathbb Z$ of positive upper density the difference
+set $A-A$ contains arbitrarily long arithmetic progressions of the form $\{d,2d,\dots,kd\}$, or
+at least prove the case $k=1$ carefully and state what the general case needs.
+
+\item Prove that in any sequence of $n^2+1$ distinct reals one can find $n+1$ terms forming a
+monotone subsequence, and prove the sharpness by an explicit example; then give the
+probabilistic proof of the existence of a long monotone subsequence in a random permutation.
+\end{enumerate}
+\end{document}

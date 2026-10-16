@@ -1,0 +1,114 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.3}
+\frenchspacing
+\hyphenpenalty=10000
+
+\newcommand{\head}[1]{\par\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\sheettitle}[4]{% title, subtitle, homework-flag, date
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{\dimexpr1.2em-1pt\relax minus 3.6pt}
+  {\Large #2\par}\vspace{\dimexpr1em+1pt\relax minus 1.2pt}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{\dimexpr1.15em-1pt\relax minus 3.6pt}\fi
+  {\foreignlanguage{russian}{#4}\par}
+  \end{center}\vspace{0.5pt minus 1.2pt}}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1){\parfillskip=0pt\par}}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\adj}{adj}
+\newcommand{\T}{\mathsf T}
+\DeclareMathOperator{\rank}{rank}
+\begin{document}
+\sheettitle{Linear algebra -- 3}{Eigenvalues, diagonalisability and the Jordan form}{Homework}{12 сентября 2026 года}
+
+\head{Theoretical minimum.} A polynomial identity $f(A)=O$ puts the spectrum inside the roots of
+$f$, and if those roots are simple the matrix is diagonalisable; this is the shortest route in
+most problems. The Jordan structure is read off from the ranks of the powers of $A-\lambda E$, and
+the Frobenius form shows that similarity does not depend on the field extension. For a symmetric
+real matrix everything is orthogonal and the eigenvalues are real; the coefficients of $\chi_A$
+are the elementary symmetric functions of the spectrum, so statements about $\sum\lambda_i$,
+$\sum_{i<j}\lambda_i\lambda_j$, $\prod\lambda_i$ are statements about traces, principal minors and
+the determinant. A matrix with constant column sums has that constant as an eigenvalue, with
+eigenvector $(1,\dots,1)^\T$ of the transpose. Finally, if $A$ is real and $\lambda$ is a non-real
+eigenvalue, then $\overline\lambda$ is one too, with the conjugate eigenvector --- half the
+problems about real matrices are solved by this remark alone.
+
+\par\vspace{-1pt}\noindent\rule{\linewidth}{0.4pt}\par\vspace{7pt}
+
+\begin{enumerate}
+\item (IMC 2020) Let $n$ be a positive integer. Find all $n\times n$ real matrices $A$ with only
+real eigenvalues satisfying $A+A^k=A^\T$ for some integer $k\geqslant n$.
+
+\item (IMC 2021) Let $A$ be a real $n\times n$ matrix and suppose that for every positive integer
+$m$ there exists a real symmetric matrix $B$ with $2021B=A^m+B^2$. Prove that
+$|\det A|\leqslant1$.
+
+\item (IMC 2017) Determine all complex numbers $\lambda$ for which there exist a positive integer
+$n$ and a real $n\times n$ matrix $A$ such that $A^2=A^\T$ and $\lambda$ is an eigenvalue of $A$.
+
+\item (IMC 2025) For $A\in M_n(\mathbb R)$ denote by $A^R$ its counter-clockwise rotation by
+$\frac\pi2$, so that the first row of $A^R$ is the last column of $A$ read downwards, and so on.
+Prove that if $A=A^R$, then every eigenvalue $\lambda$ of $A$ satisfies $\operatorname{Re}\lambda=0$
+or $\operatorname{Im}\lambda=0$.
+
+\item (IMC 2003) Let $A$ be an $n\times n$ real matrix such that $3A^3=A^2+A+E$. Show that the
+sequence $A^k$ converges to an idempotent matrix.
+
+\item (IMC 2000) Let $A$ and $B$ be square complex matrices of the same size with
+$\rank(AB-BA)=1$. Show that $(AB-BA)^2=O$.
+
+\item (IMC 1999)
+\begin{enumerate}[label=\alph*),align=left]
+\item Show that for every $m\in\mathbb N$ there exists a real $m\times m$ matrix $A$ with
+$A^3=A+E$.
+\item Show that $\det A>0$ for every real $m\times m$ matrix satisfying $A^3=A+E$.
+\end{enumerate}
+
+\item (IMC 1996) A linear operator $A$ on a vector space $V$ is called an involution if $A^2=E$.
+Let $\dim V=n<\infty$.
+\begin{enumerate}[label=\alph*),align=left]
+\item Prove that for every involution $A$ on $V$ there is a basis of $V$ consisting of
+eigenvectors of $A$.
+\item Find the maximal number of distinct pairwise commuting involutions on $V$.
+\end{enumerate}
+
+\item (IMC 1995) Let $X$ be a non-singular matrix with columns $X_1,X_2,\dots,X_n$, and let $Y$
+be the matrix with columns $X_2,X_3,\dots,X_n,0$. Show that the matrices $A=YX^{-1}$ and
+$B=X^{-1}Y$ have rank $n-1$ and have only zeros for eigenvalues.
+
+\item (\foreignlanguage{russian}{ШАД} 2014) Let $A$ be a square matrix in which the sum of the
+entries in each column equals $\lambda$. Prove that $\lambda$ is an eigenvalue of $A$.
+
+\item (Romania national olympiad 2018) Let $n>2$ and let $A\in M_n(\mathbb C)$ satisfy
+$\rank A\ne\rank A^2$. Prove that there is a non-zero $B\in M_n(\mathbb C)$ with
+$AB=BA=B^2=O$.
+
+\item (IMC) Let $A\in M_n(\mathbb C)$ with $A\ne\lambda E$ for every $\lambda\in\mathbb C$. Prove
+that $A$ is similar to a matrix having at most one non-zero entry on the main diagonal.
+
+\item (IMC) Let $A,B$ be real $n\times n$ matrices and suppose there are $n+1$ distinct real
+numbers $t_1,\dots,t_{n+1}$ such that every $C_i=A+t_iB$ is nilpotent. Show that both $A$ and
+$B$ are nilpotent.
+
+\item (IMC) Let $A=(a_{k\ell})$ be a complex $n\times n$ matrix such that for every $m$ and all
+$1\leqslant j_1<\dots<j_m\leqslant n$ the determinant of $(a_{j_kj_\ell})_{k,\ell=1}^m$ is zero.
+Prove that $A^n=O$ and that some permutation $\sigma$ makes $(a_{\sigma(k)\sigma(\ell)})$
+strictly upper triangular.
+
+\item (SEEMOUS 2016)
+\begin{enumerate}[label=\alph*),align=left]
+\item Prove that for every $X\in M_2(\mathbb C)$ there is $Y\in M_2(\mathbb C)$ with $Y^3=X^2$.
+\item Prove that there is $A\in M_3(\mathbb C)$ such that $Z^3\ne A^2$ for every
+$Z\in M_3(\mathbb C)$.
+\end{enumerate}
+
+\item (\foreignlanguage{russian}{ФКН, осень} 2020) Suppose a linear transformation $A$ of a real
+$n$-dimensional vector space has $n+1$ eigenvectors any $n$ of which are linearly independent.
+Must $A$ be a scalar multiple of the identity?
+\end{enumerate}
+\end{document}

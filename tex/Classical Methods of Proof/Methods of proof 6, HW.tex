@@ -1,0 +1,86 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.3}
+\frenchspacing
+\hyphenpenalty=10000
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\head}[1]{\par\vspace{15pt}\noindent\textbf{\underline{#1}}\quad\ignorespaces}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip0.3em\hbox{}\nobreak\hfill{\small(#1)}{\parfillskip=0pt\par}}
+\begin{document}
+\begin{center}
+{\huge\bfseries Methods of proof -- 6\par}\vspace{1.1em}
+{\Large Contradiction and proofs of impossibility\par}\vspace{1.1em}
+{\Large Homework\par}\vspace{1.1em}
+{\foreignlanguage{russian}{15 сентября 2026 года}\par}
+\end{center}\vspace{0.4pt}
+
+\noindent\textbf{\underline{Theoretical minimum.}}\quad A direct proof, a proof of the
+contrapositive $\neg B\Rightarrow\neg A$ and a proof by contradiction are three different things;
+if the contradiction you reach is exactly the negation of the hypothesis, you have written a
+contrapositive proof with a superfluous negation. Negation with quantifiers reverses them:
+$\neg\forall x\,\exists y\,P$ is $\exists x\,\forall y\,\neg P$, and most failed arguments start
+from a wrong negation. For statements ``no object with property $P$ exists'' contradiction is
+honest; for existence statements it is a choice which costs the example (Methods of proof -- 5).
+Impossibility is proved by an invariant (Methods of proof -- 4), by parity or a colouring, by
+counting or dimension, by descent (Methods of proof -- 2), by the extremal choice (Methods of
+proof -- 3), or by mapping the problem into a smaller structure~--- residues, determinant, degree,
+sign, valuation. For irrationality the standard scheme is to assume $\alpha=p/q$ and produce an
+integer $N$ with $0<|N|<1$; a constructible number has degree a power of two over $\mathbb Q$,
+which is why the cube cannot be doubled and the angle cannot be trisected.
+
+\medskip
+\noindent\rule{\textwidth}{0.4pt}
+
+\begin{enumerate}[itemsep=0.4em,topsep=7.4pt]
+\item Show that there is no arithmetic progression with three terms inside the geometric sequence
+$\{2^k\}_{k\ge0}$.\src{VJIMC}
+
+\item Consider unit cubes in $\mathbb R^n$ with edges parallel to the axes and pairwise disjoint
+interiors. Prove that among any $2^n+1$ such cubes some two are disjoint~--- or, in the equivalent
+form, prove that $2^n+1$ such cubes cannot all pairwise touch; show that $2^n$ pairwise touching
+cubes exist.\src{\foreignlanguage{russian}{МФТИ}}
+
+\pagebreak
+\item Show that there does not exist a function $f\colon\mathbb R\to\mathbb R$ with the following
+property: for every convergent sequence $(a_i)$ of pairwise distinct real numbers the sequence
+$(f(a_i))$ converges to no real number.\src{IMS 2022}
+
+\item Prove that a plane figure which has been cut into $n$ squares with sides
+$1,\frac{11}{10},\dots,\bigl(\frac{11}{10}\bigr)^{n-1}$ parallel to the axes cannot be cut into
+fewer than $n$ rectangles.\src{\foreignlanguage{russian}{МФТИ}}
+
+\item Let $a,b,c$ be integers such that $b^2-4ac$ is not a perfect square. Prove that for every
+$n>1$ there are $n$ consecutive natural numbers none of which can be written as
+$(ax^2+bxy+cy^2)^z$ with integers $x,y$ and an integer $z>0$.\src{Proposed problems}
+
+\item Prove that a parallelepiped with a base in the plane $Oxy$ cannot be cut into tetrahedra
+each of which has a face parallel to $Oxy$.\src{\foreignlanguage{russian}{МФТИ}}
+
+\item Do there exist two commuting linear operators on $\mathbb R^3$ such that no basis puts both
+of their matrices into Jordan form?\src{\foreignlanguage{russian}{Мехмат 2006}}
+
+\item Prove that no continuous injection $[0,1]^2\to\mathbb R$ exists, and that no continuous
+bijection $[0,1]\to[0,1]^2$ exists, although a continuous surjection does (Topology of the real
+line -- 3). Identify in each case what exactly is the invariant that makes the object impossible.
+
+\item Prove that the numbers $\sqrt[3]2$ and $\cos20^\circ$ have degree $3$ over $\mathbb Q$, and
+deduce that the cube cannot be doubled and the angle of $60^\circ$ cannot be trisected by ruler
+and compass. State precisely the theorem about degrees of constructible numbers that you are
+using.
+
+\item Find the error in the following argument and classify it: ``Suppose $\sum1/n$ converges to
+$S$. Grouping the terms in pairs gives $\sum(1/(2k-1)+1/(2k))>\sum1/k=S$, hence $S>S$,
+a contradiction; therefore the harmonic series diverges.'' Then give a correct proof by
+contradiction of the same statement, and a correct direct proof, and say which one you would
+submit.
+\end{enumerate}
+\end{document}

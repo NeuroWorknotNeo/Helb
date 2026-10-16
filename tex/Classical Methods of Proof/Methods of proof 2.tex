@@ -1,0 +1,72 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.3}
+\frenchspacing
+\hyphenpenalty=10000
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\head}[1]{\par\vspace{15pt}\noindent\textbf{\underline{#1}}\quad\ignorespaces}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1){\parfillskip=0pt\par}}
+\begin{document}
+\begin{center}
+{\huge\bfseries Methods of proof -- 2\par}\vspace{1.1em}
+{\Large Induction: strengthening, dimension, descent\par}\vspace{1.1em}
+{\foreignlanguage{russian}{13 сентября 2026 года}\par}
+\end{center}\vspace{3.2pt}
+
+\noindent\textbf{\underline{Theoretical minimum.}}\par\vspace{10pt}
+\noindent\textbf{\underline{Fact 1 (strengthen the statement).}}\quad A statement is often easier to prove in a stronger
+form, because the induction hypothesis becomes stronger too. The standard example is an
+inequality with a constant: replace the constant by an explicit expression in $n$ and the
+induction closes. If the step does not close, the correct reaction is to sharpen the statement,
+not to look for a longer computation.
+
+\head{Fact 2 (what to induct on).} Besides the number of objects: the dimension of a space, the
+rank of a matrix, the degree of a polynomial, the number of prime factors, the size of a Jordan
+block, the number of vertices of a graph, the number of ``bad'' elements. Two parameters give a
+double induction, and a lexicographic order on pairs makes it a single one.
+
+\head{Theorem 1 (descent and the minimal counterexample).} Every non-empty set of positive
+integers has a least element; hence a counterexample of least size exists and may be assumed to
+be minimal, and a construction producing a strictly smaller counterexample proves the statement.
+Over the reals this fails, and its place is taken by compactness (Methods of proof -- 3).
+
+\head{Theorem 2 (transfinite induction and Zorn's lemma).} Every partially ordered set in which
+every chain has an upper bound has a maximal element. This is what produces a Hamel basis
+(Continuous functions -- 6), a basis of an arbitrary vector space, a maximal ideal, and an
+extension of a linear functional; it is not needed when the object can be built by a countable
+procedure.
+
+\medskip
+\noindent\rule{\textwidth}{0.4pt}
+\medskip
+
+\begin{enumerate}[itemsep=0.4em]
+\item Prove by induction with a strengthened statement: $\sum_{k=1}^n\frac1{k^2}\le2-\frac1n$,
+and then $\prod_{k=1}^n\frac{2k-1}{2k}\le\frac1{\sqrt{3n+1}}$; in both cases explain why the
+naive statement does not close and the sharpened one does.
+
+\item Prove by induction on the dimension that every symmetric bilinear form over a field of
+characteristic different from $2$ has an orthogonal basis, and by induction on the rank that a
+matrix of rank $r$ is a sum of $r$ matrices of rank one (compare with Linear algebra -- 2).
+
+\item Prove Helly's theorem in $\mathbb R^n$ by induction on the number of sets, and explain which
+step uses the dimension and which uses the number of sets (compare with Convex -- 1).
+
+\item Prove by infinite descent that $\sqrt2$ is irrational, that $x^4+y^4=z^2$ has no positive
+integer solutions, and that a minimal counterexample argument proves the fundamental theorem of
+arithmetic.
+
+\item Prove Zorn's lemma implies the existence of a basis in every vector space, and use
+transfinite induction to construct a set $A\subseteq\mathbb R^2$ meeting every line in exactly
+two points.
+\end{enumerate}
+\end{document}

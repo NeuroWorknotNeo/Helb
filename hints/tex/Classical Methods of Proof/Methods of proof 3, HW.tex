@@ -9,8 +9,7 @@
 \hint{3} Thus the line through $C$ parallel to $AB$ is a supporting line of $K$ at $C$ (the tangent line if the boundary is smooth at $C$); the same holds for $A$ and $B$. (Equivalently, $K$ lies in the triangle with vertices $B+C-A$, $C+A-B$, $A+B-C$.)
 
 \problem{2}
-\note{The statement needs at least five points: four points, three forming a triangle and one inside it, contain no convex quadrilateral. The hints prove the claim for five (hence for any $\ge5$) points in general position.}
-\hint{1} Take five of the points and look at their convex hull. If it is a quadrilateral or a pentagon, you are done at once (for a pentagon take any four vertices).
+\hint{1} Take five of the points and look at their convex hull (with four points the claim fails: a triangle with a point inside). If it is a quadrilateral or a pentagon, you are done at once (for a pentagon take any four vertices).
 \hint{2} Otherwise the hull is a triangle $ABC$ with two points $D,E$ inside. Draw the line $DE$; it misses all vertices (no three collinear), so two vertices of the triangle lie on the same side of it.
 \hint{3} If $A,B$ are on the same side of $DE$, then $A,B,D,E$ is a convex quadrilateral: $A$ and $B$ are vertices of the triangle $ABC$, so neither lies in the triangle of the other three; and if, say, $D$ were inside $ABE$, the ray $ED$ would cross the segment $AB$, putting $A$ and $B$ on opposite sides of the line $DE$.
 
@@ -40,9 +39,8 @@
 \hint{3} Choose $\omega$ with $c_k\omega^k=-p(z_0)$ (a $k$-th root exists in $\mathbb C$). Then $p(z_0+t\omega)=p(z_0)(1-t^k)+O(t^{k+1})$, so $|p(z_0+t\omega)|<|p(z_0)|$ for small $t>0$: a contradiction. Hence the minimum is $0$.
 
 \problem{8}
-\note{As stated (closed intervals) the claim is false: $[-1,0]$ together with $[\frac1{k+1},\frac1k]$, $k\ge1$, cover $[0,1]$, but no finite subfamily does. The hints follow the intended version with open intervals (open relative to $[0,1]$).}
-\hint{1} Let $s=\sup\{x\in[0,1]: [0,x]\text{ is covered by finitely many members of }\mathcal A\}$; the set is non-empty because $0$ lies in some interval.
-\hint{2} Take $I\in\mathcal A$ containing $s$; it contains $(s-\varepsilon,s+\varepsilon)\cap[0,1]$. Pick $x\in(s-\varepsilon,s]$ with $[0,x]$ finitely covered and add $I$: then $[0,\min(s+\varepsilon/2,1)]$ is finitely covered. Hence $s=1$ and the supremum is attained.
+\hint{1} Openness is essential: $[-1,0]$ and $[\frac1{k+1},\frac1k]$, $k\ge1$, are closed intervals covering $[0,1]$ with no finite subcover. Let $s=\sup\{x\in[0,1]: [0,x]\text{ is covered by finitely many members of }\mathcal A\}$; the set is non-empty because $0$ lies in some interval.
+\hint{2} Take $I\in\mathcal A$ containing $s$; since $I$ is open, it contains $(s-\varepsilon,s+\varepsilon)$ for some $\varepsilon>0$. Pick $x\in(s-\varepsilon,s]$ with $[0,x]$ finitely covered and add $I$: then $[0,\min(s+\varepsilon/2,1)]$ is finitely covered. Hence $s=1$ and the supremum is attained.
 \hint{3} The standard proof argues by contradiction with bisection: if $[0,1]$ had no finite subcover, one of the halves would not either, and so on; the nested intervals shrink to a point covered by one open interval, which then covers a whole small interval of the sequence. The sup argument is the same compactness (completeness of $\mathbb R$) used extremally.
 
 \problem{9}
