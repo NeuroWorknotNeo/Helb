@@ -1,0 +1,58 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Polynomials -- 9. Cyclotomic polynomials and the arithmetic of roots of unity}{Homework}
+
+\problem{1}
+\hint{1} Power sums: with a generator $g$ of $\mathbb{F}_p^*$, $\sum_{x\ne0}x^k=\sum_{j=0}^{p-2}(g^k)^j$ is a geometric sum, which vanishes unless $g^k=1$, i.e.\ $(p-1)\mid k$. Don't forget the term $0^k$.
+\hint{2} Hermite: the number $N_a$ of solutions of $f(x)=a$ satisfies $N_a\equiv\sum_x\bigl(1-(f(x)-a)^{p-1}\bigr)\pmod p$. Expand $(f(x)-a)^{p-1}$ binomially; $\sum_xf(x)^t$ is minus the coefficient of $x^{p-1}$ in $f^t\bmod(x^p-x)$. Under the conditions this gives $N_a\equiv1$ for all $a$, and $\sum_aN_a=p$ forces $N_a=1$. Conversely, for a permutation $\sum_xf(x)^t=\sum_yy^t=0$ for $t\le p-2$.
+\hint{3} $x\mapsto x^k$ is injective on the cyclic group $\mathbb{F}_p^*$ iff $\gcd(k,p-1)=1$. If $\deg f=d>1$ and $d\mid p-1$, take $t=(p-1)/d\le p-2$: $f^t$ has degree exactly $p-1$, so it is its own remainder and the condition fails.
+
+\problem{2}
+\hint{1} Compare roots: both sides are monic with simple roots, so it suffices to check that they have the same roots and degree. If $p\mid n$, $x$ has order $pn$ iff $x^p$ has order $n$, and $\deg\Phi_n(x^p)=p\varphi(n)=\varphi(pn)$.
+\hint{2} If $p\nmid n$, the roots of $\Phi_n(x^p)$ are the elements of order $pn$ and of order $n$, and $p\varphi(n)=\varphi(pn)+\varphi(n)$. For odd $n>1$, $\zeta\mapsto-\zeta$ maps primitive $n$-th roots onto primitive $2n$-th roots, and $(-1)^{\varphi(n)}=1$.
+\hint{3} $\Phi_{pq}=\frac{(1-x)(1-x^{pq})}{(1-x^p)(1-x^q)}\equiv(1-x)\sum_{i,j\ge0}x^{ip+jq}\pmod{x^{pq}}$, and $\deg\Phi_{pq}<pq$. A number $m<pq$ has at most one representation $ip+jq$, so the sum has $0/1$ coefficients and $\Phi_{pq}$ has coefficients in $\{-1,0,1\}$. For $\Phi_{105}$: modulo $x^8$ it equals $(1+x+\dots+x^7)(1-x^3-x^5-x^7)$; read off the coefficient $-2$ of $x^7$.
+
+\problem{3}
+\hint{1} Let $z_1,\dots,z_n$ be the roots. The coefficients of $f_m=\prod(x-z_i^m)$ are symmetric integer polynomials in the $z_i$, hence integers, and are bounded by $\binom nj$ because $|z_i^m|\le1$.
+\hint{2} So only finitely many polynomials $f_m$ occur, and each root $z$ yields the sequence $z,z^2,z^4,\dots$ of roots of these finitely many polynomials. Hence $z^{2^a}=z^{2^b}$ for some $a<b$, and $z\ne0$ (as $f(0)\ne0$) gives that $z$ is a root of unity.
+\hint{3} An algebraic integer with all conjugates of modulus $1$: apply this to its minimal polynomial. $\frac{3+4i}5$ has modulus $1$, as does its conjugate, but its minimal polynomial $5x^2-6x+5$ is not monic, so it is not an algebraic integer and hence not a root of unity.
+
+\problem{4}
+\hint{1} A die is a polynomial $D(x)=\sum x^{\text{label}}$ with non-negative integer coefficients, $D(1)=6$ and $D(0)=0$. You need $D_1D_2=(x+\dots+x^6)^2=x^2(1+x)^2(1+x+x^2)^2(1-x+x^2)^2$.
+\hint{2} By unique factorization each $D_i$ is a product of these factors. $D_i(0)=0$ gives one factor $x$ each; $D_i(1)=6$ with $\Phi_2(1)=2$, $\Phi_3(1)=3$, $\Phi_6(1)=1$ gives exactly one $(1+x)$ and one $(1+x+x^2)$ each. Only the two copies of $1-x+x^2$ can be distributed freely.
+\hint{3} Split $1+1$: ordinary dice. Split $0+2$: $(1,2,2,3,3,4)$ and $(1,3,4,5,6,8)$ (Sicherman dice); check that the coefficients are non-negative.
+
+\problem{5}
+\subpart{a}
+\hint{1} Sort the positive integers by the exponent of $2$: the progressions $\{2^n(2m+1):m\ge0\}$, with first term $2^n$ and difference $2^{n+1}$, $n\ge0$.
+\subpart{b}
+\hint{1} Generating functions: for $|z|<1$ a partition into progressions $a_k+d_k\mathbb{Z}_{\ge0}$ gives $\sum_k\frac{z^{a_k}}{1-z^{d_k}}=\frac z{1-z}$.
+\hint{2} Let $d$ be the largest difference ($d\ge2$) and let $z\to e^{2\pi i/d}$ radially. Only the term with $d_k=d$ blows up (for $d_k<d$, $d\nmid d_k$), while the right-hand side stays bounded. Answer: no.
+
+\problem{6}
+\hint{1} $P$ and $Q$ are coprime (a common factor would divide $P^2+1$ and $P$), so $PQ\mid P^2+Q^2+1$. Write $P^2+Q^2+1=S\,PQ$.
+\hint{2} If $\deg P=\deg Q$, then $S$ is a constant; comparing leading coefficients gives $S=2$ and $(P-Q)^2=-1$, so $Q=P\pm i$.
+\hint{3} If $\deg P>\deg Q$, Vieta jump: $P'=(Q^2+1)/P=SQ-P$ is monic, gives the same $S$ for the pair $(Q,P')$, and $\deg P'<\deg Q$. Descend until the smaller polynomial is constant, hence equal to $1$; this forces the other one to be $1$ too and $S=3$, contradicting $\deg S>0$. Answer: $P=Q=1$, or $P=R$, $Q=R\pm i$ with $R$ monic and non-constant (in either order).
+
+\problem{7}
+\hint{1} Write $m=p^ak$ with $p\nmid k$, so that $\Phi_m(x)=\Phi_{pk}(x^{p^{a-1}})$. Splitting the exponents of $f$ by their residue mod $p^{a-1}$ reduces to the case $a=1$, i.e.\ $m=pk$ and $\deg f<p\varphi(k)$.
+\hint{2} Write $f=\sum_{r<p}x^rF_r(x^p)$. The primitive $pk$-th roots are $\omega\eta$ with $\omega$ a primitive $p$-th root and $\eta$ a primitive $k$-th root, and $(\omega\eta)^p=\eta^p$ is again a primitive $k$-th root. So $\sum_r\omega^{ir}\,\eta^rF_r(\eta^p)=0$ for $i=1,\dots,p-1$, which forces $\eta^rF_r(\eta^p)$ to be independent of $r$.
+\hint{3} If fewer than $p$ coefficients are nonzero, some $F_r$ is $0$, so all $F_s$ vanish at every primitive $k$-th root, i.e.\ $\Phi_k\mid F_s$. A nonzero $F_s$ then has degree $\ge\varphi(k)$, so $\deg f\ge p\varphi(k)$, a contradiction.
+
+\problem{8}
+\hint{1} For a fixed $N$ consider the polynomials $c(x)=\sum c_jx^j$ with $\sum_jc_jf(y+j/N)=0$ for all $y$. They form an ideal of $\mathbb{C}[x]$, closed under gcd.
+\hint{2} For a prime $p\mid N$ the hypothesis with step $1/p=\frac{N/p}N$ says that $\frac{x^N-1}{x^{N/p}-1}$ is in the ideal. The gcd of these over $p\mid N$ is $\Phi_N$ (Theorem 1), so $\Phi_N$ annihilates $f$.
+\hint{3} $\Phi_N$ is monic of degree $\varphi(N)$ with constant term $1$, so $f$ at a point is determined by its values at the next (or previous) $\varphi(N)$ points of step $1/N$. Choose $N$ (a product of many small primes) with $\varphi(N)/N<b-a$; then vanishing on $(a,b)$ propagates by $1/N$ in both directions.
+
+\problem{9}
+\hint{1} Use $k!\,(p-1-k)!\equiv(-1)^{k+1}\pmod p$ to rewrite $f(x)=\sum_kk!\,x^k$: for $x\ne0$, $f(x)\equiv-x^{p-1}g(-1/x)$ with $g(x)=\sum_{j=0}^{p-1}x^j/j!$ in $\mathbb{F}_p[x]$. So you must bound the number of nonzero roots of $g$ in $\mathbb{F}_p$ by $(p-1)/2$.
+\hint{2} $g'=g+x^{p-1}$ (as $(p-1)!\equiv-1$). Consider $h=x^p-x+g$, of degree $p$.
+\hint{3} At a nonzero root $r\in\mathbb{F}_p$ of $g$: $h(r)=0$ and $h'(r)=-1+g(r)+r^{p-1}=0$, so $r$ is a double root of $h$. Hence $g$ has at most $(p-1)/2$ nonzero roots; with $f(0)=1$ this leaves at least $(p+1)/2$ good $n$.
+
+\problem{10}
+\hint{1} Suppose $f$ vanishes at $\ge n-k+1$ of the $n$-th roots of unity. With $c_{n-1}=1$, the values $f(\omega^j)$ are the discrete Fourier transform $\hat c$ of $c=(c_0,\dots,c_{n-1})$, so $\hat c$ is supported on a set $T$ with $|T|\le k-1$.
+\hint{2} The hypothesis says that the cyclic sequence $e_i=c_i\,c_{n-2-i}$ (indices mod $n$) is $\delta_{i,n-1}$: it vanishes for $i\le n-2$, and $e_{n-1}=c_{n-1}^2=1$.
+\hint{3} The transform of a pointwise product is a convolution, so $\hat e$ is supported on $T-T$, which has at most $(k-1)(k-2)+1=k^2-3k+3<n$ elements. But the transform of $\delta$ has no zeros. Contradiction.
+
+\end{document}

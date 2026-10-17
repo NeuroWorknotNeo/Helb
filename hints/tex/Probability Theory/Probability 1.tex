@@ -1,0 +1,33 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Probability -- 1. Expectation, indicators and linearity}{Class work}
+
+\problem{1}
+\hint{1} Linearity: $\mathrm{E}(X+Y)=\sum_\omega(X(\omega)+Y(\omega))\Pr(\omega)$ on a discrete space (in general, by linearity of the integral); no independence is used. Tail formula: $X=\sum_{k\ge1}\mathbf 1_{\{X\ge k\}}$ for integer $X\ge0$, and $X=\int_0^\infty\mathbf 1_{\{X>t\}}\,dt$ in general (take expectations and swap sum/integral with expectation, all terms being non-negative). Total expectation: split $X=\sum_iX\mathbf 1_{B_i}$.
+\hint{2} Fixed points: $\sum_i\mathbf 1_{\{\sigma(i)=i\}}$, each with probability $1/n$, so the expectation is $1$. Records: position $i$ is a record iff its value is the largest of the first $i$, probability $1/i$, so the expectation is $H_n=1+\frac12+\dots+\frac1n$.
+\hint{3} Cycles: $\#\text{cycles}=\sum_i\frac1{L_i}$, where $L_i$ is the length of the cycle containing $i$. $L_i$ is uniform on $\{1,\dots,n\}$ (build the cycle of $i$ step by step: it closes at step $\ell$ with probability $\frac{n-1}n\cdots\frac{n-\ell+1}{n-\ell+2}\cdot\frac1{n-\ell+1}=\frac1n$), so the expectation is $n\cdot\frac1n\sum_\ell\frac1\ell=H_n$.
+
+\problem{2}
+\hint{1} If $X_k$ is the indicator of heads for $C_k$, then $(-1)^{\#\text{heads}}=\prod_k(1-2X_k)$. Use independence.
+\hint{2} $\mathrm{E}\prod(1-2X_k)=\prod_{k=1}^n\frac{2k-1}{2k+1}=\frac1{2n+1}$ (telescoping), and $\Pr(\text{odd})=\frac{1-\mathrm{E}(-1)^{\#}}2=\frac n{2n+1}$.
+
+\problem{3}
+\hint{1} Compute the distribution of the number of hits after $n$ shots for small $n$ ($n=2,3,4$). What do you notice?
+\hint{2} Claim: after $n\ge2$ shots the number of hits is uniform on $\{1,\dots,n-1\}$. Induction: $\Pr(k\text{ hits after }n+1)=\frac1{n-1}\bigl(\frac{k-1}n+\frac{n-k}n\bigr)=\frac1n$.
+\hint{3} Answer: $\frac1{99}$.
+
+\problem{4}
+\hint{1} Condition on $m=\max X$, which ranges over $k,\dots,k+a$: $\Pr(\max X=m)=\binom{m-1}{k-1}\big/\binom{k+a}k$ and $\Pr(\min Y>m)=\binom{k+n+a-m}n\big/\binom{k+n+a}n$.
+\hint{2} $\sum_m\binom{m-1}{k-1}\binom{N-m}n=\binom N{k+n}$ with $N=k+n+a$: count the $(k+n)$-subsets of $\{1,\dots,N\}$ by the position $m$ of their $k$-th smallest element.
+\hint{3} Simplify $\binom N{k+n}\big/\bigl(\binom{k+a}k\binom Nn\bigr)$; the $a$-dependence cancels and the probability is $1\big/\binom{n+k}k$ (as for $a=0$, where $X=\{1,\dots,k\}$).
+
+\problem{5}
+\subpart{a}
+\hint{1} Write a recurrence by total expectation over the states ``nothing useful yet'' and ``just saw H''. For HH: $E_0=1+\frac12E_H+\frac12E_0$, $E_H=1+\frac12E_0$, giving $6$. For HT, once an H has appeared you only wait for the first T: $2+2=4$.
+\subpart{b}
+\hint{1} Count the sequences of length $n$ that stop exactly at time $n$. For HT: the sequence is $T^aH^bT$ with $b\ge1$, so there are $n-1$ of them.
+\hint{2} For HH: the sequence is a string without HH ending in T (or empty), followed by HH; the number of such strings of length $n-2$ is the Fibonacci number $F_{n-1}$ ($F_1=F_2=1$).
+\hint{3} So you need $F_{n-1}=n-1$; the only solutions of $F_m=m$ with $m\ge1$ are $m=1$ and $m=5$. Answer: $n=2$ or $n=6$.
+
+\end{document}

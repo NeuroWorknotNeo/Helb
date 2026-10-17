@@ -1,0 +1,57 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Polynomials -- 6. Polynomials over finite fields}{Homework}
+
+\problem{1}
+\hint{1} Count the common zeros modulo $p$: $N\equiv\sum_{x\in\mathbb{F}_p^n}\prod_{i=1}^r\bigl(1-f_i(x)^{p-1}\bigr)\pmod p$, since each summand is $1$ at a common zero and $0$ otherwise.
+\hint{2} The product has degree $\le(p-1)\sum\deg f_i<(p-1)n$, so every monomial $x_1^{e_1}\cdots x_n^{e_n}$ in it has some $e_j<p-1$. Since $\sum_{t\in\mathbb{F}_p}t^e=0$ for $0\le e<p-1$ (with $0^0=1$), every monomial sums to $0$. Hence $p\mid N$, and $N\ge1$ gives $N\ge p$.
+\hint{3} EGZ for $2p-1$ integers $a_1,\dots,a_{2p-1}$: apply the theorem to $\sum a_ix_i^{p-1}$ and $\sum x_i^{p-1}$ in $2p-1$ variables (degree sum $2p-2$, common zero $0$). A nonzero common zero has $|\{i:x_i\ne0\}|\equiv0\pmod p$, so exactly $p$ nonzero coordinates, and the corresponding $a_i$ sum to $0$ mod $p$.
+
+\problem{2}
+\hint{1} Let $|K|=q$ and work in the field $L=K[X]/(f)\cong\mathbb{F}_{q^n}$ with $\alpha$ the class of $X$. You must show $g(\alpha)=1$.
+\hint{2} The map $h\mapsto h(\alpha)$ is a bijection from polynomials of degree $\le n-1$ onto $L$, and it sends the constants onto $K$. So $g(\alpha)=\prod_{\beta\in L\setminus K}\beta=\prod_{L^*}\beta\,\big/\prod_{K^*}\beta$.
+\hint{3} By Wilson's theorem in a finite field, the product of all nonzero elements is $-1$ in both $L$ and $K$.
+
+\problem{3}
+\subpart{a}
+\hint{1} Put $Y=X^q-X$. Then $Y^q-Y=\prod_{c\in K}(Y-c)=\prod_{c\in K}(X^q-X-c)$, and $f_a$ is the factor with $c=-a$.
+\subpart{b}
+\hint{1} $f_a'=-1$, so $f_a$ has $q$ distinct roots in its splitting field; if $\theta$ is one, the roots are $\theta+c$, $c\in K$.
+\hint{2} The degree of the irreducible factor through $\theta$ is the size of the orbit of $\theta$ under $\sigma(u)=u^q$. Here $\sigma(\theta)=\theta^q=\theta-a$, so $\sigma^k(\theta)=\theta-ka$.
+\hint{3} For $a\ne0$ the orbit has exactly $p$ elements, so $f_a$ is a product of $q/p=p^{n-1}$ distinct irreducible factors of degree $p$; for $a=0$ it splits into $q$ linear factors.
+
+\problem{4}
+\hint{1} If $1+1=0$, the Frobenius $u\mapsto u^2$ is a bijection of $K$, so every coefficient is a square: $f(X^2)=\bigl(\sum b_iX^i\bigr)^2$ with $b_i^2=a_i$.
+\hint{2} Conversely, for odd $q=|K|$ you need some $f$ of degree $>1$ with $f(X^2)$ irreducible. If $f$ is irreducible with root $\beta$ and $\beta$ is not a square in $K(\beta)$, then $X^2-\beta$ is irreducible over $K(\beta)$, so a root of $f(X^2)$ has degree $2\deg f$ over $K$.
+\hint{3} Take $\beta$ a generator of $\mathbb{F}_{q^2}^*$: it is not in $K$, so its minimal polynomial $f$ has degree $2$, and it is not a square because $q^2-1$ is even.
+
+\problem{5}
+\hint{1} There are $q-1$ coefficients, nonzero and pairwise distinct, so they are exactly the elements of $K^*$ in some order. Is $0$ a root? Which $q-2$ roots can occur?
+\hint{2} $0$ is not a root, so the roots are $K^*\setminus\{s\}$ and $P=a\cdot\frac{X^{q-1}-1}{X-s}=a\,(X^{q-2}+sX^{q-3}+\dots+s^{q-2})$, using $s^{q-1}=1$.
+\hint{3} The coefficients $a,as,\dots,as^{q-2}$ are pairwise distinct iff $s$ generates $K^*$. Answer: $(q-1)\,\varphi(q-1)$.
+
+\problem{6}
+\hint{1} Let $\phi(x)=x^p$, an $\mathbb{F}_p$-linear map of $K$. Then $f_m(x)=(\phi-1)^m(x)$, so $f_m(x)=f_1(f_{m-1}(x))$ and the roots of $f_m$ form the kernel $V_m$ of $(\phi-1)^m$, an $\mathbb{F}_p$-subspace. Roots of $f_1=X^p-X$: exactly $\mathbb{F}_p$.
+\hint{2} In characteristic $p$, $(\phi-1)^{p^j}=\phi^{p^j}-1$, so $f_{p^j}=X^{p^{p^j}}-X$ and its roots in $K$ form the subfield $\mathbb{F}_{p^{\gcd(n,p^j)}}$. Let $p^s$ be the largest power of $p$ dividing $n$ and $L=\mathbb{F}_{p^{p^s}}\subseteq K$. Then every $V_m\subseteq L$, and $V_m=L$ for $m\ge p^s$.
+\hint{3} On $L$, $N=\phi-1$ satisfies $N^{p^s}=0$ and $\dim\ker N=1$; a nilpotent map with one-dimensional kernel is a single Jordan block, so $\dim V_m=\min(m,p^s)$. Answer: the roots of $f_m$ form the $\mathbb{F}_p$-subspace $V_m=\{x: f_{m-1}(x)\in\mathbb{F}_p\}$ of $L$ with $p^{\min(m,p^s)}$ elements, which is all of $L$ once $m\ge p^s$.
+
+\problem{7}
+\hint{1} Over $\mathbb{F}_2$ a polynomial of degree $2$ or $3$ is irreducible iff it has no root, i.e.\ constant term $1$ and an odd number of terms. This gives $x^2+x+1$, $x^3+x+1$, $x^3+x^2+1$.
+\hint{2} For degree $6$ use $\frac1n\sum_{d\mid n}\mu(d)2^{n/d}$: $\frac16(2^6-2^3-2^2+2)=9$.
+
+\problem{8}
+\hint{1} Run the Euclidean algorithm in $\mathbb{F}_7[x]$ (normalize leading coefficients using inverses mod $7$).
+\hint{2} The gcd is $x^2+2$: indeed $4x^4-2x^2+1=(x^2+2)(4x^2+4)$ and $-3x^3+4x^2+x+1=(x^2+2)(-3x+4)$ in $\mathbb{F}_7[x]$, and the cofactors are coprime.
+
+\problem{9}
+\hint{1} The field must have at least $2022$ elements; the smallest prime power $\ge2022$ is $2027$ (a prime). Can it be achieved, given that in characteristic $0$ only $c(x-a)^n$ is divisible by its derivative?
+\hint{2} In characteristic $p$, $p$-th powers have zero derivative. For $U\in\mathbb{F}_p[X]$, $(U^p)'=0$.
+\hint{3} With $p=2027$ take $f=(X-a)\,U(X)^p$ where $U$ has $2021$ distinct roots in $\mathbb{F}_p$ other than $a$: then $f'=U^p$ divides $f$, and $f$ has exactly $2022$ roots. Answer: $2027$.
+
+\problem{10}
+\hint{1} Use the Taylor expansion $h(x+t)=h(x)+t\,h'(x)+t^2(\dots)$ with an integer-coefficient remainder (the numbers $h^{(j)}/j!$ have integer coefficients).
+\hint{2} From the hypothesis: $h$ is a permutation mod $p$ (values mod $p$ depend only on $x$ mod $p$, and each residue mod $p$ must be hit), and $p\nmid h'(x)$ for all $x$, since otherwise $h(x+p)\equiv h(x)+ph'(x)\equiv h(x)\pmod{p^2}$.
+\hint{3} If $h(x)\equiv h(y)\pmod{p^3}$ with $0\le x,y<p^3$, then $x\equiv y\pmod{p^2}$ (as $h$ mod $p^2$ has period $p^2$). Write $y=x+kp^2$: $h(y)\equiv h(x)+kp^2h'(x)\pmod{p^3}$, so $p\mid k$.
+
+\end{document}
