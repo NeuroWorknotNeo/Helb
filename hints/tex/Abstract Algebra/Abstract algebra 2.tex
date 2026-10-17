@@ -1,0 +1,34 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Abstract algebra -- 2. Finite rings and division rings}{Class work}
+
+\problem{1}
+\subpart{a}
+\hint{1} In a finite ring, $s_a$ is injective iff it is surjective, i.e.\ iff $ab=1$ for some $b$. So it is enough to show that a one-sided inverse in a finite ring is two-sided.
+\hint{2} If $ab=1$, then $s_b$ is injective ($bx=0\Rightarrow x=abx=0$), hence surjective, so $bc=1$ for some $c$. Then $a=a(bc)=(ab)c=c$. So $a$ is a unit and $d_a$ is injective too. The converse is symmetric.
+\subpart{b}
+\hint{1} The ring must be infinite. Take the endomorphisms of the space of real sequences, with the right shift $S(x_1,x_2,\dots)=(0,x_1,x_2,\dots)$ and the left shift $T$, so that $TS=1\ne ST$.
+\hint{2} For $b=S$: $s_S$ is injective because $S$ is injective, but $d_S$ is not, since $(1-ST)S=S-S(TS)=0$ while $1-ST\ne0$.
+
+\problem{2}
+\hint{1} The hypothesis says $ab^2=b$. Show by induction that $ab^{k+1}=b^k$, and hence $a^kb^{k+1}=b$, for all $k\ge1$. Since $A$ is finite, the powers of $b$ are eventually periodic: there is $N\ge2$ with $b^{2N}=b^N$.
+\hint{2} Show $b=b^{N+1}$: $b=a^Nb^{N+1}=a^Nb^{2N+1}=(a^Nb^{N+1})b^N=b\cdot b^N$. So $e=b^N$ is an idempotent with $eb=be=b$.
+\hint{3} Multiply $ab^2=b$ on the right by $b^{2N-2}$ to get $ae=b^{2N-1}$, so $ab=aeb=b^{2N}=e$. Then $b(ab-1)=be-b=0$.
+
+\problem{3}
+\hint{1} Expand $(x+x)^2=x+x$ and $(x+y)^2=x+y$, as in the theoretical minimum.
+\hint{2} Characteristic $2$ makes $(A,+)$ an $\mathbb F_2$-vector space, so a finite Boolean ring has $2^k$ elements. Conversely, $\mathbb F_2^k$ with coordinatewise operations is Boolean, and you can transport its structure to any set with $2^k$ elements along a bijection.
+\hint{3} For $\mathbb N_0$, find a \emph{countably infinite} Boolean ring with unit and transport its structure along a bijection. The finite subsets of $\mathbb N$ under $\triangle,\cap$ have no unit, but the finite-or-cofinite subsets of $\mathbb N$ do (the unit is $\mathbb N$).
+
+\problem{4}
+\note{For a non-commutative ring the map $x\mapsto x^p$ need not be additive: in $M_2(\mathbb F_2)$, $(E_{12}+E_{21})^2=I\ne0=E_{12}^2+E_{21}^2$. The hints assume $A$ is commutative.}
+\hint{1} $p\cdot1=0$ makes $(A,+)$ an $\mathbb F_p$-vector space, so $|A|=p^k$. Additivity of $x\mapsto x^p$: expand by the binomial theorem and use $p\mid\binom pi$ for $0<i<p$.
+\hint{2} The nilpotent elements form an additive subgroup $N$. For closure under addition, use the binomial theorem or the Frobenius: $(x+y)^{p^m}=x^{p^m}+y^{p^m}$. Also $1\notin N$, so $N$ is a proper subgroup of $(A,+)$.
+\hint{3} By Lagrange, $|N|$ divides $p^k$ and is less than $p^k$, so $|N|\le p^{k-1}=|A|/p$.
+
+\problem{5}
+\hint{1} For each $a$, the sequence $a,a^2,a^3,\dots$ takes values in a finite set, so it is eventually periodic: $a^{p_a+t_a}=a^{p_a}$ for some $p_a\ge1$, $t_a\ge1$. Then $a^{q+t}=a^{q}$ for all $q\ge p_a$ and all multiples $t$ of $t_a$.
+\hint{2} Take $p=\max_a p_a$, $t=\operatorname{lcm}_a t_a$ and $m=p+t$.
+
+\end{document}

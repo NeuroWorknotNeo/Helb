@@ -1,0 +1,62 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Abstract algebra -- 2. Finite rings and division rings}{Homework}
+
+\problem{1}
+\hint{1} Put $u=(1-ab)^{-1}$ and simply multiply out $(1-ba)(1+bua)=1-ba+b(1-ab)ua$, and the same on the other side.
+\hint{2} $(ba)^{k+1}=b(ab)^ka$ gives the nilpotency statement. For the example take $E_{12}$ and $E_{21}$ in $M_2(\mathbb R)$: their sum squares to $I$.
+
+\problem{2}
+\note{The zero element must be counted among the zero divisors, i.e.\ zero divisors here means non-units. Otherwise $\mathbb Z/4$ is a counterexample: it has $2$ nilpotents and only $1$ non-zero zero divisor.}
+\subpart{a}
+\hint{1} If $x^a=0$ and $y^b=0$, expand $(x+y)^{a+b}$ by the binomial theorem (the ring is commutative). Products are easy.
+\subpart{b}
+\hint{1} In a finite ring the zero divisors are exactly the non-units. Show that the set $D$ of non-units is a union of cosets $d+N$ of the additive subgroup $N$ of nilpotents.
+\hint{2} If $d+n$ were a unit $u$ with $n\in N$, then $d=u-n=u(1-u^{-1}n)$ would be a unit, because $1-$(nilpotent) is a unit. So $|N|$ divides $|D|$.
+
+\problem{3}
+\note{The statement is false if ``characteristic zero'' only means $n\cdot1\ne0$ for all $n$. In $\mathbb Z\times\mathbb F_2$ the idempotents $e=f=(0,1)$, $g=0$ satisfy $e+f+g=0$. The hints assume that $R$ has no additive torsion ($nx=0$ with $n\ne0$ implies $x=0$), which is the intended meaning.}
+\hint{1} Square $e+f=-g$: you get $ef+fe=-2(e+f)$. Multiply this identity by $e$ on the left, and separately on the right.
+\hint{2} The two products give $efe=-2e-3ef=-2e-3fe$, hence $ef=fe$. Then $2ef=-2e-2f$; multiplying by $e$ and by $f$ gives $4ef=-2e=-2f$.
+\hint{3} So $e=f$, and by symmetry $e=f=g$. Then $3e=0$ gives $e=0$.
+
+\problem{4}
+\hint{1} The element $e=x^{n-1}$ is an idempotent with $ex=xe=x$. In the corner ring $eRe$ the element $x$ is invertible (with inverse $x^{n-2}$, or $e$ if $n=2$).
+\hint{2} For $m\ge2$, try $u_m=x^{m-1}+(1-e)$. Then $u_mx=x^m$, because $(1-e)x=0$.
+\hint{3} Its inverse is $x^k+(1-e)$, where $k\ge1$ is chosen so that $m-1+k$ is a multiple of $n-1$; then $x^{m-1+k}=e$. The cross terms vanish because $x(1-e)=(1-e)x=0$. For $m=1$ take $u_1=1$.
+
+\problem{5}
+\hint{1} Let $S$ be the sum of all elements. Pairing $x$ with $-x$ shows $2S=0$. If $S$ is invertible, then $2=2S\cdot S^{-1}=0$, so the characteristic is $2$.
+\hint{2} Then $(A,+)\cong(\mathbb Z/2)^k$. The sum of all vectors of $\mathbb F_2^k$ is $0$ for $k\ge2$. Hence $|A|=2$, $A\cong\mathbb Z/2$, and there $S=1$ is invertible.
+
+\problem{6}
+\hint{1} $(1+1)^2\in\{0,1\}$, so $4=0$ or $3=0$. In the case $3=0$, test $(a+1)^2=a^2+2a+1$ against $a^2\in\{0,1\}$; you should get $A=\{0,1,-1\}=\mathbb F_3$.
+\hint{2} Now let $4=0$ and $N=\{a:a^2=0\}$. Show $N$ is a two-sided ideal. (i) If $(na)^2=1$ or $(an)^2=1$ for some $n\in N$, then $n$ has a one-sided inverse, which is impossible when $n^2=0$. (ii) If $a,b\in N$ and $ab+ba=(a+b)^2=1$, then $(ab)^2=ab$ with $ab\in N$, so $ab=0$ and likewise $ba=0$.
+\hint{3} Every $a\notin N$ has $a^2=1$, so $A/N$ is a division ring in which $x^2=1$ for all $x\ne0$. Hence $A/N\in\{\mathbb F_2,\mathbb F_3\}$, and $\mathbb F_3$ was the first case.
+\hint{4} Answer: $A\cong\mathbb F_3$, or $A$ has a two-sided ideal $N$ with $A/N\cong\mathbb F_2$ such that $n^2=0$ and $2n=0$ for every $n\in N$. (Check the converse from $(1+n)^2=1+2n$ and $(n+m)^2=0$.) Examples are $\mathbb F_2$, $\mathbb Z/4$, $\mathbb F_2[X]/(X^2)$ and $\mathbb F_2[X,Y]/(X,Y)^2$.
+
+\problem{7}
+\hint{1} Squares are central, so $(x+1)^2-x^2-1=2x$ is central for every $x$. If $\operatorname{char}K\ne2$, divide by $2$.
+\hint{2} In characteristic $2$, suppose $xy\ne yx$. Then $c=xy+yx=(x+y)^2-x^2-y^2$ is central and non-zero. Compute $(xy)^2$ using $xyx=cx+x^2y$.
+\hint{3} You get $(xy)^2=c\,xy+x^2y^2$. Hence $c\,xy$, and so $xy$, is central. In particular $x$ commutes with $xy$, which gives $xy=yx$, a contradiction.
+
+\problem{8}
+\hint{1} If $A$ is a field with $q=2n+1$ elements, then $x^q=x$, and for $k<q$ the polynomial $X^k-X$ has fewer than $q$ roots. So $\min M=q$.
+\hint{2} Conversely, $x^k=x$ for all $x$ implies there are no non-zero nilpotents. In a reduced ring idempotents are central: $(er(1-e))^2=0$. So $A$ splits as $eA\times(1-e)A$. Iterate until no non-trivial idempotents are left.
+\hint{3} A finite factor with no non-trivial idempotents, satisfying $x^{k}=x$, is a division ring ($x^{k-1}$ is an idempotent, hence $0$ or $1$), hence a field by Wedderburn. So $A\cong\mathbb F_{q_1}\times\dots\times\mathbb F_{q_r}$ with all $q_i$ odd.
+\hint{4} If $r\ge2$, then $k=\operatorname{lcm}(q_i-1)+1\le\prod(q_i-1)+1<\prod q_i=2n+1$ lies in $M$. So $\min M=2n+1$ forces $r=1$.
+
+\problem{9}
+\hint{1} In a field, $x^d=1$ has at most $d$ solutions. Let $\psi(d)$ be the number of elements of order $d$ in $\mathbb F_q^*$. If $\psi(d)>0$, these elements all lie in one cyclic group of order $d$, so $\psi(d)\le\varphi(d)$.
+\hint{2} $\sum_{d\mid q-1}\psi(d)=q-1=\sum_{d\mid q-1}\varphi(d)$ forces $\psi(d)=\varphi(d)$ for all $d$, in particular $\psi(q-1)>0$. In a cyclic group of order $q-1$, $x^d=1$ has exactly $d$ solutions when $d\mid q-1$.
+\hint{3} For the sum: if $q>2$, take a generator $g\ne1$. Then $\sum_{x\ne0}x=\sum_{i=0}^{q-2}g^i=\frac{g^{q-1}-1}{g-1}=0$.
+
+\problem{10}
+\subpart{a}
+\hint{1} If $u=ef$ is a unit with $e,f$ idempotent, then $e$ has a right inverse $fu^{-1}$. An idempotent with a right inverse equals $1$: $e=e\cdot e(fu^{-1})=e(fu^{-1})=1$. Similarly $f=1$.
+\subpart{b}
+\hint{1} By (a), $-1=1$. If $a^2=0$, then $1+a$ is a unit, so $1+a=1$. Thus $A$ has no non-zero elements of square zero.
+\hint{2} Then every idempotent is central: $(er(1-e))^2=0$ and $((1-e)re)^2=0$. So for $x=ef$ with $e,f$ commuting idempotents, $x^2=e^2f^2=ef=x$.
+
+\end{document}

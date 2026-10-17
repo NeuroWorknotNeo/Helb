@@ -1,0 +1,55 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Abstract algebra -- 3. Permutations}{Homework}
+
+\problem{1}
+\hint{1} For $n=4$: the Klein four-group $V=\{\mathrm{id},(12)(34),(13)(24),(14)(23)\}$ is normal in $S_4$ and $S_4/V\cong S_3$. Take $\pi_1=(12)(34)$. The image of $\langle\pi_1,\pi_2\rangle$ in $S_3$ is cyclic, so it is not all of $S_3$.
+\hint{2} For $n=3$ and $n=5$ it suffices to treat one representative of each cycle type, since conjugating $\pi_1$ and $\pi_2$ together preserves the property. Useful tools: a transposition and an $n$-cycle on adjacent points generate $S_n$ (with $n$ prime even any transposition works), and an even and an odd permutation cannot generate a subgroup of $A_n$.
+\hint{3} Partners in $S_5$ that work: $(12)$ with $(2345)$; $(123)$ with $(2345)$; $(1234)$ with $(45)$; $(12345)$ with $(45)$; $(12)(34)$ with $(2354)$; $(123)(45)$ with $(34)$. To check each one, find a transposition and a $5$-cycle in the generated group, or count orders. In $S_3$, pair a transposition with a $3$-cycle.
+
+\problem{2}
+\hint{1} Make a graph on $\{1,\dots,n\}$ with an edge $\{i,j\}$ for each generating transposition $(ij)$. Show that $S(k)$ is exactly the connected component of $k$.
+\hint{2} A graph with $n$ vertices and $n-2$ edges is not connected (a connected graph needs at least $n-1$ edges), so every component has at most $n-1$ vertices.
+
+\problem{3}
+\hint{1} Count fixed points over the whole group. Let $m=|G|>1$. Every non-identity element fixes exactly one point, so the stabilisers $G_x$ intersect pairwise trivially, and the non-identity elements are partitioned according to their fixed point.
+\hint{2} For an orbit $O$ with stabiliser order $t_O$, the number of non-identity elements fixing some point of $O$ is $|O|(t_O-1)=m-m/t_O$. Summing over orbits gives $m-1=\sum_O m(1-1/t_O)$.
+\hint{3} Each orbit with $t_O\ge2$ contributes at least $m/2$, so exactly one orbit has $t_O>1$. Then $m-1=m-m/t_O$ gives $t_O=m$: that orbit is a single point fixed by all of $G$.
+
+\problem{4}
+\hint{1} Use the generating function $\sum_\pi x^{\operatorname{inv}(\pi)}=\prod_{k=1}^n(1+x+\dots+x^{k-1})$ and the roots-of-unity filter with $\zeta=e^{2\pi i/p}$, $n=p-1$.
+\hint{2} For $p\nmid j$, $F(\zeta^j)=\prod_{k=1}^{p-1}\frac{1-\zeta^{jk}}{1-\zeta^j}=\frac{p}{(1-\zeta^j)^{p-1}}$. Hence $f(p-1)-\frac{(p-1)!}p=\sum_{j=1}^{p-1}(1-\zeta^j)^{-(p-1)}$.
+\hint{3} Write $1-\zeta^j=-2i\sin(\pi j/p)e^{i\pi j/p}$. The terms $j=1$ and $j=p-1$ dominate, and their sum is $(-1)^{(p+1)/2}\,2\cos(\pi/p)/(2\sin(\pi/p))^{p-1}$. The others are smaller by a factor of roughly $(2\cos(\pi/p))^{-(p-1)}$.
+\hint{4} So the difference is positive for $p\equiv3\pmod4$ and negative for $p\equiv1\pmod4$ (check: $p=7$ gives $107>102.86$, $p=5$ gives $4<4.8$). There are infinitely many primes in each class.
+
+\problem{5}
+\hint{1} An $n$-cycle has sign $(-1)^{n-1}$. For odd $n$, two $n$-cycles generate a subgroup of $A_n$, which is not $S_n$ (except for the degenerate case $n=1$).
+\hint{2} For even $n$ (for $n=2$ it is trivial) take $c_1=(1\,2\,\dots\,n)$ and $c_2=c_1(1\,2\,3)$. Check that $c_2=(1\,3\,2\,4\,5\dots n)$ is again an $n$-cycle.
+\hint{3} The group $\langle c_1,c_2\rangle$ contains $(123)$ and its conjugates by powers of $c_1$, i.e.\ all $(k,k+1,k+2)$, which generate $A_n$. Since $c_1$ is odd, the group is $S_n$. Answer: all even $n$ (and $n=1$ trivially).
+
+\problem{6}
+\hint{1} $n$ pairwise different cyclic shifts are all the cyclic shifts. Up to a row permutation (a sign), the matrix is the circulant $C$ with first row $a_1,\dots,a_n$.
+\hint{2} $\det C=\prod_{j=0}^{n-1}f(\omega^j)$, where $f(z)=\sum_k a_kz^{k-1}$ and $\omega=e^{2\pi i/n}$ (the vectors $(1,\omega^j,\omega^{2j},\dots)$ are eigenvectors). For $j=0$ the factor is $\sum a_k=\frac n2(a_1+a_n)$.
+\hint{3} For $z=\omega^j\ne1$ and $a_k=a_1+(k-1)d$: $f(z)=d\sum_{m=0}^{n-1}mz^m=\frac{dn}{z-1}\ne0$ because $d\ne0$.
+
+\problem{7}
+\hint{1} Think of $\pi(1),\dots,\pi(n)$ as a walk visiting every value once with steps of size at most $2$. Let $a_n$ be the number of such walks starting at the value $1$. Show $a_n=a_{n-1}+a_{n-3}+1$ (after $1$ comes $2$; or $3,2,4$; or the walk $1,3,5,\dots$ up the odd numbers and back down the even ones).
+\hint{2} If $1$ is interior, its neighbours are $2$ and $3$, and from $1$ the two branches are forced to go $2,4,6,\dots$ and $3,5,7,\dots$ until one of them stops at some value $m\in\{2,\dots,n-1\}$. After that, the rest is a walk on $\{m+1,\dots,n\}$ starting at $m+1$. Deduce, for $n\ge2$, $P_n=2\bigl(a_n+a_1+a_2+\dots+a_{n-2}\bigr)$.
+\hint{3} Plug this in and use the recurrence for $a_n$ twice. The quantity equals $4$ for all $n\ge2$ (e.g.\ $P=1,2,6,12,20,34,56,88,\dots$).
+
+\problem{8}
+\hint{1} Look for a choice that makes $x_kx_{k+1}$ telescope modulo $p$, like $\frac1k-\frac1{k+1}=\frac1{k(k+1)}$.
+\hint{2} Take $x_k\equiv k^{-1}\pmod p$, which is a permutation of $1,\dots,p-1$. Then the sum is $\sum_{k=1}^{p-2}\bigl(\frac1k-\frac1{k+1}\bigr)=1-\frac1{p-1}\equiv1-(-1)=2$.
+
+\problem{9}
+\hint{1} Following the hint, $\det\bigl(x^{|i-j|}\bigr)=\sum_\sigma\operatorname{sgn}(\sigma)x^{D(\sigma)}$. Compute this determinant in closed form.
+\hint{2} Subtract $x$ times row $i$ from row $i+1$ (going from the bottom up). Below the diagonal everything vanishes, and you get $\det=(1-x^2)^{n-1}$, a polynomial of degree $2n-2$.
+\hint{3} Reduce modulo $2$, where signs disappear: $\sum_dQ(n,d)x^d\equiv(1-x^2)^{n-1}\pmod2$. So $Q(n,d)$ is even for every $d>2n-2$.
+
+\problem{10}
+\hint{1} A term $\prod_i m_{i\sigma(i)}$ of $\operatorname{per}(J-I)$ is $1$ exactly when $\sigma$ has no fixed points, and $0$ otherwise.
+\hint{2} Write each row of $J-I$ as (row of ones) $-\,e_i$ and expand multilinearly, as one does for determinants. Choosing $e_i$ in the rows of a set $S$ forces $\sigma$ to fix $S$, and leaves $\operatorname{per}=(n-|S|)!$. So $D_n=\sum_k(-1)^k\binom nk(n-k)!$.
+\hint{3} If $\sigma(i)=j$ and $\sigma(l)=k$, let $\tau$ be $\sigma$ with these two values swapped. Then $P_\sigma-P_\tau=E_{ij}+E_{lk}-E_{ik}-E_{lj}$. These ``rectangles'' span the matrices with all line sums $0$, of dimension $(n-1)^2$; adding $I$ gives every matrix with equal row and column sums.
+
+\end{document}

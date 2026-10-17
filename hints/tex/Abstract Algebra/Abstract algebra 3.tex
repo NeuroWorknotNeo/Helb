@@ -1,0 +1,31 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Abstract algebra -- 3. Permutations}{Class work}
+
+\problem{1}
+\hint{1} The cycles of $\sigma$ are forced: they are the orbits of $\langle\sigma\rangle$, and on each orbit $\sigma$ acts as one cycle. Disjoint cycles commute, so $\sigma^k=\mathrm{id}$ iff $c^k=\mathrm{id}$ for every cycle $c$, i.e.\ iff every cycle length divides $k$.
+\hint{2} Conjugacy: $\tau(i_1\dots i_k)\tau^{-1}=(\tau(i_1)\dots\tau(i_k))$. So conjugate permutations have the same cycle type. Conversely, two permutations of the same type are conjugate by the $\tau$ that sends one cycle to the other, cycle by cycle.
+\hint{3} The largest order in $S_n$ is $g(n)=\max\operatorname{lcm}(\lambda_1,\dots,\lambda_k)$ over partitions of $n$. You may assume the parts are prime powers with distinct primes. For $n=10$ the maximum is $2\cdot3\cdot5=30$. For large $n$, $\ln g(n)\sim\sqrt{n\ln n}$ (Landau): use primes up to about $\sqrt{n\ln n}$.
+
+\problem{2}
+\hint{1} Show that multiplying $\sigma$ by a transposition $(ab)$ changes the number of cycles by exactly $\pm1$: it merges the two cycles if $a,b$ lie in different cycles and splits the cycle if they lie in the same one. It also changes the parity of $\operatorname{inv}$: an adjacent swap changes $\operatorname{inv}$ by $\pm1$, and any transposition is a product of an odd number of adjacent swaps.
+\hint{2} Write $\sigma$ as a product of transpositions starting from $\mathrm{id}$. Both $(-1)^{\operatorname{inv}}$ and $(-1)^{n-c}$ flip at every step, so they agree. The second is clearly multiplicative: a product of $k$ transpositions has sign $(-1)^k$, so the sign is a homomorphism.
+\hint{3} The reversal $k\mapsto n+1-k$ has all $\binom n2$ pairs as inversions, so its sign is $(-1)^{n(n-1)/2}$. This is $+1$ iff $n\equiv0,1\pmod4$.
+
+\problem{3}
+\hint{1} $\pi$ fixes $0$, and $\mathbb F_p^*$ is cyclic of order $n=p-1$ (generator $g$). Writing $x=g^k$, the permutation becomes $k\mapsto3k$ on $\mathbb Z/n$, which is a bijection because $3\nmid n$.
+\hint{2} Use the Chinese remainder theorem: $\mathbb Z/n\cong\mathbb Z/2^a\times\mathbb Z/m$ with $m$ odd, and multiplication by $3$ acts on each factor. For $\sigma\times\tau$ acting on $X\times Y$, $\operatorname{sgn}=\operatorname{sgn}(\sigma)^{|Y|}\operatorname{sgn}(\tau)^{|X|}$. So the sign is that of $k\mapsto3k$ on $\mathbb Z/2^a$.
+\hint{3} If $a=1$ (that is, $p\equiv3\pmod4$), this map is the identity on $\mathbb Z/2$: even. If $a\ge2$, count its cycles using $\operatorname{ord}_{2^j}(3)$ ($=1,1,2$ for $j=0,1,2$ and $2^{j-2}$ for $j\ge3$): there are $3+2(a-2)$ cycles, so $2^a-c$ is odd and the map is odd.
+
+\problem{4}
+\hint{1} Write $\frac1{\nu+1}=\int_0^1x^{\nu}\,dx$. Then the sum is $\int_0^1\sum_\pi\sigma(\pi)x^{\nu(\pi)}\,dx$.
+\hint{2} $\sum_\pi\sigma(\pi)x^{\nu(\pi)}$ is the determinant of the matrix with $x$ on the diagonal and $1$ elsewhere, i.e.\ $\det((x-1)I+J)=(x-1)^{n-1}(x-1+n)$ (the eigenvalues of $J$ are $n,0,\dots,0$).
+\hint{3} Integrate $(x-1)^n+n(x-1)^{n-1}$ from $0$ to $1$.
+
+\problem{5}
+\hint{1} Use linearity of expectation with indicators: $k$ is fixed with probability $1/n$. For cycles, build $\sigma$ by the ``closing a cycle'' construction (or count): the $k$-th step closes a cycle with probability $1/k$, so the expectation is $H_n$.
+\hint{2} Derangements by inclusion--exclusion: $D_n/n!=\sum_{k=0}^n(-1)^k/k!\to e^{-1}$.
+\hint{3} Local maxima: an end position is a local maximum with probability $1/2$, an interior one with probability $1/3$ (the largest of three random values). For $n\ge2$ the answer is $2\cdot\frac12+\frac{n-2}3=\frac{n+1}3$.
+
+\end{document}
