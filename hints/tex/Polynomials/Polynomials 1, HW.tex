@@ -1,0 +1,57 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Polynomials -- 1. Roots, multiplicity and the derivative}{Homework}
+
+\problem{1}
+\hint{1} The roots of $f(2x)$ are $x_1/2,x_2/2,x_3/2$, and $f'$ divides $f(2x)$, so (after renumbering) $f'(x)=3\bigl(x-\frac{x_1}2\bigr)\bigl(x-\frac{x_2}2\bigr)$ for monic $f$.
+\hint{2} Compare with $f'(x)=3x^2-2(x_1+x_2+x_3)x+(x_1x_2+x_1x_3+x_2x_3)$: the sum gives $x_1+x_2=-4x_3$, and the product then gives $x_1x_2=16x_3^2$.
+\hint{3} So $x_1,x_2$ are the roots of $t^2+4x_3t+16x_3^2$, i.e.\ $x_{1,2}=4\omega^{\pm1}x_3$ with $\omega=e^{2\pi i/3}$. The ratios are $x_1:x_2:x_3=4\omega:4\omega^2:1$ (apart from the trivial case $f=x^3$).
+
+\problem{2}
+\hint{1} Angles $A,B,C\in(0,\pi)$ form a triangle iff $A+B+C=\pi$. Find a polynomial identity in $\cos A,\cos B,\cos C$ expressing this.
+\hint{2} If $A+B+C=\pi$ then $\cos^2A+\cos^2B+\cos^2C+2\cos A\cos B\cos C=1$. With $u+v+w=-p$, $uv+vw+wu=q$, $uvw=-r$ this reads $p^2-2q-2r=1$.
+\hint{3} Sufficiency: if $u,v,w>0$ satisfy $u^2+v^2+w^2+2uvw=1$ then $u,v<1$; write $u=\cos A$, $v=\cos B$ with $A,B\in(0,\pi/2)$ and solve the quadratic for $w$: its roots are $-\cos(A+B)$ and $-\cos(A-B)<0$. So $w=\cos(\pi-A-B)$ and $C=\pi-A-B$ works. Answer: $p^2-2q-2r=1$.
+
+\problem{3}
+\hint{1} Translate $a^2d=c^2$ into the roots: $a=-e_1$, $c=-e_3$, $d=e_4$. Since $d\ne0$ no root is zero, and $r_1/r_2=r_3/r_4$ means $r_1r_4=r_2r_3$.
+\hint{2} The polynomial $e_3^2-e_1^2e_4$ in $r_1,\dots,r_4$ has degree $6$ and vanishes whenever the products over some pairing into two pairs coincide. Guess and verify a factorization.
+\hint{3} $e_3^2-e_1^2e_4=-(r_1r_2-r_3r_4)(r_1r_3-r_2r_4)(r_1r_4-r_2r_3)$. If it vanishes, one factor vanishes; renumber.
+
+\problem{4}
+\hint{1} The condition $\sum\frac{a_k}{k+1}=0$ is the value at $1$ of an antiderivative of the polynomial.
+\hint{2} $F(x)=\sum_k\frac{a_k}{k+1}x^{k+1}$ satisfies $F(0)=F(1)=0$; apply Rolle's theorem to get a root of $F'$ in $(0,1)$.
+
+\problem{5}
+\hint{1} Both recurrences have the form $Q_{n+1}=Q_n+c_n\,x\,Q_{n-1}$ with $c_n>0$ and $c_n\to\infty$. Note $Q_n(0)=1$ and all coefficients are positive, so real roots are negative.
+\hint{2} Monotonicity by induction: if $x_{n-1}<x_n$ then $Q_{n-1}>0$ on $(x_{n-1},\infty)$, so $Q_{n+1}(x_n)=c_nx_nQ_{n-1}(x_n)<0<Q_{n+1}(0)$. Hence $Q_{n+1}$ has a real root in $(x_n,0)$ and $x_{n+1}>x_n$. Start with $x_1=-1$, $x_2=-\frac12$.
+\hint{3} So $x_n\uparrow L\le0$. If $L<0$, fix $x\in(L,0)$: all $Q_n(x)>0$, and $Q_{n+1}(x)=Q_n(x)-c_n|x|Q_{n-1}(x)<Q_n(x)$. Thus $Q_{n+1}(x)<Q_{n-1}(x)(1-c_n|x|)$, which is negative once $c_n|x|>1$, a contradiction.
+
+\problem{6}
+\hint{1} Try to factor $Q$ as a product of two expressions, each linear in $P$ and $P'$.
+\hint{2} $Q=(P+xP')(xP+P')$, and $P+xP'=(xP)'$, $xP+P'=e^{-x^2/2}\bigl(e^{x^2/2}P\bigr)'$.
+\hint{3} Let $1<r_1<\dots<r_N$ ($N\ge n$) be all the real roots of $P$ exceeding $1$. Rolle for $xP$ (roots $0,r_1,\dots,r_N$) gives a root of the first factor in $(0,r_1)$ and in each $(r_i,r_{i+1})$; Rolle for $e^{x^2/2}P$ gives a root of the second factor in each $(r_i,r_{i+1})$.
+\hint{4} A common root of the two factors satisfies $P'=-xP$ and $P=-xP'$, hence $(1-x^2)P=0$; in $(r_i,r_{i+1})$ neither is possible. So the roots found are distinct and there are at least $N+(N-1)\ge2n-1$ of them: the statement is true.
+
+\problem{7}
+\hint{1} Build the sequence inductively: given $p_n$ with $n$ distinct real roots, choose $a_{n+1}$ very small.
+\hint{2} Pick points $y_0<y_1<\dots<y_n$ separating the roots of $p_n$ (with $y_n$ beyond the largest root); $p_n$ alternates in sign on them. For $|a_{n+1}|$ small enough, $p_{n+1}=p_n+a_{n+1}x^{n+1}$ has the same signs at the $y_i$.
+\hint{3} Choose the sign of $a_{n+1}$ opposite to that of $p_n(y_n)$; then $p_{n+1}$ also changes sign on $(y_n,\infty)$, giving $n+1$ distinct real roots. Answer: yes.
+
+\problem{8}
+\hint{1} Rescale: put $y=\frac{a-x}a\in(0,1)$ (note $a>0$).
+\hint{2} The polynomial becomes $\frac{a^6y^2}2\,(2y^4-6y^3+5y^2-1)$. Check that $y=1$ is a root of the quartic, and of high multiplicity.
+\hint{3} $2y^4-6y^3+5y^2-1=(y-1)^2(2y^2-2y-1)$, and $2y^2-2y-1=2y(y-1)-1<0$ on $(0,1)$.
+
+\problem{9}
+\hint{1} Let $x\to\infty$ to get $|a|\le|A|$; by changing signs assume $A>0$. Split according to the sign of $B^2-4AC$.
+\hint{2} If $B^2-4AC>0$, the two distinct real roots of $Ax^2+Bx+C$ are roots of $ax^2+bx+c$, so $ax^2+bx+c=\frac aA(Ax^2+Bx+C)$ and the claim follows from $|a|\le A$.
+\hint{3} If $B^2-4AC\le0$ then $Ax^2+Bx+C\ge0$, so $(A\pm a)x^2+(B\pm b)x+(C\pm c)\ge0$ for all $x$, with $A\pm a\ge 0$. Their discriminants are $\le0$; adding the two inequalities gives $b^2-4ac\le4AC-B^2$.
+\hint{4} For the other inequality (only needed if $4ac-b^2>0$), evaluate at the vertex $x_0$ of $Ax^2+Bx+C$: $\frac{4ac-b^2}{4A}\le\frac{4ac-b^2}{4|a|}\le|ax_0^2+bx_0+c|\le\frac{4AC-B^2}{4A}$.
+
+\problem{10}
+\hint{1} Write the expression $F(x)$ as a double integral over the square $[1,x]^2$ in variables $s,t$.
+\hint{2} Symmetrizing in $s\leftrightarrow t$: $F(x)=\frac12\int_1^x\!\int_1^x\bigl(a(s)b(t)-a(t)b(s)\bigr)\bigl(c(s)d(t)-c(t)d(s)\bigr)\,ds\,dt$.
+\hint{3} Each bracket is a polynomial vanishing on $s=t$, hence divisible by $s-t$; the integrand is $(s-t)^2h(s,t)$. Substitute $s=1+(x-1)u$, $t=1+(x-1)v$ with $u,v\in[0,1]$: you get $(x-1)^4$ times a polynomial in $x$.
+
+\end{document}

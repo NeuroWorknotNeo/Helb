@@ -1,0 +1,55 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Differentiable functions -- 2}{Homework}
+
+\problem{1}
+\hint{1} The expression $\xi f'(\xi)-f(\xi)$ is the numerator of the derivative of $f(x)/x$. Use the multiplier $\frac1x$, adjusted so that the function vanishes at $a$ and $b$.
+\hint{2} Apply Rolle to $g(x)=\dfrac{f(x)-k}{x}$ on $[a,b]$: $g'(x)=\dfrac{xf'(x)-f(x)+k}{x^2}$.
+
+\problem{2}
+\hint{1} By Lagrange, the two difference quotients are $f'(c_1)$ and $g'(c_2)$ for some $c_1,c_2\in(a,b)$. Now study $h=f'g'$.
+\hint{2} $f'$ and $g'$ are increasing and positive, so $h$ is increasing, and if say $c_1\le c_2$ then $h(c_1)\le f'(c_1)g'(c_2)\le h(c_2)$.
+\hint{3} A monotone derivative is continuous (monotone functions have only jump discontinuities, and Darboux forbids jumps), so $h$ is continuous and the IVT on $[c_1,c_2]$ gives $c$.
+
+\problem{3}
+\hint{1} Note that $\frac\pi4=\int_0^1\frac{dx}{1+x^2}$, and compare $\frac1{1+x^2}$ with the two bounds.
+\hint{2} For $0<x<1$: $\frac1{1+x}<\frac1{1+x^2}<\frac1{2x}$. Since $\int_0^1\bigl(f(x)-\frac1{1+x^2}\bigr)dx=0$, the continuous function $f-\frac1{1+x^2}$ cannot have a constant strict sign on $(0,1)$, so it vanishes at some $x_0\in(0,1)$.
+
+\problem{4}
+\hint{1} Suppose that $f'\ge1+f^2$ everywhere on $(a,b)$, and look at $\arctan f$.
+\hint{2} Then $(\arctan f)'\ge1$, so by Lagrange $\arctan f(b)-\arctan f(a)\ge b-a\ge\pi$. This is impossible, because $\arctan$ takes values in $(-\frac\pi2,\frac\pi2)$.
+
+\problem{5}
+\subpart{a}
+\hint{1} The zeros have an accumulation point $c\in[a,b]$, and $f(c)=0$ by continuity.
+\hint{2} If $c\in(a,b)$, compute $f'(c)$ as the limit of difference quotients along zeros $x_n\to c$: it is $0$. This is forbidden, so $c\in\{a,b\}$.
+\subpart{b}
+\hint{1} Try $f(x)=x\sin\frac1x$ with $f(0)=0$. At its zeros $x=\frac1{k\pi}$ compute $f'(x)=\sin\frac1x-\frac1x\cos\frac1x=\pm k\pi\ne0$.
+
+\problem{6}
+\hint{1} The right-hand side involves only the odd part of $f$. Consider $g(x)=f(x)-f(-x)-2xf'(0)-cx^3$, where $c$ is chosen so that $g(1)=0$, i.e.\ $c=f(1)-f(-1)-2f'(0)$.
+\hint{2} $g$ is odd, and $g(0)=g(1)=0$, $g'(0)=0$. Apply Rolle three times, using $g'(0)=0$ and then $g''(0)=0$ (as $g''$ is odd), to get $\eta\in(0,1)$ with $g'''(\eta)=0$.
+\hint{3} This gives $\frac12\bigl(f'''(\eta)+f'''(-\eta)\bigr)=3c$, i.e.\ the average of $\frac{f'''(\pm\eta)}6$ equals the right-hand side. $f'''$ need not be continuous, so finish with Darboux' theorem for $f'''=(f'')'$ on $[-\eta,\eta]$.
+
+\problem{7}
+\hint{1} By Lagrange the left-hand side equals $f'(c)$ for some $c$. Compare $f'(c)$ with $f(c)+\frac{f'(c)^2}{4f(c)}$.
+\hint{2} AM--GM: $f+\frac{f'^2}{4f}\ge2\sqrt{\frac{f'^2}{4}}=|f'|\ge f'$.
+
+\problem{8}
+\note{As printed, the right-hand side is $\frac{f'(c_2)}{2c_1}$, which makes the claim trivial: take $c_1=c_2=\frac{a+b}2$. The intended statement is $\frac{f'(c_1)}{a+b}=\frac{f'(c_2)}{2c_2}$, and the hints follow it.}
+\hint{1} Write both sides as the same quantity built from $f(b)-f(a)$, using two different mean value theorems.
+\hint{2} Lagrange: $f'(c_1)=\frac{f(b)-f(a)}{b-a}$. Cauchy with $g(x)=x^2$: $\frac{f'(c_2)}{2c_2}=\frac{f(b)-f(a)}{b^2-a^2}$. Divide the first by $a+b$.
+
+\problem{9}
+\hint{1} Near $0$, $f''>0$, so $f'$ is increasing and negative. Note that $f$ itself may be unbounded (e.g.\ $f=-\ln x$), so split $f(x)=\bigl(f(x)-f(y)\bigr)+f(y)$ with a fixed small $y$.
+\hint{2} For $0<x<y$, Lagrange gives $f(x)-f(y)=-f'(\xi)(y-x)$ with $f'(x)\le f'(\xi)<0$, hence $\Bigl|\dfrac{f(x)-f(y)}{f'(x)}\Bigr|\le y-x<y$.
+\hint{3} Also $\dfrac{f(y)}{f'(x)}\to0$ as $x\to0^+$. Hence $\limsup_{x\to0^+}\bigl|f(x)/f'(x)\bigr|\le y$ for every small $y$.
+
+\problem{10}
+\hint{1} Associate the polynomial $P(x)=a_0+a_1x+\dots+a_nx^n$ with the operator $P(D)$. The answer: exactly the sequences for which all roots of $P$ are real.
+\hint{2} For a real $\lambda$: $f'-\lambda f=e^{\lambda x}\bigl(e^{-\lambda x}f\bigr)'$. So if $f$ has $m+1$ zeros, Rolle gives $m$ zeros of $f'-\lambda f$ between the outermost ones.
+\hint{3} If all roots are real, factor $P(D)=a_n(D-\lambda_1)\cdots(D-\lambda_n)$ and apply Hint~2 $n$ times.
+\hint{4} If $P(\alpha\pm i\beta)=0$ with $\beta\ne0$, then $u(x)=e^{\alpha x}\sin\beta x$ satisfies $P(D)u=0$ and has many simple sign changes. Let $m$ be the multiplicity of $0$ as a root of $P$ (so $a_m\ne0$), and take $f=u+\varepsilon x^m$ with small $\varepsilon\ne0$. On a bounded interval, $f$ still has $n+1$ zeros, while $P(D)f=\varepsilon\,m!\,a_m\ne0$ everywhere.
+
+\end{document}

@@ -1,0 +1,28 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Differentiable functions -- 2}{Class work}
+
+\problem{1}
+\hint{1} The hypothesis says that $h=f-g'$ takes values of opposite signs at $0$ and $1$. But $h$ need not be continuous, since $g'$ need not be.
+\hint{2} Write $h$ as a derivative: $h=F'$ with $F(x)=\int_0^x f(t)\,dt-g(x)$. By Darboux' theorem $h$ has the intermediate value property, so it vanishes somewhere in $(0,1)$.
+
+\problem{2}
+\hint{1} The equation $f'-f=\alpha$ suggests the multiplier $e^{-x}$: consider $g(x)=e^{-x}\bigl(f(x)+\alpha\bigr)$, so that $g'=e^{-x}(f'-f-\alpha)$.
+\hint{2} $g(0)=\alpha$ and $g(1)=(1+\alpha)/e$. If they are equal, Rolle gives $\xi$; this happens exactly for $\alpha=\frac1{e-1}$.
+\hint{3} For any other $\alpha$, choose $g$ linear, $g(x)=\alpha+\bigl(\frac{1+\alpha}{e}-\alpha\bigr)x$, and put $f(x)=e^xg(x)-\alpha$. Then $f\in V$ and $f'-f-\alpha=e^xg'$ never vanishes. Answer: $\alpha=\frac1{e-1}$ only.
+
+\problem{3}
+\hint{1} Put $g(x)=f(x)\cos x$. It vanishes at $-\frac\pi2$, $0$ and $\frac\pi2$, so Rolle gives $a\in(-\frac\pi2,0)$ and $b\in(0,\frac\pi2)$ with $g'(a)=g'(b)=0$.
+\hint{2} Now find a multiplier $\varphi$ such that $(\varphi g')'$ contains no $f'$ term. Since $g'=f'\cos x-f\sin x$, the choice $\varphi=1/\cos^2x$ works.
+\hint{3} Check that $\Bigl(\dfrac{g'(x)}{\cos^2x}\Bigr)'=\dfrac{1}{\cos x}\Bigl(f''(x)-f(x)\bigl(1+2\tan^2x\bigr)\Bigr)$, and apply Rolle on $[a,b]$.
+
+\problem{4}
+\hint{1} The factor $\frac4\pi=\frac{1}{\arctan1-\arctan0}$ and $1+\xi^2=1/\arctan'(\xi)$ suggest Cauchy's mean value theorem.
+\hint{2} Apply it to $f$ and $g=\arctan$ on $[0,1]$: $\dfrac{f(1)-f(0)}{\pi/4}=\dfrac{f'(\xi)}{1/(1+\xi^2)}$.
+
+\problem{5}
+\hint{1} Take logarithms (everything is positive): the claim becomes $\dfrac{f'(\xi)}{f(\xi)}=\ln f(1)-\ln f(0)$.
+\hint{2} This is the Lagrange mean value theorem for $\ln f$ on $[0,1]$.
+
+\end{document}

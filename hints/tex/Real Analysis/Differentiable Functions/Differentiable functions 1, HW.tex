@@ -1,0 +1,59 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Differentiable functions -- 1}{Homework}
+
+\problem{1}
+\hint{1} Substitute $t=nx$: $\displaystyle\int_0^1 f(nx)\,dx=\frac1n\int_0^n f(t)\,dt$, which is an average of $f$ over $[0,n]$.
+\hint{2} Apply l'H\^opital to $F(y)/y$ with $F(y)=\int_0^y f$ (the denominator tends to $\infty$, $F'=f\to L$). Alternatively, split $[0,n]$ into $[0,A]$, where $f$ is bounded, and $[A,n]$, where $f$ is close to $L$ (or larger than any given $M$ if $L=+\infty$).
+
+\problem{2}
+\hint{1} Fix $x$ with $a=f'(x)\ne0$; by symmetry ($x\mapsto -x$) assume $a>0$. Use positivity of $f$ at a point to the left of $x$.
+\hint{2} The Lipschitz condition gives $f'(x-t)\ge a-Lt$ for $t\ge0$. Integrate over $t\in[0,a/L]$:
+$f(x-a/L)\le f(x)-\int_0^{a/L}(a-Lt)\,dt=f(x)-\dfrac{a^2}{2L}$.
+\hint{3} Since $f(x-a/L)>0$, this gives $a^2<2Lf(x)$. The case $a=0$ is trivial because $f>0$.
+
+\problem{3}
+\hint{1} Factor the operator: $f''-5f'+6f=(D-3)(D-2)f$, and note that $3e^{2x}-2e^{3x}$ is the solution of the equation with the same initial data.
+\hint{2} Put $g=f'-2f$. Then $g'-3g\ge0$, i.e.\ $(ge^{-3x})'\ge0$, and $g(0)=-2$, so $g(x)\ge-2e^{3x}$ for $x\ge0$.
+\hint{3} Now $(fe^{-2x})'=ge^{-2x}\ge-2e^{x}$. Integrate from $0$: $f(x)e^{-2x}-1\ge-2(e^x-1)$, which is exactly the claim.
+
+\problem{4}
+\hint{1} Guess first: for small $x$ both are $x+\frac{x^3}{6}+\dots$, so expand further, or test values near $\frac\pi2$. The answer is $\tan(\sin x)>\sin(\tan x)$ for all $x\in(0,\frac\pi2)$.
+\hint{2} If $\tan x\ge\frac\pi2$, i.e.\ $x\ge\arctan\frac\pi2$, then $\sin(\tan x)\le1$, while $\sin x\ge\sin\arctan\frac\pi2=\frac{\pi}{\sqrt{4+\pi^2}}>\frac\pi4$, so $\tan(\sin x)>1$.
+\hint{3} On $(0,\arctan\frac\pi2)$ let $h(x)=\tan(\sin x)-\sin(\tan x)$, $h(0)=0$. Then $h'>0$ is equivalent to $\cos(\tan x)\cos^2(\sin x)<\cos^3x$.
+\hint{4} Since $\ln\cos$ is concave on $(0,\frac\pi2)$, $\cos(\tan x)\cos^2(\sin x)\le\cos^3\frac{\tan x+2\sin x}{3}$. Finally $\tan x+2\sin x>3x$ (differentiate: $\sec^2x+\cos x+\cos x\ge3$ by AM--GM), and $\cos$ is decreasing.
+
+\problem{5}
+\hint{1} Look for a substitution $g=\varphi f$ that turns $f''+2xf'+(x^2+1)f$ into $\varphi\,g''$ times something simple.
+\hint{2} With $g=e^{x^2/2}f$ one gets $g''=e^{x^2/2}\bigl(f''+2xf'+(x^2+1)f\bigr)$, so $|g''(x)|\le e^{x^2/2}$.
+\hint{3} Apply l'H\^opital twice to $f=g/e^{x^2/2}$ (the denominators $e^{x^2/2}$ and $xe^{x^2/2}$ tend to $\infty$): the last ratio is $\dfrac{g''}{(1+x^2)e^{x^2/2}}$, of absolute value $\le\frac1{1+x^2}\to0$.
+
+\problem{6}
+\hint{1} The answer is no. What does $f'=f\circ f>0$ say about monotonicity, and then about $f(f(x))$?
+\hint{2} $f$ is strictly increasing and $f(x)>0$, so $f'(x)=f(f(x))>f(0)=:c>0$ for every $x$.
+\hint{3} Then $f(x)\le f(0)+cx$ for $x<0$, which becomes negative for $x$ very negative. Contradiction.
+
+\problem{7}
+\hint{1} Key observation: if $f(s)>0$, then at every point $r$ with $f(r)=s$ we have $f'(r)>f(f(r))=f(s)>0$. Show that $f$ then takes the value $s$ at most once, and if it does, at $r$ say, then $f<s$ on $(-\infty,r)$ and $f>s$ on $(r,\infty)$.
+\hint{2} Second lemma: $f(x)\to+\infty$ as $x\to+\infty$ is impossible. Otherwise $f'\to\infty$, $f$ is eventually increasing with $f(x)\ge x+1$, and then
+$f(x+1)-f(x)=f'(\xi)>f(f(\xi))\ge f(x+1)$, so $f(x)<0$. In particular $f'>c>0$ on a half-line is impossible.
+\hint{3} Now suppose $t\ge0$, $v=f(t)$, $u=f(v)$ and $f(u)>0$. Apply Hint~1 to the level $u$: its only preimage is $v$, with $f<u$ to the left of $v$ and $f>u$ to the right. If $u\le0$, compare $u$ with $v$: $f(u)>0\ge u$ forces $u>v$, but then $t\ge0\ge u>v$ gives $f(t)>u$, i.e.\ $v>u$. Contradiction.
+\hint{4} If $u>0$: when $u\ge v$, we get $f>u$ on $(v,\infty)$, hence (as $f(x)>u\ge v$) $f'(x)>f(f(x))>u$ for $x>v$, contradicting Hint~2. When $u<v$, then $f(u)<u$; now $v>0$ and $f(v)=u>0$, so apply Hint~1 to the level $v$: $f>v$ on $(t,\infty)$, hence $f(f(x))>u$ and $f'(x)>u$ there. Again this contradicts Hint~2.
+
+\problem{8}
+\hint{1} A $2$-cycle is a fixed point of $g=f\circ f$ that is not a fixed point of $f$. Compute $g'(\xi)$ with the chain rule (it only needs differentiability of $f$ at $\xi=f(\xi)$).
+\hint{2} $g'(\xi)=f'(\xi)^2>1$, so $g(x)<x$ for $x<\xi$ close to $\xi$. Also $f'(\xi)<0$ gives $f(x)>\xi$ just to the left of $\xi$.
+\hint{3} Let $a$ be the left end of the maximal interval $(a,\xi)$ on which $f>\xi$. Then either $f(a)=\xi$, so that $g(a)=\xi>a$, or $a=0$ and $g(0)\ge0$. By the IVT, $g(x)-x$ vanishes at some $x_0\in[a,\xi)$ with $f(x_0)>\xi$ (check the endpoint cases). Put $x_1=f(x_0)$.
+
+\problem{9}
+\hint{1} Argue by contradiction: if the product is negative everywhere, then $f,f',f'',f'''$ are all nonvanishing, so each has a constant sign.
+\hint{2} Replacing $f(x)$ by $-f(x)$ or by $f(-x)$ does not change the sign of the product, so you may assume $f>0$ and $f'>0$. Then $f''$ and $f'''$ have opposite signs.
+\hint{3} If $f''>0>f'''$, then $f''\ge f''(0)>0$ on $(-\infty,0]$, so $f'\to-\infty$ as $x\to-\infty$. If $f''<0<f'''$, then $f''\le f''(0)<0$ on $(-\infty,0]$, so $f'\to+\infty$ as $x\to-\infty$ and hence $f\to-\infty$. Both contradict the signs.
+
+\problem{10}
+\hint{1} First study $x\to-\infty$: $f,f',f''$ are positive and increasing, so they have limits there. Show that $f'\to0$ and $f''\to0$.
+\hint{2} Multiply $f'''\le f$ by $f''>0$ and integrate from $-\infty$: $\frac12 f''^2\le\int_{-\infty}^x ff''=ff'-\int_{-\infty}^x f'^2\le ff'$. So $f''\le\sqrt{2ff'}$.
+\hint{3} Then $\bigl(f'^{3/2}\bigr)'=\frac32 f'^{1/2}f''\le\frac{3}{\sqrt2}f'\sqrt f=\sqrt2\,\bigl(f^{3/2}\bigr)'$. Integrating from $-\infty$ gives $f'\le2^{1/3}f<2f$.
+
+\end{document}

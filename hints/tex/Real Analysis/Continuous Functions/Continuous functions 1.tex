@@ -1,0 +1,31 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Continuous functions -- 1}{Class work}
+
+\problem{1}
+\hint{1} Only $n=2,3$ are needed. Let $P=f^2$ and $Q=f^3$. Where $P\ne0$, $f=Q/P$ is a rational function $R$. Note that $f$ is not assumed continuous.
+\hint{2} $R^2=P$ is a polynomial, so $R$ is a polynomial (write $R=A/B$ in lowest terms).
+\hint{3} At a zero of $P$ we have $f=0$ and $R^2=P=0$, so $f=R$ there as well (and $f\equiv0$ if $P\equiv0$). Answer: yes.
+
+\problem{2}
+\hint{1} Fix a rational $q$. The function $x\mapsto f(x+q)-f(x)$ is continuous and takes only rational values. What does the IVT say?
+\hint{2} It is a constant $c(q)$, and $c(q+r)=c(q)+c(r)$, so $c(q)=aq$ with $a=c(1)\in\mathbb Q$.
+\hint{3} Then $h(x)=f(x)-ax$ is continuous and has every rational number as a period, so it is constant (Theorem 1). Answer: $f(x)=ax+b$ with $a\in\mathbb Q$, $b\in\mathbb R$.
+
+\problem{3}
+\hint{1} How big can the image of such an $f$ be?
+\hint{2} $f(\mathbb R)\subseteq f(\mathbb Q)\cup\mathbb Q$ is countable. But the image of $\mathbb R$ is an interval, so $f$ is constant, and a constant cannot be both rational and irrational. Answer: no.
+
+\problem{4}
+\subpart{a}
+\hint{1} Answer: no. Monotone functions may jump, and at an irrational jump point you are free to choose the value.
+\hint{2} Example with a jump at $\sqrt2$: $g(x)=x$ for $x<\sqrt2$, $g(x)=x+2$ for $x>\sqrt2$, $g(\sqrt2)=\sqrt2$; and $f(x)=x-1$ for $x<\sqrt2$, $f(x)=x+1$ for $x>\sqrt2$, $f(\sqrt2)=\sqrt2+1$. Check that both are non-decreasing, $f<g$ off $\sqrt2$, and $f(\sqrt2)>g(\sqrt2)$.
+\subpart{b}
+\hint{1} Answer: yes. $g-f$ is continuous and positive on the dense set $\mathbb Q$; pass to the limit along rationals $r_n\to x$ to get $g(x)-f(x)\ge0$.
+
+\problem{5}
+\hint{1} Fix $x_0$ and $\varepsilon>0$, and take $\delta$ with $|f(x)-g(x_0)|<\varepsilon$ for $0<|x-x_0|<\delta$. Now look at a point $y$ with $0<|y-x_0|<\delta$.
+\hint{2} $g(y)$ is a limit of values $f(x)$ with $x\to y$, $x\ne y$; such $x$ eventually lie in the punctured $\delta$-neighbourhood of $x_0$. Hence $|g(y)-g(x_0)|\le\varepsilon$.
+
+\end{document}

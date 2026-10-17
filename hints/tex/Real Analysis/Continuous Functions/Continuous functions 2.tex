@@ -1,0 +1,29 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Continuous functions -- 2}{Class work}
+
+\problem{1}
+\hint{1} The range is not an interval, so such an $f$ cannot be continuous (Theorem 2). Look at a discontinuity point $x_0$.
+\hint{2} At $x_0$ there is a jump: $f(x_0^-)<f(x_0^+)$. For $x<x_0$, $f(x)\le f(x_0^-)$, and for $x>x_0$, $f(x)\ge f(x_0^+)$. So no value in $(f(x_0^-),f(x_0^+))$ other than $f(x_0)$ is taken, yet this interval contains many irrationals.
+
+\problem{2}
+\hint{1} Answer: yes. It suffices to construct a strictly increasing map $(0,1)\to\mathbb R\setminus\mathbb Q$, since $\mathbb R$ is order-isomorphic to $(0,1)$. Think of decimal expansions.
+\hint{2} Use the expansion $x=0.d_1d_2d_3\ldots$ that does not end in $9$'s, and spread its digits out while inserting a fixed pattern that can never become periodic:
+$y=0.d_1\,1\,d_2\,0\,1\,d_3\,0\,0\,1\,d_4\,0\,0\,0\,1\ldots$ (between $d_k$ and $d_{k+1}$ insert $k-1$ zeros and a $1$).
+\hint{3} $y$ has blocks of zeros of every length, each followed by a $1$, so its expansion is not eventually periodic and $y$ is irrational. Neither expansion ends in all $0$'s or all $9$'s, so the lexicographic order of digits is the numerical order, and $x\mapsto y$ is strictly increasing.
+
+\problem{3}
+\hint{1} Answer: exactly $\alpha=\frac1n$. For $\alpha=\frac1n$, consider $g(x)=f(x+\frac1n)-f(x)$ and sum $g$ over $x=0,\frac1n,\dots,\frac{n-1}n$.
+\hint{2} The sum telescopes to $f(1)-f(0)=0$, so $g$ is not of constant strict sign at these points; the IVT gives a zero.
+\hint{3} For other $\alpha$, try $f(x)=\sin^2\frac{\pi x}{\alpha}-x\sin^2\frac{\pi}{\alpha}$. Check that $f(0)=f(1)=0$ and that $f(x+\alpha)-f(x)=-\alpha\sin^2\frac\pi\alpha\ne0$.
+
+\problem{4}
+\hint{1} Consider $g(x)=f(x+T)-f(x)$ and suppose the claim fails. Then $|g|\ge\varepsilon$ on some half-line $[A,\infty)$.
+\hint{2} By continuity $g$ has a constant sign there, say $g\ge\varepsilon$. Then $f(A+nT)\ge f(A)+n\varepsilon\to\infty$, which contradicts boundedness.
+
+\problem{5}
+\hint{1} For $n\ge1$ consider $A_n=\{x:|f(x)|>\frac1n\}$. What does $\lim_{x\to x_0}f(x)=0$ say about points of $A_n$ near $x_0$?
+\hint{2} $A_n$ has no accumulation point, so it is finite in each bounded interval and hence countable. Therefore $\{f\ne0\}=\bigcup_nA_n$ is countable, and $f$ vanishes at all but countably many points.
+
+\end{document}

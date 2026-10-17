@@ -1,0 +1,62 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Polynomials -- 5. Integer coefficients, divisibility and irreducibility}{Homework}
+
+\problem{1}
+\subpart{a}
+\hint{1} If some $p(a_i)=0$, take $a=a_i$. Otherwise use $u\equiv v\pmod m\Rightarrow p(u)\equiv p(v)\pmod m$: if $a\equiv a_i\pmod{p(a_i)}$ then $p(a_i)\mid p(a)$. The moduli $p(a_i)$ need not be coprime, so work prime by prime.
+\hint{2} For each prime $q$ dividing $\prod p(a_i)$, let $q^{e}$ be the largest power of $q$ dividing some $p(a_{i(q)})$, and require $a\equiv a_{i(q)}\pmod{q^{e}}$. These congruences have coprime moduli, so the Chinese remainder theorem gives $a$, and then $q^{e}\mid p(a)$ for every $q$.
+\subpart{b}
+\hint{1} Not always. Look for an example where two values share a prime factor $q$ but $q^2$ never divides $p(a)$.
+\hint{2} $p(x)=x^2+1$, $a_1=-1$, $a_2=1$: the product is $4$, but $a^2+1\not\equiv0\pmod4$.
+
+\problem{2}
+\hint{1} First reduce to rational coefficients. If $f=P/Q$ and $f(n_i)=m_i\in\mathbb{Z}$ for infinitely many $n_i$, the conditions $P(n_i)=m_iQ(n_i)$ form a linear system with rational coefficients for the coefficients of $P,Q$.
+\hint{2} The system has a nonzero real solution, hence a nonzero rational one $(P_1,Q_1)$; then $PQ_1-P_1Q$ vanishes at all $n_i$, so $f=P_1/Q_1$. Thus we may assume $P,Q\in\mathbb{Z}[x]$.
+\hint{3} Divide: $P=SQ+R$ with $\deg R<\deg Q$ and $S\in\mathbb{Q}[x]$. With $D$ a common denominator of the coefficients of $S$, the numbers $D f(n_i)-DS(n_i)=D\,R(n_i)/Q(n_i)$ are integers tending to $0$, so they vanish for large $i$. Hence $R=0$.
+
+\problem{3}
+\hint{1} Take $a=b=c=n$ to get $n^2\mid P(n)$ for all $n\ne0$; deduce $P(0)=0$ and that the coefficient of $x$ vanishes.
+\hint{2} Compare $(a,b,c)$ with $(-a,b,c)$: $a^2+b^2+c^2$ divides $P(a)-P(-a)$ for all $b,c$, and $b^2+c^2$ can be arbitrarily large. So $P$ is even, $P(x)=R(x^2)$.
+\hint{3} Now $c^2\equiv-(a^2+b^2)$ gives $P(a)+P(b)+P(c)\equiv R(a^2)+R(b^2)+R(-a^2-b^2)\pmod{a^2+b^2+c^2}$; letting $c$ grow shows $R(a^2)+R(b^2)+R(-a^2-b^2)=0$ for all integers $a,b$, hence $R(x)+R(y)+R(-x-y)\equiv0$ as polynomials.
+\hint{4} With $R(0)=0$ this says $R$ is odd and additive, so $R(x)=kx$. Answer: $P(x)=kx^2$ with $k\in\mathbb{Z}$ (and these work).
+
+\problem{4}
+\hint{1} $P(x)=\pm x$ works. If $P=A^2B$ with $A$ non-constant, then $|A(p)|>1$ for some prime $p$; so assume $P$ is squarefree in $\mathbb{Q}[x]$, i.e.\ $\operatorname{Res}(P,P')\ne0$. Also write $P=x^kQ$ with $Q(0)\ne0$: $k\ge2$ fails at once, and $Q=c$ constant forces $c=\pm1$.
+\hint{2} If $Q$ is non-constant, its values have infinitely many prime divisors (Schur). Pick a prime $q\mid Q(m)$ with $q\nmid Q(0)\operatorname{Res}(Q,Q')$; then $q\nmid Q'(m)$ and $q\nmid m$.
+\hint{3} By Hensel's lemma there is $r\equiv m\pmod q$ with $q^2\mid Q(r)$, and $\gcd(r,q)=1$. By Dirichlet's theorem there is a prime $p\equiv r\pmod{q^2}$, and $q^2\mid Q(p)\mid P(p)$. Answer: $P(x)=\pm x$.
+
+\problem{5}
+\hint{1} You only need $k$ distinct small divisors of $f(n)$ below $n$. Find $k$ different primes that all divide $f(n)$ for suitable $n$.
+\hint{2} By Schur's theorem infinitely many primes divide some value of $f$; choose $p_1<\dots<p_k$ and $r_i$ with $p_i\mid f(r_i)$.
+\hint{3} By the Chinese remainder theorem every $n\equiv r_i\pmod{p_i}$ (all $i$) has $p_1\cdots p_k\mid f(n)$; for such $n>p_k$ with $f(n)\ne0$ take $d_i=p_i$ and $d_{k+1}=f(n)/(p_1\cdots p_k)$.
+
+\problem{6}
+\hint{1} Let $t=\sqrt[3]5$ and $\alpha=t+t^2$. Find the minimal polynomial of $\alpha$ over $\mathbb{Q}$.
+\hint{2} $\alpha^3=30+15\alpha$, and $x^3-15x-30$ is Eisenstein at $5$. Dividing $P$ by this monic integer polynomial, $P(\alpha)=u+v\alpha+w\alpha^2$ with $u,v,w\in\mathbb{Z}$.
+\hint{3} With $\alpha^2=10+5t+t^2$ and the basis $1,t,t^2$: the coefficients of $t^2$ and $t$ give $v+w=0$ and $v+5w=1$, so $w=\frac14$, contradiction.
+
+\problem{7}
+\hint{1} $p(x)-x$ vanishes at $3+\sqrt5$, so it is divisible by its minimal polynomial $x^2-6x+4$. Since this is monic, $p(x)=x+(x^2-6x+4)q(x)$ with $q\in\mathbb{Z}[x]$.
+\hint{2} At $x=3-\sqrt7$: $x^2-6x+4=(x-3)^2-5=2$, so $p(3-\sqrt7)=3-\sqrt7+2q(3-\sqrt7)$ with $q(3-\sqrt7)\in\mathbb{Z}[\sqrt7]$.
+\subpart{a}
+\hint{1} You would need $2q(3-\sqrt7)=1$, impossible in $\mathbb{Z}[\sqrt7]$. Answer: no.
+\subpart{b}
+\hint{1} You need $q(3-\sqrt7)=1$: take $q=1$, i.e.\ $p(x)=x^2-5x+4$. Answer: yes.
+
+\problem{8}
+\hint{1} Linear polynomials $ax+b$ with $a\ne0$ rational work, constants do not. For $\deg f=n\ge2$, find an irrational $x$ with $f(x)\in\mathbb{Z}$.
+\hint{2} Rational roots of $f(x)=q$ ($q\in\mathbb{Z}$) have denominators dividing a fixed integer $L$ (rational root theorem applied to $D(f-q)$, $D$ a common denominator).
+\hint{3} Take $M$ with $f$ increasing on $[M,\infty)$. For each integer $q$ between $f(M)$ and $f(X)$ there is a root of $f=q$ in $[M,X]$; there are about $X^n$ such $q$ but only $L(X-M)+1$ rationals with denominator dividing $L$ in $[M,X]$. For large $X$ some root is irrational. Answer: $f(x)=ax+b$, $a,b\in\mathbb{Q}$, $a\ne0$.
+
+\problem{9}
+\hint{1} Repunits are $R_m=\frac{10^m-1}9$, i.e.\ $9R_m+1=10^m$. Conjugate: $g(y)=9f\bigl(\frac{y-1}9\bigr)+1$ maps every $10^m$ ($m\ge1$) to a power of $10$.
+\hint{2} If $g(x)=cx^d+\dots$, then $g(10^m)/10^{md}\to c$, and $g(10^m)/10^{md}$ is an integer power of $10$. So the exponent is eventually constant, $c=10^{e}$, and $g(x)=10^ex^d$ (agreement at infinitely many points).
+\hint{3} The condition that $g(10)=10^{e+d}$ is a power of $10$ with exponent $\ge1$ gives $e+d\ge1$. Answer: $f(x)=\frac{10^e(9x+1)^d-1}{9}$ with integers $d\ge0$, $e\ge1-d$.
+
+\problem{10}
+\hint{1} Compute $p^{(j)}(k)$ for $p(x)=\sum a_ix^i$: it is $j!\sum_i\binom ija_ik^{i-j}$. So it is always divisible by $j!$, and $p=x^j$ shows that $j!$ is the best possible.
+\hint{2} So you need the least $j$ with $2016=2^5\cdot3^2\cdot7\mid j!$. Answer: $j=8$ ($7!=5040$ is not divisible by $2^5$).
+
+\end{document}

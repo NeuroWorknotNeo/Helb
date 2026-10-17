@@ -1,0 +1,34 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Polynomials -- 4. Real roots: Descartes, Sturm and Newton's inequalities}{Class work}
+
+\problem{1}
+\hint{1} Descartes: divide by a power of $x$ so that $P(0)\ne0$, and induct on the degree using Rolle: if $P$ has $Z$ positive roots, then $P'$ has at least $Z-1$. How does the number of sign changes of $P'$ compare with that of $P$?
+\hint{2} The coefficients of $P'$ are those of $P$ (except the constant one) times positive numbers, so $V(P')\in\{V(P),V(P)-1\}$. Parity: the number of positive roots is even iff $P(0)$ and the leading coefficient have the same sign, iff $V(P)$ is even. Combine $Z(P)\le Z(P')+1\le V(P')+1\le V(P)+1$ (induction) with $Z(P)\equiv V(P)\pmod 2$.
+\hint{3} Newton: differentiate $P(x)=\sum\binom nkc_kx^k$ exactly $k-1$ times, reverse ($x^mQ(1/x)$), and differentiate again until a quadratic is left. Rolle and reversal preserve real-rootedness, and the quadratic is a positive multiple of $c_{k-1}+2c_kx+c_{k+1}x^2$; its discriminant gives $c_k^2\ge c_{k-1}c_{k+1}$.
+\hint{4} The binomial coefficients are log-concave, so $a_k=\binom nkc_k$ satisfies $a_k^2\ge a_{k-1}a_{k+1}$ too. Example: $x^2+x+1$ has log-concave coefficients $1,1,1$ but no real roots.
+
+\problem{2}
+\hint{1} The roots, if real, are negative. Try to find $n+1$ negative points where the polynomial alternates in sign. Natural candidates: points where one term dominates.
+\hint{2} At $x=-2^{2j-n}$ the $k$-th term equals $(-1)^k2^{\,j^2-(k-j)^2}$. So the term $k=j$ has size $2^{j^2}$, the two neighbours $k=j\pm1$ each have size $2^{j^2-1}$, and so on.
+\hint{3} The value is $(-1)^j2^{j^2}\sum_{d}(-1)^d2^{-d^2}$, summed over the admissible $d=k-j$. Group the terms $d=0$, $d=\pm1$ (total $\ge0$), then $d=\pm2,\pm3,\dots$ as an alternating series with rapidly decreasing terms, to show the bracket is positive. So the signs alternate at $j=0,\dots,n$ and there are $n$ real roots.
+
+\problem{3}
+\hint{1} Relate $P_{n,p}$ to the $n$-th derivative of $t^p(1-t)^p$, which by Rolle has $n$ roots in $(0,1)$ when $n\le p$.
+\hint{2} By Leibniz, $\frac{d^n}{dt^n}\bigl[t^p(1-t)^p\bigr]=\sum_j\binom nj\frac{p!}{(p-j)!}t^{p-j}\cdot(-1)^{n-j}\frac{p!}{(p-n+j)!}(1-t)^{p-n+j}$. Factor out $n!\,t^{p}(1-t)^{p-n}$.
+\hint{3} You get $(-1)^nn!\,t^p(1-t)^{p-n}\,P_{n,p}\!\bigl(-\tfrac{1-t}{t}\bigr)$. Repeated Rolle (the multiplicities at $0$ and $1$ stay positive up to the $n$-th derivative) gives $n$ distinct roots in $(0,1)$, and $t\mapsto-\frac{1-t}t$ maps $(0,1)$ bijectively onto $(-\infty,0)$.
+
+\problem{4}
+\hint{1} Taylor's formula for polynomials: $P(x+h)=\sum_k\frac{P^{(k)}(x)}{k!}h^k$. Which choice of $h$ (or combination) produces only the even derivatives?
+\hint{2} $Q(x)=\frac12\bigl(P(x+1)+P(x-1)\bigr)$. A real polynomial without real roots has constant sign, so $Q$ has the same constant sign.
+
+\problem{5}
+\subpart{a}
+\hint{1} Look at $\frac{P'}{P}=\sum_i\frac{1}{x-x_i}$ and its derivative $\frac{PP''-P'^2}{P^2}=-\sum_i\frac{1}{(x-x_i)^2}$.
+\hint{2} For $x$ not a root, Cauchy--Schwarz gives $\bigl(\sum\frac1{x-x_i}\bigr)^2\le n\sum\frac1{(x-x_i)^2}$, i.e.\ $P'^2\le n(P'^2-PP'')$, which is the claim. At a root of $P$ the claim reads $(n-1)P'(x)^2\ge0$.
+\subpart{b}
+\hint{1} When is Cauchy--Schwarz an equality? Treat roots of $P$ separately.
+\hint{2} At a non-root $x$: equality iff all $x-x_i$ are equal, i.e.\ $P=c(x-a)^n$ (and then equality holds for all $x$). At a root $x$: equality iff $n=1$ or $x$ is a multiple root.
+
+\end{document}

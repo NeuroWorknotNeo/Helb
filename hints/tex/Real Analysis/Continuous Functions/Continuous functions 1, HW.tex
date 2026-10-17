@@ -1,0 +1,59 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Continuous functions -- 1}{Homework}
+
+\problem{1}
+\hint{1} Answer: no. Look for a function for which multiplying by $c$ is the same as a horizontal shift.
+\hint{2} $f(x)=e^x$: $cf(x)=e^{x+\ln c}$, so the graph of $cf$ is the graph of $f$ translated by $-\ln c$ horizontally.
+
+\problem{2}
+\hint{1} At a rational $p/q$: $f(p/q)=\frac1q>0$, but there are irrational points arbitrarily close where $f=0$.
+\hint{2} At an irrational $x$ and for $\varepsilon>0$: in $(x-1,x+1)$ there are only finitely many fractions $p/q$ with $q\le\frac1\varepsilon$. Choose $\delta$ so small that none of them lies in $(x-\delta,x+\delta)$.
+\hint{3} Second half: the set of continuity points of any $f$ is $\bigcap_n\{x:\operatorname{osc}f(x)<\frac1n\}$, an intersection of countably many open sets. Show that $\mathbb Q$ is not such an intersection.
+\hint{4} If $\mathbb Q=\bigcap U_n$ with $U_n$ open (hence dense), then the countably many open dense sets $U_n$ and $\mathbb R\setminus\{q\}$, $q\in\mathbb Q$, have empty intersection, which contradicts the Baire category theorem.
+
+\problem{3}
+\subpart{a}
+\hint{1} Answer: yes, with no continuity needed. Consider $A=\{x\in[0,1]:f(x)\ge x\}$ (it contains $0$) and $s=\sup A$.
+\hint{2} For $x\in A$: $x\le f(x)\le f(s)$, hence $s\le f(s)$. Then $f(f(s))\ge f(s)$, i.e.\ $f(s)\in A$, so $f(s)\le s$.
+\subpart{b}
+\hint{1} Answer: no. Take a decreasing function that jumps over the diagonal, e.g.\ $f=1$ on $[0,\frac12)$ and $f=0$ on $[\frac12,1]$.
+
+\problem{4}
+\hint{1} Fix an interval $(a,b)\subseteq[0,1]$. It suffices to find $p<q<r$ in $(a,b)$ with $f(q)<\min(f(p),f(r))$: then the minimum of $f$ on $[p,r]$ is attained at an interior point, which is a local minimum.
+\hint{2} Suppose no such triple exists, i.e.\ $f(q)\ge\min(f(p),f(r))$ for all $p<q<r$ in $(a,b)$. Take $[c,d]\subset(a,b)$ and a maximum point $m$ of $f$ on $[c,d]$.
+\hint{3} For $c\le s<t\le m$ we get $f(t)\ge\min(f(s),f(m))=f(s)$, so $f$ is non-decreasing on $[c,m]$; similarly it is non-increasing on $[m,d]$. One of these intervals is non-degenerate, which contradicts the assumption that $f$ is nowhere monotone.
+
+\problem{5}
+\hint{1} If $f$ is constant, take $X=[0,1]$. Otherwise pick $p,q$ with $f(p)\ne f(q)$, say $p<q$ and $f(p)<f(q)$, and for every $y\in(f(p),f(q))$ choose a preimage in a canonical way.
+\hint{2} Let $x(y)=\min\{x\in[p,q]:f(x)=y\}$ (the first time $f$ reaches $y$; it exists by the IVT and closedness). For $y_1<y_2$, $f$ takes the value $y_1$ on $[p,x(y_2)]$, so $x(y_1)<x(y_2)$.
+\hint{3} Thus $X=\{x(y)\}$ has the cardinality of the continuum and $f$ is strictly increasing on $X$.
+
+\problem{6}
+\hint{1} Restate the hypothesis: if $f(z_n)$ converges, then $z_n$ converges. Apply this to sequences that alternate between two points.
+\hint{2} Alternating between two preimages of the same value shows that $f$ is injective, hence a bijection. Interleaving $z_n$ with a fixed $z$ shows: $f(z_n)\to f(z)$ implies $z_n\to z$. So $f^{-1}$ is continuous.
+\hint{3} $f^{-1}:\mathbb R\to\mathbb R$ is a continuous bijection, hence strictly monotone (Fact 1), and then so is $f$. A strictly monotone map of $\mathbb R$ onto $\mathbb R$ has no jumps, so $f$ is continuous.
+
+\problem{7}
+\hint{1} For fixed $x$ put $a_n=f(nx)$; then $|a_{m+n}-a_m-a_n|\le M$. By induction $|a_{mn}-n\,a_m|\le(n-1)M$.
+\hint{2} Hence $\bigl|\frac{a_{mn}}{mn}-\frac{a_m}{m}\bigr|\le\frac Mm$ and, symmetrically, $\le\frac Mn$ with $a_n/n$. So $\bigl|\frac{a_m}m-\frac{a_n}n\bigr|\le\frac Mm+\frac Mn$: the sequence is Cauchy.
+\hint{3} The limit $g$ satisfies $|g(x)-f(x)|\le M$ and $g(x+y)=g(x)+g(y)$. As $f$ is bounded near $0$, so is $g$, say by $K$ on $(-\delta,\delta)$; then $|g(x)|=|g(nx)|/n\le K/n$ for $|x|<\delta/n$, which gives continuity at $0$.
+\hint{4} An additive function continuous at $0$ is $g(x)=cx$. Then $|f(x)-cx|\le M$, so $f(x)/x\to c$.
+
+\problem{8}
+\hint{1} Put $h=f\circ g^{-1}$. It is a continuous bijection with $h+h^{-1}=2\,\mathrm{id}$, and $y_0=f(x_0)$ is a fixed point of $h$. You need $h=\mathrm{id}$.
+\hint{2} $h$ is strictly increasing (if it were decreasing, $h+h^{-1}$ would be decreasing). Substituting $h(y)$ into $h^{-1}(z)=2z-h(z)$ gives $h(h(y))-h(y)=h(y)-y$.
+\hint{3} So the orbit $h^n(y)=y+n\,d(y)$, $n\in\mathbb Z$, is an arithmetic progression with $d(y)=h(y)-y$. If $y>y_0$ and $d(y)\ne0$, some $h^n(y)$ is $<y_0$, while monotonicity gives $h^n(y)>h^n(y_0)=y_0$. The case $y<y_0$ is the same.
+
+\problem{9}
+\hint{1} Show that $f(b)=\max_{[a,b]}f$ for every $a<b$; this gives $f(a)\le f(b)$.
+\hint{2} Let $M=\max_{[a,b]}f$ and let $c$ be the largest point of $[a,b]$ with $f(c)=M$. If $c<b$, apply the hypothesis to $[c,b]$: there the only maximum point is $c$, so a minimum point $c_1\le c$ must equal $c$.
+\hint{3} Then $\min_{[c,b]}f=\max_{[c,b]}f$, so $f$ is constant on $[c,b]$ and $f(b)=M$.
+
+\problem{10}
+\hint{1} $f\equiv1$ works (with $a\ge1$). Suppose $f(x_0)>1$ for some $x_0$; by continuity you may take $x_0\ne0$ and $f\ge1+\varepsilon$ on $(x_0-\delta,x_0+\delta)$.
+\hint{2} Choose $x=x_0/m$ and $n=2m$. Every factor is $\ge1$, and the factors with $jx\in(x_0-\delta,x_0+\delta)$, i.e.\ $|j-m|<m\delta/|x_0|$, are $\ge1+\varepsilon$. There are at least $cn$ of them for some constant $c>0$.
+\hint{3} So the product is at least $(1+\varepsilon)^{cn}$, which eventually exceeds $an^k$. Answer: only $f\equiv1$.
+
+\end{document}
