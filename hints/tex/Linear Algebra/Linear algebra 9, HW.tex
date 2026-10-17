@@ -1,0 +1,77 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Linear algebra -- 9. Matrices over \(\mathbb Z\) and over a finite field}{Homework}
+
+\problem{1}
+\hint{1}
+An invertible matrix is a list of columns, each outside the span of the previous ones: there are \(q^n-q^k\) choices for column \(k+1\). For subspaces, count ordered \(k\)-tuples of independent vectors in two ways: directly, and as (number of subspaces)\(\times|\mathrm{GL}_k(\mathbb F_q)|\). This gives \(\prod_{i<k}\frac{q^n-q^i}{q^k-q^i}\).
+\hint{2}
+Expected number of fixed vectors \(=\sum_v\Pr(gv=v)\). By Burnside's lemma this is the number of orbits of \(\mathrm{GL}_n(\mathbb F_q)\) on \(\mathbb F_q^n\), namely \(\{0\}\) and the non-zero vectors. So it equals \(2\) for every \(n\) (or \(1\) if the zero vector is not counted).
+
+\problem{2}
+\hint{1}
+The polynomial \(x^n+1\) has distinct roots and annihilates \(A\). So \(A\) is diagonalisable over \(\mathbb C\), and its eigenvalues are roots of unity with \(\lambda^n=-1\). The characteristic polynomial is a rational quadratic.
+\hint{2}
+If the eigenvalues are rational, both equal \(-1\) and \(A=-E\). Otherwise the characteristic polynomial is a cyclotomic polynomial of degree \(2\): \(\Phi_3\), \(\Phi_4\) or \(\Phi_6\). Rule out \(\Phi_3\) (no cube root of unity has a power equal to \(-1\)). By Cayley--Hamilton, \(\Phi_4\) gives \(A^2=-E\) and \(\Phi_6\) gives \(A^3=-E\).
+
+\problem{3}
+\hint{1}
+For \(X\in\mathrm{SL}_2(\mathbb Z)\), Cayley--Hamilton gives \(X^2=(\operatorname{tr}X)X-E\). The traces drive everything.
+\subpart{a}
+\hint{1}
+Try \(\operatorname{tr}A=-1\), \(\operatorname{tr}B=1\), \(\operatorname{tr}C=0\). Then \(A^2+B^2=B-A-2E\) and \(C^2=-E\), so you need \(B=A+E\). For example \(A=\begin{pmatrix}-1&-1\\1&0\end{pmatrix}\), \(B=\begin{pmatrix}0&-1\\1&1\end{pmatrix}\), \(C=\begin{pmatrix}-1&-2\\1&1\end{pmatrix}\).
+\subpart{b}
+\hint{1}
+Take traces: \(\operatorname{tr}X^4=t^4-4t^2+2\) for \(t=\operatorname{tr}X\). This gives \(a^4+b^4-c^4-4(a^2+b^2-c^2)+2=0\) for the traces \(a,b,c\).
+\hint{2}
+Modulo \(4\), fourth powers are \(0\) or \(1\), so \(a,b\) are odd and \(c\) is even. Then work modulo \(16\): \(a^2+b^2\equiv2\pmod 8\) and \(c^2\equiv0\) or \(4\pmod 8\). The left side is \(\equiv4-8\not\equiv0\pmod{16}\).
+
+\problem{4}
+\hint{1}
+The matrix is \(J+D\) with \(D=\operatorname{diag}(k^2-1)_{k=2}^{N}\), \(N=p+7\). So \(\det=\prod(k^2-1)\cdot\bigl(1+\sum 1/(k^2-1)\bigr)\). Telescope both.
+\hint{2}
+You should get \(\det=\bigl((N-1)!\bigr)^2\,\dfrac{7N^2+3N-2}{8}\). For \(p\ge7\), \(p\) divides \((p+6)!\) exactly once. So you need \(p\mid 7\cdot7^2+3\cdot7-2=362=2\cdot181\). Check \(p=2,3,5\) directly.
+\hint{3}
+Answer: \(p\in\{2,3,5,181\}\).
+
+\problem{5}
+\hint{1}
+The entries \(a_{\sigma(i)i}\) lie in distinct rows and columns. Hence \(f(\varepsilon)=\det\) of the modified matrix is a polynomial in \(\varepsilon(1),\dots,\varepsilon(n)\) of degree at most \(1\) in each variable. What is the coefficient of \(\varepsilon(1)\cdots\varepsilon(n)\)?
+\hint{2}
+That coefficient is \(\operatorname{sgn}\sigma=\pm1\). For a multilinear polynomial, \(\sum_{\varepsilon\in\{0,1\}^n}(-1)^{n-|\varepsilon|}f(\varepsilon)\) equals this top coefficient. If \(m\) divided every \(f(\varepsilon)\), it would divide \(\pm1\).
+
+\problem{6}
+\hint{1}
+For \(p=2\) compare orders. For odd \(p\), look at \(u=\begin{pmatrix}1&1\\0&1\end{pmatrix}\) of order \(p\). In \(S_p\) an element of order \(p\) is a \(p\)-cycle. What is its centraliser?
+\hint{2}
+The centraliser of a \(p\)-cycle in \(S_p\) has order \(p\). The centraliser of \(u\) in \(\mathrm{GL}_2(\mathbb Z/p)\) contains all \(\begin{pmatrix}a&b\\0&a\end{pmatrix}\), which is \(p(p-1)\) elements. An injective homomorphism maps \(C(u)\) injectively into \(C(\varphi(u))\).
+
+\problem{7}
+\hint{1}
+Take logarithms of the (positive) entries. The operations become: add the other row (column) to a row (column), or subtract it.
+\hint{2}
+These operations preserve the determinant of the matrix of logarithms. It is \(\ln2(\ln4-\ln3)\) at the start and its negative at the target, and it is non-zero because \(\ln4\ne\ln3\). Answer: no.
+
+\problem{8}
+\hint{1}
+Rank-one reduction (Wedderburn): \(\operatorname{rank}(A-ae_ie_j^T)<\operatorname{rank}A\) if and only if \(e_i\in\operatorname{Im}A\), \(e_j^T\) is in the row space and \(a\,e_j^TGe_i=1\), where \(G\) is any generalised inverse (\(AGA=A\)). For invertible \(A\) this says \((A^{-1})_{ji}=1/a_{ij}\).
+\hint{2}
+Read off the \((i,i)\) entry of the idempotent \(AG\). Since \(e_i=Ax_0\), it equals \(1\); on the other hand it is \(\sum_j a_{ij}G_{ji}\), a sum of ones over the non-zero entries of row \(i\). So the number of non-zero entries of each non-zero row is \(\equiv1\pmod p\). For \(p>2014\) this forces exactly one.
+\hint{3}
+For \(p\le2013\) a counterexample: \(J-E\) of size \(m=p+2\) has inverse \(\frac{1}{m-1}J-E=J-E\) over \(\mathbb F_p\). Put it in a block-diagonal matrix with an identity block. Answer: exactly the primes \(p\ge2017\).
+
+\problem{9}
+\hint{1}
+For \(j\ge1\), \(i^j\bmod3\) depends only on \(i\bmod3\) and the parity of \(j\). Show that rows \(i\) and \(i+6\) coincide, so \(\det A=0\) for \(n\ge7\).
+\hint{2}
+Compute the small cases by hand (only residues \(0,1,2\) appear) and find a dependency among the rows for \(n=6\). Answer: \(n=5\) (indeed \(\det A=12\) there).
+
+\problem{10}
+\hint{1}
+Orient the edges and let \(D\) be the \(n\times m\) incidence matrix, so that \(L=DD^T\). Delete a row of \(D\) to get \(D_0\) and apply Cauchy--Binet to \(\det(D_0D_0^T)\).
+\hint{2}
+An \((n-1)\times(n-1)\) minor of \(D_0\) is \(\pm1\) if the chosen edges form a spanning tree, and \(0\) otherwise. A cycle gives dependent columns; for a tree, expand at a leaf.
+\hint{3}
+For \(L(K_n)=nE-J\): the entries generate \(1\), so \(d_1=1\). Modulo \(n\), \(L\equiv-J\) has rank \(1\), so all \(k\times k\) minors are divisible by \(n^{k-1}\). Moreover \(d_1\cdots d_{n-1}=n^{n-2}\) (Cayley). Hence the Smith form is \(\operatorname{diag}(1,n,\dots,n,0)\) and the critical group is \((\mathbb Z/n)^{n-2}\).
+\end{document}

@@ -1,0 +1,105 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Linear algebra -- 12. Mixed problems: commutators, traces and the numerical range}{Homework}
+
+\problem{1}
+\hint{1}
+\(M=\begin{pmatrix}2&3\\4&6\end{pmatrix}\) has rank \(1\) and eigenvalues \(0\) and \(8\). Any solution \(X\) commutes with \(M=X^n\).
+\hint{2}
+In an eigenbasis of \(M\) (distinct eigenvalues), \(X\) is diagonal, \(\operatorname{diag}(a,b)\) with \(a^n=0\) and \(b^n=8\). So the solutions are \(X=\frac{b}{8}M\) with \(b=8^{1/n}\omega\), \(\omega^n=1\), and \(\operatorname{tr}X=b\). The sum of the \(n\)-th roots of unity is \(0\) for \(n\ge2\).
+
+\problem{2}
+\hint{1}
+For skew-symmetric \(A\), \(A^2=-A^TA\). So \(A^2+B^2+C^2=-(A^TA+B^TB+C^TC)\) is negative semidefinite.
+\hint{2}
+Singularity gives \(x\ne0\) with \(\|Ax\|^2+\|Bx\|^2+\|Cx\|^2=0\), so \(Ax=Bx=Cx=0\). Then \(x^TA=-(Ax)^T=0\), and similarly for \(B\) and \(C\), so \(x^T(AP+BQ+CR)=0\).
+
+\problem{3}
+\hint{1}
+Put \(s=u+v>0\) and \(w=u-v\). Then \(As=s\) and \(Aw=-w\). You want to show \(w=0\) (Perron--Frobenius would do it; here is an elementary route).
+\hint{2}
+Let \(c=\max_i|w_i|/s_i\), attained at \(i\). Then \(cs_i=|w_i|\le\sum_ja_{ij}|w_j|\le c\sum_ja_{ij}s_j=cs_i\). Since all \(a_{ij}>0\), equality forces \(w=\pm cs\), and then \(Aw=w\). Together with \(Aw=-w\) this gives \(w=0\).
+
+\problem{4}
+\hint{1}
+Expand \((A+B)^3-A^3-B^3\) into six words. If \(AB=O\), then \(BA=(AB)^T=O\) and all six words vanish.
+\hint{2}
+Conversely, take the trace: \(3\operatorname{tr}(A^2B)+3\operatorname{tr}(AB^2)=0\). Here \(\operatorname{tr}(A^2B)=\|B^{1/2}A\|_F^2\ge0\), and similarly \(\operatorname{tr}(AB^2)\ge0\). So \(B^{1/2}A=O\), hence \(BA=O\) and \(AB=(BA)^T=O\).
+
+\problem{5}
+\hint{1}
+Group the right-hand side with \(C=AB-BA\): it is \(C+(AC-CA)+ACA\).
+\hint{2}
+Suppose \(A\) is invertible, multiply by \(A^{-1}\) and take traces. You get \(\operatorname{tr}(A^{-1}C)=\operatorname{tr}(B-A^{-1}BA)=0\), \(\operatorname{tr}C=0\), \(\operatorname{tr}(A^{-1}CA)=0\) and \(\operatorname{tr}(CA)=\operatorname{tr}(ABA-BA^2)=0\). This gives \(n=\operatorname{tr}E=0\), a contradiction.
+
+\problem{6}
+\hint{1}
+Over \(\mathbb C\), \(A\) is diagonalisable with eigenvalues \(\pm i\). Its eigenspaces \(V_+\) and \(V_-=\overline{V_+}\) have the same dimension, and \(B\) preserves both because \(AB=BA\).
+\hint{2}
+\(\det B=\det(B|_{V_+})\det(B|_{V_-})\). Since \(B\) is real, the second factor is the conjugate of the first, so \(\det B=|\det(B|_{V_+})|^2\ge0\).
+
+\problem{7}
+\hint{1}
+Compare the operator norm with the Frobenius norm: \(\|A\|_2\le\|A\|_F<1/\sqrt5<1\). Then \(-1\) cannot be an eigenvalue of \(A\). (Alternatively, bound \(|a+d|+|ad-bc|\) in \(\det(E+A)=1+a+d+ad-bc\).)
+
+\problem{8}
+\hint{1}
+For an idempotent, \(N(A_i)=\operatorname{rank}(E-A_i)\).
+\hint{2}
+Telescope: \(E-A_1\cdots A_k=\sum_{i=1}^kA_1\cdots A_{i-1}(E-A_i)\). Then use subadditivity of rank and \(\operatorname{rank}(XY)\le\operatorname{rank}Y\).
+
+\problem{9}
+\hint{1}
+Try \(U\) a permutation matrix, \(Ue_j=e_{\sigma(j)}\). Then \(AU-UA\) sends \(e_j\) to \((\lambda_{\sigma(j)}-\lambda_j)e_{\sigma(j)}\), so \(|AU-UA|=\operatorname{diag}(|\lambda_{\sigma(j)}-\lambda_j|)\). Also \(|A-\lambda E|=\operatorname{diag}(|\lambda_j-\lambda|)\).
+\hint{2}
+Sort \(\lambda_1\le\dots\le\lambda_n\), take \(\sigma(j)=n+1-j\) and let \(\lambda\) be a median. Then \(\lambda\) lies between \(\lambda_j\) and \(\lambda_{n+1-j}\) for every \(j\), so \(|\lambda_{n+1-j}-\lambda_j|\ge|\lambda_j-\lambda|\).
+
+\problem{10}
+\subpart{a}
+\hint{1}
+The hypotheses say \((A+iB)(C+iD)=E\). A one-sided inverse of a square matrix is two-sided, so \((C+iD)(A+iB)=E\). Separate real and imaginary parts.
+\subpart{b}
+\hint{1}
+Let \(M=A+iB\), so \(M^{-1}=C+iD\), and set \(L=M^{-1}\bar M\). Then \(\bar L=L^{-1}\), and \(A=\frac12M(E+L)\), \(C=\frac12(E+L^{-1})M^{-1}\) (use \(\bar M^{-1}=L^{-1}M^{-1}\)).
+\hint{2}
+\(\det(AC)=4^{-n}\det(E+L)\det(E+\bar L)=4^{-n}|\det(E+L)|^2\). Similarly \(B=\frac1{2i}M(E-L)\) and \(D=\frac1{2i}(E-L^{-1})M^{-1}\). These give \(\det(BD)=(-4)^{-n}|\det(E-L)|^2\).
+
+\problem{11}
+\hint{1}
+The hypothesis says \([A,[A,B]]=O\): \(C=AB-BA\) commutes with \(A\).
+\hint{2}
+Show \(\operatorname{tr}C^k=0\) for all \(k\ge1\). Write \(C^k=C^{k-1}AB-C^{k-1}BA\) and use \(C^{k-1}A=AC^{k-1}\) and the cyclicity of the trace. If all power sums of the eigenvalues vanish, the matrix is nilpotent.
+
+\problem{12}
+\hint{1}
+The commutator \(B^2=AB-BA\) commutes with \(B\). As in the previous problem, \(\operatorname{tr}(B^{2k})=\operatorname{tr}\bigl(B^{2k-2}(AB-BA)\bigr)=0\) for all \(k\ge1\).
+\hint{2}
+So \(B^2\) is nilpotent, hence \(B\) is nilpotent. For \(2\times2\) this means \(B^2=O\), i.e.\ \(AB-BA=O\).
+
+\problem{13}
+\hint{1}
+\(M=AB-BA+E\) has rank one, so \(M^2=(\operatorname{tr}M)M=nM\).
+\hint{2}
+With \(C=AB-BA\) this gives \(C^2=(n-2)C+(n-1)E\), so \(\operatorname{tr}C^2=n(n-1)\). Expanding, \(\operatorname{tr}C^2=2\operatorname{tr}(ABAB)-2\operatorname{tr}(A^2B^2)\).
+
+\problem{14}
+\hint{1}
+Look for a right inverse of \(A-B\). Note \((A-B)A^{-1}=E-BA^{-1}\).
+\hint{2}
+So \((A-B)(C+A^{-1})=E\), hence \((C+A^{-1})(A-B)=E\). Expand.
+
+\problem{15}
+\hint{1}
+It suffices to show that the segment between two points \(\langle Ax,x\rangle\) and \(\langle Ay,y\rangle\) lies in \(W(A)\). Replacing \(A\) by \(aA+bE\), assume the points are \(0\) and \(1\). Write \(A=H+iK\) with \(H,K\) Hermitian; then \(\langle Kx,x\rangle=\langle Ky,y\rangle=0\).
+\hint{2}
+Replace \(y\) by \(e^{i\theta}y\) so that \(\operatorname{Re}\langle Kx,y\rangle=0\). Then \(\langle Kz,z\rangle=0\) for all \(z=x+sy\), \(s\in\mathbb R\), so \(\langle Az,z\rangle/\|z\|^2\) is real. It runs continuously from \(0\) (\(s=0\)) to \(1\) (\(s\to\infty\)).
+\hint{3}
+Real version: the joint range of \(x\mapsto(x^TAx,x^TBx)\) on the sphere is convex if its intersection with every line is connected. Show that the preimage of a line, \(\{x:\|x\|=1,\ x^TQx=0\}\) with \(Q=\alpha A+\beta B-\gamma E\), is connected or consists of two antipodal pieces when \(n\ge3\) (diagonalise \(Q\)). Since \(x\) and \(-x\) have the same image, the intersection is connected.
+
+\problem{16}
+\hint{1}
+Let \(C=AB-BA\) and compute \(\operatorname{tr}C^2=2\operatorname{tr}\bigl((AB)^2\bigr)-2\operatorname{tr}(A^2B^2)=0\).
+\hint{2}
+The eigenvalues of \(C\) are real and \(\sum\lambda_i^2=0\), so all of them are \(0\).
+\end{document}

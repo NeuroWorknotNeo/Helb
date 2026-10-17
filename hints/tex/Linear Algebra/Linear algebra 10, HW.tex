@@ -1,0 +1,77 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Linear algebra -- 10. Matrix norms and localisation of the spectrum}{Homework}
+
+\problem{1}
+\hint{1}
+Let \(Ax=\lambda x\) and choose \(i\) with \(|x_i|\) maximal. The \(i\)-th equation gives \(|\lambda-a_{ii}|\,|x_i|\le\sum_{j\ne i}|a_{ij}|\,|x_j|\).
+\hint{2}
+Components: consider \(A(t)=D+t(A-D)\), \(t\in[0,1]\), with \(D\) the diagonal part. The discs grow continuously with \(t\), and the eigenvalues depend continuously on \(t\). An eigenvalue cannot jump from one component to a disjoint one, so the count in a component stays as at \(t=0\). Strict diagonal dominance means \(0\) lies in no disc.
+\hint{3}
+For the example, take \(A=\begin{pmatrix}0&4\\1&0\end{pmatrix}\) with eigenvalues \(\pm2\). Here row disc \(i\) intersected with column disc \(i\) is \(\{|z|\le1\}\) for both \(i\).
+
+\problem{2}
+\hint{1}
+Courant--Fischer: if \(\dim L=k\), then \(L\) meets the span of eigenvectors for \(\lambda_k,\dots,\lambda_n\) (dimension \(n-k+1\)). On that span the Rayleigh quotient is \(\le\lambda_k\). Equality is attained on the span of the first \(k\) eigenvectors. Also note the dual form \(\lambda_k=\min_{\dim M=n-k+1}\max_{x\in M}\).
+\hint{2}
+Cauchy: a principal \((n-1)\times(n-1)\) submatrix is the compression to a coordinate hyperplane \(H\). Taking subspaces \(L\subseteq H\) in the max-min (and in the min-max) gives \(\lambda_k(A)\ge\mu_k\ge\lambda_{k+1}(A)\).
+\hint{3}
+Weyl: use the min-max form with \(M=M_A\cap M_B\). Here \(M_A\) is spanned by eigenvectors of \(A\) for \(\lambda_i,\dots,\lambda_n\), and \(M_B\) by eigenvectors of \(B\) for \(\lambda_j,\dots,\lambda_n\). Then \(\dim M\ge n-(i+j-1)+1\), and on \(M\) the Rayleigh quotient of \(A+B\) is at most \(\lambda_i(A)+\lambda_j(B)\).
+
+\problem{3}
+\hint{1}
+Order \(\alpha_1\ge\alpha_2\), \(\beta_1\ge\beta_2\), \(\gamma_1\ge\gamma_2\). Necessary conditions: \(\gamma_1+\gamma_2=\alpha_1+\alpha_2+\beta_1+\beta_2\) (trace), \(\gamma_1\le\alpha_1+\beta_1\), and by Weyl \(\gamma_1\ge\max(\alpha_1+\beta_2,\alpha_2+\beta_1)\).
+\hint{2}
+Sufficiency: take \(A=\operatorname{diag}(\alpha_1,\alpha_2)\) and \(B=R_\theta\operatorname{diag}(\beta_1,\beta_2)R_\theta^T\) with \(R_\theta\) a rotation. At \(\theta=0\) and \(\theta=\pi/2\) you get the two ends of the interval; by continuity every \(\gamma_1\) in between occurs. Answer: exactly the pairs with the right sum and \(\gamma_1\in[\max(\alpha_1+\beta_2,\alpha_2+\beta_1),\,\alpha_1+\beta_1]\).
+
+\problem{4}
+\hint{1}
+\(M\) is real symmetric, so all eigenvalues are real. Delete the first row and column: the remaining \(9\times9\) matrix is the standard \(\operatorname{tridiag}(-1,2,-1)\). Its eigenvalues are \(2-2\cos\frac{k\pi}{10}>0\).
+\hint{2}
+By Cauchy interlacing, \(\lambda_1,\dots,\lambda_9\) of \(M\) are at least the smallest eigenvalue of the submatrix, so they are positive. Finally \(\lambda_{10}\le e_1^TMe_1=-1<0\).
+
+\problem{5}
+\subpart{a}
+\hint{1}
+In terms of the real eigenvalues: \(s=\sum\lambda_i^k=\|\lambda\|_k^k\) because \(k\) is even, and \(t=\sum\lambda_i^{k+1}\) satisfies \(|t|\le\|\lambda\|_{k+1}^{k+1}\). Compare with the monotonicity \(\|\lambda\|_{k+1}\le\|\lambda\|_k\).
+\hint{2}
+The hypothesis gives \(|t|=s^{(k+1)/k}\), so \(\|\lambda\|_{k+1}=\|\lambda\|_k\). Equality forces at most one non-zero eigenvalue. Then the characteristic polynomial is \(x^{n-1}(x-\operatorname{tr}A)\); apply Cayley--Hamilton.
+\subpart{b}
+\hint{1}
+No. For \(k=1\) the condition is \((\sum\lambda_i)^2=\sum\lambda_i^2\). Try \(A=\operatorname{diag}(2,2,-1)\) and compare \(A^3\) with \(\operatorname{tr}(A)A^2\).
+
+\problem{6}
+\hint{1}
+Triangularise \(A,B\) simultaneously. The eigenvalues of \(AB\) are \(\alpha_i\beta_i\), all on the unit circle.
+\hint{2}
+A sum of \(2018\) unit complex numbers equals \(2018\) only if all of them are \(1\). So \(\beta_i=\bar\alpha_i\) and \(\operatorname{tr}B=\overline{\operatorname{tr}A}=\operatorname{tr}A\), since \(A\) is real.
+
+\problem{7}
+\hint{1}
+\(A+jE\) is singular exactly when \(-j\) is an eigenvalue. How many distinct eigenvalues can \(A\) have?
+\hint{2}
+\(k=n+1\) works. \(A=\operatorname{diag}(0,-1,\dots,-(n-1))\) shows that \(k=n\) fails. Answer: \(n+1\).
+
+\problem{8}
+\hint{1}
+\(B=E-A\) commutes with \(A\), so the identity holds for every eigenvalue pair \(a\), \(b=1-a\) (triangularise). Express everything through \(p=ab\) using power sums with \(a+b=1\).
+\hint{2}
+You get \((1-2p)(1-4p+2p^2)=1-5p+5p^2\), i.e.\ \(p(4p^2-5p+1)=0\). Invertibility excludes \(p=0\), so every \(a_ib_i\in\{1,\tfrac14\}\).
+\hint{3}
+All combinations occur (diagonal \(A\) with entries \(\frac12\) or \(\frac{1\pm i\sqrt3}2\)). Answer: \(\det(AB)\in\{4^{-m}: 0\le m\le n\}\).
+
+\problem{9}
+\hint{1}
+By homogeneity, \(A(H_n)=H_n\) means \(\|Ax\|_1=\|x\|_1\) for all \(x\). So \(A\) is an injective linear isometry, and it maps the unit ball \(\operatorname{conv}H_n\) bijectively onto itself.
+\hint{2}
+A linear bijection of a polytope onto itself maps vertices to vertices. Hence \(Ae_i\in\{\pm e_j\}\), so \(A\) is a signed permutation matrix. There are \(2^nn!\) of these.
+
+\problem{10}
+\hint{1}
+Write \(A=UD_aU^*\), \(B=VD_bV^*\) and \(W=U^*V\). Then \(\|A-B\|_F^2=\|D_aW-WD_b\|_F^2=\sum_{i,j}|a_i-b_j|^2|w_{ij}|^2\).
+\hint{2}
+The matrix \((|w_{ij}|^2)\) is doubly stochastic. A linear function on the Birkhoff polytope attains its minimum at a vertex, i.e.\ at a permutation matrix (Birkhoff--von Neumann).
+\hint{3}
+For the perturbation bound: \(A\,\delta x=\delta b\) gives \(\|\delta x\|\le\|A^{-1}\|\,\|\delta b\|\), and \(\|b\|\le\|A\|\,\|x\|\). Multiply the two inequalities.
+\end{document}

@@ -1,0 +1,61 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Linear algebra -- 12. Mixed problems: commutators, traces and the numerical range}{Class work}
+
+\problem{1}
+\subpart{a}
+\hint{1}
+\(AA^T\) is symmetric, and \(x^TAA^Tx=\|A^Tx\|^2>0\) for \(x\ne0\) because \(A\) is invertible.
+\subpart{b}
+\hint{1}
+\(A^TA=A^{-1}(AA^T)A\) is similar to \(AA^T\), so both have the same positive eigenvalues \(\lambda_1\ge\dots\ge\lambda_n\). The equality of the two matrices gives equality of the multisets \(\{\lambda_i^p\}\) and \(\{\lambda_i^q\}\).
+\hint{2}
+Both \(t\mapsto t^p\) and \(t\mapsto t^q\) are increasing on \((0,\infty)\). Comparing the sorted lists gives \(\lambda_i^p=\lambda_i^q\), hence \(\lambda_i=1\). A symmetric matrix with all eigenvalues \(1\) is \(E\), so \(AA^T=E\).
+
+\problem{2}
+\hint{1}
+Let \(c\) be the vector of cofactors along a permutable row \(u\), so that \(\det=c\cdot u\). Applying a transposition of entries \(j,k\) gives \((u_j-u_k)(c_j-c_k)=0\). Deduce that \(u\) is constant or \(c\) is constant.
+\hint{2}
+If the cofactor vector \(c^{(s)}\) along row \(s\) is constant, \(=\gamma_s\), then replacing row \(s\) by any \(x\) gives determinant \(\gamma_s\sum_jx_j\). Put \(x=\) the other permutable row \(u\): you get \(\gamma_s\sum u_j=0\).
+\hint{3}
+Run through the cases. If both rows are constant, they are proportional. If one row is constant and the other has constant cofactors, use Hint 2. If both cofactor vectors are constant, then \(\det=\gamma_s\sum v_j=\gamma_r\sum u_j\), together with \(\gamma_s\sum u_j=0\). In every case \(\det=0\).
+
+\problem{3}
+\hint{1}
+The form \((X,Y)\mapsto\operatorname{tr}(XY)\) is positive definite on symmetric matrices (\(\operatorname{tr}S^2=\|S\|_F^2\)) and negative definite on skew-symmetric ones.
+\hint{2}
+A subspace \(V\) on which the form vanishes meets the symmetric matrices only in \(0\). Hence \(\dim V\le n^2-\frac{n(n+1)}2\). Strictly upper triangular matrices attain this. Answer: \(\frac{n(n-1)}2\).
+
+\problem{4}
+\hint{1}
+The eigenvalues of a real skew-symmetric matrix are \(0\) (say \(m\) times) and pairs \(\pm ib_k\). Hence \(\det(A+tE)=t^m\prod_k(t^2+b_k^2)\).
+\hint{2}
+The inequality reduces factor by factor to \((x^2+b^2)(y^2+b^2)\ge(xy+b^2)^2\), which is Cauchy--Schwarz. The powers of \(t\) match: \(x^my^m=(\sqrt{xy})^{2m}\).
+
+\problem{5}
+\hint{1}
+\(PQx=x\) means \(Qx-x=-2(u^Tx)u\). Since \(Q-E\) is invertible, try \(x=(Q-E)^{-1}u\). This works if and only if \(u^T(Q-E)^{-1}u=-\frac12\).
+\hint{2}
+For orthogonal \(Q\), let \(M=(Q-E)^{-1}\). Then \(M^T=(Q^{-1}-E)^{-1}=-QM\), so \(M+M^T=(E-Q)M=-E\). Hence \(u^TMu=-\frac12\|u\|^2\).
+
+\problem{6}
+\hint{1}
+\(\operatorname{tr}(\operatorname{adj}C)=\operatorname{tr}(AB-BA)=0\). An idempotent \(C\) is diagonalisable with eigenvalues \(0,1\); let \(r=\operatorname{rank}C\).
+\hint{2}
+If \(r=n\), then \(\operatorname{adj}C=E\), with trace \(n\). If \(r=n-1\), then in an eigenbasis \(\operatorname{adj}C\) is similar to \(\operatorname{adj}\operatorname{diag}(1,\dots,1,0)=E_{nn}\), with trace \(1\). So \(r\le n-2\), \(\operatorname{adj}C=O\), and even \(AB-BA=O\).
+
+\problem{7}
+\subpart{a}
+\hint{1}
+Induction: \(F^{k+1}G-GF^{k+1}=F(F^kG-GF^k)+(FG-GF)F^k\).
+\subpart{b}
+\hint{1}
+By (a), each non-zero \(F^k\) is an eigenvector of the linear map \(X\mapsto XG-GX\) on \(M_n\), with eigenvalue \(\alpha k\). These eigenvalues are pairwise distinct, but the map has at most \(n^2\) eigenvalues. (Alternatively, (a) gives \(\operatorname{tr}F^k=0\) for all \(k\).)
+
+\problem{8}
+\hint{1}
+Call the matrix in the middle \(N\). Then \(N^2=O\), so the left-hand side is \((X-N)^2-N^2=(X-N)^2\).
+\hint{2}
+So you need \(Y^2=J\), where \(J\) is the nilpotent \(3\times3\) Jordan block. Then \(Y\) is nilpotent, so \(Y^3=O\) (size \(3\)). This gives \(J^2=Y^4=O\), which is false. Answer: no.
+\end{document}
