@@ -1,0 +1,81 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Linear algebra -- 6. Linear algebra in combinatorics}{Homework}
+
+\problem{1}
+\hint{1}
+Fisher: the Gram matrix of the vectors \(1_{A_i}\in\mathbb R^n\) is \(G=\lambda J+D\) with \(D=\operatorname{diag}(|A_i|-\lambda)\ge0\). At most one \(|A_i|\) equals \(\lambda\), since two such sets would coincide. Show that \(x^TGx=\lambda(\sum x_i)^2+\sum d_ix_i^2>0\) for \(x\ne0\). Then \(G\) is invertible, so \(m\le n\).
+\hint{2}
+Frankl--Wilson: use the polynomial method over \(\mathbb F_p\). Let \(a_i=1_{A_i}\) and \(f_i(x)=\prod_{l\in\mathbb F_p,\,l\ne\lambda}(x\cdot a_i-l)\). Then \(f_i(a_j)=0\) for \(j\ne i\) and \(f_i(a_i)\ne0\).
+\hint{3}
+Replace each \(x_k^2\) by \(x_k\) (no change on \(0/1\) vectors). This gives multilinear polynomials of degree \(\le p-1\), still independent by the diagonal evaluation pattern. They live in a space of dimension \(\binom n{p-1}+\dots+\binom n0\).
+
+\problem{2}
+\hint{1}
+Each biclique \((L_t,R_t)\) gives the quadratic form \(\ell_t(x)r_t(x)\), with \(\ell_t=\sum_{i\in L_t}x_i\) and \(r_t=\sum_{j\in R_t}x_j\). The partition says \(\sum_{i<j}x_ix_j=\sum_{t=1}^k\ell_tr_t\).
+\hint{2}
+The left side has matrix \(\frac12(J-E)\), with eigenvalue \(-\frac12\) of multiplicity \(n-1\), so its negative index is \(n-1\). Each \(\ell_tr_t=\bigl(\frac{\ell_t+r_t}2\bigr)^2-\bigl(\frac{\ell_t-r_t}2\bigr)^2\) has negative index \(\le1\), and negative indices are subadditive. Hence \(k\ge n-1\).
+\hint{3}
+Equivalent elementary version: on the subspace \(\{\sum x_i=0,\ \ell_1=\dots=\ell_k=0\}\), of dimension \(\ge n-k-1\), the identity gives \(\sum x_i^2=0\).
+
+\problem{3}
+\hint{1}
+(IMC 2011.) Adding the same vector \(c\) to all \(v_i\) does not change sums of an even number of them. So you may translate so that the affine span of the \(v_i\) is a linear subspace \(W\), of dimension \(d\le2n-1\).
+\hint{2}
+Lemma (induction on \(d\)): the vectors can be renumbered so that \(v_1+v_2,\ v_3+v_4,\dots,v_{2d-1}+v_{2d}\) form a basis of \(W\). Pick a pair with \(v_1+v_2\ne0\) such that the remaining vectors still affinely span \(W\), and pass to \(W/\langle v_1+v_2\rangle\).
+\hint{3}
+Let \(w=v_1+v_3+\dots+v_{2d-1}+v_{2d+1}+\dots+v_{2n+d}\). This is \(2n\) vectors, which is possible because \(2n+d\le4n-1\). Write \(w=\sum_{i\in I}(v_{2i-1}+v_{2i})\). Adding this to \(w\) gives \(0\) as a sum of exactly one vector from each pair, plus the tail: \(2n\) distinct vectors.
+
+\problem{4}
+\hint{1}
+The vectors with odd indices \(v_1,v_3,v_5,\dots\) are pairwise orthogonal and nonzero, hence independent.
+\hint{2}
+So \(n\ge\lceil k/2\rceil\). Conversely, \(v_{2j-1}=v_{2j}=e_j\) works. Answer: \(n=\lceil k/2\rceil\).
+
+\problem{5}
+\hint{1}
+The entry in row \(i\), column \(j\) is \((i-1)n+j\). A choice of one entry in each row and column is \(\{(i,\sigma(i))\}\). Its sum is \(\sum_i(i-1)n+\sum_i\sigma(i)\), whatever \(\sigma\) is. The only possible value is \(n(n^2+1)/2\).
+
+\problem{6}
+\subpart{a}
+\hint{1}
+If two such vectors have supports meeting in an odd number of coordinates, their inner product is a sum of an odd number of \(\pm1\), so it is nonzero. For odd \(k\) this covers equal supports too, so all \(2^k\) sign patterns on each support may be used.
+\hint{2}
+You need \(2^{k-1}\) supports of size \(k\) with pairwise odd intersections. Split \([2k]\) into pairs \(\{1,2\},\dots,\{2k-1,2k\}\) and take the transversals: choose one element from each pair, with an even number of ``second'' choices. Two such transversals disagree in an even number of pairs, so they agree in an odd number. Total: \(2^{k-1}\cdot2^k\).
+\subpart{b}
+\hint{1}
+Upper bound: partition all \(\binom84 2^4=1120\) vectors into \(140\) groups of \(8\) pairwise orthogonal vectors. A non-orthogonal family takes at most one vector from each group. Use a support \(S\) and its complement \(S^c\), together with rows of a \(4\times4\) Hadamard matrix.
+\hint{2}
+In detail: the \(16\) sign vectors on \(S\) split into \(4\) orthogonal quadruples, namely \(\pm\) the rows of \(H_4\) and of \(H_4\operatorname{diag}(1,1,1,-1)\). Vectors supported on \(S\) and on \(S^c\) are orthogonal. This gives \(35\cdot4\) octets.
+\hint{3}
+Lower bound: let \(A=\{1,2,3\}\) and \(B=\{4,\dots,8\}\). Take all \(0/1\) vectors with two ones in \(A\) and two in \(B\) (\(30\) of them), all vectors \(1_A\pm e_b\), \(b\in B\) (\(10\)), and the negatives of all of these. Check that every inner product is nonzero.
+
+\problem{7}
+\hint{1}
+Choose \(J\) at random, putting each index in independently with probability \(\frac12\), and compute the expectation of the left side.
+\hint{2}
+For \(i\ne j\), the pair contributes \(a_{ij}\) with probability \(\frac14+\frac14\). Since \(a_{ii}=0\), the expectation is \(\frac12\sum a_{ij}\). Some \(J\) attains at least the mean.
+
+\problem{8}
+\hint{1}
+For each \(i\) pick \(u_i\in\operatorname{Im}A_i\) with \(A_iu_i\ne0\), e.g.\ \(u_i=A_ix_i\) where \(A_i^2x_i\ne0\). Show that \(u_1,\dots,u_k\) are independent.
+\hint{2}
+Apply \(A_i\) to \(\sum c_ju_j=0\). For \(j\ne i\), \(A_iu_j=A_iA_jx_j=0\), so \(c_iA_iu_i=0\). Example with \(k=n\): \(A_i=E_{ii}\).
+
+\problem{9}
+\hint{1}
+Let \(F\) be the family of sets with \(s(I)=2019\) and \(V\) the set of values of \(s\). Aim for \(|F|\cdot|V|\le3^n\). Then \(|F|\le(3/1.8)^n<1.7^n\).
+\hint{2}
+For each value \(v\in V\) fix one set \(J_v\) with \(s(J_v)=v\). Map \((I,v)\mapsto1_I-1_{J_v}\in\{-1,0,1\}^n\).
+\hint{3}
+This map is injective. From \(d=1_I-1_{J_v}\) you recover \(\sum d_ix_i=2019-v\), hence \(v\), hence \(J_v\) and \(I\).
+
+\problem{10}
+\hint{1}
+If \(|A|+|B|>p\), then for every \(x\) the sets \(A\) and \(x-B\) intersect, so \(A+B=\mathbb Z/p\). Otherwise assume \(|A+B|\le|A|+|B|-2\). Take \(C\supseteq A+B\) with \(|C|=|A|+|B|-2\).
+\hint{2}
+\(f(x,y)=\prod_{c\in C}(x+y-c)\) vanishes on \(A\times B\) and has degree \(|A|+|B|-2\). The coefficient of \(x^{|A|-1}y^{|B|-1}\) is \(\binom{|A|+|B|-2}{|A|-1}\), which is nonzero mod \(p\). The Combinatorial Nullstellensatz gives a contradiction.
+\hint{3}
+Comparison: in \(\mathbb R\), \(\lambda(A+B)\ge\lambda(A)+\lambda(B)\) (place \(\sup A+B\) and \(A+\inf B\) side by side). In \(\mathbb Z\) the same argument gives \(|A|+|B|-1\). In \(\mathbb Z/p\) the wrap-around caps the bound at \(p\), which is why an algebraic proof is needed.
+\end{document}

@@ -1,0 +1,30 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Number theory -- 1}{Class work}
+
+\problem{1}
+\hint{1} B\'ezout: let $d$ be the least positive element of $I=\{ax+by\}$. Divide $a$ by $d$ with remainder; the remainder lies in $I$ and is smaller than $d$, so it is $0$. Hence $d\mid a$, $d\mid b$, and every common divisor divides $d$. Euclid's lemma: if $p\mid ab$ and $p\nmid a$, write $1=ax+py$ and multiply by $b$. Uniqueness of factorisation follows by induction, cancelling a common prime.
+\hint{2} CRT: the map $x\mapsto(x\bmod n_1,\dots,x\bmod n_k)$ is a ring homomorphism. Its kernel is $0$, since $n_i\mid x$ for all $i$ forces $n\mid x$ (use Euclid's lemma). Both sides have $n$ elements, so the map is bijective. A residue is a unit exactly when every component is a unit, so $\varphi$ is multiplicative. Also $\varphi(p^e)=p^e-p^{e-1}$.
+\hint{3} Euler: for $\gcd(a,n)=1$, $x\mapsto ax$ permutes the units $r_1,\dots,r_{\varphi(n)}$, so $\prod (ar_i)\equiv\prod r_i$; cancel. Wilson: in $\mathbb F_p$ only $x=\pm1$ satisfy $x=x^{-1}$, so the other factors of $(p-1)!$ pair off into products equal to $1$.
+\hint{4} Converse: if $n=ab$ with $1<a<n$, then $a\mid(n-1)!$, so $(n-1)!\equiv-1\pmod a$ is impossible.
+
+\problem{2}
+\hint{1} From $n\mid 2^n$, $n$ is a power of $2$, say $n=2^m$. Then $n-1=2^m-1\mid 2^n-1$. When does $2^m-1$ divide $2^N-1$?
+\hint{2} $2^m-1\mid 2^N-1$ if and only if $m\mid N$. So $m\mid 2^m$, which means $m=2^l$. Next, $n-2=2(2^{m-1}-1)$ divides $2^n-2=2(2^{n-1}-1)$, which gives $m-1\mid n-1=2^m-1$, that is $2^l-1\mid 2^{2^l}-1$, so $l\mid 2^l$.
+\hint{3} So $l$ is a power of $2$ (and $l\geq1$, because $n=2$ fails). The conditions are also sufficient. Answer: $n=2^{2^l}$ with $l\in\{1,2,4,8\}$, i.e.\ $n=4,16,65536,2^{256}$. The next case, $2^{2^{16}}$, is larger than $10^{100}$.
+
+\problem{3}
+\hint{1} By CRT, $x^2\equiv x\pmod n$ splits into $x^2\equiv x\pmod{p^e}$ for each prime power $p^e\,\|\,n$.
+\hint{2} Modulo $p^e$, $x(x-1)\equiv0$, and $x$, $x-1$ are coprime, so $p^e$ divides one of them: $x\equiv0$ or $x\equiv1$. Answer: $2^{\omega(n)}$, where $\omega(n)$ is the number of distinct prime factors. The idempotents of $\prod\mathbb Z/p^e$ are exactly the vectors with entries $0,1$.
+
+\problem{4}
+\hint{1} Write $f=ax^2+bx+c$ and use $f(0),f(1),f(-1)$: $5\mid c$, $5\mid a+b$, $5\mid a-b$, hence $5\mid 2a,2b$.
+\hint{2} General principle: if $\deg f\le p-1$ and $p\mid f(k)$ for all $k$, then $\bar f\in\mathbb F_p[x]$ has $p$ roots but degree $<p$, so $\bar f=0$.
+\hint{3} For $\deg f=d\geq p$ the statement fails: take $x^{d-p}(x^p-x)$ (Fermat). So it holds exactly when $d<p$.
+
+\problem{5}
+\hint{1} $2021=43\cdot47$. Treat each prime separately. Modulo $43$, by CRT, $A$ consists of each nonzero residue mod $43$ repeated $46$ times.
+\hint{2} So $S(j)\equiv 46\sum_{x=1}^{42}x^j\pmod{43}$. Using a primitive root, $\sum_{x=1}^{p-1}x^j\equiv -1$ if $(p-1)\mid j$ and $\equiv 0$ otherwise. Do the same modulo $47$.
+\hint{3} Answer: $2021\mid S(j)$ exactly when $j$ is divisible by neither $42$ nor $46$.
+\end{document}

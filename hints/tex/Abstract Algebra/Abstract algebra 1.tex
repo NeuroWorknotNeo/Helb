@@ -1,0 +1,30 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Abstract algebra -- 1. Finite groups: counting}{Class work}
+
+\problem{1}
+\hint{1} For Lagrange: show that two left cosets $xH$, $yH$ are either equal or disjoint, and that $h\mapsto xh$ is a bijection $H\to xH$. The corollaries follow by taking $H=\langle x\rangle$ (whose order is $\operatorname{ord}(x)$), and for Euler by applying $x^{|G|}=e$ in $G=(\mathbb Z/n\mathbb Z)^*$, $|G|=\varphi(n)$.
+\hint{2} For the converse, try $G=A_4$ (order $12$). A subgroup of order $6$ would have index $2$, hence be normal, and would contain the square of every element of $A_4$ (look at the image in $G/H\cong\mathbb Z/2$).
+\hint{3} Every $3$-cycle is a square: $(abc)=(acb)^2$. So such a subgroup would contain all eight $3$-cycles, which is more than $6$ elements.
+
+\problem{2}
+\hint{1} Pair each $x$ with $x^{-1}$. The pairs $\{x,x^{-1}\}$ with $x\ne x^{-1}$ have two elements each; what is left is exactly $\{x: x^2=e\}$. Since $e$ is in that set, $|G|$ even forces at least one more element, an involution.
+\hint{2} For McKay: let $X=\{(x_1,\dots,x_p)\in G^p : x_1\cdots x_p=e\}$. The first $p-1$ coordinates are free and the last is determined, so $|X|=|G|^{p-1}\equiv 0\pmod p$.
+\hint{3} The cyclic shift maps $X$ to $X$ (conjugate $x_1\cdots x_p=e$ by $x_1$), and its $p$-th power is the identity, so orbits have size $1$ or $p$ ($p$ is prime). Hence the number of fixed points, the constant tuples $(x,\dots,x)$ with $x^p=e$, is $\equiv |X|\equiv 0\pmod p$. As $(e,\dots,e)$ is one of them, there are at least $p$, so some $x\ne e$ has $x^p=e$.
+
+\problem{3}
+\hint{1} The $n$ elements of order $p$ together with $e$ are exactly the solutions of $x^p=e$. So you need: the number of solutions of $x^p=e$ is divisible by $p$ whenever $n>0$.
+\hint{2} If $n>0$, then $p$ divides $|G|$ by Lagrange. Now rerun McKay's argument from Problem 2: the fixed points of the cyclic shift on $X=\{(x_1,\dots,x_p):x_1\cdots x_p=e\}$ are the tuples $(x,\dots,x)$ with $x^p=e$, and their number is $\equiv|G|^{p-1}\equiv0\pmod p$. Hence $p\mid n+1$.
+
+\problem{4}
+\hint{1} A unique subgroup of order $p$ is normal, because every conjugate $gHg^{-1}$ is again a subgroup of order $p$. So conjugation gives a homomorphism $G\to\operatorname{Aut}(H)$.
+\hint{2} $H\cong\mathbb Z/p$, so $|\operatorname{Aut}(H)|=p-1$. The image of $G$ has order dividing both $n$ and $p-1$.
+\hint{3} Every prime divisor of $n$ is $\ge p$, so $\gcd(n,p-1)=1$. The action is therefore trivial, i.e.\ every $g$ commutes with every element of $H$.
+
+\problem{5}
+\hint{1} If all orders multiply to a power of $2$, every element has $2$-power order, so $G$ is a $2$-group: $G\cong\bigoplus_i\mathbb Z/2^{a_i}$ with $|G|=2^n$ and $r$ cyclic summands. The product of orders is $2^E$. Let $N(j)=\#\{x:x^{2^j}=e\}$, which is a power of $2$. Write $E$ in terms of the $N(j)$.
+\hint{2} With $M$ the largest $a_i$, $E=\sum_{j=1}^{M}j\,(N(j)-N(j-1))=M\cdot 2^n-\sum_{j=0}^{M-1}N(j)$. Here $N(0)=1$, and $N(1)=2^r$ divides every $N(j)$ with $j\ge1$ as well as $2^n$. Hence $E\equiv-1\pmod{2^r}$.
+\hint{3} $E+1=2010$ is not divisible by $4$, so $r\le1$ and $G$ is cyclic, $G=\mathbb Z/2^n$. Then $E=\sum_{j=1}^n j\,2^{j-1}=(n-1)2^n+1$, and $(n-1)2^n=2008$ has no solution. The answer is \emph{no}.
+
+\end{document}

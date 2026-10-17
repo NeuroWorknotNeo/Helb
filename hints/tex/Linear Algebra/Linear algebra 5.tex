@@ -1,0 +1,42 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Linear algebra -- 5. Bilinear and quadratic forms}{Class work}
+
+\problem{1}
+\hint{1}
+The form has no squares, so first create one. Substitute \(x_1=y_1+y_2\), \(x_2=y_1-y_2\), \(x_3=y_3\). Then \(x_1x_2=y_1^2-y_2^2\) and \(x_3(x_1+x_2)=2y_1y_3\).
+\hint{2}
+Completing the square gives \(Q=(y_1+y_3)^2-y_2^2-y_3^2\), so the signature is \((1,2)\). Check: the matrix \(\frac12(J-E)\) has eigenvalues \(1,-\frac12,-\frac12\).
+\hint{3}
+Law of inertia: take two diagonalising bases with \(p\) and \(p'\) plus signs, and suppose \(p>p'\). Compare the span \(L_+\) of the \(p\) positive vectors of the first basis with the span \(L_{\le}\) of the \(n-p'\) non-positive vectors of the second. Since \(p+(n-p')>n\), they share a nonzero \(x\), but then \(Q(x)>0\) and \(Q(x)\le0\). For the example, try \(\operatorname{diag}(0,-1)\).
+
+\problem{2}
+\hint{1}
+Take \(P=tE\). Then \(P^TAP=t^2A\), so \(A\) and \(cA\) have the same minimal polynomial for every \(c>0\). Write \(m_{cA}(x)=c^dm_A(x/c)\) and compare coefficients.
+\hint{2}
+So \(m_A(x)=x^d\), i.e.\ \(A\) is nilpotent, and the same holds for every \(P^TAP\). Hence \(\operatorname{tr}(A\,PP^T)=0\) for every invertible \(P\). Matrices \(PP^T\) (positive definite) span all symmetric matrices, so the symmetric part of \(A\) is zero.
+\hint{3}
+A real skew-symmetric matrix is normal, so if it is nilpotent it is \(0\). Answer: only the zero form \(B\equiv0\).
+
+\problem{3}
+\hint{1}
+Write \(A=H+K\) with \(K=\frac12(A-A^T)\) skew-symmetric. Factor out \(H\) symmetrically: \(A=H^{1/2}(E+K')H^{1/2}\) with \(K'=H^{-1/2}KH^{-1/2}\).
+\hint{2}
+\(K'\) is again real skew-symmetric, so its eigenvalues are \(0\) and pairs \(\pm ib_j\) with \(b_j\) real. Hence \(\det(E+K')=\prod(1+b_j^2)\ge1\).
+
+\problem{4}
+\hint{1}
+(Real matrices.) The right-hand side \(C^6+C+E\) is symmetric with eigenvalues \(t^6+t+1\) for the eigenvalues \(t\) of \(C\). Show that \(t^6+t+1>0\) for all real \(t\).
+\hint{2}
+Then \(BA(A+E)\) is invertible, so \(-1\) is not an eigenvalue of \(A\). Since \(A^3=-E\), the eigenvalues of \(A\) are roots of \(x^2-x+1\). These are non-real, so they come in conjugate pairs and \(n\) is even. Answer: no.
+
+\problem{5}
+\hint{1}
+Follow the hint. Check that the hypothesis, together with \(a,b,c\in[-1,1]\), makes all principal minors of
+\(G=\begin{pmatrix}1&c&b\\c&1&a\\b&a&1\end{pmatrix}\) non-negative, so \(G\succeq0\) (Sylvester's criterion).
+\hint{2}
+Use the Schur product theorem: the entrywise (Hadamard) product of positive semidefinite matrices is positive semidefinite. Proof idea: \(\langle u_i,u_j\rangle\langle w_i,w_j\rangle=\langle u_i\otimes w_i,u_j\otimes w_j\rangle\) is again a Gram matrix.
+\hint{3}
+Hence the \(n\)-th Hadamard power \(G^{\circ n}\), with entries \(1,a^n,b^n,c^n\), is positive semidefinite. Its determinant is \(1+2(abc)^n-a^{2n}-b^{2n}-c^{2n}\ge0\).
+\end{document}

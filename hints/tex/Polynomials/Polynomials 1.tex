@@ -1,0 +1,31 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Polynomials -- 1. Roots, multiplicity and the derivative}{Class work}
+
+\problem{1}
+\hint{1} Work over $\mathbb{C}$. The divisibility $f'^{\,q}\mid f^p$ says that every root of $f'$ is a root of $f$.
+\hint{2} Let $f$ have distinct roots $z_1,\dots,z_m$ with multiplicities $k_1,\dots,k_m$. Then $z_i$ is a root of $f'$ of multiplicity exactly $k_i-1$, which accounts for $\sum(k_i-1)=n-m$ of the $n-1$ roots of $f'$.
+\hint{3} The remaining $m-1$ roots of $f'$ are not roots of $f$, so by Hint 1 there are none: $m=1$. Hence $f=c(x-a)^n$ and $f'=nc(x-a)^{n-1}$ divides $f$.
+
+\problem{2}
+\hint{1} The statement is invariant under translations and positive dilations of $x$ (the parts of $(b,c)$ move along). Normalize $b=0$, $c=1$, so $a=-t$ with $t\ge 0$ and $f(x)=x(x-1)(x+t)$.
+\hint{2} Then $f'(x)=3x^2+2(t-1)x-t$. Since $f'(0)=-t\le 0<f'(1)$ and $f'$ is quadratic with positive leading coefficient, $f'$ has exactly one root in $(0,1)$ (when $t=0$ the other root is $0$); locate it by evaluating $f'$ at $\tfrac12$ and $\tfrac23$.
+\hint{3} $f'(\tfrac12)=-\tfrac14<0$ and $f'(\tfrac23)=\tfrac t3\ge0$, so the root lies in $(\tfrac12,\tfrac23]$, the fourth sixth. It equals $\tfrac23$ exactly when $t=0$, i.e.\ $a=b$ and $f=(x-b)^2(x-c)$; it never equals $\tfrac12$ (it only tends to it as $a\to-\infty$).
+
+\problem{3}
+\hint{1} Compare multiplicities: suppose $r$ is a root of $P$ of multiplicity $m\ge2$. What is its multiplicity in $P''$, and hence in $Q$?
+\hint{2} From $P=QP''$ you get $m=\operatorname{mult}_r(Q)+(m-2)$, so $Q=c(x-r)^2$; comparing leading coefficients, $c=\frac1{n(n-1)}$.
+\hint{3} Translate $r=0$: $n(n-1)P=x^2P''$. Compare the coefficients of $x^k$: $n(n-1)a_k=k(k-1)a_k$, so $a_k=0$ for $k\ne n$ and $P=a_nx^n$ has only one root. So if $P$ has two distinct roots, all roots are simple.
+
+\problem{4}
+\hint{1} Use the logarithmic derivative $\dfrac{p'(x)}{p(x)}=\sum_{j=1}^n\dfrac1{x-r_j}$ (all roots are the $r_j$, simple).
+\hint{2} At the midpoint $m_i=\frac{r_i+r_{i+1}}2$ the terms $j=i$ and $j=i+1$ cancel. Look at $i=1$ when $n\ge3$: what is the sign of each of the remaining terms?
+\hint{3} For $i=1$ all remaining terms $\frac1{m_1-r_j}$, $j\ge3$, are negative, so $p'(m_1)\ne0$ when $n\ge 3$. Answer: exactly the quadratics $p(x)=a(x-r_1)(x-r_2)$ with $r_1<r_2$, $a\ne0$ ($n=2$).
+
+\problem{5}
+\hint{1} Factor $p$ over $\mathbb{C}$. Why must every real root have even multiplicity, and why is the leading coefficient positive?
+\hint{2} The non-real roots come in conjugate pairs. Put $g(x)=\prod(x-z)$, taking one root from each conjugate pair and half of each real root's multiplicity. Then $p=c\,g\,\bar g$ with $c>0$.
+\hint{3} Write $g=A+iB$ with $A,B$ real polynomials; then $p=c(A^2+B^2)=(\sqrt cA)^2+(\sqrt cB)^2$, so $k=2$ suffices.
+
+\end{document}

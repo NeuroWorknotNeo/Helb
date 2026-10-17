@@ -1,0 +1,54 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Probability -- 1. Expectation, indicators and linearity}{Homework}
+
+\problem{1}
+\hint{1} A run of $k+1$ equal symbols, heads or tails, is the same as $k$ consecutive ``repeats'' in the sequence $d_i=[x_i=x_{i+1}]$, $i=1,\dots,n-1$.
+\hint{2} The map $x\mapsto d$ is $2$-to-$1$ onto $\{0,1\}^{n-1}$, so $d$ is a sequence of $n-1$ fair tosses and $\Pr(B)$ is the probability of $k$ consecutive heads in $n-1$ tosses.
+\hint{3} This is at most $\Pr(A)$ (look at the first $n-1$ of the $n$ tosses), and strictly less, because $T^{n-k}H^k$ belongs to $A$ while its first $n-1$ tosses do not. Answer: $A$ is more probable.
+
+\problem{2}
+\hint{1} Set up states by the lead and the server, with $q=1-p$: (24:22, leader serves), (24:23, trailer serves), tie with someone serving, (lead $1$, leader serves). Observe that from a tie the next rally always produces ``lead $1$, leader serves'', whoever wins.
+\hint{2} For the tie $D$ and lead-one $L$: $E_D=1+E_L$, $E_L=1+qE_D$, so $E_D=2/p$. Then $E_{24:23}=1+pE_D=3$ and $E_{24:22}=1+qE_{24:23}$.
+\hint{3} Answer: $4-3p$ for $0<p\le1$. (For $p=0$ the set ends after exactly $2$ rallies.)
+
+\problem{3}
+\hint{1} Only the current interval of candidates matters, and the hidden number is uniform on it. Let $V(n)$ be $n$ times the winning probability of the player to move when $n$ candidates remain; guessing a number that splits the rest into $a$ and $b=n-1-a$ gives $V(n)=\max_{a+b=n-1}\bigl(n-V(a)-V(b)\bigr)$ with $V(0)=0$.
+\hint{2} Compute small cases and prove by induction that $V(n)=\lceil n/2\rceil$: $V(a)+V(b)\ge\lceil(n-1)/2\rceil=\lfloor n/2\rfloor$, with equality for $a=0$ (guess an endpoint). Wasting a move on an already excluded number gives only $n-V(n)\le V(n)$.
+\hint{3} Answer: $\frac12$ for even $N$ and $\frac{N+1}{2N}$ for odd $N$.
+
+\problem{4}
+\hint{1} Lower bound for Vasya: let $\eta$ be an independent copy of $\xi$. Then $\Pr(\eta\ge\xi)+\Pr(\xi\ge\eta)\ge1$, and both are equal.
+\hint{2} Upper bound for Petya: take $\xi$ uniform on $[0,2]$. Then $\Pr(\eta\ge\xi)=\mathrm{E}F(\eta)$ with $F(t)=\Pr(\xi\le t)=\min(t/2,1)\le t/2$, so it is at most $\mathrm{E}\eta/2$. Answer: $p=\frac12$.
+
+\problem{5}
+\hint{1} Track the number $k$ of white balls. A step changes $k$ only if a mixed pair is drawn (probability $r_k=k(n-k)/\binom n2$), and then $k\to k\pm1$ with probability $\frac12$ each: a simple symmetric random walk on $\{0,\dots,n\}$ from $1$, slowed down at each state.
+\hint{2} The expected number of visits of the walk to $j$ before absorption, starting from $1$, is $G(1,j)=\frac{2(n-j)}n$; each visit lasts on average $1/r_j$ steps.
+\hint{3} $\mathrm{E}T=\sum_{j=1}^{n-1}\frac{2(n-j)}n\cdot\frac{n(n-1)}{2j(n-j)}=(n-1)H_{n-1}$.
+
+\problem{6}
+\hint{1} By linearity, $\mathrm{E}S=\sum_i2^{-i}\,\mathrm{E}\bigl[X_i\mathbf 1_{\{k\ge i\}}\bigr]$, and $k\ge i$ iff $X_1\ge X_2\ge\dots\ge X_i$.
+\hint{2} Conditioning on $X_i=x$: $\Pr(X_1\ge\dots\ge X_{i-1}\ge x)=\frac{(1-x)^{i-1}}{(i-1)!}$, so the $i$-th term equals $\frac{2^{-i}}{(i-1)!}\int_0^1x(1-x)^{i-1}dx=\frac{2^{-i}}{(i+1)!}$.
+\hint{3} $\mathrm{E}S=\sum_{i\ge1}\frac{2^{-i}}{(i+1)!}=2\bigl(e^{1/2}-1-\tfrac12\bigr)=2e^{1/2}-3$.
+
+\problem{7}
+\hint{1} Wald: $X_1+\dots+X_N=\sum_iX_i\mathbf 1_{\{N\ge i\}}$, and $\{N\ge i\}=\{N\le i-1\}^c$ is determined by $X_1,\dots,X_{i-1}$, hence independent of $X_i$. So the expectation is $\sum_i\mathrm{E}X_1\Pr(N\ge i)=\mathrm{E}X_1\,\mathrm{E}N$ (justify the exchange by doing the same with $|X_i|$).
+\hint{2} Pattern of length $m$: before each toss a new gambler arrives with \$1 and bets it on the pattern, doubling at each correct toss and leaving when a toss is wrong. The game is fair, and $\mathrm{E}N<\infty$ (disjoint blocks of $m$ tosses each give the pattern with probability $2^{-m}$), so the casino's expected net gain at time $N$ is $0$.
+\hint{3} At time $N$ the casino has received $N$ dollars and pays $2^j$ to the gambler who started $j$ tosses earlier exactly when the prefix of length $j$ of the pattern equals its suffix of length $j$. So $\mathrm{E}N=\sum_{j:\,\text{prefix}_j=\text{suffix}_j}2^j$: $2+4=6$ for HH and $4$ for HT.
+
+\problem{8}
+\hint{1} Follow $1\to\sigma(1)\to\sigma^2(1)\to\dots$: at step $\ell$ the cycle closes with probability $\frac1{n-\ell+1}$ given that it is still open, so $\Pr(L=\ell)=\frac1n$ for each $\ell$ and $\mathrm{E}L=\frac{n+1}2$.
+\hint{2} The number of cycles is $\sum_i1/L_i$, with expectation $n\,\mathrm{E}(1/L_1)=H_n$. Asymptotics: $\mathrm{E}L\sim n/2$ and $H_n=\ln n+\gamma+o(1)$.
+
+\problem{9}
+\hint{1} Place the three circles and take, for each pair, the common external tangent on the side away from the third circle. A triangle exists iff these three lines enclose the circles, i.e.\ all three interior angles come out positive. The angle at the vertex near the largest circle (radius $t$) is the critical one.
+\hint{2} With $\beta$ the angle of the triangle of centres at the centre of the $t$-circle, the angle at that vertex is $\beta-\theta_r-\theta_s$ with $\sin\theta_r=\frac{t-r}{t+r}$. Using $\sin^2\frac\beta2=\frac{rs}{(t+r)(t+s)}$ and $\theta_r=\frac\pi2-2\arctan\sqrt{r/t}$, positivity becomes $t^2<4rs$.
+\hint{3} So the condition is $\max^2<4\cdot(\text{product of the other two})$; only the largest part matters. Over the simplex $r+s+t=1$ with $t$ largest, the admissible $r$ form an interval of length $3t-1$ for $\frac13\le t\le\frac49$ and $\sqrt{1-2t}$ for $\frac49\le t\le\frac12$. The probability is $6\bigl(\int_{1/3}^{4/9}(3t-1)\,dt+\int_{4/9}^{1/2}\sqrt{1-2t}\,dt\bigr)=6\bigl(\frac1{54}+\frac1{81}\bigr)=\frac5{27}$.
+
+\problem{10}
+\note{Read literally, the tail bound can fail when $n\ln n+cn$ is not an integer (e.g.\ $n=2$, $c=0.1$: the time is always $\ge2>2\ln2+0.2$). The standard statement, followed here, is that after $m\ge n\ln n+cn$ draws (an integer number $m$) the probability that some coupon is still missing is at most $e^{-c}$.}
+\hint{1} When $i-1$ coupons have been collected, the waiting time for a new one is geometric with success probability $\frac{n-i+1}n$, so its mean is $\frac n{n-i+1}$. Summing gives $nH_n$.
+\hint{2} Tail: union bound over coupons. $\Pr(\text{some coupon missing after }m\text{ draws})\le n(1-\frac1n)^m\le ne^{-m/n}\le e^{-c}$ for $m\ge n\ln n+cn$.
+
+\end{document}

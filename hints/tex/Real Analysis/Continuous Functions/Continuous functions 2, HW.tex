@@ -1,0 +1,68 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Continuous functions -- 2}{Homework}
+
+\problem{1}
+\note{The value is not determined by the hypothesis: one can only prove $\operatorname{osc}f(0)\ge1$, and every value in $[1,+\infty]$ occurs. The hints prove both facts.}
+\hint{1} Every neighbourhood $U$ of $0$ contains a neighbourhood $V$ of some point $x\ne0$, and $\sup_Uf-\inf_Uf\ge\sup_Vf-\inf_Vf\ge1$. So $\operatorname{osc}f(0)\ge1$.
+\hint{2} Examples: let $D$ be the Dirichlet function ($1$ on $\mathbb Q$, $0$ elsewhere), which has oscillation $1$ everywhere. Add a function $g$ that is continuous on $\mathbb R\setminus\{0\}$, e.g.\ $g(x)=c\sin\frac1x$ (oscillation $1+2c$ at $0$) or $g(x)=\frac1x$ (oscillation $+\infty$), with any value at $0$.
+
+\problem{2}
+\hint{1} Answer: no. The condition implies, for each $n$, that the closed sets $E_n=\{x:|f(y)-f(x)|\ge|y-x|\text{ whenever }|y-x|\le\frac1n\}$ cover $\mathbb R$.
+\hint{2} By Baire's theorem some $E_n$ contains an interval $J$ of length $<\frac1n$. On $J$, $f$ is injective, hence strictly monotone; say increasing. Then $(f(y)-f(x))/(y-x)\to+\infty$ at every point of $J$.
+\hint{3} Take $[c,d]\subset J$ and $g(x)=f(x)-Kx$ with $K>\frac{f(d)-f(c)}{d-c}$, so that $g(d)<g(c)$. But at every point $g(y)>g(x)$ for $y$ slightly to the right of $x$, so the maximum of $g$ on $[c,d]$ can only be attained at $d$. Contradiction.
+
+\problem{3}
+\subpart{a}
+\hint{1} False: $f(x)=x^3-x$.
+\subpart{b}
+\hint{1} True: a monotone function whose range is an interval has no jumps (Theorem 2).
+\subpart{c}
+\hint{1} False: $f=\arctan$, or a constant.
+
+\problem{4}
+\hint{1} One direction is trivial. Conversely, suppose $x_{n+1}-x_n\to0$ but $a=\liminf x_n<\limsup x_n=b$. Since the steps tend to $0$, every point of $[a,b]$ is a limit point of the sequence.
+\hint{2} Show that $f(c)=c$ for every $c\in(a,b)$: otherwise $|f(x)-x|>\eta>0$ near $c$, while the sequence visits that neighbourhood infinitely often with arbitrarily small steps $|f(x_n)-x_n|$.
+\hint{3} So $f$ is the identity on $(a,b)$, and once $x_n$ enters $(a,b)$ (which it does) the sequence becomes constant. Contradiction.
+
+\problem{5}
+\hint{1} Move the fixed point $-\frac16$ of $x\mapsto7x+1$ to the origin: $g(t)=f\bigl(t-\frac16\bigr)$ satisfies $g(7t)=49g(t)$.
+\hint{2} Differentiate twice: $g''(7t)=g''(t)$, so $g''(t)=g''(t/7^n)\to g''(0)$. Hence $g$ is a quadratic polynomial.
+\hint{3} Substituting $g=At^2+Bt+C$ forces $B=C=0$. Answer: $f(x)=c\,(6x+1)^2$.
+
+\problem{6}
+\subpart{a}
+\hint{1} $f(x)=x\sin\frac1x$, $f(0)=0$, crosses the axis at every point $\frac1{k\pi}$.
+\subpart{b}
+\hint{1} Answer: yes. Use the Cantor set $C$: let $f=0$ on $C$ and put bumps of alternating signs on the removed intervals.
+\hint{2} Say that a removed interval has level $k$ if it was removed at step $k$. Define $f(x)=(-1)^k\operatorname{dist}(x,C)$ on removed intervals of level $k$. Then $|f|=\operatorname{dist}(\cdot,C)$ is continuous, and the sign changes only across points of $C$, so $f$ is continuous.
+\hint{3} Every neighbourhood of $x\in C$ contains a whole step-$k$ piece of the construction containing $x$, and that piece contains removed intervals of levels $k+1$ and $k+2$, i.e.\ of both signs. So $f$ crosses the axis at every point of the uncountable set $C$.
+
+\problem{7}
+\subpart{a}
+\hint{1} Let $g(x_0)=\lim_{x\to x_0}f(x)$. If $f(x_0)>g(x_0)$, then $f(x)<f(x_0)$ for all $x\ne x_0$ near $x_0$, so $x_0$ is a local maximum. The case $f(x_0)<g(x_0)$ is similar.
+\subpart{b}
+\hint{1} By a), $f$ is continuous, so by Theorem 2 it is enough to show that $f$ is injective.
+\hint{2} If $f(a)=f(b)$ with $a<b$, then either $f$ is constant on $[a,b]$, or its maximum or minimum on $[a,b]$ differs from $f(a)$ and is attained inside. In both cases there is a local extremum.
+
+\problem{8}
+\subpart{a}
+\hint{1} $f([0,a])$ is a compact segment $[m,M]\subset(0,1)$. Values in $(0,m)$ and $(M,1)$ must therefore be taken on $(a,1)$.
+\hint{2} So $f((a,1))$ is an interval containing values arbitrarily close to $0$ and to $1$; hence it is $(0,1)$.
+\subpart{b}
+\hint{1} You need oscillations whose amplitude tends to $\frac12$ without reaching it, e.g.\ $f(x)=\frac12+\frac x2\sin\frac1{1-x}$.
+
+\problem{9}
+\hint{1} Key observation: if $0<s<t$ and $t/s=p/m$ is rational, then applying the hypothesis with $x=s/m$ gives $f(s)=f(m\cdot\frac sm)\le f(p\cdot\frac sm)=f(t)$. Also $f(0)\le f(x)$.
+\subpart{a}
+\hint{1} Answer: no. Rational and irrational points never appear in the same sequence $(nx)$, and continuity on $[0,1]$ says nothing beyond $1$.
+\hint{2} Take $f(x)=x$ for $x\in[0,1]$ and for rational $x$, and $f(x)=x+1$ for irrational $x>1$. Then every sequence $f(nx)$ is increasing, but $f(\sqrt2)>f(\frac32)$.
+\subpart{b}
+\hint{1} Answer: yes. For $0<s<t$ approximate $t$ by points $t_k\to t$ with $t_k/s$ rational, and pass to the limit in $f(s)\le f(t_k)$ using continuity.
+
+\problem{10}
+\hint{1} Let $f(p)=a$ and $f(q)=b$, say $p<q$ (the other case is symmetric). Shrink $[p,q]$ to a segment on which the values $a$ and $b$ are taken only at the endpoints.
+\hint{2} Let $p'$ be the last point in $[p,q]$ with $f=a$, and $q'$ the first point in $[p',q]$ with $f=b$. On $(p',q')$, $f$ takes neither $a$ nor $b$, so by the IVT it stays in $(a,b)$. Hence $f([p',q'])=[a,b]$.
+
+\end{document}

@@ -1,0 +1,45 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Linear algebra -- 9. Matrices over \(\mathbb Z\) and over a finite field}{Class work}
+
+\problem{1}
+\hint{1}
+Existence: integer row and column operations (swaps, sign changes, adding an integer multiple of one row or column to another) are multiplications by unimodular matrices. Move a non-zero entry of smallest absolute value to position \((1,1)\) and divide with remainder by it along the first row and column. A non-zero remainder is a smaller entry, so restart with it. The process ends with \(d_1\) in the corner and zeros in the rest of the first row and column.
+\hint{2}
+To get \(d_1\mid d_2\mid\dots\): if some entry \(a\) is not divisible by \(d_1\), add its row to the first row and repeat the reduction. This makes the corner entry strictly smaller (it becomes \(\gcd(d_1,a)\)). Then induct on the remaining block.
+\hint{3}
+Uniqueness: by Cauchy--Binet every \(k\times k\) minor of \(UAV\) is an integer combination of \(k\times k\) minors of \(A\). Since \(U,V\) are invertible over \(\mathbb Z\), the gcd \(\Delta_k\) of the \(k\times k\) minors is invariant. For a diagonal matrix with \(d_1\mid\dots\mid d_r\) it equals \(d_1\cdots d_k\), so \(d_k=\Delta_k/\Delta_{k-1}\).
+\hint{4}
+Applications: a finitely generated abelian group is \(\mathbb Z^n/A\mathbb Z^m\) for an integer relation matrix \(A\). Changing bases in \(\mathbb Z^n\) and \(\mathbb Z^m\) replaces \(A\) by its Smith form, so the group is \(\bigoplus\mathbb Z/d_i\oplus\mathbb Z^{n-r}\). For \(\Lambda=A\mathbb Z^n\subseteq\mathbb Z^n\) this gives \(\mathbb Z^n/\Lambda\cong\bigoplus_i\mathbb Z/d_i\), of order \(d_1\cdots d_n=|\det A|\).
+
+\problem{2}
+\hint{1}
+Induct on \(k\), so only \(k=2\) is needed: \(\det A=b_1b_2\), and you want \(A=B_1B_2\) with \(\det B_1=b_1\). Use the Smith normal form \(A=UDV\) to reduce to a diagonal \(D\). Fix a sign by multiplying \(U\) by \(\operatorname{diag}(-1,1,\dots,1)\) if necessary.
+\hint{2}
+For \(D=\operatorname{diag}(d_1,\dots,d_n)\) look for diagonal factors: \(B_1=\operatorname{diag}(e_i)\), \(B_2=\operatorname{diag}(f_i)\) with \(e_if_i=d_i\) and \(\prod e_i=\pm b_1\).
+\hint{3}
+If \(\det A\ne0\), then \(b_1\mid d_1\cdots d_n\). Choose greedily \(e_i=\gcd\bigl(d_i,\ b_1/(e_1\cdots e_{i-1})\bigr)\); comparing prime exponents shows \(\prod e_i=\pm b_1\). If \(\det A=0\), then \(d_n=0\). When \(b_1=0\), take \(B_1=\operatorname{diag}(d_1,\dots,d_{n-1},0)\) and \(B_2=\operatorname{diag}(1,\dots,1,b_2)\). The case \(b_2=0\) is symmetric.
+
+\problem{3}
+\hint{1}
+Everything is modulo \(2\). The determinant of \((a_{ij})_{i,j\in S}\) is the sum, over the permutations of \(S\), of the corresponding products. Encode \(A\bmod 2\) by the digraph with an arc \(i\to j\) (\(i\ne j\)) whenever \(a_{ij}\) is odd.
+\hint{2}
+Claim: \(A\) is very odd if and only if all \(a_{ii}\) are odd and the digraph has no directed cycle. If there is a cycle, take a shortest one on the vertex set \(S\). It has no chords, so only the identity and the cycle itself contribute to the determinant of the submatrix on \(S\), which is \(1+1\equiv0\).
+\hint{3}
+Conversely, an acyclic digraph has a topological order. After a simultaneous permutation of rows and columns, \(A\bmod2\) is upper triangular with ones on the diagonal, and so is every principal submatrix. Powers of such a matrix are again upper unitriangular in the same order.
+
+\problem{4}
+\hint{1}
+Two facts over \(\mathbb F_2\): \(x^TMx=0\) for every symmetric \(M\) with zero diagonal, and \(x^Tx=\mathbf 1^Tx\) for every \(x\), where \(\mathbf 1\) is the all-ones vector. Odd powers \(A^{2l+1}\) are again symmetric with zero diagonal, since \((A^{2l+1})_{ii}=(A^le_i)^TA(A^le_i)\).
+\hint{2}
+Suppose \(A^ne=\mathbf 1\) for a basis vector \(e\), and put \(f(t)=e^TA^te\). Then \(f(\text{odd})=0\) and \(f(n)=1\). Show that \(f(n+j)=f(2j)\) for all \(j\ge0\): compute \(e^TA^j\mathbf 1\) in two ways, using \(\mathbf 1=A^ne\) and \(x^T\mathbf 1=x^Tx\) with \(x=A^je\).
+\hint{3}
+Write \(n=2^so\) with \(o\) odd and iterate \(x\mapsto n+x/2\) starting at \(x_0=n\). The values \(x_i=2n-n/2^i\) satisfy \(f(x_{i+1})=f(x_i)=1\) as long as \(x_i\) is even. Then \(x_s=2n-o\) is odd while \(f(x_s)=1\), a contradiction.
+
+\problem{5}
+\hint{1}
+An odd square is \(\equiv1\pmod 8\). Write the matrix as \(J+8B\), where \(J\) is the all-ones matrix and \(B\) is an integer matrix.
+\hint{2}
+Expand \(\det(J+8B)\) by multilinearity in the columns. Every term with two or more columns of \(J\) vanishes, since \(\operatorname{rank}J=1\). Each remaining term has at least two columns from \(8B\).
+\end{document}

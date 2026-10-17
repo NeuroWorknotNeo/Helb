@@ -1,0 +1,35 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Polynomials -- 3. Symmetric functions, Newton's identities, resultant and discriminant}{Class work}
+
+\problem{1}
+\hint{1} Theorem 1: order monomials lexicographically. If the leading monomial of a symmetric $f$ is $c\,x_1^{a_1}\cdots x_n^{a_n}$, symmetry forces $a_1\ge a_2\ge\dots\ge a_n$. Which product of the $e_k$ has exactly this leading monomial?
+\hint{2} $e_1^{a_1-a_2}e_2^{a_2-a_3}\cdots e_n^{a_n}$ has leading monomial $x_1^{a_1}\cdots x_n^{a_n}$; subtract $c$ times it and repeat. The process stops because there are finitely many monomials of the given degree below a given one. For uniqueness, show that distinct monomials in the $e_k$ have distinct leading monomials, so no nontrivial polynomial in the $e_k$ vanishes.
+\hint{3} Newton: for $P(t)=\prod(t-x_i)=\sum_k(-1)^ke_kt^{n-k}$ one has $\frac{tP'(t)}{P(t)}=\sum_i\frac{t}{t-x_i}=n+\sum_{k\ge1}p_kt^{-k}$. Multiply by $P(t)$ and compare coefficients of $t^{n-k}$.
+\hint{4} You should get $p_1=e_1$, $p_2=e_1^2-2e_2$, $p_3=e_1^3-3e_1e_2+3e_3$, $p_4=e_1^4-4e_1^2e_2+4e_1e_3+2e_2^2-4e_4$.
+
+\problem{2}
+\subpart{a}
+\hint{1} Read off $e_1=0$, $e_2=2$ from the coefficients and compute $p_2=\sum x_i^2$.
+\hint{2} $p_2=e_1^2-2e_2=-4<0$; if all roots were real, $p_2$ would be $\ge0$.
+\subpart{b}
+\hint{1} Use the formula for $p_4$ from Problem 1 with $e_1=0$, $e_2=2$, $e_3=-p$, $e_4=q$.
+\hint{2} Only $2e_2^2-4e_4$ survives: $\sum x_i^4=8-4q$.
+
+\problem{3}
+\hint{1} Use the partial fraction expansion $\dfrac{x^k}{P(x)}=\sum_i\dfrac{x_i^k}{P'(x_i)(x-x_i)}$, valid for $k\le n-1$ when the roots are simple (reality is not needed).
+\hint{2} Multiply by $x$ and let $x\to\infty$: $\sum_i\frac{x_i^k}{P'(x_i)}=\lim_{x\to\infty}\frac{x^{k+1}}{P(x)}$.
+\hint{3} The limit is $0$ for $k\le n-2$ and $1/a_n$ for $k=n-1$, where $a_n$ is the leading coefficient of $P$.
+
+\problem{4}
+\hint{1} This is the case $k=0$ of Problem 3: expand $1/p$ in partial fractions.
+\hint{2} $\frac{1}{p(z)}=\sum_i\frac{1}{p'(a_i)(z-a_i)}$; multiply by $z$ and let $z\to\infty$. The left side tends to $0$ since $d\ge2$.
+
+\problem{5}
+\hint{1} Product formula (Res defined as the Sylvester determinant): regard both sides as polynomials in $a,b$ and the roots $\alpha_i,\beta_j$. If $\alpha_i=\beta_j$, the vector $(\alpha_i^{m+n-1},\dots,\alpha_i,1)$ is in the kernel of the Sylvester matrix, so the determinant is divisible by every $\alpha_i-\beta_j$.
+\hint{2} Compare degrees (the determinant is homogeneous of degree $mn$ in the roots) and one coefficient, e.g.\ the case $\beta_1=\dots=\beta_m=0$, where the determinant is easy to evaluate, to get $\operatorname{Res}(f,g)=a^mb^n\prod(\alpha_i-\beta_j)=a^m\prod_i g(\alpha_i)$. The common-root criterion follows immediately.
+\hint{3} $D(ax^2+bx+c)=b^2-4ac$ and $D(x^3+px+q)=-4p^3-27q^2$; for the monic cubic use $D=-\operatorname{Res}(f,f')=-\prod_i f'(\alpha_i)$ with $f'(\alpha)=3\alpha^2+p$.
+\hint{4} Eliminate $y$ via $\operatorname{Res}_y(y^2+x^2-1,\;y-x^3)$, i.e.\ substitute the root $y=x^3$ of the linear polynomial: $x^6+x^2-1=0$. The solutions of the system are $(x,x^3)$ with $x$ a root of this.
+
+\end{document}

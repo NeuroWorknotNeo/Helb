@@ -1,0 +1,29 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Number theory -- 3}{Class work}
+
+\problem{1}
+\hint{1} Euler: with a primitive root $g$, $a=g^k$ is a square if and only if $k$ is even, if and only if $a^{(p-1)/2}=g^{k(p-1)/2}=1$. Otherwise $a^{(p-1)/2}=-1$, the only other square root of $1$. Multiplicativity follows at once, and $\bigl(\frac{-1}p\bigr)=(-1)^{(p-1)/2}$.
+\hint{2} Infinitely many $p\equiv1\pmod 4$: every odd prime factor $p$ of $(2N!)^2+1$ has $\bigl(\frac{-1}{p}\bigr)=1$ and $p>N$.
+\hint{3} Gauss's lemma: write each $ka$, $1\le k\le\frac{p-1}2$, as $\pm r_k$ with $1\le r_k\le\frac{p-1}2$. The $r_k$ are a permutation of $1,\dots,\frac{p-1}2$ (if $r_k=r_l$ then $k\equiv\pm l$). Multiply everything: $a^{(p-1)/2}\equiv(-1)^\mu$. For $a=2$, count the $k$ with $p/4<k<p/2$ and check the four classes of $p$ mod $8$.
+
+\problem{2}
+\hint{1} By Gauss's lemma (in Eisenstein's form) $\bigl(\frac qp\bigr)=(-1)^{\sum_{k=1}^{(p-1)/2}\lfloor kq/p\rfloor}$ for odd $q$. This exponent counts the lattice points under the diagonal of the rectangle $(0,p/2)\times(0,q/2)$. The other symbol counts those above, and no lattice point lies on the diagonal.
+\hint{2} $219=3\cdot73$. Use $\bigl(\frac3{383}\bigr)=-\bigl(\frac{383}3\bigr)=-\bigl(\frac23\bigr)=1$ and $\bigl(\frac{73}{383}\bigr)=\bigl(\frac{383}{73}\bigr)=\bigl(\frac{18}{73}\bigr)=\bigl(\frac2{73}\bigr)=1$. So the congruence is solvable.
+\hint{3} $\bigl(\frac3p\bigr)=(-1)^{(p-1)/2}\bigl(\frac p3\bigr)$. Answer: $p\equiv\pm1\pmod{12}$.
+
+\problem{3}
+\hint{1} The task is to find $n$ with $f(n)=n^5+n^4-3$ a non-residue mod $p$. Small $n$ settle many primes: $f(1)=-1$ handles $p\equiv3\pmod4$, and $f(0)=-3$ handles $p\equiv2\pmod 3$. No finite list of fixed $n$ works for all $p$, so a counting argument is needed.
+\hint{2} If $f(n)$ is a square or $0$ for every $n$, then $\sum_{n}\bigl(\frac{f(n)}p\bigr)\ge p-5$. So the curve $y^2=f(x)$ has at least $2p-5$ affine points.
+\hint{3} $f$ has odd degree $5$, so it is not a constant times a square. Weil's bound for this genus-$2$ curve gives $\bigl|\sum_n\bigl(\frac{f(n)}p\bigr)\bigr|\le4\sqrt p$. So $p-5\le4\sqrt p$, i.e.\ $p\le25$. The remaining primes are covered by Hint~1 except $p=13$, where $f(2)=45\equiv6$ is a non-residue.
+
+\problem{4}
+\hint{1} Multiplicity of the root $1$: apply the operator $\theta=x\frac{d}{dx}$ repeatedly and evaluate at $x=1$. Because the multiplicity is $<p$, $(x-1)^e\mid q$ if and only if $(\theta^jq)(1)=0$ for all $j<e$.
+\hint{2} $(\theta^jq)(1)=\sum_{k=1}^{p-1}k^{\frac{p-1}2+j}$, which is $0$ in $\mathbb F_p$ unless $(p-1)\mid\frac{p-1}2+j$. For $j=\frac{p-1}{2}$ it equals $-1$. Answer: $(x-1)^{(p-1)/2}$.
+
+\problem{5}
+\hint{1} Thue: for $x^2\equiv-1\pmod p$, consider the numbers $u-xv$ with $0\le u,v<\sqrt p$. By pigeonhole two of them coincide mod $p$, which gives $a\equiv xb$ with $0<a^2+b^2<2p$ and $p\mid a^2+b^2$. Necessity: squares are $0,1\pmod 4$, and a prime $q\equiv3\pmod4$ dividing $a^2+b^2$ divides both $a$ and $b$, so it occurs to an even power.
+\hint{2} In $\mathbb Z[i]$ (Euclidean for the norm): $p\mid(x+i)(x-i)$ but $p$ divides neither factor, so $p$ is not prime in $\mathbb Z[i]$, and $p=\pi\bar\pi=a^2+b^2$.
+\hint{3} Counting: $r_2(n)$ is the number of $\alpha\in\mathbb Z[i]$ with $N(\alpha)=n$. Use unique factorisation and count the choices for each prime type. Answer: $r_2(n)=4\bigl(d_1(n)-d_3(n)\bigr)$, where $d_j$ counts the divisors $\equiv j\pmod4$.
+\end{document}

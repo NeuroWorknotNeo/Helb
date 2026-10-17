@@ -1,0 +1,28 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Abstract algebra -- 4. Group actions, homomorphisms and automorphisms}{Class work}
+
+\problem{1}
+\hint{1} Orbit--stabiliser: $gx=hx\iff g^{-1}h\in G_x$, so $gG_x\mapsto gx$ is a well-defined bijection. Burnside: count the pairs $(g,x)$ with $gx=x$ once by $g$ and once by $x$, and use $|G_x|=|G|/|Gx|$.
+\hint{2} Necklaces: $G=\mathbb Z/n$ acts by rotation on the $k^n$ colourings. A rotation by $j$ splits the beads into $\gcd(j,n)$ cycles, so it fixes $k^{\gcd(j,n)}$ colourings. Exactly $\varphi(d)$ values of $j$ give $\gcd(j,n)=n/d$.
+\hint{3} So the number of orbits is $\frac1n\sum_{d\mid n}\varphi(d)k^{n/d}$. It is an integer because it counts something.
+
+\problem{2}
+\hint{1} Cayley: $g\mapsto(x\mapsto gx)$ is an injective homomorphism $G\to\operatorname{Sym}(G)$. Cosets: $G$ acts on $G/H$; the kernel is $\bigcap_g gHg^{-1}$, the largest normal subgroup inside $H$.
+\hint{2} If $[G:H]=p$ is the smallest prime divisor of $|G|$, then $G/K$ embeds in $S_p$, so $[G:K]$ divides $\gcd(|G|,p!)=p$. As $K\subseteq H$, this forces $K=H$.
+\hint{3} For $|G|=2m$ with $m$ odd: by Cauchy there is an involution $t$. Left translation by $t$ has no fixed points, so it is a product of $m$ transpositions, an odd permutation. Hence $\operatorname{sgn}\circ\lambda:G\to\{\pm1\}$ is onto, and its kernel has index $2$.
+
+\problem{3}
+\hint{1} Yes. Elementary abelian groups have huge automorphism groups: $|\operatorname{Aut}(\mathbb Z/2)^3|=|\mathrm{GL}_3(\mathbb F_2)|=168$. Look for a group of order $16$ with few automorphisms that contains $(\mathbb Z/2)^3$ as a subgroup of index $2$ (automatically normal).
+\hint{2} Take $G=D_4\times\mathbb Z/2$, where $D_4$ is the dihedral group of order $8$. It contains $H=\{e,r^2,s,r^2s\}\times\mathbb Z/2\cong(\mathbb Z/2)^3$. Bound $|\operatorname{Aut}G|$: an automorphism is determined by the images of $r,s,z$. $r$ must go to one of the $4$ elements of order $4$; $s$ to one of the $8$ non-central involutions; and $z$ to a central involution different from $r^2$ (the common square of all elements of order $4$), which leaves $2$ choices. So $|\operatorname{Aut}G|\le4\cdot8\cdot2=64<168$.
+
+\problem{4}
+\hint{1} Compare the triples $(x,y,(xy)^{-1})$ and $(e,xy,(xy)^{-1})$: this gives $\varphi(x)\varphi(y)=\varphi(e)\varphi(xy)$.
+\hint{2} Compare $(x,e,x^{-1})$ and $(e,x,x^{-1})$: so $\varphi(e)$ commutes with every $\varphi(x)$. Take $a=\varphi(e)^{-1}$ and verify that $\psi(x)\psi(y)=\psi(xy)$.
+
+\problem{5}
+\hint{1} Let $H_2$ act on the $n$ left cosets of $H_1$. The orbit of the coset $H_1$ has size $[H_2:H_1\cap H_2]=\frac{[G:H_1\cap H_2]}{[G:H_2]}=n-1$.
+\hint{2} So exactly one coset $gH_1$ is fixed by $H_2$. Then $H_2\subseteq gH_1g^{-1}$, and both have index $n$, so they are equal.
+
+\end{document}

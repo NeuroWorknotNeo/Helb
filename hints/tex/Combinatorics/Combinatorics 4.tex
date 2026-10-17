@@ -1,0 +1,50 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Combinatorics -- 4. Graphs}{Class work}
+
+\problem{1}
+\hint{1}
+Handshake: every edge contributes \(1\) to the degree of each of its two ends. For trees, first show that an acyclic graph with at least one edge has a leaf (take a longest path: its end has no other neighbour), and that deleting a leaf keeps a tree. Induction then gives \(|E|=n-1\) for trees, and the other characterisations follow by counting components: a forest with \(c\) components has \(n-c\) edges.
+\hint{2}
+Prüfer code: repeatedly delete the leaf with the smallest label and write down its neighbour, until two vertices remain. A vertex of degree \(d\) appears exactly \(d-1\) times in the word, so the smallest label missing from the word is the first deleted leaf; this lets you rebuild the tree from the word step by step. Hence the map is a bijection onto all \(n^{n-2}\) words.
+\hint{3}
+A connected graph with \(n\) vertices and \(n\) edges is not a tree, so it has a cycle; deleting an edge of that cycle leaves a connected graph with \(n-1\) edges, i.e.\ a tree, in which the cycle edge closes exactly one cycle. If there were two cycles, deleting an edge lying on only one of them would leave a cycle in a tree.
+\hint{4}
+Counting: choose the cycle on \(k\ge3\) vertices in \(\binom nk\frac{(k-1)!}{2}\) ways, then attach a rooted forest whose roots are the \(k\) cycle vertices. The number of forests on \(n\) labelled vertices with \(k\) given roots is \(k\,n^{n-k-1}\) (generalised Cayley: glue the roots to a new vertex, or adapt the Prüfer code). The answer is
+\[\sum_{k=3}^{n}\binom nk\frac{(k-1)!}{2}\,k\,n^{n-k-1}=\frac12\sum_{k=3}^{n}\frac{n!}{(n-k)!}\,n^{n-k-1}.\]
+
+\problem{2}
+\hint{1}
+Hall: necessity is clear. For sufficiency follow the sketch in Theorem 3. In the critical case \(|N(S)|=|S|\), check Hall's condition for the graph between \(S\) and \(N(S)\) (trivially inherited) and for the graph between \(A\setminus S\) and \(B\setminus N(S)\): if \(T\subseteq A\setminus S\) had \(|N(T)\setminus N(S)|\lt|T|\), then \(S\cup T\) would violate the condition in the original graph.
+\hint{2}
+\(k\)-regular: the \(k|S|\) edges leaving \(S\) all land in \(N(S)\), which receives at most \(k|N(S)|\) edges, so \(|N(S)|\ge|S|\). Remove a perfect matching; the rest is \((k-1)\)-regular, and induct.
+\hint{3}
+Minimum degree \(\ge n/2\): if \(|S|\le n/2\), any vertex of \(S\) already has \(\ge n/2\ge|S|\) neighbours. If \(|S|\gt n/2\), every \(b\in B\) has \(\ge n/2\gt|A\setminus S|\) neighbours, so some neighbour lies in \(S\); hence \(N(S)=B\).
+\hint{4}
+For the counterexample one edge too few is enough: \(A=\{a_1,a_2\}\), \(B=\{b_1,b_2\}\), both \(a_i\) joined only to \(b_1\).
+
+\problem{3}
+\hint{1}
+Work with one component at a time (\(n_i\) vertices, \(m_i\) edges, \(c_i\) cycles). Delete one edge from each of the \(c_i\) cycles. Since every cycle of the graph is one of these, the result has no cycle and is still connected, so \(m_i-c_i=n_i-1\).
+\hint{2}
+The cycles are edge-disjoint and each has at least \(3\) edges, so \(3c_i\le m_i\). Combine: \(m_i\le n_i-1+m_i/3\), i.e.\ \(2m_i\le3n_i-3\lt3n_i\). Sum over components.
+
+\problem{4}
+\hint{1}
+Count paths of length \(2\) (``cherries'' \(u\!-\!w\!-\!v\)): there are \(\sum_i\binom{a_i}2=\frac{n^2-n-2m}2=\binom n2-m\), which is exactly the number of non-adjacent pairs.
+\hint{2}
+Every non-adjacent pair is the end pair of at least one cherry. Equality of the two counts therefore forces: no cherry has adjacent ends (no triangles), and every non-adjacent pair has exactly one common friend (so no \(4\)-cycles either). Hence \(k\ge5\).
+\hint{3}
+Every vertex has degree \(\ge2\): if \(u\) had a single friend \(w\), then \(w\) would be the common friend of \(u\) and everybody else, i.e.\ a friend of everybody. So the graph has cycles. Take a shortest cycle; if its length were \(\ge6\), two of its vertices at distance \(3\) along it are at distance \(\le2\) in the graph, and the short path together with the shorter arc gives a shorter cycle.
+\hint{4}
+So \(k=5\), and it occurs: the pentagon \(C_5\) satisfies all conditions (\(\sum a_i^2=20=5^2-5\)); so does the Petersen graph.
+
+\problem{5}
+\hint{1}
+Induction on the number of edges: a tree has \(f=1\) and \(e=v-1\). Otherwise delete an edge lying on a cycle; it separates two different faces (Jordan curve theorem for the cycle), which merge, so \(e\) and \(f\) both drop by \(1\).
+\hint{2}
+Count edge--face incidences: every face of a graph with \(v\ge3\) is bounded by at least \(3\) edge sides and every edge has two sides, so \(3f\le2e\); substitute into Euler's formula to get \(e\le3v-6\), with equality iff every face is a triangle. Without triangles faces have \(\ge4\) sides, \(4f\le2e\), and \(e\le2v-4\).
+\hint{3}
+\(K_5\): \(10\gt3\cdot5-6\). \(K_{3,3}\) is triangle-free and \(9\gt2\cdot6-4\). Finally \(\sum\deg v=2e\le6v-12\lt6v\), so some vertex has degree \(\le5\).
+\end{document}

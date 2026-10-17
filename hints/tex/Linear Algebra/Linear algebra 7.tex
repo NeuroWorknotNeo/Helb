@@ -1,0 +1,43 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Linear algebra -- 7. Euclidean spaces, orthogonality and the SVD}{Class work}
+
+\problem{1}
+\hint{1}
+First show that a real symmetric \(A\) has a real eigenvalue. Take a complex eigenvector \(x\) and compare \(\bar x^TAx\) with its conjugate. Then show that \(x^\perp\) is invariant (\(\langle Ay,x\rangle=\langle y,Ax\rangle\)) and induct on the dimension.
+\hint{2}
+In an orthonormal eigenbasis, \(\langle Ax,x\rangle=\sum\lambda_ix_i^2\le\lambda_{\max}\sum x_i^2\). Equality holds at a top eigenvector.
+\hint{3}
+A normal matrix is \(A=UDU^*\) with \(U\) unitary. If \(D\) is real, then \(A^*=A\). A real Hermitian matrix is symmetric.
+
+\problem{2}
+\subpart{a}
+\hint{1}
+Put \(P=AA^*\) and \(Q=A^*A\), both positive semidefinite. They have the same eigenvalues (\(AB\) vs \(BA\), same size). Also \(Q=P^2\) has the squares of the eigenvalues of \(P\).
+\hint{2}
+So the multiset of eigenvalues \(\mu_i\ge0\) of \(P\) is invariant under \(\mu\mapsto\mu^2\). Look at the largest eigenvalue and the smallest positive one to get \(\mu_i\in\{0,1\}\). Then \(P^2=P\), i.e.\ \(A^*A=P^2=P=AA^*\).
+\subpart{b}
+\hint{1}
+\(A\) is normal, so it is unitarily diagonalisable, and \(AA^*\) has eigenvalues \(|\lambda|^2\). These lie in \(\{0,1\}\).
+
+\problem{3}
+\hint{1}
+\(u^TAu=0\) for all \(u\) means the quadratic form of \(A\) vanishes. So the symmetric part \(\frac12(A+A^T)\) is \(0\).
+\hint{2}
+Write a \(3\times3\) skew-symmetric matrix as \(\begin{pmatrix}0&-c&b\\c&0&-a\\-b&a&0\end{pmatrix}\) and compare with \(v\times u\) for \(v=(a,b,c)\).
+
+\problem{4}
+\hint{1}
+Let \(R\) be the first \(k\) rows. Complete them to some orthogonal matrix \(\begin{pmatrix}R\\R'\end{pmatrix}\). Any \(U\in O(n-k)\) gives another completion \(\begin{pmatrix}R\\UR'\end{pmatrix}\). Choose \(U\) so that the first \(l\) columns come out right.
+\hint{2}
+Write \(X\) for the common \(k\times l\) corner, \(Z\) for the prescribed lower part of the first \(l\) columns, and \(R'_l\) for the first \(l\) columns of \(R'\). Orthonormality of the columns gives \(R_l'^TR_l'=E-X^TX=Z^TZ\).
+\hint{3}
+Two matrices with the same Gram matrix differ by an isometry between their column spaces. Extend it to \(U\in O(n-k)\) with \(UR'_l=Z\).
+
+\problem{5}
+\hint{1}
+Multiply by \(R^T\): it suffices to rule out \(P'+Q'=E\) with \(P',Q'\) orthogonal. Then \(E-P'\) is orthogonal; expand \((E-P')^T(E-P')=E\).
+\hint{2}
+This gives \(P'+P'^T=E\), so \(x^TP'x=\frac12|x|^2\) for all real \(x\). But a real \(3\times3\) orthogonal matrix has a real eigenvector with eigenvalue \(\pm1\) (odd dimension), and there \(x^TP'x=\pm|x|^2\). Contradiction. In dimension \(2\) it does work: rotation by \(60^\circ\).
+\end{document}

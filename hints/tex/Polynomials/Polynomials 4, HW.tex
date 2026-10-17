@@ -1,0 +1,61 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Polynomials -- 4. Real roots: Descartes, Sturm and Newton's inequalities}{Homework}
+
+\problem{1}
+\hint{1} $V(x)$ can only change when $x$ passes a root of some $P_k$. Check two facts: consecutive $P_k,P_{k+1}$ have no common root (else, going back through $P_{k-1}=q_kP_k-P_{k+1}$, it would be a common root of $P$ and $P'$), and $P_{k-1}(c)=-P_{k+1}(c)$ when $P_k(c)=0$.
+\hint{2} Hence passing a root of an intermediate $P_k$ does not change the number of sign changes in $P_{k-1},P_k,P_{k+1}$. Passing a root $c$ of $P$: near $c$, $P/P'$ goes from negative to positive, so exactly one sign change is lost. This gives $V(a)-V(b)$ roots in $(a,b]$.
+\hint{3} For $x^5-3x-1$ the sequence is $x^5-3x-1,\;5x^4-3,\;\frac{12}5x+1,\;c$ with a positive constant $c$: $V(-\infty)=3$, $V(+\infty)=0$, so $3$ real roots. For the second polynomial, $x^4+x^3-x-1=(x+1)(x-1)(x^2+x+1)$ has $2$ real roots; check that Sturm agrees.
+
+\problem{2}
+\hint{1} Differentiate: $f'(x)=1+x+\dots+x^{n-1}=\frac{x^n-1}{x-1}$. Where does $f'$ vanish? Distinguish $n$ even and $n$ odd.
+\hint{2} For $n$ odd, $f'>0$ everywhere, so $f$ is increasing and has exactly one real root. For $n$ even, $f'$ vanishes only at $x=-1$, which is the global minimum of $f$.
+\hint{3} $f(-1)=\frac12-\frac13+\frac14-\dots+\frac1n>0$ (alternating, decreasing terms). Answer: no real roots for $n$ even, exactly one for $n$ odd.
+
+\problem{3}
+\hint{1} Let $x_1<x_2<x_3$ be the roots of $f(x)-s$. Vieta gives $x_1+x_2+x_3=\alpha+\beta$ and $x_1x_2+x_1x_3+x_2x_3=\alpha\beta$, independently of $s$. Express $x_1x_3$ through the middle root $m=x_2$.
+\hint{2} $x_1x_3=\alpha\beta-m(\alpha+\beta-m)=\bigl(m-\frac{\alpha+\beta}2\bigr)^2+\alpha\beta-\frac{(\alpha+\beta)^2}4$.
+\hint{3} As $s$ runs over $S$, the middle root runs over the open interval between the critical points of $f$. Check that $\frac{\alpha+\beta}2$ lies in it (this uses $\alpha\beta<0$). Minimum: $-\frac{(\beta-\alpha)^2}{4}$.
+
+\problem{4}
+\hint{1} Translate the divisibility into linear conditions: $p^{(i)}(1)=0$ for $i\le k$ means $\sum_{j=0}^{n-1}a_jg(j)=-g(n)$ for every polynomial $g$ of degree $\le k$.
+\hint{2} Hence $\sum|a_j|\ge\dfrac{|g(n)|}{\max_{0\le j\le n-1}|g(j)|}$. Choose $g$ small on $[0,n-1]$ but large at $n$: a Chebyshev polynomial. (Note $k+1\le n$.)
+\hint{3} Take $g(x)=T_k\bigl(\frac{2x-(n-1)}{n-1}\bigr)$, so $|g|\le1$ on $[0,n-1]$ and $g(n)=T_k\bigl(1+\frac2{n-1}\bigr)$. Since $T_k(1)=1$, $T_k'(1)=k^2$ and $T_k$ is convex on $[1,\infty)$, $g(n)\ge1+\frac{2k^2}{n-1}>1+\frac{2k^2}n$.
+
+\problem{5}
+\hint{1} Subtract the line: $Q=P-\ell$ has degree $5$, $Q''=P''$, and $Q$ vanishes at the three inflection abscissae $x_1<x_2<x_3$, which are also the roots of $Q''$.
+\hint{2} Normalize $x_2=0$ and the leading coefficient to $1$: $Q''=20(x+a)x(x-b)$. Integrate twice and impose $Q(-a)=Q(0)=Q(b)=0$; you should find that $a=b$ is forced (for $a,b>0$).
+\hint{3} With $a=b=1$: $Q=x^5-\frac{10}3x^3+\frac73x=x(x^2-1)(x^2-\frac73)$, odd, with roots $0,\pm1,\pm\sqrt{7/3}$. There are four bounded regions; affine maps preserve ratios of areas.
+\hint{4} The areas are $\int_0^1Q=\frac12$ and $\int_1^{\sqrt{7/3}}|Q|=\frac{16}{81}$. So the areas, in order along the line, are in ratio $32:81:81:32$.
+
+\problem{6}
+\subpart{a}
+\hint{1} Subtract the line: $P-\ell$ has degree $6$ and double roots at the three abscissae, so $P-\ell=c(x-x_1)^2(x-x_2)^2(x-x_3)^2$.
+\hint{2} Ratios of lengths on the line equal ratios of the abscissae differences. With $x_2=0$ and $x_1=-x_3$ the polynomial is even, so the two areas are equal.
+\subpart{b}
+\hint{1} Put $x_2=0$, $x_1=-1$, $x_3=k$ and compute $\int_0^kx^2(x+1)^2(x-k)^2dx$ and $\int_{-1}^0$ using $\int_0^bx^m(b-x)^2dx$.
+\hint{2} $\int_0^kx^2(k-x)^2(x+1)^2dx=k^5\bigl(\frac{k^2}{105}+\frac k{30}+\frac1{30}\bigr)$, and the other area is $\frac1{105}+\frac k{30}+\frac{k^2}{30}$.
+\hint{3} So $K=k^5\dfrac{2k^2+7k+7}{7k^2+7k+2}$; show that the fraction lies strictly between $\frac27$ and $\frac72$ for $k>0$.
+
+\problem{7}
+\hint{1} Multiply $P$ by $(1-z)$ (or $(z-1)$) and use the monotonicity of the coefficients.
+\hint{2} If $P(z)=0$, then $(1-z)P(z)=0$ gives $a_n=a_0z^{n+1}+\sum_{k=1}^n(a_k-a_{k-1})z^{n+1-k}$, where all the coefficients $a_0,\;a_k-a_{k-1}$ are positive with sum $a_n$.
+\hint{3} For $|z|\le1$ the right-hand side has modulus $\le a_n$, with equality only if all the powers $z^{j}$ equal $1$, i.e.\ $z=1$; but $P(1)>0$.
+
+\problem{8}
+\hint{1} Write $p(x)=c\prod_i(1-x/z_i)$ with $|1/z_i|<1$. A geometric-series trick turns each factor into one with tiny non-constant coefficients.
+\hint{2} $(1-x/z)\bigl(1+x/z+\dots+(x/z)^{N-1}\bigr)=1-(x/z)^N$. Take $q(x)=\prod_i\bigl(1-x^N/z_i^N\bigr)$ (product over all roots with multiplicity); it is real because the roots come in conjugate pairs, and $p\mid q$.
+\hint{3} $q$ has constant term $1$, and the sum of absolute values of its other coefficients is at most $\prod_i(1+|z_i|^{-N})-1\to0$ as $N\to\infty$.
+
+\problem{9}
+\hint{1} If two roots of $P$ lay between consecutive roots of $P'$, Rolle would give a root of $P'$ between them.
+\hint{2} For $c\ne0$: $P+cP'=c\,e^{-x/c}\bigl(e^{x/c}P\bigr)'$. Apply Rolle to $e^{x/c}P$ between consecutive distinct roots of $P$, and account for multiple roots ($m$-fold root of $P$ is an $(m-1)$-fold root of $P+cP'$).
+\hint{3} This gives $n-1$ roots; the last one comes from the end where $e^{x/c}P\to0$ (left of the smallest root if $c>0$, right of the largest if $c<0$). All $n$ roots are real and interlace with those of $P$.
+
+\problem{10}
+\hint{1} Write all the exponents with a common denominator $N$ and put $t=e^{x/N}>0$. The equation becomes $g(t)=\sum t^{A_i}-\sum t^{B_i}=0$ with integers $A_i,B_i$, and $t=1$ is always a root.
+\hint{2} Divide by $t-1$: the coefficients of $h(t)=g(t)/(t-1)$ are, up to sign, the partial sums of the coefficients of $g$, i.e.\ $\#\{i:A_i\le m\}-\#\{i:B_i\le m\}$ at position $m$.
+\hint{3} This sequence of partial sums starts and ends at $0$ and moves in steps $\pm1$ at the $2n$ exponents; each excursion away from $0$ uses at least two exponents, so it has at most $n-1$ sign changes. Descartes for $h$ gives at most $n-1$ positive roots, plus $t=1$: at most $n$ roots.
+
+\end{document}

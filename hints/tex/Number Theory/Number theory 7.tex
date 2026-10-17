@@ -1,0 +1,35 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Number theory -- 7}{Class work}
+
+\problem{1}
+\hint{1} Theorem 1(a): clearly $\lfloor f(\lfloor x\rfloor)\rfloor\le\lfloor f(x)\rfloor$. If the inequality were strict, there would be an integer $k$ with $f(\lfloor x\rfloor)<k\le f(x)$. By continuity $f(y)=k$ for some $y\in(\lfloor x\rfloor,x]$, but $y$ is not an integer. For (b), follow the hint in the statement: the difference of the two sides has period $\frac1n$ and vanishes on $[0,\frac1n)$.
+\hint{2} Apply Hermite with $n=2$, $y=n/2^{k+1}$: $\lfloor y+\frac12\rfloor=\lfloor2y\rfloor-\lfloor y\rfloor$. So $\bigl\lfloor\frac{n+2^k}{2^{k+1}}\bigr\rfloor=\lfloor n/2^k\rfloor-\lfloor n/2^{k+1}\rfloor$, and the sum telescopes to $n$.
+\hint{3} Theorem 2: count lattice points in the open rectangle $(0,q)\times(0,p)$ on each side of the diagonal. There are none on the diagonal itself when $\gcd(p,q)=1$, and the point reflection $(x,y)\mapsto(q-x,p-y)$ swaps the two halves.
+\hint{4} General $d$: write $p=dp'$, $q=dq'$. Then $\lfloor kp/q\rfloor=\lfloor kp'/q'\rfloor$. Split $0\le k<q$ into $d$ blocks of length $q'$; in block $j$, $\lfloor kp'/q'\rfloor$ increases by $jp'$. Sum: $d\cdot\frac{(p'-1)(q'-1)}2+p'q'\frac{d(d-1)}2$, which simplifies to the claimed formula.
+
+\problem{2}
+\hint{1} Expand $x^{m-1}(1-x)^{n-m}$: it has integer coefficients and degree $n-1$, so $L(n)$ times its integral is an integer. Integrating by parts (or using the Beta function), the integral equals $\frac{(m-1)!(n-m)!}{n!}=\frac1{m\binom nm}$.
+\hint{2} Nair: $k\binom{2k}k\mid L(2k)\mid L(2k+1)$ and $(2k+1)\binom{2k}k=(k+1)\binom{2k+1}{k+1}\mid L(2k+1)$. Since $\gcd(k,2k+1)=1$, $k(2k+1)\binom{2k}k\mid L(2k+1)$. With $\binom{2k}k\ge\frac{4^k}{2k+1}$ this gives $L(2k+1)\ge k4^k\ge2^{2k+2}$ for $k\ge4$.
+\hint{3} Even $n$: $L(2k+2)\ge L(2k+1)$. Small cases: $L(7)=420$, $L(8)=840$.
+\hint{4} Upper bound: every prime power in $(k,2k]$ divides $\binom{2k}k$ (Legendre/Kummer), so $L(2k)\mid L(k)\binom{2k}k$. Similarly $L(2k+1)\mid L(k+1)\binom{2k+1}k$. Induct, using $\binom{2k}k\le4^k$ and $\binom{2k+1}k\le4^k$.
+
+\problem{3}
+\hint{1} Even $pq$: then $p+q$ is odd. Use the involution $k\mapsto pq-1-k$, and show that $\lfloor\frac{pq-1-k}p\rfloor=q-1-\lfloor\frac kp\rfloor$.
+\hint{2} So the exponent changes to $(p+q-2)-(\text{old exponent})$. This has the opposite parity, so the terms cancel in pairs and the sum is $0$.
+\hint{3} Odd $pq$: let $r=k\bmod p$, $s=k\bmod q$. Since $p$ is odd, $\lfloor k/p\rfloor=\frac{k-r}p\equiv k-r\pmod2$, and similarly for $q$. Hence the sign is $(-1)^{r+s}$.
+\hint{4} By CRT, as $k$ runs over $0,\dots,pq-1$ the pair $(r,s)$ runs over all of $\{0,\dots,p-1\}\times\{0,\dots,q-1\}$. So the sum factors as $\bigl(\sum_{r<p}(-1)^r\bigr)\bigl(\sum_{s<q}(-1)^s\bigr)=1\cdot1=1$.
+
+\problem{4}
+\hint{1} Test $b=1$ first. Since $a$ is even, $1+x\ge0$ is needed, so $x\ge-1$. Also use Theorem 1(c): $\sqrt[a]{b^a+xb^{a-1}}\le b+\frac xa$.
+\hint{2} For $-1\le x<a$ the identity holds. If $0\le x<a$, the root lies in $[b,b+1)$. If $-1\le x<0$, use $(b-1)^a\le b^{a-1}(b-1)\le b^a+xb^{a-1}<b^a$.
+\hint{3} For $x\ge a$, put $m=\lfloor x/a\rfloor\ge1$ and $x=am+r$, $0\le r<a$. Then $b=1$ requires $1+x\ge(1+m)^a$, i.e.\ $r\ge(1+m)^a-1-am\ge\binom a2m^2$. Since $r<a$, this forces $a=2$, $m=1$, $r\ge1$.
+\hint{4} For $a=2$ and $x\in[3,4)$, check $(b+1)^2\le b^2+xb<(b+2)^2$ for all $b\ge1$. Answer: $x\in[-1,a)$ for $a\ge4$, and $x\in[-1,2)\cup[3,4)$ for $a=2$.
+
+\problem{5}
+\hint{1} Structure of $\tau\in T_n$: let $C$ be the set of cyclic points ($|C|=m$) and $L$ the lcm of the cycle lengths on $C$, so $L\le f(m)$. Let $d$ be the largest distance of a point from $C$. Show that $\tau^i=\tau^j$ if and only if $i,j\ge d$ and $i\equiv j\pmod L$.
+\hint{2} Hence $\mathrm{ord}(\tau)=L+d-1\le f(m)+(n-m)$. If $n-m<n^{0.501}$, this is already $<f(n)+n^{0.501}$, since $f$ is non-decreasing.
+\hint{3} Otherwise $n-m\ge n^{0.501}$. The number $f(m)$ has at most $\sqrt{2m}$ distinct prime factors, since they are distinct primes with sum $\le m$. But there are $\gg n^{0.501}/\ln n>\sqrt{2n}$ primes below $n^{0.501}$, so some prime $p\le n^{0.501}\le n-m$ does not divide $f(m)$. Adding a $p$-cycle gives $f(n)\ge f(m+p)\ge pf(m)\ge2f(m)$.
+\hint{4} Finish: if $f(m)\ge n$, then $f(n)\ge f(m)+n>\mathrm{ord}(\tau)$. If $f(m)<n$, then $\mathrm{ord}(\tau)<2n\le f(n)$ for large $n$ (two coprime cycles of length about $n/2$).
+\end{document}

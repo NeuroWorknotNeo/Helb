@@ -1,0 +1,57 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Polynomials -- 3. Symmetric functions, Newton's identities, resultant and discriminant}{Homework}
+
+\problem{1}
+\hint{1} The first sum is antisymmetric: the terms for $(i,j)$ and $(j,i)$ cancel.
+\hint{2} Write $P=(x-x_i)R_i$. Then $P'(x_i)=R_i(x_i)$ and $P''(x_i)=2R_i'(x_i)$, so $\frac{P''(x_i)}{P'(x_i)}=2\sum_{j\ne i}\frac{1}{x_i-x_j}$; sum over $i$ and use the first part.
+\hint{3} From $\frac{P'(x)}{P(x)}=\sum_i\frac1{x-x_i}$: $\sum_i\frac1{x_i-a}=-\frac{P'(a)}{P(a)}$.
+
+\problem{2}
+\hint{1} $F(z)=\prod(1-z^{k_j})$ is divisible by $(1-z)^n$, so $F^{(s)}(1)=0$ for $s<n$, i.e.\ $\sum_m c_m\,m^s=0$ for $s=0,1,\dots,n-1$, where $F=\sum c_mz^m$ has integer coefficients.
+\hint{2} Since $F(1)=0$, the positive coefficients and the negative coefficients have the same total $N$, and the sum of absolute values is $2N$. Form the multiset $A$ containing each $m$ exactly $c_m$ times when $c_m>0$, and $B$ containing $m$ exactly $|c_m|$ times when $c_m<0$; both have $N$ elements and disjoint supports.
+\hint{3} Hint 1 says $A$ and $B$ have equal power sums $p_s$ for $s=1,\dots,n-1$. If $N\le n-1$, Newton's identities give equal $e_1,\dots,e_N$, so $A=B$ as multisets (same polynomial $\prod(t-a)$), which is impossible. Hence $N\ge n$.
+
+\problem{3}
+\hint{1} Consider the rational function $R(x)=\dfrac{p(x+1)}{x\,p(x)}$. Its poles are $0,\alpha_1,\dots,\alpha_n$, all simple. What are the coefficients of its partial fraction expansion?
+\hint{2} The coefficient at $x=0$ is $\frac{p(1)}{p(0)}$ and at $x=\alpha_i$ it is $\frac{p(\alpha_i+1)}{\alpha_ip'(\alpha_i)}$.
+\hint{3} For a rational function $\sum_k\frac{c_k}{x-\beta_k}+(\text{polynomial})$ the sum $\sum c_k$ is the coefficient of $1/x$ at infinity, i.e.\ $\lim_{x\to\infty}x\cdot(\text{proper part})$. Here $R(x)$ is proper and $xR(x)\to1$.
+
+\problem{4}
+\hint{1} Same idea as Problem 3: find a rational function whose partial fraction coefficients are exactly the terms of the sum. Try $R(z)=\dfrac{1}{A(z)A(\alpha z)}$.
+\hint{2} The poles $z_k$ and $z_k/\alpha$ are simple and pairwise distinct (no ratio of zeros equals $\alpha$). The coefficient at $z_k$ is $\frac{1}{A'(z_k)A(\alpha z_k)}$; at $z_k/\alpha$ it is $\frac{1}{\alpha A'(z_k)A(z_k/\alpha)}$, since $\frac{d}{dz}A(\alpha z)=\alpha A'(\alpha z)$.
+\hint{3} $R(z)=O(z^{-2n})$ with $n\ge1$, so $zR(z)\to0$ and the sum of all coefficients is $0$.
+
+\problem{5}
+\hint{1} By Vieta $x_1+x_2=p$, $x_1x_2=-\frac1{2p^2}$. Compute $x_1^2+x_2^2$ and then $x_1^4+x_2^4=(x_1^2+x_2^2)^2-2x_1^2x_2^2$.
+\hint{2} You get $x_1^4+x_2^4=p^4+\frac{1}{2p^4}+2$; finish with AM--GM: $p^4+\frac1{2p^4}\ge\sqrt2$.
+
+\problem{6}
+\hint{1} Work in the quotient $\mathbb{R}[X]/M$. From $\prod_{j}(1-X_jt)\equiv1$ modulo $M$ deduce relations involving the complete homogeneous symmetric polynomials $h_m$ of a subset of the variables.
+\hint{2} $\prod_{j<i}(1-X_jt)=\prod_{j}(1-X_jt)\cdot\prod_{j\ge i}(1-X_jt)^{-1}$ shows $h_m(X_i,\dots,X_n)\equiv\pm e_m(X_1,\dots,X_{i-1})$ mod $M$, which is $0$ for $m\ge i$. In particular $h_i(X_i,\dots,X_n)\in M$, and it is monic of degree $i$ in $X_i$.
+\hint{3} Use these relations to rewrite any monomial, modulo $M$ and keeping the degree, as a combination of monomials $X_1^{a_1}\cdots X_n^{a_n}$ with $a_i\le i-1$ (reduce the exponent of $X_i$ using $h_i(X_i,\dots,X_n)$, which only brings in $X_i,\dots,X_n$). Such monomials have degree $\le\sum(i-1)=\binom n2$, so any monomial of higher degree lies in $M$.
+\hint{4} For the second part, use the Vandermonde $\Delta=\prod_{i<j}(X_j-X_i)$ and the pairing $\langle f,g\rangle=f(\partial)g\,\big|_{0}$. Since $e_k(\partial)$ is symmetric and $e_k(\partial)\Delta$ is an antisymmetric polynomial of degree $<\binom n2$, it is $0$; so $\langle f,\Delta\rangle=0$ for every $f\in M$ of degree $\binom n2$.
+\hint{5} But the monomial $X_2X_3^2\cdots X_n^{n-1}$ occurs in $\Delta$ with coefficient $\pm1$, so its pairing with $\Delta$ is $\pm\prod_k k!\ne0$. Hence it is not in $M$.
+
+\problem{7}
+\hint{1} The $S_k$ are the coefficients of the monic factor $g(T)=\prod_{i\le p}(T-x_i)$ of $f$ over a splitting field $L$. How many monic factors of degree $p$ does $f$ have over $L$?
+\hint{2} $L/K$ is Galois ($f$ is separable). Every $\sigma\in\operatorname{Gal}(L/K)$ maps $g$ to another monic degree-$p$ factor $\prod_{i\in I}(T-x_i)$ of $f$, determined by the $p$-subset $I$; there are $\binom np$ of these.
+\hint{3} The subgroup $H$ fixing the set $\{x_1,\dots,x_p\}$ fixes all $S_k$, so $K(S_1,\dots,S_p)\subseteq L^H$ and $[L^H:K]=[G:H]$ is the size of the orbit of this set, at most $\binom np$.
+
+\problem{8}
+\hint{1} Use $D=a^4\prod_{i<j}(x_i-x_j)^2$ and examine each case of the roots.
+\hint{2} Three distinct real roots: every factor is a positive square. One real root $r$ and a pair $z,\bar z$: $(z-\bar z)^2=-4(\operatorname{Im}z)^2<0$ while $(r-z)^2(r-\bar z)^2=|r-z|^4>0$, so $D<0$. A multiple root gives $D=0$.
+\hint{3} For $x^3+px+q$ Cardano's formula involves $\sqrt{\frac{q^2}4+\frac{p^3}{27}}=\sqrt{-D/108}$. So exactly when all three roots are real and distinct one must take square roots of a negative number (casus irreducibilis): the real roots cannot be reached without complex numbers.
+
+\problem{9}
+\hint{1} If $\alpha$ is a common root, the vector $(\alpha^{m+n-1},\dots,\alpha,1)^T$ is in the kernel of the Sylvester matrix: each row times it is $\alpha^kf(\alpha)$ or $\alpha^kg(\alpha)$.
+\hint{2} So, as a polynomial in the roots $\alpha_i,\beta_j$ (the coefficients are elementary symmetric functions of them), the determinant is divisible by each $\alpha_i-\beta_j$, hence by $\prod(\alpha_i-\beta_j)$. Compare degrees and evaluate one coefficient (e.g.\ $g=x^m$, i.e.\ all $\beta_j=0$) to get equality.
+\hint{3} For integer polynomials the Sylvester determinant is an integer computed from the coefficients; with leading coefficients $a,b$ it equals $a^mb^n\prod(\alpha_i-\beta_j)$, which is $0$ if there is a common complex root.
+
+\problem{10}
+\hint{1} A transposition of two variables changes the sign of $\Delta=\prod_{i<j}(x_i-x_j)$, so $\Delta^2$ is symmetric; express it through $e_1,e_2,e_3$ by Theorem 1 (or via $\Delta=\det(x_i^{j-1})$ and $\Delta^2=\det(V^TV)=\det(p_{i+j})$).
+\hint{2} For $x^3+ax^2+bx+c$: $D=a^2b^2-4b^3-4a^3c-27c^2+18abc$; for $x^3+px+q$: $D=-4p^3-27q^2$.
+\hint{3} $\sigma(\Delta)=\operatorname{sgn}(\sigma)\Delta$ and $\Delta\ne0$ for distinct roots, so $\Delta=\pm\sqrt D$ is fixed exactly by the even permutations. By the Galois correspondence $\Delta\in\mathbb{Q}$ iff $\Delta$ is fixed by every element of the Galois group $G$, i.e.\ iff $G\subseteq A_n$.
+
+\end{document}

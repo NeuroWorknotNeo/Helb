@@ -1,0 +1,37 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Polynomials -- 6. Polynomials over finite fields}{Class work}
+
+\problem{1}
+\hint{1} At most $n$ roots: if $f(a)=0$ then $f=(x-a)g$ with $\deg g=n-1$, and a root $b\ne a$ of $f$ is a root of $g$ (a field has no zero divisors); induct. Every $a\in\mathbb{F}_q^*$ satisfies $a^{q-1}=1$ (Lagrange in the group $\mathbb{F}_q^*$), so all $q$ elements are roots of the monic degree-$q$ polynomial $x^q-x$, which forces $x^q-x=\prod_a(x-a)$. A function is given by Lagrange interpolation, and two polynomials of degree $<q$ agreeing at $q$ points coincide.
+\hint{2} Cyclicity: let $\psi(d)$ be the number of elements of order $d$ ($d\mid q-1$). If $\psi(d)>0$ and $g$ has order $d$, then $1,g,\dots,g^{d-1}$ are all the roots of $x^d-1$, so the elements of order $d$ are among these powers and $\psi(d)=\varphi(d)$. Hence $\psi(d)\le\varphi(d)$, and $\sum_{d\mid q-1}\psi(d)=q-1=\sum_{d\mid q-1}\varphi(d)$ gives $\psi(q-1)=\varphi(q-1)>0$.
+\hint{3} Wilson: compare constant terms in $x^{p-1}-1=\prod_{a\ne0}(x-a)$ over $\mathbb{F}_p$. $k$-th powers: with a generator $g$ and $d=\gcd(k,q-1)$, $g^m$ is a $k$-th power iff $d\mid m$, iff $a^{(q-1)/d}=1$.
+
+\problem{2}
+\hint{1} A polynomial of degree $2$ or $3$ that is reducible has a factor of degree $1$, i.e.\ a root.
+\hint{2} For $n\ge4$ build a reducible polynomial of degree $n$ with no root: multiply an irreducible quadratic by an irreducible polynomial of degree $n-2$ (over a finite field irreducible polynomials of every degree exist, e.g.\ by the counting formula of Theorem 2). Answer: $n=2,3$.
+
+\problem{3}
+\subpart{a}
+\hint{1} $x\equiv y\pmod n$ implies $x-y\mid f(x)-f(y)$, so $f(x)\equiv f(y)\pmod n$.
+\subpart{b}
+\hint{1} A surjective map of a finite set to itself is a bijection, so $f_n$ is injective for every $n>2$. Also $a-b\mid f(a)-f(b)$ for all integers $a,b$.
+\hint{2} $f(a)\ne f(b)$ for $a\ne b$ (take $n>\max(2,|a-b|)$). If $m=|f(a)-f(b)|>2$, injectivity of $f_m$ gives $m\mid a-b$; with $a-b\mid f(a)-f(b)$ this means $|f(a)-f(b)|=|a-b|$. Deduce that this equality holds whenever $|a-b|\ge3$.
+\hint{3} So $f(x)-f(0)=\pm x$ for infinitely many $x$, hence $f(x)=\pm x+c$ identically; these clearly work. Answer: $f(x)=x+c$ or $f(x)=-x+c$, $c\in\mathbb{Z}$.
+
+\problem{4}
+\hint{1} $n$ is interesting iff $x^p-x+1$ divides $x^n-1$ in $\mathbb{F}_p[x]$, i.e.\ $x^n=1$ in the ring $R=\mathbb{F}_p[x]/(x^p-x+1)$. Use the Frobenius in $R$.
+\subpart{a}
+\hint{1} In $R$, $x^p=x-1$, and since $u\mapsto u^p$ is a ring homomorphism fixing $\mathbb{F}_p$, $x^{p^k}=x-k$. So $x^{p^p}=x-p=x$, and $x$ is invertible in $R$ (the constant term of the modulus is $1$), giving $x^{p^p-1}=1$.
+\subpart{b}
+\hint{1} The interesting numbers are the multiples of the order of $x$ in $R^*$, so the question is when this order is $p^p-1$. The roots of $x^p-x+1$ are $\theta,\theta-1,\dots,\theta-(p-1)$, permuted cyclically by Frobenius, so the polynomial is irreducible and $R=\mathbb{F}_{p^p}$.
+\hint{2} Compute the norm: $x^{1+p+\dots+p^{p-1}}=x(x-1)\cdots(x-p+1)$ in $R$, which is the product of the roots, equal to $-1$ for odd $p$. Hence $x^{2(p^p-1)/(p-1)}=1$, which is a smaller exponent when $p\ge5$.
+\hint{3} For $p=2$: $x^2+x+1$, order $3=2^2-1$. For $p=3$: the order divides $26$; $x^{13}=-1$ by the norm and $x^2\ne1$. Answer: $p=2$ and $p=3$.
+
+\problem{5}
+\hint{1} Work over $\mathbb{F}_p$. When does the determinant $D(x,y,z)$ vanish? Use that $u\mapsto u^p$ is additive and fixes $\mathbb{F}_p$.
+\hint{2} If $c\ne0$ and you substitute $z=-(ax+by)/c$ with $a,b,c\in\mathbb{F}_p$, the third column becomes a combination of the first two, so $D=0$. Hence $ax+by+cz$ divides $D$ in $\mathbb{F}_p[x,y,z]$ for every nonzero $(a,b,c)\in\mathbb{F}_p^3$.
+\hint{3} Take one form per line through the origin: $p^2+p+1$ pairwise non-proportional linear forms, all dividing $D$ (unique factorization), and $\deg D=1+p+p^2$. So $D=\lambda\prod(ax+by+cz)$ with $\lambda\in\mathbb{F}_p^*$ (the monomial $xy^pz^{p^2}$ shows $D\ne0$); absorb $\lambda$ into one factor and lift to integers.
+
+\end{document}

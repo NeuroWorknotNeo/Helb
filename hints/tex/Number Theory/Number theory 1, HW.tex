@@ -1,0 +1,54 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Number theory -- 1}{Homework}
+
+\problem{1}
+\hint{1} Fix $m$. Then $\sigma(k)=mk$ is a permutation of $\mathbb Z/n$, and you need a permutation $\pi$ with $\pi^2=\sigma$. When does a permutation have a square root? Look at its cycle type.
+\hint{2} A permutation is a square exactly when, for every even $\ell$, it has an even number of $\ell$-cycles. For $n\equiv0\pmod 4$ take $m=-1$: it has two fixed points, $0$ and $n/2$, and $(n-2)/2$ transpositions, an odd number. For odd $n>1$ pick $p^e\,\|\,n$ and $m$ (by CRT) a primitive root mod $p^e$ with $m\equiv1\pmod{n/p^e}$. The cycles of length $\varphi(p^e)$ are exactly the orbits of the $k$ that are units mod $p^e$, and there are $n/p^e$ of them, an odd number.
+\hint{3} For $n=2n'$ with $n'$ odd, $\mathbb Z/n\cong\mathbb Z/2\times\mathbb Z/n'$ and $m$ fixes the first coordinate. So $\sigma$ is two copies of the same permutation, and every cycle length occurs an even number of times. Answer: $n=1$ and all $n\equiv2\pmod 4$.
+
+\problem{2}
+\hint{1} Primes work: the sum is $x+x^p-2x$. Now let $n$ be composite and square-free, and work modulo its largest prime factor $p$ (it is odd). Write $n=pm$.
+\hint{2} The divisors of $n$ are $d$ and $pd$ with $d\mid m$, and $x^{pd}\equiv x^d\pmod p$. So the condition reads $p\mid 2\bigl(\sum_{d\mid m}x^d-\tau(m)x\bigr)$ for all $x$.
+\hint{3} Reduce each exponent mod $p-1$ into $[1,p-1]$. You get a polynomial of degree $<p$ that vanishes on $\mathbb F_p$, so it is zero. Comparing the coefficients of $x$ forces every $d\mid m$ to satisfy $d\equiv1\pmod{p-1}$. A prime $q\mid m$ is $<p$, a contradiction. Answer: the primes (and trivially $n=1$).
+
+\problem{3}
+\hint{1} Yes. Build $a_1=1<a_2<\dots$ inductively. Look for $a_{n+1}=x$ with $x\equiv1\pmod{M^2}$, where $M=\prod_{q\le n}q$ over primes $q$.
+\hint{2} For a prime $q\le n$ we get $x+a_i\equiv 1+a_i=a_1+a_i\pmod{q^2}$, which is square-free by induction, so $q^2\nmid x+a_i$. Only primes $q>n$ remain.
+\hint{3} Count $x=1+kM^2$, $1\le k\le K$. For $q>n$ a fixed $a_i$ excludes at most $K/q^2+1$ values of $k$, and only $q\le\sqrt{2KM^2}$ matter. The bad $k$ number at most $nK\sum_{q>n}q^{-2}+O(n M\sqrt K)$. Since $\sum_{q>n,\ q\text{ odd}}q^{-2}<1/(2(n-1))$, this is $<K$ for large $K$.
+
+\problem{4}
+\hint{1} A sequence is determined by $(a_1,a_2)$ via $a_{n+2}=(1+a_{n+1})/a_n$. Compute a few terms symbolically.
+\hint{2} The recurrence is periodic with period $5$: $a_3=\frac{1+b}{a}$, $a_4=\frac{1+a+b}{ab}$, $a_5=\frac{1+a}{b}$, $a_6=a$. So the shift $(a_1,a_2)\mapsto(a_2,a_3)$ has order dividing $5$ on the set of admissible pairs.
+\hint{3} Orbits have size $1$ or $5$, so $f(p)$ is congruent mod $5$ to the number of fixed points: $a_1=a_2=a$ with $a^2=a+1$. The discriminant is $5\ne0$ mod $p$, so there are $0$ or $2$ such $a$.
+
+\problem{5}
+\hint{1} Expand $f(a+tp^k)=f(a)+tp^kf'(a)+p^{2k}(\dots)$. Since $2k\ge k+1$, the condition is the linear congruence $f(a)/p^k+tf'(a)\equiv0\pmod p$, which has a unique solution $t$.
+\hint{2} $x^2\equiv2\pmod 7$ has $x\equiv3,4$, and $f'(3)=6\not\equiv0$. Lift twice. Answer: $x\equiv108,235\pmod{343}$. For $p\equiv1\pmod 4$, a root of $x^2\equiv-1\pmod p$ exists, e.g.\ $((\frac{p-1}{2})!)^2\equiv-1$ by Wilson, and $f'(a)=2a\not\equiv0$.
+\hint{3} Failure: $f(x)=x^2-3$, $p=2$. Here $f(1)\equiv0\pmod 2$ but $f'(1)\equiv0$, and $x^2\equiv3\pmod 4$ has no solution.
+
+\problem{6}
+\hint{1} Choose distinct primes $p_1,\dots,p_n$ and solve $x+i\equiv0\pmod{p_i^2}$ for $i=1,\dots,n$ by CRT.
+\hint{2} For the second claim use $2n$ distinct primes and solve $x+i\equiv0\pmod{p_iq_i}$. Each $x+i$ then has two different prime factors, so it is not a prime power.
+
+\problem{7}
+\hint{1} Pair $k$ with $p-k$: $\frac1k+\frac1{p-k}=\frac{p}{k(p-k)}$. This already gives divisibility by $p$.
+\hint{2} So $H_{p-1}=\frac p2\sum_{k=1}^{p-1}\frac1{k(p-k)}$, and modulo $p$ we have $\frac1{k(p-k)}\equiv-\frac1{k^2}$. It remains to show $p\mid\sum k^{-2}$ (as a $p$-integral rational).
+\hint{3} $k\mapsto k^{-1}$ permutes the nonzero residues, so $\sum k^{-2}\equiv\sum k^2=\frac{(p-1)p(2p-1)}6\equiv0\pmod p$ for $p\ge5$.
+
+\problem{8}
+\hint{1} If $f$ works, so do $f+c$ and $-f$. Normalise $f(0)=0$. Then $f(p)\mid p^n$ for every prime $p$, so $f(p)=\pm p^{d_p}$.
+\hint{2} By pigeonhole there are $\varepsilon,d$ with $f(p)=\varepsilon p^d$ for infinitely many primes $p$. Normalise $\varepsilon=1$; $d=0$ is impossible. Write $n=md+r$ with $0\le r<d$.
+\hint{3} For such $p$ and any $x$: $p^d-f(x)\mid p^n-x^n$, and $p^n=p^r(p^d)^m\equiv p^rf(x)^m$. So $p^d-f(x)\mid p^rf(x)^m-x^n$. For large $p$ this forces $p^rf(x)^m=x^n$, hence $r=0$ and $f(x)=x^d$ ($m$ is odd). Answer: $f(x)=\pm x^d+c$ with $d\mid n$, $d\ge1$.
+
+\problem{9}
+\hint{1} Substitute $n=0$ and $m=0$, and then $(m,n)\to(n,m)$. Show that every $f(k)$ divides $f(0)$ and that $f(-k)=f(k)$.
+\hint{2} Put $x=f(m)\le y=f(n)$ and $z=f(n-m)$. The pairs $(n,m)$, $(n,n-m)$, $(m,m-n)$ give $z\mid y-x$, $x\mid y-z$ and $y\mid x-z$.
+\hint{3} If $z>y$, then $0\le y-x<z$ forces $x=y$. If $z\le y$, then $|x-z|<y$ forces $x=z$, and then $x\mid y-x$. In both cases $x\mid y$.
+
+\problem{10}
+\hint{1} Suppose $x>1$. If a prime $q\equiv3\pmod 4$ divides some $2^Ny+1$, show that $q\mid x^2-1$. Then it suffices to find infinitely many such primes.
+\hint{2} If $q\mid 2^Ny+1$, then $q\mid 2^{N+t(q-1)}y+1$ for all $t$. So $x^{2^M}\equiv1\pmod q$ for arbitrarily large $M$, and $\mathrm{ord}_q(x)$ divides $\gcd(2^M,q-1)=2$.
+\hint{3} Infinitely many such $q$: WLOG $y$ is odd (absorb powers of $2$ into $N$). If $S$ is the finite set of all such primes, choose $N\equiv1$ modulo every $\varphi(q^{e_q+1})$, where $e_q=v_q(2y+1)$. Then $2^Ny+1$ and $2y+1$ have the same $q$-parts for $q\in S$ and no other prime factors $\equiv3\pmod 4$. Compare both numbers mod $4$: $2y+1\equiv3$, but $2^Ny+1\equiv1$.
+\end{document}

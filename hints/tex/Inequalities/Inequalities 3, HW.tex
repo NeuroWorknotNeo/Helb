@@ -1,0 +1,60 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Inequalities -- 3. Integral inequalities: the working techniques}{Homework}
+
+\problem{1}
+\hint{1} Let $M=\max_{[0,1]}|f'|$ and $F(x)=\int_0^xf$. Compare $f(x)^2$ with $f(0)^2$ through the derivative of $f^2$.
+\hint{2} $f(x)^2-f(0)^2=\int_0^x2ff'\le2M\int_0^xf=2MF(x)$. Multiply by $f(x)\ge0$: $f^3-f(0)^2f\le2Mf F=M(F^2)'$.
+\hint{3} Integrate over $[0,1]$: $\int_0^1f^3-f(0)^2\int_0^1f\le MF(1)^2=M\big(\int_0^1f\big)^2$.
+
+\problem{2}
+\hint{1} Recognise $2f'+xf''$ as a second derivative of a simple function built from $f$.
+\hint{2} $h(x)=xf(x)$ satisfies $h''=2f'+xf''\ge1$ and $h(0)=0$. So $h(x)-\frac{x^2}2$ is convex.
+\hint{3} A convex function lies above its tangent at $0$: $h(x)-\frac{x^2}2\ge h'(0)x$. Integrate over $(-1,1)$; the linear term integrates to $0$, and $\int_{-1}^1\frac{x^2}2=\frac13$.
+
+\problem{3}
+\hint{1} Put $u=\sqrt f$, $v=\sqrt g$ (non-decreasing) and $\varphi(t)=\sqrt{1+t^2}$, which is convex. This is an integral form of the majorisation (Karamata) inequality.
+\hint{2} By convexity, $\varphi(u)-\varphi(v)\ge\varphi'(v)(u-v)$, and $\varphi'(v(x))$ is non-decreasing in $x$. Let $H(x)=\int_a^x(u-v)\le0$, $H(a)=H(b)=0$.
+\hint{3} Integrate by parts (Stieltjes, or approximate $v$ by smooth functions): $\int_a^b\varphi'(v)\,dH=-\int_a^bH\,d\varphi'(v)\ge0$, since $H\le0$ and $\varphi'(v)$ is non-decreasing.
+
+\problem{4}
+\hint{1} Split $[0,1]$ into $P=\{f\ge0\}$ and $N=\{f<0\}$, with measures $p,n$ ($p+n=1$), and put $A=\int_P f$, $B=\int_N|f|$. On $P\times P$ and $N\times N$ the integrand is $|f(x)|+|f(y)|$.
+\hint{2} So $\iint|f(x)+f(y)|\ge2pA+2nB+2\big|\iint_{P\times N}(f(x)+f(y))\big|=2pA+2nB+2|nA-pB|$, and you need this to be $\ge A+B$.
+\hint{3} By symmetry assume $nA\ge pB$. The bound becomes $2A+2B(n-p)$, and $2A+2B(n-p)\ge A+B$ reduces to $A\ge(1-2n+2p)B$; it follows from $A\ge\frac pnB$ since $\frac pn\ge1-2n+2p\iff1\ge4pn$.
+
+\problem{5}
+\hint{1} The polynomials of degree at most $1999$ form a finite-dimensional vector space.
+\hint{2} $\|p\|=\int_{-1}^1|p|$ is a norm on it (a non-zero polynomial vanishes only at finitely many points) and $p\mapsto|p(0)|$ is continuous. On the compact unit sphere $\{\|p\|=1\}$ the latter is bounded by some $C$; scale.
+
+\problem{6}
+\hint{1} Integrate $\int_0^1f$ by parts to make $f'$ appear, and use $f(1)=-\frac16$.
+\hint{2} $\int_0^1f=f(1)-\int_0^1xf'=-\frac16-\int_0^1xf'$. The condition becomes $\int_0^1\big((f')^2+2xf'\big)+\frac13\le0$, and $\frac13=\int_0^1x^2$.
+\hint{3} So $\int_0^1(f'+x)^2\le0$, hence $f'(x)=-x$ and $f(x)=\frac13-\frac{x^2}2$ is the only solution.
+
+\problem{7}
+\hint{1} $f$ is an increasing bijection of $[0,1]$ with $f(1)=1$. Interpret both integrals as double integrals over parts of the unit square cut by the graph of $f$.
+\hint{2} $\int_0^1x^\alpha f(x)\,dx=\iint_{y\le f(x)}x^\alpha$, and, by the reflection $(x,y)\mapsto(y,x)$ which maps the graph of $f^{-1}$ to that of $f$, $\int_0^1x^\alpha f^{-1}(x)\,dx=\iint_{y\ge f(x)}y^\alpha$.
+\hint{3} Each point of the square contributes $x^\alpha$ or $y^\alpha$, hence at most $\max(x,y)^\alpha$, and $\iint\max(x,y)^\alpha=2\int_0^1x^{\alpha+1}\,dx=\frac2{\alpha+2}$.
+
+\problem{8}
+\subpart{a}
+\hint{1} $g(x)=\big((x-1)f(x)\big)'$, so $\int_0^1g=\big[(x-1)f\big]_0^1=0$.
+\subpart{b}
+\hint{1} Let $G(u)=\int_0^ug=(u-1)f(u)$. Since $f$ is non-decreasing with $f(0)=0$, $f\ge0$ and $G\le0$, $G(0)=G(1)=0$.
+\hint{2} A convex $\varphi$ with $\varphi(0)=0$, $\varphi(1)=1$, values in $[0,1]$, is non-decreasing; it may vanish on some $[0,t_0]$ and is then strictly increasing with a concave inverse $\psi$ on $[0,1]$. Change variables $u=\varphi(t)$: $\int_0^1g(\varphi(t))\,dt=t_0\,g(0)+\int_0^1g(u)\psi'(u)\,du$, with $g(0)=-f'(0)\le0$.
+\hint{3} The weight $\psi'\ge0$ is non-increasing. Integrate by parts (Abel): $\int_0^1g\,\psi'=\big[G\psi'\big]_0^1-\int_0^1G\,d\psi'$, where the boundary term vanishes and $-\int G\,d\psi'\le0$ because $G\le0$ and $d\psi'\le0$. (Where $\psi'$ is unbounded near $0$, cut off at $\varepsilon$ and let $\varepsilon\to0$.)
+
+\problem{9}
+\hint{1} $h(t)=t+\sin t$ is an increasing bijection of $\mathbb R$ (with $h'\ge0$ vanishing only at isolated points), so the hypothesis says $f(x)\ge h^{-1}(x)$.
+\hint{2} $h$ maps $[0,\pi]$ onto $[0,\pi]$, and the integrals of a function and its inverse fill a rectangle: $\int_0^\pi h^{-1}=\pi^2-\int_0^\pi(t+\sin t)\,dt=\pi^2-\frac{\pi^2}2-2$.
+
+\problem{10}
+\hint{1} Let $\Phi(c)=\frac1{c-a}\int_a^cf$, the mean of $f$ on $[a,c]$. Since $f$ is strictly increasing, $\Phi(c)<f(c)$.
+\hint{2} $\Phi'(c)=\frac{f(c)-\Phi(c)}{c-a}>0$, so $\Phi$ is strictly increasing and $\Phi(c)<\Phi(b)$. One-line version: the mean of $f$ over $[a,c]$ is $<f(c)<$ the mean over $[c,b]$, and the mean over $[a,b]$ is a weighted average of these two.
+
+\problem{11}
+\hint{1} Interpret $\sqrt{1+\cos^2y}$ as the arc-length element of a familiar curve, and $\sqrt{x^2+\sin^2x}$ as a distance.
+\hint{2} The left side is the length of the graph of $y=\sin t$ for $t\in[0,1]$; the right side is the length of the chord from $(0,0)$ to $(x,\sin x)$. The chord is at most the arc over $[0,x]$, which is strictly shorter than the arc over $[0,1]$ since $x<1$.
+
+\end{document}

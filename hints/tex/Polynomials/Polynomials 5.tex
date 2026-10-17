@@ -1,0 +1,33 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Polynomials -- 5. Integer coefficients, divisibility and irreducibility}{Class work}
+
+\problem{1}
+\hint{1} Gauss: if $g,h\in\mathbb{Z}[x]$ are primitive and a prime $p$ divided all coefficients of $gh$, reduce mod $p$: $\bar g\bar h=0$ in the integral domain $\mathbb{F}_p[x]$, contradiction. For a factorization $f=gh$ over $\mathbb{Q}$, write $g=\lambda g_0$, $h=\mu h_0$ with $g_0,h_0$ primitive and compare contents.
+\hint{2} Eisenstein: if $f=gh$ in $\mathbb{Z}[x]$ with both factors non-constant, reduce mod $p$: $\bar f=\bar a_nx^n$, so $\bar g=bx^r$, $\bar h=cx^s$ with $r,s\ge1$. Then $p$ divides both constant terms of $g,h$, and $p^2\mid a_0$. Reduction: a factorization over $\mathbb{Z}$ into factors of positive degree reduces mod $p$ to one with the same degrees (the leading coefficient is not divisible by $p$).
+\hint{3} For $\Phi_p(x)=1+x+\dots+x^{p-1}=\frac{x^p-1}{x-1}$ substitute $x=y+1$: $\Phi_p(y+1)=\sum_{k=1}^{p}\binom pky^{k-1}$, which is Eisenstein at $p$.
+
+\problem{2}
+\hint{1} Suppose $(x-1)\cdots(x-n)-1=g(x)h(x)$ with $g,h\in\mathbb{Z}[x]$ of smaller degree. Evaluate at $x=1,\dots,n$.
+\hint{2} $g(i)h(i)=-1$ forces $g(i)=-h(i)=\pm1$, so $g+h$ has the $n$ roots $1,\dots,n$ but degree $<n$. Hence $h=-g$.
+\hint{3} Then $(x-1)\cdots(x-n)-1=-g(x)^2$ has negative leading coefficient, contradiction. Answer: no, for no $n$.
+
+\problem{3}
+\note{As printed the statement is false whenever $n$ is not a power of $2$: with $Y=X(X+a)$ the polynomial is $Y^{2n}+1$, and for $n=2^sm$ with $m>1$ odd, $Y^{2^{s+1}}+1$ divides it (e.g.\ $X^6(X+a)^6+1$ is divisible by $X^2(X+a)^2+1$). The original IMC 2012 problem has the exponent $2^n$: prove that $X^{2^n}(X+a)^{2^n}+1$ is irreducible. The hints follow this version; write $N=2^n\ge2$.}
+\hint{1} Let $\varepsilon$ be a root and $\zeta=\varepsilon(\varepsilon+a)$. Then $\zeta^N=-1$, so $\zeta$ is a primitive $2N$-th root of unity and $[\mathbb{Q}(\zeta):\mathbb{Q}]=\varphi(2N)=N$. Since $\zeta\in\mathbb{Q}(\varepsilon)$, it suffices to show $[\mathbb{Q}(\varepsilon):\mathbb{Q}(\zeta)]=2$.
+\hint{2} $\varepsilon$ is a root of $X^2+aX-\zeta$ over $\mathbb{Q}(\zeta)$, so you need: $a^2+4\zeta$ is not a square in $\mathbb{Q}(\zeta)$. Take the norm $N_{\mathbb{Q}(\zeta)/\mathbb{Q}}$: a square would have a norm that is the square of a rational number.
+\hint{3} The conjugates of $\zeta$ are all roots of $T^N+1$, so $\prod(a^2+4\zeta')=4^N\bigl((a/2)^{2N}+1\bigr)$ ($N$ even). With $a/2=u/v$ you would need $u^{2N}+v^{2N}$ to be a square, i.e.\ $x^4+y^4=z^2$ with $x=u^{N/2}$, $y=v^{N/2}$.
+\hint{4} By Fermat (infinite descent) $x^4+y^4=z^2$ has no solutions with $xy\ne0$. The case $a=0$ is $X^{2N}+1=\Phi_{4N}(X)$, irreducible.
+
+\problem{4}
+\hint{1} Write $f=ax^2+bx+c$ and use $k=0,1,-1$.
+\hint{2} $5\mid c$, $5\mid a+b$, $5\mid a-b$, so $5\mid 2a$, hence $5\mid a$ and $5\mid b$.
+\hint{3} General statement: if $\deg f\le p-1$ and $p\mid f(k)$ for all integers $k$, then $p$ divides all coefficients, because $\bar f\in\mathbb{F}_p[x]$ has $p$ roots but degree $<p$. The bound is sharp: $x^p-x$.
+
+\problem{5}
+\hint{1} Consider $d(x,y)=\dfrac{f(x)-f(y)}{x-y}$, a polynomial in two variables of total degree $\le n-1$. You must show it is integer-valued at all integer points with $x\ne y$; you know this for $0\le x<y\le n$.
+\hint{2} Change variables to $x$ and $z=n-y$. The known points include the triangle $T=\{(x,z):x,z\ge0,\;x+z\le n-1\}$ (there $x<y$ holds automatically).
+\hint{3} Expand $d=\sum_{i+j\le n-1}c_{ij}\binom xi\binom zj$. Evaluating on $T$ in increasing order of $i+j$ (or by finite differences in each variable) shows all $c_{ij}\in\mathbb{Z}$, so $d$ is integer-valued on all of $\mathbb{Z}^2$.
+
+\end{document}

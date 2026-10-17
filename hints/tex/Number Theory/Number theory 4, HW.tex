@@ -1,0 +1,56 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Number theory -- 4}{Homework}
+
+\problem{1}
+\hint{1} Every prime $p\in(m+1,2m+1]$ divides $\binom{2m+1}m\le4^m$. So $\prod_{m+1<p\le2m+1}p\le4^m$. Induct: even $n$ is not prime, and for odd $n=2m+1$ use the bound up to $m+1$.
+\hint{2} Bertrand: suppose there is no prime in $(n,2n]$. By Kummer, $p^{v_p}\le2n$ for every $p$, so primes $p>\sqrt{2n}$ appear at most to the first power, and primes in $(2n/3,n]$ do not divide $\binom{2n}n$ at all.
+\hint{3} Then $\frac{4^n}{2n+1}\le\binom{2n}n\le(2n)^{\sqrt{2n}}\cdot4^{2n/3}$. This fails for $n$ large (about $n\ge500$). For smaller $n$, use the chain of primes $2,3,5,7,13,23,43,83,163,317,631$.
+
+\problem{2}
+\note{As printed: (a) $\mathrm{lcm}(1,\dots,n)=e^{(1+o(1))n}$ is equivalent to the prime number theorem and is not elementary. (b) $\binom{2n}n$ is \emph{not} always divisible by $\mathrm{lcm}(1,\dots,n+1)/(n+1)$ ($n=3$: $20$ vs.\ $3$). The correct statements are that $\binom{2n}{n}$ divides $\mathrm{lcm}(1,\dots,2n)$, and that $\binom nk\mid\mathrm{lcm}(1,\dots,n+1)/(n+1)$. The hints prove Chebyshev-type bounds and the correct divisibility.}
+\hint{1} By Kummer, $v_p\binom{2n}n\le\#\{j:p^j\le2n\}=v_p(\mathrm{lcm}(1,\dots,2n))$, so $\binom{2n}n\mid\mathrm{lcm}(1,\dots,2n)$.
+\hint{2} Hence $\mathrm{lcm}(1,\dots,2n)\ge\binom{2n}n\ge\frac{4^n}{2n+1}$. Together with $\mathrm{lcm}(1,\dots,N)\le N^{\pi(N)}$ this gives $\pi(2n)\ge\frac{n\log4-\log(2n+1)}{\log 2n}$.
+\hint{3} Upper bound: $\mathrm{lcm}(1,\dots,N)=\prod_pp^{\lfloor\log_pN\rfloor}\le\prod_{p\le N}p\cdot\prod_{p\le\sqrt N}N\le4^N N^{\sqrt N}$. So $e^{cN}\le\mathrm{lcm}(1..N)\le e^{CN}$ elementarily. The constant $1$ in the exponent needs the PNT.
+
+\problem{3}
+\hint{1} $v_2\binom{2n}n=s_2(n)$ (Kummer). So $v_2=1$ exactly when $n$ is a power of $2$.
+\hint{2} Square-free forces $v_2\le1$, hence $n=2^k$. Check small cases: $n=1,2,4$ give $2,6,70$, but $n=8$ gives $12870=2\cdot3^2\cdots$.
+\hint{3} That no other $n$ works is a deep theorem (Erd\H{o}s's conjecture, proved by S\'ark\"ozy for large $n$ and completely by Granville--Ramar\'e). Kummer for $p=3,5,\dots$ shows why: one needs two carries in some base. Answer: $n\in\{1,2,4\}$.
+
+\problem{4}
+\note{$v_p\bigl(\sum k^{-2}\bigr)$ has no closed form: it equals $1$ for $p\ge5$, except for the Wolstenholme primes ($16843$, $2124679$, \dots), where it is $\ge2$. For $p=3$ it is $0$. The hints prove $v_p\ge1$ and the link with $H_{p-1}$.}
+\hint{1} Pair $k$ with $p-k$: $H_{p-1}=\frac p2\sum_k\frac1{k(p-k)}$, and $\frac1{k(p-k)}\equiv-\frac1{k^2}\pmod p$.
+\hint{2} $\sum_{k=1}^{p-1}k^{-2}\equiv\sum k^2=\frac{(p-1)p(2p-1)}6\equiv0\pmod p$ for $p\ge5$. This gives $v_p(H_{p-1})\ge2$.
+\hint{3} More precisely, $H_{p-1}\equiv-\frac{p}{2}\sum k^{-2}\pmod{p^3}$, so $v_p(H_{p-1})\ge3$ if and only if $v_p(\sum k^{-2})\ge2$. Generically $v_p(\sum k^{-2})=1$ (it is $\equiv\frac23pB_{p-3}\pmod{p^2}$).
+
+\problem{5}
+\hint{1} Odd $n$: take $k=n^m$. Then $a_k=n^{n^m-m}$ is odd.
+\hint{2} Even $n$: find $k$ with $k\mid n^k-r$ for some small $r$ with $n^k/k$ just above $(n^k-r)/k$. Try $k=p\cdot2^m$, where $p$ is an odd prime factor of $n^{2^m}-2^m$ (it exists, since $n^{2^m}-2^m=2^m(\text{odd}>1)$).
+\hint{3} By Fermat, $n^k=(n^{2^m})^p\equiv(2^m)^p\equiv2^m\pmod p$. Since $0<2^m<k$, we get $a_k=\frac{n^k-2^m}{p\,2^m}$, which is odd because $n^k/2^m$ is even.
+
+\problem{6}
+\hint{1} Check that $a=1,3,5$ work ($n=1,1,4$). For even $a=2^\alpha d$, pick $i<a$ with $n+i=2^{\alpha-1}e$, $e$ odd. Then $t(n+i+a)=2d+e\equiv e+2\pmod 4$.
+\hint{2} Odd $a>8$: some $n+i=2d$ ($d$ odd) with $i\le a-5$. Then $t(n+i)$ and $t(n+i+4)$ differ by $2$ mod $4$, while $n+a+i$ and $n+a+i+4$ are odd and congruent mod $4$. So both differences cannot vanish mod $4$.
+\hint{3} $a=7$: some $n+i\in\{8k+3,8k+6\}$, and both cases fail directly. Answer: $a\in\{1,3,5\}$.
+
+\problem{7}
+\hint{1} If $n=\prod p_i^{e_i}$ has $2^k$ divisors, then each $e_i+1$ is a power of $2$. So $n$ is a product of distinct numbers of the form $p^{2^j}$ (``Fermi--Dirac primes''), exactly $k$ of them.
+\hint{2} Minimality: $f(2^k)$ is the product of the $k$ smallest elements of $\{p^{2^j}\}$. (If a smaller unused element exists, swap it for a larger one; check that the result is still of the right shape.)
+\hint{3} Hence $f(2^{k+1})=f(2^k)\cdot(\text{the next element})$.
+
+\problem{8}
+\hint{1} Bertrand: there is a prime $p$ with $n<p\le2n$ (in fact $p<2n$ for $n>1$).
+\hint{2} By Kummer or directly, $v_p\binom{2n}n=1$ ($p$ divides $(2n)!$ once and $n!$ not at all). So $\binom{2n}{n}$ is not a perfect power.
+
+\problem{9}
+\hint{1} For a fixed prime $p$, let $p^e\le n+1<p^{e+1}$. Show that $\max_kv_p\binom nk=e-v_p(n+1)$. By Kummer it is the maximal number of carries in $k+(n-k)$.
+\hint{2} Let $t=v_p(n+1)$, the number of trailing digits $p-1$ of $n$. Show that no carry can occur in these $t$ lowest positions (induct from position $0$). Also no carry occurs at position $e$ or above. So there are at most $e-t$ carries. Take $k=p^e-1\le n$: then $n-k=n+1-p^e$, and the addition carries at every position $t,\dots,e-1$. Comparing with $v_p\bigl(\mathrm{lcm}(1,\dots,n+1)/(n+1)\bigr)=e-t$ proves the identity.
+\hint{3} For the sum, use $\frac1{\binom nk}=(n+1)\int_0^1t^k(1-t)^{n-k}\,dt$. Summing the geometric series under the integral gives $\sum_k\frac{(-1)^k}{\binom nk}=\frac{(n+1)(1+(-1)^n)}{n+2}$.
+
+\problem{10}
+\hint{1} Legendre: $v_p\Bigl(\frac{n!}{k_1!\cdots k_m!}\Bigr)=\frac{\sum s_p(k_i)-s_p(n)}{p-1}$.
+\hint{2} Adding $k_1,\dots,k_m$ column by column, each carry of size $c$ (an amount $c$ carried to the next position) lowers the total digit sum by $c(p-1)$. So the valuation is the total amount carried.
+\hint{3} The multinomial coefficient is coprime to $p$ exactly when, in every base-$p$ position, the digits of the $k_i$ sum to the digit of $n$ (no carries).
+\end{document}

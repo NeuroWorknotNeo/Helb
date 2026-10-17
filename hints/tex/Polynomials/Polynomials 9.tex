@@ -1,0 +1,31 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Polynomials -- 9. Cyclotomic polynomials and the arithmetic of roots of unity}{Class work}
+
+\problem{1}
+\hint{1} Follow the proof idea of Theorem 2: if $f$ is the minimal polynomial of $\zeta$, $\Phi_n=fg$ and $g(\zeta^p)=0$ for a prime $p\nmid n$, then $f(x)\mid g(x^p)\equiv g(x)^p\pmod p$, so $\bar f$ and $\bar g$ share a factor and $x^n-1$ is not squarefree over $\mathbb{F}_p$, contradicting $\gcd(x^n-1,nx^{n-1})=1$. So $f(\zeta^p)=0$.
+\hint{2} The argument applies to every root of $f$, so you can iterate: for $k$ coprime to $n$ write $k=p_1\cdots p_s$ and pass $\zeta\to\zeta^{p_1}\to\zeta^{p_1p_2}\to\cdots$; each step stays a primitive $n$-th root and a root of $f$. Hence all primitive roots are roots of $f$, and $f=\Phi_n$.
+\hint{3} $\Phi_n(1)$: put $x=1$ in $\frac{x^n-1}{x-1}=1+x+\dots+x^{n-1}=\prod_{d\mid n,\,d>1}\Phi_d(x)$ to get $n=\prod_{d\mid n,d>1}\Phi_d(1)$, and induct on $n$ (for $n=p^a$ the factors are $\Phi_{p^i}(1)$; otherwise the prime powers dividing $n$ already use up all of $n$). Sum of primitive roots $s(n)$: $\sum_{d\mid n}s(d)$ is the sum of all $n$-th roots of unity, which is $[n=1]$, so $s=\mu$ by M\"obius inversion.
+
+\problem{2}
+\hint{1} By CRT write $\zeta^k=\omega^i\eta^j$ with $\omega=e^{2\pi i/p}$, $\eta=e^{2\pi i/q}$ and $k\leftrightarrow(i,j)\in\mathbb{Z}/p\times\mathbb{Z}/q$; the relation becomes $\sum_j\bigl(\sum_ia_{ij}\omega^i\bigr)\eta^j=0$.
+\hint{2} Since $[\mathbb{Q}(\zeta):\mathbb{Q}]=(p-1)(q-1)$, $\Phi_q$ stays irreducible over $\mathbb{Q}(\omega)$, so the only linear relation among $1,\eta,\dots,\eta^{q-1}$ over $\mathbb{Q}(\omega)$ is "all coefficients equal". Hence $c_j=\sum_ia_{ij}\omega^i$ does not depend on $j$, so for fixed $j,j'$ the numbers $a_{ij}-a_{ij'}$ do not depend on $i$.
+\hint{3} So $a_{ij}=b_i+t_j$; normalizing $\min_i b_i=0$ makes all $b_i,t_j$ non-negative integers. The term $t_j$ (for all $i$) is a regular $p$-gon, the term $b_i$ (for all $j$) a regular $q$-gon. Lam--Leung for $pq$: the number of roots is $p\cdot(\#p\text{-gons})+q\cdot(\#q\text{-gons})$. For $n=30$: $\sum_{k=1}^4e^{2\pi ik/5}=-1=-(e^{\pi i/3}+e^{5\pi i/3})$, and one checks that no $2$, $3$ or $5$ of the six numbers form a regular polygon.
+
+\problem{3}
+\hint{1} Equal angles mean the side directions are $\varepsilon^j$ with $\varepsilon=e^{2\pi i/pq}$, so the side lengths $a_j$ satisfy $\sum_ja_j\varepsilon^j=0$. Apply Problem 2 (its proof works for any rational, in particular integer, coefficients).
+\hint{2} The proof of Problem 2 gives $a_j=u_{j\bmod p}+v_{j\bmod q}$ for suitable numbers $u_r,v_s$. For $k\le p<q$ consider the $k^2$ numbers $u_{r}+v_{s}$ with $r\in\{1,\dots,k\}\bmod p$, $s\in\{1,\dots,k\}\bmod q$.
+\hint{3} By CRT each such sum is the length of some side, and these are $k^2$ different sides, so their lengths are distinct positive integers with total $\ge1+2+\dots+k^2=\frac{k^2(k^2+1)}2$. But this total equals $k\sum_{i\le k}(u_i+v_i)=k\sum_{i=1}^ka_i$. Divide by $k$.
+
+\problem{4}
+\hint{1} Write $a_i=i\,(i^{k-1}+1)$. Use two consequences of the $a_i$ being a permutation of $\mathbb{F}_p$: there is no $i\ne0$ with $a_i=0$, and the product of the nonzero values is $-1$ (Wilson). The case $p=2$ is impossible ($a_0\equiv a_1$).
+\hint{2} Let $g=\gcd(k-1,p-1)$ and $m=(p-1)/g$. As $i$ runs over $\mathbb{F}_p^*$, $i^{k-1}$ runs over the subgroup $H$ of $m$-th roots of unity, each value $g$ times. $i^{k-1}=-1$ must be impossible, so $-1\notin H$, i.e.\ $m$ is odd.
+\hint{3} Wilson gives $\prod_{i\ne0}(i^{k-1}+1)\equiv1$. From $\prod_{h\in H}(x-h)=x^m-1$ at $x=-1$ with $m$ odd, $\prod_{h\in H}(1+h)=2$, so $2^g\equiv1\pmod p$. Since $g\mid k-1$, $2^{k-1}\equiv1$ and $a_2=2\cdot2^{k-1}+2\equiv4$. Conversely $k=1$ works for odd $p$. Answer: only $4\bmod p$ (that is, remainder $4$ for $p\ge5$, remainder $1$ for $p=3$; no $k$ works for $p=2$).
+
+\problem{5}
+\hint{1} Shift the $a_i$ to be non-negative. Consider the set $I$ of polynomials $\sum_jb_jx^j\in\mathbb{C}[x]$ with $\sum_jb_jf(k+j\ell)=0$ for all $k$ and all $\ell\ne0$. It is an ideal (closed under multiplication by $x$: replace $k$ by $k+\ell$), it contains $R(x)=\sum_ix^{a_i}$, so $I=(Q)$ with $Q\ne0$.
+\hint{2} If $P(x)\in I$ then $P(x^m)\in I$ for every $m\ge1$ (replace $\ell$ by $m\ell$). Hence $Q(x)\mid Q(x^m)$, and the set of roots of $Q$ is closed under $c\mapsto c^m$.
+\hint{3} A finite set closed under all powers consists of $0$ and roots of unity; and if $Q$ has any root $c\ne0$, then $c^{\operatorname{ord}c}=1$ is also a root, so $Q(1)=0$. But $Q\mid R$ and $R(1)=n\ne0$. A root $0$ is impossible too ($R(0)\neq0$ after shifting so that $\min a_i=0$). So $Q$ is a nonzero constant, which means $f(k)=0$ for all $k$.
+
+\end{document}

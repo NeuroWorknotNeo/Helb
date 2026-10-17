@@ -1,0 +1,86 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Linear algebra -- 5. Bilinear and quadratic forms}{Homework}
+
+\problem{1}
+\hint{1}
+Use Gram--Schmidt, i.e.\ \(A=QR\) with \(Q\) orthogonal and \(R\) upper triangular. Then \(|\det A|=\prod r_{jj}\), and \(r_{jj}\) is the distance from \(A_j\) to the span of \(A_1,\dots,A_{j-1}\).
+\hint{2}
+That distance is \(\le\|A_j\|\), with equality iff \(A_j\) is orthogonal to the earlier columns (or the earlier columns are dependent, in which case \(\det A=0\)). For \(A\succeq0\) write \(A=B^TB\). Then \(a_{ii}=\|B_i\|^2\) and \(\det A=(\det B)^2\).
+
+\problem{2}
+\subpart{a}
+\hint{1}
+A non-scalar \(2\times2\) matrix has centraliser \(\{xE+yA_0\}\). So every \(A_k=x_kE+y_kA_0\) is a polynomial in \(A_0\), and so is \(\sum A_k^2\).
+\hint{2}
+Let \(\alpha,\beta\) be the eigenvalues of \(A_0\). The eigenvalues of \(\sum A_k^2\) are \(\sum\lambda_k^2\) and \(\sum\mu_k^2\), where \(\lambda_k=x_k+y_k\alpha\) and \(\mu_k=x_k+y_k\beta\). If \(\alpha,\beta\) are real, both sums are \(\ge0\). If not, \(\mu_k=\overline{\lambda_k}\) and the determinant is \(|\sum\lambda_k^2|^2\).
+\subpart{b}
+\hint{1}
+Real case: the determinant vanishes only if, say, all \(\lambda_k=0\). Show that then all \(A_k\) are multiples of one fixed matrix: use a basis diagonalising \(A_0\), or \(A_0=\alpha E+N\) in the Jordan case. This contradicts \(A_2\ne aA_1\).
+\hint{2}
+Complex case: \(\sum\lambda_k^2=0\). Then \(\sum A_k^2=p(A_0)\) for a real polynomial \(p\) of degree \(\le1\) (reduce using Cayley--Hamilton) vanishing at \(\alpha\) and \(\bar\alpha\). So \(p=0\).
+
+\problem{3}
+\hint{1}
+\(A=\frac12E+K\) with \(K\) real skew-symmetric. The eigenvalues of \(K\) are \(0\) and pairs \(\pm ib\).
+\hint{2}
+So \(\det A=(\frac12)^{n-2m}\prod_j(\frac14+b_j^2)>0\).
+
+\problem{4}
+\subpart{a}
+\hint{1}
+\(A-A^*\) is skew-Hermitian, so \(a=it\) is purely imaginary. Write \(A=H+aE\) with \(H=\frac12(A+A^*)\) Hermitian.
+\hint{2}
+The eigenvalues of \(A\) are \(h_j+it\) with \(h_j\) real. Hence \(|h_j+it|\ge|t|=|a|\).
+\subpart{b}
+\hint{1}
+Equality forces all \(h_j=0\), so \(H=0\) (Hermitian with zero spectrum) and \(A=aE\).
+
+\problem{5}
+\hint{1}
+Average over all \(2^m\) sign choices: expand \(\operatorname{tr}(\sum\varepsilon_iA_i)^2\).
+\hint{2}
+The cross terms \(\varepsilon_i\varepsilon_j\operatorname{tr}(A_iA_j)\), \(i\ne j\), average to \(0\). So the mean equals \(\sum\operatorname{tr}A_i^2\), and some choice is at least the mean.
+
+\problem{6}
+\subpart{a}
+\hint{1}
+Take \(C=\sqrt\lambda\begin{pmatrix}0&-1\\1&0\end{pmatrix}\), so \(C^2=-\lambda E\). It remains to write \(M=A+\lambda E\) as a square \(B^2\).
+\hint{2}
+For large \(\lambda\), \(\det M>0\) and \(\operatorname{tr}M>0\). Put \(s=\sqrt{\det M}\). By Cayley--Hamilton, \(B=(M+sE)/\sqrt{\operatorname{tr}M+2s}\) satisfies \(B^2=M\).
+\subpart{b}
+\hint{1}
+If \(BC=CB\), then \(B^2+C^2=(B+iC)(B-iC)\), and \(B-iC=\overline{B+iC}\).
+\hint{2}
+So \(\det(B^2+C^2)=|\det(B+iC)|^2\ge0\), whereas the given matrix has determinant \(-1\).
+
+\problem{7}
+\hint{1}
+Block Gaussian elimination is a congruence:
+\(\begin{pmatrix}E&0\\-B^TA^{-1}&E\end{pmatrix}\begin{pmatrix}A&B\\B^T&C\end{pmatrix}\begin{pmatrix}E&-A^{-1}B\\0&E\end{pmatrix}=\begin{pmatrix}A&0\\0&C-B^TA^{-1}B\end{pmatrix}\).
+\hint{2}
+Hence \(\det M=\det A\cdot\det S\) with \(S=C-B^TA^{-1}B\), and \(0\preceq S\preceq C\). For \(0\preceq S\preceq C\) with \(C\succ0\), the matrix \(C^{-1/2}SC^{-1/2}\) has eigenvalues in \([0,1]\). This gives \(\det S\le\det C\). If \(C\) is singular, then \(S\) is too, and both sides are \(0\).
+
+\problem{8}
+\hint{1}
+Simultaneously diagonalise (Theorem 3 of the class work): \(S^TAS=E\) and \(S^TBS=\operatorname{diag}(d_i)\) with \(d_i>0\). Both sides scale by the same power of \(\det S\).
+\hint{2}
+The claim reduces to \(\prod(t+(1-t)d_i)\ge\prod d_i^{1-t}\), which is weighted AM--GM factor by factor.
+
+\problem{9}
+\hint{1}
+If \(A\) and \(B\) are both singular, there is nothing to prove. Otherwise let \(A\succ0\) and diagonalise simultaneously: \(A\to E\), \(B\to\operatorname{diag}(d_i)\), \(d_i\ge0\). You need \(\prod(1+d_i)^{1/n}\ge1+\prod d_i^{1/n}\).
+\hint{2}
+Divide by the left side and apply AM--GM to each of the two products: \(\prod\bigl(\frac{1}{1+d_i}\bigr)^{1/n}+\prod\bigl(\frac{d_i}{1+d_i}\bigr)^{1/n}\le\frac1n\sum\frac{1}{1+d_i}+\frac1n\sum\frac{d_i}{1+d_i}=1\).
+\hint{3}
+The reduced inequality is exactly Brunn--Minkowski for two axis-parallel boxes with sides \(1\) and \(d_i\). Generally, \(\det^{1/n}\) on the positive semidefinite cone behaves like \(\operatorname{vol}^{1/n}\) on convex bodies: \(n\)-homogeneous, with a concave \(n\)-th root.
+
+\problem{10}
+\hint{1}
+Look at inner products instead of distances: \(\langle v_i,v_j\rangle=\frac12(|v_i|^2+|v_j|^2-|v_i-v_j|^2)\) is rational (use \(v_0=0\)).
+\hint{2}
+The Gram matrix \(G\) of \(v_1,\dots,v_{n+1}\) is a rational \((n+1)\times(n+1)\) matrix of rank \(\le n\). So \(Gq=0\) for some nonzero \(q\in\mathbb Q^{n+1}\).
+\hint{3}
+Then \(|\sum q_iv_i|^2=q^TGq=0\).
+\end{document}

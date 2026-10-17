@@ -1,0 +1,32 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Polynomials -- 7. Interpolation and finite differences}{Class work}
+
+\problem{1}
+\hint{1} Lagrange: the $i$-th basis polynomial $\prod_{j\ne i}\frac{x-x_j}{x_i-x_j}$ has degree $n$, equals $1$ at $x_i$ and $0$ at the other nodes. Uniqueness: the difference of two interpolants has degree $\le n$ and $n+1$ roots. Equivalently the linear system for the coefficients has the Vandermonde matrix, whose determinant $\prod_{i<j}(x_j-x_i)\ne0$.
+\hint{2} $\Delta x^n=(x+1)^n-x^n=nx^{n-1}+\dots$, so $\Delta$ lowers the degree by one and multiplies the leading coefficient by the degree; iterating gives $\Delta^nf=n!\,a_n$, and $\Delta^nf=0$ if $\deg f<n$.
+\hint{3} Write $\Delta=E-I$ with the shift $(Ef)(x)=f(x+1)$. These commute, so $\Delta^n=\sum_k\binom nk(-1)^{n-k}E^k$, and evaluating at $0$ gives $\sum_k(-1)^k\binom nkf(k)=(-1)^n\Delta^nf(0)$.
+
+\problem{2}
+\hint{1} Put $q(n)=p(2n+1)$, of degree $1008$, with $q(n)=F_{2n+1}$ for $0\le n\le1008$. Then $\Delta^{1009}q=0$ expresses $q(1009)=p(2019)$ through the known values.
+\hint{2} $q(1009)=\sum_{k=0}^{1008}(-1)^{1008-k}\binom{1009}kF_{2k+1}$. Use Binet $F_m=(\varphi^m-\psi^m)/\sqrt5$ and $\varphi^2-1=\varphi$, $\psi^2-1=\psi$: the full sum $\sum_{k=0}^{1009}(-1)^{1009-k}\binom{1009}k\varphi^{2k+1}=\varphi(\varphi^2-1)^{1009}=\varphi^{1010}$.
+\hint{3} Subtracting the analogous $\psi$-sum, the full alternating sum of $F_{2k+1}$ over $0\le k\le1009$ is $F_{1010}$; separating the term $k=1009$ gives $p(2019)=F_{2019}-F_{1010}$, i.e.\ $(j,k)=(2019,1010)$.
+
+\problem{3}
+\subpart{a}
+\hint{1} With $x=1/k$ the condition says $P(x)=\frac1x+2x$ for infinitely many $x$. Clear the denominator.
+\hint{2} $xP(x)-1-2x^2$ has infinitely many roots, so it is identically zero; at $x=0$ this gives $-1=0$. Answer: no.
+\subpart{b}
+\hint{1} Here $\frac1{2k+1}=\frac{x}{x+2}$ with $x=1/k$, so $(x+2)P(x)-x$ vanishes at infinitely many points; evaluate the resulting identity at $x=-2$. Answer: no.
+
+\problem{4}
+\hint{1} $g(x)=1+\sum a_ix^{b_i}$ has a zero of order $n$ at $x=1$. Apply the operator $\theta=x\frac{d}{dx}$, which acts on monomials by $\theta x^b=bx^b$.
+\hint{2} $(\theta^jg)(1)=0$ for $j<n$ gives $\sum_ia_i=-1$ and $\sum_ia_ib_i^j=0$ for $1\le j\le n-1$, while $(\theta^ng)(1)=(-1)^nn!\,f(1)$ because only the term where all derivatives hit $(1-x)^n$ survives.
+\hint{3} Let $Q(t)=\prod(t-b_i)$. Then $0=\sum_ia_iQ(b_i)=\sum_ia_ib_i^n+Q(0)\sum_ia_i=\sum_ia_ib_i^n-Q(0)$, so $\sum_ia_ib_i^n=Q(0)=(-1)^n b_1\cdots b_n$. Answer: $f(1)=\dfrac{b_1b_2\cdots b_n}{n!}$.
+
+\problem{5}
+\hint{1} Differentiate $\frac{P_n}{(x^k-1)^{n+1}}$ once to get a recursion for $P_{n+1}$.
+\hint{2} $P_{n+1}=(x^k-1)P_n'-(n+1)kx^{k-1}P_n$, so $P_{n+1}(1)=-(n+1)k\,P_n(1)$ with $P_0=1$. Answer: $P_n(1)=(-k)^n\,n!$.
+
+\end{document}

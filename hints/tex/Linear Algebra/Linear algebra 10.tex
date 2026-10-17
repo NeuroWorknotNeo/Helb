@@ -1,0 +1,41 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Linear algebra -- 10. Matrix norms and localisation of the spectrum}{Class work}
+
+\problem{1}
+\hint{1}
+Lower bound: let \(Av=\lambda v\) and \(X=(v,v,\dots,v)\). Then \(A^kX=\lambda^kX\), so \(|\lambda|^k\|X\|\le\|A^k\|\,\|X\|\). This gives \(\rho(A)\le\|A^k\|^{1/k}\) for all \(k\); \(k=1\) is the claim \(\rho(A)\le\|A\|\).
+\hint{2}
+Upper bound: for \(\varepsilon>0\) the matrix \(B=A/(\rho(A)+\varepsilon)\) has spectral radius \(<1\). The Jordan form shows that \(B^k\to O\) (entries are polynomial in \(k\) times \(\mu^k\) with \(|\mu|<1\)). So \(\|A^k\|\le C(\rho+\varepsilon)^k\) in any norm, since all norms are equivalent.
+\hint{3}
+Norm with \(\|A\|\le\rho+\varepsilon\): conjugate the Jordan form by \(\operatorname{diag}(1,\delta,\delta^2,\dots)\) to make the off-diagonal entries \(\delta\). Then use the operator norm induced by \(\|x\|:=\|S^{-1}x\|_\infty\) for the corresponding change of basis \(S\). Alternatively, use the vector norm \(\|x\|:=\sum_k\|A^kx\|/(\rho+\varepsilon)^k\).
+
+\problem{2}
+\hint{1}
+Triangularise \(A\) and \(B\) simultaneously over \(\mathbb C\). The eigenvalues of \(A+B+E\) are \(\alpha_i+\beta_i+1\) with \(\alpha_i^{2002}=1\) and \(\beta_i^{2003}=1\).
+\hint{2}
+Two unit complex numbers with \(\alpha+\beta=-1\) must be \(e^{\pm2\pi i/3}\), so \(\alpha^3=1\). But the order of \(\alpha\) divides \(\gcd(3,2002)=1\).
+
+\problem{3}
+\hint{1}
+Put \(a_k=\|A^k-A^{k+1}\|\) for \(k\ge0\), so that \(a_k\le\frac{c}{k+1}\) with \(c=\frac1{2002}\). Show that \(a_{2k}-a_{2k+1}\le a_k^2\) and \(a_{2k+1}-a_{2k+2}\le a_ka_{k+1}\). Hint: \(A^{2k}(E-A)^2=(A^k(E-A))^2\).
+\hint{2}
+Since \(a_N\to0\), \(a_m=\sum_{j\ge m}(a_j-a_{j+1})\le\sum_{k\ge\lfloor m/2\rfloor}(a_k^2+a_ka_{k+1})\).
+\hint{3}
+If \(a_k\le\frac{c}{k+1}\) for all \(k\), the previous estimate gives \(a_m\le\frac{12c^2}{m+1}\) for all \(m\). With \(c<1/12\), iterating \(c\mapsto12c^2\) drives the constant to \(0\). So all \(a_k=0\); in particular \(A=E\), and the claim is immediate.
+
+\problem{4}
+\hint{1}
+Let \(r=\|A\|\). If \(r\le n/\ln2\), the trivial bound \(\|A^n\|\le r^n=r\cdot r^{n-1}\) suffices.
+\hint{2}
+Otherwise use Cayley--Hamilton: \(A^n=-\sum_{k<n}c_kA^k\), where \(c_k\) are the coefficients of \(\prod(x-\lambda_i)\). Since \(|\lambda_i|\le1\), \(|c_k|\le\binom nk\). Hence \(\|A^n\|\le(1+r)^n-r^n=r^n\bigl((1+\tfrac1r)^n-1\bigr)\).
+\hint{3}
+With \(x=n/r\le\ln 2\): \((1+\frac1r)^n-1\le e^{x}-1\le x/\ln2\), because \((e^x-1)/x\) is increasing and equals \(1/\ln2\) at \(x=\ln2\).
+
+\problem{5}
+\hint{1}
+Compute \(\operatorname{tr}(A^2)=\sum_{i,j}a_{ij}a_{ji}\). The hypothesis with \(i=j\) forces \(a_{ii}=0\), so \(\operatorname{tr}A^2\le0\).
+\hint{2}
+If all eigenvalues were real, \(\sum\lambda_i^2=\operatorname{tr}A^2\le0\) would force all \(\lambda_i=0\). Then \(A\) would be nilpotent and \(A^n=O\). Non-real eigenvalues of a real matrix come in conjugate pairs.
+\end{document}

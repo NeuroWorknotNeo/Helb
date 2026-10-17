@@ -1,0 +1,77 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Linear algebra -- 7. Euclidean spaces, orthogonality and the SVD}{Homework}
+
+\problem{1}
+\hint{1}
+Diagonalise \(A^TA\succeq0\) orthogonally: \(A^TAv_i=\sigma_i^2v_i\). For \(\sigma_i>0\) put \(u_i=Av_i/\sigma_i\), check that these are orthonormal, and complete them to a basis.
+\hint{2}
+In the bases \(v_i\) and \(u_i\), the map sends \(\sum x_iv_i\) to \(\sum\sigma_ix_iu_i\). So the unit ball goes onto the (possibly degenerate) ellipsoid with semiaxes \(\sigma_i\). For \(Ax=\lambda x\) (complex \(x\)), \(\|Ax\|^2=x^*A^TAx\) lies between \(\sigma_n^2\|x\|^2\) and \(\sigma_1^2\|x\|^2\).
+
+\problem{2}
+\hint{1}
+Operator norm: if \(\operatorname{rank}B\le k\), then \(\ker B\) has dimension \(\ge n-k\) and meets \(\operatorname{span}(v_1,\dots,v_{k+1})\) in some unit vector \(x\). Then \(\|(A-B)x\|=\|Ax\|\ge\sigma_{k+1}\).
+\hint{2}
+Frobenius norm: use Weyl's inequality \(\sigma_{i+j-1}(A)\le\sigma_i(A-B)+\sigma_j(B)\), which follows from the minimax principle. With \(j=k+1\) and \(\sigma_{k+1}(B)=0\) you get \(\sigma_{i+k}(A)\le\sigma_i(A-B)\). Square and sum.
+\hint{3}
+Truncating the SVD attains both bounds. The singular matrices are exactly those of rank \(\le n-1\), so the distance is \(\sigma_n\).
+
+\problem{3}
+\hint{1}
+(IMC 2008.) By the polarisation identity \(\langle x-y,x'-y\rangle=\frac12(|x-y|^2+|x'-y|^2-|x-x'|^2)\), orthogonality is automatic once \(|x-y|=d/\sqrt2\) for all \(x\in S\). So you only need a point \(y\) at distance \(d/\sqrt2\) from every point of \(S\).
+\hint{2}
+Finite \(S=\{x_1,\dots,x_m\}\): the centroid \(c\) has \(|x_i-c|^2=\frac{m-1}{2m}d^2\). Move from \(c\) in a direction orthogonal to the affine span of \(S\), which is possible in infinite dimension.
+\hint{3}
+Infinite \(S\): fix \(x_0\in S\) and a sequence \(x_1,x_2,\dots\) in \(S\). Put \(u_j=\frac{\sqrt2}{d}(x_j-x_0)\), so \(|u_j|^2=2\) and \(\langle u_i,u_j\rangle=1\). The averages \(a_N=\frac1N\sum_{j\le N}u_j\) form a Cauchy sequence, with \(\|a_N-a_M\|^2=\frac1N-\frac1M\) for \(N<M\). Their limit \(f\) has \(|f|=1\) and \(\langle f,u\rangle=1\) for every \(u=\frac{\sqrt2}{d}(x-x_0)\), \(x\in S\setminus\{x_0\}\). Take \(y=x_0+\frac{d}{\sqrt2}f\).
+
+\problem{4}
+\hint{1}
+Show \(\ker A^*\subseteq\ker A\) by rewriting the equation as \((A^2-E)A^*=A\). So \(\ker A=\ker A^*\), and \(W=(\ker A)^\perp\) is invariant under both \(A\) and \(A^*\), with \(A\) invertible on \(W\).
+\hint{2}
+On \(W\), the equation gives \(A^2-E=AA^{*-1}\), which is invertible. So \(A^*=(A^2-E)^{-1}A\) commutes with \(A\), and \(A\) is normal.
+\hint{3}
+For an eigenvalue \(\lambda\): \(\lambda+\bar\lambda=\lambda^2\bar\lambda=\lambda|\lambda|^2\), which forces \(\lambda\in\mathbb R\). A normal matrix with real eigenvalues is Hermitian.
+
+\problem{5}
+\hint{1}
+The answer is \(n(n+1)/2\), attained by the symmetric matrices. Write \(A=S+K\) (symmetric plus skew). Check that \(A\) is t-normal iff \(SK=KS\).
+\hint{2}
+Let \(L\) be such a space and \(Q=L\cap\{\text{skew}\}\). If \(A=S+K\in L\) and \(K_0\in Q\), then applying the criterion to \(A+K_0\) gives \([S,K_0]=0\). So the projection of \(L\) to the symmetric part lies in \(C=\{S\text{ symmetric}:[S,K_0]=0\ \forall K_0\in Q\}\), and \(\dim L\le\dim C+\dim Q\).
+\hint{3}
+For \(S\in C\), \(K_0\in Q\) and symmetric \(X\): \(\operatorname{tr}(S[K_0,X])=\operatorname{tr}([S,K_0]X)=0\). So \(C\) is orthogonal to \([Q,\mathrm{Sym}]\) for the nondegenerate form \(\operatorname{tr}(XY)\) on symmetric matrices. Fix \(D\) diagonal with distinct entries. Then \(K_0\mapsto[K_0,D]\) is injective on skew matrices, so \(\dim[Q,\mathrm{Sym}]\ge\dim Q\).
+
+\problem{6}
+\hint{1}
+Transpose \(A^T=E-A^2\) and substitute back: \(A=E-(E-A^2)^2\), i.e.\ \(A(A-E)(A^2+A-E)=0\). In particular \(A\) has real eigenvalues.
+\hint{2}
+\(A^T\) is a polynomial in \(A\), so \(A\) is normal. A real normal matrix with real eigenvalues is symmetric. Hence \(A^2+A=E\), and the eigenvalues are \(\frac{-1\pm\sqrt5}2\).
+\hint{3}
+Three numbers from \(\{\frac{-1\pm\sqrt5}2\}\) cannot sum to \(0\), because \(\sqrt5\) is irrational. Answer: no.
+
+\problem{7}
+\hint{1}
+\(A\) is a linear bijection mapping the cube \([-1,1]^n\) (the unit ball of \(f\)) onto itself. So it permutes the extreme points, i.e.\ the \(2^n\) vertices \(\{\pm1\}^n\).
+\hint{2}
+Some power \(A^m\) fixes every vertex, e.g.\ \(m\) equal to the order of this permutation. The vertices span \(\mathbb R^n\), so \(A^m=E\).
+
+\problem{8}
+\hint{1}
+Complexify. The period of \(v\) is the lcm of the orders of the eigenvalues (roots of unity) on whose eigenspaces \(v\) has a nonzero component.
+\hint{2}
+Pick primes \(p_i\mid m_i\). Vector \(v_i\) needs an eigenvalue \(\lambda_i\) whose order is divisible by \(p_i\) and divides \(m_i\). Coprimality forces the pairs \(\{\lambda_i,\bar\lambda_i\}\) to be distinct and \(\ne1\). Only one of them can be the real eigenvalue \(-1\).
+\hint{3}
+That gives at least \(2(s-1)+1\) dimensions. Since \(\det A>0\), the eigenvalue \(-1\) has even multiplicity, so \(n\ge2s\). Rotation blocks of orders \(2,3,5,\dots\) (the first \(s\) primes) show the answer is \(n=2s\).
+
+\problem{9}
+\hint{1}
+From the SVD, \(A=U\Sigma V^T=(UV^T)(V\Sigma V^T)\). Uniqueness of the positive semidefinite square root: any \(S\succeq0\) with \(S^2=P\) commutes with \(P\). So it preserves each eigenspace of \(P\), and on the \(\mu\)-eigenspace it must be \(\sqrt\mu\,E\). If \(A\) is invertible, \(Q=AS^{-1}\).
+\hint{2}
+Define \(A^+=V\Sigma^+U^T\), where \(\Sigma^+\) inverts the nonzero \(\sigma_i\) and transposes. The four identities reduce to the diagonal case. \(AA^+\) is the orthogonal projection onto \(\operatorname{Im}A\), so \(x=A^+b\) minimises \(\|Ax-b\|\). All minimisers form \(x+\ker A\), and \(A^+b\in(\ker A)^\perp\) is the shortest.
+
+\problem{10}
+\hint{1}
+\(f\) is \(\mathbb R\)-linear on the real vector space \(M_n(\mathbb C)\) of dimension \(2n^2\), so injective \(\iff\) surjective.
+\hint{2}
+Put \(Z=X+iY\) with \(X,Y\) real. Then \(f(Z)=(A+B)X+i(A-B)Y\). So \(f\) is injective iff \(X\mapsto(A+B)X\) and \(Y\mapsto(A-B)Y\) are injective, i.e.\ iff \(A\pm B\) are invertible.
+\end{document}

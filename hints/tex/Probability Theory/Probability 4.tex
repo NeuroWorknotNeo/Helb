@@ -1,0 +1,32 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Probability -- 4. The probabilistic method across mathematics}{Class work}
+
+\problem{1}
+\hint{1} Theorem 8: if $X<c$ at every outcome then $\mathrm EX<c$; if no good outcome existed, $\Pr(\text{bad})=1$. Alteration: if a random object has $\mathrm E(\text{size}-\#\text{bad parts})\ge s$, some outcome achieves this, and deleting one element from each bad part leaves a good object of size $\ge s$.
+\hint{2} Ramsey: colour the edges of $K_n$ independently red/blue. The expected number of monochromatic $K_k$ is $\binom nk2^{1-\binom k2}$; for $n=\lfloor2^{k/2}\rfloor$ and $k\ge3$ this is $<1$ (use $\binom nk<n^k/k!$). So some colouring has none, and $R(k,k)>n$.
+\hint{3} Bipartite subgraph: put each vertex independently in one of two parts. Each edge is cut with probability $\frac12$, so the expected number of cut edges is $e/2$, and some partition cuts at least $e/2$ edges.
+
+\problem{2}
+\hint{1} Bound the number of regions $C$ (components of the graph $G$ on the squares, joining adjacent squares of equal colour) below by a quantity whose expectation is easy. A forest bound $C\ge V-E$ is not enough.
+\hint{2} $G$ is planar. By Euler's formula $V-E+F=1+C$, so $C=V-E+(F-1)\ge V-E+Q$, where $Q$ is the number of monochromatic $2\times2$ blocks (each bounds its own face).
+\hint{3} Take expectations: $V=mn$, $\mathrm EE=\frac12\big(m(n-1)+n(m-1)\big)$, $\mathrm EQ=\frac18(m-1)(n-1)$. You get $\mathrm EC\ge\frac{mn+3m+3n+1}8>\frac{mn}8$.
+
+\problem{3}
+\hint{1} What do all nilpotent matrices have in common that is a linear condition?
+\hint{2} A nilpotent matrix has all eigenvalues $0$, hence trace $0$, and the trace is linear, so the span lies in the proper subspace $\{\operatorname{tr}=0\}$. Probabilistic form: a random linear combination of nilpotent matrices has trace $0$ with probability one, whereas a random matrix of $M_n(\mathbb F)$ (e.g.\ Gaussian over $\mathbb R$, uniform over a finite field) has non-zero trace with positive probability; so the span is not everything.
+
+\problem{4}
+\subpart{a}
+\hint{1} All entries are $\ge1$, so $A$ is never scalar. For a non-scalar $2\times2$ matrix $A$, the matrices commuting with it are exactly $\alpha A+\beta I$.
+\hint{2} Write $B=\alpha A+\beta I$. Given $A$ ($N^4$ choices) and the entry $f=B_{12}$ ($N$ choices), $\alpha=f/A_{12}$ is fixed, which determines $B_{21}$ and the difference $B_{11}-B_{22}$; choosing $B_{11}$ ($N$ choices) determines $B$. Hence at most $N^6$ commuting pairs.
+\subpart{b}
+\hint{1} Divide by the $N^8$ equally likely pairs: $\Pr(AB=BA)\le N^{-2}\to0$.
+
+\problem{5}
+\hint{1} $M=A-A^T$ is skew-symmetric with independent entries $x_{ij}=a_{ij}-a_{ji}$ ($i<j$), each $0$ w.p.\ $\frac12$ and $\pm1$ w.p.\ $\frac14$; so $\mathrm Ex_{ij}=0$, $\mathrm Ex_{ij}^2=\frac12$. Expand $\det M=\sum_\sigma\operatorname{sgn}\sigma\prod_iM_{i\sigma(i)}$ and take expectations term by term.
+\hint{2} A term has non-zero expectation only if every variable occurs an even number of times. Since $M_{ii}=0$ and $x_{ij}$ occurs only via $M_{ij},M_{ji}$, this forces $\sigma$ to be a fixed-point-free involution; then the term is $(-1)^n\prod(-x_{ij}^2)=\prod x_{ij}^2$, with expectation $2^{-n}$.
+\hint{3} There are $(2n-1)!!$ such involutions, so $\mathrm E\det(A-A^T)=\frac{(2n-1)!!}{2^n}=\frac{(2n)!}{4^nn!}$.
+
+\end{document}

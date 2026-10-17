@@ -1,0 +1,29 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Number theory -- 4}{Class work}
+
+\problem{1}
+\hint{1} Legendre: $v_p(n!)=\sum_{m\le n}v_p(m)=\sum_{i\ge1}\#\{m\le n:p^i\mid m\}$. For the closed form, write $n=\sum c_jp^j$; then $\lfloor n/p^i\rfloor=\sum_{j\ge i}c_jp^{j-i}$. Sum over $i$.
+\hint{2} Kummer: $v_p\binom nk=\frac{s_p(k)+s_p(n-k)-s_p(n)}{p-1}$, and each carry lowers the digit sum by $p-1$.
+\hint{3} All $\binom nk$ are odd if and only if adding $k$ and $n-k$ in base $2$ never carries, for every $k$. That means $n$ has no $0$ digit below its top digit: $n=2^m-1$. Next, $v_2\binom{2n}n=s_2(n)$ (doubling carries once per $1$-digit). Finally, $\binom{2n}{n}-\binom{2n}{n+1}=\frac{1}{n+1}\binom{2n}n$ is an integer (Catalan).
+
+\problem{2}
+\note{As printed, $v_7(2^{2024}-2)=v_7(2^{2023}-1)=0$, since $\mathrm{ord}_7(2)=3\nmid2023$. So LTE plays no role there. The hints treat the statement as printed.}
+\hint{1} LTE, odd $p$: $\frac{a^n-b^n}{a-b}=\sum a^{n-1-i}b^i\equiv na^{n-1}\pmod p$. This proves the case $p\nmid n$. For $n=p$, show that $p\,\|\,\frac{a^p-b^p}{a-b}$ by writing $b=a+tp$. Induct. For $p=2$ and even $n$, factor $a^n-b^n=(a^{n/2}-b^{n/2})(a^{n/2}+b^{n/2})$, or use $a^2-b^2$ first.
+\hint{2} $v_2(3^n-1)$ is $1$ for odd $n$ and $v_2(2)+v_2(4)+v_2(n)-1=2+v_2(n)$ for even $n$. Solving $2+v_2(n)\ge n$: answer $n\in\{1,2,4\}$.
+\hint{3} $2^{2024}-2=2(2^{2023}-1)$ and $2^{2023}\equiv2\pmod 7$, so the answer is $0$. (For comparison: $v_7(2^{3m}-1)=v_7(8-1)+v_7(m)=1+v_7(m)$.)
+
+\problem{3}
+\hint{1} Compare $v_p$ of both sides. Note $v_p(\mathrm{lcm}(1,\dots,m))=\#\{j\ge1:p^j\le m\}$.
+\hint{2} $\sum_i\#\{j:p^j\le n/i\}=\sum_j\#\{i:i\le n/p^j\}=\sum_j\lfloor n/p^j\rfloor=v_p(n!)$.
+
+\problem{4}
+\hint{1} Every prime factor of $n!+1$ exceeds $n$. Compare with the multinomial coefficient $\frac{(2012n)!}{(n!)^{2012}}$.
+\hint{2} $\gcd(n!+1,n!)=1$, so $n!+1$ divides $\frac{(2012n)!}{(n!)^{2012}}\le2012^{2012n}$. But $n!$ grows faster than any $C^n$. Answer: the set is finite.
+
+\problem{5}
+\hint{1} Bound $a_n/n$. If $n=ab$ with $1<a<b$, then $n\mid b!$, so $a_n\le b=n/a\le n/2$.
+\hint{2} If $n=q^2$ with $q$ prime, then $a_n=2q\le n/2$ for $q\ge5$. The exceptions are $n=4$ ($a_4=4$) and $n=9$ ($a_9=6$).
+\hint{3} So apart from two terms, $(a_n/n)^n\le2^{-n}$. Answer: the series converges.
+\end{document}
