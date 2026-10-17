@@ -1,0 +1,92 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Combinatorics -- 4. Graphs}{Homework}
+
+\problem{1}
+\hint{1}
+Choose \(S\) at random: every person joins independently with probability \(p\). Compute the expected number of members of \(S\) with exactly two friends in \(S\).
+\hint{2}
+A person counts with probability \(p\cdot\binom{1000}{2}p^2(1-p)^{998}\). Take \(p=3/1000\) (the maximiser is close to this) and check that the product exceeds \(1/2017\): it is about \(1/1490\). Some choice of \(S\) is at least as good as the average.
+
+\problem{2}
+\hint{1}
+Split the \(\binom n2\) pairs into the \(n-1\) edges (distance \(1\)) and the \(M=\binom{n-1}2\) other pairs, at distance \(\ge2\). Write \(W=(n-1)+a\) and \(H=(n-1)+b\), where \(a\) and \(b\) are the sums of \(d\) and of \(1/d\) over the other pairs.
+\hint{2}
+By Cauchy--Schwarz \(ab\ge M^2\), and \(a\ge2M\). So \(WH\ge(n-1+a)\bigl(n-1+M^2/a\bigr)\), and the right-hand side is increasing in \(a\) for \(a\ge M\).
+\hint{3}
+Put \(a=2M=(n-1)(n-2)\): then \(n-1+a=(n-1)^2\) and \(n-1+M/2=\frac{(n-1)(n+2)}4\). (Plain Cauchy--Schwarz on all pairs gives only \(\binom n2^2\), which is weaker; the point is to use that exactly \(n-1\) pairs are at distance \(1\).) Equality holds for the star.
+
+\problem{3}
+\hint{1}
+(a) Split each gender into two halves and put \(M_1,F_1,E_1\) on one side, \(M_2,F_2,E_2\) on the other. Let everybody like exactly the persons of the other two genders on the opposite side. The ``liking'' graph is bipartite, so it has no triangle, and each person likes \(n/2\) persons of each other gender.
+\hint{2}
+(b) First pair males with females. The bipartite liking graph between them has minimum degree \(\ge3n/4\ge n/2\), so it has a perfect matching (class work, problem 2).
+\hint{3}
+Now form a bipartite graph between the \(n\) couples and the \(n\) emales, joining a couple to an emale if she likes both of them. An emale dislikes at most \(n/4\) males and \(n/4\) females, so she is joined to at least \(n/2\) couples; symmetrically, each couple is joined to at least \(n-n/4-n/4=n/2\) emales. Apply the same matching result again.
+
+\problem{4}
+\hint{1}
+Yes. Use Hall's theorem on the bipartite graph ``days \(\to\) the teams that won on that day''.
+\hint{2}
+Let \(S\) be a set of \(s\) days and \(W\) the set of teams that won at least once on these days; suppose \(|W|\lt s\). Then there is a team \(x\notin W\) (as \(s\le2n-1\lt2n\)).
+\hint{3}
+Team \(x\) lost all its \(s\) games on the days in \(S\), each time to a winner of that day, so to a team of \(W\). These \(s\) opponents are distinct, because \(x\) meets every team only once. Hence \(|W|\ge s\), a contradiction.
+
+\problem{5}
+\hint{1}
+Encode a game by \(x\in\{\pm1\}^{2011}\) (\(+1\) = win). Check that its contribution to \(T_{hk}+iW_{hk}\) is \(\frac12(1+x_hx_k+ix_h-ix_k)=\frac12(1+ix_h)\overline{(1+ix_k)}\).
+\hint{2}
+So \(T+iW=\frac12VV^*\), where the columns of the square matrix \(V\) are the vectors \(1+ix\) of the \(2011\) games. Thus \(\det(T+iW)=2^{-2011}\lvert\det V\rvert^2\ge0\).
+\hint{3}
+Factor \(1+i\) out of every entry: \(V=(1+i)U\) with entries of \(U\) in \(\{1,-i\}\), and \(\det(T+iW)=\lvert\det U\rvert^2\), the norm of a Gaussian integer, hence a non-negative integer.
+\hint{4}
+Subtract the first row of \(U\) from all others: the differences \(0\), \(\pm(1+i)\) are divisible by \(1+i\), so \((1+i)^{2010}\mid\det U\) and \(2^{2010}\mid\lvert\det U\rvert^2\).
+
+\problem{6}
+\hint{1}
+Express the number of edges inside a part through degrees: \(\sum_{v\in V_1}\deg v=2e(V_1)+e(V_1,V_2)\), and similarly for \(V_2\).
+\hint{2}
+Hence \(e(V_1)=e(V_2)\) is equivalent to \(\sum_{v\in V_1}\deg v=\sum_{v\in V_2}\deg v\). Swap a vertex \(u\in V_1\) with \(v\in V_2\): the condition for both partitions gives \(\deg u=\deg v\). Any two vertices can be put on opposite sides.
+
+\problem{7}
+\hint{1}
+All the given cycles are even, so they generate a subgroup \(G\le A_n\). It is enough to use the edges of a spanning tree; induct on \(n\), starting from \(n=3\) (a path \(i\!-\!j\!-\!k\) gives \((ijk)\), which generates \(A_3\)).
+\hint{2}
+Remove a leaf \(\ell\) of the tree, attached to \(p\). For \(n\ge4\) the vertex \(p\) has another neighbour \(q\), and by induction \(G\) contains the alternating group on the other \(n-1\) vertices, i.e.\ \(G_\ell\supseteq A_{n-1}\).
+\hint{3}
+The cycle \((\ell pq)\) moves \(\ell\), so together with \(A_{n-1}\) the group \(G\) is transitive. Then \(|G|=n\,|G_\ell|\ge n\cdot\frac{(n-1)!}2=\frac{n!}2\), so \(G=A_n\).
+
+\problem{8}
+\hint{1}
+If the degrees take values whose maximum and minimum differ by at least \(2\), the pair (max, min) contributes \(\ge4\), and every other vertex \(w\) contributes \((d_w-d_{\min})^2+(d_{\max}-d_w)^2\ge2\). The total is \(\ge2n\), more than both bounds.
+\hint{2}
+So the degrees take two consecutive values \(a\) and \(a+1\), with \(k\) vertices of degree \(a+1\), \(1\le k\le n-1\). Then the sum equals \(k(n-k)\).
+\hint{3}
+Use the handshake lemma: \(na+k\) is even. For \(n\) odd, \(k=1\) or \(k=n-1\) is allowed (by choosing the parity of \(a\)), giving \(n-1\). For \(n\) even, \(k\) must be even, so the minimum is at \(k=2\) or \(k=n-2\): \(2(n-2)\).
+\hint{4}
+Equality: for odd \(n\), all degrees but one are equal and the exceptional one differs by \(1\) (e.g.\ the path on \(3\) vertices); for even \(n\), all degrees but two are equal, and the two exceptional ones are equal to each other and differ from the rest by \(1\). Check that such connected graphs exist.
+
+\problem{9}
+\hint{1}
+Let \(P=\sum_v\binom{d_v}2\) be the number of paths of length \(2\) and \(D\) the number of unordered pairs of disjoint edges. Counting ordered pairs of edges gives \(e^2=e+2P+2D\). Substitute this and simplify: the inequality becomes
+\[(n-3)P\le2D+\binom{n-2}{2}e.\]
+(This is de Caen's bound \(\sum d_v^2\le e\bigl(\frac{2e}{n-1}+n-2\bigr)\). For \(n\le3\) check directly; on \(3\) vertices every graph gives equality.)
+\hint{2}
+Localise to \(4\)-vertex subsets: a path of length \(2\) lies in \(n-3\) of them, a pair of disjoint edges in one, an edge in \(\binom{n-2}2\). So it suffices that every graph \(F\) on \(4\) vertices satisfies \(P(F)-2D(F)-e(F)\le0\).
+\hint{3}
+Check the \(11\) graphs on \(4\) vertices. The value is \(0\) exactly for the empty graph, \(K_{1,3}\), the triangle plus an isolated vertex and \(K_4\), and negative otherwise (e.g.\ \(-3\) for the path \(P_4\), \(-1\) for a single edge).
+\hint{4}
+Equality (\(n\ge4\)) means every \(4\) vertices induce one of these four graphs. Show that this leaves only the empty graph, \(K_n\), the star \(K_{1,n-1}\) and \(K_{n-1}\) plus an isolated vertex. (The inequality is invariant under taking complements, which halves the work.)
+
+\problem{10}
+\hint{1}
+Half the edges: take a partition maximising the number of crossing edges. If some vertex had more neighbours in its own part than in the other, moving it would increase the cut. So each vertex has at least half its edges crossing; sum over vertices. (Alternatively, a random partition cuts each edge with probability \(1/2\).)
+\hint{2}
+For the improvement colour the graph properly with the minimum number \(k\) of colours. Between any two colour classes there is an edge (else merge them), so \(\binom k2\le m\).
+\hint{3}
+Split the \(k\) colour classes at random into two groups of sizes \(\lfloor k/2\rfloor\) and \(\lceil k/2\rceil\). An edge joins two different classes, and it is cut with probability \(\frac{\lfloor k/2\rfloor\lceil k/2\rceil}{\binom k2}\), which equals \(\frac12+\frac1{2(k-1)}\) for even \(k\) and \(\frac12+\frac1{2k}\) for odd \(k\).
+\hint{4}
+With \(k\le\frac12+\sqrt{2m+\frac14}\) this gives a cut of at least \(\frac m2+\sqrt{\frac m8+\frac1{64}}-\frac18\) (Edwards' bound), which is tight for complete graphs \(K_{2t+1}\).
+\note{As stated, the bound \(m/2+\sqrt{m/8}\) is false: the triangle has \(m=3\) and a maximum cut of \(2\lt1.5+\sqrt{3/8}\approx2.11\). The argument above proves \(\frac m2+\sqrt{\frac m8+\frac1{64}}-\frac18\ge\frac m2+\sqrt{\frac m8}-\frac18\); for even \(k\) it does give \(\frac m2+\sqrt{\frac m8}\).}
+\end{document}
