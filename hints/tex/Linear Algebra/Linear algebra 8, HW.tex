@@ -1,0 +1,79 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Linear algebra -- 8. Block matrices and determinants of special shape}{Homework}
+
+\problem{1}
+\hint{1}
+Column \(j\) of \(AB\) is \(\sum_kb_{kj}A_k\), where \(A_k\) are the columns of \(A\). Expand \(\det(AB)\) by multilinearity in the columns: a sum over maps \(j\mapsto k_j\).
+\hint{2}
+Non-injective maps give repeated columns and contribute \(0\). Group the injective ones by their image \(S\). The signs assemble into \(\det A_{[m],S}\cdot\det B_{S,[m]}\).
+\hint{3}
+For a tall \(n\times m\) matrix \(A\), apply this to \(A^T\cdot A\): \(\det(A^TA)=\sum_S(\det A_{S,[m]})^2\). Geometrically, \(\det(A^TA)\) is the squared \(m\)-volume of the parallelepiped spanned by the columns. The identity is Pythagoras: it equals the sum of the squared volumes of its projections to the coordinate \(m\)-planes.
+
+\problem{2}
+\hint{1}
+If \(A_nx=\lambda x\), then \((x,x)\) and \((x,-x)\) are eigenvectors of \(A_{n+1}\) with eigenvalues \(\lambda+1\) and \(\lambda-1\). This accounts for the whole spectrum of \(A_{n+1}\).
+\hint{2}
+By induction, the eigenvalues of \(A_n\) are the sums of \(n\) signs \(\pm1\): the value \(n-2j\) occurs with multiplicity \(\binom nj\), \(j=0,\dots,n\). (\(A_n\) is the adjacency matrix of the \(n\)-cube.)
+
+\problem{3}
+\hint{1}
+The answer is \(n_k=2^k\). Example: \(A_i=E\otimes\dots\otimes N\otimes\dots\otimes E\), with \(N=\begin{pmatrix}0&1\\0&0\end{pmatrix}\) in the \(i\)-th factor. Their product is \(N^{\otimes k}\ne O\).
+\hint{2}
+Lower bound by induction on \(k\): the \(A_i\), \(i<k\), commute with \(A_k\), so they preserve \(W=\operatorname{Im}A_k\). Their restrictions to \(W\) still square to zero and commute. Their product is nonzero on \(W\), because \(A_1\cdots A_{k-1}A_k\ne O\).
+\hint{3}
+So \(\dim W\ge2^{k-1}\). Also \(A_k^2=O\) gives \(W\subseteq\ker A_k\), so \(\dim W\le n/2\).
+
+\problem{4}
+\hint{1}
+View the determinant as a polynomial in \(x_n\) of degree \(n-1\). It vanishes at \(x_1,\dots,x_{n-1}\), and its leading coefficient is the smaller Vandermonde determinant. This gives \(\prod_{i<j}(x_j-x_i)\) by induction.
+\hint{2}
+The Vandermonde matrix is the matrix of the evaluation map from polynomials of degree \(<n\) to \(\mathbb C^n\) at \(n\) points. Distinct points make it invertible, so the conditions are independent. Solving \(Vc=y\) by Cramer's rule, or checking the formula directly, gives the Lagrange interpolation formula.
+
+\problem{5}
+\hint{1}
+Multiply the determinant by \(\prod_{i,j}(x_i+y_j)\). The result is a polynomial of degree \(n^2-n\) that is antisymmetric in the \(x\)'s and in the \(y\)'s. So it is a constant times \(\prod_{i<j}(x_j-x_i)(y_j-y_i)\), which has the same degree.
+\hint{2}
+Fix the constant, e.g.\ by induction: subtract the last row from the others and the last column from the others, and factor out. Alternatively compare the coefficients of a suitable monomial.
+\hint{3}
+Hilbert matrix: \(\frac1{i+j-1}=\int_0^1t^{i-1}t^{j-1}\,dt\), the Gram matrix of independent monomials, hence positive definite. The formula with \(x_i=i\), \(y_j=j-1\) gives a ratio of products of factorials, roughly of size \(4^{-n^2}\).
+
+\problem{6}
+\hint{1}
+Let \(p(x)=\sum a_ix^i\). Since \(B(AB)^jA=(BA)^{j+1}\), we get \(BA\,p(BA)=B\,p(AB)\,A=O\).
+\hint{2}
+Suppose \(a_0\ne0\). Then \(0\) is not a root of \(p\), so \(AB\) (annihilated by \(p\)) is invertible. Hence \(m=\operatorname{rank}AB\le n\), so \(m=n\) and \(A,B\) are invertible square matrices.
+\hint{3}
+Then \(BA\) is invertible too, and \(BA\,p(BA)=O\) gives \(p(BA)=O\). Contradiction.
+
+\problem{7}
+\hint{1}
+(Putnam 2023 B6.) Count by \(k=ai\): \(s(i,j)=\#\{k\in[0,n]:i\mid k,\ j\mid n-k\}\). So \(S=MN\), with \(M\) the \(n\times(n+1)\) matrix \([\,i\mid k\,]\) (\(k=0,\dots,n\)) and \(N\) the \((n+1)\times n\) matrix \([\,j\mid n-k\,]\). Apply Cauchy--Binet: \(\det S=\sum_k\det M^{(k)}\det N_{(k)}\), deleting column \(k\) of \(M\) and row \(k\) of \(N\).
+\hint{2}
+\(N\) is \(M^T\) with its rows reversed, so \(\det N_{(k)}=\pm\det M^{(n-k)}\), with a sign depending only on \(n\). For \(k>n/2\), the row \(i=k\) of \(M^{(k)}\) has a single \(1\) (in column \(0\)), and expanding gives \(\det M^{(k)}=\pm1\). For \(n\) even, \(\det M^{(n/2)}=0\) (two equal rows).
+\hint{3}
+So each term is \(\pm\det M^{(k)}\) with \(k<n/2\). The resulting signed sum is evaluated by expanding the determinant of \(M\) with a row of ones added on top: it is \(0\), since it equals the row \(i=1\). Answer: \(\det S=(-1)^{\lceil n/2\rceil-1}\cdot2\lceil n/2\rceil\). Check small \(n\): \(2,2,-4,-4,6,\dots\)
+
+\problem{8}
+\hint{1}
+Put \(u_i=v_i-v_0\). The volume is \(\sqrt{\det G}/n!\), where \(G_{ij}=\langle u_i,u_j\rangle=\frac12(d_{0i}^2+d_{0j}^2-d_{ij}^2)\).
+\hint{2}
+Use row and column operations on the bordered matrix \(\begin{pmatrix}0&\mathbf1^T\\\mathbf1&(d_{ij}^2)\end{pmatrix}\): subtract the row and column of \(v_0\) from the others, then clear the border. It reduces to \(-2G\) bordered, which gives \(\operatorname{vol}^2=\frac{(-1)^{n+1}}{2^n(n!)^2}\det CM\).
+\hint{3}
+Realisability: numbers \(d_{ij}\) on \(n+2\) points come from points in \(\mathbb R^n\) iff the matrix \(G\) built from them (with base point \(v_0\)) is positive semidefinite of rank \(\le n\). In particular the Cayley--Menger determinant of all \(n+2\) points must vanish (zero \((n+1)\)-volume), with the sign conditions from \(G\succeq0\) on the sub-simplices.
+
+\problem{9}
+\hint{1}
+Expand along the first row: \(D_n=3D_{n-1}-D_{n-2}\), with \(D_1=3\) and \(D_2=8\) (and \(D_0=1\)).
+\hint{2}
+Fibonacci numbers satisfy \(F_{m+2}=3F_m-F_{m-2}\). Compare initial values: \(D_n=F_{2n+2}=\frac{\varphi^{2n+2}-\varphi^{-2n-2}}{\sqrt5}\), with \(\varphi=\frac{1+\sqrt5}2\).
+
+\problem{10}
+\hint{1}
+Let \(g(x)=\sum_{k\ge0}c_{k+1}x^k=1+5x+35x^2+\dots\). The matrix is the Hankel matrix \((g_{i+j})_{i,j=0}^{n-1}\) of the coefficients of \(g\). From the quadratic equation for \(C=\sum c_kx^k\) derive \(2xg^2-(1-3x)g+1=0\).
+\hint{2}
+Hankel determinants are read off from the continued fraction (J-fraction) of the generating function: if \(g=\cfrac{1}{1-b_0x-\cfrac{\lambda_1x^2}{1-b_1x-\cfrac{\lambda_2x^2}{\ddots}}}\), then \(\det(g_{i+j})_{0}^{n-1}=\prod_{k=1}^{n-1}\lambda_k^{\,n-k}\).
+\hint{3}
+Verify from the equation for \(g\) that \(g=\frac{1}{1-5x-10x^2h}\) with \(h=\frac{1}{1-7x-10x^2h}\). So all \(\lambda_k=10\), and \(\det A=10^{n(n-1)/2}\).
+\end{document}

@@ -1,0 +1,39 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Linear algebra -- 8. Block matrices and determinants of special shape}{Class work}
+
+\problem{1}
+\hint{1}
+Schur formula: \(\begin{pmatrix}A&B\\C&D\end{pmatrix}=\begin{pmatrix}E&0\\CA^{-1}&E\end{pmatrix}\begin{pmatrix}A&B\\0&D-CA^{-1}B\end{pmatrix}\). Compute the determinant of \(\begin{pmatrix}E&-B\\A&E\end{pmatrix}\) using either diagonal block as the pivot: you get \(\det(E+BA)\) and \(\det(E+AB)\).
+\hint{2}
+Commuting \(C,D\): \(\begin{pmatrix}A&B\\C&D\end{pmatrix}\begin{pmatrix}D&0\\-C&E\end{pmatrix}=\begin{pmatrix}AD-BC&B\\0&D\end{pmatrix}\). Cancel \(\det D\) if \(D\) is invertible; otherwise replace \(D\) by \(D+\varepsilon E\), which still commutes with \(C\), and let \(\varepsilon\to0\).
+\hint{3}
+Counterexample (\(2\times2\) blocks): \(A=E\), \(B=E_{21}\), \(C=E_{12}\), \(D=E_{11}\). Here \(\det M=\det(D-CB)=0\) but \(\det(AD-BC)=-1\).
+
+\problem{2}
+\hint{1}
+Note the clash of notation: here the block \(E\) of \(M^{-1}\) is not the identity. Write \(I\) for the identity. Multiply \(M\) by the block-triangular matrix \(\begin{pmatrix}I&F\\0&H\end{pmatrix}\), built from the right block column of \(M^{-1}\).
+\hint{2}
+Since \(MM^{-1}=I\), we have \(AF+BH=0\) and \(CF+DH=I\). So the product is \(\begin{pmatrix}A&0\\C&I\end{pmatrix}\). Take determinants.
+
+\problem{3}
+\hint{1}
+Let \(X=ABCD\). Then \(X=A(BCD)=AA^T\) is symmetric positive semidefinite. Find a polynomial identity for \(X\).
+\hint{2}
+Transpose \(A^T=BCD\) and substitute the other three relations: \(A=D^TC^TB^T=(ABC)(DAB)(CDA)\), i.e.\ \(X^2A=A\).
+\hint{3}
+Hence \(X^3=X^2AA^T=AA^T=X\). A positive semidefinite matrix with \(X^3=X\) has eigenvalues in \(\{0,1\}\) and is diagonalisable, so \(X^2=X\).
+
+\problem{4}
+\hint{1}
+Since \(n\) is odd, \(i\mapsto2i\) is a bijection of \(\mathbb Z/n\). Relabel the indices by it: \(A\) becomes the circulant \(2E+P+P^{-1}\), where \(P\) is the cyclic shift.
+\hint{2}
+\(2E+P+P^{-1}=P^{-1}(E+P)^2\), and \(\det(E+P)=\prod_k(1+\varepsilon^k)=1-(-1)^n=2\). Answer: \(\det A=4\).
+
+\problem{5}
+\hint{1}
+\(C_n\) is the circulant with symbol \(f(x)=1+x+x^2=(x-\omega)(x-\omega^2)\), \(\omega=e^{2\pi i/3}\). So \(\det C_n=\prod_{k}f(\varepsilon^k)\). If \(3\mid n\), some \(\varepsilon^k=\omega\).
+\hint{2}
+\(\prod_k(\varepsilon^k-z)=(-1)^n(z^n-1)\) because \(\prod_k(z-\varepsilon^k)=z^n-1\). Hence \(\det C_n=(\omega^n-1)(\omega^{2n}-1)=|\omega^n-1|^2\), which is \(3\) when \(3\nmid n\).
+\end{document}

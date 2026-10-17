@@ -1,0 +1,43 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Linear algebra -- 6. Linear algebra in combinatorics}{Class work}
+
+\problem{1}
+\hint{1}
+Oddtown: over \(\mathbb F_2\) the Gram matrix \((\langle 1_{A_i},1_{A_j}\rangle)\) is the identity. So the vectors \(1_{A_i}\in\mathbb F_2^n\) are independent. The singletons show sharpness.
+\hint{2}
+Eventown: now every inner product, including \(\langle v,v\rangle\), is \(0\). So \(W=\operatorname{span}\{1_{A_i}\}\) satisfies \(W\subseteq W^\perp\), and \(\dim W+\dim W^\perp=n\) gives \(\dim W\le\lfloor n/2\rfloor\). The family lies inside \(W\), so \(m\le|W|\). Sharp: all unions of the pairs \(\{1,2\},\{3,4\},\dots\).
+\hint{3}
+The difference: in Oddtown the vectors are independent, so you count dimensions. Eventown families can be closed under symmetric difference, i.e.\ be a whole subspace, so you count the elements of a subspace.
+
+\problem{2}
+\hint{1}
+The answer is \(2n\) (take \(\pm e_i\)). For the bound, put \(M=\sum_i v_iv_i^T\) and compute \(\operatorname{tr}M\), \(\operatorname{tr}M^2\), \(\operatorname{tr}M^3\) in terms of the inner products.
+\hint{2}
+Let \(S=\sum_{i\ne j}\langle v_i,v_j\rangle^2\). Then \(\operatorname{tr}M=m\) and \(\operatorname{tr}M^2=m+S\). In \(\operatorname{tr}M^3=\sum\langle v_i,v_j\rangle\langle v_j,v_k\rangle\langle v_k,v_i\rangle\), terms with \(i,j,k\) distinct vanish by hypothesis, so \(\operatorname{tr}M^3=m+3S\).
+\hint{3}
+Apply Cauchy--Schwarz to the eigenvalues \(\mu_l\ge0\) of \(M\). First \((\sum\mu^2)^2\le\sum\mu\cdot\sum\mu^3\) gives \(S\le m\). Then \((\sum\mu)^2\le n\sum\mu^2\) gives \(m^2\le n(m+S)\le2nm\).
+
+\problem{3}
+\hint{1}
+Small cases: the minimum is \(0\) for \(n=1\) and \(2\) for \(n=2\). For \(n\ge3\), try to write \(a_{ij}\) as a sum of few products \(f(i)g(j)\) vanishing on the diagonal: \((i-j)^2=i^2-2ij+j^2\) has rank \(\le3\).
+\hint{2}
+Rank \(2\) is impossible for \(n\ge3\). The first two rows are independent, so row 3 \(=x\cdot\)row 1\(+y\cdot\)row 2. Columns 1 and 2 force \(y>0\) and \(x>0\), and then column 3 gives \(0=xa_{13}+ya_{23}>0\). Answer: \(3\) for \(n\ge3\).
+
+\problem{4}
+\hint{1}
+Independence of the ordering: reordering conjugates \(M\) by a permutation matrix. Then set up an induction on \(n\). Order the subsets as: non-empty subsets of \([n-1]\), then \(\{n\}\), then \(S\cup\{n\}\) for non-empty \(S\subseteq[n-1]\).
+\hint{2}
+In this order \(M_n=\begin{pmatrix}M_{n-1}&0&M_{n-1}\\0&1&\mathbf 1^T\\M_{n-1}&\mathbf 1&J\end{pmatrix}\). Subtract the first block row from the third, the first block column from the third, and then the middle row from the last block.
+\hint{3}
+You get \(\det M_n=\det M_{n-1}\cdot\det(-M_{n-1})=-(\det M_{n-1})^2\), since \(M_{n-1}\) has odd size. With \(\det M_1=1\): \(\det M_n=-1\) for \(n\ge2\).
+
+\problem{5}
+\hint{1}
+The affine dimension of a point set equals the rank of its centred Gram matrix \(-\frac12HDH\), where \(D\) is the matrix of squared distances and \(H=E-\frac1{2n}J\). Here \(D=b^2(J-E)+(a^2-b^2)P\), with \(P\) the involution swapping \(x_i\leftrightarrow y_i\).
+\hint{2}
+\(P\) commutes with \(J\) and \(H\). Split \(\mathbb R^{2n}\) into vectors symmetric under \(P\) (dimension \(n\), containing \(\mathbf 1\)) and antisymmetric ones (dimension \(n\)). On \(\mathbf 1^\perp\) the Gram matrix acts as \(b^2-\frac{a^2}{2}\) on the symmetric part (dimension \(n-1\)) and as \(\frac{a^2}{2}\) on the antisymmetric part.
+\hint{3}
+So the rank is \(n\) if \(b^2=a^2/2\) and \(2n-1\) otherwise. But the points span at most \(d\le2n-2\) dimensions. Hence \(b^2=a^2/2\) and the points lie in an \(n\)-dimensional affine subspace.
+\end{document}
