@@ -1,0 +1,56 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Inequalities -- 1. The Cauchy--Bunyakovsky inequality as a technique}{Homework}
+
+\problem{1}
+\hint{1} Split $f=f_e+f_o$ into its even and odd parts. In $L^2[-1,1]$ they are orthogonal, so $\int f^2=\int f_e^2+\int f_o^2$, while $\int f=\int f_e$ and $\int xf=\int xf_o$.
+\hint{2} The functions $e_0=\frac1{\sqrt2}$ and $e_1=\sqrt{\frac32}\,x$ have norm $1$. By Cauchy--Bunyakovsky (Bessel), $\int f_e^2\ge\langle f_e,e_0\rangle^2=\frac12\big(\int f\big)^2$ and $\int f_o^2\ge\langle f_o,e_1\rangle^2=\frac32\big(\int xf\big)^2$. Add.
+\hint{3} Equality holds iff $f_e$ is proportional to $e_0$ and $f_o$ to $e_1$, i.e.\ exactly for $f(x)=a+bx$.
+
+\problem{2}
+\hint{1} Put $g(x)=\int_0^1f(x,y)\,dy$, $h(y)=\int_0^1f(x,y)\,dx$ and $I=\int_0^1\!\int_0^1f$. The inequality reads $\int h^2+\int g^2\le I^2+\iint f^2$. Look for a square whose integral is the difference.
+\hint{2} Expand $\iint\big(f(x,y)-g(x)-h(y)+I\big)^2\,dx\,dy\ge0$. Every cross term reduces to $\int g^2$, $\int h^2$ or $I^2$ (e.g.\ $\iint fg=\int g^2$, $\iint gh=I^2$), and the total is exactly $\iint f^2-\int g^2-\int h^2+I^2$.
+
+\problem{3}
+\hint{1} First show that $\mathrm{Var}(f)=\min_c\int_0^1(f-c)^2$: expand $\int(f-\mu(f)+\mu(f)-c)^2$; the cross term vanishes.
+\hint{2} Hence $\mathrm{Var}(fg)\le\int_0^1(fg-\mu(f)\mu(g))^2$. Split $fg-\mu(f)\mu(g)=(f-\mu(f))g+(g-\mu(g))\mu(f)$.
+\hint{3} Use $(u+v)^2\le2u^2+2v^2$ pointwise, then $|g|\le M(g)$ and $|\mu(f)|\le M(f)$.
+
+\problem{4}
+\hint{1} Split $\int_0^1f=\int_0^{1/2}f+\int_{1/2}^1f$ and integrate each part by parts using $f(\frac12)=0$, with $x$ on the left half and $x-1$ on the right half.
+\hint{2} You get $\int_0^{1/2}f=-\int_0^{1/2}xf'$ and $\int_{1/2}^1f=-\int_{1/2}^1(x-1)f'$, i.e.\ $\int_0^1f=-\int_0^1k(x)f'(x)\,dx$ with $k(x)=x$ on $[0,\frac12]$ and $x-1$ on $(\frac12,1]$.
+\hint{3} Apply Cauchy--Bunyakovsky: $\big(\int_0^1f\big)^2\le\int_0^1k^2\cdot\int_0^1(f')^2$ and $\int_0^1k^2=2\int_0^{1/2}x^2\,dx=\frac1{12}$.
+
+\problem{5}
+\hint{1} Integrate $\int_0^1xf$ by parts with $f(1)=0$ so that $xf'$ appears.
+\hint{2} $\int_0^1xf\,dx=\big[\frac{x^2}2f\big]_0^1-\frac12\int_0^1x^2f'\,dx$, so $2\int_0^1xf=-\int_0^1x\cdot xf'(x)\,dx$.
+\hint{3} Cauchy--Bunyakovsky with $\int_0^1x^2=\frac13$: $4\big(\int xf\big)^2\le\frac13\int(xf')^2$. Compare with Problem 4: there $\int f=-\int kf'$ with the kernel $k$ = signed distance to the zero $\frac12$ and $\int k^2=\frac1{12}$; here the zero is at $1$, the derivative carries the weight $x$, and the constant $12=4\cdot3$ comes from the factor $2$ of the integration by parts and $\int x^2=\frac13$.
+
+\problem{6}
+\subpart{a}
+\hint{1} Square the right-hand side and keep, for each pair $j<i$, the cross term $2x_ix_j/\sqrt{ij}$; use $x_j\ge x_i$ for $j\le i$ to replace it by something with $x_i^2$.
+\hint{2} You get $\big(\sum\frac{x_i}{\sqrt i}\big)^2\ge\sum_ix_i^2\Big(\frac2{\sqrt i}\sum_{j\le i}\frac1{\sqrt j}-\frac1i\Big)$, and $\sum_{j\le i}\frac1{\sqrt j}\ge\frac{i}{\sqrt i}=\sqrt i$, so each bracket is at least $2-\frac1i\ge1$.
+\subpart{b}
+\hint{1} Apply (a) to the tail sequence $x_m,x_{m+1},\dots$: $\big(\sum_{i\ge m}x_i^2\big)^{1/2}\le\sum_{i\ge m}\frac{x_i}{\sqrt{i-m+1}}$.
+\hint{2} Swap the sums: the left side is at most $\sum_ix_i\sum_{m=1}^i\frac1{\sqrt{m(i+1-m)}}$. The inner sum is bounded: by symmetry it is at most $2\sqrt{\frac2{i+1}}\sum_{m\le(i+1)/2}\frac1{\sqrt m}\le4$ (it is a Riemann sum for $\int_0^1\frac{dt}{\sqrt{t(1-t)}}=\pi$). So $C=4$ works.
+
+\problem{7}
+\hint{1} Write the product as a double integral: $\int e^f\int e^{-f}=\int_0^1\!\int_0^1e^{f(x)-f(y)}\,dx\,dy$, and symmetrise in $x\leftrightarrow y$.
+\hint{2} This equals $\iint\cosh\big(f(x)-f(y)\big)$, and $\cosh t\ge1+\frac{t^2}2$. Finally $\frac12\iint(f(x)-f(y))^2=\int f^2-\big(\int f\big)^2$.
+
+\problem{8}
+\hint{1} The point is that $\int_0^T\ln f(x)\,dx=\int_0^T\ln f(x+\alpha)\,dx$ by periodicity.
+\hint{2} Use $t\ge1+\ln t$ with $t=\frac{f(x)}{f(x+\alpha)}$ and integrate over a period: $\int_0^T\frac{f(x)}{f(x+\alpha)}\ge T+\int_0^T\big(\ln f(x)-\ln f(x+\alpha)\big)=T$.
+
+\problem{9}
+\hint{1} For $v_1,\dots,v_m$ and real $c_i$, $\sum_{i,j}c_ic_j\langle v_i,v_j\rangle=\big\|\sum c_iv_i\big\|^2\ge0$: the Gram matrix $G$ is positive semidefinite, so $\det G\ge0$.
+\hint{2} For $m=2$, $\det G=\|v_1\|^2\|v_2\|^2-\langle v_1,v_2\rangle^2\ge0$ is the Cauchy--Bunyakovsky inequality, with equality iff $v_1,v_2$ are dependent.
+\hint{3} Expressing the $v_i$ in an orthonormal basis of their span, $G=V^TV$ and $\det G=(\det V)^2$ when the dimension is $m$: $\det G$ is the squared $m$-dimensional volume of the parallelepiped spanned by the $v_i$ (zero iff they are dependent).
+
+\problem{10}
+\note{As printed (with products) the inequality is false: for $f\equiv c\in(0,1)$ it becomes $c^2(c^2+1)<c^3$. The original SEEMOUS 2018 problem has quotients: $\dfrac{2\int_0^1xf^2}{\int_0^1(f^2+1)}<\dfrac{\int_0^1f^2}{\int_0^1f}$, i.e.\ $2\int xf^2\cdot\int f<\int f^2\cdot\int(f^2+1)$. The hints follow this version.}
+\hint{1} Compare the factors separately: which of $\int xf^2$ and $\int f^2$ is larger, and which of $2\int f$ and $\int(1+f^2)$?
+\hint{2} $\int_0^1xf^2\le\int_0^1f^2$ because $x\le1$, and $1+f^2-2f=(1-f)^2>0$ everywhere, so $\int(1+f^2)>2\int f$ (a positive Riemann integrable function has positive integral). Multiply, using $\int f^2>0$ and $\int f>0$.
+
+\end{document}

@@ -1,0 +1,55 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Probability -- 2. Geometric probability and random points}{Homework}
+
+\problem{1}
+\hint{1} Fix the orientation $\theta\in[0,\pi/2)$; the position is then uniform modulo $\mathbb Z^2$. Let $N$ be the number of lattice points covered. Then $\mathrm E N=\text{area}=1$, so $\Pr(N=0)=\sum_{k\ge2}(k-1)\Pr(N=k)$.
+\hint{2} A unit square (diameter $\sqrt2$) covers at most two lattice points up to a null set, and two covered points are adjacent. So $\Pr(N=0)=\Pr(N=2)=2A(\theta)$, where $A(\theta)$ is the area of the set of positions covering both $(0,0)$ and $(1,0)$, i.e.\ the area of $S\cap(S+e_1)$.
+\hint{3} In the square's own coordinates, $e_1=(\cos\theta,-\sin\theta)$, so $A(\theta)=(1-\cos\theta)(1-\sin\theta)$. Average $2(1-\cos\theta)(1-\sin\theta)$ over $[0,\pi/2]$: the answer is $2-\frac6\pi$.
+
+\problem{2}
+\hint{1} The distance is $d=\min(x,1-x,y,1-y,z,1-z)$; use $\mathrm Ed=\int_0^\infty\Pr(d>t)\,dt$.
+\hint{2} $\Pr(d>t)=(1-2t)^3$ for $0\le t\le\frac12$, so $\mathrm E d=\int_0^{1/2}(1-2t)^3\,dt=\frac18$.
+
+\problem{3}
+\hint{1} Let $g_1,\dots,g_n$ be the arcs between consecutive points (circumference $1$); they are uniform on the simplex. The angle at $P_i$ is inscribed in the arc not containing $P_i$, so it is acute iff the two arcs adjacent to $P_i$ have total length $>\frac12$.
+\hint{2} Two adjacent arcs have total length with a $\mathrm{Beta}(2,n-2)$ law, which gives $\Pr(\text{acute at }P_i)=n\,2^{1-n}$. Two acute angles can only occur at adjacent vertices (two disjoint pairs of arcs cannot both exceed $\frac12$), and never three.
+\hint{3} Inclusion--exclusion: $\Pr=n\cdot n2^{1-n}-n\Pr(g_{i-1}+g_i>\frac12,\ g_i+g_{i+1}>\frac12)$, and a direct integration over the simplex gives $2^{2-n}$ for the last probability. The answer is $\frac{n(n-2)}{2^{n-1}}$ (it equals $1$ for $n=4$, as it must for an inscribed quadrilateral).
+
+\problem{4}
+\hint{1} Measure arcs by central angle. Find the arc $C_1C_2$: a point of the circle at central angle $\varphi$ from $O$ is at chord distance $2R\sin\frac\varphi2$, so $C_1C_2$ is the arc centred at $O$ of half-angle $\varphi_0=2\arcsin\frac\pi4$. Its complement is an arc of size $\beta=2\pi-4\arcsin\frac\pi4<\pi$.
+\hint{2} The shorter arc $AB$ has length $L$ uniform on $[0,\pi]$ and a uniformly distributed position, independent of $O$. Given $AB$, the arcs do not meet iff $O$ lies in an arc of length $(\beta-L)_+$, so $\Pr=\frac1\pi\int_0^\pi\frac{(\beta-L)_+}{2\pi}\,dL=\frac{\beta^2}{4\pi^2}$.
+\hint{3} Thus $\Pr=\big(1-\frac2\pi\arcsin\frac\pi4\big)^2\approx0.181$. (If $r$ were measured along the circle, $C_1C_2$ would be a semicircle, $\beta=\pi$ and the answer $\frac14$.)
+
+\problem{5}
+\hint{1} The volume of the ball of radius $\sqrt2$ intersected with the unit cube: start from the octant of the ball, volume $\frac{\sqrt2\pi}3$, and subtract the parts where some coordinate exceeds $1$ (inclusion--exclusion; two coordinates cannot both exceed $1$ inside the ball).
+\hint{2} The part with $x>1$ is a quarter of a spherical cap of height $h=\sqrt2-1$, volume $\frac14\cdot\frac{\pi h^2(3\sqrt2-h)}3=\frac{(4\sqrt2-5)\pi}{12}$. So the volume is $\frac{\sqrt2\pi}3-\frac{(4\sqrt2-5)\pi}4=\frac{(15-8\sqrt2)\pi}{12}$.
+\hint{3} Now compute the complement in cylindrical coordinates over the unit square, using symmetry in $x\leftrightarrow y$: $1-\frac{(15-8\sqrt2)\pi}{12}=2\int_0^{\pi/4}\int_1^{\sec\theta}\big(1-\sqrt{2-\rho^2}\big)\rho\,d\rho\,d\theta$. The inner integral equals $\frac{\tan^2\theta}2-\frac13+\frac13\big(2-\sec^2\theta\big)^{3/2}$ and $(2-\sec^2\theta)^{3/2}=\frac{\cos^{3/2}2\theta}{\cos^3\theta}$; solve for the required integral.
+
+\problem{6}
+\hint{1} Put $B=0$, $A=-e$, $C=e$ with $|e|=1$ (the common radius); the points are $A+u_i$ ($i\le3$), $v$, $C+w_j$ ($j\le2$), with $u_i,v,w_j$ i.i.d.\ uniform on $S^5$. Write the hyperplane as $\delta(x)=\langle n,x\rangle-t=0$; it meets $AC$ iff $\delta(A)\delta(C)\le0$.
+\hint{2} With $\alpha=-\delta(A)$, $\gamma=-\delta(C)$ the incidences read $\langle n,u_i\rangle=\alpha$, $\langle n,w_j\rangle=\gamma$, $\langle n,v\rangle=\frac{\alpha+\gamma}2$, while $\langle n,e\rangle=\frac{\alpha-\gamma}2$. Hence the event $\alpha\gamma\le0$ is exactly $|\langle n,v\rangle|\le|\langle n,e\rangle|$.
+\hint{3} The event is invariant under rotating everything, so $e$ may be replaced by a uniform unit vector independent of the rest; now $v$ and $e$ are i.i.d. The substitution $(v,e,w_j)\mapsto(e,v,-w_j)$ preserves the joint law, keeps the same $n$ as a solution of the system (with $\gamma\mapsto-\gamma$), and swaps $|\langle n,v\rangle|$ and $|\langle n,e\rangle|$. The probability is $\frac12$.
+
+\problem{7}
+\hint{1} Four points are not in convex position iff one of them lies in the triangle formed by the other three; these four events are disjoint. Hence $\Pr(\text{convex})=1-4\,\mathrm E|T|/|K|$, where $T$ is the triangle of three random points of $K$.
+\hint{2} The ratio $\mathrm E|T|/|K|$ is affine invariant, so for a triangle you may take any convenient one. Compute it (e.g.\ by Crofton's differential method: let $K$ grow and follow how $|K|^3\mathrm E|T|$ changes, or by integrating directly with one vertex conditioned on a side); the result is $\mathrm E|T|=|K|/12$, so $\Pr=\frac23$.
+\hint{3} For the unit disc the same reduction applies; the classical value is $\mathrm E|T|=\frac{35}{48\pi^2}|K|$ (integrate in polar coordinates, conditioning on the chord through two of the points), so $\Pr=1-\frac{35}{12\pi^2}\approx0.7045$.
+
+\problem{8}
+\hint{1} Normalise $\|v_1\|=1$. The uniform law on $\Delta$ can be generated as follows: $s=1-p_1$ has density $2s$ on $[0,1]$, and given $s$, $(p_2,p_3)=s(q,1-q)$ with $q$ uniform. Fix $q$ and put $w=qv_2+(1-q)v_3$.
+\hint{2} Then $p_1v_1+p_2v_2+p_3v_3=v_1+s(w-v_1)$ runs along the segment from $v_1$ to $w$, at distance $sL$ from $v_1$, $L=\|w-v_1\|$. The points within distance $c$ of $0$ form an interval $\tau_1\le sL\le\tau_2$ with $\tau_1\tau_2=1-c^2$ (power of $v_1$) and $\tau_2-\tau_1\le2c$.
+\hint{3} The conditional probability is $\int2s\,ds=\frac{\min(\tau_2,L)^2-\tau_1^2}{L^2}$, maximal over $L$ at $L=\tau_2$, where it equals $1-(\tau_1/\tau_2)^2$. Since $\tau_1/\tau_2\ge\frac{1-c}{1+c}$, the bound is $\frac{4c}{(1+c)^2}\le4c$; integrate over $q$.
+
+\problem{9}
+\hint{1} Given $\varepsilon>0$, choose a convex polygon $P\subset K$ with $|K\setminus P|<\varepsilon$, and around each vertex of $P$ a small set of positive area inside $K$. If every one of these finitely many sets contains a sample point, the hull nearly contains $P$. The probability of this tends to $1$.
+\hint{2} For rates use Efron's identity: $\mathrm E|K\setminus C_n|=|K|\Pr(X_{n+1}\notin C_n)=|K|\,\frac{\mathrm E V_{n+1}}{n+1}$, with $V$ the number of hull vertices.
+\hint{3} Heuristic: the missed region consists of caps of probability about $1/n$. For a disc such a cap has width $\sim n^{-2/3}$ and $\mathrm E V_n\asymp n^{1/3}$, so the deficit is of order $n^{-2/3}$; for a polygon with $r$ vertices the caps sit at the corners and $\mathrm E V_n\sim\frac{2r}3\ln n$, so the deficit is $\sim\frac{2r}3|K|\frac{\ln n}n$, much smaller.
+
+\problem{10}
+\hint{1} If the points lie in some semicircle, exactly one of them (a.s.) is the starting point of a clockwise semicircle containing all the others. Let $E_i$ be the event that the semicircle starting at $P_i$ contains all the points: the $E_i$ are disjoint and $\Pr(E_i)=2^{1-n}$. So the probability is $n2^{1-n}$.
+\hint{2} The analogue: $n$ points uniform on $S^{d-1}$ (or any symmetric, generic law) lie in a common open half-space through the origin with probability $2^{1-n}\sum_{k=0}^{d-1}\binom{n-1}k$ (Wendel). Flip signs: each of the $2^n$ sign patterns $\pm x_i$ is equally likely to work.
+\hint{3} The number of sign patterns $(\varepsilon_i)$ for which some $y$ has $\varepsilon_i\langle y,x_i\rangle>0$ for all $i$ equals the number of regions cut out by $n$ generic hyperplanes through $0$ in $\mathbb R^d$, which is $C(n,d)=2\sum_{k=0}^{d-1}\binom{n-1}k$ (recursion $C(n,d)=C(n-1,d)+C(n-1,d-1)$). Check $d=2$: $2n/2^n$.
+
+\end{document}

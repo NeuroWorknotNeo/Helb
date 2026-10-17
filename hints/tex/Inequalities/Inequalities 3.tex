@@ -1,0 +1,31 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Inequalities -- 3. Integral inequalities: the working techniques}{Class work}
+
+\problem{1}
+\hint{1} Chebyshev: if $f,g$ are similarly ordered, $(f(x)-f(y))(g(x)-g(y))\ge0$ for all $x,y$. Integrate over $[a,b]^2$ and expand: $2(b-a)\int fg-2\int f\int g\ge0$. Oppositely ordered: the sign flips.
+\hint{2} Jensen: let $m=\int wf$. A convex $\varphi$ has a supporting line at $m$: $\varphi(t)\ge\varphi(m)+k(t-m)$ for all $t$. Put $t=f(x)$, multiply by $w(x)\ge0$ and integrate; the linear term vanishes since $\int w=1$. The two examples are $\varphi(t)=t^2$ and $\varphi(t)=e^t$ with $w\equiv1$ on $[0,1]$.
+\hint{3} Normalisation: if both sides $L(f)$, $R(f)$ satisfy $L(\lambda f)=\lambda^dL(f)$, $R(\lambda f)=\lambda^dR(f)$ for $\lambda>0$, then $L(f)\le R(f)$ for all $f$ follows from the case $\int f=1$ (or $\|f\|=1$, etc.): apply it to $f/\int f$ (the case $\int f=0$ being treated separately, if needed).
+
+\problem{2}
+\hint{1} The weight $(n+1)x^n$ has integral $1$ on $[0,1]$ and is increasing, like $f$. Which theorem compares $\int fg$ with $\int f\int g$?
+\hint{2} Chebyshev with $g(x)=(n+1)x^n$: $\int_0^1f\cdot(n+1)x^n\ge\int_0^1f\cdot\int_0^1(n+1)x^n=\int_0^1f$.
+\hint{3} Equality means $\iint(f(x)-f(y))(x^n-y^n)\,dx\,dy=0$ with a continuous non-negative integrand, so $f(x)=f(y)$ whenever $x\ne y$: $f$ is constant (and constants do give equality).
+
+\problem{3}
+\hint{1} $\cos x$ is a weight on $[0,\pi/2]$ with values in $[0,1]$ and total integral $1$, just like the indicators of $[0,1]$ and $[\pi/2-1,\pi/2]$. For a decreasing $f$, putting the mass as far left as possible maximises $\int f\cdot(\text{weight})$.
+\hint{2} Right inequality: $\int_0^1f-\int_0^{\pi/2}f\cos=\int_0^1f(1-\cos x)\,dx-\int_1^{\pi/2}f\cos x\,dx$. Bound $f\ge f(1)$ on $[0,1]$ and $f\le f(1)$ on $[1,\pi/2]$; the two weights have equal integrals $1-\sin1$.
+\hint{3} Left inequality: the same with the point $c=\pi/2-1$, where $\int_0^c\cos=\sin c=\int_c^{\pi/2}(1-\cos)$. Equality forces $f\equiv f(1)$ (resp.\ $f\equiv f(c)$) wherever the weights are positive, i.e.\ $f$ constant; for strictly decreasing $f$ both inequalities are strict.
+
+\problem{4}
+\hint{1} The constraint involves $x$ and $y$ symmetrically and the answer contains $\pi$: substitute $x=\sin\theta$.
+\hint{2} $I=\int_0^1f=\int_0^{\pi/2}f(\sin\theta)\cos\theta\,d\theta=\int_0^{\pi/2}f(\cos\theta)\sin\theta\,d\theta$. Add the two expressions and apply the hypothesis with $x=\sin\theta$, $y=\cos\theta$: $2I\le\frac\pi2$.
+\hint{3} Equality: $f(x)=\sqrt{1-x^2}$, for which $xf(y)+yf(x)=\sin(\alpha+\beta)\le1$ with $x=\sin\alpha$, $y=\sin\beta$.
+
+\problem{5}
+\hint{1} Introduce a parameter: compare $F(t)=\big(\int_0^tf\big)^2-\int_0^tf^3$ with $F(0)=0$, and show $F'\ge0$.
+\hint{2} $F'(t)=f(t)\big(2\int_0^tf-f(t)^2\big)$, and $f>0$ on $(0,1]$ since $f'>0$, $f(0)=0$. Let $G(t)=2\int_0^tf-f(t)^2$, $G(0)=0$.
+\hint{3} $G'=2f(1-f')\ge0$ because $f'\le1$. Hence $G\ge0$, so $F'\ge0$ and $F(1)\ge0$.
+
+\end{document}

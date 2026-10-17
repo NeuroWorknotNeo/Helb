@@ -1,0 +1,53 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Probability -- 4. The probabilistic method across mathematics}{Homework}
+
+\problem{1}
+\hint{1} $\operatorname{dist}(x,W)^2=\|Px\|^2=x^TPx$, where $P$ is the orthogonal projection onto $W^\perp$.
+\hint{2} $\mathrm E\,x^TPx=\operatorname{tr}\big(P\,\mathrm E[xx^T]\big)=\operatorname{tr}P$, since $\mathrm E[xx^T]=I$. Answer: $n-k$.
+
+\problem{2}
+\note{If $\{g_1,\dots,g_k\}=G$ (i.e.\ $k=n$), then $g$ is exactly uniform after one roll, the sum is $0$ for all $m$ and no $b$ works. The original Putnam problem assumes $\{g_1,\dots,g_k\}\subsetneq G$; the hints use this.}
+\hint{1} Use Fourier analysis on $G$. For a character $\chi$ put $\lambda_\chi=\frac1k\sum_i\chi(g_i)$; the $m$-fold convolution gives $\sum_x\Pr(g=x)\overline{\chi(x)}=\lambda_\chi^m$ (up to conjugation), and $\lambda_{\mathbf 1}=1$.
+\hint{2} Parseval: $\sum_x\big(\Pr(g=x)-\frac1n\big)^2=\frac1n\sum_{\chi\ne\mathbf 1}|\lambda_\chi|^{2m}$. Take $b=\max_{\chi\ne\mathbf 1}|\lambda_\chi|$; then the limit is $\frac1n\#\{\chi:|\lambda_\chi|=b\}$, positive and finite once $0<b<1$.
+\hint{3} $b<1$: $|\lambda_\chi|=1$ forces all $\chi(g_i)$ equal to $\chi(g_1)=\chi(e)=1$, so $\chi$ is trivial on a generating set. $b>0$: if all $\lambda_\chi$, $\chi\ne\mathbf 1$, vanished, the indicator of $\{g_i\}$ would have only a constant Fourier component, i.e.\ $\{g_i\}=G$.
+
+\problem{3}
+\hint{1} "At random" means natural density: $n$ uniform on $\{1,\dots,N\}$, $N\to\infty$. Rewrite the parity condition: $\lfloor n\sqrt2\rfloor$ is even iff $\{n\sqrt2/2\}<\frac12$.
+\hint{2} Since $1,\sqrt2,\sqrt3$ are linearly independent over $\mathbb Q$, Weyl's criterion gives equidistribution of $(n\sqrt2/2,\,n\sqrt3/2)$ in $[0,1)^2$. The density is the area of $[0,\frac12)^2$, i.e.\ $\frac14$.
+
+\problem{4}
+\hint{1} Shearer: if each coordinate $i\in[n]$ belongs to at least $t$ of the sets $F_1,\dots,F_m$, then $tH(X_1,\dots,X_n)\le\sum_jH(X_{F_j})$. Expand each $H(X_{F_j})$ by the chain rule in increasing order of indices and use that conditioning on fewer variables does not decrease entropy.
+\hint{2} For $F=\{i_1<\dots<i_s\}$: $H(X_F)=\sum_lH(X_{i_l}\mid X_{i_1},\dots,X_{i_{l-1}})\ge\sum_lH(X_{i_l}\mid X_1,\dots,X_{i_l-1})$. Sum over $j$ and compare with the chain rule for $H(X)$.
+\hint{3} Loomis--Whitney: for a finite $S\subset\mathbb Z^3$ take $(X,Y,Z)$ uniform on $S$ and the three coordinate pairs ($t=2$): $2\log|S|\le\log|S_{xy}|+\log|S_{yz}|+\log|S_{xz}|$. Apply this to the cubes of a fine grid meeting the body and let the mesh tend to $0$.
+
+\problem{5}
+\hint{1} Take $G(n,p)$ with $p=n^{\theta-1}$, $0<\theta<1/g$. Bound the expected number $X$ of cycles of length $\le g$ and, by a union bound, the probability that the independence number $\alpha$ is large.
+\hint{2} $\mathrm EX\le\sum_{i=3}^g(np)^i=O(n^{\theta g})=o(n)$, so $\Pr(X\ge n/2)\to0$ by Markov. With $a=\lceil\frac3p\ln n\rceil$, $\Pr(\alpha\ge a)\le\binom na(1-p)^{\binom a2}\le\big(ne^{-p(a-1)/2}\big)^a\to0$.
+\hint{3} For large $n$ pick a graph with $X<n/2$ and $\alpha<a$; delete one vertex from each short cycle. The rest has $\ge n/2$ vertices, girth $>g$ and $\chi\ge\frac{n/2}{a}\sim\frac{n^\theta}{6\ln n}>k$.
+
+\problem{6}
+\hint{1} Let $\mathcal F$ be an intersecting family of $k$-subsets of $[n]$, $n\ge2k$. Place $1,\dots,n$ in a uniformly random cyclic order and count the members of $\mathcal F$ that are arcs (sets of $k$ consecutive elements).
+\hint{2} Lemma: at most $k$ of the $n$ arcs can lie in $\mathcal F$. If the arc $A$ is in $\mathcal F$, the other arcs meeting $A$ start or end at one of the $k-1$ inner "gaps" of $A$; for each gap the two arcs (one ending, one starting there) are disjoint when $n\ge2k$, so at most one of them is in $\mathcal F$.
+\hint{3} Each fixed $k$-set is an arc with probability $n/\binom nk$, so $|\mathcal F|\cdot n/\binom nk\le k$, i.e.\ $|\mathcal F|\le\binom{n-1}{k-1}$. For $k>n/2$ any two $k$-sets meet, so $\binom nk$ sets form an intersecting family; in the lemma the paired arcs are no longer disjoint.
+
+\problem{7}
+\hint{1} Measure preservation gives $\mu(T^{-n}A\,\triangle\,T^{-(n-1)}A)=\mu\big(T^{-(n-1)}(T^{-1}A\triangle A)\big)=0$, so $T^{-n}A=A$ a.e.\ for every $n$.
+\hint{2} Take $B=\limsup_nT^{-n}A=\bigcap_{N}\bigcup_{n\ge N}T^{-n}A$. Then $T^{-1}B=\bigcap_N\bigcup_{n\ge N}T^{-(n+1)}A=B$ exactly, and $B=A$ a.e.\ since it is built from countably many sets each a.e.\ equal to $A$.
+
+\problem{8}
+\hint{1} Expand $(\det A)^2=\sum_{\sigma,\tau}\operatorname{sgn}\sigma\operatorname{sgn}\tau\prod_ia_{i\sigma(i)}a_{i\tau(i)}$. If $\sigma\ne\tau$, some entry occurs exactly once and the expectation vanishes. Hence $\mathrm E(\det A)^2=n!$.
+\hint{2} By Markov, $\Pr(|\det A|\ge\lambda\sqrt{n!})\le\lambda^{-2}$: typically $|\det A|=O(\sqrt{n!})$. (The matching lower bound $|\det A|=\sqrt{n!}\,e^{o(n)}$ with high probability is a deep theorem of Tao--Vu; the second moment alone only gives the upper bound.)
+\hint{3} Hadamard: $|\det A|\le\prod\|\text{rows}\|=n^{n/2}$, and by Stirling $\sqrt{n!}/n^{n/2}\approx(2\pi n)^{1/4}e^{-n/2}$: a random sign matrix is exponentially far from Hadamard's bound.
+
+\problem{9}
+\hint{1} Orient each edge of $K_n$ independently and uniformly. For a fixed $k$-set $K$, each of the other $n-k$ players beats all of $K$ with probability $2^{-k}$, independently.
+\hint{2} So $\Pr(\text{some }K\text{ fails})\le\binom nk(1-2^{-k})^{n-k}$, and the property exists once this is $<1$. Since $\binom nk\le n^k$ and $(1-2^{-k})^{n}\le e^{-n2^{-k}}$, it suffices that $n2^{-k}>k\ln n+O(1)$, i.e.\ $n\approx k^22^k\ln2\,(1+o(1))$.
+
+\problem{10}
+\hint{1} Start from the weak bound $\operatorname{cr}(G)\ge e-3n$ (for $n\ge3$): delete one edge per crossing until planar and use $e\le3n-6$ for planar graphs.
+\hint{2} Keep each vertex independently with probability $p$ and apply the weak bound to the induced subgraph of a drawing with $\operatorname{cr}(G)$ crossings: $p^4\operatorname{cr}(G)\ge p^2e-3pn$. Choose $p=4n/e\le1$: $\operatorname{cr}(G)\ge\frac{e}{p^2}-\frac{3n}{p^3}=\frac{e^3}{64n^2}$.
+\hint{3} Szemer\'edi--Trotter: for $m$ points and $L$ lines with $I$ incidences, draw the graph on the points whose edges join consecutive points on each line: $e=I-L$ edges and at most $L^2$ crossings. Either $e<4m$, or $L^2\ge\frac{(I-L)^3}{64m^2}$; in both cases $I=O(m^{2/3}L^{2/3}+m+L)$.
+
+\end{document}

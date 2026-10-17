@@ -1,0 +1,31 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Inequalities -- 1. The Cauchy--Bunyakovsky inequality as a technique}{Class work}
+
+\problem{1}
+\hint{1} Discrete form: $P(\lambda)=\sum_i(a_i-\lambda b_i)^2\ge0$ for all real $\lambda$ is a quadratic in $\lambda$ (if not all $b_i=0$), so its discriminant $4\big(\sum a_ib_i\big)^2-4\sum a_i^2\sum b_i^2$ is $\le0$. Equality means $P$ has a real root $\lambda$, i.e.\ $a_i=\lambda b_i$ for all $i$.
+\hint{2} The integral form and the inner product form are word for word the same with $P(\lambda)=\int(f-\lambda g)^2$ and $P(\lambda)=\langle f-\lambda g,f-\lambda g\rangle$.
+\hint{3} Engel form: apply the discrete inequality to the vectors $\big(a_i/\sqrt{b_i}\big)$ and $\big(\sqrt{b_i}\big)$: $\big(\sum a_i\big)^2=\big(\sum\frac{a_i}{\sqrt{b_i}}\sqrt{b_i}\big)^2\le\sum\frac{a_i^2}{b_i}\sum b_i$.
+
+\problem{2}
+\hint{1} The two conditions give $\int_0^1(ax+b)f(x)\,dx=a+b$ for all real $a,b$. Apply Cauchy--Bunyakovsky to $f$ and a linear function $ax+b$.
+\hint{2} Normalise $a+b=2$: then $4\le\int_0^1(ax+b)^2\,dx\cdot\int_0^1f^2$. Choose $a,b$ so that $\int_0^1(ax+b)^2\,dx=\frac{(a+b)^3-b^3}{3a}=1$; together with $a+b=2$ this gives $b^3-3b-2=(b+1)^2(b-2)=0$.
+\hint{3} The root $b=2$, $a=0$ is useless (the equality case $f=$ const contradicts the conditions); take $b=-1$, $a=3$. Then $\int f^2\ge4$, with equality for $f(x)=6x-2$.
+
+\problem{3}
+\hint{1} As before, $\int_0^1p(x)f(x)\,dx=\sum_ka_k$ for every polynomial $p=\sum_{k<n}a_kx^k$. So $\big(\sum a_k\big)^2\le\int_0^1p^2\cdot\int_0^1f^2$, where $\int_0^1p^2=a^TH_na$ with the Hilbert matrix $H_n=\big(\frac1{i+j+1}\big)_{i,j=0}^{n-1}$.
+\hint{2} The best choice of $p$ is the one for which equality is possible, i.e.\ $f$ proportional to $p$; the conditions on $f$ then say $H_na$ is proportional to $(1,\dots,1)^T$. Take $a=H_n^{-1}\mathbf 1$: then $\sum a_k=\mathbf 1^TH_n^{-1}\mathbf 1=a^TH_na=:s$ and the inequality gives $\int f^2\ge s^2/s=s$.
+\hint{3} It remains to show that the sum of all entries of $H_n^{-1}$ is $n^2$. One way: $\int_0^1pq=q(1)$ for all $q$ of degree $<n$, so $p$ is the reproducing kernel at $1$ for the orthonormal shifted Legendre polynomials $\sqrt{2k+1}P_k(2x-1)$, and $\int p^2=\sum_{k<n}(2k+1)=n^2$. For $n=2$ the conditions are $\int f=\int xf=1$ and you recover Problem 2.
+
+\problem{4}
+\hint{1} Substitute $a_i=\frac1{1+x_i}$: then $\sum a_i=1$ and $x_i=\frac{1-a_i}{a_i}=\frac{\sum_{j\ne i}a_j}{a_i}$.
+\hint{2} Lower bound the left side: $\sqrt{\sum_{j\ne i}a_j}\ge\frac1{\sqrt{n-1}}\sum_{j\ne i}\sqrt{a_j}$, so \[\sum_i\sqrt{x_i}\ge\frac1{\sqrt{n-1}}\sum_j\sqrt{a_j}\sum_{i\ne j}\frac1{\sqrt{a_i}}\] (swap the order of summation).
+\hint{3} By the Engel form, $\sum_{i\ne j}\frac1{\sqrt{a_i}}\ge\frac{(n-1)^2}{\sum_{i\ne j}\sqrt{a_i}}$, and by Cauchy--Bunyakovsky again $\sum_{i\ne j}\sqrt{a_i}\le\sqrt{(n-1)\sum_{i\ne j}a_i}$. Put these together: $\frac{\sqrt{a_j}}{\sqrt{\sum_{i\ne j}a_i}}=\frac1{\sqrt{x_j}}$, and the constants combine to $(n-1)$.
+
+\problem{5}
+\hint{1} Use $abc=1$ to rewrite each term as a square over something: $\frac1{a^3(b+c)}=\frac{(bc)^2}{a(b+c)}$.
+\hint{2} Engel form: $\sum\frac{(bc)^2}{ab+ac}\ge\frac{(ab+bc+ca)^2}{2(ab+bc+ca)}=\frac{ab+bc+ca}2$. It remains to prove $x+y+z\ge3$ for $x=ab$, $y=bc$, $z=ca$, $xyz=1$, without AM-GM.
+\hint{3} Since $xyz=1$, $xy+yz+zx=\frac1x+\frac1y+\frac1z$, so Cauchy--Bunyakovsky gives $(x+y+z)(xy+yz+zx)\ge9$. Also $(x+y+z)^2\ge3(xy+yz+zx)$ (from $x^2+y^2+z^2\ge xy+yz+zx$, again Cauchy--Bunyakovsky). Multiply: $(x+y+z)^3\ge27$.
+
+\end{document}
