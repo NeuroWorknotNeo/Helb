@@ -47,7 +47,6 @@
 \hint{3} So the condition is $\max^2<4\cdot(\text{product of the other two})$; only the largest part matters. Over the simplex $r+s+t=1$ with $t$ largest, the admissible $r$ form an interval of length $3t-1$ for $\frac13\le t\le\frac49$ and $\sqrt{1-2t}$ for $\frac49\le t\le\frac12$. The probability is $6\bigl(\int_{1/3}^{4/9}(3t-1)\,dt+\int_{4/9}^{1/2}\sqrt{1-2t}\,dt\bigr)=6\bigl(\frac1{54}+\frac1{81}\bigr)=\frac5{27}$.
 
 \problem{10}
-\note{Read literally, the tail bound can fail when $n\ln n+cn$ is not an integer (e.g.\ $n=2$, $c=0.1$: the time is always $\ge2>2\ln2+0.2$). The standard statement, followed here, is that after $m\ge n\ln n+cn$ draws (an integer number $m$) the probability that some coupon is still missing is at most $e^{-c}$.}
 \hint{1} When $i-1$ coupons have been collected, the waiting time for a new one is geometric with success probability $\frac{n-i+1}n$, so its mean is $\frac n{n-i+1}$. Summing gives $nH_n$.
 \hint{2} Tail: union bound over coupons. $\Pr(\text{some coupon missing after }m\text{ draws})\le n(1-\frac1n)^m\le ne^{-m/n}\le e^{-c}$ for $m\ge n\ln n+cn$.
 

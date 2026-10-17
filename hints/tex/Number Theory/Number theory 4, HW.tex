@@ -9,21 +9,19 @@
 \hint{3} Then $\frac{4^n}{2n+1}\le\binom{2n}n\le(2n)^{\sqrt{2n}}\cdot4^{2n/3}$. This fails for $n$ large (about $n\ge500$). For smaller $n$, use the chain of primes $2,3,5,7,13,23,43,83,163,317,631$.
 
 \problem{2}
-\note{As printed: (a) $\mathrm{lcm}(1,\dots,n)=e^{(1+o(1))n}$ is equivalent to the prime number theorem and is not elementary. (b) $\binom{2n}n$ is \emph{not} always divisible by $\mathrm{lcm}(1,\dots,n+1)/(n+1)$ ($n=3$: $20$ vs.\ $3$). The correct statements are that $\binom{2n}{n}$ divides $\mathrm{lcm}(1,\dots,2n)$, and that $\binom nk\mid\mathrm{lcm}(1,\dots,n+1)/(n+1)$. The hints prove Chebyshev-type bounds and the correct divisibility.}
-\hint{1} By Kummer, $v_p\binom{2n}n\le\#\{j:p^j\le2n\}=v_p(\mathrm{lcm}(1,\dots,2n))$, so $\binom{2n}n\mid\mathrm{lcm}(1,\dots,2n)$.
-\hint{2} Hence $\mathrm{lcm}(1,\dots,2n)\ge\binom{2n}n\ge\frac{4^n}{2n+1}$. Together with $\mathrm{lcm}(1,\dots,N)\le N^{\pi(N)}$ this gives $\pi(2n)\ge\frac{n\log4-\log(2n+1)}{\log 2n}$.
-\hint{3} Upper bound: $\mathrm{lcm}(1,\dots,N)=\prod_pp^{\lfloor\log_pN\rfloor}\le\prod_{p\le N}p\cdot\prod_{p\le\sqrt N}N\le4^N N^{\sqrt N}$. So $e^{cN}\le\mathrm{lcm}(1..N)\le e^{CN}$ elementarily. The constant $1$ in the exponent needs the PNT.
+\hint{1} Kummer: a carry in base $p$ at position $j$ needs $p^{j+1}\le$ the sum, so $v_p\binom{2n}n\le\#\{j\ge1:p^j\le2n\}=v_p(\mathrm{lcm}(1,\dots,2n))$. Next, $(n+1)\binom nk=(k+1)\binom{n+1}{k+1}$. Let $p^e\le n+1<p^{e+1}$. Adding $k+1$ and $n-k$, no carry occurs below position $v_p(k+1)$ (the digits of $k+1$ are $0$ there) and none out of position $e$ or higher. So $v_p\bigl((k+1)\binom{n+1}{k+1}\bigr)\le v_p(k+1)+(e-v_p(k+1))=e$.
+\hint{2} Lower bound: the middle coefficient is the largest of the $n+1$ numbers $\binom nk$, which sum to $2^n$, so $\mathrm{lcm}(1,\dots,n+1)\ge(n+1)\binom n{\lfloor n/2\rfloor}\ge2^n$. Third divisibility: by Legendre, $v_p\binom{2m}m=\sum_j\bigl(\lfloor 2m/p^j\rfloor-2\lfloor m/p^j\rfloor\bigr)$, each term is $\ge0$, and it equals $1$ when $m<p^j\le2m$. Hence $v_p\binom{2m}m\ge v_p\,\mathrm{lcm}(1..2m)-v_p\,\mathrm{lcm}(1..m)$. In the same way $\mathrm{lcm}(1,\dots,2m+1)\mid\mathrm{lcm}(1,\dots,m+1)\binom{2m+1}m$.
+\hint{3} Upper bound: prove $L(N)=\mathrm{lcm}(1,\dots,N)\le4^{N-1}$ by strong induction ($L(1)=1$, $L(2)=2$): $L(2m)\le L(m)\binom{2m}m\le4^{m-1}4^m$ and $L(2m+1)\le L(m+1)\binom{2m+1}m\le4^m\cdot4^m$, using $\binom{2m+1}m\le\frac12 2^{2m+1}$. Primes: $L(2n)\le(2n)^{\pi(2n)}$ (each $p^{v_p}\le2n$) and $L(2n)\ge\binom{2n}n\ge\frac{4^n}{2n+1}$, so $\pi(2n)\ge\frac{n\log4-\log(2n+1)}{\log2n}$. (The sharper $\log L(n)\sim n$ is equivalent to the prime number theorem.)
 
 \problem{3}
-\hint{1} $v_2\binom{2n}n=s_2(n)$ (Kummer). So $v_2=1$ exactly when $n$ is a power of $2$.
-\hint{2} Square-free forces $v_2\le1$, hence $n=2^k$. Check small cases: $n=1,2,4$ give $2,6,70$, but $n=8$ gives $12870=2\cdot3^2\cdots$.
-\hint{3} That no other $n$ works is a deep theorem (Erd\H{o}s's conjecture, proved by S\'ark\"ozy for large $n$ and completely by Granville--Ramar\'e). Kummer for $p=3,5,\dots$ shows why: one needs two carries in some base. Answer: $n\in\{1,2,4\}$.
+\hint{1} $v_2\binom{2n}n=s_2(n)$ (Kummer: doubling carries once per digit $1$). So $v_2=1$ exactly when $n$ is a power of $2$.
+\hint{2} Since $s_2(n)\ge1$, squarefree forces $v_2=1$, hence $n=2^m$. For $n\le100$ only $1,2,4,8,16,32,64$ remain; $n=1,2,4$ give $2,6,70$, which are squarefree.
+\hint{3} Look at other primes with Kummer. In base $3$: $8=22_3$, $16=121_3$, $32=1012_3$, and doubling each of them carries twice, so $9\mid\binom{2n}n$. For $64=2101_3$ there is only one carry, but $64=224_5$ and doubling carries three times, so $125\mid\binom{128}{64}$. Answer: $n\in\{1,2,4\}$. (These are in fact the only $n$ at all, but that is a deep theorem of Granville and Ramar\'e.)
 
 \problem{4}
-\note{$v_p\bigl(\sum k^{-2}\bigr)$ has no closed form: it equals $1$ for $p\ge5$, except for the Wolstenholme primes ($16843$, $2124679$, \dots), where it is $\ge2$. For $p=3$ it is $0$. The hints prove $v_p\ge1$ and the link with $H_{p-1}$.}
-\hint{1} Pair $k$ with $p-k$: $H_{p-1}=\frac p2\sum_k\frac1{k(p-k)}$, and $\frac1{k(p-k)}\equiv-\frac1{k^2}\pmod p$.
-\hint{2} $\sum_{k=1}^{p-1}k^{-2}\equiv\sum k^2=\frac{(p-1)p(2p-1)}6\equiv0\pmod p$ for $p\ge5$. This gives $v_p(H_{p-1})\ge2$.
-\hint{3} More precisely, $H_{p-1}\equiv-\frac{p}{2}\sum k^{-2}\pmod{p^3}$, so $v_p(H_{p-1})\ge3$ if and only if $v_p(\sum k^{-2})\ge2$. Generically $v_p(\sum k^{-2})=1$ (it is $\equiv\frac23pB_{p-3}\pmod{p^2}$).
+\hint{1} Work modulo powers of $p$ with fractions whose denominators are prime to $p$. Pair $k$ with $p-k$: $\frac1k+\frac1{p-k}=\frac p{k(p-k)}$, so $H_{p-1}=\frac p2\sum_{k=1}^{p-1}\frac1{k(p-k)}$, and $\frac1{k(p-k)}\equiv-\frac1{k^2}\pmod p$.
+\hint{2} $k\mapsto k^{-1}$ permutes the non-zero residues, so $\sum_{k=1}^{p-1}k^{-2}\equiv\sum k^2=\frac{(p-1)p(2p-1)}6\equiv0\pmod p$ for $p\ge5$. This gives $v_p\bigl(\sum k^{-2}\bigr)\ge1$, and then $v_p(H_{p-1})\ge1+1=2$.
+\hint{3} For $p=3$: $1+\frac12=\frac32$ has $v_3=1$, and $1+\frac14=\frac54$ has $v_3=0$ (the step $\sum k^2\equiv0$ needs $p\ge5$). Remark: the bounds are usually sharp, with equality failing only for the Wolstenholme primes $16843,\ 2124679,\dots$; so there is no closed formula for these valuations.
 
 \problem{5}
 \hint{1} Odd $n$: take $k=n^m$. Then $a_k=n^{n^m-m}$ is odd.

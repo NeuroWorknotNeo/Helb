@@ -1,0 +1,83 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\sheettitle}[4]{% title, subtitle, homework-flag (empty or "Homework"), date
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\foreignlanguage{russian}{#4}\par}
+  \end{center}\vspace{0.5em}}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1){\parfillskip=0pt\par}}
+\begin{document}
+\sheettitle{Number theory -- 5}{Equations in integers}{Homework}{14 сентября 2026 года}
+
+\head{Theoretical minimum.} $ax+by=c$ is solvable exactly when $\gcd(a,b)\mid c$, and the
+solutions form an arithmetic progression. Pell's equation $x^2-dy^2=1$ with $d$ a non-square has
+infinitely many solutions, all powers of the fundamental one, which is read off from the continued
+fraction of $\sqrt d$; the existence follows from Dirichlet's approximation theorem plus pigeonhole.
+Infinite descent rules out $x^4+y^4=z^2$ and hence Fermat's equation for exponent $4$. Every
+integer is a sum of four squares; three squares suffice except for $4^a(8b+7)$; two squares exactly
+when every prime $\equiv3\pmod 4$ occurs to an even power. Solvability in $\mathbb Z$ implies
+solvability modulo every $n$, and that implication run backwards is how impossibility is proved;
+the converse fails in general, the standard counterexample being Selmer's cubic
+$3x^3+4y^3+5z^3=0$. Thue's theorem: an irreducible homogeneous form of degree at least three takes
+each value finitely often.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Prove that the equation $x^2+y^2+z^2=2xyz$ has no solution in positive integers, and solve
+the Markov equation $x^2+y^2+z^2=3xyz$ completely by Vieta jumping.
+
+\item Find all pairs $(m,n)$ of non-negative integers for which $m^2+2\cdot3^n=m(2^{n+1}-1)$.
+\src{IMO shortlist 2010, N2}
+
+\item Find all positive integers $n$ for which there exist non-negative integers $a_1,\dots,a_n$
+with
+\[
+\frac1{2^{a_1}}+\frac1{2^{a_2}}+\dots+\frac1{2^{a_n}}=\frac1{3^{a_1}}+\frac2{3^{a_2}}+\dots+\frac n{3^{a_n}}=1.
+\]
+\src{IMO shortlist 2012, N7}
+
+\item Prove that for any pair of positive integers $k$ and $n$ there exist $k$ positive integers
+$m_1,\dots,m_k$ such that $1+\frac{2^k-1}{n}=\Bigl(1+\frac1{m_1}\Bigr)\cdots\Bigl(1+\frac1{m_k}\Bigr)$.
+(IMO shortlist 2013, N2)
+
+\item Let $n\ge2$ and $A_n=\{2^n-2^k:0\le k<n\}$. Determine the largest positive integer that
+cannot be written as a sum of one or more, not necessarily distinct, elements of $A_n$.
+\src{IMO shortlist 2014, N1}
+
+\item Solve $x^2-2y^2=\pm1$ completely and use the solutions to find all triangular numbers that
+are perfect squares; then show that the equation $x^2-dy^2=-1$ is solvable if and only if the
+continued fraction of $\sqrt d$ has odd period.
+
+\item Prove that the equation $y^2=x^3+7$ has no solution in integers, by adding $1$ to both sides
+and factoring modulo $4$; then prove that $y^2=x^3-2$ has only $x=3$, $y=\pm5$, using unique
+factorisation in $\mathbb Z[\sqrt{-2}]$.
+
+\item Call an integer $a$ \emph{friendly} if the equation $(m^2+n)(n^2+m)=a(m-n)^3$ has a solution
+in positive integers. Prove that there are at least $500$ friendly integers in
+$\{1,\dots,2012\}$, and decide whether $a=2$ is friendly. \src{IMO shortlist 2012, N4}
+
+\item Prove that the number of representations of $n$ as an ordered sum of four squares equals
+$8\sum_{d\mid n,\ 4\nmid d}d$ (Jacobi), at least in the case of odd $n$, by comparing the
+coefficients of $\theta(q)^4$; or, if the generating-function computation is too long, verify the
+formula for all $n\le20$ and prove the four-square theorem by descent.
+
+\item Prove that there are infinitely many positive integers that are not the sum of three cubes,
+and determine the obstruction modulo $9$; then explain why the same argument says nothing about
+the representability of $33$ and $42$.
+\end{enumerate}
+\end{document}

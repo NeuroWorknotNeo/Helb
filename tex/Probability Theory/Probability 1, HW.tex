@@ -1,0 +1,75 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.3}
+\frenchspacing
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\begin{document}
+\begin{center}
+{\huge\bfseries Probability -- 1\par}\vspace{1.07em}
+{\Large Expectation, indicators and linearity\par}\vspace{1.1em}
+{\Large Homework\par}\vspace{1.1em}
+{\foreignlanguage{russian}{11 сентября 2026 года}\par}
+\end{center}\vspace{0pt}
+
+\noindent\textbf{\underline{Theoretical minimum.}}\quad Linearity of expectation without independence;
+the indicator method; the tail formulas $\mathrm EX=\sum_{k\ge1}\Pr(X\ge k)$ and
+$\mathrm EX=\int_0^\infty\Pr(X\ge t)\,dt$; the law of total expectation and the recurrences it produces;
+stopping times and Wald's identity.
+
+\noindent\rule{\textwidth}{0.4pt}\par\vspace{4pt}
+\begin{enumerate}
+\item (ISTCiM 2022) Let $k<n$. Let $A$ be the event that $n$ tosses of a fair coin contain at least
+$k$ consecutive heads, and $B$ the event that they contain at least $k+1$ consecutive heads or at
+least $k+1$ consecutive tails. Which of the two events is more probable?
+
+\item (ISTCiM 2023) In a volleyball match each rally is served by the team that won the previous
+point, and the serving team wins a point with probability $p$. A set ends when a team has at least
+$25$ points and leads by at least $2$. The score is $24:22$ in favour of the team that won the last
+point. Find the expected number of further rallies.
+
+\item (\foreignlanguage{russian}{\textsc{Мехмат}}, 2014) A computer picks a number uniformly at random
+from $1$ to $N$. Two players guess in turn; each guess is a number not guessed before, and the
+computer answers whether the hidden number is equal, larger or smaller. The winner is the one who
+names it. Find the probability that the first player wins if both play optimally.
+
+\item (MIPT) Petya invents a non-negative random variable $\xi$ with $\mathrm E\xi=1$; then Vasya,
+knowing the distribution of $\xi$, invents his own non-negative $\eta$, independent of $\xi$, with
+$\mathrm E\eta=1$. For which least $p$ can Petya guarantee $\Pr(\eta\ge\xi)\le p$ whatever Vasya does?
+
+\item (\foreignlanguage{russian}{Сибирская} 2022) A basket holds $n$ balls, one white and the rest
+black. At each step two balls are drawn at random; if they differ in colour, both are repainted in one
+colour chosen with equal probability, and if they agree nothing happens. Find the expected number of
+steps until all balls have the same colour.
+
+\item (Putnam 2022) Let $X_1,X_2,\dots$ be independent uniform on $[0,1]$ and put
+$S=\sum_{i=1}^k\frac{X_i}{2^i}$, where $k$ is the least index with $X_k<X_{k+1}$ (and $k=\infty$ if
+there is none). Find $\mathrm ES$.
+
+\item Prove Wald's identity and use it, together with the fair-game martingale, to compute the expected
+number of tosses of a fair coin until a prescribed finite pattern appears; check the answer on the
+patterns HH and HT.
+
+\item Prove that the expected length of the cycle containing $1$ in a random permutation of
+$\{1,\dots,n\}$ equals $\frac{n+1}2$, and that the expected number of cycles is $H_n$; deduce the
+asymptotics of both.
+
+\item (Proposed problems) A stick is broken at two points chosen independently and uniformly, giving
+parts of lengths $r,s,t$. Show that the probability that there is a triangle whose sides are tangent
+to three mutually externally tangent circles of radii $r,s,t$ equals $\frac5{27}$.
+
+\item Prove the coupon collector estimate: the expected time to see all $n$ coupons equals $nH_n$,
+and after $m\ge n\ln n+cn$ draws the probability that some coupon is still missing is at most
+$e^{-c}$.
+\end{enumerate}
+\end{document}

@@ -1,0 +1,83 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\hyphenpenalty=10000\exhyphenpenalty=10000\emergencystretch=3em
+\newcommand{\head}[1]{\par\bigskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\rudate}{14 сентября 2026 года}
+\newcommand{\sheettitle}[3]{% title, subtitle, homework-flag (empty or "Homework")
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\foreignlanguage{russian}{\rudate}\par}
+  \end{center}\vspace{0.5em}}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1){\parfillskip=0pt\par}}
+\newcommand{\fl}[1]{\left\lfloor #1\right\rfloor}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\ord}{ord}
+\begin{document}
+\sheettitle{Number theory -- 4}{$p$-adic valuations, factorials and binomial coefficients}{}
+
+\head{Theoretical minimum.} One function --- the exponent of a prime in a number --- turns
+divisibility into arithmetic of integers, and most divisibility problems dissolve once it is written
+down.
+
+\head{Definitions.} For a prime $p$ and a non-zero integer $n$ let $v_p(n)$ be the exponent of $p$
+in the factorisation of $n$; extend it to rationals by $v_p(a/b)=v_p(a)-v_p(b)$. Then
+$v_p(xy)=v_p(x)+v_p(y)$ and $v_p(x+y)\geqslant\min(v_p(x),v_p(y))$ with equality when the two
+valuations differ --- the ultrametric inequality. Divisibility $a\mid b$ means
+$v_p(a)\leqslant v_p(b)$ for all $p$.
+
+\head{Theorem 1 (Legendre's formula).}
+\[
+v_p(n!)=\sum_{i\geqslant1}\fl{\frac{n}{p^i}}=\frac{n-s_p(n)}{p-1},
+\]
+where $s_p(n)$ is the sum of the base-$p$ digits of $n$. \emph{Proof:} count the multiples of $p$,
+of $p^2$, and so on; the closed form follows by summing the digit expansion.
+
+\head{Theorem 2 (Kummer).} $v_p\binom nk$ equals the number of carries when $k$ and $n-k$ are added
+in base $p$. \emph{Proof:} apply Legendre's formula three times and compare digit sums.
+\emph{Corollaries:} $\binom nk$ is odd for all $k$ exactly when $n=2^m-1$; the central binomial
+coefficient $\binom{2n}n$ has no prime factor in $(2n/3,n)$, which is Erd\H{o}s's step towards
+Bertrand's postulate.
+
+\head{Theorem 3 (lifting the exponent).} Let $p$ be an odd prime, $p\mid a-b$ and $p\nmid a,b$.
+Then $v_p(a^n-b^n)=v_p(a-b)+v_p(n)$. For $p=2$ and odd $a,b$ one has
+$v_2(a^n-b^n)=v_2(a-b)+v_2(a+b)+v_2(n)-1$ for even $n$. \emph{Proof:} factor
+$a^n-b^n=(a-b)(a^{n-1}+\dots+b^{n-1})$ and evaluate the second factor modulo $p$, then induct on
+$v_p(n)$.
+
+\head{Fact 1 (what is proved elsewhere).} Lucas' theorem for $\binom nk$ modulo $p$ is in
+Combinatorics -- 3; Stirling's formula and the asymptotics of $n!$ are in Limits -- 6; Chebyshev's
+bounds for $\pi(x)$ and the series over primes are in Series and infinite products -- 6. They are
+used here without proof.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Prove Legendre's formula in both forms and Kummer's theorem. Deduce: for which $n$ are all
+$\binom nk$ odd; the exponent of $2$ in $\binom{2n}n$; and that $\binom{2n}n$ is divisible by $n+1$.
+
+\item Prove the lifting-the-exponent lemma in both cases, and use it to find all $n$ for which
+$2^n\mid3^n-1$, and to determine $v_7(2^{2058}-1)$.
+
+\item Show that for each positive integer $n$,
+\[
+n!=\prod_{i=1}^{n}\lcm\{1,2,\dots,\lfloor n/i\rfloor\}.
+\]
+\src{Putnam}
+
+\item Is the set of positive integers $n$ such that $n!+1$ divides $(2012n)!$ finite or infinite?
+\src{IMC}
+
+\item Let $C=\{4,6,8,9,10,\dots\}$ be the set of composite positive integers, and for $n\in C$ let
+$a_n$ be the least positive integer $k$ with $n\mid k!$. Determine whether the series
+$\sum_{n\in C}\bigl(\frac{a_n}{n}\bigr)^n$ converges. \src{IMC}
+\end{enumerate}
+\end{document}

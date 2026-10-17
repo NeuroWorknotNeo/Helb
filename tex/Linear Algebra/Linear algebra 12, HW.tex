@@ -1,0 +1,110 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.3}
+\frenchspacing
+\hyphenpenalty=10000
+
+\newcommand{\head}[1]{\par\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\sheettitle}[4]{% title, subtitle, homework-flag, date
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{\dimexpr1.2em-1pt\relax minus 3.6pt}
+  {\Large #2\par}\vspace{\dimexpr1em+1pt\relax minus 1.2pt}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{\dimexpr1.15em-1pt\relax minus 3.6pt}\fi
+  {\foreignlanguage{russian}{#4}\par}
+  \end{center}\vspace{0.5pt minus 1.2pt}}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1){\parfillskip=0pt\par}}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\adj}{adj}
+\newcommand{\T}{\mathsf T}
+\DeclareMathOperator{\rank}{rank}
+\begin{document}
+\sheettitle{Linear algebra -- 12}{Mixed problems: commutators, traces and the numerical range}{Homework}{12 сентября 2026 года}
+
+\head{Theoretical minimum.} The trace form $\tr(XY^\T)$ turns the space of matrices into a
+Euclidean space, and a hypothesis quantified over all $X$ is a statement about orthogonality in
+it. A matrix is a commutator exactly when its trace vanishes, so taking traces is the standard
+way to destroy commutators; conversely an identity involving $AB-BA$ usually forces nilpotency
+rather than vanishing. Schur's theorem triangularises unitarily and is the right opening move
+whenever a spectral hypothesis meets an inequality. The numerical range is convex and contains
+the spectrum. For real matrices, non-real eigenvalues come in conjugate pairs, which is why
+determinants of real matrices satisfying algebraic identities are so often forced to be
+non-negative. And when nothing else works: apply the identity to an eigenvector, or restrict to a
+$2\times2$ block, or read the whole hypothesis as a linear map on $M_n$.
+
+\par\vspace{-1pt}\noindent\rule{\linewidth}{0.4pt}\par\vspace{7pt}
+
+\begin{enumerate}
+\item (AKHIMO 2018) Let $n\geqslant2$ be an integer and denote by $A_1,\dots,A_n\in M_2(\mathbb C)$
+all solutions of the equation $X^n=\begin{pmatrix}2&3\\4&6\end{pmatrix}$. Prove that
+$\sum_{k=1}^n\tr A_k=0$.
+
+\item (AKHIMO 2022) Let $A,B,C\in M_n(\mathbb R)$ be skew-symmetric matrices with
+$\det(A^2+B^2+C^2)=0$. Prove that $\det(AP+BQ+CR)=0$ for every triple
+$P,Q,R\in M_n(\mathbb R)$.
+
+\item (SEEMOUS 2025) Let $A$ be an $n\times n$ matrix with strictly positive entries and let
+$u,v\in\mathbb R^n$ have strictly positive entries with $Au=v$ and $Av=u$. Prove that $u=v$.
+
+\item (SEEMOUS 2024) Let $A,B\in M_n(\mathbb R)$ be symmetric with non-negative eigenvalues. Prove
+that $A^3+B^3=(A+B)^3$ if and only if $AB=O_n$.
+
+\item (SEEMOUS 2023) Prove that if $A$ and $B$ are complex $n\times n$ matrices satisfying
+\[
+A=AB-BA+A^2B-2ABA+BA^2+A^2BA-ABA^2,
+\]
+then $\det A=0$.
+
+\item (SEEMOUS 2021) Let $n\geqslant2$ and let $A\in M_n(\mathbb R)$ satisfy $A^2=-E$. If
+$B\in M_n(\mathbb R)$ and $AB=BA$, prove that $\det B\geqslant0$.
+
+\item (SEEMOUS 2017) Let $A=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in M_2(\mathbb R)$ satisfy
+$a^2+b^2+c^2+d^2<\frac15$. Show that $E+A$ is invertible.
+
+\item (SEEMOUS 2016) Let $A_1,\dots,A_k\in M_n(\mathbb R)$ be idempotent. Prove that
+\[
+\sum_{i=1}^kN(A_i)\geqslant\rank\Bigl(E-\prod_{i=1}^kA_i\Bigr),\qquad\text{where }
+N(A_i)=n-\rank A_i.
+\]
+
+\item (AKHIMO 2022) Let $A=\operatorname{diag}(\lambda_1,\dots,\lambda_n)$ with real $\lambda_i$.
+Prove that there exist a unitary matrix $U$ and a real number $\lambda$ such that
+$|AU-UA|\geqslant|A-\lambda E|$, where $|B|=\sqrt{B^*B}$ and $X\geqslant Y$ means that $X-Y$ is
+positive semidefinite.
+
+\item (SEEMOUS 2015) For an integer $n>2$ let $A,B,C,D\in M_n(\mathbb R)$ satisfy $AC-BD=E$ and
+$AD+BC=O$. Prove that
+\begin{enumerate}[label=\alph*),align=left]
+\item $CA-DB=E$ and $DA+CB=O$;
+\item $\det(AC)\geqslant0$ and $(-1)^n\det(BD)\geqslant0$.
+\end{enumerate}
+
+\item (IMC) Let $A,B\in M_n(\mathbb C)$ satisfy $A^2B+BA^2=2ABA$. Prove that $(AB-BA)^k=O$ for
+some positive integer $k$.
+
+\item (VJIMC 2010) Let $A,B$ be complex $2\times2$ matrices with $AB-BA=B^2$. Prove that $AB=BA$.
+
+\item (IMC) Let $A,B$ be real $n\times n$ matrices with $\rank(AB-BA+E)=1$. Prove that
+$\tr(ABAB)-\tr(A^2B^2)=\frac12n(n-1)$.
+
+\item (IMC) Let $A,B,C$ be real square matrices of the same size with $A$ invertible. Prove that
+if $(A-B)C=BA^{-1}$, then $C(A-B)=A^{-1}B$.
+
+\item Prove the Toeplitz--Hausdorff theorem: the numerical range $W(A)$ is convex. Deduce its real
+version: for real symmetric $A,B$ and $n\geqslant3$ the set
+$\{(\langle Ax,x\rangle,\langle Bx,x\rangle):\|x\|=1\}$ is convex.
+
+\item (after IMC 2025 shortlist) Let $A,B$ be real $n\times n$ matrices with
+$\tr\bigl((AB)^2\bigr)=\tr(A^2B^2)$.
+\begin{enumerate}[label=\alph*),align=left]
+\item Prove that if all eigenvalues of $AB-BA$ are real, then $AB-BA$ is nilpotent.
+\item Show that for $n=2$ the assumption on the eigenvalues can be dropped, but for every
+$n\geqslant3$ it cannot.
+\end{enumerate}
+\end{enumerate}
+\end{document}

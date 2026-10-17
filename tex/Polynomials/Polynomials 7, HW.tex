@@ -1,0 +1,70 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\sheettitle}[4]{% title, subtitle, homework-flag (empty or "Homework"), date
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\foreignlanguage{russian}{#4}\par}
+  \end{center}\vspace{0.5em}}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1){\parfillskip=0pt\par}}
+\begin{document}
+\sheettitle{Polynomials -- 7}{Interpolation and finite differences}{Homework}{8 сентября 2026 года}
+
+\head{Theoretical minimum.} Lagrange's formula and the Vandermonde determinant; the difference
+operator $\Delta$ and the constancy of the $n$-th difference; the alternating sum identity;
+Newton's form with binomial coefficients; integer-valued polynomials; divided differences for
+unequal nodes.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Prove that a polynomial taking integer values at all integers is an integer combination of
+the binomial coefficients $\binom xk$, and give an example of such a polynomial with non-integer
+coefficients of every degree.
+
+\item (Putnam 2007) Let $k$ be a positive integer. Prove that there are polynomials
+$P_0(n),\dots,P_{k-1}(n)$, possibly depending on $k$, such that for every integer $n$
+$\bigl\lfloor\frac nk\bigr\rfloor^k=P_0(n)+P_1(n)\bigl\lfloor\frac nk\bigr\rfloor+\dots+P_{k-1}(n)\bigl\lfloor\frac nk\bigr\rfloor^{k-1}$.
+
+\item (\foreignlanguage{russian}{Высшая лига} 2012) Define polynomials by $g_0(x)=1$ and
+$g_{n+1}(x)=(x+x^{-1})g_n(x)$ with the term containing $x^{-1}$ omitted; for instance $g_1=x$ and
+$g_2=1+x^2$. Find $g_{15}(0)$ and $g_{16}(0)$.
+
+\item Let $f$ be the polynomial of degree $n$ with $f(k)=2^k$ for $k=0,1,\dots,n$. Compute
+$f(n+1)$ and $f(n+2)$, and explain the answer through the finite differences of the sequence $2^k$.
+
+\item (Karasev 5.12) Let $P$ be a polynomial of degree $n$ with integer coefficients, not
+identically zero. Prove that $|P(x)|\ge e^{-n}$ for some $x\in[0,1]$.
+
+\item Prove Newton's forward difference formula and use it to evaluate $\sum_{k=1}^mk^3$ and
+$\sum_{k=1}^mk(k+1)(k+2)$ without induction.
+
+\item Let $P\in\mathbb Z[x]$ take the value $7$ at four distinct integers. Prove that $P(k)\ne14$
+for every integer $k$, and find the general statement behind this.
+
+\item Prove the Vandermonde determinant formula and deduce that the interpolating polynomial
+through $n+1$ nodes in $[0,1]$ with pairwise distances at least $\delta>0$ has coefficients bounded
+by a constant depending only on $n$ and $\delta$ times the maximum of the values.
+
+\item Prove that if $\deg P\le n$ and $|P(k)|\le1$ for $k=0,1,\dots,n$, then $|P(x)|\le2^n$ for all
+$x\in[0,n]$, and show that the exponential growth cannot be avoided.
+
+\item Prove the divided difference formula
+$P[x_0,\dots,x_k]=\sum_i\frac{P(x_i)}{\prod_{j\ne i}(x_i-x_j)}$ and Newton's interpolation formula
+for unequal nodes; deduce that the divided difference of order $n$ of a polynomial of degree $n$
+equals its leading coefficient.
+\end{enumerate}
+\end{document}

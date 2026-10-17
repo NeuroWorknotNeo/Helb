@@ -1,0 +1,72 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.3}
+\frenchspacing
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\begin{document}
+\begin{center}
+{\huge\bfseries Probability -- 2\par}\vspace{1.07em}
+{\Large Geometric probability and random points\par}\vspace{1.1em}
+{\Large Homework\par}\vspace{1.1em}
+{\foreignlanguage{russian}{11 сентября 2026 года}\par}
+\end{center}\vspace{0pt}
+
+\noindent\textbf{\underline{Theoretical minimum.}}\quad Uniform distribution and probability as a ratio
+of measures; conditioning to reduce dimension; exchangeability and counting cyclic orders; the
+Crofton measure on lines and Cauchy's formula for the perimeter; linearity of expectation applied to
+indicators of ``a given point is a vertex of the hull''.
+
+\noindent\rule{\textwidth}{0.4pt}\par\vspace{4pt}
+\begin{enumerate}
+\item (Putnam 2021) The plane is tiled by an infinite checkerboard of unit squares, and another unit
+square is dropped at random, with position and orientation independent of the tiling. What is the
+probability that it covers no corner of the tiling?
+
+\item (\foreignlanguage{russian}{Высшая лига} 2023) A point $A$ is chosen uniformly inside the unit
+cube in $\mathbb R^3$. Find the expected distance from $A$ to the surface of the cube.
+
+\item (Putnam 2005) Let $n\ge4$ and let $P_1,\dots,P_n$ be chosen independently and uniformly on a
+circle. What is the probability that at least one of the vertex angles of the convex polygon
+$P_1\dots P_n$ is acute?
+
+\item (\foreignlanguage{russian}{Сибирская} 2024) Points $A$, $B$ and $O$ are chosen independently on
+a circle of radius $R$. Let $AB$ be the shorter of the two arcs determined by $A$ and $B$, and let
+$C_1C_2$ be the arc of the given circle inside the circle of radius $r=\frac{\pi R}2$ centred at
+$O$ (so $OC_1=OC_2=r$). Find the probability that the arcs $AB$ and $C_1C_2$ do not meet.
+
+\item (Proposed problems) Show that the probability that a point chosen uniformly in $[0,1]^3$ lies at
+distance at most $\sqrt2$ from the origin equals $\frac{(15-8\sqrt2)\pi}{12}$, and deduce that
+$\int_0^{\pi/4}\frac{\cos^{3/2}2\theta}{\cos^3\theta}\,d\theta=\frac{(4\sqrt2-5)\pi}4$.
+
+\item (\foreignlanguage{russian}{\textsc{Мехмат}}, 2026) In $\mathbb R^6$ let $A$ and $C$ be points
+and $B$ the midpoint of $AC$. Consider the spheres $S_A,S_B,S_C$ with these centres and radius $AB$.
+Choose three points on $S_A$, one on $S_B$ and two on $S_C$, independently and uniformly with respect
+to surface measure. What is the probability that the hyperplane through these six points meets the
+segment $AC$?
+
+\item Solve Sylvester's four-point problem: compute the probability that four points chosen uniformly
+in a triangle form a convex quadrilateral, and do the same for a disc.
+
+\item (IMS 2022) Let $\Delta$ be the set of $(p_1,p_2,p_3)$ with non-negative coordinates summing to
+one, and let $v_1,v_2,v_3\in\mathbb R^3$ with $v_1$ of maximal Euclidean length. If a point of
+$\Delta$ is chosen uniformly at random, prove that
+$\Pr\bigl(\|p_1v_1+p_2v_2+p_3v_3\|\le c\|v_1\|\bigr)\le4c$ for every $c\in(0,\frac14)$.
+
+\item Prove that the expected area of the convex hull of $n$ points chosen uniformly in a convex body
+$K\subset\mathbb R^2$ tends to the area of $K$, and compare the rate for a disc and for a polygon.
+
+\item Prove that for $n$ points chosen uniformly on a circle the probability that they all lie in
+some semicircle equals $n2^{1-n}$, and find the analogue for a half-space in $\mathbb R^d$.
+\end{enumerate}
+\end{document}

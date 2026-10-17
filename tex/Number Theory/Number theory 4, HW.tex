@@ -1,0 +1,80 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\emergencystretch=3em
+\newcommand{\head}[1]{\par\bigskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\rudate}{14 сентября 2026 года}
+\newcommand{\sheettitle}[3]{% title, subtitle, homework-flag (empty or "Homework")
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\foreignlanguage{russian}{\rudate}\par}
+  \end{center}\vspace{0.5em}}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1){\parfillskip=0pt\par}}
+\newcommand{\fl}[1]{\left\lfloor #1\right\rfloor}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\ord}{ord}
+\begin{document}
+\sheettitle{Number theory -- 4}{$p$-adic valuations, factorials and binomial coefficients}{Homework}
+
+\head{Theoretical minimum.} The valuation $v_p(n)$ is the exponent of $p$ in $n$; it is additive on
+products and satisfies $v_p(x+y)\geqslant\min(v_p(x),v_p(y))$ with equality when the valuations
+differ. Legendre's formula gives $v_p(n!)=\sum_{i\geqslant1}\lfloor n/p^i\rfloor=(n-s_p(n))/(p-1)$
+with $s_p$ the digit sum in base $p$. Kummer's theorem says $v_p\binom nk$ is the number of carries
+when $k$ and $n-k$ are added in base $p$; hence all $\binom nk$ are odd exactly for $n=2^m-1$, and
+$\binom{2n}n$ has no prime factor between $2n/3$ and $n$. Lifting the exponent: for odd $p$ with
+$p\mid a-b$ and $p\nmid a$, $v_p(a^n-b^n)=v_p(a-b)+v_p(n)$; for $p=2$ and even $n$ there is the
+extra term $v_2(a+b)-1$. Lucas' theorem is in Combinatorics -- 3, Stirling's formula in
+Limits -- 6, Chebyshev's bounds in Series and infinite products -- 6.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Prove Erd\H{o}s's estimate $\prod_{p\leqslant n}p<4^n$ by induction using $\binom{2m+1}{m}$,
+and combine it with Kummer's theorem to prove Bertrand's postulate: for every $n\geqslant1$ there is
+a prime between $n$ and $2n$.
+
+\item Prove that $\binom{2n}n\mid\lcm(1,2,\dots,2n)$, that $(n+1)\binom nk\mid\lcm(1,\dots,n+1)$ for
+$0\leqslant k\leqslant n$, and that $\lcm(1,\dots,2m)\mid\binom{2m}m\lcm(1,\dots,m)$; deduce the
+Chebyshev-type bounds $2^n\leqslant\lcm(1,2,\dots,n+1)\leqslant4^n$ for $n\geqslant1$, and a lower
+bound for the number of primes up to $2n$.
+
+\item Determine all positive integers $n$ such that $v_2\bigl(\binom{2n}n\bigr)=1$, deduce that
+$\binom{2n}n$ can be squarefree only when $n$ is a power of $2$, and find all $n\leqslant100$ for
+which $\binom{2n}n$ is squarefree.
+
+\item Let $p$ be an odd prime. Prove that $v_p\bigl(\sum_{k=1}^{p-1}\frac1k\bigr)\geqslant2$ and
+$v_p\bigl(\sum_{k=1}^{p-1}\frac1{k^2}\bigr)\geqslant1$ for $p\geqslant5$, and compute both
+valuations for $p=3$.
+
+\item Let $a_k=\lfloor n^k/k\rfloor$ for a fixed integer $n>1$. Prove that infinitely many terms of
+the sequence $(a_k)_{k\geqslant1}$ are odd. \src{IMO shortlist 2014, N4}
+
+\item For each positive integer $k$ let $t(k)$ be the largest odd divisor of $k$. Determine all
+positive integers $a$ for which there exists a positive integer $n$ such that all the differences
+$t(n+a)-t(n)$, $t(n+a+1)-t(n+1)$, \dots, $t(n+2a-1)-t(n+a-1)$ are divisible by $4$.
+\src{IMO shortlist 2011, N4}
+
+\item For $d>0$ let $f(d)$ be the smallest positive integer with exactly $d$ divisors. Prove that
+$f(2^{k+1})$ is divisible by $f(2^k)$ for every $k$. \src{IMO shortlist 2011, N1}
+
+\item Prove that $\binom{2n}n$ is never a perfect power for $n>1$, using Bertrand's postulate and
+Kummer's theorem.
+
+\item Prove that for every $n$ the number $\lcm\bigl(\binom n0,\binom n1,\dots,\binom nn\bigr)$
+equals $\lcm(1,2,\dots,n+1)/(n+1)$, and deduce the identity $\sum_k\frac{(-1)^k}{\binom nk}$ in
+closed form.
+
+\item Let $p$ be a prime and let $n$ be written in base $p$. Prove that the exponent of $p$ in the
+multinomial coefficient $\frac{n!}{k_1!\cdots k_m!}$ equals the number of carries in the base-$p$
+addition of $k_1,\dots,k_m$, and use it to determine when a multinomial coefficient is coprime to
+$p$.
+\end{enumerate}
+\end{document}

@@ -1,0 +1,85 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\sheettitle}[4]{% title, subtitle, homework-flag (empty or "Homework"), date
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\foreignlanguage{russian}{#4}\par}
+  \end{center}\vspace{0.5em}}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1){\parfillskip=0pt\par}}
+\emergencystretch=1.5em
+\begin{document}
+\sheettitle{Number theory -- 6}{Arithmetic functions and Dirichlet convolution}{Homework}{14 сентября 2026 года}
+
+\head{Theoretical minimum.} An arithmetic function is multiplicative if $f(mn)=f(m)f(n)$ for
+coprime arguments and $f(1)=1$; the basic ones are $\varphi$, $d$, $\sigma$, $\mu$ and
+$\mathbf 1$. Under the Dirichlet convolution $(f*g)(n)=\sum_{d\mid n}f(d)g(n/d)$ they form a
+commutative ring with identity $[n=1]$, invertible elements are those with $f(1)\ne0$, and the
+convolution of multiplicative functions is multiplicative. Since $\mu{*}\mathbf 1=\varepsilon$, one
+has M\"obius inversion: $g=f*\mathbf 1$ if and only if $f=g*\mu$. Standard identities:
+$\mathbf 1{*}\mathbf 1=d$, $\mathrm{id}{*}\mathbf 1=\sigma$, $\varphi{*}\mathbf 1=\mathrm{id}$, whence
+$\varphi(n)=n\prod_{p\mid n}(1-1/p)$. Dirichlet series turn convolution into multiplication, giving
+$\sum\mu(n)n^{-s}=1/\zeta(s)$, $\sum d(n)n^{-s}=\zeta(s)^2$, $\sum\varphi(n)n^{-s}=\zeta(s-1)/\zeta(s)$;
+convergence and summation belong to Series and infinite products -- 5 and -- 6. Average orders:
+$\sum_{n\le x}d(n)\sim x\ln x$, $\sum_{n\le x}\varphi(n)\sim\frac3{\pi^2}x^2$.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Prove that $\sum_{d\mid n}\mu(d)^2=2^{\omega(n)}$, that
+$\sum_{d\mid n}\frac{\mu(d)}d=\frac{\varphi(n)}n$ and that $\sum_{d\mid n}\mu(d)\ln d=-\Lambda(n)$,
+where $\Lambda$ is the von Mangoldt function; then express $\Lambda$ as a convolution and read off
+the Dirichlet series $-\zeta'(s)/\zeta(s)$.
+
+\item Prove that the number of monic irreducible polynomials of degree $n$ over $\mathbb F_q$
+equals $\frac1n\sum_{d\mid n}\mu(d)q^{n/d}$, and deduce that this number is positive for every $n$
+and $q$. (The finite fields themselves are Polynomials -- 6.)
+
+\item Prove that the number of necklaces of $n$ beads in $k$ colours up to rotation equals
+$\frac1n\sum_{d\mid n}\varphi(d)k^{n/d}$, first by Burnside's lemma (Abstract algebra -- 4) and
+then by M\"obius inversion applied to the count of aperiodic words.
+
+\item Prove that $d(n)=O(n^\varepsilon)$ for every $\varepsilon>0$ while
+$\limsup\frac{\ln d(n)\,\ln\ln n}{\ln n}=\ln2$, and determine the maximal order of $\sigma(n)/n$.
+
+\item Prove that $\sum_{n\le x}\mu(n)/n$ is bounded, and explain what its tending to zero is
+equivalent to. Then prove the elementary identity
+$\sum_{n\le x}\lfloor x/n\rfloor=\sum_{n\le x}d(n)$ and use it for a second proof of the average
+order of $d$.
+
+\item Let $f$ be multiplicative. Prove that $f(n)\to0$ as $n\to\infty$ through the integers if and
+only if $f(p^k)\to0$ as the prime power $p^k\to\infty$, and classify the completely multiplicative
+$f$ with $|f(n)|=1$ for all $n$.
+
+\item For a non-negative integer $n$ define $\mathrm{rad}(n)=1$ for $n\in\{0,1\}$ and
+$\mathrm{rad}(n)=p_1p_2\cdots p_k$, the product of the distinct primes of $n$, otherwise. Find all
+polynomials $f$ with non-negative integer coefficients such that $\mathrm{rad}(f(n))$ divides
+$\mathrm{rad}(f(n^{\mathrm{rad}(n)}))$ for every non-negative integer $n$. (IMO shortlist 2012,
+N5)
+
+\item Prove that $\sum_{n\le x}\frac{\varphi(n)}n=\frac6{\pi^2}x+O(\ln x)$ and that the number of
+Farey fractions of order $N$ is $\frac3{\pi^2}N^2+O(N\ln N)$; relate the two computations.
+
+\item Prove that $\sigma(n)\varphi(n)<n^2<\sigma(n)\varphi(n)\cdot\frac{\pi^2}6$ for all $n>1$,
+and determine for which $n$ the ratio $n^2/(\sigma(n)\varphi(n))$ is closest to its extremes.
+
+\item Let $\nu$ be a positive irrational number and $m$ a positive integer. A pair $(a,b)$ of
+positive integers is \emph{good} if $a\lceil b\nu\rceil-b\lfloor a\nu\rfloor=m$, and a good pair
+$(a,b)$ is \emph{excellent} if neither of the pairs $(a-b,b)$ and $(a,b-a)$ is good. Prove that
+there are finitely many excellent pairs, and determine their number.
+\src{IMO shortlist 2013, N7}
+\end{enumerate}
+\end{document}

@@ -1,0 +1,79 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.3}
+\frenchspacing
+\hyphenpenalty=10000
+
+\newcommand{\head}[1]{\par\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\sheettitle}[4]{% title, subtitle, homework-flag, date
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{\dimexpr1.2em-1pt\relax minus 3.6pt}
+  {\Large #2\par}\vspace{\dimexpr1em+1pt\relax minus 1.2pt}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{\dimexpr1.15em-1pt\relax minus 3.6pt}\fi
+  {\foreignlanguage{russian}{#4}\par}
+  \end{center}\vspace{0.5pt minus 1.2pt}}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1){\parfillskip=0pt\par}}
+\DeclareMathOperator{\Var}{Var}
+\begin{document}
+\sheettitle{Inequalities -- 1}{The Cauchy--Bunyakovsky inequality as a technique}{Homework}{10 сентября 2026 года}
+
+\head{Theoretical minimum.} The discrete, integral and inner product forms and the proof through
+the discriminant of $\int(f-\lambda g)^2$; the equality case as proportionality; the Engel form
+$\sum a_i^2/b_i\geqslant(\sum a_i)^2/\sum b_i$; the choice of the splitting $h=fg$ dictated by the
+equality case; the Gram determinant.
+
+\par\vspace{-1pt}\noindent\rule{\linewidth}{0.4pt}\par\vspace{14pt}
+
+\begin{enumerate}
+\item (RMO 1997) Prove that
+$\int_{-1}^1f^2\geqslant\frac12\bigl(\int_{-1}^1f\bigr)^2+\frac32\bigl(\int_{-1}^1xf\bigr)^2$ for
+every continuous $f$, and identify the functions for which equality holds.
+
+\item (Putnam 2004) Let $f(x,y)$ be continuous on the unit square. Show that
+$\int_0^1\bigl(\int_0^1f(x,y)\,dx\bigr)^2dy+\int_0^1\bigl(\int_0^1f(x,y)\,dy\bigr)^2dx\leqslant
+\bigl(\int_0^1\!\!\int_0^1f\bigr)^2+\int_0^1\!\!\int_0^1f^2$.
+
+\item (Putnam 2013) For continuous $f$ on $[0,1]$ put $\mu(f)=\int_0^1f$,
+$\Var(f)=\int_0^1(f-\mu(f))^2$ and $M(f)=\max_{[0,1]}|f|$. Show that
+$\Var(fg)\leqslant2\Var(f)M(g)^2+2\Var(g)M(f)^2$.
+
+\item (RMO 2008) Let $f\in C^1[0,1]$ with $f\bigl(\frac12\bigr)=0$. Prove that
+$\int_0^1(f')^2\geqslant12\bigl(\int_0^1f\bigr)^2$.
+
+\item (RMO 2025) Let $f$ be differentiable on $[0,1]$ with integrable derivative and $f(1)=0$.
+Prove that $\int_0^1(xf'(x))^2dx\geqslant12\bigl(\int_0^1xf(x)\,dx\bigr)^2$, and compare the
+weight with the previous problem.
+
+\item (IMC) Let $(x_i)$ be a decreasing sequence of positive numbers.
+\begin{enumerate}[label=\alph*),align=left]
+\item Show that $\bigl(\sum_{i=1}^nx_i^2\bigr)^{1/2}\leqslant\sum_{i=1}^n\frac{x_i}{\sqrt i}$.
+\item Show that there is a constant $C$ with
+$\sum_{m=1}^\infty\frac1{\sqrt m}\bigl(\sum_{i=m}^\infty x_i^2\bigr)^{1/2}\leqslant
+C\sum_{i=1}^\infty x_i$.
+\end{enumerate}
+
+\item (\foreignlanguage{russian}{Петрополитана} 2024) Prove that
+$\int_0^1e^f\cdot\int_0^1e^{-f}\geqslant1+\int_0^1f^2-\bigl(\int_0^1f\bigr)^2$ for every
+continuous $f\colon[0,1]\to\mathbb R$.
+
+\item (\foreignlanguage{russian}{ФКН, весна} 2023) Let $f\colon\mathbb R\to\mathbb R_+$ be
+continuous with period $T$. Prove that $\int_0^T\frac{f(x)}{f(x+\alpha)}\,dx\geqslant T$ for every
+real $\alpha$.
+
+\item Prove that the Gram determinant of any finite family of vectors in an inner product space
+is non-negative, deduce the Cauchy--Bunyakovsky inequality from the case of two vectors, and
+interpret the general case as a statement about volumes.
+
+\item (SEEMOUS 2018) Let $f\colon[0,1]\to(0,1)$ be Riemann integrable. Show that
+\[
+\frac{2\int_0^1xf^2(x)\,dx}{\int_0^1\bigl(f^2(x)+1\bigr)\,dx}<
+\frac{\int_0^1f^2(x)\,dx}{\int_0^1f(x)\,dx}.
+\]
+\end{enumerate}
+\end{document}

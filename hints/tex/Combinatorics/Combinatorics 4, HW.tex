@@ -88,5 +88,4 @@ For the improvement colour the graph properly with the minimum number \(k\) of c
 Split the \(k\) colour classes at random into two groups of sizes \(\lfloor k/2\rfloor\) and \(\lceil k/2\rceil\). An edge joins two different classes, and it is cut with probability \(\frac{\lfloor k/2\rfloor\lceil k/2\rceil}{\binom k2}\), which equals \(\frac12+\frac1{2(k-1)}\) for even \(k\) and \(\frac12+\frac1{2k}\) for odd \(k\).
 \hint{4}
 With \(k\le\frac12+\sqrt{2m+\frac14}\) this gives a cut of at least \(\frac m2+\sqrt{\frac m8+\frac1{64}}-\frac18\) (Edwards' bound), which is tight for complete graphs \(K_{2t+1}\).
-\note{As stated, the bound \(m/2+\sqrt{m/8}\) is false: the triangle has \(m=3\) and a maximum cut of \(2\lt1.5+\sqrt{3/8}\approx2.11\). The argument above proves \(\frac m2+\sqrt{\frac m8+\frac1{64}}-\frac18\ge\frac m2+\sqrt{\frac m8}-\frac18\); for even \(k\) it does give \(\frac m2+\sqrt{\frac m8}\).}
 \end{document}

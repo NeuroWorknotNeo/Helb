@@ -1,0 +1,89 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\sheettitle}[3]{% title, subtitle, homework-flag (empty or "Homework")
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\foreignlanguage{russian}{13 сентября 2026 года}\par}
+  \end{center}\vspace{0.5em}}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1){\parfillskip=0pt\par}}
+\newcommand{\ru}[1]{\foreignlanguage{russian}{#1}}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\F}{\mathbb F}
+\DeclareMathOperator{\ZZ}{Z}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\chr}{char}
+\begin{document}
+\sheettitle{Abstract algebra -- 2}{Finite rings and division rings}{Homework}
+
+\head{Theoretical minimum.} A ring is an abelian group with an associative multiplication
+distributing over addition; a unit is an invertible element, a zero divisor kills a non-zero
+element, $a$ is nilpotent if $a^k=0$ and idempotent if $a^2=a$; the characteristic is the least
+$n>0$ with $n\cdot1=0$. In a \emph{finite} ring the maps $x\mapsto ax$ and $x\mapsto xa$ are
+injective exactly when they are surjective, so every element is either a unit or a two-sided
+zero divisor, and a finite ring without zero divisors is a division ring; by Wedderburn's
+theorem a finite division ring is commutative, hence a field. If $\chr A=p$ then $(A,+)$ is an
+$\F_p$-vector space and $|A|=p^k$, and in the commutative case $x\mapsto x^p$ is an
+endomorphism. A Boolean ring ($x^2=x$) is commutative of characteristic $2$; more generally an
+identity $x^n=x$ forces commutativity (Jacobson). If $a$ is nilpotent then $1-a$ is a unit;
+$1-ab$ is a unit if and only if $1-ba$ is, by the identity $(1-ba)^{-1}=1+b(1-ab)^{-1}a$.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Prove that in an arbitrary ring $1-ab$ is invertible if and only if $1-ba$ is, and verify
+the explicit formula for the inverse. Deduce that $ab$ is nilpotent if and only if $ba$ is, and
+give an example showing that the sum of two nilpotent elements of a non-commutative ring need
+not be nilpotent.
+
+\item Let $R$ be a finite commutative ring. Prove that (a) the set of nilpotent elements is
+closed under addition and multiplication; (b) the number of nilpotent elements divides the
+number of zero divisors (here $0$ is also counted as a zero divisor). \src{\ru{Румыния, 2009}}
+
+\item Let $R$ be a ring of characteristic zero (meaning that $nx=0$ with $n\in\Z\setminus\{0\}$
+implies $x=0$), not necessarily commutative, and let $e,f,g$ be idempotents with $e+f+g=0$. Show that $e=f=g=0$. \src{IMC}
+
+\item Let $R$ be a unital ring, $n\ge2$, and let $x\in R$ satisfy $x^n=x$. Prove that for every
+$m\ge1$ there is a unit $u_m\in R^*$ with $x^m=u_mx$. \src{IMC 2025, shortlist}
+
+\item Determine all non-trivial finite rings with a unit element in which the sum of all
+elements is invertible. \src{\ru{Румыния, 2021}}
+
+\item Determine all rings $(A,+,\cdot)$ such that $a^2\in\{0,1\}$ for every $a\in A$.
+\src{\ru{Румыния, 2022}}
+
+\item Let $(K,+,\cdot)$ be a division ring in which $x^2y=yx^2$ for all $x,y\in K$. Prove that
+$K$ is commutative. \src{\ru{Румыния, 2024}}
+
+\item Let $A$ be a ring with $2n+1$ elements and let
+$M=\{k\in\Z:k\ge2,\ x^k=x\text{ for all }x\in A\}$. Prove that $A$ is a field if and only if
+$M$ is non-empty and its smallest element equals $2n+1$. \src{\ru{Румыния, 2005}}
+
+\item Prove that the multiplicative group of a finite field with $q$ elements is cyclic. Deduce
+that for every divisor $d$ of $q-1$ the equation $x^d=1$ has exactly $d$ solutions, and that the
+sum of all elements of a finite field is zero except for the field with two elements. (The
+equivalence ``$1+1=0$ if and only if $f(X^2)$ is reducible for all $\deg f>1$'' is
+Polynomials -- 6, homework 4.)
+
+\item Let $A$ be a ring in which every element is a product of two idempotent elements. Show
+that (a) $1$ is the only unit of $A$; (b) $A$ is Boolean. \src{\ru{Румыния, 2015}}
+\end{enumerate}
+\end{document}

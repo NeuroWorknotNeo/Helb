@@ -1,0 +1,92 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\sheettitle}[3]{% title, subtitle, homework-flag (empty or "Homework")
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\foreignlanguage{russian}{13 сентября 2026 года}\par}
+  \end{center}\vspace{0.5em}}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1){\parfillskip=0pt\par}}
+\newcommand{\ru}[1]{\foreignlanguage{russian}{#1}}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\F}{\mathbb F}
+\DeclareMathOperator{\ZZ}{Z}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\chr}{char}
+\begin{document}
+\sheettitle{Abstract algebra -- 1}{Finite groups: counting}{Homework}
+
+\head{Theoretical minimum.} A group is a set with an associative operation, a neutral element
+and inverses; the order $\ord(x)$ of an element is the least $k>0$ with $x^k=e$; the index
+$[G:H]$ is the number of cosets $xH$. Lagrange's theorem says that the cosets partition the
+group, so $|G|=[G:H]\,|H|$, whence $\ord(x)$ divides $|G|$ and $x^{|G|}=e$. Cauchy's theorem
+says that if a prime $p$ divides $|G|$ then $G$ has an element of order $p$; for $p=2$ it
+follows from the count $\#\{x:x^2=e\}\equiv|G|\pmod 2$, obtained by pairing $x$ with $x^{-1}$.
+The class equation $|G|=|\ZZ(G)|+\sum[G:C(x_i)]$ shows that a group of order $p^k$ has a
+non-trivial centre; if $G/\ZZ(G)$ is cyclic then $G$ is abelian. Every finite abelian group is
+a direct sum of cyclic groups $\Z/d_1\oplus\dots\oplus\Z/d_k$ with $d_1\mid\dots\mid d_k$, and
+$d_k$ is the exponent; a group with $x^2=e$ for all $x$ is isomorphic to $(\Z/2)^k$.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Let $r,s,t$ be pairwise coprime positive integers and let $a,b$ be elements of a
+commutative group with $a^r=b^s=(ab)^t=e$. Prove that $a=b=e$. Does the same conclusion hold in
+an arbitrary non-commutative group? \src{IMC}
+
+\item Prove that a group $G$ in which exactly two elements other than the identity commute with
+each other is isomorphic to $\Z/3\Z$ or to $S_3$. \src{\ru{Румыния, 1996}}
+
+\item Let $G$ be a finite group of order $n$, let $H=\{x\in G:x^2=e\}$ and $p=|H|$. Prove that
+(a) $|H\cap xH|\ge2p-n$ for every $x\in G$; (b) if $p>\frac{3n}4$ then $G$ is commutative;
+(c) if $\frac n2<p\le\frac{3n}4$ then $G$ is not commutative. \src{\ru{Румыния, 2010}}
+
+\item For a finite group $G$ let $n(G)$ be the number of its elements and $s(G)$ the number of
+its subgroups. Decide whether each of the following is true: (a) for every $a>0$ there is a
+finite group with $n(G)/s(G)<a$; (b) for every $a>0$ there is a finite group with
+$n(G)/s(G)>a$. \src{\ru{Румыния, 1999}}
+
+\item Let $G$ be a group with $m$ elements and $H$ a proper subgroup with $n\ge2$ elements. Put
+$H^x=\{xhx^{-1}:h\in H\}$ and assume $H^x\cap H=\{e\}$ for every $x\in G\setminus H$. Prove that
+$H^x=H^y$ if and only if $x^{-1}y\in H$, and find $\bigl|\bigcup_{x\in G}H^x\bigr|$ as a
+function of $m$ and $n$. \src{\ru{Румыния, 2005}}
+
+\item Let $*$ be a commutative and associative binary operation on a set $S$ such that for all
+$x,y\in S$ there exists $z\in S$ with $x*z=y$. Show that $a*c=b*c$ implies $a=b$.
+\src{Putnam 2012, A2}
+
+\item Prove that if $G/\ZZ(G)$ is cyclic then $G$ is abelian, and deduce that every group of
+order $p^2$ is abelian. Then show that for every prime $p$ there is a non-abelian group of
+order $p^3$, so the statement is sharp.
+
+\item Let $\pi\colon G\to Q$ be a surjective homomorphism of finite groups. Prove that there
+exists a subgroup $H\le G$ such that $\pi(H)=Q$ and the set of primes dividing $|H|$ coincides
+with the set of primes dividing $|Q|$. \src{IMC 2025, shortlist}
+
+\item Let $n$ be a squarefree positive integer and $G$ a group of order $n$. Let $d$ be the
+largest order of an element of $G$ and $N$ the number of elements of order $d$. Prove that
+(a) $N$ is divisible by $n/d$; (b) $N^2\ge\varphi(n)$. \src{\ru{Румыния, 2026}}
+
+\item Let $G$ be a finite group with the property that for every automorphism $f$ of $G$ there
+exists $m\in\mathbb N$ with $f(x)=x^m$ for all $x\in G$. Prove that $G$ is commutative.
+\src{\ru{Румыния, 2017}}
+\end{enumerate}
+\end{document}

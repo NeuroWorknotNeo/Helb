@@ -49,8 +49,7 @@
 \hint{3} Expressing the $v_i$ in an orthonormal basis of their span, $G=V^TV$ and $\det G=(\det V)^2$ when the dimension is $m$: $\det G$ is the squared $m$-dimensional volume of the parallelepiped spanned by the $v_i$ (zero iff they are dependent).
 
 \problem{10}
-\note{As printed (with products) the inequality is false: for $f\equiv c\in(0,1)$ it becomes $c^2(c^2+1)<c^3$. The original SEEMOUS 2018 problem has quotients: $\dfrac{2\int_0^1xf^2}{\int_0^1(f^2+1)}<\dfrac{\int_0^1f^2}{\int_0^1f}$, i.e.\ $2\int xf^2\cdot\int f<\int f^2\cdot\int(f^2+1)$. The hints follow this version.}
-\hint{1} Compare the factors separately: which of $\int xf^2$ and $\int f^2$ is larger, and which of $2\int f$ and $\int(1+f^2)$?
+\hint{1} All four integrals are positive, so clear the denominators: you need $2\int_0^1xf^2\cdot\int_0^1f<\int_0^1f^2\cdot\int_0^1(f^2+1)$. Compare the factors separately: which of $\int xf^2$ and $\int f^2$ is larger, and which of $2\int f$ and $\int(1+f^2)$?
 \hint{2} $\int_0^1xf^2\le\int_0^1f^2$ because $x\le1$, and $1+f^2-2f=(1-f)^2>0$ everywhere, so $\int(1+f^2)>2\int f$ (a positive Riemann integrable function has positive integral). Multiply, using $\int f^2>0$ and $\int f>0$.
 
 \end{document}

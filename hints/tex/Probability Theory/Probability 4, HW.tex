@@ -8,10 +8,9 @@
 \hint{2} $\mathrm E\,x^TPx=\operatorname{tr}\big(P\,\mathrm E[xx^T]\big)=\operatorname{tr}P$, since $\mathrm E[xx^T]=I$. Answer: $n-k$.
 
 \problem{2}
-\note{If $\{g_1,\dots,g_k\}=G$ (i.e.\ $k=n$), then $g$ is exactly uniform after one roll, the sum is $0$ for all $m$ and no $b$ works. The original Putnam problem assumes $\{g_1,\dots,g_k\}\subsetneq G$; the hints use this.}
 \hint{1} Use Fourier analysis on $G$. For a character $\chi$ put $\lambda_\chi=\frac1k\sum_i\chi(g_i)$; the $m$-fold convolution gives $\sum_x\Pr(g=x)\overline{\chi(x)}=\lambda_\chi^m$ (up to conjugation), and $\lambda_{\mathbf 1}=1$.
 \hint{2} Parseval: $\sum_x\big(\Pr(g=x)-\frac1n\big)^2=\frac1n\sum_{\chi\ne\mathbf 1}|\lambda_\chi|^{2m}$. Take $b=\max_{\chi\ne\mathbf 1}|\lambda_\chi|$; then the limit is $\frac1n\#\{\chi:|\lambda_\chi|=b\}$, positive and finite once $0<b<1$.
-\hint{3} $b<1$: $|\lambda_\chi|=1$ forces all $\chi(g_i)$ equal to $\chi(g_1)=\chi(e)=1$, so $\chi$ is trivial on a generating set. $b>0$: if all $\lambda_\chi$, $\chi\ne\mathbf 1$, vanished, the indicator of $\{g_i\}$ would have only a constant Fourier component, i.e.\ $\{g_i\}=G$.
+\hint{3} $b<1$: $|\lambda_\chi|=1$ forces all $\chi(g_i)$ equal to $\chi(g_1)=\chi(e)=1$, so $\chi$ is trivial on a generating set. $b>0$: if all $\lambda_\chi$, $\chi\ne\mathbf 1$, vanished, the indicator of $\{g_i\}$ would have only a constant Fourier component, i.e.\ $\{g_i\}=G$, which is excluded by the hypothesis.
 
 \problem{3}
 \hint{1} "At random" means natural density: $n$ uniform on $\{1,\dots,N\}$, $N\to\infty$. Rewrite the parity condition: $\lfloor n\sqrt2\rfloor$ is even iff $\{n\sqrt2/2\}<\frac12$.
