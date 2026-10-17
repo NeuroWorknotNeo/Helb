@@ -4,7 +4,6 @@
 \hintstitle{Number theory -- 2}{Class work}
 
 \problem{1}
-\note{The Fermat-number claim is false for $k=0,1$ ($3$ and $5$ are not $\equiv1\pmod 4$, resp.\ $\pmod 8$). The hints prove it for $k\ge2$.}
 \hint{1} Theorem 1: write $m=q\,\mathrm{ord}_n(a)+r$ with $0\le r<\mathrm{ord}_n(a)$; then $a^r\equiv1$, so $r=0$. If $p\mid 2^p-1$ for a prime $p$, then $\mathrm{ord}_q(2)$ (for a prime $q\mid 2^p-1$) divides $p$ and is not $1$, so it equals $p$. Hence $p\mid q-1$, and $q$ is odd.
 \hint{2} Let $q\mid F_k=2^{2^k}+1$. Then $2^{2^{k+1}}\equiv1$ but $2^{2^k}\equiv-1$, so $\mathrm{ord}_q(2)=2^{k+1}$. To gain one more factor of $2$, find a square root of $2$ mod $q$: for $k\ge2$, check that $s=2^{2^{k-2}}(2^{2^{k-1}}-1)$ satisfies $s^2\equiv2\pmod q$.
 \hint{3} Then $\mathrm{ord}_q(s)=2^{k+2}$, which divides $q-1$. For primes $\equiv1\pmod n$: if $q\mid\Phi_n(a)$ and $q\nmid n$, then $\mathrm{ord}_q(a)=n$, so $q\equiv1\pmod n$. Apply this to $a=N!\,n$, where $\Phi_n(a)\equiv\Phi_n(0)=\pm1\pmod{N!\,n}$, so all its prime factors exceed $N$.
@@ -15,7 +14,6 @@
 \hint{3} $\mathrm{ord}_9(2)=6$, and $v_3(2^{2\cdot3^j}-1)=v_3(4-1)+j=1+j$, so $\mathrm{ord}_{3^k}(2)=2\cdot3^{k-1}=\varphi(3^k)$. For $k\ge2$, $2^j-1<2^k-1$ when $0<j<k$, so the order of $2$ modulo $2^k-1$ is exactly $k$.
 
 \problem{3}
-\note{As printed the problem is trivial: $1,2,\dots,p-1$ is wonky for every $p>3$, since $i(i+2)-(i+1)^2=-1$ and both wrap-around values equal $-3$. The original (ICMC) also requires that the partial sums $a_1a_2,\ a_1a_2+a_2a_3,\ \dots,\ a_1a_2+\dots+a_{p-1}a_1$ be distinct mod $p$. The hints follow that version. The answer is yes for every $p>3$.}
 \hint{1} Make the partial sums telescope: try to choose $a_i$ so that $a_ia_{i+1}=c_i-c_{i+1}$ for a simple injective sequence $c_i$.
 \hint{2} Take $a_i\equiv i^{-1}\pmod p$. Then $a_ia_{i+1}=\frac1i-\frac1{i+1}$, so the partial sums are $1-\frac1{j+1}$ for $j\le p-2$. These are distinct and avoid $0$ and $1$.
 \hint{3} The last sum adds $a_{p-1}a_1=-1$ to $S_{p-2}=2$, giving $1$, which is new. Wonkiness: $a_ia_{i+2}-a_{i+1}^2=\frac{1}{i(i+1)^2(i+2)}\neq0$, and the two wrap-around values equal $-\frac32\ne0$ for $p>3$.

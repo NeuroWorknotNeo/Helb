@@ -28,8 +28,7 @@
 \hint{2} (b) $\mathbb Z/p$ with $p$ prime has exactly $2$ subgroups, so $n/s=p/2$. (a) Take $G=(\mathbb Z/2)^k$, an $\mathbb F_2$-vector space: its subgroups are its subspaces. Count the subspaces of dimension $\lfloor k/2\rfloor$, or just bound their number from below by about $2^{k^2/4}$, which is much larger than $2^k$.
 
 \problem{5}
-\note{The ``only if'' part fails for $n=1$, since then all $H^x=\{e\}$. The hints assume $n\ge2$; the formula for the union holds in all cases.}
-\hint{1} If $x^{-1}y\in H$, then $H^y=H^{x(x^{-1}y)}=H^x$. Conversely, $H^x=H^y$ gives $H^{x^{-1}y}=H$, and by hypothesis this is impossible if $x^{-1}y\notin H$ (it would force $H=\{e\}$).
+\hint{1} If $x^{-1}y\in H$, then $H^y=H^{x(x^{-1}y)}=H^x$. Conversely, $H^x=H^y$ gives $H^{x^{-1}y}=H$, and by hypothesis this is impossible if $x^{-1}y\notin H$: then $H=H^{x^{-1}y}\cap H=\{e\}$, contradicting $n\ge2$.
 \hint{2} So the distinct conjugates correspond to left cosets of $H$: there are $m/n$ of them. Two distinct ones meet only in $e$, since $H^x\cap H^y=(H\cap H^{x^{-1}y})^x$.
 \hint{3} Hence $\bigl|\bigcup_x H^x\bigr|=\frac mn(n-1)+1=m-\frac mn+1$.
 

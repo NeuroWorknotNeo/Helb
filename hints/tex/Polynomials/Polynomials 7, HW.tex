@@ -35,9 +35,8 @@
 \hint{3} General statement: if $P\in\mathbb{Z}[x]$ takes the value $c$ at four (or more) distinct integers, then $P(k)-c$ is never $\pm1$ or $\pm$ a prime (more generally, $P(k)-c$ is divisible by a product of four distinct nonzero integers).
 
 \problem{8}
-\note{As stated (nodes arbitrary in $[0,1]$) the bound is false: for the nodes $0,\varepsilon$ and values $0,1$ the interpolant $x/\varepsilon$ has an unbounded coefficient. The constant must also depend on the nodes, e.g.\ through the minimal distance $\delta$ between them; the hints follow this version.}
 \hint{1} Vandermonde: $\det(x_i^{j})$ is a polynomial in $x_n$ of degree $n$ (say $n+1$ nodes $x_0,\dots,x_n$) vanishing at $x_0,\dots,x_{n-1}$, so it equals the smaller Vandermonde determinant times $\prod_{i<n}(x_n-x_i)$; induct.
-\hint{2} The coefficient vector is $V^{-1}y$. By Cramer's rule each coefficient is $\det V_k/\det V$, where $V_k$ has entries in $[0,1]$ except one column equal to $y$, so $|\det V_k|\le(n+1)!\max|y_i|$, while $|\det V|=\prod_{i<j}|x_j-x_i|\ge\delta^{n(n+1)/2}$.
+\hint{2} The coefficient vector is $V^{-1}y$. By Cramer's rule each coefficient is $\det V_k/\det V$, where $V_k$ has entries in $[0,1]$ except one column equal to $y$, so $|\det V_k|\le(n+1)!\max|y_i|$, while $|\det V|=\prod_{i<j}|x_j-x_i|\ge\delta^{n(n+1)/2}$. So every coefficient is at most $(n+1)!\,\delta^{-n(n+1)/2}\max|y_i|$. (Some dependence on $\delta$ is unavoidable: the nodes $0,\delta$ with values $0,1$ give $x/\delta$.)
 
 \problem{9}
 \hint{1} By Lagrange, $|P(x)|\le\sum_{k=0}^n|L_k(x)|$ with $L_k(x)=\prod_{j\ne k}\frac{x-j}{k-j}$ and $\prod_{j\ne k}|k-j|=k!\,(n-k)!$. It suffices to show $\prod_{j\ne k}|x-j|\le n!$ for $x\in[0,n]$; then the sum is at most $\sum_k\binom nk=2^n$.

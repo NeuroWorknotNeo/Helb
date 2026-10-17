@@ -1,0 +1,63 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\sheettitle}[4]{% title, subtitle, homework-flag (empty or "Homework"), date
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\foreignlanguage{russian}{#4}\par}
+  \end{center}\vspace{0.5em}}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1){\parfillskip=0pt\par}}
+\begin{document}
+\sheettitle{Polynomials -- 5}{Integer coefficients, divisibility and irreducibility}{}{8 сентября 2026 года}
+
+\noindent\textbf{\underline{Theoretical minimum.}}\par
+
+\medskip\head{Theorem 1 (Gauss).} A polynomial in $\mathbb Z[x]$ which is a product of two non-constant
+polynomials in $\mathbb Q[x]$ is a product of two non-constant polynomials in $\mathbb Z[x]$ of the
+same degrees. The content is multiplicative, so a primitive polynomial times a primitive
+polynomial is primitive.
+
+\medskip\head{Theorem 2 (the three criteria).} Eisenstein: if a prime $p$ divides all coefficients but the
+leading one and $p^2\nmid a_0$, then $f$ is irreducible over $\mathbb Q$. Reduction: if $f$ stays of
+the same degree and becomes irreducible modulo some prime, then $f$ is irreducible. Perron: if
+$|a_{n-1}|>1+|a_{n-2}|+\dots+|a_0|$ and $a_0\ne0$, then $f$ is irreducible.
+
+\medskip\head{Fact 1 (values control the polynomial).} For $f\in\mathbb Z[x]$ and integers $a\ne b$ one
+has $a-b\mid f(a)-f(b)$; a polynomial taking the value $\pm1$ at too many integers is forced to be
+small; and if $f$ takes a prime value at many integers, its factorisations are severely restricted.
+
+\bigskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Prove Gauss's lemma, Eisenstein's criterion and the reduction criterion, and use them to
+prove that $1+x+\dots+x^{p-1}$ is irreducible over $\mathbb Q$ for prime $p$.
+
+\item (\foreignlanguage{russian}{Высшая лига} 2020) Can the polynomial $(x-1)(x-2)\cdots(x-n)-1$ be
+written as a product of two polynomials of smaller degree with integer coefficients for some $n$?
+
+\item (IMC 2012) Let $a$ be a rational number and $n$ a positive integer. Prove that the
+polynomial $X^{2^n}(X+a)^{2^n}+1$ is irreducible in $\mathbb Q[X]$.
+
+\pagebreak
+\item (IMC) Let $f$ be a polynomial of degree $2$ with integer coefficients such that $f(k)$ is
+divisible by $5$ for every integer $k$. Prove that all coefficients of $f$ are divisible by $5$,
+and find the analogous statement for degree $n$ and a prime $p$.
+
+\item (IMC) Let $f$ be a real polynomial of degree $n$ such that $\frac{f(k)-f(m)}{k-m}$ is an
+integer for all integers $0\le k<m\le n$. Prove that $a-b$ divides $f(a)-f(b)$ for every pair of
+distinct integers $a$ and $b$.
+\end{enumerate}
+\end{document}

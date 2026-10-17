@@ -1,0 +1,96 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\hyphenpenalty=10000\exhyphenpenalty=10000\emergencystretch=3em
+\newcommand{\head}[1]{\par\bigskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\rudate}{14 сентября 2026 года}
+\newcommand{\sheettitle}[3]{% title, subtitle, homework-flag (empty or "Homework")
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\foreignlanguage{russian}{\rudate}\par}
+  \end{center}\vspace{0.5em}}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1){\parfillskip=0pt\par}}
+\newcommand{\fl}[1]{\left\lfloor #1\right\rfloor}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\ord}{ord}
+\begin{document}
+\sheettitle{Number theory -- 2}{Orders and primitive roots}{}
+
+\head{Theoretical minimum.} The multiplicative group of residues is the engine of elementary
+number theory: almost every divisibility statement about $a^n\pm1$ is a statement about the order
+of $a$.
+
+\head{Definitions.} For $\gcd(a,n)=1$ the \emph{order} $\ord_n(a)$ is the least $d>0$ with
+$a^d\equiv1\pmod n$. A \emph{primitive root} modulo $n$ is an element of order $\varphi(n)$, that is
+a generator of $(\mathbb Z/n\mathbb Z)^*$.
+
+\head{Theorem 1 (the basic property).} $a^m\equiv1\pmod n$ if and only if $\ord_n(a)\mid m$; in
+particular the order divides $\varphi(n)$. \emph{Proof:} divide $m$ by the order with remainder.
+\emph{Corollary:} if $p\mid a^n-1$ then $\ord_p(a)\mid n$ and $\ord_p(a)\mid p-1$, so every prime
+divisor of $a^n-1$ either divides some $a^d-1$ with $d\mid n$, $d<n$, or is congruent to $1$ modulo
+$n$. This one corollary settles most olympiad questions about the prime divisors of $2^n-1$ and of
+Fermat numbers.
+
+\head{Theorem 2 (primitive roots modulo a prime).} For every prime $p$ the group
+$(\mathbb Z/p\mathbb Z)^*$ is cyclic. \emph{Proof:} for $d\mid p-1$ the congruence $x^d=1$ has at
+most $d$ roots, since a polynomial of degree $d$ over the field $\mathbb F_p$ has at most $d$ roots;
+hence the number of elements of order exactly $d$ is either $0$ or $\varphi(d)$; summing
+$\sum_{d\mid p-1}\varphi(d)=p-1$ forces it to be $\varphi(d)$ for every $d$, and in particular
+$\varphi(p-1)>0$ elements of order $p-1$ exist.
+
+\head{Theorem 3 (the general structure).} $(\mathbb Z/n\mathbb Z)^*$ is cyclic exactly for
+$n=1,2,4,p^k,2p^k$ with $p$ an odd prime; for $n=2^k$, $k\geqslant3$, it is
+$\mathbb Z/2\times\mathbb Z/2^{k-2}$. In general the Chinese remainder theorem gives
+$(\mathbb Z/n\mathbb Z)^*\cong\prod(\mathbb Z/p_i^{k_i}\mathbb Z)^*$, so the exponent of the group
+is lcm of the individual orders --- the Carmichael function $\lambda(n)$, which can be much smaller
+than $\varphi(n)$.
+
+\head{Fact 1 (index calculus).} Fixing a primitive root $g$ modulo $p$ turns multiplication into
+addition: every residue is $g^k$ with $k$ well defined modulo $p-1$, and $x^m\equiv a$ becomes a
+linear congruence in the index. In particular $a$ is an $m$-th power modulo $p$ if and only if
+$a^{(p-1)/\gcd(m,p-1)}\equiv1$, and the $m$-th powers form a subgroup of index $\gcd(m,p-1)$.
+
+\head{Fact 2 (Zsygmondy).} For $a>b\geqslant1$ coprime and $n\geqslant2$ the number $a^n-b^n$ has
+a prime divisor dividing no $a^k-b^k$ with $k<n$, apart from the exceptions $(a,b,n)=(2,1,6)$ and
+$a+b$ a power of two with $n=2$. The statement may be quoted; it converts many existence questions
+into a one-line check.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Prove Theorem 1 and its corollary, and deduce: every prime divisor of $2^p-1$ with $p$ prime
+is congruent to $1$ modulo $2p$; for $k\geqslant2$ every prime divisor of the Fermat number
+$2^{2^k}+1$ is congruent to $1$ modulo $2^{k+2}$; and there are infinitely many primes congruent to
+$1$ modulo $n$ for every fixed $n$.
+
+\item Prove that $(\mathbb Z/p\mathbb Z)^*$ is cyclic, counting the elements of each order, and
+determine for which $n$ a primitive root modulo $n$ exists. Then show that $2$ is a primitive root
+modulo $3^k$ for every $k$, and find the order of $2$ modulo $2^k-1$.
+
+\item Let $p>3$ be a prime. A sequence $a_1,\dots,a_{p-1}$ of integers is \emph{wonky} if the terms
+are distinct modulo $p$, the partial sums $a_1a_2,\ a_1a_2+a_2a_3,\ \dots,\
+a_1a_2+a_2a_3+\dots+a_{p-1}a_1$ are distinct modulo $p$, and
+$a_ia_{i+2}\not\equiv a_{i+1}^2\pmod p$ for all $i$, indices taken cyclically. Determine for which
+$p$ a wonky sequence exists. \src{ICMC}
+
+\item Let $n$ be an integer and $p$ a prime greater than $2$. Show that
+\[
+(p-1)^n\,n!\;\Bigm|\;(p^n-1)(p^n-p)(p^n-p^2)\cdots(p^n-p^{n-1}),
+\]
+and explain the right-hand side as the order of $\mathrm{GL}_n(\mathbb F_p)$ (Abstract
+algebra -- 4). \src{CIIM 2014}
+
+\item Find all primes $p>5$ for which there exist an integer $a$ and an integer $r$ with
+$1\leqslant r\leqslant p-1$ such that the sequence $1,a,a^2,\dots,a^{p-5}$ can be rearranged into a
+sequence $b_0,b_1,\dots,b_{p-5}$ with $b_n-b_{n-1}-r$ divisible by $p$ for
+$1\leqslant n\leqslant p-5$. \src{Putnam 2024}
+\end{enumerate}
+\end{document}

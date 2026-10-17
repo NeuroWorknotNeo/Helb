@@ -1,0 +1,78 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.3}
+\frenchspacing
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\begin{document}
+\begin{center}
+{\huge\bfseries Continuous functions -- 2\par}\vspace{1.07em}
+{\Large Monotonicity, oscillation and the horizontal chord\par}\vspace{1.1em}
+{\Large Homework\par}\vspace{1.1em}
+{\foreignlanguage{russian}{1 сентября 2026 года}\par}
+\end{center}\vspace{0pt}
+
+\noindent\textbf{\underline{Theoretical minimum.}}\quad The horizontal chord theorem and the difference
+trick $g(x)=f(x+\alpha)-f(x)$; continuity together with injectivity implies strict monotonicity;
+oscillation at a point; the range of a continuous function on an interval; iterates of a continuous
+self-map of a segment; local extrema and monotonicity.
+
+\noindent\rule{\textwidth}{0.4pt}\par\vspace{4pt}
+\begin{enumerate}
+\item Define the oscillation of $f\colon\mathbb R\to\mathbb R$ at $x_0$ as the infimum, over all
+neighbourhoods $U$ of $x_0$, of $\sup_Uf-\inf_Uf$. Suppose $\operatorname{osc}f(x)=1$ for every
+$x\ne0$. Find all possible values of $\operatorname{osc}f(0)$.
+
+\item Does there exist a continuous $f\colon\mathbb R\to\mathbb R$ such that
+$\lim_{x\to x_0}\frac{|f(x)-f(x_0)|}{|x-x_0|}=+\infty$ at every point $x_0$?
+
+\item (IMC 2006) Let $f\colon\mathbb R\to\mathbb R$. Prove or disprove:
+\begin{enumerate}[label=\alph*)]
+\item if $f$ is continuous and $\operatorname{range}(f)=\mathbb R$, then $f$ is monotone;
+\item if $f$ is monotone and $\operatorname{range}(f)=\mathbb R$, then $f$ is continuous;
+\item if $f$ is monotone and continuous, then $\operatorname{range}(f)=\mathbb R$.
+\end{enumerate}
+
+\item (IMC 1996) Prove that for a continuous $f\colon[0,1]\to[0,1]$ the sequence of iterates
+$x_{n+1}=f(x_n)$ converges if and only if $x_{n+1}-x_n\to0$.
+
+\item (IMC 2023) Find all functions $f\colon\mathbb R\to\mathbb R$ with a continuous second
+derivative for which $f(7x+1)=49f(x)$ for all $x\in\mathbb R$.
+
+\item (IMC 1997) Say that a continuous $f\colon[0,1]\to\mathbb R$ \emph{crosses the axis} at $x$ if
+$f(x)=0$ while every neighbourhood of $x$ contains $y,z$ with $f(y)<0<f(z)$.
+\begin{enumerate}[label=\alph*)]
+\item Give an example of a continuous function crossing the axis infinitely often.
+\item Can a continuous function cross the axis uncountably often?
+\end{enumerate}
+
+\item (RMO 2002) Let $f\colon\mathbb R\to\mathbb R$ have a limit at every point and no local
+extremum. Show that a) $f$ is continuous; b) $f$ is strictly monotone.
+
+\item (RMO 2005) Let $f\colon[0,1)\to(0,1)$ be continuous and surjective.
+\begin{enumerate}[label=\alph*)]
+\item Prove that for every $a\in(0,1)$ the restriction $f|_{(a,1)}\colon(a,1)\to(0,1)$ is surjective.
+\item Give an example of such a function.
+\end{enumerate}
+
+\item (RMO 2006) Let $f\colon[0,\infty)\to\mathbb R$ be such that for every $x>0$ the sequence
+$\{f(nx)\}_{n\ge0}$ is increasing.
+\begin{enumerate}[label=\alph*)]
+\item If $f$ is continuous on $[0,1]$, must $f$ be increasing?
+\item The same question if $f$ is continuous on $[0,\infty)$.
+\end{enumerate}
+
+\item (RMO 2007) Let $f\colon\mathbb R\to\mathbb R$ be continuous and let $a<b$ be two points of the
+image of $f$. Show that there is a closed interval $I$ with $f(I)=[a,b]$.
+\end{enumerate}
+\end{document}

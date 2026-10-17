@@ -8,18 +8,16 @@
 \hint{2} $(ba)^{k+1}=b(ab)^ka$ gives the nilpotency statement. For the example take $E_{12}$ and $E_{21}$ in $M_2(\mathbb R)$: their sum squares to $I$.
 
 \problem{2}
-\note{The zero element must be counted among the zero divisors, i.e.\ zero divisors here means non-units. Otherwise $\mathbb Z/4$ is a counterexample: it has $2$ nilpotents and only $1$ non-zero zero divisor.}
 \subpart{a}
 \hint{1} If $x^a=0$ and $y^b=0$, expand $(x+y)^{a+b}$ by the binomial theorem (the ring is commutative). Products are easy.
 \subpart{b}
-\hint{1} In a finite ring the zero divisors are exactly the non-units. Show that the set $D$ of non-units is a union of cosets $d+N$ of the additive subgroup $N$ of nilpotents.
+\hint{1} In a finite ring the zero divisors (with $0$ counted among them) are exactly the non-units. Show that the set $D$ of non-units is a union of cosets $d+N$ of the additive subgroup $N$ of nilpotents.
 \hint{2} If $d+n$ were a unit $u$ with $n\in N$, then $d=u-n=u(1-u^{-1}n)$ would be a unit, because $1-$(nilpotent) is a unit. So $|N|$ divides $|D|$.
 
 \problem{3}
-\note{The statement is false if ``characteristic zero'' only means $n\cdot1\ne0$ for all $n$. In $\mathbb Z\times\mathbb F_2$ the idempotents $e=f=(0,1)$, $g=0$ satisfy $e+f+g=0$. The hints assume that $R$ has no additive torsion ($nx=0$ with $n\ne0$ implies $x=0$), which is the intended meaning.}
 \hint{1} Square $e+f=-g$: you get $ef+fe=-2(e+f)$. Multiply this identity by $e$ on the left, and separately on the right.
 \hint{2} The two products give $efe=-2e-3ef=-2e-3fe$, hence $ef=fe$. Then $2ef=-2e-2f$; multiplying by $e$ and by $f$ gives $4ef=-2e=-2f$.
-\hint{3} So $e=f$, and by symmetry $e=f=g$. Then $3e=0$ gives $e=0$.
+\hint{3} So $2(e-f)=0$, and since $R$ has no additive torsion, $e=f$; by symmetry $e=f=g$. Then $3e=0$ gives $e=0$, again by the absence of torsion.
 
 \problem{4}
 \hint{1} The element $e=x^{n-1}$ is an idempotent with $ex=xe=x$. In the corner ring $eRe$ the element $x$ is invertible (with inverse $x^{n-2}$, or $e$ if $n=2$).

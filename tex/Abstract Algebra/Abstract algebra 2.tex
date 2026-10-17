@@ -1,0 +1,107 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\head}[1]{\par\bigskip\noindent\textbf{\underline{#1}}\hskip 1em plus .3em minus .3em\relax}
+\newcommand{\sheettitle}[3]{% title, subtitle, homework-flag (empty or "Homework")
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\foreignlanguage{russian}{13 сентября 2026 года}\par}
+  \end{center}\vspace{0.5em}}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1){\parfillskip=0pt\par}}
+\newcommand{\ru}[1]{\foreignlanguage{russian}{#1}}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\F}{\mathbb F}
+\DeclareMathOperator{\ZZ}{Z}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\chr}{char}
+\begin{document}
+\sheettitle{Abstract algebra -- 2}{Finite rings and division rings}{}
+
+\head{Theoretical minimum.} This is the most frequent genre of the Romanian olympiad and a
+regular guest at the IMC: a finite ring is given together with one identity, and one has to
+recognise a field, a Boolean ring or a zero divisor.
+
+\head{Definitions.} A \emph{ring} is an abelian group $(A,+)$ with an associative
+multiplication distributing over addition; we always assume a unit $1\ne0$, but never
+commutativity. An element is a \emph{unit} if it has a two-sided inverse, a \emph{left zero
+divisor} if $ax=0$ for some $x\ne0$, \emph{nilpotent} if $a^k=0$, \emph{idempotent} if $a^2=a$.
+The \emph{characteristic} is the least $n>0$ with $n\cdot1=0$. The \emph{centre} is
+$\ZZ(A)=\{a:ax=xa\text{ for all }x\}$. A \emph{division ring} is a ring in which every non-zero
+element is a unit; a commutative division ring is a \emph{field}; a ring with $x^2=x$ for all
+$x$ is called \emph{Boolean}.
+
+\head{Theorem 1 (finiteness turns injective into surjective).} Let $A$ be finite and $a\in A$.
+The maps $s_a(x)=ax$ and $d_a(x)=xa$ are additive maps of the finite set $A$ into itself, so
+each of them is injective if and only if it is surjective. Hence every element of a finite ring
+is either a unit or a two-sided zero divisor, and \emph{a finite ring without zero divisors is
+a division ring}. This one sentence solves about a third of all Romanian ring problems:
+whenever a hypothesis forbids a zero divisor, it produces an inverse for free.
+
+\head{Theorem 2 (Wedderburn).} Every finite division ring is commutative, hence a field.
+Combined with Theorem 1: a finite ring without zero divisors is a field. The proof uses the
+class equation of the multiplicative group together with the inequality $|\Phi_n(q)|>q-1$ for
+cyclotomic polynomials, and may be quoted.
+
+\head{Theorem 3 (characteristic).} In a finite ring the characteristic $n$ is finite and
+$n\cdot a=0$ for every $a$. If $A$ has no zero divisors the characteristic is a prime $p$; if
+$\chr A=p$ then $(A,+)$ is a vector space over $\F_p$, so $|A|=p^k$. In a commutative ring of
+characteristic $p$ the map $x\mapsto x^p$ is a ring endomorphism (the \emph{Frobenius}),
+because $\binom pi\equiv0\pmod p$ for $0<i<p$.
+
+\head{Theorem 4 (identities forcing commutativity).} A Boolean ring is commutative of
+characteristic $2$: from $(x+x)^2=x+x$ we get $2x=0$, and from $(x+y)^2=x+y$ we get $xy+yx=0$,
+hence $xy=-yx=yx$. More generally (Jacobson) if $x^{n(x)}=x$ for every $x$ with some exponent
+$n(x)>1$, then the ring is commutative; olympiad problems use the special cases $x^2=x$,
+$x^3=x$ and $x^p=x$, which can be proved by hand.
+
+\head{Fact 1 (nilpotents and units).} If $a$ is nilpotent then $1-a$ is a unit, with inverse
+$1+a+a^2+\dots$ (a finite sum). In a commutative ring the nilpotent elements form an ideal; in
+a non-commutative ring this fails. For any $a,b$ the element $1-ab$ is a unit if and only if
+$1-ba$ is, and the inverse is given by the identity $(1-ba)^{-1}=1+b(1-ab)^{-1}a$, which one
+may guess from the formal series $1+ba+baba+\dots$
+
+\head{Fact 2 (idempotents split).} If $e^2=e$ then $1-e$ is also idempotent, $e(1-e)=0$, and in
+the commutative case $A\cong eA\times(1-e)A$ as rings. Hence a finite commutative ring with no
+non-trivial idempotents is local, and a Boolean ring with $n$ elements has $n=2^k$.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item For a ring $A$ and $a\in A$ define $s_a(x)=ax$ and $d_a(x)=xa$. (a) Prove that if $A$ is
+finite then $s_a$ is injective if and only if $d_a$ is injective. (b) Give an example of a ring
+containing an element $b$ for which one of $s_b,d_b$ is injective and the other is not.
+\src{\ru{Румыния, 2014}}
+
+\item Let $A$ be a finite ring and $a,b\in A$ such that $(ab-1)b=0$. Prove that $b(ab-1)=0$.
+\src{\ru{Румыния, 2018}}
+
+\item Prove that a Boolean ring is commutative of characteristic $2$, and that a finite set with
+$n\ge2$ elements can be equipped with the structure of a Boolean ring if and only if $n=2^k$.
+Show also that the set of non-negative integers carries a Boolean ring structure.
+\src{\ru{Румыния, 1998}}
+
+\item Let $A$ be a finite commutative ring of prime characteristic $p$. Prove that $|A|=p^k$,
+that $x\mapsto x^p$ is additive, and that $A$ has at most $|A|/p$ nilpotent elements.
+\src{\ru{Румыния, 2026}}
+
+\item Let $A$ be a finite ring. Show that there exist natural numbers $m>p\ge1$ such that
+$a^m=a^p$ for all $a\in A$. \src{\ru{Румыния, 2001}}
+\end{enumerate}
+\end{document}

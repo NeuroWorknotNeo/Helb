@@ -13,7 +13,6 @@
 \hint{3} For the bound, let $U_r$ be the set of products of at most $r$ elements of $T$, so $U_{r+1}=T\cup U_rT$. If $U_{r+1}=U_r$, the chain is stationary from then on. Before that it grows strictly, starting from $|U_1|\ge1$, so $U_{|G|}=S=G$.
 
 \problem{3}
-\note{As printed, the bound $p^{n/p}$ is false: $G=(\mathbb Z/2)^2$ has $n=4$, $p=2$ and $16>4$ endomorphisms. The intended bound (Romania 2008) is $\sqrt[p]{n^n}=n^{n/p}$; the hints prove that.}
 \hint{1} An endomorphism is determined by the images of a generating set. Choose generators greedily, $g_{i+1}\notin\langle g_1,\dots,g_i\rangle$. Each step raises the order of the generated subgroup by a factor that is at least a prime, so $G$ has a generating set with $k\le\Omega(n)$ elements, where $\Omega$ counts prime factors with multiplicity.
 \hint{2} So $|\operatorname{End}G|\le n^{k}\le n^{\Omega(n)}$. Write $n=pm$; then $\Omega(n)=1+\Omega(m)\le 1+(m-1)=n/p$, because $\Omega(m)\le\log_2m\le m-1$.
 \hint{3} Equality needs $\Omega(m)=m-1$, i.e.\ $m\in\{1,2\}$, and every choice of images of the generators must extend. So $n=p$ or $n=2p$ (with $p$ the largest prime). Check the candidates: $\mathbb Z/p$ has $p=n^{1}$ endomorphisms; for $n=4$, $(\mathbb Z/2)^2$ has $16=4^2$ and $\mathbb Z/4$ only $4$; for $n=2p$ with $p$ odd, $\mathbb Z/2p$ has $2p$ and $D_p$ has $p^2+1$, both less than $4p^2$. Equality: $\mathbb Z/p$ and $(\mathbb Z/2)^2$.

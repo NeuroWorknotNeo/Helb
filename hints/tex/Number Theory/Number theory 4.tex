@@ -9,10 +9,9 @@
 \hint{3} All $\binom nk$ are odd if and only if adding $k$ and $n-k$ in base $2$ never carries, for every $k$. That means $n$ has no $0$ digit below its top digit: $n=2^m-1$. Next, $v_2\binom{2n}n=s_2(n)$ (doubling carries once per $1$-digit). Finally, $\binom{2n}{n}-\binom{2n}{n+1}=\frac{1}{n+1}\binom{2n}n$ is an integer (Catalan).
 
 \problem{2}
-\note{As printed, $v_7(2^{2024}-2)=v_7(2^{2023}-1)=0$, since $\mathrm{ord}_7(2)=3\nmid2023$. So LTE plays no role there. The hints treat the statement as printed.}
 \hint{1} LTE, odd $p$: $\frac{a^n-b^n}{a-b}=\sum a^{n-1-i}b^i\equiv na^{n-1}\pmod p$. This proves the case $p\nmid n$. For $n=p$, show that $p\,\|\,\frac{a^p-b^p}{a-b}$ by writing $b=a+tp$. Induct. For $p=2$ and even $n$, factor $a^n-b^n=(a^{n/2}-b^{n/2})(a^{n/2}+b^{n/2})$, or use $a^2-b^2$ first.
 \hint{2} $v_2(3^n-1)$ is $1$ for odd $n$ and $v_2(2)+v_2(4)+v_2(n)-1=2+v_2(n)$ for even $n$. Solving $2+v_2(n)\ge n$: answer $n\in\{1,2,4\}$.
-\hint{3} $2^{2024}-2=2(2^{2023}-1)$ and $2^{2023}\equiv2\pmod 7$, so the answer is $0$. (For comparison: $v_7(2^{3m}-1)=v_7(8-1)+v_7(m)=1+v_7(m)$.)
+\hint{3} First make $p\mid a-b$: $\mathrm{ord}_7(2)=3$ and $3\mid2058$, so write $2^{2058}-1=8^{686}-1^{686}$. LTE gives $v_7=v_7(8-1)+v_7(686)=1+3=4$, since $686=2\cdot7^3$.
 
 \problem{3}
 \hint{1} Compare $v_p$ of both sides. Note $v_p(\mathrm{lcm}(1,\dots,m))=\#\{j\ge1:p^j\le m\}$.

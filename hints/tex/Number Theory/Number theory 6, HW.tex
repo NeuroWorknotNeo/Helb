@@ -30,10 +30,9 @@
 \hint{3} $\sum_{n\le x}\lfloor x/n\rfloor$ counts pairs $(n,k)$ with $nk\le x$, and so does $\sum_{m\le x}d(m)$. Using $\lfloor x/n\rfloor=x/n+O(1)$ gives $x\ln x+O(x)$. Splitting the pairs at $\sqrt x$ (the hyperbola method) recovers the term $(2\gamma-1)x$.
 
 \problem{6}
-\note{As printed the first claim is false: $f(n)=1/n$ is (completely) multiplicative, tends to $0$, and never vanishes. The hints prove the correct statement: for multiplicative $f$, $f(n)\to0$ if and only if $f(p^k)\to0$ as the prime power $p^k\to\infty$. Also, a completely multiplicative $f$ with $|f|=1$ is just an arbitrary choice of unimodular values at the primes.}
-\hint{1} One direction is trivial, since prime powers are integers. For the converse, fix $\eta\in(0,1)$. Only finitely many prime powers have $|f(p^k)|\ge\eta$, and these are bounded by some $M\ge1$.
-\hint{2} Write $n=\prod p^{k}$. If all prime powers in $n$ are $\le Y$, then $n\le Y^{\pi(Y)}$. So every large $n$ has a prime-power factor $>Y$, and then $|f(n)|\le M^{C}\cdot\sup_{q>Y}|f(q)|$, where $C$ is the number of exceptional prime powers. Let $Y\to\infty$.
-\hint{3} Completely multiplicative functions are determined by their values at primes, which can be prescribed freely. So the $f$ with $|f|=1$ are exactly $f(n)=\prod p^{k}\mapsto\prod\zeta_p^{k}$ with arbitrary $|\zeta_p|=1$; for instance $n^{it}$, or Liouville's $(-1)^{\Omega(n)}$.
+\hint{1} One direction is trivial, since prime powers are integers. For the converse, fix $\eta\in(0,1)$. Only finitely many prime powers $q$ have $|f(q)|\ge\eta$; let $C$ be their number, $M$ their maximum, and $B\ge1$ an upper bound for $|f|$ on them.
+\hint{2} Write $n$ as a product of prime powers of distinct primes and use multiplicativity. Factors with $|f(q)|<\eta$ contribute less than $1$, the exceptional ones at most $B^C$ in total. If all prime powers in $n$ are $\le Y$, then $n\le Y^{\pi(Y)}$; so for $Y\ge M$ every large $n$ has a prime-power factor $q>Y$, and $|f(n)|\le B^{C}\sup_{q>Y}|f(q)|$. Let $Y\to\infty$.
+\hint{3} Completely multiplicative functions are determined by their values at primes, which can be prescribed freely. So the $f$ with $|f|=1$ are exactly $f(n)=\prod p^{k}\mapsto\prod\zeta_p^{k}$ with arbitrary $|\zeta_p|=1$; for instance $n^{it}$, or Liouville's $(-1)^{\Omega(n)}$. (Example for the first part: $f(n)=1/n$ tends to $0$ without vanishing.)
 
 \problem{7}
 \hint{1} Check that $f(x)=ax^m$ ($a,m\ge0$ integers) works. Now suppose $f=x^mg$ with $g(0)\ne0$ and $\deg g\ge1$. Infinitely many primes divide some value $g(k)$ (Schur), so pick such a $p$ with $p\nmid f(1)\,g(0)$; then $p\nmid k$.
@@ -51,7 +50,6 @@
 \hint{3} The ratio $n^2/(\sigma\varphi)$ is close to $1$ when all prime factors of $n$ are large (e.g.\ $n$ a large prime). It is close to $\pi^2/6$ when $n$ is divisible by high powers of all small primes, e.g.\ $n=(k!)^k$ with $k$ large. For example, $n=2$ gives $4/3$ and $n=p$ gives $p^2/(p^2-1)$.
 
 \problem{10}
-\note{``Minimal'' means: $(a,b)$ is good, but neither $(a-b,b)$ nor $(a,b-a)$ is good (\emph{excellent} pairs in the original).}
 \hint{1} $a\lceil b\nu\rceil-b\lfloor a\nu\rfloor$ is the determinant of $U=(a,\lfloor a\nu\rfloor)$ (just below the line $y=\nu x$) and $W=(b,\lceil b\nu\rceil)$ (just above it). Note that $(m,m)$ is good.
 \hint{2} Let $\lfloor(a+b)\nu\rfloor=\lfloor a\nu\rfloor+\lfloor b\nu\rfloor+e$ with $e\in\{0,1\}$. Compute $f(a+b,b)=f(a,b)+b(1-e)$ and $f(a,a+b)=f(a,b)+ae$. So if $(a,b)$ is good, \emph{exactly one} of $(a+b,b)$, $(a,a+b)$ is good, and each good pair has at most one good ``parent''.
 \hint{3} Hence the good pairs split into infinite chains, each starting at an excellent pair. For a good pair with $a>b$, $f(a-b,b)\in\{m,m-b\}$, and symmetrically for $b>a$. So an excellent pair has $\min(a,b)\le m$. Moreover $f(a,b)\ge a(\lceil b\nu\rceil-b\nu)$ and $f(a,b)\ge b(a\nu-\lfloor a\nu\rfloor)$, so the other coordinate is bounded too, and there are finitely many excellent pairs.

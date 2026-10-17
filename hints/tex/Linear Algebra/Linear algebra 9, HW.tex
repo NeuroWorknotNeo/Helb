@@ -7,7 +7,9 @@
 \hint{1}
 An invertible matrix is a list of columns, each outside the span of the previous ones: there are \(q^n-q^k\) choices for column \(k+1\). For subspaces, count ordered \(k\)-tuples of independent vectors in two ways: directly, and as (number of subspaces)\(\times|\mathrm{GL}_k(\mathbb F_q)|\). This gives \(\prod_{i<k}\frac{q^n-q^i}{q^k-q^i}\).
 \hint{2}
-Expected number of fixed vectors \(=\sum_v\Pr(gv=v)\). By Burnside's lemma this is the number of orbits of \(\mathrm{GL}_n(\mathbb F_q)\) on \(\mathbb F_q^n\), namely \(\{0\}\) and the non-zero vectors. So it equals \(2\) for every \(n\) (or \(1\) if the zero vector is not counted).
+\(X=|\ker(g-E)|\), and \(X^k\) is the number of \(k\)-tuples \((v_1,\dots,v_k)\) fixed by \(g\). By Burnside's lemma \(\mathsf EX^k\) is the number of orbits of \(\mathrm{GL}_n(\mathbb F_q)\) on \((\mathbb F_q^n)^k\).
+\hint{3}
+A \(k\)-tuple is a linear map \(\mathbb F_q^k\to\mathbb F_q^n\). For \(n\ge k\) two tuples lie in one orbit if and only if they have the same kernel (extend a basis of the image to a basis of \(\mathbb F_q^n\)). So the orbits correspond to the subspaces of \(\mathbb F_q^k\), and \(\mathsf EX^k=\sum_{j=0}^k\binom kj_q\). For \(k=1\): \(\mathsf EX=2\); for \(k=2\): \(\mathsf EX^2=1+(q+1)+1=q+3\), so \(\operatorname{Var}X=q-1\).
 
 \problem{2}
 \hint{1}

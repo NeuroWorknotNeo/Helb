@@ -1,0 +1,85 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.3}
+\frenchspacing
+\hyphenpenalty=10000
+
+\newcommand{\head}[1]{\par\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\sheettitle}[4]{% title, subtitle, homework-flag, date
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{\dimexpr1.2em-1pt\relax minus 3.6pt}
+  {\Large #2\par}\vspace{\dimexpr1em+1pt\relax minus 1.2pt}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{\dimexpr1.15em-1pt\relax minus 3.6pt}\fi
+  {\foreignlanguage{russian}{#4}\par}
+  \end{center}\vspace{0.5pt minus 1.2pt}}
+\newcommand{\src}[1]{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill(#1){\parfillskip=0pt\par}}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\adj}{adj}
+\newcommand{\T}{\mathsf T}
+\DeclareMathOperator{\rank}{rank}
+\begin{document}
+\sheettitle{Linear algebra -- 9}{Matrices over $\mathbb Z$ and over a finite field}{Homework}{12 сентября 2026 года}
+
+\head{Theoretical minimum.} $GL_n(\mathbb Z)$ and unimodular matrices; the Smith normal form and
+the index of a sublattice; $|GL_n(\mathbb F_q)|$ and Gaussian binomial coefficients; reduction
+modulo a prime; the Cauchy--Binet formula and the matrix-tree theorem; Frobenius' theorem on the
+eigenvalues of an integer matrix of finite order.
+
+\par\vspace{-1pt}\noindent\rule{\linewidth}{0.4pt}\par\vspace{7pt}
+
+\begin{enumerate}
+\item Compute $|GL_n(\mathbb F_q)|$ and the number of $k$-dimensional subspaces of
+$\mathbb F_q^n$. Let $X$ be the number of fixed vectors of a uniformly random element of
+$GL_n(\mathbb F_q)$. Prove that for $n\geqslant k$ the moment $\mathsf EX^k$ does not depend on
+$n$ and equals the total number of subspaces of $\mathbb F_q^k$; in particular, find
+$\mathsf EX$ and the variance of $X$ for $n\geqslant2$.
+
+\item (\foreignlanguage{russian}{ФКН, осень} 2021) Let $A$ be a $2\times2$ matrix with rational
+entries and suppose that $A^n=-E$ for some positive integer $n$. Prove that $A^2=-E$ or
+$A^3=-E$.
+
+\item (SEEMOUS 2009) Let $SL_2(\mathbb Z)$ be the set of integer $2\times2$ matrices of
+determinant $1$.
+\begin{enumerate}[label=\alph*),align=left]
+\item Find $A,B,C\in SL_2(\mathbb Z)$ with $A^2+B^2=C^2$.
+\item Show that there are no $A,B,C\in SL_2(\mathbb Z)$ with $A^4+B^4=C^4$.
+\end{enumerate}
+
+\item (VJIMC 2018, cat.~I) Find all primes $p$ such that $p^3$ divides the determinant of the
+$(p+6)\times(p+6)$ matrix whose diagonal entries are $2^2,3^2,4^2,\dots,(p+7)^2$ and all of whose
+off-diagonal entries are equal to $1$.
+
+\item (Romania national olympiad 1997) Let $m\geqslant2$, $n\geqslant1$ and let $A=(a_{ij})$ be an
+integer $n\times n$ matrix. Prove that for every permutation $\sigma\in S_n$ there is a function
+$\varepsilon\colon\{1,\dots,n\}\to\{0,1\}$ such that replacing the entries
+$a_{\sigma(1)1},\dots,a_{\sigma(n)n}$ by $a_{\sigma(i)i}+\varepsilon(i)$ yields a matrix whose
+determinant is not divisible by $m$.
+
+\item (IMC) For a prime $p$ let $GL_2(\mathbb Z/p\mathbb Z)$ be the group of invertible $2\times2$
+matrices over $\mathbb Z/p\mathbb Z$ and let $S_p$ be the symmetric group on $p$ elements. Show
+that there is no injective group homomorphism $\varphi\colon GL_2(\mathbb Z/p\mathbb Z)\to S_p$.
+
+\item (IMC) Ivan writes the matrix $\begin{pmatrix}2&3\\2&4\end{pmatrix}$ on the board and repeats
+the following operation: he chooses a row or a column and multiplies or divides it entry-wise by
+the other row or column respectively. Can he end up with
+$\begin{pmatrix}2&4\\2&3\end{pmatrix}$?
+
+\item (\foreignlanguage{russian}{Мехмат}, 2015) Find all primes $p$ for which the following is
+true: if a $2015\times2015$ matrix over the field with $p$ elements has the property that its
+rank drops whenever an arbitrary nonzero entry is replaced by zero, then every row contains at
+most one nonzero entry.
+
+\item (SEEMOUS 2012) Let $A=(a_{ij})$ be the $n\times n$ matrix in which $a_{ij}$ is the
+remainder of $i^j+j^i$ upon division by $3$. Find the greatest $n$ for which $\det A\ne0$.
+
+\item (Kirchhoff) Prove the matrix-tree theorem: the number of spanning trees of a graph equals
+any cofactor of its Laplacian. Then compute the Smith normal form of the Laplacian of $K_n$ and
+interpret the answer as the structure of the critical group.
+\end{enumerate}
+\end{document}

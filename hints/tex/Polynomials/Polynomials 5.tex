@@ -14,7 +14,7 @@
 \hint{3} Then $(x-1)\cdots(x-n)-1=-g(x)^2$ has negative leading coefficient, contradiction. Answer: no, for no $n$.
 
 \problem{3}
-\note{As printed the statement is false whenever $n$ is not a power of $2$: with $Y=X(X+a)$ the polynomial is $Y^{2n}+1$, and for $n=2^sm$ with $m>1$ odd, $Y^{2^{s+1}}+1$ divides it (e.g.\ $X^6(X+a)^6+1$ is divisible by $X^2(X+a)^2+1$). The original IMC 2012 problem has the exponent $2^n$: prove that $X^{2^n}(X+a)^{2^n}+1$ is irreducible. The hints follow this version; write $N=2^n\ge2$.}
+\note{Write $N=2^n\ge2$. (The power of $2$ matters: for an exponent $2n$ with $n$ not a power of $2$ the polynomial is reducible, e.g.\ $X^6(X+a)^6+1$ is divisible by $X^2(X+a)^2+1$.)}
 \hint{1} Let $\varepsilon$ be a root and $\zeta=\varepsilon(\varepsilon+a)$. Then $\zeta^N=-1$, so $\zeta$ is a primitive $2N$-th root of unity and $[\mathbb{Q}(\zeta):\mathbb{Q}]=\varphi(2N)=N$. Since $\zeta\in\mathbb{Q}(\varepsilon)$, it suffices to show $[\mathbb{Q}(\varepsilon):\mathbb{Q}(\zeta)]=2$.
 \hint{2} $\varepsilon$ is a root of $X^2+aX-\zeta$ over $\mathbb{Q}(\zeta)$, so you need: $a^2+4\zeta$ is not a square in $\mathbb{Q}(\zeta)$. Take the norm $N_{\mathbb{Q}(\zeta)/\mathbb{Q}}$: a square would have a norm that is the square of a rational number.
 \hint{3} The conjugates of $\zeta$ are all roots of $T^N+1$, so $\prod(a^2+4\zeta')=4^N\bigl((a/2)^{2N}+1\bigr)$ ($N$ even). With $a/2=u/v$ you would need $u^{2N}+v^{2N}$ to be a square, i.e.\ $x^4+y^4=z^2$ with $x=u^{N/2}$, $y=v^{N/2}$.

@@ -49,9 +49,11 @@ A sum of \(2018\) unit complex numbers equals \(2018\) only if all of them are \
 
 \problem{7}
 \hint{1}
-\(A+jE\) is singular exactly when \(-j\) is an eigenvalue. How many distinct eigenvalues can \(A\) have?
+\(E+A^j\) is singular exactly when \(A\) has an eigenvalue \(\lambda\) with \(\lambda^j=-1\). For which exponents \(j\) can one \(\lambda\) do this?
 \hint{2}
-\(k=n+1\) works. \(A=\operatorname{diag}(0,-1,\dots,-(n-1))\) shows that \(k=n\) fails. Answer: \(n+1\).
+If \(\lambda^j=-1\), then \(\lambda\) is a root of unity of order \(2d\) with \(d\mid j\) and \(j/d\) odd, so \(v_2(j)=v_2(d)\). Hence one eigenvalue makes \(E+A^j\) singular only for exponents \(j\) of one fixed \(2\)-adic valuation.
+\hint{3}
+The exponents \(1,2,4,\dots,2^n\) have \(n+1\) different valuations, so \(k=2^n\) works. For \(k=2^n-1\) take \(A=\operatorname{diag}(e^{i\pi/2^a})_{a=0}^{n-1}\): every \(j<2^n\) has \(a=v_2(j)\le n-1\), and \((e^{i\pi/2^a})^j=-1\) because \(j/2^a\) is odd. Answer: \(k=2^n\).
 
 \problem{8}
 \hint{1}

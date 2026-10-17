@@ -43,9 +43,11 @@
 \hint{4} Comparing the $\sqrt{-2}$-parts gives $1=b(3a^2-2b^2)$, so $b=1$ and $a=\pm1$. Then $y=a^3-6ab^2=\pm5$ and $x=3$.
 
 \problem{8}
-\note{Determining \emph{all} such $a$ is not a reasonable task (the original problem asks only for (a) at least $500$ values and (b) whether $a=2$ works). The hints follow the ``at least $500$'' part. (That $a=2$ does not occur is the original part (b), which is considerably harder.)}
 \hint{1} Look for a one-parameter family: take $m$ linear in $n$ so that $m-n$ divides both factors $m^2+n$ and $n^2+m$ in a controlled way. Small solutions found by computer, such as $(m,n)=(3,1),(5,2),(7,3)$, suggest the pattern.
-\hint{2} With $m=2n+1$: $m^2+n=(4n+1)(n+1)$ and $n^2+m=(n+1)^2$. So $a=4n+1$ works for every $n\ge1$. This gives $a=5,9,\dots,2009$, which is $502$ values.
+\hint{2} With $m=2n+1$: $m^2+n=(4n+1)(n+1)$ and $n^2+m=(n+1)^2$, while $(m-n)^3=(n+1)^3$. So $a=4n+1$ is friendly for every $n\ge1$. This gives $a=5,9,\dots,2009$, which is $502$ values.
+\hint{3} Now $a=2$. A solution needs $m>n$. Expand: the equation becomes $m^3-(n^2+6n)m^2+(6n^2-n)m-3n^3=0$. Put $g=\gcd(m,n)$, $m=gx$, $n=gy$ with $\gcd(x,y)=1$, $x>y$, and divide by $g^2$: $xy=gK$ with $K=x^3-gx^2y^2-6x^2y+6xy^2-3y^3$ (so $K>0$).
+\hint{4} From the equation, $y\mid gx^3$, hence $y\mid g$; write $g=ys$. Then $x=sK$, and reducing $K$ mod $y$ gives $K\equiv x^3$, so $\gcd(K,y)=1$; also $x\mid3g=3ys$ gives $K\mid3y$. Hence $K\in\{1,3\}$, and $K=x^3\bigl(1-\frac{y^3}{K}\bigr)-6xy(x-y)-3y^3$.
+\hint{5} If $K=1$, or $K=3$ and $y\ge2$, the right-hand side is negative. If $K=3$, $y=1$, you get $x^3-9x^2+9x-9=0$, which has no integer root (it would divide $9$). So $a=2$ is not friendly.
 
 \problem{9}
 \hint{1} Check the formula by listing representations: $r_4(n)=8,24,32,24,48,96,64,24,104,144$ for $n=1,\dots,10$, and continue up to $20$. The theta route uses Jacobi's identity $\theta(q)^4=1+8\sum_{4\nmid m}\frac{mq^m}{1-q^m}$, whose coefficient of $q^n$ is exactly $8\sum_{d\mid n,\,4\nmid d}d$. Proving that identity is the long part.

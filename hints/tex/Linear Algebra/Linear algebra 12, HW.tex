@@ -99,7 +99,13 @@ Real version: the joint range of \(x\mapsto(x^TAx,x^TBx)\) on the sphere is conv
 
 \problem{16}
 \hint{1}
-Let \(C=AB-BA\) and compute \(\operatorname{tr}C^2=2\operatorname{tr}\bigl((AB)^2\bigr)-2\operatorname{tr}(A^2B^2)=0\).
-\hint{2}
+Let \(C=AB-BA\) and compute \(\operatorname{tr}C^2=2\operatorname{tr}\bigl((AB)^2\bigr)-2\operatorname{tr}(A^2B^2)=0\). Also \(\operatorname{tr}C=0\).
+\subpart{a}
+\hint{1}
 The eigenvalues of \(C\) are real and \(\sum\lambda_i^2=0\), so all of them are \(0\).
+\subpart{b}
+\hint{1}
+For \(n=2\) the eigenvalues are \(\lambda,-\lambda\) and \(2\lambda^2=0\), whether \(\lambda\) is real or not. For \(n\ge3\) you need a real matrix \(C\) with \(\operatorname{tr}C=\operatorname{tr}C^2=0\) that is not nilpotent, and you must write it as a commutator.
+\hint{2}
+Take \(C\) the permutation matrix of a \(3\)-cycle (characteristic polynomial \(x^3-1\)), padded with zeros. A matrix with zero diagonal is a commutator: with \(A=\operatorname{diag}(1,2,\dots,n)\) and \(b_{ij}=c_{ij}/(i-j)\) for \(i\ne j\), \(b_{ii}=0\), one gets \(AB-BA=C\).
 \end{document}
