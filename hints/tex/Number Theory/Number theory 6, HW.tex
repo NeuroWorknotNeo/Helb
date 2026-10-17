@@ -1,0 +1,59 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Number theory -- 6}{Homework}
+
+\problem{1}
+\hint{1} The first two sums are multiplicative functions of $n$, so it suffices to check prime powers. $\sum_{d\mid p^k}\mu(d)^2=2$ and $\sum_{d\mid p^k}\mu(d)/d=1-\frac1p$. Multiplying over $p\mid n$ gives $2^{\omega(n)}$ and $\varphi(n)/n$.
+\hint{2} For the logarithm, write $\ln d=\ln n-\ln(n/d)$. Then $\sum_{d\mid n}\mu(d)\ln d=\ln n\cdot[n=1]-(\mu*\ln)(n)$. Show $\ln=\Lambda*1$ by factoring $n$; inversion then gives $\Lambda=\mu*\ln$, so the sum is $-\Lambda(n)$.
+\hint{3} Dirichlet series: $\sum\ln n\,n^{-s}=-\zeta'(s)$, and $\Lambda=\ln*\mu$ gives $\sum\Lambda(n)n^{-s}=-\zeta'(s)/\zeta(s)$.
+
+\problem{2}
+\hint{1} Let $N_d$ be the number of monic irreducible polynomials of degree $d$ over $\mathbb F_q$. Show that $x^{q^n}-x$ is the product of all monic irreducibles whose degree divides $n$ (each appears once, since the derivative is $-1$).
+\hint{2} Comparing degrees gives $q^n=\sum_{d\mid n}dN_d$. Möbius inversion yields $nN_n=\sum_{d\mid n}\mu(d)q^{n/d}$.
+\hint{3} Positivity: $nN_n\ge q^n-\sum_{j\le n/2}q^j>q^n-q^{\lfloor n/2\rfloor+1}\ge0$ for $n\ge2$; the case $n=1$ is trivial.
+
+\problem{3}
+\hint{1} Burnside: rotation by $j$ fixes exactly the words that are constant on the cycles of $i\mapsto i+j$. There are $\gcd(j,n)$ such cycles, so it fixes $k^{\gcd(j,n)}$ words. The number of $j$ with $\gcd(j,n)=n/d$ is $\varphi(d)$, so the count is $\frac1n\sum_{d\mid n}\varphi(d)k^{n/d}$.
+\hint{2} Möbius: let $A(e)$ be the number of words of length $e$ with least period exactly $e$ (aperiodic words). Every word of length $n$ is a repetition of a unique aperiodic word of length $e\mid n$, so $k^n=\sum_{e\mid n}A(e)$ and $A=\mu*k^{(\cdot)}$.
+\hint{3} A necklace of length $n$ with primitive period $e$ is an orbit of size $e$, so the number of necklaces is $\sum_{e\mid n}A(e)/e$. Substitute $A(e)=\sum_{c\mid e}\mu(e/c)k^c$, collect the coefficient of $k^c$, and use $\sum_{m\mid n/c}\mu(m)\frac{n/c}{m}=\varphi(n/c)$.
+
+\problem{4}
+\hint{1} $\frac{d(n)}{n^\varepsilon}=\prod_{p^a\Vert n}\frac{a+1}{p^{a\varepsilon}}$. For $p\ge2^{1/\varepsilon}$ each factor is $\le1$. For the finitely many smaller $p$, each factor is bounded by a constant depending on $\varepsilon$.
+\hint{2} For the lim sup, the lower bound uses primorials. Take $n=p_1\cdots p_k$; then $d(n)=2^k$ and $\ln n=\theta(p_k)\sim k\ln k$. Hence $\ln d(n)\cdot\ln\ln n/\ln n\to\ln2$.
+\hint{3} Upper bound: run the argument of Hint 1 with $\varepsilon=(1+\delta)\ln2/\ln\ln n$. The primes $p<2^{1/\varepsilon}$ number at most $2^{1/\varepsilon}=(\ln n)^{1/(1+\delta)}$. Each contributes at most a factor $O(\ln n)$, so their total is $\exp(o(\ln n/\ln\ln n))$.
+\hint{4} $\frac{\sigma(n)}n<\prod_{p\mid n}\frac p{p-1}$, and the product is largest when the primes of $n$ are the smallest ones. Mertens' theorem $\prod_{p\le y}\frac p{p-1}\sim e^\gamma\ln y$ then gives the maximal order $\limsup\frac{\sigma(n)}{n\ln\ln n}=e^\gamma$ (Gronwall); test it on $n=\mathrm{lcm}(1,\dots,k)$. Elementarily you get $\sigma(n)/n\asymp\ln\ln n$ along such $n$.
+
+\problem{5}
+\hint{1} Sum $\mu*1=\varepsilon$ over $n\le x$: $\sum_{d\le x}\mu(d)\lfloor x/d\rfloor=1$. Replace $\lfloor x/d\rfloor$ by $x/d-\{x/d\}$. This gives $\bigl|x\sum_{d\le x}\mu(d)/d\bigr|\le1+(x-1)$, so the sum is at most $1$ in absolute value.
+\hint{2} $\sum_{n\ge1}\mu(n)/n=0$ is equivalent to the prime number theorem (Landau); you only need to state this.
+\hint{3} $\sum_{n\le x}\lfloor x/n\rfloor$ counts pairs $(n,k)$ with $nk\le x$, and so does $\sum_{m\le x}d(m)$. Using $\lfloor x/n\rfloor=x/n+O(1)$ gives $x\ln x+O(x)$. Splitting the pairs at $\sqrt x$ (the hyperbola method) recovers the term $(2\gamma-1)x$.
+
+\problem{6}
+\note{As printed the first claim is false: $f(n)=1/n$ is (completely) multiplicative, tends to $0$, and never vanishes. The hints prove the correct statement: for multiplicative $f$, $f(n)\to0$ if and only if $f(p^k)\to0$ as the prime power $p^k\to\infty$. Also, a completely multiplicative $f$ with $|f|=1$ is just an arbitrary choice of unimodular values at the primes.}
+\hint{1} One direction is trivial, since prime powers are integers. For the converse, fix $\eta\in(0,1)$. Only finitely many prime powers have $|f(p^k)|\ge\eta$, and these are bounded by some $M\ge1$.
+\hint{2} Write $n=\prod p^{k}$. If all prime powers in $n$ are $\le Y$, then $n\le Y^{\pi(Y)}$. So every large $n$ has a prime-power factor $>Y$, and then $|f(n)|\le M^{C}\cdot\sup_{q>Y}|f(q)|$, where $C$ is the number of exceptional prime powers. Let $Y\to\infty$.
+\hint{3} Completely multiplicative functions are determined by their values at primes, which can be prescribed freely. So the $f$ with $|f|=1$ are exactly $f(n)=\prod p^{k}\mapsto\prod\zeta_p^{k}$ with arbitrary $|\zeta_p|=1$; for instance $n^{it}$, or Liouville's $(-1)^{\Omega(n)}$.
+
+\problem{7}
+\hint{1} Check that $f(x)=ax^m$ ($a,m\ge0$ integers) works. Now suppose $f=x^mg$ with $g(0)\ne0$ and $\deg g\ge1$. Infinitely many primes divide some value $g(k)$ (Schur), so pick such a $p$ with $p\nmid f(1)\,g(0)$; then $p\nmid k$.
+\hint{2} Iterate the condition. Since $\mathrm{rad}(n^{\mathrm{rad}(n)})=\mathrm{rad}(n)$, you get $\mathrm{rad}(f(n))\mid\mathrm{rad}(f(n^{\mathrm{rad}(n)^j}))$ for every $j$.
+\hint{3} By CRT choose $n\equiv k\pmod p$ with $\mathrm{rad}(p-1)\mid n$. Then $p\mid f(n)$, and for large $j$, $(p-1)\mid\mathrm{rad}(n)^j$, so $n^{\mathrm{rad}(n)^j}\equiv1\pmod p$. Hence $p\mid f(1)$, a contradiction. Answer: $f(x)=ax^m$.
+
+\problem{8}
+\hint{1} $\frac{\varphi(n)}n=\sum_{d\mid n}\frac{\mu(d)}d$. So $\sum_{n\le x}\frac{\varphi(n)}n=\sum_{d\le x}\frac{\mu(d)}d\lfloor x/d\rfloor=x\sum_{d\le x}\frac{\mu(d)}{d^2}+O\bigl(\sum_{d\le x}\frac1d\bigr)$. The tail of $\sum\mu(d)/d^2$ is $O(1/x)$, and the full sum is $6/\pi^2$.
+\hint{2} Farey fractions of order $N$ in $[0,1]$ are counted by $1+\sum_{n\le N}\varphi(n)$. The same Möbius computation gives $\sum_{n\le N}\varphi(n)=\sum_d\mu(d)\frac{\lfloor N/d\rfloor(\lfloor N/d\rfloor+1)}2=\frac3{\pi^2}N^2+O(N\ln N)$.
+\hint{3} Relation: either sum follows from the other by partial (Abel) summation, since $\varphi(n)=n\cdot\frac{\varphi(n)}n$. The error $O(\ln x)$ becomes $O(N\ln N)$.
+
+\problem{9}
+\hint{1} By multiplicativity, $\frac{\sigma(n)\varphi(n)}{n^2}=\prod_{p^a\Vert n}\Bigl(1-\frac1{p^{a+1}}\Bigr)$.
+\hint{2} Each factor lies in $[1-p^{-2},1)$, and $\prod_p(1-p^{-2})=1/\zeta(2)=6/\pi^2$. Hence $\frac6{\pi^2}<\frac{\sigma(n)\varphi(n)}{n^2}<1$ for $n>1$; the left inequality is strict because the primes not dividing $n$ contribute factors $<1$.
+\hint{3} The ratio $n^2/(\sigma\varphi)$ is close to $1$ when all prime factors of $n$ are large (e.g.\ $n$ a large prime). It is close to $\pi^2/6$ when $n$ is divisible by high powers of all small primes, e.g.\ $n=(k!)^k$ with $k$ large. For example, $n=2$ gives $4/3$ and $n=p$ gives $p^2/(p^2-1)$.
+
+\problem{10}
+\note{``Minimal'' means: $(a,b)$ is good, but neither $(a-b,b)$ nor $(a,b-a)$ is good (\emph{excellent} pairs in the original).}
+\hint{1} $a\lceil b\nu\rceil-b\lfloor a\nu\rfloor$ is the determinant of $U=(a,\lfloor a\nu\rfloor)$ (just below the line $y=\nu x$) and $W=(b,\lceil b\nu\rceil)$ (just above it). Note that $(m,m)$ is good.
+\hint{2} Let $\lfloor(a+b)\nu\rfloor=\lfloor a\nu\rfloor+\lfloor b\nu\rfloor+e$ with $e\in\{0,1\}$. Compute $f(a+b,b)=f(a,b)+b(1-e)$ and $f(a,a+b)=f(a,b)+ae$. So if $(a,b)$ is good, \emph{exactly one} of $(a+b,b)$, $(a,a+b)$ is good, and each good pair has at most one good ``parent''.
+\hint{3} Hence the good pairs split into infinite chains, each starting at an excellent pair. For a good pair with $a>b$, $f(a-b,b)\in\{m,m-b\}$, and symmetrically for $b>a$. So an excellent pair has $\min(a,b)\le m$. Moreover $f(a,b)\ge a(\lceil b\nu\rceil-b\nu)$ and $f(a,b)\ge b(a\nu-\lfloor a\nu\rfloor)$, so the other coordinate is bounded too, and there are finitely many excellent pairs.
+\hint{4} Count excellent pairs according to $g=\gcd(a,b)$, which must divide $m$. Show that for each $g\mid m$ there are exactly $m/g$ excellent pairs with $\gcd(a,b)=g$. Answer: $\sigma(m)=\sum_{d\mid m}d$ excellent pairs.
+\end{document}

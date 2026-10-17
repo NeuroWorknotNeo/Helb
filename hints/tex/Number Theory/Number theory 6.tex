@@ -1,0 +1,32 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Number theory -- 6}{Class work}
+
+\problem{1}
+\hint{1} Write $(f*g)(n)=\sum_{ab=n}f(a)g(b)$. Then commutativity is obvious, and associativity holds because both sides equal $\sum_{abc=n}f(a)g(b)h(c)$.
+\hint{2} Inverse: solve $(f*g)(n)=\varepsilon(n)$ recursively. Set $g(1)=1/f(1)$, and for $n>1$ put $g(n)=-\frac1{f(1)}\sum_{d\mid n,\,d<n}f(n/d)g(d)$. Multiplicativity: for coprime $m,n$, the divisors of $mn$ are exactly the products $d_1d_2$ with $d_1\mid m$, $d_2\mid n$.
+\hint{3} Inverses: $1^{-1}=\mu$ (Theorem 2). Since $d=1*1$, $d^{-1}=\mu*\mu$, which is multiplicative with $p\mapsto-2$, $p^2\mapsto1$, $p^k\mapsto0$ for $k\ge3$. Since $\sigma=\mathrm{id}*1$ and $\mathrm{id}^{-1}=\mu\cdot\mathrm{id}$, $\sigma^{-1}=(\mu\,\mathrm{id})*\mu$, with $p\mapsto-(p+1)$, $p^2\mapsto p$, $p^k\mapsto0$ for $k\ge3$.
+
+\problem{2}
+\hint{1} Grouping: the fractions $\frac kn$, $1\le k\le n$, written in lowest terms, have denominators $d\mid n$. Each denominator $d$ occurs with exactly $\varphi(d)$ numerators. Multiplicativity: both sides of $\sum_{d\mid n}\varphi(d)=n$ are multiplicative, and at $p^k$ the left side telescopes.
+\hint{2} For $\sum_{d\mid n}\mu(d)=[n=1]$, use $(1-1)^{\omega(n)}$, or multiplicativity. Then $g=f*1\iff f=g*\mu$ by associativity. From $\varphi*1=\mathrm{id}$ you get $\varphi=\mu*\mathrm{id}$, i.e.\ $\varphi(n)=\sum_{d\mid n}\mu(d)\frac nd=n\prod_{p\mid n}(1-\frac1p)$.
+\hint{3} The last two identities are $\mu*d=\mu*1*1=1$ and $\mu*\sigma=\mu*1*\mathrm{id}=\mathrm{id}$.
+
+\problem{3}
+\hint{1} Compute small cases. Primes work: $p(p+1)\equiv1\cdot2\pmod{p-1}$. Also $n=1,4,6,22$ work. The task is to show nothing else does.
+\hint{2} If $p^2\mid n$, then $p\mid\varphi(n)$ and $p\mid n\sigma(n)$, so $p\mid2$. Hence $n=2^a m$ with $m$ odd and squarefree. If $a\ge3$, then $4\mid\varphi(n)$ and $4\mid n$, which is impossible. So $a\le2$.
+\hint{3} If $m$ has two odd prime factors, then $4\mid\varphi(n)$. But $\sigma(m)=\prod(p+1)$ is divisible by $4$, so $n\sigma(n)\equiv0\not\equiv2\pmod4$.
+\hint{4} The remaining cases are $n=2,4$, $n=2p$ and $n=4p$. For $n=2p$, reducing mod $p-1$ gives $p-1\mid10$. For $n=4p$, it gives $p-1\mid54$. Check the few candidates. Answer: $n=1,4,6,22$ and all primes.
+
+\problem{4}
+\hint{1} $\sum_{n\le x}d(n)$ counts lattice points $(a,b)$ with $ab\le x$. By the symmetry $a\leftrightarrow b$ it equals $2\sum_{a\le\sqrt x}\lfloor x/a\rfloor-\lfloor\sqrt x\rfloor^2$.
+\hint{2} Insert $\lfloor x/a\rfloor=x/a+O(1)$ and $\sum_{a\le y}\frac1a=\ln y+\gamma+O(1/y)$. All error terms are $O(\sqrt x)$, and the main terms give $x\ln x+(2\gamma-1)x$.
+\hint{3} Coprime pairs: by Möbius inversion, the number of coprime pairs in $\{1,\dots,N\}^2$ is $\sum_{d\le N}\mu(d)\lfloor N/d\rfloor^2=N^2\sum_{d\le N}\frac{\mu(d)}{d^2}+O(N\ln N)$.
+\hint{4} The tail of $\sum\mu(d)/d^2$ is $O(1/N)$, so the probability tends to $\sum_{d\ge1}\mu(d)d^{-2}=1/\zeta(2)$. Only here does the value $\zeta(2)=\pi^2/6$ enter (Euler's evaluation, from Series); the rest uses only $\mu*1=\varepsilon$.
+
+\problem{5}
+\hint{1} Euclid: if $2^k-1$ is prime, then $\sigma(2^{k-1}(2^k-1))=(2^k-1)2^k$ by multiplicativity.
+\hint{2} Euler: write $n=2^{k-1}m$ with $m$ odd and $k\ge2$. Then $(2^k-1)\sigma(m)=2^km$, so $m=(2^k-1)t$ and $\sigma(m)=2^kt=m+t$. Since $t<m$ are both divisors of $m$, the divisors of $m$ are only $t$ and $m$. Hence $t=1$ and $m$ is prime.
+\hint{3} Odd perfect $n$: for a prime power, $\frac{\sigma(p^k)}{p^k}<\frac p{p-1}\le\frac32<2$. With two distinct odd primes, $\frac{\sigma(n)}n<\frac p{p-1}\cdot\frac q{q-1}\le\frac32\cdot\frac54=\frac{15}8<2$.
+\end{document}

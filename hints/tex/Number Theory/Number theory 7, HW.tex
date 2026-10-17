@@ -1,0 +1,56 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Number theory -- 7}{Homework}
+
+\problem{1}
+\hint{1} Count the terms $\le N$: there are $\lfloor N/\alpha\rfloor+\lfloor N/\beta\rfloor$ of them, roughly. Since this must equal $N$, dividing by $N$ and letting $N\to\infty$ gives $\frac1\alpha+\frac1\beta=1$; in particular $\alpha,\beta>1$. If $\alpha=p/q$ were rational, then $\beta=p/(p-q)$, and $\lfloor q\alpha\rfloor=\lfloor(p-q)\beta\rfloor=p$ would collide.
+\hint{2} Non-squares: $m$ is the $n$-th non-square if and only if $n=m-\lfloor\sqrt m\rfloor$. Put $k=\lfloor\sqrt m\rfloor$; then $k^2<m\le k^2+2k$, so $k^2-k<n\le k^2+k$. This is equivalent to $k-\frac12<\sqrt n<k+\frac12$, i.e.\ $k=\lfloor\sqrt n+\frac12\rfloor$.
+\hint{3} Since $\frac1{\sqrt2}+\frac1{2+\sqrt2}=1$, Rayleigh--Beatty says that the positive integers not of the form $\lfloor k\sqrt2\rfloor$ are exactly the numbers $\lfloor k(2+\sqrt2)\rfloor$.
+
+\problem{2}
+\hint{1} First identity: $(\sqrt n+\sqrt{n+1})^2=2n+1+2\sqrt{n^2+n}$ lies strictly between $4n+1$ and $4n+2$. No perfect square is $\equiv2,3\pmod4$.
+\hint{2} Second: let $s$ be the sum of the three cube roots. By concavity, $s<3\sqrt[3]{n+1}$. By AM--GM, $s>3\bigl(n(n+1)(n+2)\bigr)^{1/9}$, and $n(n+1)(n+2)>(n+\frac{26}{27})^3$ for $n\ge9$. Check $n\le8$ directly.
+\hint{3} So $27n+26<s^3<27n+27$. An integer $K\le s$ has $K^3<27n+27$, hence $K^3\le27n+26$. Therefore $\lfloor s\rfloor=\lfloor\sqrt[3]{27n+26}\rfloor$.
+
+\problem{3}
+\hint{1} Put $N=10^{100}$, so the number is $\lfloor N^{200}/(N+3)\rfloor$. Divide $N^{200}$ by $N+3$ as polynomials in $N$.
+\hint{2} $N^{200}-3^{200}=(N+3)\sum_{j=0}^{199}N^{199-j}(-3)^j$, and $0<3^{200}<N+3$. So the integer part is $\sum_{j=0}^{199}N^{199-j}(-3)^j$.
+\hint{3} Modulo $10$ only the term $j=199$ survives: $-3^{199}\equiv-7\equiv3$. Answer: $3$.
+
+\problem{4}
+\hint{1} Among $m,m+1,\dots,n$ exactly one number has the largest power of $2$, say $2^t$ with $t\ge1$. (Between two multiples of $2^t$ there is a multiple of $2^{t+1}$.) In the sum, that term alone has $2$-adic valuation $-t$, so the sum has valuation $-t<0$.
+\hint{2} The denominator of $H_n$ divides $L(n)$, the common denominator. By Hint 1 with $m=1$, $v_2$ of the denominator is $t=\lfloor\log_2n\rfloor$. A prime $p\in(\frac n2,n]$ divides only the term $k=p$, so the same argument with $p$ in place of $2$ applies.
+\hint{3} Example: $H_6=\frac{49}{20}$ while $L(6)=60$.
+
+\problem{5}
+\hint{1} Since $\sum ka_k=0$, you may subtract $kt$ from $\lfloor kx\rfloor$ for any constant $t$ without changing the sum. Choose $t$ so that $\sum_{k\le n}(\lfloor kx\rfloor-kt)=0$, i.e.\ $t=C_n$ where $C_k=\frac{2B_k}{k(k+1)}$ and $B_k=\sum_{j\le k}\lfloor jx\rfloor$.
+\hint{2} Abel summation: $\sum_ka_k(\lfloor kx\rfloor-kC_n)=-\sum_{k<n}(a_{k+1}-a_k)\frac{k(k+1)}2(C_k-C_n)$. Since $a_{k+1}\ge a_k$, it suffices to prove that $C_k$ is non-decreasing.
+\hint{3} $C_k\le C_{k+1}$ is equivalent to $2B_k\le k\lfloor(k+1)x\rfloor$. Sum the superadditivity $\lfloor jx\rfloor+\lfloor(k+1-j)x\rfloor\le\lfloor(k+1)x\rfloor$ over $j=1,\dots,k$.
+
+\problem{6}
+\hint{1} Compare growth. The right side is $n-\frac nx+\frac n{x^2}-\dots+O(\log n)=\frac{nx}{x+1}+O(\log n)$, and the left side is $\frac nx+O(1)$. So $x^2=x+1$, i.e.\ $x=\varphi=\frac{1+\sqrt5}2$.
+\hint{2} Sufficiency: the right side $R(n)$ satisfies $R(n)=n-R(\lfloor n/x\rfloor)$, $R(0)=0$. Prove by strong induction that $R(n)=\lfloor(n+1)/\varphi\rfloor$. This amounts to $\lfloor\frac{n+1}\varphi\rfloor+\lfloor\frac{\lfloor n/\varphi\rfloor+1}\varphi\rfloor=n$.
+\hint{3} To prove the last identity, use that $\lfloor k\varphi\rfloor$ and $\lfloor k\varphi^2\rfloor$ partition the positive integers (Rayleigh--Beatty with $\frac1\varphi+\frac1{\varphi^2}=1$). Count how many terms of each sequence are $\le n$ or $\le n+1$.
+
+\problem{7}
+\hint{1} Reduction: the order of $\sigma$ is the lcm of its cycle lengths. Write this lcm as a product of prime powers $q_1\cdots q_r$; each $q_i$ divides some cycle length, so $\sum q_i\le n$. Replacing the cycles by cycles of lengths $q_1,\dots,q_r$ (plus fixed points) keeps the order.
+\hint{2} Lower bound: use all primes $p\le y=c\sqrt{n\ln n}$. Their sum is at most $y\pi(y)\le Cy^2/\ln y\le n$ for small $c$. Then $\ln g(n)\ge\theta(y)\ge c'y$ by Chebyshev.
+\hint{3} Upper bound with $y=\sqrt{n\ln n}$: factors $q_i\le y$ involve distinct primes $\le y$, so there are at most $\pi(y)$ of them, each contributing $\ln q_i\le\ln n$. Factors $q_i>y$ number at most $n/y$, each contributing $\le\ln n$. Both totals are $O(\sqrt{n\ln n})$.
+
+\problem{8}
+\hint{1} Let $\alpha=\sqrt2-1$, $\beta=1/\alpha=2+\alpha$, $S(n)=\sum_{k\le n}(-1)^{\lfloor k\alpha\rfloor}$. Group $k$ by $j=\lfloor k\alpha\rfloor$: block $j$ consists of $\lfloor j\beta\rfloor<k\le\lfloor(j+1)\beta\rfloor$ and has length $2+\lfloor(j+1)\alpha\rfloor-\lfloor j\alpha\rfloor$.
+\hint{2} Summing over complete blocks: $S(\lfloor J\beta\rfloor)=2[J\text{ odd}]+\sum_{j<J}(-1)^j(\lfloor(j+1)\alpha\rfloor-\lfloor j\alpha\rfloor)$. The last sum has a term exactly when $j+1=\lceil m\beta\rceil$, with sign $(-1)^{\lceil m\beta\rceil-1}=(-1)^{\lfloor m\alpha\rfloor}$. Hence $S(\lfloor J\beta\rfloor)=2[J\text{ odd}]+S(\lfloor J\alpha\rfloor)$.
+\hint{3} Strong induction on $n$. If $n$ lies in block $J$ with $J$ even, the partial block only adds, so $S(n)\ge S(\lfloor J\beta\rfloor)\ge0$. If $J$ is odd, the partial block subtracts, so $S(n)\ge S(\lfloor(J+1)\beta\rfloor)=S(\lfloor(J+1)\alpha\rfloor)\ge0$. Check that $\lfloor(J+1)\alpha\rfloor<n$.
+
+\problem{9}
+\hint{1} If $\alpha\le1$, then $S(\alpha)$ already contains every positive integer. So $\alpha,\beta,\gamma>1$, and put $\theta_i=1/\alpha,1/\beta,1/\gamma$. Exactly $\lceil n\theta\rceil-1$ elements of $S(1/\theta)$ lie in $[1,n-1]$.
+\hint{2} The partition gives $\sum_i(\lceil n\theta_i\rceil-1)=n-1$ for all $n$. Dividing by $n$ gives $\sum\theta_i=1$, and then $\sum_i\{-n\theta_i\}=2$ for every $n\ge1$.
+\hint{3} By simultaneous Dirichlet approximation (pigeonhole), find $q\ge2$ with $\|q\theta_i\|<\varepsilon$ for all $i$; this works for rational $\theta_i$ too. For $n=q-1$, $\{-n\theta_i\}=\{\theta_i-q\theta_i\}$ is within $\varepsilon$ of $\theta_i$. So $\sum_i\{-n\theta_i\}$ is close to $\sum\theta_i=1$, not $2$.
+
+\problem{10}
+\hint{1} Write $A_n=\sum_{k=0}^n\frac{n!}{k!}$, so the sum is $A_n/n!$ and $A_n=nA_{n-1}+1$. Then $g(n)=n!/d_n$ with $d_n=\gcd(n!,A_n)$. The answer is \emph{yes}: show that $d_n$ cannot be large for many consecutive $n$.
+\hint{2} For $m<n$, $\gcd(A_m,A_n)$ divides $A_n-\frac{n!}{m!}A_m=\sum_{k=m+1}^n\frac{n!}{k!}\le e\,n^{n-m-1}$. So the $d_j$ for nearby $j$ are almost coprime.
+\hint{3} Suppose $g(j)\le j^{0.999j}$, i.e.\ $d_j\ge j!/j^{0.999j}$, for all $j\in[n,n+K)$. Use $\prod_jd_j\le\mathrm{lcm}(d_j)\prod_{i<j}\gcd(d_i,d_j)\le(n+K)!\,(e(n+K)^K)^{K^2}$.
+\hint{4} The assumed lower bound gives $\prod_jd_j\ge\bigl(n^{0.001n}e^{-n}\bigr)^K$ roughly. With $K=2000$ and $n$ huge, this exceeds the upper bound (compare $2n\ln n$ with $n\ln n$). So some $j$ has $g(j)>j^{0.999j}$.
+\end{document}

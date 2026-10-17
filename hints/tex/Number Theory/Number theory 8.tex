@@ -1,0 +1,31 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Number theory -- 8}{Class work}
+
+\problem{1}
+\hint{1} First inequality: $\alpha$ lies between $\frac{p_k}{q_k}$ and $\frac{p_{k+1}}{q_{k+1}}$, and these differ by $\frac1{q_kq_{k+1}}$. For Legendre's criterion: if $p/q$ is not a convergent, choose $k$ with $q_k\le q<q_{k+1}$. Show that $|q\alpha-p|\ge|q_k\alpha-p_k|$ (best approximation property), and then estimate $\frac1{qq_k}\le\bigl|\frac pq-\frac{p_k}{q_k}\bigr|$ to get a contradiction with $|\alpha-\frac pq|<\frac1{2q^2}$.
+\hint{2} For $x^2-37y^2=n$ with $0<|n|<\sqrt{37}$: dividing a solution by $g=\gcd(x,y)$ gives a primitive solution with value $n/g^2$, which comes from a convergent of $\sqrt{37}=[6;\overline{12}]$. Since the period is $1$, every $Q_k=1$, so convergents give only $\pm1$ ($6^2-37=-1$, $73^2-37\cdot12^2=1$). Hence $n\in\{\pm1,\pm4\}$.
+\hint{3} In particular $x^2-37y^2=3$ has no integer solution. Local solvability: modulo $3^k$ take $y=1$ and solve $x^2\equiv40$ (Hensel, $40\equiv1\pmod3$). Modulo $37^k$, use $\bigl(\frac3{37}\bigr)=1$. Modulo $2^k$ take $x=4$; then $y^2\equiv13\cdot37^{-1}\equiv1\pmod8$ lifts.
+\hint{4} For primes $p\nmid2\cdot3\cdot37$, the conic has a solution mod $p$ by counting values of $x^2$ and of $3+37y^2$, and it lifts by Hensel. Combine all prime powers by CRT.
+
+\problem{2}
+\hint{1} Suppose $k=\frac{a^2+b^2}{ab+1}$ is not a square. Among all pairs with this $k$, take one with $a\ge b$ and $a+b$ minimal. View $a^2-kb\,a+b^2-k=0$ as a quadratic in $a$.
+\hint{2} The other root is $a'=kb-a=\frac{b^2-k}a$, which is an integer. Show $a'\ge0$: if $a'<0$, then $a'^2-kba'+b^2-k\ge a'^2+k+b^2-k>0$. Also $a'\ne0$, since otherwise $k=b^2$.
+\hint{3} Then $a'=\frac{b^2-k}a<\frac{b^2}a\le b\le a$, so $(a',b)$ is a smaller pair with the same $k$, contradicting minimality.
+
+\problem{3}
+\hint{1} Fix $c$ and take a solution with $a\ge b$ and $a+b$ minimal. Vieta jumping in $a$: the other root is $a'=bc-a=\frac{b^2+1}a$, a positive integer.
+\hint{2} If $a>b$, then $ab\ge b^2+b\ge b^2+1$, so $a'\le b<a$ and $(a',b)$ is a smaller solution, a contradiction. Hence $a=b$, and $a^2c=2a^2+1$ gives $a^2\mid1$. So $a=b=1$ and $c=3$.
+\hint{3} Running the jumps backwards from $(1,1)$ with $c=3$ gives all pairs: consecutive terms of $1,1,2,5,13,34,89,\dots$ ($x_{k+1}=3x_k-x_{k-1}$, the odd-indexed Fibonacci numbers), in either order.
+
+\problem{4}
+\hint{1} If $q=0$, $r$ is rational, and $\begin{pmatrix}1+rt&-r^2t\\t&1-rt\end{pmatrix}$ works for a suitable integer $t\ne0$ that clears denominators. Otherwise $r$ is a root of $ux^2+vx+w$ with integer coefficients and discriminant $v^2-4uw=7\Delta^2$, where $\Delta$ is an integer (e.g.\ $\Delta=2uq$).
+\hint{2} A matrix fixing $r$ has $cr^2+(d-a)r-b=0$, so try $c=ut$, $d-a=vt$, $b=-wt$. Writing $a+d=s$, the condition $ad-bc=1$ becomes $s^2-7\Delta^2t^2=4$.
+\hint{3} Solve this Pell-type equation with $t\ne0$. Take $k+l\sqrt7=(8+3\sqrt7)^n$ with $\Delta\mid l$, which is possible because the powers are periodic modulo $\Delta$. Then set $s=2k$, $t=2l/\Delta$, and check that $a=\frac{s-vt}2$, $d=\frac{s+vt}2$ are integers.
+
+\problem{5}
+\hint{1} Put $P=x_1\cdots x_{n-1}$. As a function of $x_n$, the expression is a convex quadratic with vertex at $x_n=aP/2$. So on $[x_{n-1},aP/2]$ it is at most its value at $x_n=x_{n-1}$.
+\hint{2} At $x_n=x_{n-1}$ the value is $\le nx_{n-1}^2-aPx_{n-1}\le(n-a2^{n-2})x_{n-1}^2$, since $P\ge2^{n-2}x_{n-1}$. This is $\le0$ because $n\le2^{n-2}$ for $n\ge4$.
+\hint{3} Equality forces $a=1$, $n=4$ and all $x_i=2$. Consequence: in a fundamental solution of the Hurwitz equation (one with $x_n\le\frac a2x_1\cdots x_{n-1}$), the smallest variable is $1$, except for $(2,2,2,2)$ with $a=1$, $n=4$.
+\end{document}
