@@ -1,0 +1,36 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Series and infinite products -- 1. Convergence: the standard scale and comparison}{Class work}
+
+\problem{1}
+\hint{1} Condensation: cut \([1,\infty)\) into the blocks \(2^k\le n\lt2^{k+1}\). A block has \(2^k\) terms, each between \(a_{2^{k+1}}\) and \(a_{2^k}\), so
+\[\tfrac12\sum_{k\ge0}2^{k+1}a_{2^{k+1}}\le\sum_{n\ge1}a_n\le\sum_{k\ge0}2^ka_{2^k}.\]
+Integral test: \(f(k+1)\le\int_k^{k+1}f\le f(k)\). The sequence \(D_n=\sum_{k\le n}f(k)-\int_1^nf\) is non-increasing (\(D_{n+1}-D_n=f(n+1)-\int_n^{n+1}f\le0\)) and \(D_n\ge f(n)\ge0\), \(D_1=f(1)\).
+\hint{2} For \(a_n=\frac1{n\ln^pn}\) condensation gives \(2^ka_{2^k}=\frac1{(k\ln2)^p}\), so the series converges exactly for \(p\gt1\). For \(\frac1{n\ln n\ln^p\ln n}\) condensation gives terms \(\asymp\frac1{k\ln^pk}\), which is the previous series; again \(p\gt1\). (The integral test does the same with the substitutions \(t=\ln x\), \(t=\ln\ln x\).)
+\hint{3} No slowest convergent series. Let \(r_n=\sum_{k\ge n}a_k\) be the tails, \(r_n\downarrow0\), and put \(b_n=a_n/\sqrt{r_n}\). Then \(b_n/a_n\to\infty\), and
+\[b_n=\frac{r_n-r_{n+1}}{\sqrt{r_n}}\le2\bigl(\sqrt{r_n}-\sqrt{r_{n+1}}\bigr),\]
+which telescopes, so \(\sum b_n\le2\sqrt{r_1}\).
+\hint{4} No slowest divergent series. Let \(S_n=\sum_{k\le n}a_k\to\infty\) and \(b_n=a_n/\sqrt{S_n}\), so \(b_n/a_n\to0\). Now \(\sqrt{S_n}-\sqrt{S_{n-1}}=\frac{a_n}{\sqrt{S_n}+\sqrt{S_{n-1}}}\le b_n\), and the left-hand sides add up to \(\sqrt{S_n}-\sqrt{S_1}\to\infty\).
+
+\problem{2}
+\hint{1} One direction is a single choice of \(c_n\): which \(c_n\) makes \(\frac{a_n}{c_n}\) and \(\frac{c_n}{b_n}\) equal?
+\hint{2} \(c_n=\sqrt{a_nb_n}\) makes both equal to \(\sqrt{a_n/b_n}\), so 2) implies 1).
+\hint{3} For 1) \(\Rightarrow\) 2) write \(\sqrt{\frac{a_n}{b_n}}=\sqrt{\frac{a_n}{c_n}\cdot\frac{c_n}{b_n}}\le\frac12\Bigl(\frac{a_n}{c_n}+\frac{c_n}{b_n}\Bigr)\) by AM--GM.
+
+\problem{3}
+\hint{1} The series converges. It is enough to show \(a_n\le\frac23n\) for all composite \(n\ge9\); the finitely many terms \(n=4,6,8\) do not matter, and then the terms are at most \((2/3)^n\).
+\hint{2} If \(n=ab\) with \(1\lt a\lt b\), then \(a\) and \(b\) are distinct factors of \(b!\), so \(n\mid b!\) and \(a_n\le b\le n/2\). Every composite \(n\) has such a factorisation unless \(n=p^2\) with \(p\) prime (take \(a\) = the least prime divisor).
+\hint{3} For \(n=p^2\) the factorial \((2p)!\) contains the factors \(p\) and \(2p\), so \(a_n\le2p=2\sqrt n\), and \(2\sqrt n\le\frac23n\) for \(n\ge9\).
+
+\problem{4}
+\hint{1} Compare the term with \(\min(a_n,\frac1n)\): if \(na_n\le1\), then \(\frac{a_n}{1+na_n}\ge\frac{a_n}2\); if \(na_n\ge1\), then \(\frac{a_n}{1+na_n}\ge\frac{a_n}{2na_n}=\frac1{2n}\). So it suffices to show that \(\sum\min(a_n,\frac1n)\) diverges.
+\hint{2} \(b_n=\min(a_n,\frac1n)\) is non-increasing, so condensation applies: \(\sum b_n\) converges iff \(\sum_k\min\bigl(2^ka_{2^k},1\bigr)\) does.
+\hint{3} If the condensed series converged, its terms would tend to \(0\), so from some point on they equal \(2^ka_{2^k}\), and \(\sum2^ka_{2^k}\) would converge. By condensation again \(\sum a_n\) would converge, a contradiction.
+
+\problem{5}
+\hint{1} First check by induction that \(0\lt x_{n+1}\lt x_n\lt1\): \(x_{n+1}=x_n\bigl(1-\frac{x_n}{\sqrt n}\bigr)\) and \(x_n\lt1\le\sqrt n\). Now find the asymptotics of \(x_n\). For \(x'=-x^2/\sqrt t\) one looks at \(1/x\).
+\hint{2} \(\frac1{x_{n+1}}-\frac1{x_n}=\frac{x_n-x_{n+1}}{x_nx_{n+1}}=\frac{1}{\sqrt n-x_n}\). Since \(0\lt x_n\lt1\), this is \(\frac1{\sqrt n}\bigl(1+O(n^{-1/2})\bigr)\).
+\hint{3} By Stolz, \(\frac{1/x_n}{\sqrt n}\) has the limit \(\lim\frac{1/(\sqrt n-x_n)}{\sqrt{n+1}-\sqrt n}=2\). So \(x_n\sim\frac1{2\sqrt n}\), and \(\sum x_n^\alpha\) converges exactly for \(\alpha\gt2\).
+
+\end{document}
