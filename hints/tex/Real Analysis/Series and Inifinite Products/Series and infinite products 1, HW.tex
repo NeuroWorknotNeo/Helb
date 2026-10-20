@@ -1,0 +1,58 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Series and infinite products -- 1. Convergence: the standard scale and comparison}{Homework}
+
+\problem{1}
+\hint{1} Raabe: compare with \(n^{-q}\), whose ratio is \(\bigl(\frac n{n+1}\bigr)^q=1-\frac qn+O(n^{-2})\). If \(p\gt1\), take \(1\lt q\lt p\): eventually \(\frac{a_{n+1}}{a_n}\le\bigl(\frac n{n+1}\bigr)^q\), so \(n^qa_n\) is eventually non-increasing and \(a_n\le Cn^{-q}\). If \(p\lt1\), eventually \(\frac{a_{n+1}}{a_n}\ge\frac n{n+1}\), so \(na_n\) is eventually non-decreasing and \(a_n\ge c/n\).
+\hint{2} The case \(p=1\) (Gauss): \(\ln\frac{(n+1)a_{n+1}}{na_n}=\ln\bigl(1+\frac1n\bigr)+\ln\bigl(1-\frac1n+O(n^{-2})\bigr)=O(n^{-2})\) is summable, so \(na_n\to L\gt0\) and the series diverges like \(\sum\frac1n\).
+\hint{3} Here \(\frac{a_{n+1}}{a_n}=\bigl(\frac{2n+1}{2n+2}\bigr)^p=\bigl(1-\frac1{2n+2}\bigr)^p=1-\frac p{2n}+O(n^{-2})\), which tends to \(1\) for every \(p\). So the series converges for \(p\gt2\) and diverges for \(p\le2\) (for \(p=2\) by the Gauss case). The same answer follows from Wallis: \(\frac{(2n-1)!!}{(2n)!!}\sim\frac1{\sqrt{\pi n}}\).
+
+\problem{2}
+\hint{1} Both convergent series come from AM--GM: \(\sqrt{a_na_{n+1}}\le\frac{a_n+a_{n+1}}2\) and \(\frac{\sqrt{a_n}}n\le\frac12\bigl(a_n+\frac1{n^2}\bigr)\). For the example take \(a_n=\frac1{n^2}\).
+\hint{2} For the last part one example works for all \(p\le\frac12\). You need \(a_n\) that is summable, but only barely, so that \(\sqrt{a_n}\) is about \(\frac1{\sqrt n}\).
+\hint{3} \(a_n=\frac1{n\ln^2n}\) (\(n\ge2\)) gives \(\frac{\sqrt{a_n}}{n^p}=\frac1{n^{p+1/2}\ln n}\ge\frac1{n\ln n}\) for \(p\le\frac12\), and \(\sum\frac1{n\ln n}\) diverges. (For \(p\gt\frac12\) Cauchy--Schwarz with \(\sum n^{-2p}\) gives convergence, so \(\frac12\) is the threshold.)
+
+\problem{3}
+\hint{1} Put \(s=\frac1{1-\alpha}\gt1\) and split \(x_k^s=x_k\cdot x_k^{s-1}=x_k\cdot x_k^{\alpha/(1-\alpha)}\). It is enough to show that \(x_k^{\alpha/(1-\alpha)}\le Ck^{-\alpha}\), i.e.\ that \(x_k\le C'k^{-(1-\alpha)}\).
+\hint{2} This bound uses the monotonicity: \(\sum_{k\le n}\frac{x_k}{k^\alpha}\ge x_n\sum_{k\le n}k^{-\alpha}\ge c\,x_nn^{1-\alpha}\), and the left-hand side is bounded.
+\hint{3} Hence \(x_k^s\le C\,\frac{x_k}{k^\alpha}\), and the series converges by comparison. (Applying the same estimate to the block \(\frac n2\lt k\le n\) even gives \(x_nn^{1-\alpha}\to0\), but boundedness is all you need.)
+
+\problem{4}
+\hint{1} Look for a telescoping bound \(\frac1{\sqrt n\,(n+1)}\lt c\Bigl(\frac1{\sqrt n}-\frac1{\sqrt{n+1}}\Bigr)\). Which \(c\) gives the sum \(2\)?
+\hint{2} \(2\Bigl(\frac1{\sqrt n}-\frac1{\sqrt{n+1}}\Bigr)=\frac{2}{\sqrt n\sqrt{n+1}\,(\sqrt n+\sqrt{n+1})}\).
+\hint{3} Comparing with \(\frac1{\sqrt n\,(n+1)}\) reduces to \(\sqrt n+\sqrt{n+1}\lt2\sqrt{n+1}\), which is true. Summing over \(n\ge1\) gives \(\sum\lt2\cdot\frac1{\sqrt1}=2\).
+
+\problem{5}
+\hint{1} Find the growth of \(I_n=\int_0^n|\sin\pi x|^x\,dx\). On \([k,k+1]\) the exponent lies between \(k\) and \(k+1\), and \(|\sin\pi x|\le1\), so
+\[J_{k+1}\le\int_k^{k+1}|\sin\pi x|^x\,dx\le J_k,\qquad J_k=\int_0^1\sin^k(\pi t)\,dt.\]
+\hint{2} \(J_k=\frac2\pi\int_0^{\pi/2}\sin^k\theta\,d\theta\sim\frac2\pi\sqrt{\frac\pi{2k}}=\sqrt{\frac2{\pi k}}\) (Wallis integrals). For the answer only the order \(J_k\asymp k^{-1/2}\) is needed.
+\hint{3} Hence \(I_n\sim\sum_{k\lt n}\sqrt{\frac2{\pi k}}\sim2\sqrt{\frac2\pi}\,\sqrt n\), and \(a_n\sim2\sqrt{\frac2\pi}\,n^{1/2-p}\). The series converges exactly for \(p\gt\frac32\).
+
+\problem{6}
+\hint{1} Get rid of the root: \(2x_{n+1}-x_n-1=\sqrt{(x_n+1)^2+4}\). Square it and simplify.
+\hint{2} You get \(x_{n+1}^2-x_{n+1}x_n-x_{n+1}-1=0\). Also \(x_{n+1}\ge x_n+1\), so \(x_n\to\infty\). Try to write \(\frac1{x_{n+1}^2-1}\) as a difference \(g(x_n)-g(x_{n+1})\).
+\hint{3} The relation says \(x_{n+1}^2-1=x_{n+1}(x_n+1)\) and \(x_{n+1}(x_{n+1}-x_n)=x_{n+1}+1\). Together they give
+\[\frac1{x_n+1}-\frac1{x_{n+1}+1}=\frac{x_{n+1}-x_n}{(x_n+1)(x_{n+1}+1)}=\frac1{x_{n+1}(x_n+1)}=\frac1{x_{n+1}^2-1}.\]
+\hint{4} So \(y_n=\frac1{x_1^2-1}+\frac1{x_1+1}-\frac1{x_n+1}\to\frac13+\frac13=\frac23\).
+
+\problem{7}
+\hint{1} Put \(r_n=\frac{x_{n+1}}{x_n}\ge1\). The term is \(\sqrt{r_n}-\frac1{\sqrt{r_n}}=\frac{r_n-1}{\sqrt{r_n}}\ge0\).
+\hint{2} It converges: \(\frac{r_n-1}{\sqrt{r_n}}\le r_n-1=\frac{x_{n+1}-x_n}{x_n}\le\frac{x_{n+1}-x_n}{x_1}\), and these bounds telescope to at most \(\frac{\lim x_n-x_1}{x_1}\).
+
+\problem{8}
+\hint{1} \(F\) is increasing, \(F(1)=0\), \(F(x)\to\infty\), so start the sums at \(n=2\). Monotonicity of \(f\) gives \(\int_n^{n+1}f\le f(n)\le\int_{n-1}^nf\), i.e.\ \(F(n+1)-F(n)\le f(n)\le F(n)-F(n-1)\).
+\hint{2} Divergence: \(\frac{f(n)}{F(n)}\ge\frac{F(n+1)-F(n)}{F(n)}\ge\ln\frac{F(n+1)}{F(n)}\) (use \(u-1\ge\ln u\)), and the logarithms telescope to \(\ln F(N)\to\infty\).
+\hint{3} Convergence: for \(t\in[n-1,n]\) we have \(f(n)\le f(t)\) and \(F(n)\ge F(t)\), so \(\frac{f(n)}{F(n)^{1+\varepsilon}}\le\int_{n-1}^n\frac{f(t)}{F(t)^{1+\varepsilon}}\,dt\). Summing over \(n\ge3\) gives at most \(\int_2^\infty\frac{F'}{F^{1+\varepsilon}}=\frac{F(2)^{-\varepsilon}}\varepsilon\).
+
+\problem{9}
+\hint{1} In all three cases start from \(n^{1/n}=e^{\ln n/n}\to1\), and \(n^{1/n}-1\sim\frac{\ln n}n\).
+\hint{2} \(\frac1{n^{1+1/n}}=\frac1n\cdot\frac1{n^{1/n}}\sim\frac1n\): limit comparison with the harmonic series, divergent. \(\bigl(n^{1/n}-1\bigr)^p\sim\frac{\ln^pn}{n^p}\): limit comparison with the scale, convergent exactly for \(p\gt1\).
+\hint{3} For \(\bigl(\sqrt[n]n-1\bigr)^n\) the root test is the cheapest: the \(n\)-th root of the term is \(\sqrt[n]n-1\to0\), so the series converges.
+
+\problem{10}
+\hint{1} Put \(r_n=|A_0A_n|\). The triangle \(A_0A_{n-1}A_n\) has its right angle at \(A_{n-1}\), so \(r_n^2=r_{n-1}^2+a_n^2\), i.e.\ \(r_n^2=a_1^2+\dots+a_n^2\). The angle is \(\theta_n=\angle A_{n-1}A_0A_n=\arctan\frac{a_n}{r_{n-1}}\).
+\hint{2} The \(r_n\) increase, so \(\{A_n\}\) is unbounded iff \(r_n\to\infty\), i.e.\ iff \(\sum a_n^2=\infty\). If \(\sum\theta_n\) converges, then \(u_n=\frac{a_n}{r_{n-1}}\to0\) and \(\theta_n\sim u_n\), so \(\sum u_n\) converges, and so does \(\sum u_n^2\).
+\hint{3} But \(u_n^2=\frac{r_n^2-r_{n-1}^2}{r_{n-1}^2}\ge\frac{r_n^2-r_{n-1}^2}{r_n^2}\), and for \(r_n^2\to\infty\) this series diverges (Abel--Dini: the block \(n\lt k\le m\) adds at least \(\frac{r_m^2-r_n^2}{r_m^2}\), which tends to \(1\) as \(m\to\infty\)). So it is not possible.
+
+\end{document}
