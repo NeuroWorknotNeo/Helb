@@ -1,0 +1,74 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\sheettitle}[4]{% title, subtitle, homework-flag (empty or "Homework"), date
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\foreignlanguage{russian}{#4}\par}
+  \end{center}\vspace{0.5em}}
+\begin{document}
+\sheettitle{Polynomials -- 1}{Roots, multiplicity and the derivative}{Homework}{8 сентября 2026 года}
+
+\head{Theoretical minimum.} Multiplicity of a root and the derivatives vanishing there;
+$\gcd(f,f')$ as the multiple part; Rolle's theorem for polynomials and the interlacing of the
+roots of $f$ and $f'$; Vieta's formulas; a non-negative real polynomial is a sum of two squares;
+the sign of a polynomial between consecutive roots.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item (Putnam 1948) Let $f(x)$ be a cubic polynomial with roots $x_1,x_2,x_3$ and assume that
+$f(2x)$ is divisible by $f'(x)$. Compute the ratios of the roots.
+
+\item (Putnam 1953) Assuming that the roots of $x^3+px^2+qx+r=0$ are all real and positive, find
+the relation between $p$, $q$ and $r$ which is necessary and sufficient for the roots to be the
+cosines of the angles of a triangle.
+
+\item (Putnam 1953) Show that the roots of $x^4+ax^3+bx^2+cx+d=0$, suitably numbered, satisfy
+$r_1/r_2=r_3/r_4$ provided that $a^2d=c^2\ne0$.
+
+\item (Putnam 1958) If $a_0,a_1,\dots,a_n$ are real numbers with
+$\sum_{k=0}^n\frac{a_k}{k+1}=0$, show that the equation $a_0+a_1x+\dots+a_nx^n=0$ has at least
+one real root.
+
+\item (Putnam 1978) The polynomials $Q_n(x)$ are defined by $Q_1(x)=1+x$, $Q_2(x)=1+2x$ and, for
+$m\ge1$, by $Q_{2m+1}=Q_{2m}+(m+1)xQ_{2m-1}$ and $Q_{2m+2}=Q_{2m+1}+(m+1)xQ_{2m}$. Let $x_n$ be
+the largest real solution of $Q_n(x)=0$. Prove that $(x_n)$ is increasing and that $x_n\to0$.
+
+\item (Putnam 1981) Let $P(x)$ be a real polynomial and put
+$Q(x)=(x^2+1)P(x)P'(x)+x\bigl((P(x))^2+(P'(x))^2\bigr)$. Given that $P(x)=0$ has $n$ distinct
+real roots exceeding $1$, prove or disprove that $Q(x)=0$ has at least $2n-1$ distinct real
+roots.
+
+\item (Putnam 1990) Does there exist an infinite sequence $a_0,a_1,a_2,\dots$ of non-zero real
+numbers such that for every $n$ the polynomial $p_n(x)=a_0+a_1x+\dots+a_nx^n$ has exactly $n$
+distinct real roots?
+
+\item (Putnam 1941) Prove that the polynomial
+$(a-x)^6-3a(a-x)^5+\frac52a^2(a-x)^4-\frac12a^4(a-x)^2$ takes only negative values for
+$0<x<a$.
+
+\item (Putnam 2003) Suppose that $a,b,c,A,B,C$ are real numbers with $a\ne0$ and $A\ne0$ such
+that $|ax^2+bx+c|\le|Ax^2+Bx+C|$ for all real $x$. Show that $|b^2-4ac|\le|B^2-4AC|$.
+
+\item (Putnam 2024) For which real polynomials $p$ is there a real polynomial $q$ such that
+\[
+p(p(x))-x=\bigl(p(x)-x\bigr)^2q(x)
+\]
+for all real $x$?
+\end{enumerate}
+
+\end{document}

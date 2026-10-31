@@ -50,8 +50,10 @@
 \hint{4} For the other inequality (only needed if $4ac-b^2>0$), evaluate at the vertex $x_0$ of $Ax^2+Bx+C$: $\frac{4ac-b^2}{4A}\le\frac{4ac-b^2}{4|a|}\le|ax_0^2+bx_0+c|\le\frac{4AC-B^2}{4A}$.
 
 \problem{10}
-\hint{1} Write the expression $F(x)$ as a double integral over the square $[1,x]^2$ in variables $s,t$.
-\hint{2} Symmetrizing in $s\leftrightarrow t$: $F(x)=\frac12\int_1^x\!\int_1^x\bigl(a(s)b(t)-a(t)b(s)\bigr)\bigl(c(s)d(t)-c(t)d(s)\bigr)\,ds\,dt$.
-\hint{3} Each bracket is a polynomial vanishing on $s=t$, hence divisible by $s-t$; the integrand is $(s-t)^2h(s,t)$. Substitute $s=1+(x-1)u$, $t=1+(x-1)v$ with $u,v\in[0,1]$: you get $(x-1)^4$ times a polynomial in $x$.
+\hint{1} First check the linear polynomials: $p(x)=x+c$ works ($q=2/c$ for $c\ne0$, any $q$ for $c=0$), and so does $p(x)=-x+c$, since then $p(p(x))=x$. For the general case pull one factor $p(x)-x$ out of $p(p(x))-x=\bigl(p(p(x))-p(x)\bigr)+\bigl(p(x)-x\bigr)$, using that $p(y)-p(x)$ is divisible by $y-x$.
+\hint{2} Write $p(y)-p(x)=(y-x)S(x,y)$ with a polynomial $S$; note $S(x,x)=p'(x)$. Then $p(p(x))-x=\bigl(p(x)-x\bigr)\bigl(1+S(x,p(x))\bigr)$, so for $p(x)\ne x$ the condition is $p(x)-x\mid1+S(x,p(x))$. Modulo $p(x)-x$ you may replace $p(x)$ by $x$, so the condition becomes
+\[p(x)-x\;\mid\;p'(x)+1.\]
+(In terms of roots: every root of $p(x)-x$ must be a root of $p(p(x))-x$ of at least twice its multiplicity.)
+\hint{3} Compare degrees. If $\deg p=d\ge2$, then $\deg(p(x)-x)=d\gt\deg(p'+1)$, so $p'=-1$, which is impossible. For $p(x)=ax+b$: if $a=1$ the divisor is a constant; if $a\ne1$, the linear polynomial $(a-1)x+b$ divides the constant $a+1$ only when $a=-1$ (so a constant $p$, with $a=0$, fails). Answer: $p(x)=x+c$ and $p(x)=-x+c$, $c\in\mathbb R$.
 
 \end{document}
