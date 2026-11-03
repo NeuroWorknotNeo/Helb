@@ -37,29 +37,47 @@ $\lim_{n\to\infty}\sqrt n\,x_n$.
 $a_n=\int_0^1f(n+x)\,dx$ converges. Prove that the sequence $b_n=\int_0^1f(nx)\,dx$ converges as
 well.
 
-\item (AKHIMO 2018) Let $x_1=2018$ and $\frac{x_{n+1}}{x_n}=2018+\frac{2018}n$ for $n\ge1$. Find
-$\lim_{n\to\infty}\biggl(\frac{\log_2n}{n-\log_{2018}x_n}\biggr)$.
+\item (VJIMC 1999) Find the limit
+$\displaystyle\lim_{n\to\infty}\Bigl(\prod_{k=1}^n\frac k{k+n}\Bigr)^{e^{1999/n}-1}$.
 
-\item (AKHIMO 2025) Define $b_1=1$, $b_2=3$, $b_3=2$ and, for $n\ge4$, let $b_n$ be the average of
-the two smaller numbers among $b_{n-1},b_{n-2},b_{n-3}$. Find $\lim_{n\to\infty}b_n$.
+\item (IMC 2025 shortlist) Compute
+$\displaystyle\lim_{n\to\infty}\frac{n^1+n^2+\dots+n^n}{1^n+2^n+\dots+n^n}$.
 
-\item Let $c_0,c_1>0$ and $c_{n+1}=\sqrt{c_n}+\sqrt{c_{n-1}}$ for $n\ge1$. Prove that the sequence
-converges and find its limit.
+\item (SEEMOUS) Let $f\colon\mathbb R\to\mathbb R$ be a continuous strictly decreasing function
+with $f([0,1])\subseteq[0,1]$.
+\begin{enumerate}[label=\alph*)]
+\item Prove that for every $n\ge1$ the equation $f(x)=x^n$ has a unique solution $a_n\in(0,1)$,
+and that $\lim_{n\to\infty}a_n=1$.
+\item Suppose in addition that $f$ has a continuous derivative, $f(1)=0$ and $f'(1)<0$, and put
+$F(x)=\int_x^1f(t)\,dt$ for $x\in\mathbb R$. Study the convergence of the series
+$\sum_{n\ge1}\bigl(F(a_n)\bigr)^\alpha$, with $\alpha\in\mathbb R$.
+\end{enumerate}
 
 \item (IMC 2024) Define $x_1=2$, $x_2=4$ and $x_{n+2}=3x_{n+1}-2x_n+\frac{2^n}{x_n}$ for $n\ge1$.
 Prove that $\lim_{n\to\infty}\frac{x_n}{2^n}$ exists, and estimate it.
 
-\item (OMOUS 2025) Compute $\displaystyle\prod_{n=1}^\infty\frac{(2n)^4-1}{(2n+1)^4-1}\cdot
-\frac{(n+1)^2}{n^2}$.
+\item (OMOUS 2024) For an integer $n\ge2$ let
+$\displaystyle I(n)=\int_0^{\pi/2}\frac{\{nx\}}{\sin x}\,dx$, where $\{s\}$ is the fractional part
+of $s$.
+\begin{enumerate}[label=\alph*)]
+\item Prove that the integral $I(n)$ is convergent.
+\item Prove that there exist constants $C_1>0$ and $C_2>0$ such that $C_1\ln n\le I(n)\le C_2\ln n$
+for all $n\ge2$.
+\end{enumerate}
 
 \item (Vienna MC 2025) Let $(a_n)$ satisfy $a_0>0$ and $a_{n+1}=\frac{a_n}{a_n^2+a_n+1}$ for all
 $n$. Show that $a_n\to0$ and determine $\lim_{n\to\infty}na_n$.
 
-\item For every real $x_1$ construct the sequence by $x_{n+1}=x_n\bigl(x_n+\frac1n\bigr)$. Prove
-that there is exactly one value of $x_1$ for which $0<x_n<x_{n+1}<1$ for all $n$.
+\item (SEEMOUS) For $n\ge1$ put
+\[
+x_n=\int_0^1\ln\bigl(1+x+x^2+\dots+x^n\bigr)\cdot\ln\frac1{1-x}\,dx.
+\]
+\begin{enumerate}[label=\alph*)]
+\item Show that $x_n$ is finite for every $n$ and that $\lim_{n\to\infty}x_n=2$.
+\item Compute $\lim_{n\to\infty}\frac n{\ln n}\,(2-x_n)$.
+\end{enumerate}
 
-\item Let $f\colon(0,\infty)\to\mathbb R$ be continuous and suppose that
-$\lim_{n\to\infty}f(nx)=0$ for every fixed $x>0$. Prove that $\lim_{x\to\infty}f(x)=0$.
-\emph{(Hint: Baire's category theorem.)}
+\item (VJIMC 2002) Prove that
+$\displaystyle\lim_{n\to\infty}n^2\Bigl(\int_0^1\sqrt[n]{1+x^n}\,dx-1\Bigr)=\frac{\pi^2}{12}$.
 \end{enumerate}
 \end{document}
