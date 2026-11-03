@@ -37,14 +37,8 @@ $\lim_{n\to\infty}\sqrt n\,x_n$.
 $a_n=\int_0^1f(n+x)\,dx$ converges. Prove that the sequence $b_n=\int_0^1f(nx)\,dx$ converges as
 well.
 
-\item (\foreignlanguage{russian}{ФКН, осень 2023}) A sequence of points of the plane is given by
-$(x_1,y_1)=(0,0)$ and
-\[
-(x_{n+1},y_{n+1})=\Bigl(\Bigl(1-\frac2n\Bigr)x_n-\frac1ny_n+\frac4n,\
-\Bigl(1-\frac1n\Bigr)y_n-\frac1nx_n+\frac3n\Bigr).
-\]
-Prove that the limit $\lim_{n\to\infty}(x_n,y_n)$ exists, find it, and show that the distance from
-$(x_n,y_n)$ to the limit is $O\bigl(n^{-(3-\sqrt5)/2}\bigr)$.
+\item (VJIMC 1999) Find the limit
+$\displaystyle\lim_{n\to\infty}\Bigl(\prod_{k=1}^n\frac k{k+n}\Bigr)^{e^{1999/n}-1}$.
 
 \item (IMC 2025 shortlist) Compute
 $\displaystyle\lim_{n\to\infty}\frac{n^1+n^2+\dots+n^n}{1^n+2^n+\dots+n^n}$.
@@ -55,8 +49,8 @@ with $f([0,1])\subseteq[0,1]$.
 \item Prove that for every $n\ge1$ the equation $f(x)=x^n$ has a unique solution $a_n\in(0,1)$,
 and that $\lim_{n\to\infty}a_n=1$.
 \item Suppose in addition that $f$ has a continuous derivative, $f(1)=0$ and $f'(1)<0$, and put
-$F(x)=\int_x^1f(t)\,dt$. For which $\alpha\in\mathbb R$ does the series
-$\sum_{n\ge1}\bigl(F(a_n)\bigr)^\alpha$ converge?
+$F(x)=\int_x^1f(t)\,dt$ for $x\in\mathbb R$. Study the convergence of the series
+$\sum_{n\ge1}\bigl(F(a_n)\bigr)^\alpha$, with $\alpha\in\mathbb R$.
 \end{enumerate}
 
 \item (IMC 2024) Define $x_1=2$, $x_2=4$ and $x_{n+2}=3x_{n+1}-2x_n+\frac{2^n}{x_n}$ for $n\ge1$.
@@ -64,8 +58,12 @@ Prove that $\lim_{n\to\infty}\frac{x_n}{2^n}$ exists, and estimate it.
 
 \item (OMOUS 2024) For an integer $n\ge2$ let
 $\displaystyle I(n)=\int_0^{\pi/2}\frac{\{nx\}}{\sin x}\,dx$, where $\{s\}$ is the fractional part
-of $s$. Prove that the integral converges, that $C_1\ln n\le I(n)\le C_2\ln n$ for some constants
-$C_1,C_2>0$, and find $\lim_{n\to\infty}\frac{I(n)}{\ln n}$.
+of $s$.
+\begin{enumerate}[label=\alph*)]
+\item Prove that the integral $I(n)$ is convergent.
+\item Prove that there exist constants $C_1>0$ and $C_2>0$ such that $C_1\ln n\le I(n)\le C_2\ln n$
+for all $n\ge2$.
+\end{enumerate}
 
 \item (Vienna MC 2025) Let $(a_n)$ satisfy $a_0>0$ and $a_{n+1}=\frac{a_n}{a_n^2+a_n+1}$ for all
 $n$. Show that $a_n\to0$ and determine $\lim_{n\to\infty}na_n$.

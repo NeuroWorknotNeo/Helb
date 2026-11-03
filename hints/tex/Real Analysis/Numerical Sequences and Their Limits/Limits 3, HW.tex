@@ -13,9 +13,9 @@
 \hint{2} So $b_n$ is the Ces\`aro mean of $(a_k)$, and converges to the same limit (Stolz--Ces\`aro).
 
 \problem{3}
-\hint{1} In vector form $v_{n+1}=v_n-\frac1n(Av_n-b)$ with $A=\begin{pmatrix}2&1\\1&1\end{pmatrix}$ and $b=\begin{pmatrix}4\\3\end{pmatrix}$. The only candidate for the limit is the solution of $Av=b$, namely $v^*=(1,2)$.
-\hint{2} The error $e_n=v_n-v^*$ satisfies $e_{n+1}=\bigl(I-\frac1nA\bigr)e_n$. The matrix $A$ is symmetric with eigenvalues $\lambda_{1,2}=\frac{3\pm\sqrt5}2>0$; in an orthonormal eigenbasis the two coordinates evolve separately: $u_{n+1}=\bigl(1-\frac\lambda n\bigr)u_n$.
-\hint{3} For $n>\lambda$ the factors are in $(0,1)$ and $\prod_{k=N}^{n}\bigl(1-\frac\lambda k\bigr)=\exp\bigl(-\lambda\ln n+O(1)\bigr)\asymp n^{-\lambda}$. So each coordinate is $O(n^{-\lambda})$, and the slower one gives $|v_n-v^*|=O\bigl(n^{-(3-\sqrt5)/2}\bigr)$. Answer: the limit is $(1,2)$.
+\hint{1} The product equals $P_n=\dfrac{(n!)^2}{(2n)!}$, and the exponent is $e^{1999/n}-1=\dfrac{1999}n\,(1+o(1))$. So the logarithm of the expression is $1999\cdot\dfrac{\ln P_n}n\,(1+o(1))$.
+\hint{2} Find $\lim\frac{\ln P_n}n$ by Stolz: it equals $\lim\bigl(\ln P_{n+1}-\ln P_n\bigr)=\lim\ln\dfrac{(n+1)^2}{(2n+1)(2n+2)}=-\ln4$. (Stirling gives more, $\ln P_n=-n\ln4+\frac12\ln(\pi n)+o(1)$, but it is not needed.)
+\hint{3} The logarithm of the expression tends to $-1999\ln4$. Answer: $4^{-1999}$.
 
 \problem{4}
 \hint{1} The numerator is a geometric progression: $\frac{n^{n+1}-n}{n-1}\sim n^n$. Divide everything by $n^n$.
@@ -36,9 +36,9 @@ Deduce $t_n\sim\frac{\ln n}n$ (first show $\frac1n\lesssim t_n\lesssim n^{-1/2}$
 \hint{4} Iterating these bounds (compute the first few $y_k$ exactly, estimate the tail) sharpens them; numerically $L\approx1.4782$.
 
 \problem{7}
-\hint{1} Near $0$ the integrand is $\frac{nx}{\sin x}\le\frac{\pi n}2$, so the integral converges. Split $\frac1{\sin x}=\frac1x+\bigl(\frac1{\sin x}-\frac1x\bigr)$; the bracket is bounded on $(0,\frac\pi2]$, so that part of $I(n)$ is $O(1)$.
+\hint{1} a) Near $0$ the integrand is $\frac{\{nx\}}{\sin x}\le\frac{nx}{\sin x}\le\frac{\pi n}2$, so it is bounded and the integral converges. For b) split $\frac1{\sin x}=\frac1x+\bigl(\frac1{\sin x}-\frac1x\bigr)$; the bracket is bounded on $(0,\frac\pi2]$, so that part of $I(n)$ is $O(1)$.
 \hint{2} Substitute $t=nx$: $\displaystyle\int_0^{\pi/2}\frac{\{nx\}}x\,dx=\int_0^{n\pi/2}\frac{\{t\}}t\,dt=O(1)+\frac12\ln n+\int_1^{n\pi/2}\frac{\{t\}-\frac12}t\,dt$.
-\hint{3} The last integral is bounded: $G(t)=\int_0^t\bigl(\{s\}-\frac12\bigr)ds$ is $1$-periodic and bounded, and integration by parts gives $\int_1^T\frac{G'(t)}t\,dt=\frac{G(T)}T-G(1)+\int_1^T\frac{G(t)}{t^2}\,dt=O(1)$. Hence $I(n)=\frac12\ln n+O(1)$, which gives both bounds and $\lim\frac{I(n)}{\ln n}=\frac12$. (Alternatively, compute $\int_0^1\frac{\{nx\}}x\,dx=n-(n-1)\ln n+\ln(n-1)!$ and apply Stolz.)
+\hint{3} The last integral is bounded: $G(t)=\int_0^t\bigl(\{s\}-\frac12\bigr)ds$ is $1$-periodic and bounded, and integration by parts gives $\int_1^T\frac{G'(t)}t\,dt=\frac{G(T)}T-G(1)+\int_1^T\frac{G(t)}{t^2}\,dt=O(1)$. Hence $I(n)=\frac12\ln n+O(1)$. Since $I(n)>0$ for every $n$, this gives both bounds for all $n\ge2$ (adjust the constants on the finitely many small $n$). (Alternatively, compute $\int_0^1\frac{\{nx\}}x\,dx=n-(n-1)\ln n+\ln(n-1)!$ and apply Stolz.)
 
 \problem{8}
 \hint{1} Invert: $\dfrac1{a_{n+1}}=\dfrac1{a_n}+1+a_n$.
