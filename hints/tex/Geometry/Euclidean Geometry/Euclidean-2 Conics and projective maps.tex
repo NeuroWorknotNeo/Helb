@@ -1,0 +1,30 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Euclidean geometry -- 2. Conics, areas and projective maps}{Class work}
+
+\problem{1}
+\hint{1} Polar equation: put $F$ at the origin and let $d=d(F,l)$. A point at polar coordinates $(r,\varphi)$ is at distance $d-r\cos\varphi$ from $l$, so $r=e(d-r\cos\varphi)$, i.e.\ $r=\frac p{1+e\cos\varphi}$. Canonical form: write $|XF|^2=e^2d(X,l)^2$ in Cartesian coordinates with the axis along the perpendicular to $l$ and complete the square in $x$; for $e\ne1$ the centre appears, and $c=ea$, directrices $x=\pm\frac ae$.
+\hint{2} Focal sum: $|XF_1|+|XF_2|=e\bigl(d(X,l_1)+d(X,l_2)\bigr)=e\cdot\frac{2a}e=2a$, since $X$ lies between the two directrices. Reflection: every point $Y\ne X$ of the tangent at $X$ lies outside the ellipse, so $|YF_1|+|YF_2|>2a=|XF_1|+|XF_2|$; by Heron's reflection principle the tangent makes equal angles with $XF_1$ and $XF_2$. For the hyperbola and the parabola argue in the same way with $\bigl||YF_1|-|YF_2|\bigr|$ and with $|YF|-d(Y,l)$.
+\hint{3} A ray through $F_1$ is reflected into a ray through $F_2$, and then again through $F_1$, and so on. For Fact~1 write the normal at $(t,\frac{t^2}{2p})$: $(x-t)+\frac tp\bigl(y-\frac{t^2}{2p}\bigr)=0$; substituting $(u,v)$ and multiplying by $-2p^2$ gives the cubic. It has no $t^2$ term, so the roots add up to $0$, and it has three real roots iff its discriminant $-4P^3-27Q^2$ ($P=2p(p-v)$, $Q=-2p^2u$) is positive, i.e.\ $8(v-p)^3>27pu^2$.
+
+\problem{2}
+\hint{1} The determinant formula is the area of the parallelogram spanned by $B-A$ and $C-A$, halved, with the sign of the orientation. The map $P\mapsto[PBC]+[PCA]+[PAB]$ is affine, and at $P=A$ it equals $[ABC]$ (one term, the others vanish); the same at $B$ and $C$, so it is the constant $[ABC]$.
+\hint{2} Cross-ratio: if $h$ is the distance from $O$ to the line, then $|XY|\cdot h=|OX|\,|OY|\sin\angle XOY$ (twice the area of $OXY$). Substituting into $\frac{(c-a)(d-b)}{(c-b)(d-a)}$ the lengths $|OA|,\dots,|OD|$ and $h$ cancel, which gives the formula with sines; it depends only on the four lines through $O$.
+\hint{3} The value $x$ is determined by $(a,b;c,x)$, so a cross-ratio preserving map is fixed by the images of three points, and a projective map is one. Fixed points of $x\mapsto\frac{\alpha x+\beta}{\gamma x+\delta}$ solve $\gamma x^2+(\delta-\alpha)x-\beta=0$ (check $\infty$ separately): at most two roots unless all coefficients vanish, i.e.\ the map is the identity.
+\hint{4} Five points: five linear conditions on six coefficients have a non-zero solution. Uniqueness: if three of the points lie on a line $L$, every conic through them contains $L$, so it is $L$ together with the unique line through the other two points. Otherwise, if $Q_1\not\sim Q_2$ both pass through the points, choose $\lambda Q_1+\mu Q_2\ne0$ vanishing at a further point of the line $P_1P_2$; it contains that line and therefore splits as $P_1P_2$ times a line through $P_3,P_4,P_5$, a contradiction.
+
+\problem{3}
+\hint{1} Put the common focus $F$ at the origin and use the polar equation of each ellipse. For an ellipse with focus $F$ in an arbitrary position, $\frac1r$ is an affine function of $\cos\varphi$ and $\sin\varphi$: $\frac1r=A+B\cos\varphi+C\sin\varphi$.
+\hint{2} A common point in the direction $\varphi$ satisfies $(A_1-A_2)+(B_1-B_2)\cos\varphi+(C_1-C_2)\sin\varphi=0$. If not all coefficients vanish, this has at most two solutions $\varphi\in[0,2\pi)$, and each direction gives at most one point. If all vanish, the ellipses coincide.
+
+\problem{4}
+\hint{1} In the notation of Fact~1 the parabola is $x^2=2py$ with $p=\frac1a$. The normals through $A=(u,v)$ have feet with abscissas $t$ solving $t^3+2p(p-v)t-2p^2u=0$, and one of the roots is $t=u$ itself.
+\hint{2} Factor out $t-u$ (for $u\ne0$; the vertex $u=0$ has no other normals through it): the other feet satisfy $t^2+ut+2p^2=0$.
+\hint{3} $B$ and $B'$ are two distinct real roots, so $u^2>8p^2$, and $m=v=\frac{u^2}{2p}>4p=\frac4a$.
+
+\problem{5}
+\hint{1} Lemma: the midpoints of a family of parallel chords of a conic lie on a line, which passes through the centre for an ellipse or a hyperbola and is parallel to the axis for a parabola. Affine maps preserve midpoints, parallelism and centres, so it suffices to check it for a circle (a diameter) and for $y=x^2$ (chords of slope $k$ have midpoints with $x=\frac k2$).
+\hint{2} The parallel sides of the trapezoid are two parallel chords of each of the three conics. So the line joining their midpoints is the line of midpoints for all three conics at once.
+\hint{3} Hence the centres of the ellipse and the hyperbola lie on this line, and the axis of the parabola is parallel to it.
+\end{document}
