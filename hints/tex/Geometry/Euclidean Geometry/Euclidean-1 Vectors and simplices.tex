@@ -1,0 +1,33 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Euclidean geometry -- 1. Vectors, angles, simplices and volumes in $\mathbb R^n$}{Class work}
+
+\problem{1}
+\hint{1} Theorem 3 by induction on $n$, as in the sketch. Project onto $v_m^\perp$: $\langle w_i,w_j\rangle=\langle v_i,v_j\rangle-\frac{\langle v_i,v_m\rangle\langle v_j,v_m\rangle}{|v_m|^2}\le\langle v_i,v_j\rangle$, because both $\langle v_i,v_m\rangle,\langle v_j,v_m\rangle\le0$. If two of the $w_i$ vanished, two of the $v_i$ would be negative multiples of $v_m$ and then positive multiples of each other, i.e.\ at an acute angle. So at least $m-2$ non-zero non-acute vectors live in $\mathbb R^{n-1}$ and $m-2\le2(n-1)$. In the obtuse case no $w_i$ vanishes ($v_i=-cv_m$ would make $\langle v_i,v_j\rangle$ and $\langle v_m,v_j\rangle$ of opposite signs) and $m-1\le n$.
+\hint{2} Examples: $\pm e_1,\dots,\pm e_n$ give $2n$; the $n+1$ vectors from the centre of a regular simplex to its vertices give $n+1$ (their pairwise products are $-\frac1n$ times $R^2$, see the homework).
+\hint{3} For $2n$ vectors the count is tight at every step, so for each $v_m$ exactly one $w_i$ vanishes: some $v_k=-cv_m$, $c>0$. For every other $v_i$ we get $\langle v_i,v_m\rangle\le0$ and $\langle v_i,v_k\rangle=-c\langle v_i,v_m\rangle\le0$, so $\langle v_i,v_m\rangle=0$. Thus the remaining $2n-2$ vectors lie in $v_m^\perp$; induct.
+\hint{4} For the last claim: $0\le\bigl|\sum v_i\bigr|^2=m+\sum_{i\ne j}\langle v_i,v_j\rangle\le m-m(m-1)\beta$, so $m\le1+\frac1\beta$.
+
+\problem{2}
+\hint{1} (a) Put $A_0$ at the origin and the edges along the coordinate axes. The facet opposite $A_0$ projects onto the coordinate hyperplane $x_i=0$ exactly as the facet opposite $A_i$ (the vertex $A_i$ goes to the origin, the others stay). Apply Theorem 2 with $k=n-1$.
+\hint{2} (b) Fix a unit vector $u$ and project $S$ orthogonally onto $u^\perp$. By Theorem 2 the facet opposite $A_i$ projects to a set of volume $F_i|\langle u_i,u\rangle|$. The facets with $\langle u_i,u\rangle>0$ cover the projection of $S$ once (they form the ``upper'' boundary), and so do the facets with $\langle u_i,u\rangle<0$. Hence $\sum_iF_i\langle u_i,u\rangle=0$ for every $u$, i.e.\ $\sum F_iu_i=0$.
+\hint{3} So $F_0u_0=-\sum_{i\ge1}F_iu_i$. Taking lengths gives $F_0\le\sum_{i\ge1}F_i$, with equality only if all $u_i$ are parallel, which is impossible. Squaring gives $F_0^2=\sum F_i^2+2\sum_{i<j}F_iF_j\langle u_i,u_j\rangle$, and the angle between outer normals of two facets is $\pi-\varphi_{ij}$, so $\langle u_i,u_j\rangle=-\cos\varphi_{ij}$.
+
+\problem{3}
+\hint{1} Put $v_i=A_i-B$. Since $B$ is interior, $\sum\lambda_iv_i=0$ with all $\lambda_i>0$ (barycentric coordinates). Consider the graph on $\{1,\dots,n+1\}$ in which $i$ and $j$ are joined when $\langle v_i,v_j\rangle<0$, i.e.\ when $\angle A_iBA_j>90^\circ$. It suffices to show that this graph is connected.
+\hint{2} If not, split the indices into two non-empty parts $I$, $J$ with $\langle v_i,v_j\rangle\ge0$ for $i\in I$, $j\in J$. Then $w=\sum_{i\in I}\lambda_iv_i=-\sum_{j\in J}\lambda_jv_j$ and $|w|^2=-\sum_{i\in I,j\in J}\lambda_i\lambda_j\langle v_i,v_j\rangle\le0$ (the lemma of Theorem 3).
+\hint{3} So $\sum_{i\in I}\lambda_iv_i=0$: $B$ is a convex combination of the vertices $A_i$, $i\in I$, i.e.\ it lies on a proper face of the simplex, not inside. A connected graph on $n+1$ vertices has at least $n$ edges.
+
+\problem{4}
+\hint{1} Work in barycentric coordinates: $M=\sum\lambda_jA_j$ with $\lambda_j>0$, $\sum\lambda_j=1$. The point $N_i$ is on the line $A_iM$ and has $i$-th coordinate $0$, so $N_i=\frac{M-\lambda_iA_i}{1-\lambda_i}$, with coordinates $\frac{\lambda_j}{1-\lambda_i}$ ($j\ne i$) and $0$ at $i$.
+\hint{2} The ratio of volumes is the absolute value of the determinant of the matrix of barycentric coordinates of $N_1,\dots,N_{n+1}$. This matrix is $D^{-1}(\mathbf1\lambda^T-\Lambda)$ with $D=\operatorname{diag}(1-\lambda_i)$, $\Lambda=\operatorname{diag}(\lambda_i)$, and $\det(\mathbf1\lambda^T-\Lambda)=\det(-\Lambda)\bigl(1-\lambda^T\Lambda^{-1}\mathbf1\bigr)$. So the ratio equals
+\[\frac{n\,\lambda_1\cdots\lambda_{n+1}}{(1-\lambda_1)\cdots(1-\lambda_{n+1})}.\]
+\hint{3} By AM--GM, $1-\lambda_i=\sum_{j\ne i}\lambda_j\ge n\bigl(\prod_{j\ne i}\lambda_j\bigr)^{1/n}$; multiplying over $i$ gives $\prod(1-\lambda_i)\ge n^{n+1}\prod\lambda_j$. Hence the ratio is at most $\frac1{n^n}$, with equality exactly for $\lambda_i=\frac1{n+1}$: $M$ is the centroid.
+
+\problem{5}
+\hint{1} Work with signed volumes; since $P$ is inside, all $v(S_i)$ have the sign of $v(S)$. The circumcentre $C$ of a simplex with vertices $X_0,\dots,X_n$ solves the linear system $2\langle C,X_i\rangle+c=|X_i|^2$ ($i=0,\dots,n$) in the unknowns $C\in\mathbb R^n$, $c\in\mathbb R$.
+\hint{2} By Cramer's rule, $v(S)\,C(S)$ is, up to a constant factor depending only on $n$, the vector of determinants $D_k$ of the $(n+1)\times(n+1)$ matrix with rows $\bigl(1,X_i,|X_i|^2\bigr)$ with the $k$-th coordinate column deleted, and $v(S)$ itself is (up to a factor) the determinant $D$ with rows $(1,X_i)$. So it suffices to prove that each such determinant satisfies $\sum_iD(S_i)=D(S)$.
+\hint{3} Write $P=\sum\lambda_iX_i$ with $\sum\lambda_i=1$. Then the row of $P$ equals $\sum\lambda_j\,\mathrm{row}(X_j)+(0,\dots,0,\delta)$ with $\delta=|P|^2-\sum\lambda_j|X_j|^2$. Replacing row $i$ by it gives $\lambda_iD+\delta\,\mathrm{cof}_i$, where $\mathrm{cof}_i$ is the cofactor of the last entry of row $i$.
+\hint{4} Summing over $i$: $\sum\lambda_iD=D$, and $\sum_i\mathrm{cof}_i$ is the determinant of the matrix whose last column is replaced by all ones; it has two equal columns (the first column is also all ones), so it vanishes.
+\end{document}
