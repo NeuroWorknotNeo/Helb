@@ -1,0 +1,32 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Euclidean geometry -- 1. Vectors, angles, simplices and volumes in $\mathbb R^n$}{Class work}
+
+\problem{1}
+\hint{1} Key lemma: non-zero vectors with pairwise non-acute angles that all lie in one open half-space $\{\langle x,w\rangle>0\}$ are linearly independent. Indeed, split a dependence $\sum c_iv_i=0$ by the signs of $c_i$: $x=\sum_{c_i>0}c_iv_i=\sum_{c_j<0}|c_j|v_j$, so $|x|^2=\sum c_i|c_j|\langle v_i,v_j\rangle\le0$ and $x=0$. But $\langle x,w\rangle>0$ if some $c_i>0$; hence no $c_i$ is positive, and by the same argument for $-c$ none is negative.
+\hint{2} Bound $2n$: take $w$ orthogonal to none of the $v_i$; the vectors with $\langle v_i,w\rangle>0$ and those with $\langle v_i,w\rangle<0$ are independent, so there are at most $n$ of each. Bound $n+1$: take $w=-v_m$; then $v_1,\dots,v_{m-1}$ lie in the half-space, so $m-1\le n$. Examples: $\pm e_1,\dots,\pm e_n$, and the vectors from the centre of a regular simplex to its vertices.
+\hint{3} Structure for $m=2n$: project onto $v_m^\perp$. The projections are still pairwise non-acute ($\langle w_i,w_j\rangle=\langle v_i,v_j\rangle-\frac{\langle v_i,v_m\rangle\langle v_j,v_m\rangle}{|v_m|^2}\le\langle v_i,v_j\rangle$), so at most $2n-2$ of them are non-zero: some $v_k=-cv_m$, $c>0$. For any other $v_i$ both $\langle v_i,v_m\rangle\le0$ and $\langle v_i,v_k\rangle=-c\langle v_i,v_m\rangle\le0$, so $v_i\perp v_m$. Induct in $v_m^\perp$.
+\hint{4} Last claim: $0\le\bigl|\sum v_i\bigr|^2=m+\sum_{i\ne j}\langle v_i,v_j\rangle\le m-m(m-1)\beta$.
+
+\problem{2}
+\hint{1} Start with (b). Fix a unit vector $u$ and project $S$ onto $u^\perp$. The facets with $\langle u_i,u\rangle>0$ cover the projection of $S$ once, and so do those with $\langle u_i,u\rangle<0$; by Theorem 2 the facet opposite $A_i$ contributes $F_i|\langle u_i,u\rangle|$. Hence $\sum_iF_i\langle u_i,u\rangle=0$ for every $u$. (This is the divergence theorem for a constant vector field.)
+\hint{2} From $F_0u_0=-\sum_{i\ge1}F_iu_i$: taking lengths gives $F_0<\sum_{i\ge1}F_i$ (the $u_i$ are not all parallel); squaring gives the cosine formula, since the outer normals of two facets make the angle $\pi-\varphi_{ij}$.
+\hint{3} (a) is now one line: if the edges at $A_0$ are orthogonal, the facets opposite $A_1,\dots,A_n$ lie in the coordinate hyperplanes through $A_0$, so $u_i=-e_i$ and $F_0^2=\bigl|\sum_{i\ge1}F_ie_i\bigr|^2=\sum_{i\ge1}F_i^2$.
+
+\problem{3}
+\hint{1} Put $v_i=A_i-B$. Since $B$ is interior, $\sum\lambda_iv_i=0$ with all $\lambda_i>0$ (barycentric coordinates). Consider the graph on $\{1,\dots,n+1\}$ in which $i$ and $j$ are joined when $\langle v_i,v_j\rangle<0$, i.e.\ when $\angle A_iBA_j>90^\circ$. It suffices to show that this graph is connected.
+\hint{2} If not, split the indices into two non-empty parts $I$, $J$ with $\langle v_i,v_j\rangle\ge0$ for $i\in I$, $j\in J$. Then $w=\sum_{i\in I}\lambda_iv_i=-\sum_{j\in J}\lambda_jv_j$ and $|w|^2=-\sum_{i\in I,j\in J}\lambda_i\lambda_j\langle v_i,v_j\rangle\le0$ (the lemma of Theorem 3).
+\hint{3} So $\sum_{i\in I}\lambda_iv_i=0$: $B$ is a convex combination of the vertices $A_i$, $i\in I$, i.e.\ it lies on a proper face of the simplex, not inside. A connected graph on $n+1$ vertices has at least $n$ edges.
+
+\problem{4}
+\hint{1} Work in barycentric coordinates: $M=\sum\lambda_jA_j$ with $\lambda_j>0$, $\sum\lambda_j=1$. The point $N_i$ is on the line $A_iM$ and has $i$-th coordinate $0$, so $N_i=\frac{M-\lambda_iA_i}{1-\lambda_i}$, with coordinates $\frac{\lambda_j}{1-\lambda_i}$ ($j\ne i$) and $0$ at $i$.
+\hint{2} The ratio of volumes is the absolute value of the determinant of the matrix of barycentric coordinates of $N_1,\dots,N_{n+1}$. This matrix is $D^{-1}(\mathbf1\lambda^T-\Lambda)$ with $D=\operatorname{diag}(1-\lambda_i)$, $\Lambda=\operatorname{diag}(\lambda_i)$, and $\det(\mathbf1\lambda^T-\Lambda)=\det(-\Lambda)\bigl(1-\lambda^T\Lambda^{-1}\mathbf1\bigr)$. So the ratio equals
+\[\frac{n\,\lambda_1\cdots\lambda_{n+1}}{(1-\lambda_1)\cdots(1-\lambda_{n+1})}.\]
+\hint{3} By AM--GM, $1-\lambda_i=\sum_{j\ne i}\lambda_j\ge n\bigl(\prod_{j\ne i}\lambda_j\bigr)^{1/n}$; multiplying over $i$ gives $\prod(1-\lambda_i)\ge n^{n+1}\prod\lambda_j$. Hence the ratio is at most $\frac1{n^n}$, with equality exactly for $\lambda_i=\frac1{n+1}$: $M$ is the centroid.
+
+\problem{5}
+\hint{1} A description of the circumcentre: let $L_T$ be the affine function equal to $|x|^2$ at the vertices of the simplex $T$. Since $|x-C|^2-R^2=|x|^2-2\langle C,x\rangle+\mathrm{const}$ vanishes at the vertices, $L_T(x)=2\langle C(T),x\rangle+\mathrm{const}$, i.e.\ $C(T)=\frac12\nabla L_T$. So we need $\sum_iv(S_i)\nabla L_{S_i}=v(S)\nabla L_S$.
+\hint{2} Let $f$ be the function equal to $L_{S_i}$ on each $S_i$. It is continuous (on a common facet both are the affine interpolation of $|x|^2$ at the vertices of that facet), and on $\partial S$ it coincides with $L_S$ (every facet of $S$ is a facet of one $S_i$, with the same vertices).
+\hint{3} $\sum_iv(S_i)\nabla L_{S_i}=\int_S\nabla f$. For a continuous piecewise affine $f$, $\int_S\frac{\partial f}{\partial x_k}$ depends only on $f|_{\partial S}$: on every line parallel to $e_k$ the integral is $f(\text{exit})-f(\text{entry})$. Replacing $f$ by $L_S$ gives $v(S)\nabla L_S$.
+\end{document}

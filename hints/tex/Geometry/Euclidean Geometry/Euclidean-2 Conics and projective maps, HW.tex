@@ -1,0 +1,59 @@
+\documentclass[11pt,a4paper]{article}
+\input{../../hints-preamble}
+\begin{document}
+\hintstitle{Euclidean geometry -- 2. Conics, areas and projective maps}{Homework}
+
+\problem{1}
+\hint{1} The affine map $x=3u$, $y=v$ turns the ellipse into the unit circle and multiplies all areas by the same factor $3$. So the two areas are equal iff the images are equal.
+\hint{2} The images are circular sectors. The line $y=\frac12x$ becomes $v=\frac32u$, which makes the angle $\theta_1=\arctan\frac32$ with the $u$-axis; the line $y=mx$ becomes $v=3mu$, and the second sector has the angle $\frac\pi2-\arctan(3m)$.
+\hint{3} Equal sectors: $\arctan(3m)=\frac\pi2-\arctan\frac32$, i.e.\ $3m=\frac23$. Answer: $m=\frac29$.
+
+\problem{2}
+\hint{1} The standard parabola with vertex $(p,q)$ is $y=(x-p)^2+q$. Write down the condition ``the point $(x_0,y_0)$ lies on the standard parabola with vertex $(p,q)$'' and look at it from the other side.
+\hint{2} $y_0=(x_0-p)^2+q$ is equivalent to $-q=(p-x_0)^2-y_0$, i.e.\ to ``$s(V)=(p,-q)$ lies on the standard parabola with vertex $s(A)=(x_0,-y_0)$''.
+\hint{3} $A_i$ lies on the parabolas with vertices $V_j$ and $V_k$, so $s(V_j)$ and $s(V_k)$ lie on the parabola with vertex $s(A_i)$. Hence the parabolas with vertices $s(A_j)$ and $s(A_k)$ both pass through $s(V_i)$; two different standard parabolas meet in at most one point (their difference is linear), so $s(V_i)$ is their intersection point.
+
+\problem{3}
+\hint{1} An ellipse can only come from a plane $z=\alpha x+\beta y+\gamma$ that is not too steep: $\alpha^2+\beta^2<1$, $\gamma>0$. On the section $z=\sqrt{x^2+y^2}$.
+\hint{2} So the projection is the curve $\sqrt{x^2+y^2}=\alpha x+\beta y+\gamma$ in the plane $Oxy$. The right-hand side is $\sqrt{\alpha^2+\beta^2}$ times the distance from $(x,y)$ to the line $l\colon\alpha x+\beta y+\gamma=0$ (the curve lies on the side where this expression is positive).
+\hint{3} Thus $|XO|=e\,d(X,l)$ with $e=\sqrt{\alpha^2+\beta^2}<1$: an ellipse with focus $O$ and directrix $l$.
+
+\problem{4}
+\hint{1} Lemma: if the tangent at a point $X$ of the ellipse meets the directrix $l$ corresponding to $F$ at a point $Y$, then $\angle XFY=90^\circ$.
+\hint{2} Check the lemma in coordinates: $F=(c,0)$, $l\colon x=\frac{a^2}c$, tangent at $X=(x_0,y_0)$: $\frac{xx_0}{a^2}+\frac{yy_0}{b^2}=1$. Then $Y=\bigl(\frac{a^2}c,\frac{b^2}{y_0}(1-\frac{x_0}c)\bigr)$ and $\overrightarrow{FX}\cdot\overrightarrow{FY}=(x_0-c)\frac{b^2}c+b^2\bigl(1-\frac{x_0}c\bigr)=0$.
+\hint{3} Let the tangents at $A$ and $B$ meet $l$ at $Y_A$ and $Y_B$. Both $FY_A$ and $FY_B$ are perpendicular to the line $AFB$ at $F$, so they are the same line, and $Y_A=Y_B$ is its intersection with $l$. Hence $C=Y_A=Y_B$ lies on the directrix and $CF\perp AB$.
+
+\problem{5}
+\hint{1} Let $E=\frac{x^2}{a^2}+\frac{y^2}{b^2}-1$ and $\Gamma=(x-u)^2+(y-v)^2-r^2$. Two conics touching at two points $P,Q$ have a combination $\Gamma-\lambda E$ equal to $\mu\,(PQ)^2$, the square of the equation of the line $PQ$. The quadratic part $\bigl(1-\frac\lambda{a^2}\bigr)x^2+\bigl(1-\frac\lambda{b^2}\bigr)y^2$ has no $xy$ term, so $PQ$ is parallel to an axis.
+\hint{2} If $PQ$ were parallel to the minor axis, $O$ would lie on the major axis, and on the ellipse $|XO|^2=e^2x^2-2ux+\mathrm{const}$ is convex in $x$: $P$ and $Q$ would be points of minimal distance, and the circle would lie inside. So $PQ$ is parallel to the major axis and $O$, equidistant from $P$ and $Q$, lies on the minor axis: $u=0$.
+\hint{3} Now $\lambda=a^2$ (kill $x^2$), and $\Gamma-a^2E=-\frac{c^2}{b^2}y^2-2vy+(v^2+a^2-r^2)$ must be a perfect square. Discriminant zero: $c^2r^2=a^2(c^2+v^2)$, i.e.\ $e^2r^2=c^2+v^2=OF_1^2$.
+
+\problem{6}
+\hint{1} The maps $(x,y)\mapsto(tx,\frac yt)$ preserve areas and the hyperbola. Alternatively, compute: for $A=(a,\frac1a)$ the tangent at $P=(p,\frac1p)$ has slope $-\frac1{p^2}$ and $AB$ has slope $-\frac1{ab}$.
+\hint{2} The area of $APB$ is maximal when the tangent at $P$ is parallel to $AB$ (Theorem 3), i.e.\ $p=\sqrt{ab}$.
+\hint{3} The map with $t=\frac pa=\frac bp$ sends $A$ to $P$ and $P$ to $B$, hence the first region onto the second. (Or: the region between the chord from $(a,\frac1a)$ to $(p,\frac1p)$ and the hyperbola has area $\frac12\bigl(\frac pa-\frac ap\bigr)-\ln\frac pa$, a function of $\frac pa$ only.)
+
+\problem{7}
+\hint{1} By an affine map the parabola becomes $y=x^2$; area ratios do not change. Let $A,B$ have abscissas $\alpha<\beta$ and the $P_i$ abscissas $\alpha=x_0<x_1<\dots<x_n<x_{n+1}=\beta$.
+\hint{2} The polygon is the parabolic segment over $AB$ minus the $n+1$ small segments over the sides, so its area is $\frac{(\beta-\alpha)^3}6-\frac16\sum_{i=0}^n(x_{i+1}-x_i)^3$ (Theorem 3).
+\hint{3} With $d_i=x_{i+1}-x_i$ and $\sum d_i=\beta-\alpha$, the sum $\sum d_i^3$ is minimal exactly for equal $d_i$ (power means or convexity), and then equals $\frac{(\beta-\alpha)^3}{(n+1)^2}$. So the maximum exists, it is attained at equally spaced abscissas, and the ratio is $1-\frac1{(n+1)^2}=\frac{n(n+2)}{(n+1)^2}$.
+
+\problem{8}
+\hint{1} Take the parabola $y=x^2$ (focus $(0,\frac14)$, directrix $y=-\frac14$) and use the abscissas $a,b,c$ as parameters. The tangent at $t$ is $y=2tx-t^2$, and the tangents at $s$ and $t$ meet at $\bigl(\frac{s+t}2,st\bigr)$.
+\hint{2} (a) The foot of the perpendicular from the focus to the tangent at $t$ is $(\frac t2,0)$: all three feet lie on the tangent at the vertex, so by Simson's theorem the focus lies on the circumcircle of $ABC$. (b) The altitude from $C$ is perpendicular to the tangent at $c$; it meets $y=-\frac14$ at the point with abscissa $\frac{a+b+c}2+2abc$, which is symmetric in $a,b,c$.
+\hint{3} (c) $S_{abc}=\frac12|(b-a)(c-a)(c-b)|$, and the same determinant for $A,B,C$ gives $S_{ABC}=\frac14|(a-b)(b-c)(c-a)|$. (d) $S_{abC}=\frac14|b-a|^3$, and similarly for the others; since $b$ lies between $a$ and $c$, $|c-a|=|c-b|+|b-a|$.
+
+\problem{9}
+\hint{1} A projective map of the plane sends lines to lines and preserves the cross-ratio of four lines through a point (it is the cross-ratio of their intersections with any line, Theorem 4). It sends a non-degenerate conic to a circle, so it suffices to prove the statement for a circle.
+\hint{2} On a circle the angles $\angle AXB$, $\angle BXC,\dots$ do not depend on $X$ (inscribed angles, oriented modulo $\pi$), and the cross-ratio of four lines through $X$ is expressed through the sines of these angles.
+\hint{3} Pascal for $ABCDEF$: let $P=AB\cap DE$, $Q=BC\cap EF$, $R=CD\cap FA$. Project $B,D,E,F$ from $A$ onto the line $DE$ and from $C$ onto the line $EF$. You get the points $P,D,E,M$ ($M=AF\cap DE$) and $Q,N,E,F$ ($N=CD\cap EF$) with equal cross-ratios.
+\hint{4} So there is a projective map from the line $DE$ to the line $EF$ sending $P,D,E,M$ to $Q,N,E,F$. It fixes the common point $E$, hence it is a perspectivity, and its centre lies on all the lines $PQ$, $DN=CD$, $MF=AF$. Thus $PQ$ passes through $R=CD\cap AF$.
+
+\problem{10}
+\hint{1} Each turn is by $120^\circ$, so the segments have only three directions, and segment $i$ is parallel to segment $i+3$. Put the broken line inside an equilateral triangle $T$ with sides parallel to the three directions, and let $x_i$ be the distance from segment $A_iA_{i+1}$ to the side of $T$ parallel to it (indices modulo $3n$).
+\hint{2} Parallel segments do not cross. Every crossing is between some segment $i$ and some segment $j+1$ with $j\equiv i\pmod3$, $j\ne i$, i.e.\ it is a crossing of the two-segment paths $A_iA_{i+1}A_{i+2}$ and $A_jA_{j+1}A_{j+2}$. Since the turning is always the same, along every segment the distance to the ``next'' side changes in the same direction; work out that such a crossing is possible only if
+\[(*)\qquad (x_i-x_j)(x_{i+1}-x_{j+1})<0,\]
+and that the two paths cross at most once. There are $3\binom n2$ unordered pairs $\{i,j\}$ with $i\equiv j\pmod3$.
+\hint{3} It remains to find $\bigl\lfloor\frac{n-1}2\bigr\rfloor$ pairs violating $(*)$, since $3\binom n2-\bigl\lfloor\frac{n-1}2\bigr\rfloor=\bigl\lfloor\frac32n^2-2n+1\bigr\rfloor$. Let $x_0$ be the smallest of all $x_i$ and fix $k$ with $1\le k<\frac n2$. Show that one of the pairs $(-6k+j,\,j)$, $j=0,1,\dots,6k-1$, violates $(*)$.
+\hint{4} If all of them satisfy $(*)$: $x_{-6k}>x_0$ (no three vertices are collinear, so two parallel segments are at different distances), then $(*)$ gives $x_{-6k+1}<x_1$, then $x_{-6k+2}>x_2$, and so on, alternating; after $6k$ steps $x_0>x_{6k}$, contradicting the minimality of $x_0$. Different $k$ give different pairs (for $k+k'=\frac n2$ the two families are disjoint because $j$ stops at $6k-1$), so this gives $\bigl\lfloor\frac{n-1}2\bigr\rfloor$ violations.
+\end{document}
