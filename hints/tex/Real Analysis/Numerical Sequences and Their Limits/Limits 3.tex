@@ -9,14 +9,18 @@
 \hint{3} So $S_n\sim\frac{m^3}6\sim\frac{(2n)^{3/2}}6=\frac{\sqrt2}3\,n^{3/2}$. The limit is finite and positive only for $\alpha=\frac32$; answer: $(\alpha,\beta)=\bigl(\frac32,\frac{\sqrt2}3\bigr)$.
 
 \problem{2}
-\hint{1} Show that $0<x_n<1$ and $x_n$ decreases, so $x_n\to L$ with $L=L-L^2$, i.e.\ $L=0$.
-\hint{2} Telescoping (Fact 1 with $p=2$): $\dfrac1{x_{n+1}}-\dfrac1{x_n}=\dfrac1{1-x_n}\to1$. By Stolz--Ces\`aro (or Ces\`aro means) $\frac1{nx_n}\to1$, so $\lim nx_n=1$.
+\hint{1} Compare $F(a_n)$ with $n=F(b_n)$. By the mean value theorem $F(a_{k+1})-F(a_k)=\dfrac{f(\xi_k)}{f(a_k)}$ with $\xi_k\in(a_k,a_{k+1})$, and since $f$ increases this lies in $\Bigl[1,\dfrac{f(a_{k+1})}{f(a_k)}\Bigr]$. Summing,
+\[n+F(1)\le F(a_n)\le n+F(1)+\sum_{k<n}\frac{f(a_{k+1})-f(a_k)}{f(a_k)}.\]
+In particular $a_n>b_n$ and $a_n\to\infty$.
+\hint{2} Show that $D_n=F(a_n)-F(b_n)=F(a_n)-n$ is $o\bigl(f(a_n)\bigr)$. This is Stolz in disguise: the increment of $D_n$ is at most $\frac{f(a_{n+1})-f(a_n)}{f(a_n)}$, i.e.\ at most $\frac1{f(a_n)}\to0$ times the increment of $f(a_n)$. (Directly: given $\varepsilon$, choose $K$ with $f(a_K)>\frac2\varepsilon$ and split the sum at $K$; the tail is at most $\frac\varepsilon2\bigl(f(a_n)-f(a_K)\bigr)$.)
+\hint{3} Mean value theorem once more: $D_n\ge f(b_n)(a_n-b_n)$, and with $B=\sup f'$ also $f(a_n)\le f(b_n)+B(a_n-b_n)$. So for large $n$
+\[f(b_n)(a_n-b_n)\le\varepsilon\bigl(f(b_n)+B(a_n-b_n)\bigr),\qquad\text{i.e.}\qquad a_n-b_n\le\frac{\varepsilon f(b_n)}{f(b_n)-\varepsilon B}<2\varepsilon,\]
+because $f(b_n)\to\infty$.
 
 \problem{3}
-\hint{1} First $x_1\in(0,1]$ and $x_n$ decreases to $0$. Expand $\dfrac1{\sin^2x}=\dfrac1{x^2}+\dfrac13+\dfrac{x^2}{15}+O(x^4)$, so $\frac1{x_{n+1}^2}-\frac1{x_n^2}\to\frac13$.
-\hint{2} By Stolz, $\frac1{nx_n^2}\to\frac13$, i.e.\ $\sqrt n\,x_n\to\sqrt3$.
-\hint{3} For the next term, sum the expansion: $\frac1{x_n^2}=\frac n3+\frac1{15}\sum_{k<n}x_k^2+O(1)$, and $x_k^2=\frac3k+o(\frac1k)$ gives $\frac1{x_n^2}=\frac n3+\frac{\ln n}5+o(\ln n)$ (in fact $+\,C+o(1)$, since the error terms are summable).
-\hint{4} Therefore $x_n=\sqrt{\dfrac3n}\Bigl(1-\dfrac{3\ln n}{10\,n}+O\bigl(\tfrac1n\bigr)\Bigr)=\sqrt{\dfrac3n}-\dfrac{3\sqrt3}{10}\,\dfrac{\ln n}{n^{3/2}}+O\bigl(n^{-3/2}\bigr)$.
+\hint{1} By induction $x_n>0$. Bernoulli's inequality $(1+t)^{1/n}\le1+\frac tn$ gives $x_{n+1}\le x_n$, so $x_n\le x_2$ and $x_{n+1}\le\sqrt[n]{1+nx_2}-1\to0$. Hence $\lim x_n=0$.
+\hint{2} Put $y_n=nx_n$. Then $x_{n+1}=\exp\bigl(\frac{\ln(1+y_n)}n\bigr)-1$, and $\ln(1+y_n)\le\ln(1+nx_2)=o(n)$, so $y_{n+1}=\frac{n+1}n\ln(1+y_n)\,(1+o(1))$. Thus for every $\varepsilon>0$ eventually $y_{n+1}\le(1+\varepsilon)\ln(1+y_n)$.
+\hint{3} The function $g(y)=(1+\varepsilon)\ln(1+y)$ is increasing and concave with $g'(0)=1+\varepsilon$, so it has a unique positive fixed point $y_\varepsilon$, and $y_\varepsilon\to0$ as $\varepsilon\to0$ (in fact $y_\varepsilon\approx2\varepsilon$). Iterating, $\limsup y_n\le y_\varepsilon$. Answer: $\lim x_n=0$ and $\lim nx_n=0$.
 
 \problem{4}
 \hint{1} Put $y_n=x_{n+1}^3=\frac1n\sum_{k\le n}\sin^3x_k$. Then $(n+1)y_{n+1}=ny_n+\sin^3x_{n+1}$, i.e.\ $y_{n+1}-y_n=\dfrac{\sin^3x_{n+1}-x_{n+1}^3}{n+1}<0$. Deduce that $y_n\downarrow0$ (if $y_n\to L>0$, the decrements are $\ge c/n$ and sum to $\infty$).
@@ -24,7 +28,9 @@
 \hint{3} $y_{n+1}^{-2/3}-y_n^{-2/3}=\dfrac{1+o(1)}{3(n+1)}$, so by Stolz with $b_n=\ln n$: $y_n^{-2/3}\sim\frac{\ln n}3$. Hence $x_n^2\sim\frac3{\ln n}$, i.e.\ $\lim x_n^2\ln n=3$.
 
 \problem{5}
-\hint{1} No continuity is assumed, so use order instead of the intermediate value theorem: consider $A=\{x\in[a,b]: f(x)\ge x\}$, which contains $a$, and $\xi=\sup A$.
-\hint{2} For $x\in A$: $x\le f(x)\le f(\xi)$, so $f(\xi)$ is an upper bound of $A$ and $\xi\le f(\xi)$. Then $f(f(\xi))\ge f(\xi)$, so $f(\xi)\in A$ and $f(\xi)\le\xi$.
-\hint{3} Example: $f(x)=1-x$ on $[0,1]$ has the unique fixed point $\frac12$, but $x_0=0$ gives $0,1,0,1,\dots$
+\hint{1} Work with the means $m_n=\frac{x_1+\dots+x_n}n>0$, so that $x_{n+1}=\arctan m_n$. Then $(n+1)m_{n+1}=nm_n+\arctan m_n$, i.e.
+\[m_{n+1}=m_n-\frac{m_n-\arctan m_n}{n+1}.\]
+Hence $m_n$ decreases; if $m_n\to L>0$, the decrements are $\ge\frac c{n+1}$ and sum to $\infty$. So $m_n\to0$.
+\hint{2} $m-\arctan m=\frac{m^3}3+O(m^5)$, so $m_{n+1}=m_n-\frac{m_n^3}{3(n+1)}(1+o(1))$: the same situation as in Problem~4. Telescope in the power $m^{-2}$.
+\hint{3} $\dfrac1{m_{n+1}^2}-\dfrac1{m_n^2}=\dfrac{2+o(1)}{3(n+1)}$, so by Stolz with $b_n=\ln n$ we get $m_n^{-2}\sim\frac23\ln n$. Since $x_{n+1}=\arctan m_n\sim m_n$, $x_n^2\ln n\to\frac32$. Answer: $\lim x_n\sqrt{\ln n}=\sqrt{3/2}$.
 \end{document}
