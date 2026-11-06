@@ -1,0 +1,36 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\begin{document}
+\begin{center}
+{\huge\bfseries\foreignlanguage{russian}{Проверочная} -- 1\par}\vspace{0.8em}
+{\large Time allowed: 2 hours\par}
+\end{center}
+\vspace{1em}
+
+% Sources (not shown in the PDF): 1 -- SEEMOUS 2026; 2 -- OMOUS 2022, Problem 2.
+\begin{enumerate}[leftmargin=2.2em,itemsep=1.2em]
+\item Let $A$ and $B$ be $n\times n$ matrices with complex entries for which
+\[
+A^2+B^2=2(AB-BA).
+\]
+Prove that $A^2+B^2$ is a nilpotent matrix.
+
+\item Let $(a_n)$ be a recursive sequence given by
+\[
+a_0=1,\qquad a_{n+1}=\frac{2a_n}{2+\sqrt{4-a_n^2}}.
+\]
+Prove that $(2^na_n)$ is increasing and find its limit.
+\end{enumerate}
+\end{document}
