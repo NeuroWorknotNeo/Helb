@@ -59,8 +59,8 @@ or $\operatorname{Im}\lambda=0$.
 \item (IMC 2003) Let $A$ be an $n\times n$ real matrix such that $3A^3=A^2+A+E$. Show that the
 sequence $A^k$ converges to an idempotent matrix.
 
-\item (IMC 2000) Let $A$ and $B$ be square complex matrices of the same size with
-$\rank(AB-BA)=1$. Show that $(AB-BA)^2=O$.
+\item (IMC 1997) Let $A$ and $B$ be real $n\times n$ matrices such that $A^2+B^2=AB$. Prove that
+if $BA-AB$ is an invertible matrix then $n$ is divisible by $3$.
 
 \item (IMC 1999)
 \begin{enumerate}[label=\alph*),align=left]
@@ -77,12 +77,17 @@ eigenvectors of $A$.
 \item Find the maximal number of distinct pairwise commuting involutions on $V$.
 \end{enumerate}
 
-\item (IMC 1995) Let $X$ be a non-singular matrix with columns $X_1,X_2,\dots,X_n$, and let $Y$
-be the matrix with columns $X_2,X_3,\dots,X_n,0$. Show that the matrices $A=YX^{-1}$ and
-$B=X^{-1}Y$ have rank $n-1$ and have only zeros for eigenvalues.
+\item (IMC 2018) Determine all rational numbers $a$ for which the matrix
+\[
+\begin{pmatrix}a&-a&-1&0\\a&-a&0&-1\\1&0&a&-a\\0&1&a&-a\end{pmatrix}
+\]
+is the square of a matrix with all rational entries.
 
-\item (\foreignlanguage{russian}{ШАД} 2014) Let $A$ be a square matrix in which the sum of the
-entries in each column equals $\lambda$. Prove that $\lambda$ is an eigenvalue of $A$.
+\item (VJIMC 2025) Let $n\geqslant2$ be an integer, and let $A$ be an $n\times n$ real matrix with
+minimal polynomial $x^n+x-1$. Show that
+\[
+\tr\bigl((nA^{n-1}+E)^{-1}A^{n-2}\bigr)=0.
+\]
 
 \item (Romania national olympiad 2018) Let $n>2$ and let $A\in M_n(\mathbb C)$ satisfy
 $\rank A\ne\rank A^2$. Prove that there is a non-zero $B\in M_n(\mathbb C)$ with
@@ -107,8 +112,13 @@ strictly upper triangular.
 $Z\in M_3(\mathbb C)$.
 \end{enumerate}
 
-\item (\foreignlanguage{russian}{ФКН, осень} 2020) Suppose a linear transformation $A$ of a real
-$n$-dimensional vector space has $n+1$ eigenvectors any $n$ of which are linearly independent.
-Must $A$ be a scalar multiple of the identity?
+\item (IMC 2026) Let $n\geqslant5$, and suppose that $A=(a_{ij})$ is a real symmetric $n\times n$
+matrix such that $a_{ii}=0$ and $a_{ij}\in\{-1,1\}$ for $i\ne j$. Assume that the scalar products
+of any two distinct rows of $A$ have the same value. Let $\lambda_1,\dots,\lambda_n$ be the
+eigenvalues of $A$. Prove that
+\[
+\sum_{i=1}^n|\lambda_i|\geqslant2n-2
+\]
+and determine all matrices for which equality holds.
 \end{enumerate}
 \end{document}

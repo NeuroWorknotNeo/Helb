@@ -37,7 +37,9 @@ The roots are \(1\) and two complex roots of modulus \(1/\sqrt3\), all simple. S
 
 \problem{6}
 \hint{1}
-A rank-one matrix is \(C=uv^T\), and \(C^2=(v^Tu)C=(\operatorname{tr}C)\,C\). What is \(\operatorname{tr}(AB-BA)\)?
+Let \(\omega=e^{2\pi i/3}\) and \(S=A+\omega B\); since \(A,B\) are real, \(\bar S=A+\bar\omega B\). Expand \(S\bar S\) and use \(A^2+B^2=AB\) and \(1+\bar\omega=-\omega\).
+\hint{2}
+\(S\bar S=AB+\bar\omega AB+\omega BA=\omega(BA-AB)\). Take determinants: \(|\det S|^2=\omega^n\det(BA-AB)\). The left-hand side is real and, as \(BA-AB\) is invertible, non-zero; so \(\omega^n\) is real, i.e.\ \(3\mid n\).
 
 \problem{7}
 \hint{1}
@@ -75,13 +77,19 @@ A rank-one matrix is \(C=uv^T\), and \(C^2=(v^Tu)C=(\operatorname{tr}C)\,C\). Wh
 
 \problem{9}
 \hint{1}
-Write \(Y=XN\), where \(N\) is the shift with \(Ne_j=e_{j+1}\) for \(j\lt n\) and \(Ne_n=0\).
+In block form the matrix is \(M=\begin{pmatrix}N&-E\\E&N\end{pmatrix}\) with \(N=\begin{pmatrix}a&-a\\a&-a\end{pmatrix}\), \(N^2=0\). Its characteristic polynomial is \(\det\bigl((x-N)^2+E\bigr)=(x^2+1)^2\): the eigenvalues are \(\pm i\), each twice.
 \hint{2}
-Then \(B=X^{-1}Y=N\) and \(A=YX^{-1}=XNX^{-1}\). Both are similar to the nilpotent Jordan block \(N\), which has rank \(n-1\).
+If \(M=B^2\) with \(B\) rational, every eigenvalue \(\mu\) of \(B\) has \(\mu^2=\pm i\), so \(\mu^4=-1\). The polynomial \(x^4+1\) is irreducible over \(\mathbb Q\), hence the characteristic polynomial of \(B\) is \(x^4+1\). Its roots are distinct, so \(B\) is diagonalisable, and so is \(M=B^2\).
+\hint{3}
+A diagonalisable \(M\) with eigenvalues \(\pm i\) satisfies \(M^2=-E\). But \(M^2=\begin{pmatrix}-E&-2N\\2N&-E\end{pmatrix}\), so \(N=0\) and \(a=0\). Conversely, for \(a=0\) the matrix \(M\) is the square of the companion matrix of \(x^4+1\) (the matrix of multiplication by \(\zeta=e^{\pi i/4}\) on \(\mathbb Q(\zeta)\) in the basis \(1,\zeta,\zeta^2,\zeta^3\); its square is multiplication by \(i\)). Answer: \(a=0\).
 
 \problem{10}
 \hint{1}
-The condition says \((1,\dots,1)A=\lambda(1,\dots,1)\), so \(\lambda\) is an eigenvalue of \(A^T\). Now use \(\chi_{A^T}=\chi_A\).
+The minimal polynomial \(p(x)=x^n+x-1\) has degree \(n\), so it is also the characteristic polynomial. Check that \(p\) has \(n\) distinct roots: a common root of \(p\) and \(p'=nx^{n-1}+1\) would satisfy \(\lambda=\frac n{n-1}>0\) and \(\lambda^{n-1}=-\frac1n\lt0\).
+\hint{2}
+So \(A\) is diagonalisable with eigenvalues \(\lambda_1,\dots,\lambda_n\), the matrix \(nA^{n-1}+E=p'(A)\) is invertible, and the trace equals \(\sum_i\frac{\lambda_i^{n-2}}{p'(\lambda_i)}\).
+\hint{3}
+For a polynomial \(q\) of degree \(\le n-2\), Lagrange interpolation at the roots of \(p\) gives \(q(x)=\sum_iq(\lambda_i)\prod_{j\ne i}\frac{x-\lambda_j}{\lambda_i-\lambda_j}\); comparing the coefficients of \(x^{n-1}\) gives \(\sum_i\frac{q(\lambda_i)}{p'(\lambda_i)}=0\). Take \(q(x)=x^{n-2}\).
 
 \problem{11}
 \hint{1}
@@ -132,7 +140,13 @@ For \(\lambda=0\) take \(Y=O\). For \(\lambda\ne0\) look for \(Y=cE+dN\): \(Y^3=
 
 \problem{16}
 \hint{1}
-Take \(n\) of the eigenvectors as a basis, \(Av_i=\lambda_iv_i\), and write the last one as \(v_{n+1}=\sum c_iv_i\). Why are all \(c_i\ne0\)?
+Compute \(A^2\). Its diagonal entries are \(n-1\), and its off-diagonal entries are the common scalar product \(s\) of two rows: \(A^2=(n-1-s)E+sJ\), where \(J\) is the all-ones matrix. Note that \(s\le n-2\).
 \hint{2}
-Apply \(A\): \(\sum c_i\lambda_iv_i=\mu\sum c_iv_i\), so every \(\lambda_i=\mu\). Answer: yes, \(A=\mu E\).
+If \(s=0\), all \(|\lambda_i|=\sqrt{n-1}\) and \(\sum|\lambda_i|=n\sqrt{n-1}\gt2n-2\). If \(s\ne0\), the line spanned by \(\mathbf1=(1,\dots,1)\) is an eigenspace of \(A^2\) of its own, and \(A\) commutes with \(A^2\), so \(A\mathbf1=r\mathbf1\): all row sums are equal to some \(r\), with \(r^2=(n-1)(1+s)\). The other eigenvalues satisfy \(\lambda^2=n-1-s\).
+\hint{3}
+Eliminate \(s\): with \(t=|r|\in[0,n-1]\),
+\[\sum|\lambda_i|=t+(n-1)\sqrt{n-1-s}=t+\sqrt{n-1}\,\sqrt{n(n-1)-t^2}.\]
+This is a concave function of \(t\), so its minimum is at an end of the interval: \((n-1)\sqrt n\gt2n-2\) at \(t=0\) (here \(n\ge5\) is used), and exactly \(2n-2\) at \(t=n-1\).
+\hint{4}
+Equality forces \(|r|=n-1\): in every row all off-diagonal entries have the same sign, and since all row sums are equal, it is the same sign for all rows. Answer: equality holds exactly for \(A=\pm(J-E)\).
 \end{document}
