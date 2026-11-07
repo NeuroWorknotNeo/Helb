@@ -1,0 +1,53 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Functional and differential equations -- 1. Functional equations: the toolkit}{Homework}
+
+\problem{1}
+\hint{1} On \(\mathbb Q\) additivity gives \(f(x)=cx\), and \(f(1)=f(1)^2\) gives \(c\in\{0,1\}\).
+\hint{2} On \(\mathbb R\): \(f(x^2)=f(x)^2\ge0\), so \(f\ge0\) on \([0,\infty)\), and additivity makes \(f\) non-decreasing. A monotone additive function is linear. Answer in both cases: \(f\equiv0\) and \(f(x)=x\).
+
+\problem{2}
+\hint{1} At \(x=0\) the inequality is an equality: \(f(y)\ge f(y)+2^yf(0)\). So for fixed \(y\) the function \(x\mapsto f(x+y)-3^xf(y)-2^yf(x)\) has a minimum \(0\) at \(x=0\), and its derivative vanishes there.
+\hint{2} This gives \(f'(y)=f(y)\ln3+2^yf'(0)\). In the same way (minimum in \(y\) at \(y=0\)) \(f'(x)=3^xf'(0)+f(x)\ln2\).
+\hint{3} Subtract: \(f(x)\ln\frac32=f'(0)(3^x-2^x)\), and \(f(1)=1\) fixes \(f'(0)=\ln\frac32\). Answer: \(f(x)=3^x-2^x\), which satisfies the inequality with equality.
+
+\problem{3}
+\hint{1} Let \(g(x)=x^2-2\). If \(f\circ f=g\), then \(f\circ g=f\circ f\circ f=g\circ f\): \(f\) maps the fixed points of \(g\) to fixed points of \(g\), and the fixed points of \(g\circ g\) to fixed points of \(g\circ g\).
+\hint{2} \(g\) has the fixed points \(2,-1\), and \(g\circ g\) has in addition the two points \(\frac{-1\pm\sqrt5}2\), which \(g\) swaps. Where can \(f\) send \(b=\frac{-1+\sqrt5}2\)? If \(f(b)\in\{2,-1\}\), then \(g(b)=f(f(b))\in\{2,-1\}\); if \(f(b)=b\), then \(g(b)=b\); if \(f(b)=b'\), then \(f(b')=g(b)=b'\) and \(g(b')=f(f(b'))=b'\). Each case contradicts \(g(b)=b'\), \(g(b')=b\), so no \(f\) exists.
+\hint{3} For \(x^2+1\) such \(f\) exist. On \([0,\infty)\) the map \(g(x)=x^2+1\) is increasing without fixed points, and \(0,\frac12,1,g(\frac12),g(1),\dots\) cut \([0,\infty)\) into consecutive intervals. Take any increasing bijection \(h\colon[0,\frac12)\to[\frac12,1)\), put \(f=h\) on \([0,\frac12)\), \(f=g\circ h^{-1}\) on \([\frac12,1)\), and extend by \(f(g(x))=g(f(x))\). Finally \(f(x)=f(|x|)\) for \(x\lt0\).
+
+\problem{4}
+\hint{1} Pair the factors: \(\int f^k\cdot\int f^{2021-k}\), \(k=1,\dots,1010\). Compare each pair with \(\int f^{2021}\).
+\hint{2} Chebyshev's inequality for similarly ordered functions: \(\int_0^1f^a\int_0^1f^b\le\int_0^1f^{a+b}\), since \(\iint\bigl(f^a(x)-f^a(y)\bigr)\bigl(f^b(x)-f^b(y)\bigr)\,dx\,dy\ge0\). Equality holds only if the integrand vanishes, i.e.\ \(f\) is constant.
+\hint{3} So the left-hand side is at most the right-hand side, with equality only for constants. Answer: \(f\equiv c\), \(c\ge0\).
+
+\problem{5}
+\hint{1} \(f(3n)=f(f(f(n)))=3f(n)\). Also \(f(1)\ne1\) and \(f(1)=b\) gives \(f(b)=3\gt b\), so \(f(1)=2\), \(f(2)=3\), and by induction \(f(3^k)=2\cdot3^k\), \(f(2\cdot3^k)=3^{k+1}\).
+\hint{2} Between \(3^k\) and \(2\cdot3^k\) there are as many integers as between \(2\cdot3^k\) and \(3^{k+1}\), and \(f\) is strictly increasing, so \(f(3^k+j)=2\cdot3^k+j\) for \(0\le j\le3^k\); then \(f(2\cdot3^k+j)=f(f(3^k+j))=3^{k+1}+3j\). This proves uniqueness.
+\hint{3} For \(f(f(n))=2n\): \(f(1)=b\) gives \(f(b)=2\). A strictly increasing \(f\colon\mathbb N\to\mathbb N\) has \(f(n)\ge n\), so \(b\le2\); \(b=1\) gives \(f(f(1))=1\), and \(b=2\) gives \(f(2)=2=f(1)\). So there is no strictly increasing solution (without monotonicity there are many).
+
+\problem{6}
+\hint{1} An additive \(f\) is \(\mathbb Q\)-linear, so its graph \(\Gamma\) is a \(\mathbb Q\)-subspace of \(\mathbb R^2\). If \(f\) is not linear, there are \(x,y\) with \(\frac{f(x)}x\ne\frac{f(y)}y\), so \(\Gamma\) contains two \(\mathbb R\)-linearly independent vectors.
+\hint{2} The \(\mathbb Q\)-span of two \(\mathbb R\)-independent vectors of \(\mathbb R^2\) is dense. Hence a non-dense graph means \(f\) is linear.
+\hint{3} If \(f\) is measurable, some set \(E=\{|f|\le M\}\) has positive measure, and by Steinhaus \(E-E\) contains an interval \((-\delta,\delta)\). There \(|f|\le2M\), so the graph misses a whole box, and \(f\) is linear.
+
+\problem{7}
+\hint{1} Put \(a=f(0)\), \(b=f(\frac\pi2)\) and use three substitutions: \((x,y)=(0,t)\), \((\frac\pi2+t,\frac\pi2)\), \((\frac\pi2,\frac\pi2+t)\).
+\hint{2} They give \(f(t)+f(-t)=2a\cos t\), \(f(\pi+t)+f(t)=0\), \(f(\pi+t)+f(-t)=-2b\sin t\). Add the first two and subtract the third: \(f(t)=a\cos t+b\sin t\). These work. No regularity is needed because the answer comes from finitely many substitutions, without any limit.
+
+\problem{8}
+\hint{1} First equation: \(x=y=0\) gives \(f(0)\in\{0,1\}\), and \(y=0\) gives \(f(0)(f(x)-1)=x\). So \(f(0)=1\) and \(f(x)=x+1\), which works.
+\hint{2} Second equation: \(f(0)=f(1)=f(-1)=0\) and \(f(-x)=-f(x)\). For \(x\gt0\) put \(h(t)=\frac{f(e^t)}{e^t}\): then \(h(s+t)=h(s)+h(t)\).
+\hint{3} Answer: \(f(x)=x\,A(\ln|x|)\) for \(x\ne0\) and \(f(0)=0\), where \(A\) is any additive function; the regular ones are \(f(x)=cx\ln|x|\).
+
+\problem{9}
+\hint{1} Some regularity is necessary: a non-linear additive function is subadditive, but \(\frac{f(x)}x\) has no limit. Let \(L=\inf_{x\gt0}\frac{f(x)}x\in[-\infty,\infty)\); clearly \(\liminf\frac{f(x)}x\ge L\).
+\hint{2} Fix \(a\gt0\) and write \(x=na+r\) with \(r\in[a,2a)\). Subadditivity gives \(f(x)\le nf(a)+f(r)\le nf(a)+M_a\), where \(M_a\) is an upper bound of \(f\) on \([a,2a]\). Dividing by \(x\) and letting \(x\to\infty\): \(\limsup\frac{f(x)}x\le\frac{f(a)}a\) for every \(a\gt0\), i.e.\ \(\limsup\le L\).
+\hint{3} This is the continuous version of Fekete's lemma: the sequence \(a_n=f(n)\) is subadditive, and the local upper bound replaces the integer step.
+
+\problem{10}
+\hint{1} Put \(x=t+h\), \(y=t-h\): \(f(t+h)-f(t-h)=2hg(t)\). Integrating over \(h\in[0,1]\) gives \(g(t)=\int_t^{t+1}f-\int_{t-1}^tf\), so \(g\in C^1\); and \(f(x)=f(0)+xg(\frac x2)\) gives \(f\in C^1\). Repeating, \(f,g\in C^\infty\).
+\hint{2} Now differentiate \(f(t+h)-f(t-h)=2hg(t)\) in \(h\): once, at \(h=0\), gives \(g=f'\); twice gives \(f''(t+h)=f''(t-h)\) for all \(t,h\), so \(f''\) is constant.
+\hint{3} Answer: \(f(x)=ax^2+bx+c\), \(g(x)=2ax+b\).
+\end{document}

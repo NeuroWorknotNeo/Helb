@@ -1,0 +1,53 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Functional and differential equations -- 2. Functional-differential equations}{Homework}
+
+\problem{1}
+\hint{1} \(f'(t)=f(\sqrt t)\ge0\), so \(f\) is non-decreasing, and \(f(x)=\int_0^xf(\sqrt t)\,dt=\int_0^{\sqrt x}2uf(u)\,du\). Aim: \(f\equiv0\) on \([0,1]\) first.
+\hint{2} For \(x\le1\), monotonicity gives \(f(x)\le xf(\sqrt x)\le x\cdot x^{1/2}f(x^{1/4})\le\dots\), hence \(f(x)\le x^2f(1)\). Now feed a bound \(f(u)\le Cu^2\) into the integral: \(f(x)\le\int_0^{\sqrt x}2Cu^3\,du=\frac C2x^2\). So \(C\) can be halved again and again: \(f\equiv0\) on \([0,1]\).
+\hint{3} Let \(s=\sup\{x: f=0\text{ on }[0,x]\}\ge1\). If \(s\lt\infty\), then for \(x\in[s,s+\varepsilon]\) we have \(|f(x)|\le\varepsilon\max_{[s,s+\varepsilon]}|f(\sqrt t)|\), and \(\sqrt t\le s+\varepsilon\); so \(\max_{[s,s+\varepsilon]}|f|\le\varepsilon\max_{[s,s+\varepsilon]}|f|\), which is \(0\) for \(\varepsilon\lt1\). Answer: \(f\equiv0\).
+
+\problem{2}
+\hint{1} Condition (i) together with (ii) gives \(f(a)=0\) for every integer \(a\). Look at \(f\) on a segment \([a,a+1]\).
+\hint{2} If \(f\) took a positive value on \([a,a+1]\), its maximum there would be positive and attained at an interior point \(c\), where \(f'(c)=0\); then (ii) gives \(f(c)=0\), a contradiction. The same for a negative minimum. Answer: \(f\equiv0\).
+
+\problem{3}
+\hint{1} \(f\gt0\) on \([0,\infty)\): at the first zero \(b\gt0\) we would have \(f'(b)=f(f(b))=f(0)\gt0\), while \(f\) decreases to \(0\) there. So \(f'=f\circ f\gt0\) on \([0,\infty)\), \(f\) increases there, and \(f'(x)\ge f(f(0))\gt0\); hence \(f(x)\to\infty\) and \(f'(x)=f(f(x))\to\infty\).
+\hint{2} So \(f(x)\ge x\) for \(x\ge x_1\), and then \(f'(x)=f(f(x))\ge f(x)\), i.e.\ \(f(x)\ge Ce^x\) for large \(x\).
+\hint{3} Therefore \(f'(x)=f(f(x))\ge Ce^{f(x)}\) for large \(x\), i.e.\ \((e^{-f})'\le-C\). A positive function cannot decrease with slope \(\le-C\) forever: contradiction. (In Differentiable functions -- 1 the inequality \(f'\gt f\circ f\) is excluded by the same growth argument.)
+
+\problem{4}
+\hint{1} Regularity: \(f'(x)=f(x+1)\) is differentiable, so \(f\in C^2\), and so on: \(f\in C^\infty\) and \(f^{(n)}(x)=f(x+n)\).
+\hint{2} Exponential solutions: \(e^{\lambda x}\) works iff \(\lambda=e^\lambda\). For real \(\lambda\), \(e^\lambda\ge1+\lambda\gt\lambda\), so all roots are non-real (they come in conjugate pairs, and give real solutions \(e^{ax}\cos bx\), \(e^{ax}\sin bx\)).
+\hint{3} All solutions: \(f\) is determined by \(\varphi=f|_{[0,1]}\). On \([n,n+1]\), \(f(x)=\varphi^{(n)}(x-n)\); on \([-1,0]\), \(f(x)=f(0)-\int_x^0f(t+1)\,dt\), and so on to the left. Conversely, every \(C^\infty\) function \(\varphi\) on \([0,1]\) with \(\varphi^{(n)}(1)=\varphi^{(n+1)}(0)\) for all \(n\ge0\) extends to a solution.
+
+\problem{5}
+\hint{1} \(f\) is \(C^\infty\) and \(f'(x)=\frac{f(x+h)-f(x-h)}{2h}\). Linear functions are solutions. An exponential \(e^{\lambda x}\) is a solution iff \(\frac{\sinh\lambda h}{\lambda h}=1\), i.e.\ \(z=\lambda h\) solves \(\sinh z=z\).
+\hint{2} The only real root is \(z=0\), but there are non-real ones: \(\sinh z-z\) is an entire function of order \(1\), and if it had finitely many zeros it would be \(P(z)e^{cz}\) (Hadamard), which contradicts its behaviour \(\sim\frac{e^z}2\) as \(z\to+\infty\) and \(\sim-\frac{e^{-z}}2\) as \(z\to-\infty\). So \(e^{ax}\cos bx\) with \(z=(a+ib)h\) is a non-linear solution.
+\hint{3} Answer: all linear functions and many others (the closed span of such exponentials). If the mean value property holds for every \(h\gt0\), differentiate in \(h\): \(f(x+h)+f(x-h)=2f(x)\), so \(f''=0\) and \(f\) is linear --- exactly as harmonic functions are the ones with the mean value property for all radii.
+
+\problem{6}
+\hint{1} \(x=y=0\) gives \(f(0)=-f'(0)^2\). If \(f'\equiv0\), then \(f\equiv0\). Otherwise pick \(y_0\) with \(f'(y_0)\ne0\): \(f'(x)=\frac{f(x+y_0)-f(x)-f(y_0)}{f'(y_0)}\), so \(f\in C^\infty\).
+\hint{2} Differentiate in \(y\) at \(y=0\): \(f'(x)\bigl(1-f''(0)\bigr)=f'(0)\). If \(f''(0)\ne1\), \(f'\) is constant and \(f(x)=ax-a^2\).
+\hint{3} If \(f''(0)=1\), then \(f'(0)=0=f(0)\), and differentiating twice in \(y\) at \(0\) gives \(f''=1+kf'\). So \(f'=x\) or \(f'=\frac{e^{kx}-1}k\). Answer: \(f(x)=ax-a^2\), \(f(x)=\frac{x^2}2\), \(f(x)=\frac{e^{kx}-1-kx}{k^2}\) (\(k\ne0\)); for the last one \(f(x+y)-f(x)-f(y)=\frac{(e^{kx}-1)(e^{ky}-1)}{k^2}=f'(x)f'(y)\).
+
+\problem{7}
+\hint{1} Regularity: the harmonic mean of \(2x\) and \(\frac{2x}3\) is \(x\), so \(f'(x)=\frac{f(2x)-f(2x/3)}{4x/3}\) and \(f\in C^\infty\).
+\hint{2} General principle: put \(a=x+h\), \(b=x-h\), and write \(\mu(x+h,x-h)=x+c(x)h^2+O(h^3)\). Comparing the terms in \(h^3\) gives \(\frac{f'''}3=2cf''\). For the arithmetic mean \(c=0\) (quadratics), for the geometric mean \(c=-\frac1{2x}\) (\(f''=Kx^{-3}\), \(f=Ax+\frac Bx+C\)), for the harmonic mean \(c=-\frac1x\), so \(f''=Kx^{-6}\) and \(f=\frac A{x^4}+Bx+C\).
+\hint{3} This is only necessary. Linear functions satisfy the equation, so \(\frac A{x^4}\) must satisfy it on its own; at \(a=2\), \(b=1\) it does not (\(\frac1{16}-1\ne-4(\frac34)^5\)), so \(A=0\). Answer: \(f(x)=Bx+C\). The candidate from the ODE survives for the arithmetic and geometric means and dies for the harmonic one.
+
+\problem{8}
+\hint{1} \(f'(x)=f(1-x)\) gives \(f\in C^2\) and \(f''(x)=-f'(1-x)=-f(x)\), so \(f=A\cos x+B\sin x\). Substituting back leaves a one-parameter family: \(f(x)=C\cos\bigl(x-\frac\pi4-\frac12\bigr)\).
+\hint{2} \(f''(x)=f(-x)\) gives \(f\in C^4\) and \(f''''(x)=f''(-x)=f(x)\), so \(f=ae^x+be^{-x}+c\cos x+d\sin x\). Substituting: \(a=b\), \(c=0\). Answer: \(f(x)=a\cosh x+d\sin x\).
+
+\problem{9}
+\hint{1} \(f(x)=f(\frac x{2^n})\to f(0)\), so \(f\) is constant.
+\hint{2} For \(f'(x)=f(2x)\), \(f(0)=1\), the coefficients satisfy \((n+1)a_{n+1}=2^na_n\), so \(a_n=\frac{2^{n(n-1)/2}}{n!}\).
+\hint{3} \(\frac{a_{n+1}}{a_n}=\frac{2^n}{n+1}\to\infty\): the radius of convergence is \(0\), so no solution is analytic at \(0\).
+
+\problem{10}
+\hint{1} The characteristic equation is \(\lambda=e^{-\lambda}\). It has no roots on the imaginary axis: \(\lambda=ib\) would need \(|b|=1\) and \(ib=\cos b-i\sin b\), i.e.\ \(\cos b=0\), which is false for \(b=\pm1\). The real root \(\lambda_0\approx0.567\) grows at \(+\infty\); all other roots have \(\operatorname{Re}\lambda\lt0\) and blow up at \(-\infty\).
+\hint{2} A clean proof uses the Fourier transform of the bounded function \(f\) (as a tempered distribution): the equation becomes \((i\xi-e^{-i\xi})\hat f=0\). The factor \(i\xi-e^{-i\xi}\) is smooth and never vanishes on \(\mathbb R\), and \(1/(i\xi-e^{-i\xi})\) is a smooth multiplier of polynomial growth; so \(\hat f=0\) and \(f\equiv0\).
+\hint{3} So boundedness on \(\mathbb R\) alone already forces \(f\equiv0\); the responsible property is that no characteristic root lies on the imaginary axis. The condition at \(-\infty\) excludes the modes with \(\operatorname{Re}\lambda\lt0\) in an elementary approach.
+\end{document}

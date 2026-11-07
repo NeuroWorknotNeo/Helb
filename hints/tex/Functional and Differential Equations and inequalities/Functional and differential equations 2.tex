@@ -1,0 +1,29 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Functional and differential equations -- 2. Functional-differential equations}{Class work}
+
+\problem{1}
+\hint{1} Put \(a=t+h\), \(b=t-h\): \(f(t+h)-f(t-h)=2hf'(t)\). With \(h=1\), \(f'(t)=\frac{f(t+1)-f(t-1)}2\) is continuous, and in the same way differentiable: by induction \(f\in C^\infty\).
+\hint{2} Differentiate the identity twice in \(h\): \(f''(t+h)-f''(t-h)=0\) for all \(t,h\), so \(f''\) is constant. Answer: \(f(x)=ax^2+bx+c\).
+
+\problem{2}
+\hint{1} Regularity first: the geometric mean of \(2x\) and \(\frac x2\) is \(x\), so \(f'(x)=\frac{f(2x)-f(x/2)}{3x/2}\) and \(f\in C^\infty\). Put \(a=ts\), \(b=\frac ts\): \(f(ts)-f(\frac ts)=t\bigl(s-\frac1s\bigr)f'(t)\).
+\hint{2} Differentiate in \(s\): with \(\psi(x)=xf'(x)\) you get \(\psi(ts)+\psi(\frac ts)=\bigl(s+\frac1s\bigr)\psi(t)\). Differentiate twice more in \(s\) and put \(s=1\): \(t^2\psi''+t\psi'-\psi=0\).
+\hint{3} This Euler equation gives \(\psi(t)=At+\frac Bt\), i.e.\ \(f'(x)=A+\frac B{x^2}\). Answer: \(f(x)=Ax+\frac Cx+D\); check: \(f(a)-f(b)=(a-b)\bigl(A-\frac C{ab}\bigr)\).
+
+\problem{3}
+\hint{1} Put \(c=f(0)\), \(d=f'(0)\); \(y=0\) gives \((1-d)f(x)=cf'(x)\). If \(c\ne0\), then \(f=ce^{\lambda x}\), and the equation forces \(c\lambda=\frac12\): \(f(x)=\frac{e^{\lambda x}}{2\lambda}\), \(\lambda\ne0\).
+\hint{2} If \(c=0\), either \(f\equiv0\) or \(d=1\). Regularity: if \(f(y_0)\ne0\), then \(f'(x)=\frac{f(x+y_0)-f(x)f'(y_0)}{f(y_0)}\) is differentiable, so \(f\in C^\infty\). Differentiate in \(y\) at \(y=0\): once gives \(f''(0)=0\), twice gives \(f''=kf\) with \(k=f'''(0)\).
+\hint{3} With \(f(0)=0\), \(f'(0)=1\): \(f(x)=x\), \(\frac{\sin\omega x}\omega\) or \(\frac{\sinh\omega x}\omega\) (\(\omega\gt0\)), and all of them work. Answer: \(f\equiv0\), \(\frac{e^{\lambda x}}{2\lambda}\) (\(\lambda\ne0\)), \(x\), \(\frac{\sin\omega x}\omega\), \(\frac{\sinh\omega x}\omega\).
+
+\problem{4}
+\hint{1} Let \(g=f^2\ge0\). Then \(g'=f\) and \((g')^2=g\). On an interval where \(g\gt0\), the derivative \(f=g'\) does not vanish and, having the Darboux property, keeps its sign; so \((\sqrt g)'=\pm\frac12\), i.e.\ \(\sqrt g\) is linear with slope \(\pm\frac12\).
+\hint{2} Each component of \(\{g\gt0\}\) is therefore a half-line: a linear function vanishes at most once, so the component cannot have two finite ends. On \((b,\infty)\) we get \(f(x)=\frac{x-b}2\), on \((-\infty,a)\) we get \(f(x)=\frac{x-a}2\).
+\hint{3} Answer: for \(-\infty\le a\le b\le+\infty\), \(f(x)=\frac{x-a}2\) for \(x\lt a\), \(f=0\) on \([a,b]\), \(f(x)=\frac{x-b}2\) for \(x\gt b\) (all of these work; \(a=-\infty\), \(b=+\infty\) gives \(f\equiv0\)).
+
+\problem{5}
+\hint{1} For \(x\gt1\), \(f'(x)=f(x)-f(x-1)\). Inductively, if \(f\in C^{k-1}\) on \((k-1,\infty)\), the right-hand side is \(C^{k-1}\) on \((k,\infty)\), so \(f\in C^k\) there. More cannot be said: \(f\) on \([0,1]\) is an arbitrary continuous function with \(f(1)=\int_0^1f\).
+\hint{2} Substituting \(e^{\lambda x}\) into the integral equation gives \(\int_0^1e^{-\lambda s}\,ds=1\), i.e.\ \(\lambda=1-e^{-\lambda}\). The root \(\lambda=0\) gives the constants. If \(\operatorname{Re}\lambda\ge0\) and \(\lambda\ne0\), then \(\bigl|\int_0^1e^{-\lambda s}ds\bigr|\lt1\); so all other roots have negative real part, and the corresponding modes decay.
+\hint{3} Every solution is bounded: \(f(x)\) is the average of \(f\) over \([x-1,x]\), so \(\sup_{[0,x]}|f|=\max_{[0,1]}|f|\). Moreover \(I(x)=\int_{x-1}^x(t-x+1)f(t)\,dt\) is constant (\(I'=f(x)-\int_{x-1}^xf=0\)). By the bounded variation from Definite integrals -- 4, \(f\) has a limit \(L\), and \(I\equiv\frac L2\) gives \(L=2\int_0^1tf(t)\,dt\).
+\end{document}

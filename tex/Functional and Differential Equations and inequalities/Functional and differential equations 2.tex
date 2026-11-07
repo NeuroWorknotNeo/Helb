@@ -1,0 +1,70 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\sheettitle}[4]{% title, subtitle, homework-flag (empty or "Homework"), date
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\foreignlanguage{russian}{#4}\par}
+  \end{center}\vspace{0.5em}}
+\begin{document}
+\sheettitle{Functional and differential equations -- 2}{Functional-differential equations}{}{13 сентября 2026 года}
+
+\noindent\textbf{\underline{Theoretical minimum.}}
+
+\head{Fact 1 (three shapes).} A functional-differential equation relates the values of $f$ and of its
+derivative at \emph{different} points. Three shapes cover almost everything: a shift,
+$f'(x)=F\bigl(f(x+a)\bigr)$ or $f(x)=\int_{x-1}^xf$; a composition, $f'(x)=f(f(x))$; and a mean value,
+$f(a)-f(b)=(a-b)f'(\mu(a,b))$ for a prescribed mean $\mu$.
+
+\head{Theorem 1 (the mean value equations).} If $f$ is differentiable and
+$f(a)-f(b)=(a-b)f'\bigl(\frac{a+b}2\bigr)$ for all $a,b$, then $f$ is a polynomial of degree at most
+two; for the geometric mean the answer is different and is found by first showing that $f'$ is
+determined on a scaling orbit. In both cases the method is the same: fix one variable, differentiate in
+the other, and read the resulting ordinary differential equation.
+
+\head{Theorem 2 (shifts raise regularity).} If $f$ is continuous and $f(x)=\int_{x-1}^xf$, then $f$ is
+$C^\infty$, and $f'(x)=f(x)-f(x-1)$; every relation of this type is differentiated once and becomes a
+delay equation, whose solutions are found by substituting $e^{\lambda x}$ and analysing the
+characteristic equation --- which now has infinitely many roots.
+
+\head{Fact 2 (compositions are rigid).} An equation such as $f'(x)=f(f(x))$ admits almost no
+solutions: monotonicity and sign considerations usually force a contradiction. The standard argument
+compares the growth of the two sides and uses that a composition inherits monotonicity, as in problem 7
+of the homework of Differentiable functions -- 1.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item (\foreignlanguage{russian}{Карасёв} 4.5) Find all differentiable functions
+$f\colon\mathbb R\to\mathbb R$ satisfying $f(a)-f(b)=(a-b)f'\bigl(\frac{a+b}2\bigr)$ for all
+$a,b\in\mathbb R$.
+
+\item (\foreignlanguage{russian}{Карасёв} 4.6) Find all differentiable functions
+$f\colon(0,+\infty)\to\mathbb R$ satisfying $f(a)-f(b)=(a-b)f'\bigl(\sqrt{ab}\bigr)$ for all positive
+$a$ and $b$.
+
+\item (ISTCiM 2024) Find all differentiable functions $f\colon\mathbb R\to\mathbb R$ satisfying
+$f(x+y)=f'(x)f(y)+f(x)f'(y)$ for all $x,y\in\mathbb R$.
+
+\item (RMO) Find all functions $f\colon\mathbb R\to\mathbb R$ such that $f^2$ is differentiable and
+$f=(f^2)'$.
+
+\item Let $f$ be continuous on $[0,\infty)$ with $f(x)=\int_{x-1}^xf(t)\,dt$ for all $x\ge1$. Prove that
+$f$ has $k$ continuous derivatives on $(k,\infty)$ for every $k$, find the characteristic equation of the
+corresponding delay equation, and describe the bounded solutions. (That such an $f$ has bounded
+variation is the subject of problem 5 in the homework of Definite integrals -- 4.)
+\end{enumerate}
+\end{document}
