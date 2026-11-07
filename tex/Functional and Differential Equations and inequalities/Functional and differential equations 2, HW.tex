@@ -1,0 +1,73 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\sheettitle}[4]{% title, subtitle, homework-flag (empty or "Homework"), date
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\foreignlanguage{russian}{#4}\par}
+  \end{center}\vspace{0.5em}}
+\begin{document}
+\sheettitle{Functional and differential equations -- 2}{Functional-differential equations}{Homework}{13 сентября 2026 года}
+
+\head{Theoretical minimum.} These equations connect $f$ and $f'$ at different points, and the first move
+is always to gain regularity: an integral over a moving window gives one derivative, and iterating gives
+all of them. A mean value equation is solved by fixing one argument and differentiating in the other,
+which converts it into an ordinary differential equation; the answer depends on the mean, and for the
+arithmetic mean it is a quadratic polynomial. A delay equation is solved by $e^{\lambda x}$, but the
+characteristic equation is transcendental and has infinitely many roots, so ``all solutions'' is a
+statement about a series, not a finite basis. Equations with a composition are rigid: one compares
+monotonicity and growth of the two sides and usually gets a contradiction. Finally, a differentiable
+solution of a functional equation may be found by differentiating in each variable separately and
+eliminating.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item (RMO) Find all differentiable functions $f\colon[0,\infty)\to[0,\infty)$ with $f(0)=0$ and
+$f'(x^2)=f(x)$ for all $x\ge0$.
+
+\item (RMO 2015) Find all differentiable $f\colon\mathbb R\to\mathbb R$ such that $f'(a)=0$ for every
+integer $a$ and $f'(x)=0$ implies $f(x)=0$.
+
+\item Prove that there is no differentiable $f\colon\mathbb R\to\mathbb R$ with $f'(x)=f(f(x))$ and
+$f(0)>0$, and compare with the IMC problem on $f'(t)>f(f(t))$ in the homework of Differentiable
+functions -- 1.
+
+\item Find all differentiable $f$ with $f'(x)=f(x+1)$ for all $x$; describe the solutions of exponential
+type and show that the characteristic equation $\lambda=e^\lambda$ has no real roots.
+
+\item Find all continuous $f\colon\mathbb R\to\mathbb R$ satisfying $f(x)=\frac1{2h}\int_{x-h}^{x+h}f$
+for a fixed $h>0$ and all $x$, and compare the answer with the mean value property of harmonic functions
+(Complex analysis -- 8).
+
+\item Find all differentiable $f\colon\mathbb R\to\mathbb R$ with $f(x+y)=f(x)+f(y)+f'(x)f'(y)$ for all
+$x,y$.
+
+\item Let $f$ be differentiable with $f(a)-f(b)=(a-b)f'\bigl(\frac{2ab}{a+b}\bigr)$ for all positive
+$a,b$ (the harmonic mean). Find all such $f$, and explain the general principle: for which means $\mu$
+does the equation have non-polynomial solutions?
+
+\item Find all $C^1$ functions with $f'(x)=f(1-x)$ for all $x\in\mathbb R$, and all $C^2$ functions with
+$f''(x)=f(-x)$.
+
+\item Let $f$ be continuous on $\mathbb R$ and satisfy $f(x)=f(2x)$ for all $x$. Prove that $f$ is
+constant; then find all differentiable $f$ with $f'(x)=f(2x)$ and $f(0)=1$, as a power series, and
+determine its radius of convergence.
+
+\item Prove that a solution of $f'(x)=f(x-1)$ which is bounded on $\mathbb R$ and tends to zero at
+$-\infty$ is identically zero, and explain which property of the characteristic roots is responsible.
+\end{enumerate}
+\end{document}

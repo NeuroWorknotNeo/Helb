@@ -1,0 +1,70 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\head}[1]{\par\medskip\noindent\textbf{\underline{#1}}\quad}
+\newcommand{\sheettitle}[4]{% title, subtitle, homework-flag (empty or "Homework"), date
+  \begin{center}
+  {\huge\bfseries #1\par}\vspace{1.2em}
+  {\Large #2\par}\vspace{0.8em}
+  \if\relax\detokenize{#3}\relax\else{\Large #3\par}\vspace{0.8em}\fi
+  {\foreignlanguage{russian}{#4}\par}
+  \end{center}\vspace{0.5em}}
+\begin{document}
+\sheettitle{Functional and differential equations -- 1}{Functional equations: the toolkit}{Homework}{13 сентября 2026 года}
+
+\head{Theoretical minimum.} The working moves are always the same: substitute special values,
+substitute $f(x)$ for a variable, iterate, symmetrise in $x$ and $y$, and extract injectivity or
+surjectivity --- injectivity is what lets one cancel $f$. Any equation that looks additive or
+multiplicative should be pushed towards the Cauchy equation, which is solved completely on $\mathbb Q$
+and needs one drop of regularity over $\mathbb R$: continuity at a point, monotonicity, boundedness on a
+set of positive measure. Where the unknown appears under an integral, differentiate and gain a
+derivative; where it appears at shifted arguments, iterate the shift. A growth estimate combined with
+monotonicity is the standard engine of a non-existence proof, and a fixed point of the equation is the
+standard source of special values.
+
+\medskip\noindent\rule{\linewidth}{0.4pt}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.6em]
+\item Find all functions $f\colon\mathbb Q\to\mathbb Q$ with $f(x+y)=f(x)+f(y)$ and $f(xy)=f(x)f(y)$,
+and all $f\colon\mathbb R\to\mathbb R$ with the same two properties, without assuming continuity.
+
+\item (IMC 2025 shortlist) Find all differentiable functions $f\colon\mathbb R\to\mathbb R$ such that
+$f(x+y)\ge3^xf(y)+2^yf(x)$ for all $x,y$, with $f(0)=0$ and $f(1)=1$.
+
+\item Find all $f\colon\mathbb R\to\mathbb R$ with $f(f(x))=x^2-2$ for all $x$, or prove that none
+exists; then decide the same question for $f(f(x))=x^2+1$.
+
+\item Find all continuous $f\colon[0,1]\to[0,\infty)$ such that
+$\int_0^1f\cdot\int_0^1f^2\cdots\int_0^1f^{2020}=\bigl(\int_0^1f^{2021}\bigr)^{1010}$.
+
+\item Find all $f\colon\mathbb N\to\mathbb N$ that are strictly increasing with $f(f(n))=3n$, and
+prove that the answer is unique; then investigate $f(f(n))=2n$.
+
+\item Prove that an additive function whose graph is not dense in the plane is linear, and deduce that a
+Lebesgue measurable additive function is linear.
+
+\item Find all $f\colon\mathbb R\to\mathbb R$ with $f(x+y)+f(x-y)=2f(x)\cos y$ for all $x,y$, and
+explain why no regularity assumption is needed here.
+
+\item Find all $f\colon\mathbb R\to\mathbb R$ satisfying $f(x)f(y)-f(xy)=x+y$ for all $x,y$, and all
+$f\colon\mathbb R\to\mathbb R$ with $f(xy)=xf(y)+yf(x)$.
+
+\item Let $f\colon\mathbb R\to\mathbb R$ be bounded above on every bounded interval and satisfy
+$f(x+y)\le f(x)+f(y)$ (subadditivity). Prove that $\lim_{x\to\infty}\frac{f(x)}x$ exists in
+$[-\infty,\infty)$ and equals $\inf_{x>0}\frac{f(x)}x$, and compare with Fekete's lemma for sequences
+(Limits -- 1).
+
+\item Find all pairs of functions $f,g\colon\mathbb R\to\mathbb R$ with
+$f(x)-f(y)=g\bigl(\frac{x+y}2\bigr)(x-y)$ for all $x,y$, assuming only that $f$ is continuous.
+\end{enumerate}
+\end{document}

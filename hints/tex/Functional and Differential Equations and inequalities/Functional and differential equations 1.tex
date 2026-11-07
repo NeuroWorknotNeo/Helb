@@ -1,0 +1,30 @@
+\documentclass[11pt,a4paper]{article}
+\input{../hints-preamble}
+\begin{document}
+\hintstitle{Functional and differential equations -- 1. Functional equations: the toolkit}{Class work}
+
+\problem{1}
+\hint{1} First, \(f\le1\): if \(f(x)>1\), the choice \(y=\frac x{f(x)-1}\) makes \(yf(x)=x+y\), and the equation gives \(f(x)f(x+y)=f(x+y)\), i.e.\ \(f(x)=1\). Hence \(f(x+y)=f(x)f(yf(x))\le f(x)\): \(f\) is non-increasing. If \(f(x_0)=1\) somewhere, then \(f(x_0+y)=f(y)\), so \(f\) is periodic and monotone, hence \(f\equiv1\).
+\hint{2} Otherwise \(f\lt1\) everywhere, so \(f(x+y)\lt f(x)\): \(f\) is strictly decreasing, in particular injective. Now split \(x+y\) differently: \(x+y=yf(x)+\bigl(x+y(1-f(x))\bigr)\), and apply the equation to this splitting.
+\hint{3} You get \(f(x)f(yf(x))=f(x+y)=f(yf(x))\,f\bigl((x+y(1-f(x)))f(yf(x))\bigr)\), so by injectivity \(x=\bigl(x+y(1-f(x))\bigr)f(yf(x))\). Put \(x=1\) and \(z=yf(1)\): \(f(z)=\frac1{1+az}\) with \(a=\frac{1-f(1)}{f(1)}\ge0\). Answer: \(f(x)=\frac1{1+ax}\), \(a\ge0\) (\(a=0\) is \(f\equiv1\)); these work.
+
+\problem{2}
+\hint{1} There is some \(z\) with \(f(f(z))\gt0\). Otherwise \(y\le0\) gives \(f(x+y)\ge f(x)\), so \(f\) is non-increasing; then \(f(x)\le0\) would give \(f(f(x))\ge f(0)\gt0\), so \(f\gt0\) everywhere and \(f(f(x))\gt0\) after all.
+\hint{2} With such a \(z\), \(f(x)\ge f(z)+(x-z)f(f(z))\to\infty\) as \(x\to\infty\), and applying this to \(f(x)\) in place of \(x\) gives \(f(f(x))\to\infty\). So the slopes in \(f(x+y)\ge f(x)+yf(f(x))\) become arbitrarily large: \(\frac{f(x)}x\to\infty\), and \(f(x)\gt x+1\) for large \(x\).
+\hint{3} For such an \(x\) take \(y=f(x)-x\gt0\): \(f(f(x))\ge f(x)+(f(x)-x)f(f(x))\), i.e.\ \(f(f(x))\,(x+1-f(x))\ge f(x)\). The left-hand side is negative (\(f(f(x))\gt0\), \(x+1-f(x)\lt0\)) and the right-hand side positive: a contradiction.
+
+\problem{3}
+\hint{1} First \(f\) is injective: if \(f(a)=f(b)\), \(a\lt b\), then all terms \(f^k\), \(k\ge1\), coincide at \(a\) and \(b\), and \(S=\mathrm{id}+f+\dots+f^m\) has \(S(a)\lt S(b)\). A continuous injective function is strictly monotone; if \(f\) were increasing, \(S\) would be increasing. So \(f\) is strictly decreasing, and the even iterates \(f^{2j}\) are increasing.
+\hint{2} Group the terms of \(S\) in pairs: \(f^{2j}+f^{2j+1}=g\circ f^{2j}\) with \(g=\mathrm{id}+f\) non-decreasing, so each pair is non-decreasing. If \(m\) is even, the extra term \(f^m\) is strictly increasing, and \(S\) is strictly increasing: impossible.
+\hint{3} So \(m\) is odd and \(S=\sum_jg\circ f^{2j}\) is both non-increasing and a sum of non-decreasing functions; hence every summand is constant, in particular \(g=\mathrm{id}+f\). Answer: \(f(x)=c-x\) (with any odd \(m\)).
+
+\problem{4}
+\hint{1} At \(x=0\): \(f(0)^n\le an^k\) for all \(n\), so \(f(0)=1\). The answer is \(f\equiv1\): exponential growth beats \(an^k\).
+\hint{2} Suppose \(f(x_0)\gt1\), \(x_0\ne0\). By continuity \(f\ge q\gt1\) on an interval \([x_0(1-\delta),x_0(1+\delta)]\). Take \(x=\frac{x_0}N\) and \(n=2N\): the factors \(f(jx)\) with \(N(1-\delta)\le j\le N(1+\delta)\) are all \(\ge q\), and there are about \(2\delta N\) of them; all other factors are \(\ge1\).
+\hint{3} So \(q^{2\delta N-1}\le a(2N)^k\) for all \(N\), which is false for large \(N\). Answer: \(f\equiv1\).
+
+\problem{5}
+\hint{1} On \(\mathbb Q\): \(f(0)=0\), \(f(nx)=nf(x)\) by induction, \(f(-x)=-f(x)\), and then \(qf(\frac pq)=f(p)=pf(1)\): \(f(x)=cx\).
+\hint{2} A monotone (say non-decreasing) solution on \(\mathbb R\) is \(cx\) on \(\mathbb Q\); for real \(x\) squeeze it between rationals \(r\lt x\lt s\): \(cr\le f(x)\le cs\), and let \(r,s\to x\).
+\hint{3} A Hamel basis \(B\) of \(\mathbb R\) over \(\mathbb Q\) exists by Zorn's lemma; prescribe \(f\) on \(B\) arbitrarily (say \(1\) at one basis element, \(0\) at the others) and extend \(\mathbb Q\)-linearly. Such an \(f\) is additive but not linear, its graph is dense, and it is not measurable. The school argument breaks at the passage from \(\mathbb Q\) to \(\mathbb R\): it needs a limit, i.e.\ some regularity.
+\end{document}
