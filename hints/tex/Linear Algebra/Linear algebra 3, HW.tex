@@ -43,37 +43,15 @@ Let \(\omega=e^{2\pi i/3}\) and \(S=A+\omega B\); since \(A,B\) are real, \(\bar
 
 \problem{7}
 \hint{1}
-\begin{enumerate}
-\def\labelenumi{(\alph{enumi})}
-\tightlist
-\item
-  The polynomial \(x^3-x-1\) has a real root \(r\). Try a scalar matrix.
-\end{enumerate}
+(a) The polynomial \(x^3-x-1\) has a real root \(r\); take \(A=rE\).
 \hint{2}
-\begin{enumerate}
-\def\labelenumi{(\alph{enumi})}
-\setcounter{enumi}{1}
-\tightlist
-\item
-  The eigenvalues of \(A\) are roots of \(x^3-x-1\). This polynomial has exactly one real root, and it is positive (study \(f'\) and \(f(0)\)). Since \(A\) is real, its non-real eigenvalues come in conjugate pairs with equal multiplicities, so \(\det A=r^a\lvert z\rvert^{2b}\gt0\).
-\end{enumerate}
+(b) The eigenvalues of \(A\) are roots of \(x^3-x-1\). It has exactly one real root, and it is positive (\(f(0)=-1\lt0\), and \(f\) is negative on \((-\infty,0]\) because its maximum there is \(f(-\frac1{\sqrt3})\lt0\)). The non-real eigenvalues of the real matrix \(A\) come in conjugate pairs, so \(\det A=r^a|z|^{2b}\gt0\).
 
 \problem{8}
 \hint{1}
-\begin{enumerate}
-\def\labelenumi{(\alph{enumi})}
-\tightlist
-\item
-  The minimal polynomial divides \(x^2-1=(x-1)(x+1)\), which has simple roots (over \(\mathbb R\) or \(\mathbb C\), characteristic \(\ne2\)). Explicitly, \(v=\frac{v+Av}2+\frac{v-Av}2\).
-\end{enumerate}
+(a) \(v=\frac{v+Av}2+\frac{v-Av}2\), and the two summands are eigenvectors for \(1\) and \(-1\) (or zero). So \(V=\ker(A-E)\oplus\ker(A+E)\).
 \hint{2}
-\begin{enumerate}
-\def\labelenumi{(\alph{enumi})}
-\setcounter{enumi}{1}
-\tightlist
-\item
-  Commuting diagonalisable operators are simultaneously diagonalisable: each preserves the eigenspaces of the others. In a common eigenbasis every involution is \(\operatorname{diag}(\pm1,\dots,\pm1)\). Answer: \(2^n\).
-\end{enumerate}
+(b) Commuting diagonalisable operators are simultaneously diagonalisable: each preserves the eigenspaces of the others. In a common eigenbasis every involution is \(\operatorname{diag}(\pm1,\dots,\pm1)\). Answer: \(2^n\).
 
 \problem{9}
 \hint{1}
@@ -99,11 +77,11 @@ Take \(z\ne0\) with \(z^TA=0\) (it exists since \(A\) is singular). Then \(AB=(A
 
 \problem{12}
 \hint{1}
-Since \(A\) is not scalar, some \(v\) is not an eigenvector, so \(v,Av\) are independent. In a basis starting with \(v,Av\) the first column is \((0,1,0,\dots,0)^T\); in particular the \((1,1)\) entry is \(0\). Prove by induction the stronger claim that the diagonal can be made \((0,\dots,0,\operatorname{tr}A)\).
+Prove the stronger claim: a non-scalar \(A\) is similar to a matrix with diagonal \((0,\dots,0,\operatorname{tr}A)\). Some \(v\) is not an eigenvector, so \(v,Av\) are independent; in a basis starting with \(v,Av\) the first column is \((0,1,0,\dots,0)^T\), so the \((1,1)\) entry is \(0\).
 \hint{2}
-Let \(A'\) be the lower-right \((n-1)\times(n-1)\) block. Conjugating by \(\operatorname{diag}(1,P)\) keeps the \((1,1)\) entry \(0\) and replaces \(A'\) by \(P^{-1}A'P\). So if \(A'\) is not scalar, you are done by induction.
+Let \(A'\) be the lower-right \((n-1)\times(n-1)\) block. Conjugating by \(\operatorname{diag}(1,P)\) keeps the first column and replaces \(A'\) by \(P^{-1}A'P\); so if \(A'\) is not scalar, the induction hypothesis finishes the job.
 \hint{3}
-If \(A'=cE\) (and \(n\ge3\)), change the basis \(v,Av,w_3,\dots,w_n\) to \(v,Av,w_3+v,w_4,\dots\). The first column is unchanged, and the new block becomes \(cE\) plus a non-zero off-diagonal entry, so it is no longer scalar. The base case \(n=2\) is the companion matrix in the basis \(v,Av\).
+If \(A'=cE\) (\(n\ge3\)), replace the third basis vector \(w_3\) by \(w_3+v\): the first column does not change, and \(A'\) gets a non-zero off-diagonal entry. For \(n=2\) the basis \(v,Av\) already gives diagonal \((0,\operatorname{tr}A)\).
 
 \problem{13}
 \hint{1}
@@ -121,22 +99,11 @@ Take a shortest directed cycle \(j_1\to\dots\to j_m\to j_1\). A chord would crea
 
 \problem{15}
 \hint{1}
-\begin{enumerate}
-\def\labelenumi{(\alph{enumi})}
-\tightlist
-\item
-  Reduce to the Jordan form of \(X\). If \(X\) is diagonalisable, take cube roots of the eigenvalues of \(X^2\). If \(X=\lambda E+N\) with \(N\ne O\), \(N^2=O\), then \(X^2=\lambda^2E+2\lambda N\).
-\end{enumerate}
+(a) Pass to the Jordan form of \(X\). If \(X\) is diagonalisable, take cube roots of the eigenvalues of \(X^2\). Otherwise \(X=\lambda E+N\) with \(N\ne O\), \(N^2=O\), and \(X^2=\lambda^2E+2\lambda N\).
 \hint{2}
 For \(\lambda=0\) take \(Y=O\). For \(\lambda\ne0\) look for \(Y=cE+dN\): \(Y^3=c^3E+3c^2dN\), so solve \(c^3=\lambda^2\), \(3c^2d=2\lambda\).
 \hint{3}
-\begin{enumerate}
-\def\labelenumi{(\alph{enumi})}
-\setcounter{enumi}{1}
-\tightlist
-\item
-  Take \(A\) the nilpotent \(3\times3\) Jordan block, so \(A^2\ne O\) but \(A^3=O\). If \(Z^3=A^2\), then \(Z^6=O\), so \(Z\) is nilpotent, and in size \(3\) this forces \(Z^3=O\).
-\end{enumerate}
+(b) Take the nilpotent \(3\times3\) Jordan block \(A\): \(A^2\ne O\), \(A^3=O\). If \(Z^3=A^2\), then \(Z^6=O\), so \(Z\) is nilpotent, and in size \(3\) this forces \(Z^3=O\ne A^2\).
 
 \problem{16}
 \hint{1}
