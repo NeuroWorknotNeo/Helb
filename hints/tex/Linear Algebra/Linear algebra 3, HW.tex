@@ -23,11 +23,9 @@ Compute \(A^4\) using \(A^2=A^T\) twice.
 
 \problem{4}
 \hint{1}
-Write the rotation as a matrix product: with \(J\) the anti-diagonal permutation matrix (ones on the anti-diagonal), \(A^R=JA^T\). So the condition is \(A=JA^T\), i.e.~\(A^T=JA\), and transposing, \(A^T=AJ\).
+Write the rotation as a matrix product: with \(J\) the anti-diagonal permutation matrix (ones on the anti-diagonal, \(J^2=E\)), \(A^R=JA^T\). So the condition \(A=A^R\) reads \(A=JA^T\); hence \(A^T=JA\), and transposing, \(A^T=AJ\).
 \hint{2}
-Hence \(JA=AJ\), and \(A^TA=JA^2=AA^T\): \(A\) is normal. For a normal real matrix, \(Av=\lambda v\) implies \(A^Tv=\bar\lambda v\).
-\hint{3}
-Then \(\bar\lambda v=A^Tv=JAv=\lambda Jv\). If \(\lambda\ne0\), \(v\) is an eigenvector of \(J\) with eigenvalue \(\bar\lambda/\lambda\), and \(J^2=E\) forces \((\bar\lambda/\lambda)^2=1\), i.e.~\(\bar\lambda=\pm\lambda\).
+Now \((A^2)^T=A^TA^T=(AJ)(JA)=A^2\): the real matrix \(A^2\) is symmetric, so its eigenvalues are real. If \(\lambda\) is an eigenvalue of \(A\), then \(\lambda^2\) is an eigenvalue of \(A^2\), so \(\lambda^2\in\mathbb R\), i.e.\ \(\operatorname{Re}\lambda=0\) or \(\operatorname{Im}\lambda=0\).
 
 \problem{5}
 \hint{1}
