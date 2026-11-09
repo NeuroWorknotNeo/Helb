@@ -57,11 +57,11 @@ Some power \(A^m\) fixes every vertex, e.g.\ \(m\) equal to the order of this pe
 
 \problem{8}
 \hint{1}
-Complexify. The period of \(v\) is the lcm of the orders of the eigenvalues (roots of unity) on whose eigenspaces \(v\) has a nonzero component.
+Use the canonical form: in a suitable orthonormal basis an orthogonal \(A\) with \(\det A\gt0\) is a direct sum of rotations \(R(\theta_j)\) of pairwise orthogonal planes and the identity on the rest (the eigenvalue \(-1\) has even multiplicity and is grouped into rotations by \(\pi\)).
 \hint{2}
-Pick primes \(p_i\mid m_i\). Vector \(v_i\) needs an eigenvalue \(\lambda_i\) whose order is divisible by \(p_i\) and divides \(m_i\). Coprimality forces the pairs \(\{\lambda_i,\bar\lambda_i\}\) to be distinct and \(\ne1\). Only one of them can be the real eigenvalue \(-1\).
+The period of \(v\) is the lcm of the orders of the rotations in the planes where \(v\) has a non-zero component. For each \(v_i\) pick such a plane with rotation order \(d_i\gt1\), \(d_i\) dividing the period of \(v_i\). The periods are pairwise coprime, hence so are the \(d_i\), and the planes are distinct: \(n\ge2s\).
 \hint{3}
-That gives at least \(2(s-1)+1\) dimensions. Since \(\det A>0\), the eigenvalue \(-1\) has even multiplicity, so \(n\ge2s\). Rotation blocks of orders \(2,3,5,\dots\) (the first \(s\) primes) show the answer is \(n=2s\).
+Rotations of orders \(2,3,5,\dots\) (the first \(s\) primes) in \(s\) orthogonal planes give vectors with periods \(2,3,5,\dots\). Answer: \(n=2s\).
 
 \problem{9}
 \hint{1}
