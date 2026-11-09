@@ -11,7 +11,7 @@
 
 \problem{2}
 \hint{1} Divide $z^n-1=\prod_{k=0}^{n-1}(z-\varepsilon^k)$ by $z-1$: $1+z+\dots+z^{n-1}=\prod_{k=1}^{n-1}(z-\varepsilon^k)$. Put $z=1$, take moduli, and use $|1-e^{i\alpha}|=2\sin\frac\alpha2$ for $0<\alpha<2\pi$.
-\hint{2} For the sum, rewrite one term algebraically: for $|w|=1$, $|1-w|^2=(1-w)(1-\bar w)=-(1-w)^2/w$, hence $\frac{1}{|1-w|^2}=\frac{1}{1-w}-\frac{1}{(1-w)^2}$. So you need $\sum_k\frac1{1-\varepsilon^k}$ and $\sum_k\frac1{(1-\varepsilon^k)^2}$.
+\hint{2} For the sum, rewrite one term algebraically: for $|w|=1$, $w\ne1$, the number $u=\frac1{1-w}$ satisfies $\bar u=\frac1{1-1/w}=\frac{w}{w-1}=1-u$, hence $\frac{1}{|1-w|^2}=u\bar u=u-u^2$. So you need $\sum_k\frac1{1-\varepsilon^k}$ and $\sum_k\frac1{(1-\varepsilon^k)^2}$.
 \hint{3} With $f(z)=\frac{z^n-1}{z-1}=\prod_{k=1}^{n-1}(z-\varepsilon^k)$ these sums are $(\log f)'(1)$ and $-(\log f)''(1)$. From $f(1)=n$, $f'(1)=\frac{n(n-1)}2$, $f''(1)=\frac{n(n-1)(n-2)}3$ one gets $\frac{n-1}2$ and $-\frac{(n-1)(n-5)}{12}$; add them.
 
 \problem{3}
@@ -21,9 +21,9 @@
 \hint{4} Finally, $s=2\cos\frac{2\pi j}{n}=D_j\bigl(2\cos\frac{2\pi}n\bigr)$, where $D_0=2$, $D_1=x$, $D_{k+1}=xD_k-D_{k-1}$ are integer polynomials with $D_k(2\cos\theta)=2\cos k\theta$. Take $q=B\circ D_j$.
 
 \problem{4}
-\hint{1} Work in $\mathbb C$ and follow the hint of the sheet: write the vertices as a vector $Z=(z_0,\dots,z_{n-1})$ and express the apex of the isosceles triangle erected on $z_jz_{j+1}$ with apex angle $\varphi$ in terms of $z_j,z_{j+1}$. (Check that, since $n$ is odd, no angle equals $\pi$.)
+\hint{1} Work in $\mathbb C$ and follow the hint of the sheet: write the vertices as a vector $Z=(z_0,\dots,z_{n-1})$ and express the apex of the isosceles triangle erected on $z_jz_{j+1}$ with apex angle $\varphi$ in terms of $z_j,z_{j+1}$; orient the polygon counterclockwise, so that ``outwards'' means to the right of the directed side $z_j\to z_{j+1}$. (Check that, since $n$ is odd, no angle equals $\pi$.)
 \hint{2} The apex is $w_j=\frac{1+ic_k}2z_j+\frac{1-ic_k}2z_{j+1}$ with $c_k=\cot\frac{\pi k}n$ for $\varphi=\frac{2\pi k}{n}$; the same formula covers the inward case $\frac{2\pi k}n>\pi$ (then $c_k<0$). So the step is the linear map $A_k=\frac{1+ic_k}2E+\frac{1-ic_k}2S$, where $S$ is the cyclic shift, and the $(n-1)$-st polygon is $A_{n-2}\cdots A_1Z$.
-\hint{3} All $A_k$ are diagonal in the basis $v_m=(1,\varepsilon^m,\dots,\varepsilon^{(n-1)m})$, $m=0,\dots,n-1$ (eigenvectors of $S$). Compute the eigenvalue $\lambda_{k,m}=\frac{1+ic_k}2+\frac{1-ic_k}2\varepsilon^m$ and show that it vanishes exactly when $m\equiv-k\pmod n$.
+\hint{3} All $A_k$ are diagonal in the basis $v_m=(1,\varepsilon^m,\dots,\varepsilon^{(n-1)m})$, $m=0,\dots,n-1$ (eigenvectors of $S$). Compute the eigenvalue $\lambda_{k,m}=\frac{1+ic_k}2+\frac{1-ic_k}2\varepsilon^m$. Since $1\pm ic_k=\pm\frac{i\,e^{\mp i\pi k/n}}{\sin(\pi k/n)}$, one has $1-ic_k=-(1+ic_k)\varepsilon^k$, so $\lambda_{k,m}=\frac{1+ic_k}2\bigl(1-\varepsilon^{k+m}\bigr)$: it vanishes exactly when $m\equiv-k\pmod n$.
 \hint{4} As $k$ runs over $1,\dots,n-2$, $-k$ runs over all residues $2,\dots,n-1$; so in the expansion $Z=\sum a_mv_m$ every component with $m\ge2$ is killed, while those with $m=0,1$ survive. Hence the final vertices are $a_0+b\,\varepsilon^j$: a regular $n$-gon centred at the centroid.
 
 \problem{5}

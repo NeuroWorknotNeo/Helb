@@ -4,8 +4,8 @@
 \hintstitle{Limits -- 2. Recurrences solvable in closed form}{Class work}
 
 \problem{1}
-\hint{1} By AM--GM, $x_n=\frac12\bigl(x_{n-1}+\frac{c}{x_{n-1}}\bigr)\ge\sqrt c$ for every $n\ge1$, whatever $x_0>0$ is. Use this to show that from $n=1$ on the sequence is decreasing, hence convergent; the limit $L>0$ satisfies $L=\frac12(L+c/L)$.
-\hint{2} For the speed, compute $x_n-\sqrt c=\dfrac{(x_{n-1}-\sqrt c)^2}{2x_{n-1}}\le\dfrac{(x_{n-1}-\sqrt c)^2}{2\sqrt c}$ (for $n\ge2$). So the error is squared at each step (quadratic convergence): with $e_n=(x_n-\sqrt c)/(2\sqrt c)$ one has $e_n\le e_{n-1}^2$, hence $e_n\le e_1^{2^{n-1}}$, and the number of correct digits roughly doubles each step.
+\hint{1} By induction $x_n>0$. Compute $x_n-\sqrt c$ and $x_n+\sqrt c$ separately: $x_n\pm\sqrt c=\dfrac{(x_{n-1}\pm\sqrt c)^2}{2x_{n-1}}$. Hence the ratio $q_n=\dfrac{x_n-\sqrt c}{x_n+\sqrt c}$ satisfies $q_n=q_{n-1}^2$. (This is the substitution $x_n=\sqrt c\coth\theta_n$, which turns the recurrence into $\theta_n=2\theta_{n-1}$.)
+\hint{2} So $q_n=q_0^{2^n}$, where $|q_0|<1$ because $x_0>0$, and $x_n=\sqrt c\,\dfrac{1+q_n}{1-q_n}\to\sqrt c$. Moreover $x_n-\sqrt c=\dfrac{2\sqrt c\,q_0^{2^n}}{1-q_0^{2^n}}$: for $n\ge1$ the error is nonnegative and is essentially squared at each step (quadratic convergence), so the number of correct digits roughly doubles each step.
 \hint{3} Newton's method for $g(x)=x^2-c$ is $x_n=x_{n-1}-g(x_{n-1})/g'(x_{n-1})$; check that this is exactly the given recurrence.
 
 \problem{2}
@@ -14,9 +14,9 @@
 \hint{3} Hence $a_n=\dfrac{(3+2^{2-n})^2-1}{24}=\dfrac13+\dfrac1{2^n}+\dfrac{2}{3\cdot4^n}=\dfrac{(2^n+1)(2^n+2)}{3\cdot 4^n}$.
 
 \problem{3}
-\hint{1} Compute a few terms: $a_n=1,2,5,13,34,\dots$ and $b_n=0,1,1,4,9,25,\dots$. Recognize Fibonacci numbers: conjecture $a_n=F_{2n+1}$ and $b_n=F_n^2$.
-\hint{2} Get rid of the root: $(2a_{n+1}-3a_n)^2=5a_n^2-4$ gives $a_{n+1}^2-3a_na_{n+1}+a_n^2+1=0$. This relation is symmetric in $a_n,a_{n+1}$, so both $a_{n+1}$ and $a_{n-1}$ are roots of $t^2-3a_nt+a_n^2+1=0$; $a_{n+1}$ is the larger root and $a_{n-1}<a_n\le a_{n+1}$, so by Vieta $a_{n+1}=3a_n-a_{n-1}$.
-\hint{3} $F_{2n+3}=3F_{2n+1}-F_{2n-1}$, so $a_n=F_{2n+1}$. Then prove $b_n=F_n^2$ by induction using the identity $F_n^2+F_{n+1}^2=F_{2n+1}$, i.e.\ $b_{n+1}=a_n-b_n$. Finally $b_{2n+1}=F_{2n+1}^2=a_n^2$.
+\hint{1} Hyperbolic substitution in algebraic form: write $a_n=\dfrac{u_n+u_n^{-1}}{\sqrt5}$ with $u_n\ge1$ (i.e.\ $a_n=\frac2{\sqrt5}\cosh\theta_n$). Then $5a_n^2-4=(u_n-u_n^{-1})^2$, so the root equals $u_n-u_n^{-1}$.
+\hint{2} With $\tau=\frac{1+\sqrt5}2$ one has $\frac{3\pm\sqrt5}2=\tau^{\pm2}$, and the recurrence becomes $a_{n+1}=\dfrac{\tau^2u_n+\tau^{-2}u_n^{-1}}{\sqrt5}$, i.e.\ $u_{n+1}=\tau^2u_n$. Since $\tau+\tau^{-1}=\sqrt5$, $u_0=\tau$ and $u_n=\tau^{2n+1}$; by Binet's formula (odd index) $a_n=\dfrac{\tau^{2n+1}+\tau^{-(2n+1)}}{\sqrt5}=F_{2n+1}$, the Fibonacci numbers.
+\hint{3} Compute $b_n=0,1,1,4,9,25,\dots$ and prove $b_n=F_n^2$ by induction: $b_{n+1}=a_n-b_n=F_{2n+1}-F_n^2=F_{n+1}^2$ by the identity $F_n^2+F_{n+1}^2=F_{2n+1}$. Finally $b_{2n+1}=F_{2n+1}^2=a_n^2$.
 
 \problem{4}
 \hint{1} Theorem 1: the characteristic roots of $\lambda^2-6\lambda+8$ are $2$ and $4$; the right-hand side $n=n\cdot1^n$ and $1$ is not a root, so look for a particular solution $An+B$.

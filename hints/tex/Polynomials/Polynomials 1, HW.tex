@@ -14,9 +14,10 @@
 \hint{3} Sufficiency: if $u,v,w>0$ satisfy $u^2+v^2+w^2+2uvw=1$ then $u,v<1$; write $u=\cos A$, $v=\cos B$ with $A,B\in(0,\pi/2)$ and solve the quadratic for $w$: its roots are $-\cos(A+B)$ and $-\cos(A-B)<0$. So $w=\cos(\pi-A-B)$ and $C=\pi-A-B$ works. Answer: $p^2-2q-2r=1$.
 
 \problem{3}
-\hint{1} Translate $a^2d=c^2$ into the roots: $a=-e_1$, $c=-e_3$, $d=e_4$. Since $d\ne0$ no root is zero, and $r_1/r_2=r_3/r_4$ means $r_1r_4=r_2r_3$.
-\hint{2} The polynomial $e_3^2-e_1^2e_4$ in $r_1,\dots,r_4$ has degree $6$ and vanishes whenever the products over some pairing into two pairs coincide. Guess and verify a factorization.
-\hint{3} $e_3^2-e_1^2e_4=-(r_1r_2-r_3r_4)(r_1r_3-r_2r_4)(r_1r_4-r_2r_3)$. If it vanishes, one factor vanishes; renumber.
+\hint{1} Since $c^2=a^2d\ne0$, we have $a\ne0$ and $d\ne0$ (so no root is $0$). Put $k=c/a$; then $c=ak$, $d=k^2$, and the equation is $x^4+ax^3+bx^2+akx+k^2=0$. It is symmetric under $x\mapsto k/x$: divide by $x^2$.
+\hint{2} With $y=x+\frac kx$ we get $x^2+\frac{k^2}{x^2}=y^2-2k$, so the equation becomes $y^2+ay+(b-2k)=0$. Equivalently, if $y_1,y_2$ are the roots of this quadratic, then (expand to check)
+\[x^4+ax^3+bx^2+cx+d=(x^2-y_1x+k)(x^2-y_2x+k).\]
+\hint{3} The two roots of each quadratic factor have product $k$. Call the roots of the first factor $r_1,r_4$ and those of the second $r_2,r_3$: then $r_1r_4=k=r_2r_3$, i.e.\ $r_1/r_2=r_3/r_4$.
 
 \problem{4}
 \hint{1} The condition $\sum\frac{a_k}{k+1}=0$ is the value at $1$ of an antiderivative of the polynomial.
@@ -40,7 +41,7 @@
 
 \problem{8}
 \hint{1} Rescale: put $y=\frac{a-x}a\in(0,1)$ (note $a>0$).
-\hint{2} The polynomial becomes $\frac{a^6y^2}2\,(2y^4-6y^3+5y^2-1)$. Check that $y=1$ is a root of the quartic, and of high multiplicity.
+\hint{2} The polynomial becomes $\frac{a^6y^2}2\,(2y^4-6y^3+5y^2-1)$. Check that $y=1$ is a root of the quartic, in fact a double one.
 \hint{3} $2y^4-6y^3+5y^2-1=(y-1)^2(2y^2-2y-1)$, and $2y^2-2y-1=2y(y-1)-1<0$ on $(0,1)$.
 
 \problem{9}

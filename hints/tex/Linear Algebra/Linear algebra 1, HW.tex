@@ -11,17 +11,17 @@ Expand \(B^3=(A-J)^3\). The term \(A^3\) vanishes, and each of the remaining \(7
 
 \problem{2}
 \hint{1}
-Multiply the relation by \(A+B\): from \(E=(A+B)(A^{-1}+B^{-1})\) get \(AB^{-1}+BA^{-1}=-E\).
+Expand \((A+B)(A^{-1}+B^{-1})=E\): you get \(AB^{-1}+BA^{-1}=-E\). Put \(X=AB^{-1}\); then \(BA^{-1}=X^{-1}\).
 \hint{2}
-Multiplying \(AB^{-1}+BA^{-1}=-E\) by \(B\) on the right (or by \(A\)) gives \(A+B=-BA^{-1}B\) and similarly \(A+B=-AB^{-1}A\). Equate and take determinants: \((\det A)^3=(\det B)^3\), which over \(\mathbb R\) gives \(\det A=\det B\).
+\(X+X^{-1}=-E\) means \(X^2+X+E=O\), hence \(X^3-E=(X-E)(X^2+X+E)=O\). So \((\det X)^3=1\), and over \(\mathbb R\) this gives \(\det X=1\), i.e.\ \(\det A=\det B\).
 \hint{3}
-Over \(\mathbb C\) the cube roots of unity break this. Try scalar matrices \(A=\omega E\), \(B=\bar\omega E\) with \(\omega=e^{i\pi/3}\) (check \(\omega^{-1}+\bar\omega^{-1}=(\omega+\bar\omega)^{-1}\)) and \(n=2\): the answer is no.
+Over \(\mathbb C\) the determinant of \(X\) can be a non-real cube root of unity. For \(1\times1\) blocks, \(\alpha^{-1}+1=(\alpha+1)^{-1}\) iff \(\alpha^2+\alpha+1=0\). So with \(\omega=e^{2\pi i/3}\), \(B=E\) and \(A\) diagonal with entries in \(\{\omega,\omega^2\}\) satisfy the relation; take \(A=\omega E\) if \(3\nmid n\) and \(A=\operatorname{diag}(\omega,\dots,\omega,\omega^2)\) if \(3\mid n\). Then \(\det A\ne1=\det B\): the answer is no, for every \(n\ge2\).
 
 \problem{3}
 \hint{1}
-The eigenvalues of \(M\) are the roots of \(x^2-ax+b\), and they are real since \(M\) is symmetric; so \(a^2\ge 4b\) is necessary for existence.
+Write \(M=\begin{pmatrix}x&y\\y&z\end{pmatrix}\). Then \(a^2-4b=(x+z)^2-4(xz-y^2)=(x-z)^2+(2y)^2\).
 \hint{2}
-If the eigenvalues are distinct, \(M=Q^T\operatorname{diag}(\lambda_1,\lambda_2)Q\) and rotating \(Q\) gives infinitely many such \(M\). If \(\lambda_1=\lambda_2=\lambda\), then \(M=\lambda E\) is forced. Answer: exactly the pairs with \(a^2=4b\).
+Since \(x+z=a\) is fixed, \(M\) is determined by the point \((x-z,2y)\), and the admissible points form the circle of radius \(\sqrt{a^2-4b}\). So there is no \(M\) if \(a^2\lt4b\), infinitely many if \(a^2\gt4b\), and exactly one (\(M=\tfrac a2E\)) if \(a^2=4b\). Answer: exactly the pairs with \(a^2=4b\).
 
 \problem{4}
 \hint{1}
@@ -32,6 +32,8 @@ Take \(x\ne0\) in the kernel of \(\sum A_i^2\); then \(A_ix=0\) for every \(i\).
 \problem{5}
 \hint{1}
 \(S=\sum A_i^TA_i\) is symmetric and \(\langle Sx,x\rangle=\sum\lVert A_ix\rVert^2\ge0\). What does this say about its eigenvalues?
+\hint{2}
+\(S\) is real symmetric, so its eigenvalues are real; if \(Sx=\lambda x\) with \(x\ne0\), then \(\lambda\lVert x\rVert^2=\langle Sx,x\rangle\ge0\), so \(\lambda\ge0\). Hence \(\det S\), the product of the eigenvalues, is \(\ge0\).
 
 \problem{6}
 \hint{1}
@@ -49,11 +51,11 @@ Try \(B=zE+\bar z\,\bar A\) with \(z\in\mathbb C\setminus\{0\}\). Using \(\bar A
 
 \problem{8}
 \hint{1}
-By induction, derive \(BA^k-b^kA^kB=a\,(1+b+\dots+b^{k-1})A^{k-1}\) for \(k\ge1\). The hypotheses guarantee that \(a(1+\dots+b^{k-1})\ne0\) for \(1\le k\le n\).
+Since \(\det(AB)=\det A\det B\), it suffices to show that \(0\) is not an eigenvalue of \(AB\). Let \(S\) be the set of eigenvalues of \(AB\), and recall that \(AB\) and \(BA\) have the same characteristic polynomial, hence the same eigenvalues.
 \hint{2}
-Suppose \(A\) is singular. Split \(\mathbb C^n=W\oplus U\) with \(W=\ker A^n\ne0\), \(U=\operatorname{Im}A^n\); both are \(A\)-invariant. Apply the identity with \(k=n\) to \(x\in W\): \(-b^nA^nBx\in U\) equals a non-zero multiple of \(A^{n-1}x\in W\), so \(A^{n-1}x=0\).
+The eigenvalues of \(BA=aE+bAB\) are the numbers \(a+b\mu\), \(\mu\in S\). So \(f(\mu)=a+b\mu\) maps the finite set \(S\) onto itself, i.e.\ permutes it. Hence every \(\mu\in S\) satisfies \(f^k(\mu)=\mu\) for some \(1\le k\le\lvert S\rvert\le n\).
 \hint{3}
-Descend: if \(A^kW=0\), apply the identity with exponent \(k\) to \(x\in W\). Writing \(Bx=w+u\), the term \(A^kBx=A^ku\) lies in \(U\), while \(A^{k-1}x\in W\), so \(A^{k-1}W=0\). At the end \(W=0\), a contradiction. For \(B\): if \(b\ne0\), rewrite the relation as \(AB=-\tfrac abE+\tfrac1bBA\), which has the same form with the roles swapped; if \(b=0\), \(BA=aE\) settles it.
+\(f^k(\mu)=b^k\mu+a(1+b+\dots+b^{k-1})\). If \(0\in S\), then \(f^k(0)=0\) gives \(a(1+b+\dots+b^{k-1})=0\). But \(a\ne0\), and since \(b\ne1\) and \(b^k\ne1\), \(1+b+\dots+b^{k-1}=\frac{b^k-1}{b-1}\ne0\), a contradiction. So \(AB\) is invertible, and so are \(A\) and \(B\). (The same computation shows that in fact every eigenvalue of \(AB\) equals \(\frac a{1-b}\).)
 
 \problem{9}
 \hint{1}
@@ -77,11 +79,9 @@ For even \(n\) the determinant need not vanish (try \(n=2\)). The non-zero eigen
 
 \problem{12}
 \hint{1}
-Write \(\lvert\det(E+A)\rvert=\prod\lvert1+\lambda_k\rvert\) over the complex eigenvalues of \(A\), and bound each factor using \(1+x\le e^x\).
+Use Hadamard's inequality: \(\lvert\det M\rvert\le\prod_j\lVert m_j\rVert\), where \(m_j\) are the columns of \(M\). (Proof: for invertible \(M\), Gram--Schmidt gives \(M=QR\) with \(Q\) orthogonal and \(R\) upper triangular; then \(\lvert\det M\rvert=\prod\lvert r_{jj}\rvert\) and \(\lVert m_j\rVert^2=\sum_{i\le j}r_{ij}^2\ge r_{jj}^2\).) Apply it to \(M=E+A\).
 \hint{2}
-\(\lvert1+z\rvert^2=1+2\operatorname{Re}z+\lvert z\rvert^2\le e^{2\operatorname{Re}z+\lvert z\rvert^2}\). This gives the bound \(\exp\bigl(\sum\operatorname{Re}\lambda_k+\tfrac12\sum\lvert\lambda_k\rvert^2\bigr)\), and \(\sum\operatorname{Re}\lambda_k=\operatorname{tr}A\).
-\hint{3}
-It remains to show that \(\sum\lvert\lambda_k\rvert^2\le\sum a_{ij}^2\). Use Schur triangularization \(A=UTU^*\): the Frobenius norm is unitarily invariant and \(\lVert T\rVert_F^2\ge\sum\lvert t_{kk}\rvert^2\).
+The \(j\)-th column of \(E+A\) has \(\lVert m_j\rVert^2=(1+a_{jj})^2+\sum_{i\ne j}a_{ij}^2=1+x_j\) with \(x_j=2a_{jj}+\sum_ia_{ij}^2\). By \(1+x\le e^x\), \(\lVert m_j\rVert\le e^{x_j/2}\), and multiplying over \(j\) gives \(\lvert\det(E+A)\rvert\le\exp\bigl(\sum_ja_{jj}+\frac12\sum_{i,j}a_{ij}^2\bigr)=\exp\bigl(\operatorname{tr}A+\frac12\sum_{i,j}a_{ij}^2\bigr)\).
 
 \problem{13}
 \hint{1}
@@ -97,11 +97,11 @@ Pair column \(j\) with column \(j+1004\). Whenever Alan writes \(x\) in position
 
 \problem{15}
 \hint{1}
-Player 0 places only four zeros, so look for small zero patterns that force \(\det=0\) on their own: a zero row, a zero column, or a \(2\times2\) block of zeros (rows \(i,j\) and columns \(k,l\); then two rows are proportional).
+Player 0 wins. Player 0 places only four zeros, so aim for small zero patterns that force \(\det=0\) on their own: a zero row, a zero column, or a \(2\times2\) block of zeros (rows \(i,j\) and columns \(k,l\)). Permuting rows, permuting columns and transposing preserve these patterns and \(\lvert\det\rvert\), and they can move any cell to any other; so assume Player 1 opens at \((1,1)\).
 \hint{2}
-Player 0 wins, and can always force one of these patterns. Up to symmetry, Player 1 opens in a corner, on an edge, or in the center. A good first reply is any cell that shares neither a row nor a column with Player 1's first 1.
+Player 0 answers at \((2,2)\). After Player 1's second move at least one of \((2,3)\), \((3,2)\) is vacant; by transposing, say \((2,3)\), and Player 0 plays there. Now Player 1 must take \((2,1)\), otherwise Player 0 plays there and row \(2\) is zero.
 \hint{3}
-After that, Player 0 keeps creating threats: positions where one more zero would complete a zero line or a zero \(2\times2\) block. Player 1 has to block each threat. Go through the three cases and check that Player 0 can always make a double threat in time to complete a pattern with the fourth zero.
+Player 1 now holds \((1,1)\), \((2,1)\) and one more cell \(c\). Look at the square of cells in rows \(1,3\) and columns \(2,3\): two zeros of it in one column complete a zero column (with row \(2\)), and two zeros of it in one row complete a zero \(2\times2\) block with \((2,2),(2,3)\). Player 0 puts the third zero at a cell \(z\) of this square, diagonally opposite to \(c\) if \(c\) lies in the square. Then the two neighbours of \(z\) in its row and column of the square are vacant: a double threat, and the fourth zero completes a pattern.
 
 \problem{16}
 \hint{1}

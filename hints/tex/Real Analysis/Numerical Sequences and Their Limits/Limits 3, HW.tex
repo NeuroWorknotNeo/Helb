@@ -31,14 +31,24 @@ Deduce $t_n\sim\frac{\ln n}n$ (first show $\frac1n\lesssim t_n\lesssim n^{-1/2}$
 
 \problem{6}
 \hint{1} Rewrite: $x_{n+2}-2x_{n+1}=(x_{n+1}-2x_n)+\frac{2^n}{x_n}$. So $d_n=x_{n+1}-2x_n$ satisfies $d_1=0$, $d_{n+1}=d_n+\frac{2^n}{x_n}$.
-\hint{2} Put $y_n=x_n/2^n$. Dividing by $2^{n+1}$: $y_{n+1}-y_n=\frac{d_n}{2^{n+1}}$, and $\frac{2^n}{x_n}=\frac1{y_n}$, so $d_n=\sum_{k=1}^{n-1}\frac1{y_k}$. Hence $d_n\ge0$, $y_n$ is non-decreasing, $y_n\ge y_1=1$ and $d_n\le n-1$.
-\hint{3} Then $0\le y_{n+1}-y_n\le\frac{n-1}{2^{n+1}}$ is summable, so $L=\lim y_n$ exists and $L\le1+\sum_{n\ge1}\frac{n-1}{2^{n+1}}=\frac32$. Using $y_k\le\frac32$ in $d_n$ gives $L\ge1+\frac23\cdot\frac12=\frac43$.
-\hint{4} Iterating these bounds (compute the first few $y_k$ exactly, estimate the tail) sharpens them; numerically $L\approx1.4782$.
+\hint{2} Put $y_n=x_n/2^n$. Dividing by $2^{n+1}$: $y_{n+1}-y_n=\frac{d_n}{2^{n+1}}$, and $\frac{2^n}{x_n}=\frac1{y_n}$, so $d_n=\sum_{k=1}^{n-1}\frac1{y_k}$. Hence $d_n\ge0$, $y_n$ is non-decreasing and $y_n\ge y_1=1$.
+\hint{3} Sum the increments and swap the order of summation, using $\sum_{n=k+1}^{N-1}2^{-n-1}=2^{-k-1}-2^{-N}$:
+\[y_N=1+\sum_{n=1}^{N-1}\frac1{2^{n+1}}\sum_{k=1}^{n-1}\frac1{y_k}=1+\sum_{k=1}^{N-2}\frac{2^{-k-1}-2^{-N}}{y_k}.\]
+Since $y_k\ge1$, $y_N<1+\sum_{k\ge1}2^{-k-1}=\frac32$: the sequence is non-decreasing and bounded, so $L=\lim y_n$ exists, and letting $N\to\infty$,
+\[L=1+\sum_{k\ge1}\frac1{2^{k+1}y_k}.\]
+\hint{4} Now use $y_k\le L$. Already $y_k\in[1,L]$ gives $1+\frac1{2L}\le L\le\frac32$, i.e.\ $\frac{1+\sqrt3}2\le L\le\frac32$. Sharper: $y_1=y_2=1$, $y_3=\frac98$, and $y_k\in[\frac98,L]$ for $k\ge3$, so
+\[\frac{11}8+\frac1{8L}\le L\le\frac{11}8+\frac19,\qquad\text{i.e.}\qquad 1.460<\frac{11+\sqrt{153}}{16}\le L\le\frac{107}{72}<1.487.\]
+Numerically $L\approx1.4782$.
 
 \problem{7}
-\hint{1} a) Near $0$ the integrand is $\frac{\{nx\}}{\sin x}\le\frac{nx}{\sin x}\le\frac{\pi n}2$, so it is bounded and the integral converges. For b) split $\frac1{\sin x}=\frac1x+\bigl(\frac1{\sin x}-\frac1x\bigr)$; the bracket is bounded on $(0,\frac\pi2]$, so that part of $I(n)$ is $O(1)$.
-\hint{2} Substitute $t=nx$: $\displaystyle\int_0^{\pi/2}\frac{\{nx\}}x\,dx=\int_0^{n\pi/2}\frac{\{t\}}t\,dt=O(1)+\frac12\ln n+\int_1^{n\pi/2}\frac{\{t\}-\frac12}t\,dt$.
-\hint{3} The last integral is bounded: $G(t)=\int_0^t\bigl(\{s\}-\frac12\bigr)ds$ is $1$-periodic and bounded, and integration by parts gives $\int_1^T\frac{G'(t)}t\,dt=\frac{G(T)}T-G(1)+\int_1^T\frac{G(t)}{t^2}\,dt=O(1)$. Hence $I(n)=\frac12\ln n+O(1)$. Since $I(n)>0$ for every $n$, this gives both bounds for all $n\ge2$ (adjust the constants on the finitely many small $n$). (Alternatively, compute $\int_0^1\frac{\{nx\}}x\,dx=n-(n-1)\ln n+\ln(n-1)!$ and apply Stolz.)
+\hint{1} Use $\frac{2x}\pi\le\sin x\le x$ on $\bigl[0,\frac\pi2\bigr]$. a) Near $0$ the integrand is $\frac{\{nx\}}{\sin x}\le\frac{nx}{\sin x}\le\frac{\pi n}2$, so it is bounded and the integral converges. b) The same inequality gives $J(n)\le I(n)\le\frac\pi2J(n)$, where, after $t=nx$,
+\[J(n)=\int_0^{\pi/2}\frac{\{nx\}}x\,dx=\int_0^{n\pi/2}\frac{\{t\}}t\,dt.\]
+So it suffices to show that $J(n)$ is of order $\ln n$.
+\hint{2} Upper bound: $\{t\}\le\min(t,1)$, so $J(n)\le\int_0^1dt+\int_1^{n\pi/2}\frac{dt}t=1+\ln\frac{\pi n}2$. Lower bound: on each $[k,k+1]$, $\int_k^{k+1}\frac{\{t\}}t\,dt=\int_0^1\frac s{k+s}\,ds\ge\frac1{2(k+1)}$, and $[1,n]\subset\bigl[0,\frac{n\pi}2\bigr]$, so
+\[J(n)\ge\sum_{k=1}^{n-1}\frac1{2(k+1)}=\frac{H_n-1}2.\]
+\hint{3} For $n\ge2$: $H_n-1=\sum_{j=2}^n\frac1j\ge\int_2^{n+1}\frac{dt}t=\ln\frac{n+1}2\ge\frac12\ln n$ (because $\frac{n+1}2\ge\sqrt n$), and $1+\ln\frac\pi2<1.5<3\ln2\le3\ln n$. Hence $\frac14\ln n\le J(n)\le4\ln n$, and
+\[\frac14\ln n\le I(n)\le2\pi\ln n\qquad(n\ge2).\]
+(More precisely, $I(n)=\frac12\ln n+O(1)$.)
 
 \problem{8}
 \hint{1} Invert: $\dfrac1{a_{n+1}}=\dfrac1{a_n}+1+a_n$.
