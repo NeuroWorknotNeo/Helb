@@ -9,23 +9,22 @@
 \hint{3} Engel form: apply the discrete inequality to the vectors $\big(a_i/\sqrt{b_i}\big)$ and $\big(\sqrt{b_i}\big)$: $\big(\sum a_i\big)^2=\big(\sum\frac{a_i}{\sqrt{b_i}}\sqrt{b_i}\big)^2\le\sum\frac{a_i^2}{b_i}\sum b_i$.
 
 \problem{2}
-\hint{1} The two conditions give $\int_0^1(ax+b)f(x)\,dx=a+b$ for all real $a,b$. Apply Cauchy--Bunyakovsky to $f$ and a linear function $ax+b$.
-\hint{2} Normalise $a+b=2$: then $4\le\int_0^1(ax+b)^2\,dx\cdot\int_0^1f^2$. Choose $a,b$ so that $\int_0^1(ax+b)^2\,dx=\frac{(a+b)^3-b^3}{3a}=1$; together with $a+b=2$ this gives $b^3-3b-2=(b+1)^2(b-2)=0$.
-\hint{3} The root $b=2$, $a=0$ is useless (the equality case $f=$ const contradicts the conditions); take $b=-1$, $a=3$. Then $\int f^2\ge4$, with equality for $f(x)=6x-2$.
+\hint{1} Use Fact 1: the data are $\int f\cdot1$ and $\int f\cdot x$, so the extremal function should be linear. Find $f_0(x)=ax+b$ with $\int_0^1f_0=\int_0^1xf_0=1$ and apply Cauchy--Bunyakovsky to $f$ and $f_0$.
+\hint{2} $\frac a2+b=1$, $\frac a3+\frac b2=1$ give $f_0=6x-2$. Then $\int_0^1ff_0=6\int_0^1xf-2\int_0^1f=4$ and $\int_0^1f_0^2=12-12+4=4$, so $16\le4\int_0^1f^2$, i.e.\ $\int_0^1f^2\ge4$, with equality for $f(x)=6x-2$. (Equivalently: $0\le\int_0^1(f-f_0)^2=\int_0^1f^2-8+4$.)
 
 \problem{3}
-\hint{1} As before, $\int_0^1p(x)f(x)\,dx=\sum_ka_k$ for every polynomial $p=\sum_{k<n}a_kx^k$. So $\big(\sum a_k\big)^2\le\int_0^1p^2\cdot\int_0^1f^2$, where $\int_0^1p^2=a^TH_na$ with the Hilbert matrix $H_n=\big(\frac1{i+j+1}\big)_{i,j=0}^{n-1}$.
-\hint{2} The best choice of $p$ is the one for which equality is possible, i.e.\ $f$ proportional to $p$; the conditions on $f$ then say $H_na$ is proportional to $(1,\dots,1)^T$. Take $a=H_n^{-1}\mathbf 1$: then $\sum a_k=\mathbf 1^TH_n^{-1}\mathbf 1=a^TH_na=:s$ and the inequality gives $\int f^2\ge s^2/s=s$.
-\hint{3} It remains to show that the sum of all entries of $H_n^{-1}$ is $n^2$. One way: $\int_0^1pq=q(1)$ for all $q$ of degree $<n$, so $p$ is the reproducing kernel at $1$ for the orthonormal shifted Legendre polynomials $\sqrt{2k+1}P_k(2x-1)$, and $\int p^2=\sum_{k<n}(2k+1)=n^2$. For $n=2$ the conditions are $\int f=\int xf=1$ and you recover Problem 2.
+\hint{1} By linearity the conditions say $\int_0^1q(x)f(x)\,dx=q(1)$ for every polynomial $q$ of degree $<n$. So compare $f$ with the polynomials of degree $<n$ via an orthonormal basis of that space.
+\hint{2} The shifted Legendre polynomials $e_k(x)=\sqrt{2k+1}\,P_k(2x-1)$, $k=0,\dots,n-1$, are orthonormal in $L^2[0,1]$ (since $\int_{-1}^1P_kP_l=\frac{2\delta_{kl}}{2k+1}$) and $P_k(1)=1$. Hence $\langle f,e_k\rangle=e_k(1)=\sqrt{2k+1}$.
+\hint{3} Put $p=\sum_{k<n}e_k(1)e_k$. Then $\int_0^1fp=\sum_{k<n}e_k(1)^2=\sum_{k<n}(2k+1)=n^2$ and $\int_0^1p^2=n^2$ as well, so Cauchy--Bunyakovsky gives $n^4\le n^2\int_0^1f^2$, i.e.\ $\int_0^1f^2\ge n^2$ (this is Bessel's inequality), with equality for $f=p$. For $n=2$: $p=1+3(2x-1)=6x-2$, and the conditions $\int f=\int xf=1$ are those of Problem 2.
 
 \problem{4}
 \hint{1} Substitute $a_i=\frac1{1+x_i}$: then $\sum a_i=1$ and $x_i=\frac{1-a_i}{a_i}=\frac{\sum_{j\ne i}a_j}{a_i}$.
 \hint{2} Lower bound the left side: $\sqrt{\sum_{j\ne i}a_j}\ge\frac1{\sqrt{n-1}}\sum_{j\ne i}\sqrt{a_j}$, so \[\sum_i\sqrt{x_i}\ge\frac1{\sqrt{n-1}}\sum_j\sqrt{a_j}\sum_{i\ne j}\frac1{\sqrt{a_i}}\] (swap the order of summation).
-\hint{3} By the Engel form, $\sum_{i\ne j}\frac1{\sqrt{a_i}}\ge\frac{(n-1)^2}{\sum_{i\ne j}\sqrt{a_i}}$, and by Cauchy--Bunyakovsky again $\sum_{i\ne j}\sqrt{a_i}\le\sqrt{(n-1)\sum_{i\ne j}a_i}$. Put these together: $\frac{\sqrt{a_j}}{\sqrt{\sum_{i\ne j}a_i}}=\frac1{\sqrt{x_j}}$, and the constants combine to $(n-1)$.
+\hint{3} By the Engel form, $\sum_{i\ne j}\frac1{\sqrt{a_i}}\ge\frac{(n-1)^2}{\sum_{i\ne j}\sqrt{a_i}}$, and by Cauchy--Bunyakovsky again $\sum_{i\ne j}\sqrt{a_i}\le\sqrt{(n-1)\sum_{i\ne j}a_i}$. Put these together: $\frac{\sqrt{a_j}}{\sqrt{\sum_{i\ne j}a_i}}=\frac1{\sqrt{x_j}}$, and the constants combine to $(n-1)$. Equality holds iff all $x_i=n-1$ (for $n=2$ the condition means $x_1x_2=1$ and the inequality is an identity).
 
 \problem{5}
 \hint{1} Use $abc=1$ to rewrite each term as a square over something: $\frac1{a^3(b+c)}=\frac{(bc)^2}{a(b+c)}$.
 \hint{2} Engel form: $\sum\frac{(bc)^2}{ab+ac}\ge\frac{(ab+bc+ca)^2}{2(ab+bc+ca)}=\frac{ab+bc+ca}2$. It remains to prove $x+y+z\ge3$ for $x=ab$, $y=bc$, $z=ca$, $xyz=1$, without AM-GM.
-\hint{3} Since $xyz=1$, $xy+yz+zx=\frac1x+\frac1y+\frac1z$, so Cauchy--Bunyakovsky gives $(x+y+z)(xy+yz+zx)\ge9$. Also $(x+y+z)^2\ge3(xy+yz+zx)$ (from $x^2+y^2+z^2\ge xy+yz+zx$, again Cauchy--Bunyakovsky). Multiply: $(x+y+z)^3\ge27$.
+\hint{3} Since $xyz=1$, $xy+yz+zx=\frac1x+\frac1y+\frac1z$, so Cauchy--Bunyakovsky gives $(x+y+z)(xy+yz+zx)\ge9$. Also $(x+y+z)^2\ge3(xy+yz+zx)$ (from $x^2+y^2+z^2\ge xy+yz+zx$, again Cauchy--Bunyakovsky). Multiply: $(x+y+z)^3\ge27$. Equality holds iff $a=b=c=1$.
 
 \end{document}

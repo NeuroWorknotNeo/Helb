@@ -4,9 +4,8 @@
 \hintstitle{Inequalities -- 1. The Cauchy--Bunyakovsky inequality as a technique}{Homework}
 
 \problem{1}
-\hint{1} Split $f=f_e+f_o$ into its even and odd parts. In $L^2[-1,1]$ they are orthogonal, so $\int f^2=\int f_e^2+\int f_o^2$, while $\int f=\int f_e$ and $\int xf=\int xf_o$.
-\hint{2} The functions $e_0=\frac1{\sqrt2}$ and $e_1=\sqrt{\frac32}\,x$ have norm $1$. By Cauchy--Bunyakovsky (Bessel), $\int f_e^2\ge\langle f_e,e_0\rangle^2=\frac12\big(\int f\big)^2$ and $\int f_o^2\ge\langle f_o,e_1\rangle^2=\frac32\big(\int xf\big)^2$. Add.
-\hint{3} Equality holds iff $f_e$ is proportional to $e_0$ and $f_o$ to $e_1$, i.e.\ exactly for $f(x)=a+bx$.
+\hint{1} The functions $1$ and $x$ are orthogonal in $L^2[-1,1]$, and $\int_{-1}^11=2$, $\int_{-1}^1x^2=\frac23$. So $e_0=\frac1{\sqrt2}$, $e_1=\sqrt{\frac32}\,x$ are orthonormal and the right-hand side is $\langle f,e_0\rangle^2+\langle f,e_1\rangle^2$: this is Bessel's inequality.
+\hint{2} Let $g=\langle f,e_0\rangle e_0+\langle f,e_1\rangle e_1=\frac12\int_{-1}^1f+\frac32\big(\int_{-1}^1tf(t)\,dt\big)x$. Then $f-g$ is orthogonal to $1$ and $x$, hence to $g$, so $\int f^2=\int g^2+\int(f-g)^2\ge\int g^2=\frac12\big(\int f\big)^2+\frac32\big(\int xf\big)^2$. Equality iff $f=g$, i.e.\ exactly for the linear functions $f(x)=a+bx$.
 
 \problem{2}
 \hint{1} Put $g(x)=\int_0^1f(x,y)\,dy$, $h(y)=\int_0^1f(x,y)\,dx$ and $I=\int_0^1\!\int_0^1f$. The inequality reads $\int h^2+\int g^2\le I^2+\iint f^2$. Look for a square whose integral is the difference.
@@ -29,10 +28,10 @@
 
 \problem{6}
 \subpart{a}
-\hint{1} Square the right-hand side and keep, for each pair $j<i$, the cross term $2x_ix_j/\sqrt{ij}$; use $x_j\ge x_i$ for $j\le i$ to replace it by something with $x_i^2$.
-\hint{2} You get $\big(\sum\frac{x_i}{\sqrt i}\big)^2\ge\sum_ix_i^2\Big(\frac2{\sqrt i}\sum_{j\le i}\frac1{\sqrt j}-\frac1i\Big)$, and $\sum_{j\le i}\frac1{\sqrt j}\ge\frac{i}{\sqrt i}=\sqrt i$, so each bracket is at least $2-\frac1i\ge1$.
+\hint{1} Put $S=\sum_{j=1}^n\frac{x_j}{\sqrt j}$ and write $x_i^2=\frac{x_i}{\sqrt i}\cdot x_i\sqrt i$. Since the sequence decreases, show that $x_i\sqrt i\le S$ for every $i\le n$.
+\hint{2} For $j\le i$ we have $x_j\ge x_i$ and $\frac1{\sqrt j}\ge\frac1{\sqrt i}$, so $x_i\sqrt i=\sum_{j=1}^i\frac{x_i}{\sqrt i}\le\sum_{j=1}^i\frac{x_j}{\sqrt j}\le S$. Hence $\sum_{i=1}^nx_i^2=\sum_{i=1}^n\frac{x_i}{\sqrt i}\cdot x_i\sqrt i\le S\cdot S$.
 \subpart{b}
-\hint{1} Apply (a) to the tail sequence $x_m,x_{m+1},\dots$: $\big(\sum_{i\ge m}x_i^2\big)^{1/2}\le\sum_{i\ge m}\frac{x_i}{\sqrt{i-m+1}}$.
+\hint{1} Apply (a) (with $n\to\infty$) to the tail sequence $x_m,x_{m+1},\dots$: $\big(\sum_{i\ge m}x_i^2\big)^{1/2}\le\sum_{i\ge m}\frac{x_i}{\sqrt{i-m+1}}$.
 \hint{2} Swap the sums: the left side is at most $\sum_ix_i\sum_{m=1}^i\frac1{\sqrt{m(i+1-m)}}$. The inner sum is bounded: by symmetry it is at most $2\sqrt{\frac2{i+1}}\sum_{m\le(i+1)/2}\frac1{\sqrt m}\le4$ (it is a Riemann sum for $\int_0^1\frac{dt}{\sqrt{t(1-t)}}=\pi$). So $C=4$ works.
 
 \problem{7}
