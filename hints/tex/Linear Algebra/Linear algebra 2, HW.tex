@@ -7,7 +7,7 @@
 \hint{1}
 Odd polynomials of degree at most \(2m-1\) form an \(m\)-dimensional space with basis \(x,x^3,\dots,x^{2m-1}\). It suffices to show that the \(m\) given polynomials lie in it and are independent.
 \hint{2}
-Write out \(C_{x+l-1}^{2l-1}=\dfrac{(x+l-1)\cdots(x+1)\,x\,(x-1)\cdots(x-l+1)}{(2l-1)!}=\dfrac{x(x^2-1)(x^2-4)\cdots(x^2-(l-1)^2)}{(2l-1)!}\). It is odd of degree exactly \(2l-1\), and polynomials of distinct degrees are independent.
+Write out\[C_{x+l-1}^{2l-1}=\frac{(x+l-1)\cdots(x+1)\,x\,(x-1)\cdots(x-l+1)}{(2l-1)!}=\frac{x(x^2-1)(x^2-4)\cdots(x^2-(l-1)^2)}{(2l-1)!}.\]It is odd of degree exactly \(2l-1\), and polynomials of distinct degrees are independent.
 
 \problem{2}
 \hint{1}
@@ -17,9 +17,9 @@ Substituting \(x=0,1,\dots,n\) gives a unitriangular integer system for the coef
 
 \problem{3}
 \hint{1}
-Suppose the rank of \(f_1',\dots,f_n'\) is at most \(n-2\), with a basis \(f_1',\dots,f_k'\) of their span. Express \(f_{k+1}'\) and \(f_{k+2}'\) through it and integrate: a function with zero derivative is constant.
+Let \(W=\operatorname{span}\{f_1,\dots,f_n\}\), so \(\dim W=n\). Differentiation \(D\colon W\to\operatorname{span}\{f_1',\dots,f_n'\}\) is a linear map onto. What is its kernel?
 \hint{2}
-You get \(\lambda_1f_1+\dots+\lambda_kf_k-f_{k+1}=c_1\) and \(\mu_1f_1+\dots+\mu_kf_k-f_{k+2}=c_2\). If some \(c_i=0\), this is already a non-trivial relation. Otherwise eliminate the constant: \(c_2(\dots)-c_1(\dots)=0\) is a non-trivial relation among the \(f_i\).
+\(\ker D\) consists of the constant functions lying in \(W\), so \(\dim\ker D\le1\). By rank--nullity, \(\dim\operatorname{span}\{f_1',\dots,f_n'\}\ge n-1\), and a spanning family contains a basis of its span: some \(n-1\) of the \(f_i'\) are linearly independent.
 
 \problem{4}
 \hint{1}
@@ -33,7 +33,7 @@ For the lower bound, take differences \(P_\sigma-P_{\sigma\circ(k\,l)}\): they g
 \hint{1}
 Complete \(u\) to a basis \(u,e_2,\dots,e_n\). Then \(A(e_j)=\lambda_je_j+\mu_ju\) and \(A(u)=cu\). The goal is to show that all \(\lambda_j\) are equal.
 \hint{2}
-Apply the hypothesis to \(x=e_j+e_k\) for \(j\ne k\ge2\) (this needs \(\dim V\ge3\)). Comparing with \(A(e_j)+A(e_k)\) and using the independence of \(e_j,e_k,u\) gives \(\lambda_j=\lambda_k=:\lambda\).
+Apply the hypothesis to \(x=e_j+e_k\) for \(j\ne k\ge2\) (for \(\dim V=2\) there is only one \(e_j\) and nothing to check). Comparing with \(A(e_j)+A(e_k)\) and using the independence of \(e_j,e_k,u\) gives \(\lambda_j=\lambda_k=:\lambda\).
 \hint{3}
 Define \(\varphi\) on the basis by \(\varphi(e_j)=\mu_j\) and \(\varphi(u)=c-\lambda\). Both sides of \(A(x)=\lambda x+\varphi(x)u\) are linear and agree on the basis.
 
@@ -67,13 +67,13 @@ Then \((A^{-1}DA)^m=A^{-1}D^mA\), so the ranks are those of \(D^m\). Here \(D^m=
 
 \problem{10}
 \hint{1}
-Write \(P=X+Y=uv^T\). Then \(Y^2=YX-XY=YP-PY=[Y,P]\), and \(Y\) commutes with \([Y,P]=Y^2\). Show by induction that \([Y^k,P]=kY^{k+1}\), and deduce that \(Y\) is nilpotent (look at traces).
+Put \(P=X+Y=uv^T\) and \(s=v^Tu=\operatorname{tr}P\), so \(P^2=sP\). Check that \(Y^2=YP-PY\), i.e.~\(Y^2=av^T-ub^T\) with \(a=Yu\), \(b^T=v^TY\). Note also \(YPY=ab^T\).
 \hint{2}
-Let \(m\) be the nilpotency index of \(Y\). From \([Y^{m-1},P]=0\), i.e.~\(Y^{m-1}uv^T=uv^TY^{m-1}\), and nilpotency, get \(Y^{m-1}u=0\) and \(v^TY^{m-1}=0\).
+Expand \(Y\cdot Y^2=Y^2\cdot Y\) using \(Y^2=YP-PY\): \(2YPY=Y^2P+PY^2=(YP-PY)P+P(YP-PY)=s(YP-PY)=sY^2\). In vectors: \(2ab^T=s(av^T-ub^T)\).
 \hint{3}
-Multiply \((m-2)Y^{m-1}=Y^{m-2}uv^T-uv^TY^{m-2}\) by \(Y\) on the left and on the right; for \(m=2\), use \(YP=PY\) directly. Conclude that \(Yu=0\) or \(v^TY=0\).
+Show that \(a=0\) or \(b=0\). For \(s=0\) this is immediate. If \(s\ne0\) and \(a,b\ne0\), then \(a(2b-sv)^T=-s\,ub^T\ne0\) forces \(Yu=a=\kappa u\). Then \(v^TYu=\kappa s\) and \(Y^2u=(v^Tu)a-(v^TYu)u=\kappa su-\kappa su=0\), while \(Y^2u=\kappa^2u\); so \(\kappa=0\), a contradiction.
 \hint{4}
-If \(Yu=0\), then \(Y^2=[Y,P]=-u(v^TY)\), and \(Y^3=-(Yu)(v^TY)=0\); the case \(v^TY=0\) is symmetric. Finally \(YXY=Y(P-Y)Y=(Yu)(v^TY)-Y^3=0\).
+If \(a=Yu=0\), then \(Y^2=-ub^T\) and \(Y^3=-(Yu)b^T=0\); if \(b=0\), then \(Y^2=av^T\) and \(Y^3=Y^2Y=a(v^TY)=0\). In both cases \(YPY=ab^T=0\), hence \(YXY=Y(P-Y)Y=YPY-Y^3=0\).
 
 \problem{11}
 \hint{1}

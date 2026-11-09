@@ -11,13 +11,13 @@ Key lemma: restricting \(A\) to \(\operatorname{im}X\) and applying rank--nullit
 \hint{3}
 Apply the lemma with \(X=B\) and with \(X=BC\), and use \(\ker A\cap\operatorname{im}(BC)\subseteq\ker A\cap\operatorname{im}B\): this is Frobenius. Sylvester is Frobenius with middle matrix \(E_n\). Alternatively, the lemma with \(X=B\) gives \(\operatorname{rank}AB-(\operatorname{rank}A+\operatorname{rank}B-n)=\dim\ker A-\dim(\ker A\cap\operatorname{im}B)\), which is \(0\) exactly when \(\ker A\subseteq\operatorname{im}B\).
 \hint{4}
-For sharpness, use diagonal \(0/1\) matrices (coordinate projections onto index sets \(S,T,\dots\)). Their ranks are \(\lvert S\rvert,\lvert T\rvert\), and products correspond to intersections. Choose the sets so that the overlaps are as small as allowed, e.g.~\(A=\operatorname{diag}(E_a,0)\), \(B=\operatorname{diag}(0,E_b)\) give \(\operatorname{rank}AB=\max(0,a+b-n)\).
+For sharpness use diagonal \(0/1\) matrices, i.e.~coordinate projections \(E_S\) onto index sets \(S\subseteq\{1,\dots,n\}\): \(\operatorname{rank}E_S=\lvert S\rvert\) and \(E_SE_T=E_{S\cap T}\). Sylvester: equality forces \(a+b\ge n\), and then \(S=\{1,\dots,a\}\), \(T=\{n-b+1,\dots,n\}\) give \(\lvert S\cap T\rvert=a+b-n\). Frobenius with \(A=E_S\), \(B=E_{[b]}\), \(C=E_T\) reads \(\lvert S\cap[b]\rvert+\lvert T\cap[b]\rvert\le b+\lvert S\cap T\cap[b]\rvert\), with equality iff \(S\cup T\supseteq[b]\); this is possible with \(\lvert S\rvert=a\), \(\lvert T\rvert=c\) whenever \(a+c\ge b\), and \(a+c\ge b\) is necessary for equality anyway.
 
 \problem{2}
 \hint{1}
-Reduce to a linearly independent subfamily \(f_1,\dots,f_k\); the intersection of kernels does not change.
+Collect the functionals into one linear map \(F\colon V\to\mathbb R^n\), \(F(x)=(f_1(x),\dots,f_n(x))\). The hypothesis says exactly \(\ker F\subseteq\ker f\).
 \hint{2}
-Independence gives vectors \(e_1,\dots,e_k\) with \(f_p(e_i)=\delta_{pi}\) (the map \(V\to\mathbb R^k\), \(x\mapsto(f_1(x),\dots,f_k(x))\), is onto). For any \(x\), the vector \(y=x-\sum_j f_j(x)e_j\) lies in every \(\ker f_p\), hence in \(\ker f\). Read off the coefficients \(f(e_j)\).
+Hence \(f(x)\) depends only on \(F(x)\): \(g(F(x))=f(x)\) is a well-defined linear functional on the subspace \(\operatorname{im}F\subseteq\mathbb R^n\). Extend it to all of \(\mathbb R^n\) (extend a basis of \(\operatorname{im}F\)); every linear functional on \(\mathbb R^n\) is \(g(y)=c_1y_1+\dots+c_ny_n\). Then \(f=g\circ F=c_1f_1+\dots+c_nf_n\).
 
 \problem{3}
 \hint{1}
