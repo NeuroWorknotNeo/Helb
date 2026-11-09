@@ -36,9 +36,9 @@ Deduce $t_n\sim\frac{\ln n}n$ (first show $\frac1n\lesssim t_n\lesssim n^{-1/2}$
 \[y_N=1+\sum_{n=1}^{N-1}\frac1{2^{n+1}}\sum_{k=1}^{n-1}\frac1{y_k}=1+\sum_{k=1}^{N-2}\frac{2^{-k-1}-2^{-N}}{y_k}.\]
 Since $y_k\ge1$, $y_N<1+\sum_{k\ge1}2^{-k-1}=\frac32$: the sequence is non-decreasing and bounded, so $L=\lim y_n$ exists, and letting $N\to\infty$,
 \[L=1+\sum_{k\ge1}\frac1{2^{k+1}y_k}.\]
-\hint{4} Now use $y_k\le L$. Already $y_k\in[1,L]$ gives $1+\frac1{2L}\le L\le\frac32$, i.e.\ $\frac{1+\sqrt3}2\le L\le\frac32$. Sharper: $y_1=y_2=1$, $y_3=\frac98$, and $y_k\in[\frac98,L]$ for $k\ge3$, so
+\hint{4} Now use $y_k\le L$. Already $y_k\in[1,L]$ gives $1+\frac1{2L}\le L\le\frac32$, i.e.\ $\frac{1+\sqrt3}2\le L\le\frac32$, as required. (Sharper, not needed: $y_1=y_2=1$, $y_3=\frac98$, and $y_k\in[\frac98,L]$ for $k\ge3$, so
 \[\frac{11}8+\frac1{8L}\le L\le\frac{11}8+\frac19,\qquad\text{i.e.}\qquad 1.460<\frac{11+\sqrt{153}}{16}\le L\le\frac{107}{72}<1.487.\]
-Numerically $L\approx1.4782$.
+Numerically $L\approx1.4782$.)
 
 \problem{7}
 \hint{1} Use $\frac{2x}\pi\le\sin x\le x$ on $\bigl[0,\frac\pi2\bigr]$. a) Near $0$ the integrand is $\frac{\{nx\}}{\sin x}\le\frac{nx}{\sin x}\le\frac{\pi n}2$, so it is bounded and the integral converges. b) The same inequality gives $J(n)\le I(n)\le\frac\pi2J(n)$, where, after $t=nx$,
