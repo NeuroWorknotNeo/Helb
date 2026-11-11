@@ -50,26 +50,11 @@ $x\mapsto A^\T x$ is, over every commutative semiring); here the semiring is
 $(\{0,1\},\max,\min)$.}
 
 %------------------------------------------------------------------
-\problem{1}{easy}
+\problem{2}{below average}
 Prove that for every positive integer $n$ and every integer $k$ with $0\le k\le 2^{n-1}$ there is an
 $n\times n$ matrix with entries in $\{0,1\}$ whose permanent equals $k$.
 \source{Z.~Hunter, M.~Kwan, L.~Sauermann, \emph{Exponential anticoncentration of the permanent},
 arXiv:2509.22577, Section~1.2 (the theorem of Brualdi and Newman).}
-
-%------------------------------------------------------------------
-\problem{2}{below average}
-Call a set $\{a,b,c,d\}$ of four distinct positive integers \emph{spectral} if each of the
-$24$ matrices
-$\begin{pmatrix}p&q\\r&s\end{pmatrix}$, where $(p,q,r,s)$ is a permutation of $(a,b,c,d)$, has
-integer eigenvalues.
-\begin{enumerate}[label=(\alph*),nosep]
-\item Show that $\{1,6,7,12\}$ is spectral.
-\item Prove that there are infinitely many spectral sets whose elements have no common divisor
-greater than $1$.
-\end{enumerate}
-\source{M.~J.~W.~Hall, \emph{Matrices with integer eigenvalues for all permutations of
-coefficients (thanks to Pythagoras!)}, arXiv:2601.01083, equations (7)--(17): spectral sets
-obtained from Pythagorean triples.}
 
 %------------------------------------------------------------------
 \problem{2}{below average}
@@ -101,6 +86,21 @@ Prove that $A=D+M$ for some diagonalizable $D\in M_3(\mathbb F_3)$ and some $M\i
 if and only if $\tr A=0$.
 \source{P.~Danchev, E.~Garc\'ia, M.~G\'omez Lozano, \emph{Matrices over finite fields of odd characteristic
 as sums of diagonalizable and square-zero matrices}, arXiv:2507.05762, Remark~3.2 and Corollary~3.3.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Call a set $\{a,b,c,d\}$ of four distinct positive integers \emph{spectral} if each of the
+$24$ matrices
+$\begin{pmatrix}p&q\\r&s\end{pmatrix}$, where $(p,q,r,s)$ is a permutation of $(a,b,c,d)$, has
+integer eigenvalues.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Show that $\{1,6,7,12\}$ is spectral.
+\item Prove that there are infinitely many spectral sets whose elements have no common divisor
+greater than $1$.
+\end{enumerate}
+\source{M.~J.~W.~Hall, \emph{Matrices with integer eigenvalues for all permutations of
+coefficients (thanks to Pythagoras!)}, arXiv:2601.01083, equations (7)--(17): spectral sets
+obtained from Pythagorean triples.}
 
 %------------------------------------------------------------------
 \problem{3}{medium}
@@ -139,16 +139,6 @@ $AB=I$, then $A$ and $B$ are permutation matrices.
 \source{C.~O'Brien, R.~Quinlan, \emph{Groups of singular alternating sign matrices}, arXiv:2405.13611,
 Introduction (the theorem that the only invertible alternating sign matrices whose inverses are alternating
 sign matrices are the permutation matrices).}
-
-%------------------------------------------------------------------
-\problem{3}{medium}
-Let $A$ be a real symmetric $n\times n$ matrix with nonnegative entries and let $x\in\mathbb R^n$ be a vector
-with nonnegative coordinates and $\|x\|=1$. Prove that
-\[
-x^\T A^3x\ \ge\ \bigl(x^\T Ax\bigr)^3 .
-\]
-\source{C.~Stoner, \emph{The graph density domination exponent}, arXiv:2211.09870, Introduction and
-Section~4, Theorem~4.1 (the Blakley--Roy inequality).}
 
 %------------------------------------------------------------------
 \problem{3}{medium}
@@ -198,13 +188,14 @@ as $C=p(AB)-p(BA)$ with $A,B\in M_n(\mathbb C)$ if and only if $\tr C=0$.
 arXiv:2505.08268, Theorem~3.4 and Corollary~3.5.}
 
 %------------------------------------------------------------------
-\problem{3}{medium}
-Let $n\ge3$. A family $\mathcal F$ of distinct subsets of $\{1,\dots,n\}$ has the following properties: every
-set in $\mathcal F$ has an odd number of elements, any two distinct sets in $\mathcal F$ have an odd number of
-common elements, and any three distinct sets in $\mathcal F$ have an even number of common elements.
-Determine the largest possible size of $\mathcal F$.
-\source{G.~Johnston, J.~O'Neill, \emph{A few new oddtown and eventown problems}, arXiv:2312.13588,
-Theorem~1 (the case of odd sizes, odd pairwise and even triple intersections).}
+\problem{4}{above average}
+Let $A$ be a real symmetric $n\times n$ matrix with nonnegative entries and let $x\in\mathbb R^n$ be a vector
+with nonnegative coordinates and $\|x\|=1$. Prove that
+\[
+x^\T A^3x\ \ge\ \bigl(x^\T Ax\bigr)^3 .
+\]
+\source{C.~Stoner, \emph{The graph density domination exponent}, arXiv:2211.09870, Introduction and
+Section~4, Theorem~4.1 (the Blakley--Roy inequality).}
 
 %------------------------------------------------------------------
 \problem{4}{above average}
@@ -266,15 +257,6 @@ Section~4.1 (Euclidean spaces are of strictly negative type; Schoenberg's theore
 
 %------------------------------------------------------------------
 \problem{4}{above average}
-Let $n\ge3$ be odd. For disjoint nonempty sets $X,Y\subseteq\{1,\dots,n\}$ let $B(X,Y)$ be the complete
-bipartite graph whose edges are all pairs $\{x,y\}$ with $x\in X$, $y\in Y$. Find the smallest $t$ for
-which there are complete bipartite graphs $B(X_1,Y_1),\dots,B(X_t,Y_t)$ such that every pair of distinct
-elements of $\{1,\dots,n\}$ is an edge of an odd number of them.
-\source{I.~Leader, T.~S.~Tan, \emph{Odd covers of complete graphs and hypergraphs}, arXiv:2408.05053,
-Theorem~1 and Corollary~2.}
-
-%------------------------------------------------------------------
-\problem{4}{above average}
 \begin{enumerate}[label=(\alph*),nosep]
 \item Let $G$ be a real symmetric positive definite $n\times n$ matrix with all diagonal entries equal to $m$
 and $|g_{ij}|\ge b>0$ for all $i\ne j$. Prove that $\det G\le\bigl(m+(n-1)b\bigr)(m-b)^{n-1}$.
@@ -284,6 +266,24 @@ $|\det A|\le\sqrt{2n-1}\,(n-1)^{(n-1)/2}$.
 \source{P.~Browne, R.~Egan, F.~Hegarty, P.~\'O~Cath\'ain, \emph{A survey of the Hadamard maximal
 determinant problem}, arXiv:2104.06756, Lemma~7, Theorem~8 (Ehlich--Wojtas) and Corollary~10 (Barba's
 bound).}
+
+%------------------------------------------------------------------
+\problem{5}{hard}
+Let $n\ge3$. A family $\mathcal F$ of distinct subsets of $\{1,\dots,n\}$ has the following properties: every
+set in $\mathcal F$ has an odd number of elements, any two distinct sets in $\mathcal F$ have an odd number of
+common elements, and any three distinct sets in $\mathcal F$ have an even number of common elements.
+Determine the largest possible size of $\mathcal F$.
+\source{G.~Johnston, J.~O'Neill, \emph{A few new oddtown and eventown problems}, arXiv:2312.13588,
+Theorem~1 (the case of odd sizes, odd pairwise and even triple intersections).}
+
+%------------------------------------------------------------------
+\problem{5}{hard}
+Let $n\ge3$ be odd. For disjoint nonempty sets $X,Y\subseteq\{1,\dots,n\}$ let $B(X,Y)$ be the complete
+bipartite graph whose edges are all pairs $\{x,y\}$ with $x\in X$, $y\in Y$. Find the smallest $t$ for
+which there are complete bipartite graphs $B(X_1,Y_1),\dots,B(X_t,Y_t)$ such that every pair of distinct
+elements of $\{1,\dots,n\}$ is an edge of an odd number of them.
+\source{I.~Leader, T.~S.~Tan, \emph{Odd covers of complete graphs and hypergraphs}, arXiv:2408.05053,
+Theorem~1 and Corollary~2.}
 
 %------------------------------------------------------------------
 \problem{5}{hard}
