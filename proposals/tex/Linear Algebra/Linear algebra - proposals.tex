@@ -7,6 +7,7 @@
 \usepackage[margin=2.2cm]{geometry}
 \usepackage{setspace}
 \usepackage{enumitem}
+\usepackage{needspace}
 \usepackage[hidelinks]{hyperref}
 \setstretch{1.25}
 \frenchspacing
@@ -18,7 +19,7 @@
 \newcommand{\T}{\mathsf T}
 
 \newcounter{prob}
-\newcommand{\problem}[2]{\par\bigskip\stepcounter{prob}%
+\newcommand{\problem}[2]{\par\bigskip\needspace{7\baselineskip}\stepcounter{prob}%
   \noindent\textbf{Problem \theprob.}\hfill\textit{IMC level: #1/5 (#2)}\par\smallskip}
 \newcommand{\source}[1]{\par\smallskip\noindent{\small\textit{Based on:} #1}\par}
 
@@ -31,7 +32,7 @@
 
 \medskip
 Each problem is a special case of a published result or of a lemma used in its proof; the
-papers are in this folder. The difficulty is the position of the problem in an IMC day:
+papers are in this folder. The problems are ordered by difficulty. The difficulty is the position of the problem in an IMC day:
 1 easy, 2 below average, 3 medium, 4 above average, 5 hard.
 
 %------------------------------------------------------------------
@@ -49,6 +50,13 @@ $x\mapsto A^\T x$ is, over every commutative semiring); here the semiring is
 $(\{0,1\},\max,\min)$.}
 
 %------------------------------------------------------------------
+\problem{1}{easy}
+Prove that for every positive integer $n$ and every integer $k$ with $0\le k\le 2^{n-1}$ there is an
+$n\times n$ matrix with entries in $\{0,1\}$ whose permanent equals $k$.
+\source{Z.~Hunter, M.~Kwan, L.~Sauermann, \emph{Exponential anticoncentration of the permanent},
+arXiv:2509.22577, Section~1.2 (the theorem of Brualdi and Newman).}
+
+%------------------------------------------------------------------
 \problem{2}{below average}
 Call a set $\{a,b,c,d\}$ of four distinct positive integers \emph{spectral} if each of the
 $24$ matrices
@@ -62,6 +70,45 @@ greater than $1$.
 \source{M.~J.~W.~Hall, \emph{Matrices with integer eigenvalues for all permutations of
 coefficients (thanks to Pythagoras!)}, arXiv:2601.01083, equations (7)--(17): spectral sets
 obtained from Pythagorean triples.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+For a square matrix $X$ let $\rho(X)$ be its spectral radius. For a matrix $A=(a_{ij})$ with positive
+entries and $t\in\mathbb R$ put $A^{(t)}=(a_{ij}^{\,t})$.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Let $A=(a_{ij})$ and $B=(b_{ij})$ be $n\times n$ matrices with nonnegative entries and
+$C=(\sqrt{a_{ij}b_{ij}})$. Prove that $\rho(C)^2\le\rho(A)\,\rho(B)$.
+\item Deduce that for every $n\times n$ matrix $A$ with positive entries the function
+$t\mapsto\ln\rho(A^{(t)})$ is convex on $\mathbb R$.
+\end{enumerate}
+\source{K.~Bogdanovi\'c, \emph{Inequalities on the generalized and the joint spectral radius of
+Hadamard products}, arXiv:2311.02444, Theorem~1.2, inequality (1.8) (Kingman's theorem).}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $F$ be a field. Call a matrix $X\in M_2(F)$ \emph{unipotent} if $X\ne I$ and $(X-I)^2=0$. Let
+$A\in M_2(F)$ be a non-scalar matrix with $\det A=1$. Prove that $A=XYX^{-1}Y^{-1}$ for some unipotent
+$X,Y\in M_2(F)$ if and only if $\tr A-2=c^2$ for some nonzero $c\in F$.
+\source{K.~L.~Dela Rosa, J.~P.~C.~Santos, \emph{On commutators of unipotent matrices of index 2},
+arXiv:2409.13339, Theorem~3.2.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $\mathbb F_3$ be the field with three elements. Call $D\in M_3(\mathbb F_3)$ \emph{diagonalizable} if
+$D=P\Lambda P^{-1}$ for some invertible $P\in M_3(\mathbb F_3)$ and some diagonal $\Lambda\in M_3(\mathbb F_3)$.
+Let $A\in M_3(\mathbb F_3)$ be a matrix whose characteristic polynomial is irreducible over $\mathbb F_3$.
+Prove that $A=D+M$ for some diagonalizable $D\in M_3(\mathbb F_3)$ and some $M\in M_3(\mathbb F_3)$ with $M^2=0$
+if and only if $\tr A=0$.
+\source{P.~Danchev, E.~Garc\'ia, M.~G\'omez Lozano, \emph{Matrices over finite fields of odd characteristic
+as sums of diagonalizable and square-zero matrices}, arXiv:2507.05762, Remark~3.2 and Corollary~3.3.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $A\colon\mathbb R^n\to\mathbb R^n$ be a linear operator such that $A([-1,1]^n)$ is contained in the
+closed unit ball $B_1(0)$. Find the maximal possible value of $|\det A|$.
+\source{F.~Grundbacher, T.~Kobos, \emph{On certain extremal Banach--Mazur distances and Ader's
+characterization of distance ellipsoids}, arXiv:2407.08829, Section~1 (the John and Loewner ellipsoids
+of the cube $[-1,1]^n$; John's theorem).}
 
 %------------------------------------------------------------------
 \problem{3}{medium}
@@ -84,6 +131,82 @@ Egyptian-fraction classification of affine weighted trees}, arXiv:2605.23011,
 Proposition~4.1, Theorem~4.2 and Corollary~4.3.}
 
 %------------------------------------------------------------------
+\problem{3}{medium}
+An \emph{alternating sign matrix} is a square matrix with entries in $\{0,1,-1\}$ such that in every row
+and in every column the nonzero entries alternate in sign, beginning and ending with $+1$ (for example,
+every permutation matrix is one). Prove that if $A$ and $B$ are $n\times n$ alternating sign matrices with
+$AB=I$, then $A$ and $B$ are permutation matrices.
+\source{C.~O'Brien, R.~Quinlan, \emph{Groups of singular alternating sign matrices}, arXiv:2405.13611,
+Introduction (the theorem that the only invertible alternating sign matrices whose inverses are alternating
+sign matrices are the permutation matrices).}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $A$ be a real symmetric $n\times n$ matrix with nonnegative entries and let $x\in\mathbb R^n$ be a vector
+with nonnegative coordinates and $\|x\|=1$. Prove that
+\[
+x^\T A^3x\ \ge\ \bigl(x^\T Ax\bigr)^3 .
+\]
+\source{C.~Stoner, \emph{The graph density domination exponent}, arXiv:2211.09870, Introduction and
+Section~4, Theorem~4.1 (the Blakley--Roy inequality).}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+A \emph{tournament matrix} is an $n\times n$ matrix $M$ with entries in $\{0,1\}$ such that $M+M^\T=J-I$,
+where $J$ is the all-ones matrix. A \emph{cyclic triangle} is a set $\{i,j,k\}$ with
+$m_{ij}=m_{jk}=m_{ki}=1$. Prove that if $M$ is singular, then there are at most $\frac14\binom n3$ cyclic
+triangles, and that for every even $n$ this bound is attained.
+\source{M.~Burnham, \emph{Structure of singular and nonsingular tournament matrices}, arXiv:2210.12371,
+Lemma~2.3 (Shader's inequality) and Proposition~2.4.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+For a tournament on the vertex set $\{1,\dots,n\}$ its \emph{Seidel matrix} $S$ is the $n\times n$ matrix with
+$s_{ii}=0$, $s_{ij}=1$ if $i$ beats $j$, and $s_{ij}=-1$ if $j$ beats $i$. Let $n$ be even. Prove that every
+odd perfect square $k^2$ with $k\le n-1$ is the determinant of the Seidel matrix of some tournament on
+$n$ vertices.
+\source{S.~Klanderman, M.~Montee, A.~Piotrowski, A.~Rice, B.~Shader, \emph{Determinants of Seidel tournament
+matrices}, arXiv:2406.09697, Question~1.1, Lemma~3.1 and Theorem~3.2.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $x_1,\dots,x_{2n}$ be real numbers and let $A$ be the $2n\times2n$ matrix with entries
+\[
+a_{ij}=(x_i-x_j)^2\ (i<j),\qquad a_{ii}=0,\qquad a_{ij}=-(x_i-x_j)^2\ (i>j).
+\]
+Prove that $\det A=4^{\,n-1}\prod_{k=1}^{2n}(x_k-x_{k+1})^2$, where $x_{2n+1}=x_1$.
+\source{A.~Dzhumadil'daev, \emph{Symmetry groups of pfaffians of symmetric matrices}, arXiv:2201.11570,
+Theorems~1.2 and~1.3.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $n\ge2$, let $A\in M_n(\mathbb Q)$ be a matrix whose characteristic polynomial $f$ is irreducible over
+$\mathbb Q$, and let $p\in\mathbb Q[x]$ be a nonconstant polynomial.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that the equation $p(X)=A$ has a solution $X\in M_n(\mathbb Q)$ if and only if the polynomial
+$f(p(x))$ has a divisor of degree $n$ in $\mathbb Q[x]$.
+\item Prove that the equation $X^2=A$ has either no solutions or exactly two solutions in $M_n(\mathbb Q)$.
+\end{enumerate}
+\source{G.~J.~Groenewald, G.~Goosen, D.~B.~Janse van Rensburg, A.~C.~M.~Ran, M.~van Straaten, \emph{Galois
+groups and rational solutions of $p(X)=A$}, arXiv:2307.06303, Theorem~4 and Proposition~10.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $p\in\mathbb C[x]$ be a nonconstant polynomial. Prove that a matrix $C\in M_n(\mathbb C)$ can be written
+as $C=p(AB)-p(BA)$ with $A,B\in M_n(\mathbb C)$ if and only if $\tr C=0$.
+\source{T.~H.~Dung, T.~N.~Son, P.~D.~Vinh, \emph{A nonlinear analogue of additive commutators},
+arXiv:2505.08268, Theorem~3.4 and Corollary~3.5.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $n\ge3$. A family $\mathcal F$ of distinct subsets of $\{1,\dots,n\}$ has the following properties: every
+set in $\mathcal F$ has an odd number of elements, any two distinct sets in $\mathcal F$ have an odd number of
+common elements, and any three distinct sets in $\mathcal F$ have an even number of common elements.
+Determine the largest possible size of $\mathcal F$.
+\source{G.~Johnston, J.~O'Neill, \emph{A few new oddtown and eventown problems}, arXiv:2312.13588,
+Theorem~1 (the case of odd sizes, odd pairwise and even triple intersections).}
+
+%------------------------------------------------------------------
 \problem{4}{above average}
 Let $A$ be a complex $2\times2$ matrix with eigenvalues $\lambda$ and $\mu$ (counted with
 multiplicity). Prove that the set
@@ -98,10 +221,83 @@ secondary values of a matrix}, arXiv:2410.03744, Proposition~1 (the elliptical r
 Toeplitz).}
 
 %------------------------------------------------------------------
+\problem{4}{above average}
+A real $n\times n$ matrix $T$ is called a \emph{transvection} if $\operatorname{rank}(T-I)=1$ and
+$(T-I)^2=0$. For invertible matrices put $[X,Y]=XYX^{-1}Y^{-1}$.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Let $n\ge3$. Prove that for every invertible real $n\times n$ matrix $A$ there are transvections
+$T_1,T_2$ with $[[A,T_1],T_2]=I$.
+\item Let $n=2$. Prove that for an invertible real $2\times2$ matrix $A$ such transvections exist if and only
+if $A$ has a real eigenvalue.
+\end{enumerate}
+\source{I.~Chinyere, \emph{Unipotence of a double commutator with transvections}, arXiv:2609.17006,
+Theorem~2.9 and Remark~2.8 (the case $n=2$ is left open there; part (b) answers it over $\mathbb R$).}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $F$ be a finite field with $q$ elements. Call a set $S\subseteq M_n(F)$ \emph{singular} if
+$\det(A-B)=0$ for all $A,B\in S$.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that every singular set has at most $q^{n^2-n}$ elements, and that this bound is attained.
+\item Let $n=2$. Prove that every singular set which is maximal with respect to inclusion has exactly $q^2$
+elements.
+\end{enumerate}
+\source{S.~Rahimi, A.~Nikseresht, \emph{Well-covered unitary Cayley graphs of matrix rings over finite fields
+and applications}, arXiv:2311.15255, Lemma~1.1 and Proposition~2.1.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $X$ be a finite set with $|X|=n$ and let $\mathbb K$ be a field. Suppose that for all $x,y,z\in X$
+\[
+[x=y=z]=\sum_{i\in I_1}f_i(x)\,g_i(y,z)+\sum_{i\in I_2}f_i(y)\,g_i(x,z)+\sum_{i\in I_3}f_i(z)\,g_i(x,y),
+\]
+where $I_1,I_2,I_3$ are disjoint finite index sets, $f_i\colon X\to\mathbb K$, $g_i\colon X^2\to\mathbb K$, and
+$[x=y=z]$ equals $1$ if $x=y=z$ and $0$ otherwise. Prove that $|I_1|+|I_2|+|I_3|\ge n$.
+\source{W.~T.~Gowers, \emph{The slice rank of a direct sum}, arXiv:2105.08394, Lemma~1 (Tao's lemma on the
+slice rank of a diagonal tensor).}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $x_1,\dots,x_n$ ($n\ge2$) be distinct points of $\mathbb R^d$ and let $D=\bigl(\|x_i-x_j\|\bigr)_{i,j=1}^n$ be
+the matrix of their Euclidean distances. Prove that $D$ has exactly one positive eigenvalue and $n-1$
+negative eigenvalues. In particular, $D$ is invertible.
+\source{E.~Roff, S.~Willerton, \emph{The microscopic weighting on a metric space}, arXiv:2607.05349,
+Section~4.1 (Euclidean spaces are of strictly negative type; Schoenberg's theorem).}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $n\ge3$ be odd. For disjoint nonempty sets $X,Y\subseteq\{1,\dots,n\}$ let $B(X,Y)$ be the complete
+bipartite graph whose edges are all pairs $\{x,y\}$ with $x\in X$, $y\in Y$. Find the smallest $t$ for
+which there are complete bipartite graphs $B(X_1,Y_1),\dots,B(X_t,Y_t)$ such that every pair of distinct
+elements of $\{1,\dots,n\}$ is an edge of an odd number of them.
+\source{I.~Leader, T.~S.~Tan, \emph{Odd covers of complete graphs and hypergraphs}, arXiv:2408.05053,
+Theorem~1 and Corollary~2.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+\begin{enumerate}[label=(\alph*),nosep]
+\item Let $G$ be a real symmetric positive definite $n\times n$ matrix with all diagonal entries equal to $m$
+and $|g_{ij}|\ge b>0$ for all $i\ne j$. Prove that $\det G\le\bigl(m+(n-1)b\bigr)(m-b)^{n-1}$.
+\item Deduce that for odd $n$ every $n\times n$ matrix $A$ with entries $\pm1$ satisfies
+$|\det A|\le\sqrt{2n-1}\,(n-1)^{(n-1)/2}$.
+\end{enumerate}
+\source{P.~Browne, R.~Egan, F.~Hegarty, P.~\'O~Cath\'ain, \emph{A survey of the Hadamard maximal
+determinant problem}, arXiv:2104.06756, Lemma~7, Theorem~8 (Ehlich--Wojtas) and Corollary~10 (Barba's
+bound).}
+
+%------------------------------------------------------------------
 \problem{5}{hard}
 Let $A$ be a complex $n\times n$ matrix. Prove that $A=B+C$ for some complex $n\times n$ matrices
 $B$ and $C$ with $B^2=C^2=0$ if and only if $A$ is similar to $-A$.
 \source{C.~de Seguins Pazzis, \emph{Sums of two square-zero selfadjoint or skew-selfadjoint
 endomorphisms}, arXiv:2210.03955, Theorems~1.1 and~1.2 (the theorem of Wang--Wu and Botha).}
+
+%------------------------------------------------------------------
+\problem{5}{hard}
+Hyperplanes $H_1,\dots,H_m$ in $\mathbb R^n$ together contain all $2^n$ points of $\{0,1\}^n$. Each $H_i$ is
+given by an equation $a_{i1}x_1+\dots+a_{in}x_n=b_i$ in which all coefficients $a_{ij}$ are nonzero. Prove that
+$m\ge\frac n2+1$.
+\source{L.~Sauermann, Z.~Xu, \emph{Nondegenerate hyperplane covers of the hypercube}, arXiv:2507.00773,
+Theorem~1.1 and Remark~2.4.}
 
 \end{document}

@@ -10,18 +10,41 @@
 Сложность указана как позиция задачи в дне IMC: 1 — простая, 2 — ниже среднего, 3 — средняя,
 4 — выше среднего, 5 — сложная.
 
-Статьи берутся только с открытой лицензией (CC BY и т. п.), чтобы их можно было выкладывать
-в публичный репозиторий.
+Статьи берутся только с открытой лицензией (CC BY, CC0 и т. п.), чтобы их можно было выкладывать
+в публичный репозиторий. Результат не обязан быть новым: классическую теорему можно взять из статьи
+под открытой лицензией, где она сформулирована или передоказана.
 
 Новизна проверялась по пулу олимпиад из `olympiads/` и по листкам из `sheets/`; гарантии, что задача
 не встречалась нигде, нет.
 
 ## Linear Algebra
 
-| № | Сложность | Статья | Лицензия |
-|---|---|---|---|
-| 1 | 1 | S. Gu, W. Qi, Y. Cheng, *Transpose symmetry of injectivity over commutative semirings*, [arXiv:2608.16205](https://arxiv.org/abs/2608.16205) | CC BY 4.0 |
-| 2 | 2 | M. J. W. Hall, *Matrices with integer eigenvalues for all permutations of coefficients (thanks to Pythagoras!)*, [arXiv:2601.01083](https://arxiv.org/abs/2601.01083) | CC BY 4.0 |
-| 3 | 3 | E. Torrente-Lujan, *Star-shaped integral Cartan-type matrices and an Egyptian-fraction classification of affine weighted trees*, [arXiv:2605.23011](https://arxiv.org/abs/2605.23011) | CC BY 4.0 |
-| 4 | 4 | P. Blaschke, *Coval description of the boundary of a numerical range and the secondary values of a matrix*, [arXiv:2410.03744](https://arxiv.org/abs/2410.03744) | CC BY 4.0 |
-| 5 | 5 | C. de Seguins Pazzis, *Sums of two square-zero selfadjoint or skew-selfadjoint endomorphisms*, [arXiv:2210.03955](https://arxiv.org/abs/2210.03955) | CC BY 4.0 |
+Задачи в файле упорядочены по сложности.
+
+| № | Сложность | Задача | Авторы статьи | arXiv | Лицензия |
+|---|---|---|---|---|---|
+| 1 | 1 | Булевы инъективные матрицы | S. Gu, W. Qi, Y. Cheng | [2608.16205](https://arxiv.org/abs/2608.16205) | CC BY 4.0 |
+| 2 | 1 | Перманенты 0/1-матриц: все числа от 0 до 2^{n−1} | Z. Hunter, M. Kwan, L. Sauermann | [2509.22577](https://arxiv.org/abs/2509.22577) | CC BY 4.0 |
+| 3 | 2 | Наборы {a,b,c,d} с целыми собственными числами всех 24 матриц | M. J. W. Hall | [2601.01083](https://arxiv.org/abs/2601.01083) | CC BY 4.0 |
+| 4 | 2 | Теорема Кингмана о спектральном радиусе | K. Bogdanović | [2311.02444](https://arxiv.org/abs/2311.02444) | CC0 1.0 |
+| 5 | 2 | Коммутаторы унипотентных матриц 2×2 | K. L. Dela Rosa, J. P. C. Santos | [2409.13339](https://arxiv.org/abs/2409.13339) | CC BY 4.0 |
+| 6 | 2 | Диагонализуемая + квадратично-нулевая над F_3 | P. Danchev, E. García, M. Gómez Lozano | [2507.05762](https://arxiv.org/abs/2507.05762) | CC BY 4.0 |
+| 7 | 3 | max \|det A\| при A([−1,1]^n) ⊂ B_1(0) (эллипсоид Лёвнера) | F. Grundbacher, T. Kobos | [2407.08829](https://arxiv.org/abs/2407.08829) | CC BY 4.0 |
+| 8 | 3 | Звёздные матрицы типа Картана | E. Torrente-Lujan | [2605.23011](https://arxiv.org/abs/2605.23011) | CC BY 4.0 |
+| 9 | 3 | Матрицы знакочередования, обратные друг другу | C. O'Brien, R. Quinlan | [2405.13611](https://arxiv.org/abs/2405.13611) | CC BY-NC-SA 4.0 |
+| 10 | 3 | Неравенство Блэкли–Роя x^T A^3 x ≥ (x^T A x)^3 | C. Stoner | [2211.09870](https://arxiv.org/abs/2211.09870) | CC BY 4.0 |
+| 11 | 3 | Неравенство Шейдера для турниров | M. Burnham | [2210.12371](https://arxiv.org/abs/2210.12371) | CC BY 4.0 |
+| 12 | 3 | Определители матриц Зейделя турниров | S. Klanderman, M. Montee, A. Piotrowski, A. Rice, B. Shader | [2406.09697](https://arxiv.org/abs/2406.09697) | CC BY 4.0 |
+| 13 | 3 | Определитель кососимметричной матрицы (x_i − x_j)^2 | A. Dzhumadil'daev | [2201.11570](https://arxiv.org/abs/2201.11570) | CC BY 4.0 |
+| 14 | 3 | Рациональные решения p(X) = A | G. J. Groenewald, G. Goosen, D. B. Janse van Rensburg, A. C. M. Ran, M. van Straaten | [2307.06303](https://arxiv.org/abs/2307.06303) | CC BY 4.0 |
+| 15 | 3 | C = p(AB) − p(BA) ⇔ tr C = 0 | T. H. Dung, T. N. Son, P. D. Vinh | [2505.08268](https://arxiv.org/abs/2505.08268) | CC BY 4.0 |
+| 16 | 3 | Семейства множеств с нечётными попарными и чётными тройными пересечениями | G. Johnston, J. O'Neill | [2312.13588](https://arxiv.org/abs/2312.13588) | CC BY 4.0 |
+| 17 | 4 | Численный образ матрицы 2×2 — эллипс | P. Blaschke | [2410.03744](https://arxiv.org/abs/2410.03744) | CC BY 4.0 |
+| 18 | 4 | Двойные коммутаторы с трансвекциями | I. Chinyere | [2609.17006](https://arxiv.org/abs/2609.17006) | CC BY 4.0 |
+| 19 | 4 | Множества матриц с вырожденными попарными разностями | S. Rahimi, A. Nikseresht | [2311.15255](https://arxiv.org/abs/2311.15255) | CC BY 4.0 |
+| 20 | 4 | Лемма Тао о slice rank диагонального тензора | W. T. Gowers | [2105.08394](https://arxiv.org/abs/2105.08394) | CC BY 4.0 |
+| 21 | 4 | Сигнатура матрицы евклидовых расстояний (Шёнберг) | E. Roff, S. Willerton | [2607.05349](https://arxiv.org/abs/2607.05349) | CC BY 4.0 |
+| 22 | 4 | Нечётные покрытия K_n двудольными графами | I. Leader, T. S. Tan | [2408.05053](https://arxiv.org/abs/2408.05053) | CC BY 4.0 |
+| 23 | 4 | Граница Барбы для ±1-матриц | P. Browne, R. Egan, F. Hegarty, P. Ó Catháin | [2104.06756](https://arxiv.org/abs/2104.06756) | CC BY 4.0 |
+| 24 | 5 | A = B + C, B² = C² = 0 ⇔ A ~ −A | C. de Seguins Pazzis | [2210.03955](https://arxiv.org/abs/2210.03955) | CC BY 4.0 |
+| 25 | 5 | Покрытие куба гиперплоскостями с ненулевыми коэффициентами | L. Sauermann, Z. Xu | [2507.00773](https://arxiv.org/abs/2507.00773) | CC BY 4.0 |
