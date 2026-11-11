@@ -1,0 +1,107 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.25}
+\frenchspacing
+\emergencystretch=3em
+\setlength{\parindent}{0pt}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\DeclareMathOperator{\tr}{tr}
+\newcommand{\T}{\mathsf T}
+
+\newcounter{prob}
+\newcommand{\problem}[2]{\par\bigskip\stepcounter{prob}%
+  \noindent\textbf{Problem \theprob.}\hfill\textit{IMC level: #1/5 (#2)}\par\smallskip}
+\newcommand{\source}[1]{\par\smallskip\noindent{\small\textit{Based on:} #1}\par}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Linear algebra -- new problems\par}\vspace{0.6em}
+{\large Problems built on recent research results\par}
+\end{center}
+
+\medskip
+Each problem is a special case of a published result or of a lemma used in its proof; the
+papers are in this folder. The difficulty is the position of the problem in an IMC day:
+1 easy, 2 below average, 3 medium, 4 above average, 5 hard.
+
+%------------------------------------------------------------------
+\problem{1}{easy}
+For an $n\times n$ matrix $A=(a_{ij})$ with entries in $\{0,1\}$ and a vector
+$x\in\{0,1\}^n$ define the vector $A\odot x\in\{0,1\}^n$ by
+\[
+(A\odot x)_i=\max_{1\le j\le n}a_{ij}x_j,\qquad i=1,\dots,n.
+\]
+Suppose that the map $x\mapsto A\odot x$ from $\{0,1\}^n$ to itself is injective. Prove that $A$
+is a permutation matrix. Deduce that the map $x\mapsto A^\T\odot x$ is injective as well.
+\source{S.~Gu, W.~Qi, Y.~Cheng, \emph{Transpose symmetry of injectivity over commutative
+semirings}, arXiv:2608.16205, Theorem~1 (the map $x\mapsto Ax$ is injective if and only if
+$x\mapsto A^\T x$ is, over every commutative semiring); here the semiring is
+$(\{0,1\},\max,\min)$.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Call a set $\{a,b,c,d\}$ of four distinct positive integers \emph{spectral} if each of the
+$24$ matrices
+$\begin{pmatrix}p&q\\r&s\end{pmatrix}$, where $(p,q,r,s)$ is a permutation of $(a,b,c,d)$, has
+integer eigenvalues.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Show that $\{1,6,7,12\}$ is spectral.
+\item Prove that there are infinitely many spectral sets whose elements have no common divisor
+greater than $1$.
+\end{enumerate}
+\source{M.~J.~W.~Hall, \emph{Matrices with integer eigenvalues for all permutations of
+coefficients (thanks to Pythagoras!)}, arXiv:2601.01083, equations (7)--(17): spectral sets
+obtained from Pythagorean triples.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $k,m,r_1,\dots,r_m$ be positive integers. The tree $T$ is obtained from a vertex $v_0$ by
+attaching $m$ paths: the $i$-th path has $r_i$ vertices, and one of its end vertices is joined to
+$v_0$. Let $B$ be the symmetric matrix whose rows and columns are indexed by the vertices of $T$,
+with
+\[
+B_{v_0v_0}=k,\qquad B_{vv}=2\ \ (v\ne v_0),\qquad
+B_{uv}=\begin{cases}-1,&u,v\text{ adjacent},\\0,&\text{otherwise}\end{cases}\quad(u\ne v).
+\]
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that $\displaystyle\det B=(r_1+1)\cdots(r_m+1)\Bigl(k-\sum_{i=1}^m\frac{r_i}{r_i+1}\Bigr)$.
+\item Prove that $B$ is positive definite if and only if
+$\displaystyle\sum_{i=1}^m\frac1{r_i+1}>m-k$.
+\item Let $k=2$ and $m=3$. Find all triples $r_1\le r_2\le r_3$ for which $\det B=0$.
+\end{enumerate}
+\source{E.~Torrente-Lujan, \emph{Star-shaped integral Cartan-type matrices and an
+Egyptian-fraction classification of affine weighted trees}, arXiv:2605.23011,
+Proposition~4.1, Theorem~4.2 and Corollary~4.3.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $A$ be a complex $2\times2$ matrix with eigenvalues $\lambda$ and $\mu$ (counted with
+multiplicity). Prove that the set
+\[
+W(A)=\{\,u^*Au\ :\ u\in\mathbb C^2,\ u^*u=1\,\}
+\]
+is the closed region bounded by an ellipse (possibly degenerating into a segment) with foci
+$\lambda$ and $\mu$ whose minor axis has length
+$\sqrt{\tr(A^*A)-|\lambda|^2-|\mu|^2}$.
+\source{P.~Blaschke, \emph{Coval description of the boundary of a numerical range and the
+secondary values of a matrix}, arXiv:2410.03744, Proposition~1 (the elliptical range theorem of
+Toeplitz).}
+
+%------------------------------------------------------------------
+\problem{5}{hard}
+Let $A$ be a complex $n\times n$ matrix. Prove that $A=B+C$ for some complex $n\times n$ matrices
+$B$ and $C$ with $B^2=C^2=0$ if and only if $A$ is similar to $-A$.
+\source{C.~de Seguins Pazzis, \emph{Sums of two square-zero selfadjoint or skew-selfadjoint
+endomorphisms}, arXiv:2210.03955, Theorems~1.1 and~1.2 (the theorem of Wang--Wu and Botha).}
+
+\end{document}
