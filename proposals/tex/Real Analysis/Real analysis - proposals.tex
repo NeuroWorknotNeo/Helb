@@ -1,0 +1,205 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.25}
+\frenchspacing
+\emergencystretch=3em
+\setlength{\parindent}{0pt}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\DeclareMathOperator{\tr}{tr}
+\newcommand{\T}{\mathsf T}
+
+\newcounter{prob}
+\newcommand{\problem}[2]{\par\bigskip\needspace{7\baselineskip}\stepcounter{prob}%
+  \noindent\textbf{Problem \theprob.}\hfill\textit{IMC level: #1/5 (#2)}\par\smallskip}
+\newcommand{\source}[1]{\par\smallskip\noindent{\small\textit{Based on:} #1}\par}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Real analysis -- new problems\par}\vspace{0.6em}
+{\large Problems built on recent research results\par}
+\end{center}
+
+\medskip
+Each problem is a special case of a published result or of a lemma used in its proof; the
+papers are in this folder. The problems are ordered by difficulty. The difficulty is the position of the problem in an IMC day:
+1 easy, 2 below average, 3 medium, 4 above average, 5 hard.
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $C$ be the middle-thirds Cantor set, i.e.\ the set of numbers $\sum_{k\ge1}c_k3^{-k}$ with all $c_k\in\{0,2\}$.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Find all $t>0$ for which there is an $x$ with $x,\ x+t,\ x+2t\in C$.
+\item Find the largest possible length of an arithmetic progression with non-zero difference contained in $C$.
+\end{enumerate}
+\source{S.~Sandberg-Clark, K.~Taylor, A.~Yavicoli, \emph{Arithmetic-progression gap sets in Cantor sets}, arXiv:2608.14998, Proposition~2.1.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Fix a positive integer $k$. Let $\varphi_k\colon\mathbb N\to\mathbb N$ be the bijection that exchanges every odd number $m$ with $2^km$ and fixes every $n$ whose $2$-adic valuation is neither $0$ nor $k$. Prove that the series
+\[\sum_{n=1}^\infty\frac{(-1)^{\varphi_k(n)+1}}{\varphi_k(n)}\]
+converges and find its sum.
+\source{M.~Gilula, \emph{A class of simple rearrangements of the alternating harmonic series}, arXiv:2107.01364, Theorem~1.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $I\subseteq\{0,1,2,\dots\}$ and $I(k)=|I\cap\{0,1,\dots,k\}|$. Let $A_I$ be the set of positive integers whose binary digit in position $i$ (the coefficient of $2^i$) is $0$ for every $i\in I$. Prove that
+\[\sum_{n\in A_I}\frac1n<\infty\iff\sum_{k\ge0}2^{-I(k)}<\infty.\]
+Deduce that the series diverges for $I=\{1,2,4,8,\dots\}$ but converges for $I=\{1,4,9,16,\dots\}$.
+\source{M.~B.~Nathanson, \emph{Curious convergent series of integers with missing digits}, arXiv:2006.13345, Lemma~1 and Theorem~1.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $n\ge1$ and let $x_1,\dots,x_n$ be pairwise distinct positive reals. Put $a_i=\prod_{j\ne i}\frac{x_j}{x_j-x_i}$ for $i=1,\dots,n$ (the empty product is $1$). Prove that
+\[\frac{x_1x_2\cdots x_n}{n\,(1+x_1)\cdots(1+x_n)}<\sum_{i=1}^na_i\ln(1+x_i)<\frac{x_1x_2\cdots x_n}{n}.\]
+\source{V.~Bitsouni, N.~Gialelis, D.-S.~Marinescu, \emph{An inequality for completely monotone functions}, arXiv:2204.06602, inequality~(1) and Proposition~1.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $p>1$, let $f\colon(0,1]\to[0,\infty)$ be non-increasing and integrable, and put $F(x)=\int_0^xf(t)\,dt$. Prove that
+\[\int_0^1\Bigl(\frac{F(x)}{x}\Bigr)^pdx\ \ge\ \frac{p}{p-1}\int_0^1\bigl(1-x^{p-1}\bigr)f(x)^p\,dx,\]
+and that equality holds for the indicator function of $(0,c]$ for every $c\in(0,1]$.
+\source{L.-E.~Persson, N.~Samko, G.~Tephnadze, \emph{Sharpness of some Hardy-type inequalities}, arXiv:2302.12298, Theorem~3.2(a) and Lemma~3.1.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $f\colon[0,1]\to\mathbb R$ be continuous and let $\varepsilon>0$. Prove that there is a function $g\colon[0,1]\to\mathbb R$ with $|g(x)-g(y)|\le\varepsilon|x-y|$ for all $x,y$ such that for every $y\in\mathbb R$ the set $\{x\in[0,1]:f(x)+g(x)=y\}$ has Lebesgue measure zero.
+\source{S.~Barza, M.~Lind, \emph{Eliminating positive-measure level sets by small Lipschitz perturbations}, arXiv:2607.02348, Theorem~1.1.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $N\ge1$ and let $p(x)=a_0+\sum_{k=1}^{N}(a_k\cos kx+b_k\sin kx)$ be a real trigonometric polynomial, not identically zero, with $\int_{-\pi}^{\pi}p(x)\,dx\le0$. Suppose that $r\in(0,\pi]$ is such that $p(x)\ge0$ for all $x$ with $r\le|x|\le\pi$. Prove that $r\ge\frac{\pi}{N+1}$, and show that $r=\frac{\pi}{N+1}$ is possible.
+\source{T.~Ismoilov, \emph{Sharp sign uncertainty for trigonometric polynomials}, arXiv:2606.02299, Theorem~1.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $f\colon[0,\pi]\to\mathbb R$ be continuously differentiable with $f(0)=f(\pi)=0$. Prove that
+\[\int_0^\pi f'(x)^2\,dx\ \ge\ \frac14\int_0^\pi f(x)^2\Bigl(1+\frac1{\sin^2x}\Bigr)dx,\]
+and show that neither of the two constants $\frac14$ on the right-hand side (in front of $1$ and in front of $\frac1{\sin^2x}$) can be increased.
+\source{B.~Rosenzweig, J.~Stanfill, \emph{An elementary approach to integral inequalities involving higher order derivatives}, arXiv:2509.14513, Example~4.7, formula~(4.29).}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $f\colon[0,1]\to\mathbb R$ be convex. For $n\ge1$ put $A_n=\frac1{n+1}\sum_{i=0}^nf\bigl(\frac in\bigr)$, and for $n\ge2$ put $B_n=\frac1{n-1}\sum_{i=1}^{n-1}f\bigl(\frac in\bigr)$. Prove that the sequence $(A_n)$ is non-increasing and the sequence $(B_n)$ is non-decreasing. Deduce that $B_m\le\int_0^1f(x)\,dx\le A_n$ for all $m\ge2$ and $n\ge1$.
+\source{J.~Rooin, H.~Dehghan, \emph{Some monotonicity properties of convex functions with applications}, arXiv:1310.6698, Theorem~2.1 and Corollaries~2.3, 2.4.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $f\colon[0,1]\to[0,\infty)$ be non-decreasing. Put $F_1(x)=\int_0^xf(t)\,dt$, $F_2(x)=\int_0^xF_1(t)\,dt$, $F_3(x)=\int_0^xF_2(t)\,dt$, and $a=F_1(1)$, $b=F_2(1)$, $c=F_3(1)$. Prove that $2b^2\le3ac$.
+\source{M.~R.~Burke, M.~Haris, Madhavendra, \emph{Repeated integrals of increasing functions}, arXiv:2512.02151, Theorem~6.14.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+For a positive integer $r$ let $P_r(x)=\sum_{k=0}^{r}\frac{(-x)^k}{k!}=1-x+\frac{x^2}{2!}-\dots+\frac{(-x)^r}{r!}$. Find all $r$ for which every coefficient of the Taylor series of $1/P_r(x)$ at $x=0$ is non-negative.
+\source{J.~Engbers, D.~Galvin, C.~Smyth, \emph{Reciprocals of thinned exponential series}, arXiv:2303.14057, Introduction (Gessel's observation), Theorems~1.1 and~1.4.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $(a_n)_{n\in\mathbb Z}$ be a strictly increasing sequence of real numbers such that for every $n$ the series $\sum_{k\ne n}(a_k-a_n)^{-2}$ converges and
+\[\sum_{k>n}\frac1{(a_k-a_n)^2}=\sum_{k<n}\frac1{(a_n-a_k)^2}.\]
+Suppose that among the differences $g_n=a_{n+1}-a_n$ there is a largest one. Prove that all the differences $g_n$ are equal.
+\source{A.~Ferudun, \emph{Equilibria of inverse-square repulsion on the line are arithmetic progressions}, arXiv:2610.06944, Lemma~2.3 and Remark~2.5.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+For a positive integer $n$ let $s(n)$ be the number of ones in the binary expansion of $n$. For $k\ge1$ put $A_k=\sum_{n\ge1,\ s(n)=k}\frac1n$. Prove that every $A_k$ is finite and that $\lim_{k\to\infty}A_k=2\ln2$.
+\source{J.-P.~Allouche, C.~Morin, \emph{Kempner-like harmonic series}, arXiv:2305.18180, Theorem~1.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Define $a_1=1$ and, for $n\ge2$,
+\[a_n=\begin{cases}a_{n-1}+3,&\text{if } n\in\{a_1,\dots,a_{n-1}\},\\ a_{n-1}+2,&\text{otherwise}.\end{cases}\]
+Prove that $\displaystyle\lim_{n\to\infty}\frac{a_n}{n}=1+\sqrt2$.
+\source{B.~Cloitre, \emph{A study of a family of self-referential sequences}, arXiv:2506.18103, Theorem~2.1 and Lemma~2.2.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $f\colon[0,1]\to[0,1]$ be continuous, let $x_0\in[0,1]$, and let
+\[x_{n+1}=\frac{f(x_0)+f(x_1)+\dots+f(x_n)}{n+1}\qquad(n\ge0).\]
+Prove that the sequence $(x_n)$ converges.
+\source{R.~May, \emph{On the convergence of a perturbed one dimensional Mann's process}, arXiv:2504.16154, Theorem~1.2 (the theorem of Franks and Marzec).}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $D=\{(x,y):x^2+y^2\le1\}$ and let $u\colon D\to\mathbb R$ be a concave Lipschitz function with $u=0$ on the boundary of $D$ (so $u_x,u_y$ exist almost everywhere and are bounded).
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that $\displaystyle\iint_D|u_x|\,dx\,dy\le2\iint_D|u_y|\,dx\,dy$.
+\item Prove that the constant $2$ cannot be replaced by a smaller number.
+\end{enumerate}
+\source{A.~Plakhov, V.~Protasov, \emph{On inequalities between norms of partial derivatives on convex domains}, arXiv:2505.01611, Lemma~1, Theorems~1 and~2.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $a_0=0$ and let $a_1,a_2,\dots$ be real numbers, only finitely many of which are non-zero. Prove that
+\[\sum_{n=1}^\infty(a_n-a_{n-1})^2\ \ge\ \sum_{n=1}^\infty\Bigl(2-\sqrt{1-\tfrac1n}-\sqrt{1+\tfrac1n}\Bigr)a_n^2,\]
+and deduce that $\sum_{n\ge1}(a_n-a_{n-1})^2>\frac14\sum_{n\ge1}\frac{a_n^2}{n^2}$ unless all $a_n$ are zero.
+\source{B.~Das, A.~Manna, \emph{On improvements of the Hardy, Copson and Rellich inequalities}, arXiv:2309.04923, inequality~(1.5) (Keller--Pinchover--Pogorzelski) and factorisation~(1.6).}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $0\le r_0<r_1<r_2<\cdots$ be real numbers such that $r_{j+1}-r_j\ge1$ for all $j\ge0$. Prove that for every $x>0$
+\[\sum_{j=0}^{\infty}\frac{x^{r_j}}{\Gamma(1+r_j)}\le e^x.\]
+\source{G.~Molteni, \emph{A sharp Mittag-Leffler bound for series with separated exponents}, arXiv:2611.04540, Theorem and Lemma~1.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Prove that there exists a continuously differentiable function $F\colon\mathbb R^2\to\mathbb R$ such that the set of its critical values $\{F(p):\nabla F(p)=0\}$ contains the interval $[0,2]$.
+\source{J.~Ferrera, \emph{An elementary example of Sard's theorem sharpness}, arXiv:2202.08000, Proposition~1 and Lemma~3.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $(c_n)_{n\ge1}$ be a non-decreasing sequence of positive reals with $c_n\to\infty$, and let $x=(0,c_1,0,c_2,0,c_3,\dots)$, i.e.\ $x_{2n-1}=0$ and $x_{2n}=c_n$. Prove that there exists a bijection $p\colon\mathbb N\to\mathbb N$ such that
+\[\lim_{m\to\infty}\frac{x_{p(1)}+x_{p(2)}+\dots+x_{p(m)}}{m}=1\]
+if and only if $\displaystyle\lim_{n\to\infty}\frac{c_n}{c_1+c_2+\dots+c_{n-1}}=0$.
+\source{A.~Losonczi, \emph{Points accessible in average by rearrangement of sequences}, arXiv:1901.01127, Introduction (Theorems~4.3 and~4.4 of part~I) and Theorem~3.2.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $1\le m\le n$ be integers and let $f(x)=\sum_{k=m}^{n}(a_k\cos kx+b_k\sin kx)$ with real $a_k,b_k$, not all zero.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that the set $\{x\in[0,2\pi):f(x)>0\}$ has Lebesgue measure at least $\frac{2\pi m}{m+n}$.
+\item Show that equality is possible when $n=m+1$.
+\end{enumerate}
+\source{A.~Ismailov, \emph{Lower bounds on the measure of the support of positive and negative parts of trigonometric polynomials}, arXiv:2302.05308, Theorem~3.2 and Proposition~3.1.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $n$ be a positive integer and let $f\colon\mathbb R\to\mathbb R$ be a $2\pi$-periodic function such that $|f(x)-f(y)|\le|x-y|$ for all $x,y$ and
+\[\int_0^{2\pi}f(x)\cos kx\,dx=\int_0^{2\pi}f(x)\sin kx\,dx=0\qquad(k=0,1,\dots,n-1).\]
+Prove that $|f(x)|\le\frac{\pi}{2n}$ for all $x$.
+\source{P.~Joharinad, J.~Jost, S.~Lim, R.~Matveev, \emph{Reverse Bernstein inequality on the circle}, arXiv:2302.10122, Theorem~1.A (the Bohr--Favard inequality).}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $a_1,\dots,a_n$ be nonzero integers (not necessarily distinct). Let $S$ be the set of $t\in[0,1]$ for which the numbers $\cos(2\pi a_1t),\dots,\cos(2\pi a_nt)$ are either all positive or all negative. Prove that the Lebesgue measure of $S$ is at least $4^{1-n}$.
+\source{C.~Giannitsi, J.~Madrid, \emph{Exponential decay of threshold correlations for symmetric periodic functions}, arXiv:2610.38135, Theorem~1.2 and Proposition~3.1.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $f\colon\mathbb R\to\mathbb R$ satisfy $|f(x)-f(y)|\le|x-y|$ for all $x,y$, and $f(x)=0$ for $|x|\ge1$. For $x\in\mathbb R$ let
+\[Mf(x)=\sup\Bigl\{\frac1{b-a}\int_a^b|f(t)|\,dt:\ a\le x\le b,\ a<b\Bigr\}.\]
+Prove that $|Mf(x)-Mf(y)|\le(\sqrt2-1)|x-y|$ for all $x,y\in\mathbb R$, and that the constant $\sqrt2-1$ cannot be replaced by a smaller one.
+\source{S.-Y.~Liao, J.~Madrid, E.~A.~Palsson, \emph{Sharp derivative inequalities for maximal functions}, arXiv:2610.39178, Introduction (the inequality of Aldaz, Colzani and P\'erez L\'azaro).}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $T$ be the set of sums of all subseries of the series
+\[\frac34+\frac24+\frac3{4^2}+\frac2{4^2}+\frac3{4^3}+\frac2{4^3}+\cdots,\]
+that is, $T=\bigl\{\sum_{i\ge1}d_i4^{-i}:\ d_i\in\{0,2,3,5\}\bigr\}$.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that $T$ contains the interval $\bigl[\frac23,1\bigr]$.
+\item Prove that $T$ is not a finite union of closed intervals and points.
+\end{enumerate}
+\source{M.~Pratsiovytyi, D.~Karvatskyi, \emph{Fractal analysis of Guthrie--Nymann's set and its generalisations}, arXiv:2405.16576, Section~2.}
+
+\end{document}
