@@ -1,0 +1,139 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.25}
+\frenchspacing
+\emergencystretch=3em
+\setlength{\parindent}{0pt}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\DeclareMathOperator{\tr}{tr}
+\newcommand{\T}{\mathsf T}
+
+\newcounter{prob}
+\newcommand{\problem}[2]{\par\bigskip\needspace{7\baselineskip}\stepcounter{prob}%
+  \noindent\textbf{Problem \theprob.}\hfill\textit{IMC level: #1/5 (#2)}\par\smallskip}
+\newcommand{\source}[1]{\par\smallskip\noindent{\small\textit{Based on:} #1}\par}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Trigonometry -- new problems\par}\vspace{0.6em}
+{\large Problems built on recent research results\par}
+\end{center}
+
+\medskip
+Each problem is a special case of a published result or of a lemma used in its proof; the
+papers are in this folder. The problems are ordered by difficulty. The difficulty is the position of the problem in an IMC day:
+1 easy, 2 below average, 3 medium, 4 above average, 5 hard.
+
+%------------------------------------------------------------------
+\problem{1}{easy}
+Let $F_n$ and $L_n$ be the Fibonacci and Lucas numbers ($F_0=0$, $F_1=1$, $L_0=2$, $L_1=1$, and $x_{n+1}=x_n+x_{n-1}$ for both). Prove that for every positive integer $n$
+\[\sum_{k=0}^{n-1}\frac{1}{3-2\cos\frac{2\pi k}{n}}=\begin{cases}\dfrac{nL_n}{5F_n},& n\text{ even},\\[2mm]\dfrac{nF_n}{L_n},& n\text{ odd}.\end{cases}\]
+\source{L.~Smajlovi\'c, Z.~\v{S}abanac, L.~\v{S}\'ceta, \emph{Relations between Chebyshev, Fibonacci and Lucas polynomials via trigonometric sums}, arXiv:2403.12516, Corollary~5.3.}
+
+%------------------------------------------------------------------
+\problem{1}{easy}
+Let $\varphi=\frac{1+\sqrt5}2$ and $f(t)=\cos t+2\cos(\varphi t)+2\cos(\varphi^2t)+\cos(\varphi^3t)$ for $t\in\mathbb R$.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that $\min_{t\in\mathbb R}f(t)=-2$, $\max_{t\in\mathbb R}f(t)=6$, and that $f(t)=6$ only for $t=0$.
+\item Prove that nevertheless $\sup_{t\ge T}f(t)=6$ for every $T>0$, and deduce that $f$ is not periodic.
+\end{enumerate}
+\source{M.~Przybylski, \emph{The golden quadruple: four reals whose differences form a geometric progression, rigidity of the golden ratio, and a Bohr almost periodic cosine sum}, arXiv:2611.00973, Theorem~4, Propositions~6.2 and~6.5.}
+
+%------------------------------------------------------------------
+\problem{1}{easy}
+For a positive integer $N$ let $c_N$ be the number of integers $n$ with $1\le n\le N$ and $\cos n>\cos1$. Prove that
+\[0<\frac N\pi-c_N<2\qquad\text{for all }N\ge1.\]
+\source{M.~M.~Etkind, S.~Grepstad, M.~N.~Kolountzakis, N.~Lev, \emph{Bounded remainder sets, bounded distance equivalent cut-and-project sets, and equidecomposability}, arXiv:2511.21148, Section~3.2 and Theorem~A.1 (Hecke's theorem on bounded remainder intervals).}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Find all pairs $(x,y)$ of rational numbers with $0\le x\le y\le1$ such that $\cos\pi x+\cos\pi y$ is rational.
+\source{Q.~Xue, \emph{On structured cosine sums and applications}, arXiv:2607.20907, Proposition~2.12.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+For $n\ge1$ define polynomials $P_n,Q_n\in\mathbb Z[t]$ by $(1+it)^n=Q_n(t)+iP_n(t)$, so that $\tan n\theta=P_n(\tan\theta)/Q_n(\tan\theta)$. Let $p$ be an odd prime.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Show that $P_n(x)$ and $Q_n(x)$ never vanish simultaneously for $x\in\mathbb F_p$.
+\item Define $f_n\colon\mathbb F_p\cup\{\infty\}\to\mathbb F_p\cup\{\infty\}$ by $f_n(x)=P_n(x)/Q_n(x)$ if $Q_n(x)\ne0$, $f_n(x)=\infty$ if $Q_n(x)=0$, and $f_n(\infty)=\infty$ for odd $n$, $f_n(\infty)=0$ for even $n$. Prove that $f_n$ is a bijection if and only if $\gcd\bigl(n,\,p-(-1)^{(p-1)/2}\bigr)=1$.
+\end{enumerate}
+\source{Z.~Ding, M.~E.~Zieve, \emph{Tangent-Chebyshev rational maps and R\'edei functions}, arXiv:2103.08128, Corollaries~3.3 and~3.5.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+For smooth functions $g_1,\dots,g_n$ let $\operatorname{Wr}(g_1,\dots,g_n)=\det\bigl(g_j^{(i)}\bigr)_{0\le i\le n-1,\ 1\le j\le n}$ be their Wronskian.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that $\operatorname{Wr}(\sin x,\sin2x,\dots,\sin nx)=(-2)^{\frac{n(n-1)}2}\Bigl(\prod_{k=0}^{n-1}k!\Bigr)\sin^{\frac{n(n+1)}2}x$.
+\item Prove that $\operatorname{Wr}\bigl(\sin x,\dots,\sin(n-1)x,\sin(n+1)x\bigr)=(-2)^{\frac{n(n-1)}2}\Bigl(\prod_{k=0}^{n-1}k!\Bigr)\,2n\cos x\,\sin^{\frac{n(n+1)}2}x$.
+\end{enumerate}
+\source{M.~Yuan, \emph{On Gegenbauer polynomials and Wronskian determinants of trigonometric functions}, arXiv:2501.11092, formula~(1), Theorem~1 and Proposition~1.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+For an odd integer $d$ let $\chi(d)=(-1)^{(d-1)/2}$. Let $k\ge3$ be odd. Prove that
+\[\sum_{\substack{1\le\ell<k,\ \ell\text{ odd}\\ \gcd(\ell,k)=1}}\frac{\chi(\ell)}{\sin\frac{\pi\ell}{2k}}=\frac k2\prod_{p\mid k}\Bigl(1-\frac{\chi(p)}p\Bigr),\]
+where the product is over the prime divisors $p$ of $k$.
+\source{B.~C.~Berndt, S.~Kim, A.~Zaharescu, \emph{Evaluations and relations for finite trigonometric sums}, arXiv:2403.03445, Theorems~2.1 and~3.2.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $A$ be a set of $n$ positive integers which is \emph{sum-free}: there are no $a,b,c\in A$ (not necessarily distinct) with $a+b=c$. Prove that
+\[\min_{x\in\mathbb R}\sum_{a\in A}\cos(ax)\le-\sqrt{n/2}.\]
+\source{B.~Bedert, \emph{Polynomial bounds for the Chowla cosine problem}, arXiv:2509.05260, Lemma~4.1.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Prove that for all integers $n\ge2$ and $m\ge0$ the number
+\[\Bigl(\frac n2\Bigr)^m\sum_{k=1}^{n-1}\frac1{\sin^{2m}(k\pi/n)}\]
+is an integer.
+\source{J.~Jorgenson, A.~Karlsson, L.~Smajlovi\'c, \emph{The resolvent kernel on the discrete circle and twisted cosecant sums}, arXiv:2305.00202, Section~1 (integrality of the Verlinde numbers).}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $N\ge1$ and let $x$ be a real number with $\sin(nx)\ne0$ for $n=1,\dots,N$. Prove that
+\[\sum_{n=1}^N\frac1{|\sin nx|}>\frac N\pi(\ln N-1).\]
+\source{B.~Borda, \emph{Remarks on sums of reciprocals of fractional parts}, arXiv:2305.07394, Introduction and Theorem~1.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Find all rational numbers $q$ for which there exist real numbers $\alpha,\beta$, both rational multiples of $\pi$, such that $\tan\alpha$ and $\tan\beta$ are defined, $\tan\beta\ne0$, and $\tan\alpha=q\tan\beta$.
+\source{Y.~Liao, E.~Wang, \emph{Tilings of the sphere by congruent quadrilaterals II: edge combination $a^3b$ with rational angles}, arXiv:2205.14936, Section~7.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+For pairwise coprime positive integers $a,b,c$ put $C(a;b,c)=\sum_{k=1}^{a-1}\cot\frac{\pi kb}a\cot\frac{\pi kc}a$ (an empty sum is $0$). Prove that
+\[\frac{C(a;b,c)}a+\frac{C(b;c,a)}b+\frac{C(c;a,b)}c=\frac{a^2+b^2+c^2}{3abc}-1.\]
+\source{B.~C.~Berndt, S.~Kim, A.~Zaharescu, \emph{Evaluations and relations for finite trigonometric sums}, arXiv:2403.03445, Theorem~7.3 and Lemma~7.2.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $n$ be an odd positive integer. Determine all triples $(a,b,c)$ of integers such that
+\[\cos\frac{2\pi a}n+\cos\frac{2\pi b}n+\cos\frac{2\pi c}n=0.\]
+\source{Q.~Xue, \emph{On structured cosine sums and applications}, arXiv:2607.20907, Theorem~3.5, Corollary~3.6 and Theorem~2.3.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $a>1$ and let $n\ge2$ be an integer. Determine
+\[\min_p\ \max_{-1\le x\le1}\frac{|p(x)|}{a-x},\]
+where the minimum is taken over all monic real polynomials $p$ of degree $n$.
+\source{O.~Rubin, \emph{Chebyshev polynomials in the complex plane and on the real line}, arXiv:2411.14175, Theorems~2.6 and~2.7 (Markov's weighted Chebyshev polynomials).}
+
+%------------------------------------------------------------------
+\problem{5}{hard}
+For a positive integer $n$ let
+\[\sigma(n)=\min\bigl\{|z_1+\dots+z_n|:\ z_1^5=\dots=z_n^5=1,\ z_1+\dots+z_n\ne0\bigr\}.\]
+Prove that $\displaystyle\liminf_{n\to\infty}n\,\sigma(n)=\frac{1+\sqrt5}2$.
+\source{A.~Munemasa, G.~N\'u\~nez Ponasso, \emph{The minimal absolute value of sums of fifth roots of unity}, arXiv:2607.00825, Theorem~1.}
+
+\end{document}
