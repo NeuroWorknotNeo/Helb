@@ -1,0 +1,217 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.25}
+\frenchspacing
+\emergencystretch=3em
+\setlength{\parindent}{0pt}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\DeclareMathOperator{\tr}{tr}
+\newcommand{\T}{\mathsf T}
+
+\newcounter{prob}
+\newcommand{\problem}[2]{\par\bigskip\needspace{7\baselineskip}\stepcounter{prob}%
+  \noindent\textbf{Problem \theprob.}\hfill\textit{IMC level: #1/5 (#2)}\par\smallskip}
+\newcommand{\source}[1]{\par\smallskip\noindent{\small\textit{Based on:} #1}\par}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Inequalities -- new problems\par}\vspace{0.6em}
+{\large Problems built on recent research results\par}
+\end{center}
+
+\medskip
+Each problem is a special case of a published result or of a lemma used in its proof; the
+papers are in this folder. The problems are ordered by difficulty. The difficulty is the position of the problem in an IMC day:
+1 easy, 2 below average, 3 medium, 4 above average, 5 hard.
+
+%------------------------------------------------------------------
+\problem{1}{easy}
+Let $X$ be a real random variable such that $\mathbb E\,e^{tX}\le e^{t^2/2}$ for all $t\in\mathbb R$. Prove that
+\[\mathbb E\,e^{3X^2/8}\le2,\]
+and show that $\frac38$ cannot be replaced by any larger constant.
+\source{L.~Leskel\"a, M.~Zhukov, \emph{Sharp constants relating the sub-Gaussian norm and the sub-Gaussian parameter}, arXiv:2507.05928, Theorem~1.1.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+For vectors $x,y,z\in\mathbb R^3$ put
+\[S=\|x\|^2\langle y,z\rangle^2+\|y\|^2\langle z,x\rangle^2+\|z\|^2\langle x,y\rangle^2,\qquad P=\langle x,y\rangle\langle y,z\rangle\langle z,x\rangle.\]
+Determine all real $c$ such that $S+cP\ge0$ for all $x,y,z$.
+\source{N.~El Idrissi, H.~Zoubeir, \emph{Two Hornich--Hlawka-type and Gram matrix-based inequalities}, arXiv:2601.18768, Section~3, inequalities (2) and (3).}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+\begin{enumerate}[label=(\alph*),nosep]
+\item Let $\alpha\ge1$ and let $f\colon[0,1]\to[0,\infty)$ be continuous and non-decreasing. Prove that
+\[\alpha\int_0^1(1-x)^{\alpha-1}f(x)^\alpha\,dx\le\Bigl(\int_0^1f(x)\,dx\Bigr)^\alpha.\]
+\item Prove the same inequality for $0<\alpha\le1$ and continuous non-increasing $f\colon[0,1]\to[0,\infty)$.
+\item Show that for $\alpha>1$ equality in (a) holds only for constant $f$.
+\end{enumerate}
+\source{{\L}.~P{\l}ociniczak, \emph{The Bushell--Okrasi\'nski inequality}, arXiv:2203.15256, inequality (20), Theorem~2 and Corollary~1.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $A,B\subseteq[0,1]$ be finite unions of intervals of total lengths $a$ and $b$. Prove that
+\[\int_A\!\int_B\cos\bigl(2\pi(x-y)\bigr)\,dx\,dy\le\frac{\sin(\pi a)\sin(\pi b)}{\pi^2}.\]
+\source{H.~Hajaiej, \emph{On the necessity of the assumptions used to prove Hardy--Littlewood and Riesz rearrangement inequalities}, arXiv:1003.3166, inequalities (1.5)--(1.6).}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $d\ge1$ and let $a_1,\dots,a_d$ be real numbers; put $a_0=a_{d+1}=0$. Prove that
+\[\Bigl(\sum_{j=1}^d|a_j|\Bigr)^2\le\frac{d(d+1)(d+2)}{12}\sum_{j=1}^{d+1}(a_j-a_{j-1})^2,\]
+and find all cases of equality.
+\source{R.~Hindov, S.~Nitzan, J.-F.~Olsen, E.~Rydhe, \emph{A sharp discrete Sobolev inequality and left inverses of higher order differences}, arXiv:2610.19010, Theorem~1 ($\alpha=1$).}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $f\colon[0,1]\to\mathbb R$ be continuously differentiable with $m\le f'(x)\le M$ for all $x$. Prove that for every $t\in[0,1]$
+\[\Bigl|f(t)-\int_0^1f(x)\,dx-\Bigl(t-\frac12\Bigr)\bigl(f(1)-f(0)\bigr)\Bigr|\le\frac{M-m}8,\]
+and that for every fixed $t$ the constant $\frac18$ cannot be replaced by a smaller one.
+\source{K.~Castillo, \^A.~Macedo, \emph{On a measure-theoretic reading of $\beta$-Gr\"uss-type inequalities}, arXiv:2607.06439, Theorem~2.8; cf.\ D.~R.~Anderson, arXiv:1409.5888, Corollary~7.3 (constant $\frac14$).}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $f\colon[0,1]^2\to\mathbb R$ be continuous and such that
+\[f(x_2,y_2)+f(x_1,y_1)\ge f(x_1,y_2)+f(x_2,y_1)\qquad\text{whenever }0\le x_1\le x_2\le1,\ 0\le y_1\le y_2\le1.\]
+Prove that
+\[\int_0^1f(x,1-x)\,dx\le\int_0^1\!\!\int_0^1f(x,y)\,dx\,dy\le\int_0^1f(x,x)\,dx.\]
+\source{A.~Komisarski, T.~Rajba, \emph{On Popoviciu's concept of convexity for functions of $d$ variables}, arXiv:2404.13723, Theorem~45 ($d=2$, $\mathbf n=(1,1)$).}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+For a complex $n\times n$ matrix $A$ let $w(A)=\max\{|x^*Ax|:x\in\mathbb C^n,\ \|x\|=1\}$ be its numerical radius and let $\|\cdot\|$ be the operator norm. Prove that
+\[\frac14\|A^*A+AA^*\|\le w(A)^2\le\frac12\|A^*A+AA^*\|,\]
+and show that both constants $\frac14$ and $\frac12$ are attained for suitable $2\times2$ matrices $A\ne0$.
+\source{F.~P.~Najafabadi, H.~R.~Moradi, \emph{Advanced refinements of numerical radius inequalities}, arXiv:2011.08443, inequalities (1.5) and (1.6).}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+\begin{enumerate}[label=(\alph*),nosep]
+\item Let $p>1$ and let $X,Y$ be independent identically distributed random variables with $\mathbb EX=0$ and $\mathbb E|X|^p=1$. Prove that
+\[\mathbb E\max(X,Y)\le\Bigl(\frac{p-1}{2p-1}\Bigr)^{\frac{p-1}p}.\]
+\item Deduce that for independent identically distributed $X,Y$ with variance $\sigma^2$ one has $\mathbb E|X-Y|\le\frac2{\sqrt3}\,\sigma$, with equality for the uniform distribution on an interval.
+\end{enumerate}
+\source{R.~Vila, N.~Balakrishnan, H.~Saulo, \emph{An upper bound and a characterization for Gini's mean difference based on correlated random variables}, arXiv:2301.07229, Section~2, inequality (5).}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $n\ge1$ and let $f\colon\{0,1\}^n\to\mathbb R$ be arbitrary. For $x\in\{0,1\}^n$ let $\bar x$ be the vector with all coordinates flipped. Prove that
+\[\sum_{\{x,\bar x\}}\bigl(f(x)-f(\bar x)\bigr)^2\le\sum_{\{x,y\}}\bigl(f(x)-f(y)\bigr)^2,\]
+where the left sum runs over the $2^{n-1}$ antipodal pairs and the right sum over the $n2^{n-1}$ pairs $\{x,y\}$ differing in exactly one coordinate.
+\source{J.~Baslingker, B.~Vir\'ag, \emph{The Efron--Stein inequality for identically distributed pairs}, arXiv:2605.05388, Theorem~2.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Find all $p>0$ such that
+\[|a|^p+|b|^p+|c|^p+|a+b+c|^p\ \ge\ |a+b|^p+|b+c|^p+|c+a|^p\]
+for all real numbers $a,b,c$.
+\source{D.-\c{S}.~Marinescu, C.~P.~Niculescu, \emph{A survey of the Hornich--Hlawka inequality}, arXiv:2407.03278, inequality (2.1), Corollary~4 and Section~10.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $n\ge2$ and let $x_1,\dots,x_n$ be real numbers with $x_1+\dots+x_n=0$. Prove that
+\[n(n-1)\sum_{i=1}^n x_i^4\ \le\ (n^2-3n+3)\Bigl(\sum_{i=1}^n x_i^2\Bigr)^2,\]
+and determine when equality holds.
+\source{J.~S.~Case, A.~Tyrrell, arXiv:2305.03861, Theorem~1.1 (applied to diagonal matrices) and Proposition~2.3.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $n\ge3$, let $x_1,\dots,x_n$ be arbitrary real numbers and let $\alpha\in\mathbb R$. Put $E_j=e_j(x_1,\dots,x_n)/\binom nj$, where $e_j$ is the $j$-th elementary symmetric polynomial and $E_0=1$. Prove that for $1\le k\le n-2$
+\[\bigl(\alpha E_k+E_{k+1}\bigr)^2\ \ge\ \bigl(\alpha E_{k-1}+E_k\bigr)\bigl(\alpha E_{k+1}+E_{k+2}\bigr).\]
+\source{C.~Ren, \emph{A generalization of Newton--Maclaurin's inequalities}, arXiv:2205.00873, Theorem~1.2.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $f,g\colon[0,1]\to[0,\infty)$ be continuous, not both identically zero. Put
+\[A=\int_0^1f^4+\int_0^1g^4,\qquad t=\sqrt{\frac{2\int_0^1f^2g^2}{A}}.\]
+Prove that $\displaystyle\int_0^1(f+g)^4\le(1+t)^3A$.
+\source{E.~Carlen, R.~Frank, P.~Ivanisvili, E.~Lieb, \emph{Inequalities for $L^p$-norms that sharpen the triangle inequality and complement Hanner's inequality}, arXiv:1807.05599, Theorem~1.1 ($p=4$).}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Prove that for every positive integer $n$ and every real $x\ge0$
+\[\sum_{j=0}^{n-1}\frac{x^{2j}}{(j!)^2}\le\exp\Bigl(2x\cos\frac\pi{n+1}\Bigr).\]
+\source{B.~Bauer, S.~Gerhold, \emph{The Fan--Taussky--Todd inequalities and the Lumer--Phillips theorem}, arXiv:2305.14015, inequality (3.3).}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+For a finite simple graph $G$ let $i(G)$ be the number of independent sets of $G$ (the empty set included). The graph $G\times K_2$ has vertex set $V(G)\times\{0,1\}$, and $(u,a)$ is adjacent to $(v,b)$ if and only if $uv\in E(G)$ and $a\ne b$. Prove that
+\[i(G)^2\le i(G\times K_2).\]
+\source{D.~Chheda, R.~Goel, E.~Qiao, \emph{Number of independent sets in regular and irregular graphs: a 31 year journey}, arXiv:2405.18815, Lemma~3.2 and Section~4.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $f\colon\mathbb R\to\mathbb R$ be continuous, $1$-periodic and piecewise linear (with finitely many linear pieces on $[0,1]$). Let $g\colon\mathbb R\to\mathbb R$ be the continuous $1$-periodic even function, non-increasing on $[0,\frac12]$, such that for every $t\in\mathbb R$ the sets $\{x\in[0,1):f(x)>t\}$ and $\{x\in[0,1):g(x)>t\}$ have the same total length (you may assume that $g$ exists, is unique and is piecewise linear). Prove that
+\[\int_0^1g'(x)^2\,dx\le\int_0^1f'(x)^2\,dx.\]
+\source{S.~Barza, M.~Lind, \emph{A variation on the P\'olya--Szeg\H{o} principle in one dimension}, arXiv:2607.03450, inequality (1.2); P.~Le, arXiv:2303.02709, Section~5.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $a_1,\dots,a_m$ be real numbers and for $k\ge0$ let
+\[M_{2k}=\frac1{2^m}\sum_{\varepsilon\in\{-1,1\}^m}\Bigl(\sum_{j=1}^m\varepsilon_ja_j\Bigr)^{2k}.\]
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that $M_{2k-2}\,M_{2k+2}\le\dfrac{2k+1}{2k-1}\,M_{2k}^2$ for every $k\ge1$.
+\item Deduce that $M_{2k}\le(2k-1)!!\,M_2^k$ for every $k\ge1$.
+\end{enumerate}
+\source{A.~Havrilla, P.~Nayar, T.~Tkocz, \emph{Khinchin-type inequalities via Hadamard's factorisation}, arXiv:2102.09500, Theorem~1 and Section~2.1.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $v\colon\mathbb R\to(0,\infty)$ be continuously differentiable and $2\pi$-periodic. Prove that
+\[\Bigl(\int_0^{2\pi}v^2\,d\theta-4\int_0^{2\pi}v'^2\,d\theta\Bigr)\int_0^{2\pi}\frac{d\theta}{v^2}\le4\pi^2,\]
+and that equality holds if and only if $v(\theta)^2=a+b\cos\theta+c\sin\theta$ for some reals $a>\sqrt{b^2+c^2}$.
+\source{P.~Le, \emph{A Lorentz invariant sharp Sobolev inequality on the circle}, arXiv:2303.02709, Theorem~7.1.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+For real $t$ let $\|t\|$ be the distance from $t$ to the nearest integer and $e(t)=e^{2\pi it}$. Let $N\ge1$, let $z_1,\dots,z_N$ be complex numbers, let $0<\delta\le1$, and let $x_1,\dots,x_R$ be real numbers with $\|x_r-x_s\|\ge\delta$ for all $r\ne s$. Prove that
+\[\sum_{r=1}^R\Bigl|\sum_{n=1}^Nz_n\,e(nx_r)\Bigr|^2\le\Bigl(\frac1\delta+\pi(N-1)\Bigr)\sum_{n=1}^N|z_n|^2.\]
+\source{S.~Baier, S.~B.~Lynch, \emph{Large sieve inequalities with power moduli and Waring's problem}, arXiv:2303.07613, inequality (1) (in a weaker form).}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $h(x)=-x\ln x-(1-x)\ln(1-x)$ for $0<x<1$ and $h(0)=h(1)=0$, and let $\varphi=\frac{1+\sqrt5}2$. Prove that
+\[h(x^2)\ge\varphi\,x\,h(x)\qquad\text{for all }x\in[0,1],\]
+with equality only for $x\in\{0,1/\varphi,1\}$.
+\source{B.~S.~Ho, \emph{A generalization of Boppana's entropy inequality}, arXiv:2601.19327, Proposition~1 and Theorem~1 ($k=2$).}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $X$ and $Y$ be independent non-negative random variables, each taking finitely many values, with $\mathbb EX\le1$ and $\mathbb EY\le1$. Prove that
+\[\mathbb P(X+Y<3)\ge\frac49,\]
+and that the bound is attained.
+\source{A.~Milojevi\'c, B.~Sudakov, \emph{Perfect matchings in hypergraphs and Feige's inequality}, arXiv:2610.10380, Theorem~2 (the case $n=2$ of Feige's inequality).}
+
+%------------------------------------------------------------------
+\problem{5}{hard}
+Let $z_1,\dots,z_n$ be nonzero complex numbers, let $P(z)=z\prod_{j=1}^n(z-z_j)$, and let $w_1,\dots,w_n$ be the zeros of $P'$, counted with multiplicity. Prove that all $w_j\ne0$ and that
+\[\sum_{j=1}^n\frac1{|w_j|^2}\ \le\ 3\sum_{j=1}^n\frac1{|z_j|^2}+\Bigl|\sum_{j=1}^n\frac1{z_j}\Bigr|^2.\]
+\source{O.~Holtz, \emph{A reciprocal Schoenberg inequality and its extensions}, arXiv:2610.41325, inequality (1.3).}
+
+%------------------------------------------------------------------
+\problem{5}{hard}
+Let $f\colon[0,1]\to\mathbb R$ be continuous and assume that for every interval $[a,b]\subseteq[0,1]$ with $a<b$
+\[\frac1{b-a}\int_a^bf(x)\,dx-\min_{[a,b]}f\le1.\]
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that for every $\lambda\ge1$ the set $\{x\in[0,1]:f(x)-\min_{[0,1]}f>\lambda\}$ has total length at most $e^{1-\lambda}$.
+\item Show that the rate is optimal: there are no constants $c>1$ and $C$ such that this length is at most $Ce^{-c\lambda}$ for all such $f$ and all $\lambda\ge1$.
+\end{enumerate}
+\source{C.~Zhang, \emph{Sharp constants in the one-sided John--Nirenberg inequality for functions of bounded lower oscillation}, arXiv:2608.10892, Theorem~1.1.}
+
+%------------------------------------------------------------------
+\problem{5}{hard}
+Let $A$ and $B$ be complex $n\times n$ matrices with operator norms $\|A\|<1$ and $\|B\|<1$. Prove that
+\[\det(I-A^*A)\,\det(I-B^*B)+|\det(A-B)|^2\le|\det(I-A^*B)|^2.\]
+\source{B.-Y.~Xi, F.~Zhang, \emph{Some matrix inequalities of log-majorization type}, arXiv:2103.06174, Theorem~4.1, inequality (4.1).}
+
+\end{document}

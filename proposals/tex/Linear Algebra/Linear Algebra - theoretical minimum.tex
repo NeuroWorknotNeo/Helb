@@ -1,0 +1,38 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{setspace}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.25}
+\frenchspacing
+\emergencystretch=3em
+\setlength{\parindent}{0pt}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Pf}{Pf}
+\newcounter{fact}
+\newcommand{\fact}[2]{\par\bigskip\stepcounter{fact}\noindent\textbf{Fact \thefact\ (#1).}\ #2}
+\newcommand{\used}[1]{\par\smallskip\noindent{\small\textit{Used in:} #1}\par}
+\begin{document}
+\begin{center}
+{\LARGE\bfseries Linear algebra -- new problems\par}\vspace{0.6em}
+{\large Supplement to the theoretical minimum\par}
+\end{center}
+\medskip
+Facts needed for the problems in this folder that are not stated in the theoretical minimums of the sheets and cannot
+be avoided by a solution with the methods of the sheets.
+Problem numbers refer to \emph{Linear algebra - proposals.pdf}.
+
+\fact{Finite fields}{For every prime power $q$ and every $n\ge1$ there is an irreducible polynomial $f$ of degree
+$n$ over $\mathbb F_q$: the number of monic irreducible polynomials of degree $n$ equals
+$\frac1n\sum_{d\mid n}\mu(d)q^{n/d}>0$. Then $\mathbb F_q[x]/(f)$ is a field with $q^n$ elements; via the companion
+matrix of $f$ it is realised inside $M_n(\mathbb F_q)$ as a set of $q^n$ matrices in which every non-zero matrix is
+invertible. (The sheets state this only for $q=p$ prime.)}
+\used{Problem 18.}
+
+\end{document}
