@@ -1,0 +1,205 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.25}
+\frenchspacing
+\emergencystretch=3em
+\setlength{\parindent}{0pt}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\DeclareMathOperator{\tr}{tr}
+\newcommand{\T}{\mathsf T}
+
+\newcounter{prob}
+\newcommand{\problem}[2]{\par\bigskip\needspace{7\baselineskip}\stepcounter{prob}%
+  \noindent\textbf{Problem \theprob.}\hfill\textit{IMC level: #1/5 (#2)}\par\smallskip}
+\newcommand{\source}[1]{\par\smallskip\noindent{\small\textit{Based on:} #1}\par}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Combinatorics -- new problems\par}\vspace{0.6em}
+{\large Problems built on recent research results\par}
+\end{center}
+
+\medskip
+Each problem is a special case of a published result or of a lemma used in its proof; the
+papers are in this folder. The problems are ordered by difficulty. The difficulty is the position of the problem in an IMC day:
+1 easy, 2 below average, 3 medium, 4 above average, 5 hard.
+
+%------------------------------------------------------------------
+\problem{1}{easy}
+A \emph{descent} of a permutation $\sigma$ of $\{1,\dots,n\}$ is an index $i\in\{1,\dots,n-1\}$ with $\sigma(i)>\sigma(i+1)$. Find the number of permutations $\sigma$ of $\{1,\dots,n\}$ such that both $\sigma$ and $\sigma^{-1}$ have exactly one descent.
+\source{H.~Gimenez, \emph{Coxeter systems, left inversion sets, and higher dimensional cubes}, arXiv:2504.03911, Section~5 (Theorem~5.32 and the proof of Theorem~5.33).}
+
+%------------------------------------------------------------------
+\problem{1}{easy}
+$n$ people sit in a row of $n$ chairs. Some pairs of people are enemies, all other pairs are friends. In one move, two friends sitting on adjacent chairs may exchange their chairs. Two seatings are \emph{equivalent} if one can be obtained from the other by a sequence of moves.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that the number of equivalence classes equals the number of ways to orient every pair of enemies (draw an arrow from one enemy to the other) so that no directed cycle appears.
+\item Let $n\ge3$ and let the pairs of enemies be exactly $\{1,2\},\{2,3\},\dots,\{n-1,n\},\{n,1\}$. Find the number of equivalence classes.
+\end{enumerate}
+\source{R.~Jeong, \emph{On the diameters of friends-and-strangers graphs}, arXiv:2201.00665, Theorem~2.4.}
+
+%------------------------------------------------------------------
+\problem{1}{easy}
+Let $n\ge2$ and let $S_n$ be the graph obtained from $K_n$ by inserting one new vertex in the middle of every edge (so $S_n$ has $n+\binom n2$ vertices, and each new vertex is adjacent exactly to the two endpoints of its edge). A partition of the vertex set of $S_n$ into parts is called \emph{odd} if every vertex has an odd number of neighbours in its own part. Find all $n$ for which $S_n$ has an odd partition, and for these $n$ find the minimum number of parts of an odd partition.
+\source{R.~Belmonte, A.~Harutyunyan, N.~K\"ohler, N.~Melissinos, \emph{Odd chromatic number of graph classes}, arXiv:2303.03225, Introduction.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+An \emph{inversion sequence} of length $n$ is a sequence of integers $(e_1,\dots,e_n)$ with $0\le e_i\le i-1$ for all $i$. Find the number of inversion sequences of length $n$ for which there are no indices $i<j<k$ with $e_i<e_j<e_k$.
+\source{B.~Testart, \emph{Completing the enumeration of inversion sequences avoiding one or two patterns of length~3}, arXiv:2407.07701, Table~1 (pattern $012$).}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $n\ge1$ and $0\le k\le n-1$ be integers, and let $G$ be a simple graph on $2n$ vertices with a perfect matching $M$. Suppose that there is a set $S$ of $k$ edges of $M$ such that $M$ is the only perfect matching of $G$ containing all edges of $S$ (for $k=0$ this means that $M$ is the only perfect matching of $G$). Prove that
+\[|E(G)|\le n^2+2nk-k^2-k,\]
+and show that equality can hold for all such $n$ and $k$.
+\source{Q.~Liu, H.~Zhang, \emph{Some tight bounds on the minimum and maximum forcing numbers of graphs}, arXiv:2106.09209, Theorem~2.1.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $c\ge0$ be an integer. Find the smallest positive integer $N$ with the following property: for every colouring of $\{1,2,\dots,N\}$ in two colours there are numbers $x,y,z$ of the same colour (not necessarily distinct) with $x+y+c=z$.
+\source{R.~Adak, Y.~Bakshi, L.~S.~Chandran, S.~G.~Nanoti, \emph{Off-diagonal Rado numbers for $x+y+c=z$ and $x+y+k=z$}, arXiv:2603.28216, Section~2 and Theorem~1.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $a(n)$ be the total number of parts in all partitions of $n$ into odd parts, and $b(n)$ the total number of parts in all partitions of $n$ into distinct parts. Prove that $a(n)-b(n)$ equals the number of partitions of $n$ in which exactly one part size occurs more than once.
+
+(For example, $a(4)=6$ from $1+1+1+1$ and $3+1$; $b(4)=3$ from $4$ and $3+1$; and $2+2$, $2+1+1$, $1+1+1+1$ are the three partitions of $4$ with exactly one repeated part size.)
+\source{T.~Amdeberhan, G.~E.~Andrews, C.~Ballantine, \emph{Refinements of Beck-type partition identities}, arXiv:2204.00105, Theorem~1.2.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $G$ be a connected bipartite graph with at least three vertices. Prove that one can assign to each edge one of the weights $1,2,3$ so that for every edge $uv$ the sum of the weights of the edges at $u$ differs from the sum of the weights of the edges at $v$.
+\source{R.~Keusch, \emph{Vertex-coloring graphs with 4-edge-weightings}, arXiv:2202.02788, Introduction.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $t\ge1$ and let $\mathcal F$ be a family of $2t$-element subsets of an $n$-element set such that no member of $\mathcal F$ is contained in the union of two other members of $\mathcal F$. Prove that
+\[|\mathcal F|\le\binom nt\Big/\binom{2t-1}t.\]
+\source{R.~Wei, \emph{On cover-free families}, arXiv:2303.17524, Theorem~2.3.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $m,M$ be positive integers. A finite sequence $x_1,\dots,x_L$ of integers from $\{-m,\dots,M\}$ is called a \emph{minimal zero-sum sequence} if $x_1+\dots+x_L=0$ and no non-empty proper subsequence has sum $0$.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that every minimal zero-sum sequence has length $L\le m+M$.
+\item Prove that the length $m+M$ is attained if and only if $\gcd(m,M)=1$.
+\item For $n\ge2$, find the largest length of a minimal zero-sum sequence with terms in $\{-n,\dots,n\}$.
+\end{enumerate}
+\source{B.~Girard, A.~Plagne, \emph{The Davenport constant of an interval: a proof that $\mathsf D=\chi$}, arXiv:2601.07950, inequality~(1), Lemma~8, Propositions~7, 9, 11.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+On a line, $2n$ distinct points are split into $n$ pairs, and each pair is joined by an arc above the line. Two arcs with endpoints $a<b$ and $c<d$, where $a<c$, are \emph{aligned} if $b<c$, \emph{nested} if $d<b$, and \emph{crossing} if $c<b<d$.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Let $\ell,s,w$ be positive integers and $n\ge\ell sw+1$. Prove that there are $\ell+1$ pairwise aligned arcs, or $s+1$ pairwise nested arcs, or $w+1$ pairwise crossing arcs.
+\item Show that the statement fails for $n=\ell sw$.
+\end{enumerate}
+\source{A.~Dudek, J.~Grytczuk, A.~Ruci\'nski, \emph{Erd\H{o}s--Szekeres type theorems for ordered uniform matchings}, arXiv:2301.02936, Theorem~1.1 ($r=2$).}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+An \emph{inversion sequence} of length $n$ is a sequence of integers $(e_1,\dots,e_n)$ with $0\le e_i\le i-1$ for all $i$. Prove that the number of inversion sequences of length $n$ in which no value occurs three or more times equals the number of permutations $\pi$ of $\{1,\dots,n+1\}$ with $\pi(1)<\pi(2)>\pi(3)<\pi(4)>\cdots$.
+\source{B.~Testart, \emph{Completing the enumeration of inversion sequences avoiding one or two patterns of length~3}, arXiv:2407.07701, Table~1 (pattern $000$).}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+For $m,n\ge0$ let $a(m,n)$ be the number of acyclic orientations of the complete bipartite graph $K_{m,n}$ (so $a(m,0)=a(0,n)=1$). Prove that, as formal power series,
+\[\sum_{m,n\ge0}a(m,n)\frac{x^my^n}{m!\,n!}=\frac{e^{x+y}}{e^x+e^y-e^{x+y}}.\]
+\source{P.~J.~Cameron, C.~A.~Glass, K.~Rekv\'enyi, R.~U.~Schumacher, \emph{Acyclic orientations and poly-Bernoulli numbers}, arXiv:1412.3685, Theorems~3.1 and~3.3.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $d_1\ge d_2\ge\dots\ge d_{2m}$ be integers. Suppose that there is a simple graph on the vertices $v_1,\dots,v_{2m}$ with $\deg v_i=d_i$ for all $i$ which has a perfect matching. Prove that there is a simple graph on $v_1,\dots,v_{2m}$ with $\deg v_i=d_i$ for all $i$ which contains all the edges $v_1v_{2m},v_2v_{2m-1},\dots,v_mv_{m+1}$.
+\source{A.~Bar-Noy, I.~Kalinichev, D.~Peleg, D.~Rawitz, \emph{Degree realization with maximum matching}, arXiv:2610.41810, Lemmas~2.2 and~2.3.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $T$ be a tree. Some vertices of $T$ are coloured black and the others white. At each step, if a black vertex has exactly one white neighbour, that neighbour may be coloured black. Let $Z(T)$ be the smallest number of initially black vertices for which the whole tree eventually becomes black, and let $P(T)$ be the smallest number of pairwise vertex-disjoint paths in $T$ (a single vertex is a path) covering all vertices of $T$. Prove that $Z(T)=P(T)$.
+\source{T.~R.~Cameron, K.~Li, \emph{On the minimal forts of trees}, arXiv:2512.12874, proof of Lemma~5.3; H.~Hua, X.~Hua, S.~Klav\v{z}ar, arXiv:2112.09999, Section~2.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $G$ be a bipartite graph with parts $A$ and $B$ in which every vertex of $A$ has degree at most $p$ and every vertex of $B$ has degree at most $q$. Let $F$ be a set of edges of $G$ such that any two edges of $F$ either share an endpoint or are joined by an edge of $G$ (some edge of $G$ connects an endpoint of one to an endpoint of the other). Prove that $|F|\le pq$.
+\source{R.~Luo, G.~Yu, X.~Zhou, \emph{The Brualdi--Quinn conjecture on strong edge-coloring holds fractionally and asymptotically}, arXiv:2611.10883, Lemma~2.3; Y.~Hao, T.~Yang, X.~Yu, \emph{Strong chromatic index of bipartite graphs}, arXiv:2606.23824, Introduction.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $t\ge2$ and $n\ge2$ be integers. There are $m$ points on a circle, and each of the $\binom m2$ chords joining two of them is coloured in one of $t$ colours. Find the smallest $m$ such that for every such colouring there are $n$ chords of the same colour any two of which cross at an interior point.
+\source{J.~Bar\'at, A.~Gy\'arf\'as, G.~T\'oth, \emph{Monochromatic spanning trees and matchings in ordered complete graphs}, arXiv:2210.10135, Theorem~2.18 and Lemma~3.8.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $P$ be a finite partially ordered set which is not a chain but whose elements can be partitioned into two chains. A \emph{linear extension} of $P$ is a total order of its elements compatible with the partial order. For $x,y\in P$ let $\pi(x,y)$ be the fraction of linear extensions in which $x$ precedes $y$.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that there are $x,y\in P$ with $\frac13\le\pi(x,y)\le\frac23$.
+\item Show that the constant $\frac13$ cannot be replaced by a larger one.
+\end{enumerate}
+\source{A.~Gupta, \emph{Balance constants, majority cycles, and the Gold Partition Conjecture through fourteen elements}, arXiv:2607.23926, Section~1 and Proposition~3.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Fix $r\ge2$. Consider words in which every letter occurs exactly $r$ times. For two distinct letters $x,y$ of such a word, delete all other letters and rename the letter occurring first by $A$ and the other by $B$; the resulting word with $r$ letters $A$ and $r$ letters $B$, beginning with $A$, is called the \emph{type} of the pair $\{x,y\}$. A type $T$ is \emph{collectable} if for every $k\ge2$ there is a word with $k$ distinct letters, each occurring $r$ times, in which every pair of letters has type $T$.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that $T$ is collectable if and only if $T$ can be cut into consecutive blocks, each of the form $X^mY^m$ with $\{X,Y\}=\{A,B\}$ and $m\ge1$ (for example $AABB\,|\,AB\,|\,BA$). Moreover, prove that if $T$ is not of this form, then there is not even a word with three letters in which all three pairs have type $T$.
+\item Find the number of collectable types.
+\end{enumerate}
+\source{A.~Dudek, J.~Grytczuk, A.~Ruci\'nski, \emph{Erd\H{o}s--Szekeres type theorems for ordered uniform matchings}, arXiv:2301.02936, Section~1.3, Proposition~2.1 and Corollary~2.2.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+For a finite sequence of integers $\sigma=(\sigma_1,\dots,\sigma_n)$ let $\Theta(\sigma)$ be the sequence of length $n$ whose $i$-th term is the number of indices $j<i$ with $\sigma_j<\sigma_i$.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Find the number of sequences $\sigma$ of length $n$ with $\Theta(\sigma)=\sigma$.
+\item Prove that for every $n\ge2$ and every integer sequence $\sigma$ of length $n$ the sequence $\Theta^{n-1}(\sigma)$ is a fixed point of $\Theta$.
+\end{enumerate}
+\source{J.~Allagan, S.~Gao, B.~Testart, \emph{Iterating the Lehmer code on inversion sequences: Catalan fixed points and finite stabilization}, arXiv:2608.24476, Theorems~4.5, 4.9 and Proposition~3.5.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+There are $n$ parking spots $1,\dots,n$ along a one-way street and $n$ cars arriving one after another. Car $i$ prefers spot $a_i\in\{1,\dots,n\}$; it drives to this spot and parks in the first free spot at or after it (and leaves the street if there is none). The sequence $(a_1,\dots,a_n)$ is a \emph{parking function} if all cars park. A car is \emph{lucky} if it parks in its preferred spot.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that
+\[\sum_{a}x^{\#\{\text{lucky cars of }a\}}=x\prod_{j=1}^{n-1}\bigl(j+(n+1-j)x\bigr),\]
+where the sum is over all parking functions $a$ of length $n$.
+\item Deduce that exactly $(n-1)!$ parking functions of length $n$ have exactly one lucky car.
+\end{enumerate}
+\source{S.~Butler, K.~Hadaway, V.~Lenius, P.~Martens, \emph{Lucky cars and lucky spots in parking functions}, arXiv:2412.07873, Theorem~2.1 and Corollary~2.1.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $G$ be a connected graph with $n$ vertices in which every vertex has degree at least $3$. Prove that $G$ has a spanning tree with at least $\frac{n+5}4$ leaves.
+\source{S.~Jahanbekam, \emph{Spanning trees with many leaves in graphs of minimum degree at least~7}, arXiv:2609.30354, Introduction and Section~2.}
+
+%------------------------------------------------------------------
+\problem{5}{hard}
+The vertices of the complete graph $K_n$ are the integers $1,2,\dots,n$. Two disjoint edges $\{a,b\}$ and $\{c,d\}$ with $a<b$, $c<d$ are called \emph{nested} if $a<c<d<b$ or $c<a<b<d$. The edges of $K_n$ are coloured red and blue.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that there is a monochromatic spanning tree containing no two nested edges.
+\item Show that there is a colouring in which every monochromatic set of edges without two nested edges has at most $n-1$ edges.
+\end{enumerate}
+\source{J.~Bar\'at, A.~Gy\'arf\'as, G.~T\'oth, \emph{Monochromatic spanning trees and matchings in ordered complete graphs}, arXiv:2210.10135, Theorem~2.1(ii) and Proposition~2.2(ii).}
+
+%------------------------------------------------------------------
+\problem{5}{hard}
+Let $n\ge2$. Consider digraphs $D$ on the vertex set $\{1,\dots,n\}$ without loops, without multiple arcs (for $u\ne v$ the arcs $u\to v$ and $v\to u$ may both be present) and without isolated vertices. An \emph{Eulerian circuit} of $D$ is a cyclic ordering of all arcs of $D$ in which the head of each arc is the tail of the next one; circuits differing only in the choice of the starting arc are identified. Find the number of such digraphs $D$ that have exactly one Eulerian circuit.
+\source{L.~Grisales, A.~Labelle, R.~Posada, S.~Dimitrov, \emph{Digraphs with exactly one Eulerian tour}, arXiv:2104.10734, Theorem~1.}
+
+%------------------------------------------------------------------
+\problem{5}{hard}
+Let $A,B,C$ be finite non-empty subsets of an abelian group. Prove that
+\[|A|\cdot|B+C|\le|A+B|\cdot|A+C|.\]
+\source{B.~Hanson, G.~Petridis, \emph{A question of Bukh on sums of dilates}, arXiv:2006.08394, Lemma~2.}
+
+\end{document}
