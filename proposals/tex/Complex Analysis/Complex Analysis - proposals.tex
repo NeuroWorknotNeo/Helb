@@ -1,0 +1,119 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.25}
+\frenchspacing
+\emergencystretch=3em
+\setlength{\parindent}{0pt}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\DeclareMathOperator{\tr}{tr}
+\newcommand{\T}{\mathsf T}
+
+\newcounter{prob}
+\newcommand{\problem}[2]{\par\bigskip\needspace{7\baselineskip}\stepcounter{prob}%
+  \noindent\textbf{Problem \theprob.}\hfill\textit{IMC level: #1/5 (#2)}\par\smallskip}
+\newcommand{\source}[1]{\par\smallskip\noindent{\small\textit{Based on:} #1}\par}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Complex Analysis -- new problems\par}\vspace{0.6em}
+{\large Problems built on recent research results\par}
+\end{center}
+
+\medskip
+Each problem is a special case of a published result or of a lemma used in its proof; the
+papers are in this folder. The problems are ordered by difficulty. The difficulty is the position of the problem in an IMC day:
+1 easy, 2 below average, 3 medium, 4 above average, 5 hard.
+
+%------------------------------------------------------------------
+\problem{1}{easy}
+Let $a,b$ be points of the unit disc $\mathbb D$ and
+\[B(z)=\frac{z-a}{1-\bar az}\cdot\frac{z-b}{1-\bar bz}.\]
+Prove that $B'$ has exactly one zero $c$ in $\mathbb D$, and that there is a conformal automorphism $\varphi$ of $\mathbb D$ with $\varphi(c)=0$ and $\varphi(a)=-\varphi(b)$.
+\source{A.~N.~Fletcher, A.~Hill, \emph{On cubic Blaschke products}, arXiv:2511.13484, Section~1.2.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $u\colon\mathbb D\to(0,\infty)$ be a harmonic function on the unit disc with $u(0)=1$, and put $c=\frac12|\nabla u(0)|$. Prove that $c\le1$ and that for every $z\in\mathbb D$, $r=|z|$,
+\[\frac{1-r^2}{1+2cr+r^2}\le u(z)\le\frac{1+2cr+r^2}{1-r^2}.\]
+Show that for every $c\in[0,1]$ and $r\in(0,1)$ each of the two inequalities can turn into an equality.
+\source{M.~Svetlik, \emph{A strengthening of the Harnack inequality}, arXiv:2501.09880, Theorem~1.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $n>0$.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that for every $s\in(-1,1)$
+\[\int_0^\infty\frac{x^s\cos\bigl(nx-\frac{\pi s}2\bigr)}{1+x^2}\,dx=\frac\pi2e^{-n}.\]
+\item Deduce the identities
+\[\int_0^\infty\frac{\cos(nx)\log x}{1+x^2}\,dx=-\frac\pi2\int_0^\infty\frac{\sin(nx)}{1+x^2}\,dx,\]
+\[\pi\int_0^\infty\frac{\sin(nx)\log x}{1+x^2}\,dx+\int_0^\infty\frac{\cos(nx)\log^2x}{1+x^2}\,dx=\frac{\pi^3}8e^{-n}.\]
+\end{enumerate}
+\source{B.~C.~Berndt, A.~Straub, \emph{Certain integrals arising from Ramanujan's notebooks}, arXiv:1509.00886, Theorems~2.1 and~3.1.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $f\colon\mathbb D\to\mathbb D$ be holomorphic with $f'(0)=0$. Prove that
+\[\frac{|f'(z)|}{1-|f(z)|^2}\le\frac{2|z|}{1-|z|^4}\qquad(z\in\mathbb D),\]
+and find all $f$ for which equality holds at some point $z\ne0$.
+\source{A.~Moucha, \emph{A Burns--Krantz type theorem for Blaschke products}, arXiv:2505.21346, Theorem~E.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Find all pairs $(c,f)$, where $c\in\mathbb C$ and $f$ is an entire function satisfying $|f(z)|\le Ae^{A|z|}$ for some constant $A>0$, such that
+\[f'(z)^2+f(z+c)^2=1\qquad\text{for all }z\in\mathbb C.\]
+\source{G.~Haldar, \emph{On entire solutions of system of Fermat-type difference and partial differential-difference equations in $\mathbb C^n$}, arXiv:2310.20358, Introduction.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+For a complex number $q$ with $0<|q|\le\frac15$ let
+\[\theta(q,x)=\sum_{j=0}^\infty q^{j(j+1)/2}x^j\qquad(x\in\mathbb C),\]
+an entire function of $x$.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that $\theta(q,\cdot)$ has no zeros in the disc $|x|\le|q|^{-1/2}$ and exactly one zero in each annulus $|q|^{-k+1/2}<|x|<|q|^{-k-1/2}$, $k=1,2,\dots$; in particular, all its zeros are simple.
+\item Prove that for $0<q\le\frac15$ all zeros of $\theta(q,\cdot)$ are real and negative.
+\end{enumerate}
+\source{Y.~Gati, V.~P.~Kostov, \emph{Where not to find the spectrum of the partial theta function}, arXiv:2605.29903, Theorem~1.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $f$ be holomorphic in a neighbourhood of the closed unit disc, with $f(\mathbb D)\subset\mathbb D$ and $f(0)=f'(0)=0$. Let $\sigma_1,\dots,\sigma_n$ be distinct points of the unit circle with $f(\sigma_j)=\sigma_j$. Prove that each $f'(\sigma_j)$ is a real number greater than $1$ and that
+\[\sum_{j=1}^n\frac1{f'(\sigma_j)-1}\le1.\]
+\source{M.~Abate, \emph{Multipoint Julia theorems}, arXiv:2101.03559, Theorem~1.8 and Proposition~3.11.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+For $w\in\mathbb D$ let
+\[B_w(z)=\Bigl(\frac{z-w}{1-\bar wz}\Bigr)^2.\]
+Prove that $B_w$ has a fixed point in the open unit disc if and only if $w$ lies inside the cardioid $\bigl\{\frac13\bigl(e^{2i\theta}-2e^{i\theta}\bigr):\theta\in[0,2\pi)\bigr\}$, that is, if and only if $w=-\frac13+\rho e^{i\phi}$ with $0<\rho<\frac23(1+\cos\phi)$.
+\source{A.~N.~Fletcher, A.~Hill, \emph{On cubic Blaschke products}, arXiv:2511.13484, Section~4.1.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that for every positive integer $n$
+\[\int_0^\infty\frac{x^3\sin(nx)}{\cosh x-\cos x}\,dx=0.\]
+\item Prove that for every odd positive integer $n$
+\[\int_0^\infty\frac{\sin(nx)}{x(\cosh x+\cos x)}\,dx=\frac\pi4.\]
+\end{enumerate}
+\source{C.~Xu, J.~Zhao, \emph{General Berndt-type integrals and series associated with Jacobi elliptic functions}, arXiv:2401.01385, Introduction; X.~Chen, C.~Xu, J.~Zhou, arXiv:2510.16041, Introduction.}
+
+%------------------------------------------------------------------
+\problem{5}{hard}
+\begin{enumerate}[label=(\alph*),nosep]
+\item Let $f\colon\mathbb D\to\mathbb D$ be holomorphic and suppose that $f(r)=r+o\bigl((1-r)^3\bigr)$ as $r\to1^-$, $r\in(0,1)$. Prove that $f(z)=z$ for all $z\in\mathbb D$.
+\item Show that the function $B(z)=\dfrac{3z^2+1}{z^2+3}$ maps $\mathbb D$ into $\mathbb D$ and that $B(r)-r\sim\frac14(1-r)^3$ as $r\to1^-$; thus the exponent $3$ in (a) cannot be replaced by a smaller one.
+\end{enumerate}
+\source{A.~Moucha, \emph{A Burns--Krantz type theorem for Blaschke products}, arXiv:2505.21346, Theorems~A and~B; F.~Bracci, D.~Kraus, O.~Roth, arXiv:2310.05521, Remark~3.}
+
+\end{document}
