@@ -1,0 +1,189 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.25}
+\frenchspacing
+\emergencystretch=3em
+\setlength{\parindent}{0pt}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\DeclareMathOperator{\tr}{tr}
+\newcommand{\T}{\mathsf T}
+
+\newcounter{prob}
+\newcommand{\problem}[2]{\par\bigskip\needspace{7\baselineskip}\stepcounter{prob}%
+  \noindent\textbf{Problem \theprob.}\hfill\textit{IMC level: #1/5 (#2)}\par\smallskip}
+\newcommand{\source}[1]{\par\smallskip\noindent{\small\textit{Based on:} #1}\par}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Polynomials -- new problems\par}\vspace{0.6em}
+{\large Problems built on recent research results\par}
+\end{center}
+
+\medskip
+Each problem is a special case of a published result or of a lemma used in its proof; the
+papers are in this folder. The problems are ordered by difficulty. The difficulty is the position of the problem in an IMC day:
+1 easy, 2 below average, 3 medium, 4 above average, 5 hard.
+
+%------------------------------------------------------------------
+\problem{1}{easy}
+Let $n\ge1$ and let $x_1<x_2<\dots<x_{n+1}$ be real numbers. Prove that
+\[\int_{x_n}^{x_{n+1}}\!\!\cdots\int_{x_2}^{x_3}\!\int_{x_1}^{x_2}\prod_{1\le i<j\le n}(t_j-t_i)\,dt_1\,dt_2\cdots dt_n=\frac1{n!}\prod_{1\le i<j\le n+1}(x_j-x_i)\]
+(for $n=1$ the empty product under the integral equals $1$).
+\source{M.~S.~Floater, \emph{A divided difference identity for a class of multiple integrals}, arXiv:2603.18867, Corollary~1.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $p$ be a complex polynomial of degree $n\ge2$ with zeros $z_1,\dots,z_n$ (listed with multiplicity), and let $w$ be a zero of $p'$.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that $\displaystyle\min_{1\le j\le n}|z_j-w|\le\frac1n\sum_{j=1}^n|z_j-a|$ for every $a\in\mathbb C$.
+\item Suppose that $|z_j|\le1$ for all $j$. Prove that $\min_j|z_j-w|\le\sqrt{1-|w|^2}$, and show that for every even $n$ and every $w$ with $|w|<1$ equality is possible.
+\end{enumerate}
+\source{D.~Grozev, N.~Nikolov, \emph{A note on the converse Sendov problem}, arXiv:2608.30284, Proposition~2 and Theorem~1.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $P$ be a real polynomial of degree $4$ with four distinct real roots $x_1<x_2<x_3<x_4$. Let $y_1<y_2<y_3$ be the roots of $P'$ and $u_1<u_2$ the roots of $P''$. Prove that if $x_2<u_1$ and $x_3<u_2$, then $y_2<\frac{u_1+u_2}2$.
+\source{A.~A.~Novikov, \emph{An exact certificate-based enumeration of Rolle words of degree six}, arXiv:2611.15505, Section~2.1 (a theorem of Kostov and Shapiro).}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $p$ be a prime, let $n\ge2$ and $k\ge1$ be integers and $\varepsilon,\delta\in\{-1,1\}$. Determine all cases in which the polynomial $f(x)=x^n+\varepsilon px+\delta p^k$ is reducible over $\mathbb Q$.
+\source{B.~Koley, A.~S.~Reddy, \emph{Survey on irreducibility of trinomials}, arXiv:2012.07568, Theorem~21 (corrected).}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $k\ge1$ and $n=2^k-1$. Consider the $2^{n+1}$ polynomials $a_0+a_1x+\dots+a_nx^n$ with all $a_i\in\{-1,1\}$. Prove that at least half of them are irreducible over $\mathbb Q$.
+\source{L.~Bary-Soroker, D.~Hokken, G.~Kozma, B.~Poonen, \emph{Irreducibility of Littlewood polynomials of special degrees}, arXiv:2308.04878, Section~2.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $n\ge4$ and let $P(x)=x^n+a_{n-1}x^{n-1}+\dots+a_1x+a_0$ be a real polynomial with $a_{n-1}<0$, $a_1<0$ and $a_0>0$. Prove that if $P$ has at least $n-2$ negative roots (counted with multiplicity), then $P$ also has a positive root. Show that the statement is false for $n=3$.
+\source{V.~P.~Kostov, \emph{Three realization problems about univariate polynomials}, arXiv:2601.10529, (1.3)--(1.4).}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $N\ge2$ and let $S\subseteq\{0,1,\dots,N\}$ be a set such that $0\in S$; $i+j\in S$ whenever $i,j\in S$ and $i+j\le N$; and for every $k\in\{0,\dots,N\}$ exactly one of the numbers $k$ and $N-k$ belongs to $S$. Let $P(z)=\sum_{k\notin S}c_kz^k$ be a complex polynomial of degree $N$ (so the coefficient of $z^k$ vanishes for every $k\in S$), and let $w_1,\dots,w_{N-1}$ be the roots of $P'$, with multiplicity. Prove that
+\begin{enumerate}[label=(\alph*),nosep]
+\item $w_1^g+\dots+w_{N-1}^g=0$ for every $g\in\{1,\dots,N\}\setminus S$;
+\item $P(w_1)+\dots+P(w_{N-1})=0$.
+\end{enumerate}
+\source{P.~Grinfeld, \emph{Power sums of critical points of gap polynomials for symmetric and pseudo-symmetric numerical semigroups}, arXiv:2609.03049, Section~2.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $p$ be a prime. Every polynomial $f\in\mathbb Z[x]$ induces a map $\mathbb Z/p^2\mathbb Z\to\mathbb Z/p^2\mathbb Z$. Find the largest possible number of elements in the image of such a map, if the map is not a bijection.
+\source{S.~Shang, \emph{Value sets of non-permutation polynomials over the residue class rings of integers}, arXiv:2310.20226, Theorem~1.1 ($r=2$).}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $p$ be a prime, $r$ an integer, and let $G=(V,E)$ be a finite graph (multiple edges allowed) with $|E|>(p-1)|V|$. Call a set $K\subseteq E$ \emph{good} if every vertex $v\in V$ is incident to a number of edges of $K$ that is congruent to $r$ modulo $p$. Prove that the number of good sets of even cardinality and the number of good sets of odd cardinality are congruent modulo $p$. Deduce that $G$ has a non-empty set of edges in which every vertex has degree divisible by $p$.
+\source{A.~Bishnoi, P.~L.~Clark, \emph{Restricted variable Chevalley--Warning theorems}, arXiv:2201.11236, Theorem~1.4; D.~L.~Freed, arXiv:2408.03443, Theorem~9.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $m\ge1$ and
+\[P_m(x)=\sum_{k=-m}^m(-1)^k\binom{2m}{m+k}x^{k^2}.\]
+Prove that $P_m$ is divisible by $(x-1)^m$ but not by $(x-1)^{m+1}$. Deduce that for every $N\ge1$ there is a polynomial $1+a_1x+\dots+a_Nx^N$ with real $|a_j|\le2$ that is divisible by $(x-1)^{\lfloor\sqrt N\rfloor}$.
+\source{T.~Erd\'elyi, \emph{Coppersmith--Rivlin type inequalities and the order of vanishing of polynomials at~1}, arXiv:1406.2560, Lemmas~3.1 and~3.5.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $p$ be a real polynomial of degree at most $n$, and let $E\subset[0,1]$ be a union of finitely many closed intervals of total length $\lambda>0$. Suppose that $|p(x)|\le1$ for all $x\in E$. Prove that $|p(x)|\le(6/\lambda)^n$ for all $x\in[0,1]$.
+\source{Y.~Yomdin, \emph{Smooth rigidity and Remez inequalities via topology of level sets}, arXiv:2106.06961, Theorem~6.1.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $p$ be a real polynomial of degree $n\ge2$ all of whose real roots are simple. Let $r$ be the number of real roots of $p$ and $m$ the number of distinct real roots of $p'$. Prove that the polynomial $p'(x)^2-p(x)p''(x)$ has at least $m+1-r$ distinct real roots.
+\source{O.~Katkova, M.~Tyaglov, A.~Vishnyakova, \emph{On the number of real zeroes of a homogeneous differential polynomial and a generalization of the Hawaii conjecture}, arXiv:2406.00686, Theorem~2.10.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $m\ge1$ and $P(x)=a_0+a_1x+\dots+a_{2m}x^{2m}$ with all $a_k>0$.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that if $a_{2k+1}^2<\dfrac{a_{2k}a_{2k+2}}{\cos^2\frac\pi{m+2}}$ for $k=0,1,\dots,m-1$, then $P(x)>0$ for all real $x$.
+\item Show that the constant $1/\cos^2\frac\pi{m+2}$ cannot be replaced by a larger one.
+\end{enumerate}
+\source{O.~Katkova, B.~Shapiro, A.~Vishnyakova, \emph{In search of Newton-type inequalities}, arXiv:2403.12200, Section~3.1, Theorems~A and~C.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $n\ge1$. Find the smallest number $m$ for which there exist affine hyperplanes $H_1,\dots,H_m$ in $\mathbb R^n$ (not necessarily distinct), none of which passes through the origin, such that every point of $\{0,1\}^n$ other than the origin lies on at least two of them.
+\source{S.~Das, V.~Djaljapayan, Y.-C.~R.~Lin, W.-H.~Yu, \emph{Stability for hyperplane covers}, arXiv:2306.07574, Section~1.1.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $n\ge1$ and let $f(z)=\sum_{k=0}^{2n-1}a_kz^k$ be a polynomial with complex coefficients such that $|f(z)|\le1$ whenever $|z|=1$. Prove that
+\[\bigl|a_0+a_1+\dots+a_{n-1}-a_n-a_{n+1}-\dots-a_{2n-1}\bigr|\le\frac1n\sum_{m=0}^{n-1}\frac1{\sin\frac{(2m+1)\pi}{2n}}.\]
+\source{M.~Technau, \emph{Shapiro's problem on polynomials with large partial sums of coefficients}, arXiv:2603.24405, Theorem~2.5.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $p$ be a real polynomial of degree $n\ge1$ all of whose roots are real and lie in $[-1,1]$. Prove that $\max_{[-1,1]}|p'|\ge\frac{\sqrt n}6\max_{[-1,1]}|p|$.
+\source{M.~A.~Komarov, \emph{On reverse Markov--Nikol'skii inequalities for polynomials with restricted zeros}, arXiv:2405.19158, inequality~(2).}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $n\ge1$ and let $a_0,\dots,a_n,b_0,\dots,b_n$ be real numbers with $0\le a_i\le b_i$ for all $i$ and $b_0+\dots+b_n>0$. Put $r(x)=\dfrac{a_0+a_1x+\dots+a_nx^n}{b_0+b_1x+\dots+b_nx^n}$. Prove that $|x\,r'(x)|\le\frac n4$ for every $x>0$.
+\source{M.~Stephan, \emph{Sharpness characterizes Hill functions}, arXiv:2606.11426, Theorem~3.1 and Corollary~3.3.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $p$ be a prime and let $f\in\mathbb F_p[x]$ be a polynomial of degree $d\ge1$ such that $x\mapsto f(x)$ is not a bijection of $\mathbb F_p$. Prove that $f$ takes at most $p-\left\lceil\frac{p-1}d\right\rceil$ distinct values on $\mathbb F_p$.
+\source{S.~Shang, \emph{Value sets of non-permutation polynomials over the residue class rings of integers}, arXiv:2310.20226, Introduction (Wan's bound).}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $\mathbb F_q$ be a finite field. For a polynomial $g$ with $g(0)\ne0$ put $g^*(x)=x^{\deg g}g(1/x)$, and call $g$ \emph{palindromic} if $g^*=g$. For $n\ge1$ find the number of monic polynomials $f\in\mathbb F_q[x]$ of degree $n$ with $f(0)\ne0$ that are not divisible by any palindromic polynomial of positive degree.
+\source{G.~L.~Price, K.~Thompson, \emph{Palindromic polynomials over finite fields}, arXiv:2210.15703, Theorem~1.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $p$ be a real polynomial of degree $n\ge2$ with only real roots $x_1,\dots,x_n$, and let $y_1,\dots,y_{n-1}$ be the roots of $p'$. Prove that for every convex function $\varphi\colon\mathbb R\to\mathbb R$
+\[\frac1{n-1}\sum_{i=1}^{n-1}\varphi(y_i)\le\frac1n\sum_{j=1}^n\varphi(x_j).\]
+\source{A.~A.~Novikov, \emph{An exact certificate-based enumeration of Rolle words of degree six}, arXiv:2611.15505, proof of inequality~(6).}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+For a nonzero polynomial $F=\sum c_kx^k$ a \emph{gap} is a pair of exponents $a<b$ with $c_a\ne0$, $c_b\ne0$ and $c_k=0$ for $a<k<b$; its length is $b-a$. Let $m>1$ be an odd squarefree integer and $p$ a prime with $p\nmid m$. Prove that every gap of the cyclotomic polynomial $\Phi_{mp}$ has length at most $\varphi(m)$, and that a gap of length exactly $\varphi(m)$ exists if and only if $p>m$.
+\source{Q.-Y.~Zheng, \emph{The totient bound and extremal gaps in cyclotomic polynomials}, arXiv:2611.22795, Theorem~1.1.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $f$ be a real polynomial of degree $n\ge1$ whose zeros are all real and lie in $(-\infty,-1]\cup[1,\infty)$. Suppose that $f$ is monotone on $[-1,1]$. Prove that $\max_{[-1,1]}|f'|\le\frac n2\max_{[-1,1]}|f|$.
+\source{T.~Erd\'elyi, \emph{Inequalities for Lorentz polynomials}, arXiv:1406.2843, Theorem~2.5.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $N\ge3$ be an integer. Find all real $\kappa$ such that all zeros of $z^N+\kappa z^{N-1}+\kappa z+1$ lie on the unit circle.
+\source{D.~Dmitrishin, A.~Stokolos, \emph{Some properties of the quadrinomials $1+\kappa(z+z^{N-1})+z^N$ and $1+\kappa(z-z^{N-1})-z^N$}, arXiv:2410.14009, Theorem~4.}
+
+%------------------------------------------------------------------
+\problem{5}{hard}
+Let $n=2m+1\ge3$ be odd and let $p$ be a complex polynomial of degree $n$ all of whose zeros lie in the closed unit disc. Let $w$ be a zero of $p'$ and $r=|w|$.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that $p$ has a zero $z$ with $\displaystyle|z-w|\le(1+r)\sqrt{\frac{(n-1)(1-r)}{(n-1)+(n+1)r}}$.
+\item Show that the bound is attained for $p(z)=(z+1)(z-e^{i\theta})^m(z-e^{-i\theta})^m$ with $\cos\theta=\dfrac{(2m+1)r^2+2mr+1}{2(m+(m+1)r)}$ and a suitable zero $w\ge0$ of $p'$.
+\end{enumerate}
+\source{D.~Grozev, N.~Nikolov, \emph{A note on the converse Sendov problem}, arXiv:2608.30284, Theorem~1, inequality~(2).}
+
+%------------------------------------------------------------------
+\problem{5}{hard}
+For $n\ge1$ let $P_n(z)=\sum_{k=0}^n z^k\big/\binom nk$.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that all zeros of $P_n$ are simple and lie on the unit circle.
+\item Write the zeros of $P_n$ and of $P_{n+1}$ as $e^{i\theta_1},\dots,e^{i\theta_n}$ and $e^{i\tau_1},\dots,e^{i\tau_{n+1}}$ with $0<\theta_1<\dots<\theta_n<2\pi$ and $0<\tau_1<\dots<\tau_{n+1}<2\pi$. Prove that $\tau_1<\theta_1<\tau_2<\theta_2<\dots<\tau_n<\theta_n<\tau_{n+1}$.
+\end{enumerate}
+\source{J.~Mao, L.~Wang, S.~Zheng, \emph{Interlacing on the unit circle via coefficientwise reciprocals}, arXiv:2609.34551, Theorem~1.1 and Corollary~4.1.}
+
+\end{document}
