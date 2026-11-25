@@ -21,9 +21,9 @@
 \hint{4} By Fermat (infinite descent) $x^4+y^4=z^2$ has no solutions with $xy\ne0$. The case $a=0$ is $X^{2N}+1=\Phi_{4N}(X)$, irreducible.
 
 \problem{4}
-\hint{1} Write $f=ax^2+bx+c$ and use $k=0,1,-1$.
-\hint{2} $5\mid c$, $5\mid a+b$, $5\mid a-b$, so $5\mid 2a$, hence $5\mid a$ and $5\mid b$.
-\hint{3} General statement: if $\deg f\le p-1$ and $p\mid f(k)$ for all integers $k$, then $p$ divides all coefficients, because $\bar f\in\mathbb{F}_p[x]$ has $p$ roots but degree $<p$. The bound is sharp: $x^p-x$.
+\hint{1} Let $D=\max S-\min S$. If $f(a),f(b)\in S$ and $f(a)\ne f(b)$, then $a-b\mid f(a)-f(b)$ gives $|a-b|\le D$.
+\hint{2} Let $k_1,\dots,k_m$ be the integers with $f(k_i)\in S$ and suppose $m>\deg f$. Then not all $f(k_i)$ are equal (otherwise $f-s$ would have more than $\deg f$ roots), so pick $a,b$ among them with $f(a)\ne f(b)$.
+\hint{3} Every $k_i$ with $f(k_i)\ne f(b)$ lies within $D$ of $b$, and every $k_i$ with $f(k_i)=f(b)\ne f(a)$ lies within $D$ of $a$. Hence $m\le2(2D+1)$, and $c=4D+2$ works.
 
 \problem{5}
 \hint{1} Consider $d(x,y)=\dfrac{f(x)-f(y)}{x-y}$, a polynomial in two variables of total degree $\le n-1$. You must show it is integer-valued at all integer points with $x\ne y$; you know this for $0\le x<y\le n$.
