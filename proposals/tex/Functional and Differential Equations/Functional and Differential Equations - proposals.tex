@@ -1,0 +1,144 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.25}
+\frenchspacing
+\emergencystretch=3em
+\setlength{\parindent}{0pt}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\DeclareMathOperator{\tr}{tr}
+\newcommand{\T}{\mathsf T}
+
+\newcounter{prob}
+\newcommand{\problem}[2]{\par\bigskip\needspace{7\baselineskip}\stepcounter{prob}%
+  \noindent\textbf{Problem \theprob.}\hfill\textit{IMC level: #1/5 (#2)}\par\smallskip}
+\newcommand{\source}[1]{\par\smallskip\noindent{\small\textit{Based on:} #1}\par}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Functional and Differential Equations -- new problems\par}\vspace{0.6em}
+{\large Problems built on recent research results\par}
+\end{center}
+
+\medskip
+Each problem is a special case of a published result or of a lemma used in its proof; the
+papers are in this folder. The problems are ordered by difficulty. The difficulty is the position of the problem in an IMC day:
+1 easy, 2 below average, 3 medium, 4 above average, 5 hard.
+
+%------------------------------------------------------------------
+\problem{1}{easy}
+Find all continuous functions $F\colon\mathbb R\to\mathbb R$ such that
+\[F\bigl(x+F(x)\bigr)=-F(x)\qquad\text{for all }x\in\mathbb R.\]
+Prove moreover that if a solution $F\not\equiv0$ is differentiable at a point $x_0$ with $F(x_0)=0$, then $F'(x_0)=-2$.
+\source{K.~Burdzy, A.~J.~Ostaszewski, \emph{Freezing in space-time: a functional equation linked with a PDE system}, arXiv:2205.03141, Propositions~2.1 and~2.5.}
+
+%------------------------------------------------------------------
+\problem{1}{easy}
+Let $f\colon[0,\infty)\to\mathbb R$ be a differentiable function such that $f(0)=1$ and $f'(x)=-f(x/2)$ for all $x\ge0$. Prove that $f$ has arbitrarily large zeros.
+\source{G.~L.~Karakostas, \emph{Oscillation of delay differential equations via the hyper4 convergence}, arXiv:2508.14023, Theorem~2.1.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Find all pairs of continuous functions $f,g\colon\mathbb R\to\mathbb R$ such that
+\[f(x+y)=f(x)+f(y)+g(x)g(y)\qquad\text{for all }x,y\in\mathbb R.\]
+\source{E.~Gselmann, T.~Ma{\l}olepszy, J.~Matkowski, \emph{Perturbations of Cauchy differences}, arXiv:2603.19242, Theorem~1 and Corollary~7.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $f\colon[0,\infty)\to\mathbb R$ be continuous and let $a,b,c,d>0$. Suppose that some solution $x$ of $x''+ax'+bx=f(t)$ satisfies $x(t)\to0$ as $t\to\infty$, and let $z$ be any solution of $z''+cz'+dz=f(t)$.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that $z(t)\to0$ as $t\to\infty$.
+\item Prove that $z'(t)-x'(t)\to0$; in particular, if also $x'(t)\to0$, then $z'(t)\to0$.
+\item Give an example in which $x(t)\to0$ but $x'(t)$ does not tend to $0$.
+\end{enumerate}
+\source{J.~A.~D.~Appleby, S.~Pal, \emph{Characterisation of convergence, boundedness and unboundedness in solutions of second order linear differential equations}, arXiv:2603.25545, Theorems~1 and~2.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Find all real $M$ with the following property: for every continuous $1$-periodic function $\sigma\colon\mathbb R\to[0,\infty)$ with $\sigma\not\equiv0$, the equation
+\[u''+Mu=\sigma(t)\]
+has at least one $1$-periodic solution, and every $1$-periodic solution is strictly positive on $\mathbb R$.
+\source{A.~Cabada, L.~L\'opez-Somoza, M.~Yousfi, \emph{Constant sign Green's function of a second order perturbed periodic problem}, arXiv:2201.09843, Sections~3--4.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $f,g\colon\mathbb R^2\to\mathbb R$ be continuously differentiable functions with $\partial f/\partial y>0$ and $\partial g/\partial x>0$ everywhere. Let $(x(t),y(t))$ be a solution of the system
+\[x'=f(x,y),\qquad y'=g(x,y)\]
+that is defined and bounded on $[0,\infty)$. Prove that $(x(t),y(t))$ converges, as $t\to\infty$, to a point $(x^*,y^*)$ with $f(x^*,y^*)=g(x^*,y^*)=0$.
+\source{E.~D.~Sontag, \emph{Some intuition for why cooperative systems ``look 1-dimensional'' and 2-cooperative systems ``look 2-dimensional''}, arXiv:2607.27176, Section~1.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Find all functions $f,g\colon\mathbb Z\to(0,\infty)$ such that
+\[f(m+n)\,g(m-n)=f(m)\,f(n)\,g(m)\,g(-n)\qquad\text{for all }m,n\in\mathbb Z.\]
+\source{G.~M.~Feldman, \emph{Solution of the Kac--Bernstein functional equation on Abelian groups in the class of positive functions}, arXiv:2102.01592, Theorem~2.1; T.~Satomi, arXiv:2607.24033, Theorem~1.1.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Find all functions $f,g\colon\mathbb R\to\mathbb R$ (no regularity is assumed) such that
+\[g(x+y)-g(x)-g(y)=xf(y)+yf(x)\qquad\text{for all }x,y\in\mathbb R.\]
+\source{W.~Fechner, E.~Gselmann, \emph{General and alien solutions of a functional equation and of a functional inequality}, arXiv:1307.0653, Theorem~3.1.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Find all $\beta\ge0$ such that every differentiable function $f\colon[0,\infty)\to\mathbb R$ satisfying
+\[f'(x)=\beta f(x/2)-f(x)\qquad\text{for all }x\ge0\]
+is bounded.
+\source{J.~A.~D.~Appleby, E.~Lawless, \emph{Characterisation of asymptotic behaviour of perturbed deterministic and stochastic pantograph equations}, arXiv:2410.16435, Section~1.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $p\colon\mathbb R\to\mathbb R$ be continuous and $1$-periodic, and let $m=\int_0^1p(t)\,dt$. Consider the equation
+\[x'(t)=p(t)-\arctan x(t).\]
+Prove that it has a $1$-periodic solution if and only if $|m|<\frac\pi2$, that in this case the $1$-periodic solution is unique, and that for $|m|\ge\frac\pi2$ every solution is unbounded on $[0,\infty)$.
+\source{P.~Korman, \emph{Unbounded solutions of periodic systems}, arXiv:2303.12919, Theorem~3.1.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $q,r\colon[a,b]\to\mathbb R$ be continuous, $r\not\equiv0$ ($r$ may change sign). A number $\lambda\in\mathbb C$ is called an \emph{eigenvalue} if the problem
+\[-y''+q(x)y=\lambda r(x)y,\qquad y(a)=y(b)=0,\]
+has a nonzero complex-valued solution. Suppose that for some real eigenvalue $\mu$ there is an eigenfunction $u$ with $u(x)\ne0$ for all $x\in(a,b)$. Prove that all eigenvalues are real.
+\source{A.~B.~Mingarelli, \emph{On the non-existence of oscillation numbers in Sturm--Liouville theory}, arXiv:2404.19575, Corollary~2.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Find all functions $f\colon\mathbb R\to\mathbb R$ such that
+\[f\bigl(x^2+yf(z)\bigr)\ge xf(x)+zf(y)\qquad\text{for all }x,y,z\in\mathbb R.\]
+\source{W.~Fechner, \emph{A note on two functional inequalities}, arXiv:2611.11403, Theorem~1.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $a,b,c,d\colon\mathbb R\to\mathbb R$ be continuous $1$-periodic functions with $a(t)>0$ for all $t$. Prove that the equation
+\[x'=a(t)x^3+b(t)x^2+c(t)x+d(t)\]
+has at most three $1$-periodic solutions.
+\source{J.~L.~Bravo, L.~\'A.~Calder\'on, I.~Ojeda, \emph{Rational limit cycles of Abel differential equations}, arXiv:2302.10743, Introduction; R.~Tian, J.~Huang, Y.~Zhao, arXiv:2410.21848.}
+
+%------------------------------------------------------------------
+\problem{5}{hard}
+Let $a>0$. A solution is a continuous function $x\colon[-1,\infty)\to\mathbb R$, differentiable on $(0,\infty)$, with $x'(t)=-a\,x(t-1)$ for all $t>0$.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that if $a<1$, then every solution tends to $0$ as $t\to\infty$.
+\item Prove that if $a>\frac\pi2$, then there is an unbounded solution.
+\end{enumerate}
+\source{J.~I.~Stavroulakis, E.~Braverman, \emph{Stability and oscillation of linear delay differential equations}, arXiv:2012.10726, Introduction.}
+
+%------------------------------------------------------------------
+\problem{5}{hard}
+Let $a,b>0$ and let $f\colon[0,\infty)\to\mathbb R$ be continuous. Prove that the following two statements are equivalent:
+\begin{enumerate}[label=(\roman*),nosep]
+\item every solution of $x''+ax'+bx=f(t)$ satisfies $x(t)\to0$ and $x'(t)\to0$ as $t\to\infty$;
+\item for every $h>0$, $\displaystyle\int_t^{t+h}f(s)\,ds\to0$ as $t\to\infty$.
+\end{enumerate}
+\source{J.~A.~D.~Appleby, S.~Pal, \emph{Characterisation of convergence, boundedness and unboundedness in solutions of second order linear differential equations}, arXiv:2603.25545, Theorem~2.}
+
+\end{document}
