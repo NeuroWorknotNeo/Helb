@@ -1,0 +1,134 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.25}
+\frenchspacing
+\emergencystretch=3em
+\setlength{\parindent}{0pt}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\DeclareMathOperator{\tr}{tr}
+\newcommand{\T}{\mathsf T}
+
+\newcounter{prob}
+\newcommand{\problem}[2]{\par\bigskip\needspace{7\baselineskip}\stepcounter{prob}%
+  \noindent\textbf{Problem \theprob.}\hfill\textit{IMC level: #1/5 (#2)}\par\smallskip}
+\newcommand{\source}[1]{\par\smallskip\noindent{\small\textit{Based on:} #1}\par}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Convex Geometry -- new problems\par}\vspace{0.6em}
+{\large Problems built on recent research results\par}
+\end{center}
+
+\medskip
+Each problem is a special case of a published result or of a lemma used in its proof; the
+papers are in this folder. The problems are ordered by difficulty. The difficulty is the position of the problem in an IMC day:
+1 easy, 2 below average, 3 medium, 4 above average, 5 hard.
+
+%------------------------------------------------------------------
+\problem{1}{easy}
+For a convex polygon $P\subset\mathbb R^2$ (a segment is allowed, a single point is not) and $\theta\in\mathbb R$ let $w(\theta)$ be the width of $P$ in the direction $(\cos\theta,\sin\theta)$, i.e.\ the length of the orthogonal projection of $P$ onto the line $\mathbb R(\cos\theta,\sin\theta)$. Prove that
+\[\Bigl(\int_0^\pi w(\theta)\,d\theta\Bigr)^2\ge\frac8\pi\int_0^\pi w(\theta)^2\,d\theta,\]
+and that equality holds only when $P$ is a segment.
+\source{S.~Akiyama, T.~Kamae, \emph{Width deviation of convex polygons}, arXiv:2201.06736, Theorem~2.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $K\subset\mathbb R^n$ be a convex body whose ellipsoid of maximal volume is the unit ball $B$. Prove that $\operatorname{diam}K\le\sqrt{2n(n+1)}$, and that equality holds for the regular simplex circumscribed about $B$.
+\source{R.~Brandenberg, F.~Grundbacher, \emph{Tightening inequalities on volume extremal $k$-ellipsoids using asymmetry measures}, arXiv:2501.00653, Proposition~4.2.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $P$ be a finite set of at least two points in the plane, and let $T$ be a spanning tree on the vertex set $P$ whose total Euclidean edge length is maximal among all spanning trees on $P$. For every edge $pq$ of $T$ consider the closed disc with diameter $pq$. Prove that the centre of the smallest disc containing $P$ belongs to all these discs.
+\source{A.~K.~Abu-Affash, P.~Carmi, M.~Maman, \emph{Piercing diametral disks induced by edges of maximum spanning tree}, arXiv:2209.11260, Theorem~1.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+For a convex body $K\subset\mathbb R^2$ and a unit vector $u$ let $K^u=\{x\in K:\langle x,u\rangle=\max_{y\in K}\langle y,u\rangle\}$ be the face of $K$ in direction $u$. Let $A\subset\mathbb R^2$ be a finite set and $K\subset\mathbb R^2$ a convex body. Prove that the Minkowski sum $A+\lambda K=\{a+\lambda k:a\in A,\ k\in K\}$ is convex for some $\lambda>0$ if and only if for every unit vector $u$ such that $(\operatorname{conv}A)^u$ is a segment of positive length, the face $K^u$ is also a segment of positive length.
+\source{M.~Meyer, \emph{Finite convexification by Minkowski summation}, arXiv:2610.26744, Theorem~2.1.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $K\subset\mathbb R^3$ be a convex body. Let $S_x$ and $S_y$ be the areas of the orthogonal projections of $K$ onto the planes $\{x=0\}$ and $\{y=0\}$, and let $h$ be the length of its orthogonal projection onto the $z$-axis. Prove that
+\[|K|\cdot h\le\tfrac43S_xS_y,\]
+and show that equality holds for every pyramid whose base is a rectangle lying in a plane $z=\mathrm{const}$ with sides parallel to the $x$- and $y$-axes.
+\source{A.~Giannopoulos, A.~Koldobsky, A.~Zvavitch, \emph{Inequalities for sections and projections of convex bodies}, arXiv:2302.04347, Section~3.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $K\subset\mathbb R^n$ be a convex body with centroid at the origin, let $u$ be a unit vector, and let $f(t)=\operatorname{vol}_{n-1}\bigl(K\cap\{\langle x,u\rangle=t\}\bigr)$. Prove that
+\[f(0)\ge\Bigl(\frac n{n+1}\Bigr)^{n-1}\max_tf(t),\]
+and show that the constant cannot be improved.
+\source{D.~Alonso-Guti\'errez, F.~Mar\'in Sola, J.~Mart\'in Go\~ni, J.~Yepes Nicol\'as, \emph{A general functional version of Gr\"unbaum's inequality}, arXiv:2404.08319, Theorem~B.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $K$ and $M$ be convex polygons in the plane with nonempty interiors and with perimeters $p$ and $q$, and let $K+M=\{x+y:x\in K,\ y\in M\}$. Prove that
+\[\operatorname{area}(K+M)<\operatorname{area}(K)+\operatorname{area}(M)+\frac{pq}4,\]
+and show that the constant $\frac14$ cannot be replaced by a smaller one.
+\source{F.~A.~Bartha, F.~Bencs, K.~J.~B\"or\"oczky, D.~Hug, \emph{Extremizers and stability of the Betke--Weil inequality}, arXiv:2103.11672, Theorem~1.1.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $Q=[0,1]^2$. Find the largest constant $c$ such that $\operatorname{per}(X)\ge c\cdot\operatorname{area}(X)$ for every convex set $X\subseteq Q$ with nonempty interior.
+\source{K.~Drach, K.~Tatarko, \emph{Stability of reverse isoperimetric inequalities in the plane: area, Cheeger, and inradius}, arXiv:2410.06096, Theorem~3.1.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $K$ be the intersection of finitely many closed discs of radius $1$ in the plane. Suppose that $K$ has nonempty interior and perimeter $L$. Prove that $K$ contains a disc of radius $1-\cos\frac L4$. When does equality hold, i.e.\ when is the largest disc in $K$ of exactly this radius?
+\source{K.~Drach, K.~Tatarko, arXiv:2410.06096, Theorem~C; K.~Drach, K.~Tatarko, \emph{Reverse isoperimetric problems under curvature constraints}, arXiv:2303.02294, Theorem~B.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $\mathcal F$ be a finite family of closed rectangles in the plane with sides parallel to the coordinate axes. A family is called \emph{2-pierceable} if there are two points such that every member of the family contains at least one of them.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that if every subfamily of $\mathcal F$ with at most $5$ members is 2-pierceable, then $\mathcal F$ is 2-pierceable.
+\item Show that the number $5$ cannot be replaced by $4$.
+\end{enumerate}
+\source{S.~Chakraborty, A.~Ghosh, S.~Nandi, \emph{Colorful two-piercing theorem for boxes}, arXiv:2207.14368, Theorem~1.3 (Danzer and Gr\"unbaum).}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+Let $f\colon\mathbb R^n\to[0,\infty)$ be log-concave with $0<\int f<\infty$, and let $b=\int xf(x)\,dx\big/\!\int f$ be its barycentre. Prove that $f(b)\ge e^{-n}\sup_{\mathbb R^n}f$, and that the constant $e^{-n}$ is best possible.
+\source{N.~Tziotziou, \emph{Inequalities for sections and projections of log-concave functions}, arXiv:2503.21494, inequality~(2.1).}
+
+%------------------------------------------------------------------
+\problem{5}{hard}
+\begin{enumerate}[label=(\alph*),nosep]
+\item Let $P$ be a convex polygon with vertices in $\mathbb Z^2$ and let $v\in\mathbb R^2\setminus\mathbb Z^2$. Prove that the translate $P+v$ contains fewer points of $\mathbb Z^2$ than $P$ does.
+\item Show that the analogous statement is false for convex polytopes with vertices in $\mathbb Z^3$.
+\end{enumerate}
+\source{A.~Freyer, G.~C.~Hofst\"atter, \emph{Counting lattice points in translations: uniqueness and existence results}, arXiv:2610.26523, Corollary~F (Wills's inequality).}
+
+%------------------------------------------------------------------
+\problem{5}{hard}
+Let $\varphi\colon\mathbb R\to\mathbb R$ be a convex function such that $\int_{\mathbb R}e^{-\varphi}<\infty$ and $\int_{\mathbb R}xe^{-\varphi(x)}\,dx=0$. Let $\varphi^*(y)=\sup_{x\in\mathbb R}(xy-\varphi(x))$ (possibly $+\infty$; $e^{-\infty}=0$). Prove that
+\[\int_{\mathbb R}e^{-\varphi(x)}\,dx\cdot\int_{\mathbb R}e^{-\varphi^*(y)}\,dy\le2\pi.\]
+\source{M.~Fradelizi, M.~Meyer, A.~Zvavitch, \emph{Volume product}, arXiv:2301.06131, Theorem~15 and Remark~8.}
+
+%------------------------------------------------------------------
+\problem{5}{hard}
+Let $K\subset\mathbb R^2$ be a convex body and let $n\ge3$. Prove that $K$ contains a convex polygon with at most $n$ vertices whose area is at least
+\[\frac n{2\pi}\sin\frac{2\pi}n\cdot\operatorname{area}(K).\]
+\source{B.~Basit, S.~Hoehner, Z.~L\'angi, J.~Ledford, \emph{Steiner symmetrization on the sphere}, arXiv:2406.10614, inequality~(8) (Sas's theorem).}
+
+%------------------------------------------------------------------
+\problem{5}{hard}
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that every convex body $K\subset\mathbb R^2$ contains an ellipse of area at least $\frac\pi{3\sqrt3}|K|$.
+\item Prove that every convex body $K\subset\mathbb R^2$ is contained in an ellipse of area at most $\frac{4\pi}{3\sqrt3}|K|$.
+\end{enumerate}
+Show that both constants are best possible. In (b) you may use without proof the following analogue of John's theorem: if the unit disc is the ellipse of minimal area containing $K$, then there are points $u_1,\dots,u_m\in K\cap S^1$ and weights $c_i>0$ with $\sum c_iu_iu_i^T=I$ and $\sum c_iu_i=0$.
+\source{A.~Arman, A.~Bondarenko, A.~Prymak, \emph{On Hadwiger's covering problem in small dimensions}, arXiv:2404.00547, inequality~(11); see also arXiv:2505.23748.}
+
+\end{document}
