@@ -1,0 +1,148 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage[hidelinks]{hyperref}
+\setstretch{1.25}
+\frenchspacing
+\emergencystretch=3em
+\setlength{\parindent}{0pt}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\DeclareMathOperator{\tr}{tr}
+\newcommand{\T}{\mathsf T}
+
+\newcounter{prob}
+\newcommand{\problem}[2]{\par\bigskip\needspace{7\baselineskip}\stepcounter{prob}%
+  \noindent\textbf{Problem \theprob.}\hfill\textit{IMC level: #1/5 (#2)}\par\smallskip}
+\newcommand{\source}[1]{\par\smallskip\noindent{\small\textit{Based on:} #1}\par}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Optimization -- new problems\par}\vspace{0.6em}
+{\large Problems built on recent research results\par}
+\end{center}
+
+\medskip
+Each problem is a special case of a published result or of a lemma used in its proof; the
+papers are in this folder. The problems are ordered by difficulty. The difficulty is the position of the problem in an IMC day:
+1 easy, 2 below average, 3 medium, 4 above average, 5 hard.
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+Let $1<a<b$ be integers, and suppose coins of values $1$, $a$ and $b$ are available in unlimited supply. The \emph{greedy algorithm} pays an amount $m$ by repeatedly taking the largest coin that does not exceed the amount still to be paid. Write $b=qa-s$ with integers $q\ge2$ and $0\le s\le a-1$. Prove that the greedy algorithm uses the smallest possible number of coins for every positive integer amount $m$ if and only if $s<q$.
+\source{A.~J.~Young, \emph{Completely greedy coin sets}, arXiv:2407.19137, Corollary~3.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+For $h>0$ let $Y_h$ be the set of continuous functions $y\colon[0,1]\to\mathbb R$ with $y(0)=0$, $y(1)=h$ that are continuously differentiable outside finitely many points, and let
+\[R(y)=\int_0^1\frac{dx}{1+y'(x)^2}.\]
+\begin{enumerate}[label=(\alph*),nosep]
+\item Find $\inf R(y)$ over the non-decreasing $y\in Y_h$ and determine all functions at which it is attained.
+\item Show that the infimum of $R$ over all of $Y_h$ equals $0$ and is not attained.
+\end{enumerate}
+\source{R.~L\'opez, \emph{Generalization of Newton's minimal resistance problem to Riemannian surfaces}, arXiv:2605.27029, Section~1 and Corollary~4.2.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+On a circle of length $1$ there are $n$ red and $n$ blue points (all $2n$ distinct). We pair every red point with a blue point and pay, for each pair, the length of the shorter arc joining them. Fix a point $O$ of the circle and for $x\in[0,1)$ let $D(x)$ be the number of red points minus the number of blue points on the arc of length $x$ going counterclockwise from $O$. Prove that the minimal possible total cost equals
+\[\min_{c\in\mathbb R}\int_0^1|D(x)-c|\,dx.\]
+\source{R.~D\'iaz Mart\'in, I.~Medri, Y.~Bai et al., \emph{LCOT: Linear circular optimal transport}, arXiv:2310.06002, Proposition~2.3.}
+
+%------------------------------------------------------------------
+\problem{2}{below average}
+For a graph $G$ on the vertices $1,\dots,n$ with $m$ edges and non-negative edge weights $w=(w_e)$ let $L_w=\sum_{e=uv}w_e(\mathbf e_u-\mathbf e_v)(\mathbf e_u-\mathbf e_v)^T$, let $\lambda(w)$ be the second smallest eigenvalue of $L_w$, and let $\hat a(G)=\max\{\lambda(w):w\ge0,\ \sum_ew_e=m\}$.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that $\hat a(C_n)=2-2\cos\frac{2\pi}n$ for the cycle $C_n$, $n\ge3$.
+\item Let $G=K_4-e$ (the complete graph $K_4$ with one edge deleted, $m=5$). Find $\hat a(G)$ and all weights at which it is attained.
+\end{enumerate}
+\source{M.~Catral, S.~Fallat, H.~Gupta, J.~C.-H.~Lin, \emph{The strong spectral property and the Jacobian method for weighted Laplacian matrices}, arXiv:2602.18999, Section~6.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $\mathcal F$ be the set of measurable functions $f\colon[0,1]^2\to[0,1]$ that are non-decreasing in each variable and satisfy $\lambda\{f\le c\}=c$ for every $c\in[0,1]$, where $\lambda$ is the area. Let $\varphi\colon[0,1]\to[0,1]$ be continuous and non-decreasing. Find
+\[\min_{f\in\mathcal F}\int_0^1f(\varphi(y),y)\,dy\qquad\text{and}\qquad\max_{f\in\mathcal F}\int_0^1f(\varphi(y),y)\,dy,\]
+and show that both extrema are attained.
+\source{O.~Kovalenko, \emph{On discretization of some extremal problems}, arXiv:2307.07716, Theorem~1.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $a\ge b>0$. Alice chooses a probability measure $\mu$ on $[0,\infty)$ with mean $\int x\,d\mu=a$, Bob chooses a probability measure $\nu$ on $[0,\infty)$ with mean $b$, and Alice receives
+\[\Phi(\mu,\nu)=(\mu\otimes\nu)\{(x,y):x>y\}+\tfrac12(\mu\otimes\nu)\{(x,y):x=y\}.\]
+Prove that $\displaystyle\sup_\mu\inf_\nu\Phi(\mu,\nu)=\inf_\nu\sup_\mu\Phi(\mu,\nu)=1-\frac b{2a}$, and find measures $\mu^*,\nu^*$ at which the outer extrema are attained.
+\source{K.~Paarporn, J.~R.~Marden, \emph{Beyond arbitrary allocations: security values in constrained General Lotto games}, arXiv:2604.06329, Theorem~2.1.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $n\ge2$ and let $a_{ij}$ ($1\le i<j\le n$) be real numbers. For $d\ge1$ put
+\[M_d=\max\Bigl\{\sum_{i<j}a_{ij}\langle v_i,v_j\rangle:\ v_1,\dots,v_n\in\mathbb R^d,\ |v_1|=\dots=|v_n|=1\Bigr\}.\]
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that $M_d=M_n$ whenever $(d+1)(d+2)>2n$.
+\item Deduce that for $n=3$ the maximum is always attained at coplanar vectors, and give an example with $M_1<M_2$.
+\end{enumerate}
+\source{H.~Li, H.~Liu, D.~Ge, Y.~Ye, \emph{A curvature-aware rank-adaptive distributed augmented-Lagrangian solver for large-scale SDPs}, arXiv:2607.17933, Section~1 (the Barvinok--Pataki bound).}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+A $3\times3\times3$ array $(a_{ijk})$ of non-negative reals is called \emph{tristochastic} if each of its $27$ lines (two indices fixed, the third running over $1,2,3$) has sum $1$.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Show that the tristochastic arrays with all entries in $\{0,1\}$ are exactly the arrays $a_{ijk}=[L(i,j)=k]$ for the Latin squares $L$ of order~$3$.
+\item Prove that there is a tristochastic array which is not a convex combination of tristochastic arrays with entries in $\{0,1\}$.
+\end{enumerate}
+\source{A.~A.~Taranenko, \emph{Enumeration and constructions of vertices of the polytope of polystochastic matrices}, arXiv:2502.09149, Section~1.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $P$ be a convex polygon with an odd number of sides, all of length $1$. Prove that the width of $P$ (the smallest distance between two parallel supporting lines) is at least $\frac{\sqrt3}2$. Show that the bound is attained, and that it fails for polygons with an even number of sides.
+\source{G.~Fejes T\'oth, \emph{Finite variations on the isoperimetric problem}, arXiv:2202.09920 (a result of Audet and Ninin).}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+Let $n\ge2$ and let $a_k\le b_k$ ($0\le k\le n$) be real numbers with $a_0=b_0$ and $a_n=b_n$. Let $K$ be the set of all $(x_0,\dots,x_n)$ with $a_k\le x_k\le b_k$ for all $k$. Prove that there is $x^*\in K$ such that
+\[\sum_{k=1}^n\varphi(x^*_k-x^*_{k-1})\le\sum_{k=1}^n\varphi(x_k-x_{k-1})\]
+for every $x\in K$ and every convex function $\varphi\colon\mathbb R\to\mathbb R$.
+\source{M.~A.~Lifshits, A.~A.~Podchishchailov, \emph{Asymptotic distribution of the derivative of the taut string accompanying Wiener process}, arXiv:2411.04690, Section~1.1.}
+
+%------------------------------------------------------------------
+\problem{3}{medium}
+For a permutation $\pi$ of $\{1,\dots,n\}$ written as the sequence $\pi(1),\dots,\pi(n)$, let $A(\pi)$ be the smallest number of swaps of two adjacent entries, and $B(\pi)$ the smallest number of swaps of two arbitrary entries, needed to sort the sequence. Prove that
+\[A(\pi)+B(\pi)\le\sum_{i=1}^n|\pi(i)-i|.\]
+\source{K.~Archer, A.~Geary, R.~P.~Laudone, \emph{Pattern-avoiding shallow permutations}, arXiv:2412.11999, Introduction (the Diaconis--Graham inequality).}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+A combination lock has $n$ dials in a row; each dial shows a residue modulo $N$ ($N\ge2$). In one move one may choose a block of consecutive dials and turn all of them by one step in the same direction, that is, add $+1$ to all of them or add $-1$ to all of them modulo $N$. The lock shows $(c_1,\dots,c_n)$. Put $c_0=c_{n+1}=0$ and let $e_i\in\{0,1,\dots,N-1\}$ be the residue of $c_{i+1}-c_i$ modulo $N$ ($i=0,\dots,n$). Prove that $e_0+\dots+e_n=jN$ for an integer $j$, and that the least number of moves needed to reach $(0,\dots,0)$ equals the sum of the $n+1-j$ smallest of the numbers $e_0,\dots,e_n$.
+\source{M.~Sonnleitner, \emph{Unlocking your bike the easy way}, arXiv:2308.10321, Theorem~1.}
+
+%------------------------------------------------------------------
+\problem{4}{above average}
+For a function $y$ on $[0,1]$ put
+\[F(y)=\int_0^1\bigl(y(x)^3-x\bigr)^2y'(x)^6\,dx.\]
+\begin{enumerate}[label=(\alph*),nosep]
+\item Show that there is a function $y$, continuous on $[0,1]$ and continuously differentiable on $(0,1]$, with $y(0)=0$, $y(1)=1$ and $F(y)=0$.
+\item Prove that there is an absolute constant $c>0$ such that $F(y)\ge c$ for every $y\in C^1[0,1]$ with $y(0)=0$ and $y(1)=1$.
+\end{enumerate}
+\source{R.~Cerf, C.~Mariconda, \emph{The Lavrentiev phenomenon}, arXiv:2404.02901, Examples~5 and~8 (Mani\`a's example).}
+
+%------------------------------------------------------------------
+\problem{5}{hard}
+Let $n,k\ge1$, $m=kn+1$, and let $S$ be the set of real $n\times m$ matrices with non-negative entries in which every row sum equals $m$ and every column sum equals $n$.
+\begin{enumerate}[label=(\alph*),nosep]
+\item Prove that for $k=1$ the polytope $S$ has exactly $n!\,(n+1)^{n-1}$ vertices.
+\item Find the number of vertices of $S$ for arbitrary $k$.
+\end{enumerate}
+\source{M.~M.~Etkind, N.~Lev, \emph{Support of extremal doubly stochastic arrays}, arXiv:2207.08116, Theorems~1.4 and~1.5.}
+
+%------------------------------------------------------------------
+\problem{5}{hard}
+$n\ge2$ people have to cross a bridge at night with a single torch; person $k$ needs $k$ minutes to cross. Every crossing is made with the torch. Each crossing to the far side is made by exactly two people walking at the pace of the slower one. After each such crossing, unless everybody is already on the far side, exactly one person brings the torch back. Find the minimum possible total time.
+\source{P.~E.~Thang, G.~Sayson, \emph{Some generalizations of the bridge and torch problem}, arXiv:2608.05190, Theorem~1.}
+
+\end{document}
